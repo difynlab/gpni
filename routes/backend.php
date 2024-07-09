@@ -1,0 +1,69 @@
+<?php
+
+use App\Http\Controllers\Backend\Administration\DashboardController;
+use App\Http\Controllers\Backend\Administration\ProfileController;
+use App\Http\Controllers\Backend\Administration\SettingsController;
+use App\Http\Controllers\Backend\Administration\UserController;
+use App\Http\Controllers\Backend\Course\CourseChapterController;
+use App\Http\Controllers\Backend\Course\CourseController;
+use App\Http\Controllers\Backend\Course\CourseModuleController;
+use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
+use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
+use App\Http\Controllers\Backend\Page\HomepageController;
+use App\Http\Controllers\Backend\Page\PageController;
+use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
+use Illuminate\Support\Facades\Route;
+
+require __DIR__.'/backend-auth.php';
+
+Route::get('/admin', function () {
+    return redirect()->route('backend.login');
+});
+
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+    Route::resource('dashboard', DashboardController::class)->only('index');
+
+    Route::resource('pages', PageController::class)->only(['index']);
+    Route::prefix('pages')->name('pages.')->group(function() {
+        Route::get('homepage', [HomepageController::class, 'index'])->name('homepage.index');
+        Route::post('homepage', [HomepageController::class, 'update'])->name('homepage.update');
+        Route::get('why-we-are-different', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different.index');
+        Route::post('why-we-are-different', [WhyWeAreDifferentController::class, 'update'])->name('why-we-are-different.update');
+        Route::get('history-of-gpni', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni.index');
+        Route::post('history-of-gpni', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
+    });
+
+    Route::resource('users', UserController::class)->except(['create']);
+    Route::post('users/filter', [UserController::class, 'filter'])->name('users.filter');
+
+    Route::resource('profile', ProfileController::class)->only('index', 'update');
+    Route::resource('settings', SettingsController::class)->only('index', 'update');
+
+
+    // All course related routes
+        Route::resource('courses', CourseController::class)->except('show');
+        Route::post('courses/filter', [CourseController::class, 'filter'])->name('courses.filter');
+
+        Route::prefix('courses')->name('courses.')->group(function() {
+            Route::get('modules/{course}', [CourseModuleController::class, 'index'])->name('modules.index');
+            Route::post('modules/store', [CourseModuleController::class, 'store'])->name('modules.store');
+            Route::get('modules/edit/{course_module}', [CourseModuleController::class, 'edit'])->name('modules.edit');
+            Route::post('modules/update/{course_module}', [CourseModuleController::class, 'update'])->name('modules.update');
+            Route::delete('modules/destroy/{course_module}', [CourseModuleController::class, 'destroy'])->name('modules.destroy');
+
+            Route::get('modules/chapters/{course_module}', [CourseChapterController::class, 'index'])->name('module-chapters.index');
+            Route::get('modules/chapters/{course_module}/create', [CourseChapterController::class, 'create'])->name('module-chapters.create');
+            Route::post('modules/chapters/{course_module}/store', [CourseChapterController::class, 'store'])->name('module-chapters.store');
+            Route::get('modules/chapters/{course_module}/edit/{course_chapter}', [CourseChapterController::class, 'edit'])->name('module-chapters.edit');
+            Route::post('modules/chapters/{course_module}/update/{course_chapter}', [CourseChapterController::class, 'update'])->name('module-chapters.update');
+            Route::delete('modules/chapters/{course_module}/destroy/{course_chapter}', [CourseChapterController::class, 'destroy'])->name('module-chapters.destroy');
+
+            Route::get('modules/exam-questions/{course_module}', [CourseModuleExamQuestionController::class, 'index'])->name('module-exam-questions.index');
+            Route::get('modules/exam-questions/{course_module}/create', [CourseModuleExamQuestionController::class, 'create'])->name('module-exam-questions.create');
+            Route::post('modules/exam-questions/{course_module}/store', [CourseModuleExamQuestionController::class, 'store'])->name('module-exam-questions.store');
+            Route::get('modules/exam-questions/{course_module}/edit/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'edit'])->name('module-exam-questions.edit');
+            Route::post('modules/exam-questions/{course_module}/update/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'update'])->name('module-exam-questions.update');
+            Route::delete('modules/exam-questions/{course_module}/destroy/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'destroy'])->name('module-exam-questions.destroy');
+        });
+    // All course related routes
+});
