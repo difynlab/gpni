@@ -29,7 +29,7 @@ class HistoryOfGpniController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('error', 'Update failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
 
         $contents = HistoryOfGpniContent::find(1);

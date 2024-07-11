@@ -27,7 +27,7 @@
                         <div class="mb-4">
                             <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="language" name="language" value="{{ old('language') }}" required>
-                                <option value="">Select Language</option>
+                                <option value="">Select language</option>
                                 <option value="English" {{ old('language') == 'English' ? 'selected' : '' }}>English</option>
                                 <option value="Chinese" {{ old('language') == 'Chinese' ? 'selected' : '' }}>Chinese</option>
                                 <option value="Japanese" {{ old('language') == 'Japanese' ? 'selected' : '' }}>Japanese</option>
@@ -37,7 +37,7 @@
                         <div class="mb-4">
                             <label for="type" class="form-label">Type<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="type" name="type" value="{{ old('type') }}" required>
-                                <option value="">Select Type</option>
+                                <option value="">Select type</option>
                                 <option value="certification" {{ old('type') == 'certification' ? 'selected' : '' }}>Certification</option>
                                 <option value="masters" {{ old('type') == 'masters' ? 'selected' : '' }}>Masters</option>
                             </select>

@@ -48,7 +48,7 @@
                         <div>
                             <label for="answer" class="form-label">Answer<span class="asterisk">*</span></label>
                             <select class="form-control form-select" name="answer" required>
-                                <option value="">Select Answer</option>
+                                <option value="">Select answer</option>
                                 <option value="A" {{ old('answer') == 'A' ? 'selected' : '' }}>Option A</option>
                                 <option value="B" {{ old('answer') == 'B' ? 'selected' : '' }}>Option B</option>
                                 <option value="C" {{ old('answer') == 'C' ? 'selected' : '' }}>Option C</option>

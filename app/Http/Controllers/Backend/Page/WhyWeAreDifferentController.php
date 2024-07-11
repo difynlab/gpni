@@ -11,23 +11,40 @@ use Illuminate\Support\Str;
 
 class WhyWeAreDifferentController extends Controller
 {
-    public function index()
+    public function index($language)
     {
         $contents = WhyWeAreDifferentContent::find(1);
 
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
+
         return view('backend.pages.why-we-are-different', [
-            'contents' => $contents
+            'contents' => $contents,
+            'language' => $language,
+            'short_code' => $short_code
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $language) {
         $validator = Validator::make($request->all(), [
             'new_section_1_video' => 'max:2048',
             'new_section_2_image' => 'max:2048'
         ]);
 
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('error', 'Update failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
         
         $contents = WhyWeAreDifferentContent::find(1);
@@ -43,7 +60,7 @@ class WhyWeAreDifferentController extends Controller
                 $new_section_1_video->storeAs('public/pages', $section_1_video_name);
             }
             else {
-                if($contents->section_1_video) {
+                if($contents->section_1_video_ . '' . $language) {
                     $section_1_video_name = $request->old_section_1_video;
                 }
                 else {
@@ -63,7 +80,7 @@ class WhyWeAreDifferentController extends Controller
                 $new_section_2_image->storeAs('public/pages', $section_2_image_name);
             }
             else {
-                if($contents->section_2_image) {
+                if($contents->section_2_image_ . '' . $language) {
                     $section_2_image_name = $request->old_section_2_image;
                 }
                 else {
@@ -79,8 +96,23 @@ class WhyWeAreDifferentController extends Controller
             'new_section_2_image'
         );
 
-        $data['section_1_video'] = $section_1_video_name;
-        $data['section_2_image'] = $section_2_image_name;
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
+
+        $data['section_1_video_' . '' . $short_code] = $section_1_video_name;
+        $data['section_2_image_' . '' . $short_code] = $section_2_image_name;
 
         $contents->fill($data)->save();
 

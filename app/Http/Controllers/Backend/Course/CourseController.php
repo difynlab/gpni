@@ -57,7 +57,7 @@ class CourseController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('error', 'Creation failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
         }
 
         if($request->file('new_image_video') != null) {
@@ -108,7 +108,7 @@ class CourseController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('error', 'Creation failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
 
         if($request->file('new_image_video') != null) {

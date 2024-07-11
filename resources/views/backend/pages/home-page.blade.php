@@ -7,7 +7,10 @@
     <x-backend.breadcrumb page_name="Home Page"></x-backend.breadcrumb>
 
     <div class="static-pages">
-        <form action="{{ route('backend.pages.homepage.update') }}" method="POST" enctype="multipart/form-data">
+        
+        <p class="page-language">{{ ucfirst($language) }} Language</p>
+
+        <form action="{{ route('backend.pages.homepage.update', $language) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="section">
                 <p class="inner-page-title">Section 1 <span>(Hero Section)</span></p>
@@ -15,17 +18,17 @@
                 <div class="row form-input">
                     <div class="col-6 left-column">
                         <div class="mb-4">
-                            <label for="section_1_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_1_title" name="section_1_title" value="{{ $contents->section_1_title ?? '' }}" placeholder="Title">
+                            <label for="section_1_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_1_title_{{ $short_code }}" name="section_1_title_{{ $short_code }}" value="{{ $contents->{'section_1_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div>
-                            <label for="section_1_description" class="form-label">Description</label>
-                            <textarea class="editor" id="section_1_description" name="section_1_description" value="{{ $contents->section_1_description ?? '' }}">{{ $contents->section_1_description ?? '' }}</textarea>
+                            <label for="section_1_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="editor" id="section_1_description_{{ $short_code }}" name="section_1_description_{{ $short_code }}" value="{{ $contents->{'section_1_description_' . $short_code} ?? '' }}">{{ $contents->{'section_1_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
                     <div class="col-6 right-column">
-                        <x-backend.upload-image old_name="old_section_1_image" old_value="{{ $contents->section_1_image ?? '' }}" new_name="new_section_1_image" path="pages" class="side-box-uploader"></x-backend.upload-image>
+                        <x-backend.upload-image old_name="old_section_1_image" old_value="{{ $contents->{'section_1_image_' . $short_code} ?? '' }}" new_name="new_section_1_image" path="pages" class="side-box-uploader"></x-backend.upload-image>
                         <x-backend.input-error field="new_section_1_image"></x-backend.input-error>
                     </div>
                 </div>
@@ -34,17 +37,17 @@
                     <div class="col-3">
                         <label class="form-label">Button Label</label>
 
-                        <input type="text" class="form-control mb-3" name="section_1_button_labels[]" placeholder="Label" value="{{ json_decode($contents->section_1_labels_links)[0]->label ?? '' }}">
+                        <input type="text" class="form-control mb-3" name="section_1_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_1_labels_links_' . $short_code})[0]->label ?? '' }}">
 
-                        <input type="text" class="form-control" name="section_1_button_labels[]" placeholder="Label" value="{{ json_decode($contents->section_1_labels_links)[1]->label ?? '' }}">
+                        <input type="text" class="form-control" name="section_1_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_1_labels_links_' . $short_code})[1]->label ?? '' }}">
                     </div>
 
                     <div class="col-9">
                         <label class="form-label">Link</label>
 
-                        <input type="url" class="form-control mb-3" name="section_1_button_links[]" placeholder="Link" value="{{ json_decode($contents->section_1_labels_links)[0]->link ?? '' }}">
+                        <input type="url" class="form-control mb-3" name="section_1_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_1_labels_links_' . $short_code})[0]->link ?? '' }}">
 
-                        <input type="url" class="form-control" name="section_1_button_links[]" placeholder="Link" value="{{ json_decode($contents->section_1_labels_links)[1]->link ?? '' }}">
+                        <input type="url" class="form-control" name="section_1_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_1_labels_links_' . $short_code})[1]->link ?? '' }}">
                     </div>
                 </div>
 
@@ -59,21 +62,21 @@
                 <div class="row form-input">
                     <div class="col-6 left-column">
                         <div class="mb-4">
-                            <label for="section_2_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_2_title" name="section_2_title" value="{{ $contents->section_2_title ?? '' }}" placeholder="Title">
+                            <label for="section_2_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_2_title_{{ $short_code }}" name="section_2_title_{{ $short_code }}" value="{{ $contents->{'section_2_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
-                        <x-backend.upload-video old_name="old_section_2_video" old_value="{{ $contents->section_2_video ?? '' }}" new_name="new_section_2_video" path="pages"></x-backend.upload-video>
+                        <x-backend.upload-video old_name="old_section_2_video" old_value="{{ $contents->{'section_2_video_' . $short_code} ?? '' }}" new_name="new_section_2_video" path="pages"></x-backend.upload-video>
                         <x-backend.input-error field="new_section_2_video"></x-backend.input-error>
                     </div>
                     <div class="col-6 right-column">
-                        <label for="section_2_points" class="form-label">Points</label>
+                        <label for="section_2_points_{{ $short_code }}" class="form-label">Points</label>
                         <div class="all-points">
-                            <input class="single-point form-control" type="text" name="section_2_points[]" value="{{ json_decode($contents->section_2_points)[0] ?? '' }}">
-                            <input class="single-point form-control" type="text" name="section_2_points[]" value="{{ json_decode($contents->section_2_points)[1] ?? '' }}">
-                            <input class="single-point form-control" type="text" name="section_2_points[]" value="{{ json_decode($contents->section_2_points)[2] ?? '' }}">
-                            <input class="single-point form-control" type="text" name="section_2_points[]" value="{{ json_decode($contents->section_2_points)[3] ?? '' }}">
-                            <input class="single-point form-control" type="text" name="section_2_points[]" value="{{ json_decode($contents->section_2_points)[4] ?? '' }}">
+                            <input class="single-point form-control" type="text" name="section_2_points_{{ $short_code }}[]" value="{{ json_decode($contents->{'section_2_points_' . $short_code})[0] ?? '' }}">
+                            <input class="single-point form-control" type="text" name="section_2_points_{{ $short_code }}[]" value="{{ json_decode($contents->{'section_2_points_' . $short_code})[1] ?? '' }}">
+                            <input class="single-point form-control" type="text" name="section_2_points_{{ $short_code }}[]" value="{{ json_decode($contents->{'section_2_points_' . $short_code})[2] ?? '' }}">
+                            <input class="single-point form-control" type="text" name="section_2_points_{{ $short_code }}[]" value="{{ json_decode($contents->{'section_2_points_' . $short_code})[3] ?? '' }}">
+                            <input class="single-point form-control" type="text" name="section_2_points_{{ $short_code }}[]" value="{{ json_decode($contents->{'section_2_points_' . $short_code})[4] ?? '' }}">
                         </div>
                     </div>
                 </div>
@@ -89,13 +92,13 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <div class="mb-4">
-                            <label for="section_3_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_3_title" name="section_3_title" value="{{ $contents->section_3_title ?? '' }}" placeholder="Title">
+                            <label for="section_3_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_3_title_{{ $short_code }}" name="section_3_title_{{ $short_code }}" value="{{ $contents->{'section_3_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div>
-                            <label for="section_3_description" class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="section_3_description" value="{{ $contents->section_3_description ?? '' }}" placeholder="Description">{{ $contents->section_3_description ?? '' }}</textarea>
+                            <label for="section_3_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" name="section_3_description_{{ $short_code }}" value="{{ $contents->{'section_3_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_3_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -111,13 +114,13 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <div class="mb-4">
-                            <label for="section_4_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_4_title" name="section_4_title" value="{{ $contents->section_4_title ?? '' }}" placeholder="Title">
+                            <label for="section_4_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_4_title_{{ $short_code }}" name="section_4_title_{{ $short_code }}" value="{{ $contents->{'section_4_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div>
-                            <label for="section_4_description" class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="section_4_description" value="{{ $contents->section_4_description ?? '' }}" placeholder="Description">{{ $contents->section_4_description ?? '' }}</textarea>
+                            <label for="section_4_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" name="section_4_description_{{ $short_code }}" value="{{ $contents->{'section_4_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_4_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -133,17 +136,17 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <div class="mb-4">
-                            <label for="section_5_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_5_title" name="section_5_title" value="{{ $contents->section_5_title ?? '' }}" placeholder="Title">
+                            <label for="section_5_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_5_title_{{ $short_code }}" name="section_5_title_{{ $short_code }}" value="{{ $contents->{'section_5_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div class="mb-4">
-                            <label for="section_5_description" class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="section_5_description" value="{{ $contents->section_5_description ?? '' }}" placeholder="Description">{{ $contents->section_5_description ?? '' }}</textarea>
+                            <label for="section_5_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" name="section_5_description_{{ $short_code }}" value="{{ $contents->{'section_5_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_5_description_' . $short_code} ?? '' }}</textarea>
                         </div>
 
                         <div>
-                            <x-backend.upload-multi-images image_count="8" old_name="old_section_5_images" old_value="{{ $contents->section_5_images ?? '' }}" new_name="new_section_5_images[]" path="pages"></x-backend.upload-multi-images>
+                            <x-backend.upload-multi-images image_count="8" old_name="old_section_5_images" old_value="{{ $contents->{'section_5_images_' . $short_code} ?? '' }}" new_name="new_section_5_images[]" path="pages"></x-backend.upload-multi-images>
                             <x-backend.input-error field="new_section_5_images.*"></x-backend.input-error>
                         </div>
                     </div>
@@ -160,13 +163,13 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <div class="mb-4">
-                            <label for="section_6_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_6_title" name="section_6_title" value="{{ $contents->section_6_title ?? '' }}" placeholder="Title">
+                            <label for="section_6_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_6_title_{{ $short_code }}" name="section_6_title_{{ $short_code }}" value="{{ $contents->{'section_6_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div>
-                            <label for="section_6_description" class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="section_6_description" value="{{ $contents->section_6_description ?? '' }}" placeholder="Description">{{ $contents->section_6_description ?? '' }}</textarea>
+                            <label for="section_6_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" name="section_6_description_{{ $short_code }}" value="{{ $contents->{'section_6_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_6_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -175,13 +178,13 @@
                     <div class="col-3">
                         <label class="form-label">Button Label</label>
 
-                        <input class="form-control mb-3" type="text" name="section_6_button_label" value="{{ json_decode($contents->section_6_label_link)->label ?? '' }}" placeholder="Label">
+                        <input class="form-control mb-3" type="text" name="section_6_button_label" value="{{ json_decode($contents->{'section_6_label_link_' . $short_code})->label ?? '' }}" placeholder="Label">
                     </div>
 
                     <div class="col-9">
                         <label class="form-label">Link</label>
 
-                        <input class="form-control mb-3" type="text" name="section_6_button_link" value="{{ json_decode($contents->section_6_label_link)->link ?? '' }}" placeholder="Link">
+                        <input class="form-control mb-3" type="text" name="section_6_button_link" value="{{ json_decode($contents->{'section_6_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
                     </div>
                 </div>
 
@@ -196,13 +199,13 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <div class="mb-4">
-                            <label for="section_7_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_7_title" name="section_7_title" value="{{ $contents->section_7_title ?? '' }}" placeholder="Title">
+                            <label for="section_7_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_7_title_{{ $short_code }}" name="section_7_title_{{ $short_code }}" value="{{ $contents->{'section_7_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div>
-                            <label for="section_7_description" class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="section_7_description" value="{{ $contents->section_7_description ?? '' }}" placeholder="Description">{{ $contents->section_7_description ?? '' }}</textarea>
+                            <label for="section_7_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" name="section_7_description_{{ $short_code }}" value="{{ $contents->{'section_7_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_7_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -218,13 +221,13 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <div class="mb-4">
-                            <label for="section_8_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_8_title" name="section_8_title" value="{{ $contents->section_8_title ?? '' }}" placeholder="Title">
+                            <label for="section_8_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_8_title_{{ $short_code }}" name="section_8_title_{{ $short_code }}" value="{{ $contents->{'section_8_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div>
-                            <label for="section_8_description" class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="section_8_description" value="{{ $contents->section_8_description ?? '' }}" placeholder="Description">{{ $contents->section_8_description ?? '' }}</textarea>
+                            <label for="section_8_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" name="section_8_description_{{ $short_code }}" value="{{ $contents->{'section_8_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_8_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -233,25 +236,25 @@
                     <div class="col-3">
                         <label class="form-label">Button Label</label>
 
-                        <input type="text" class="form-control mb-3" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->section_8_labels_links)[0]->label ?? '' }}">
+                        <input type="text" class="form-control mb-3" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[0]->label ?? '' }}">
 
-                        <input type="text" class="form-control mb-3" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->section_8_labels_links)[1]->label ?? '' }}">
+                        <input type="text" class="form-control mb-3" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[1]->label ?? '' }}">
 
-                        <input type="text" class="form-control mb-3" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->section_8_labels_links)[2]->label ?? '' }}">
+                        <input type="text" class="form-control mb-3" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[2]->label ?? '' }}">
 
-                        <input type="text" class="form-control" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->section_8_labels_links)[3]->label ?? '' }}">
+                        <input type="text" class="form-control" name="section_8_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[3]->label ?? '' }}">
                     </div>
 
                     <div class="col-9">
                         <label class="form-label">Link</label>
 
-                        <input type="url" class="form-control mb-3" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->section_8_labels_links)[0]->link ?? '' }}">
+                        <input type="url" class="form-control mb-3" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[0]->link ?? '' }}">
 
-                        <input type="url" class="form-control mb-3" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->section_8_labels_links)[1]->link ?? '' }}">
+                        <input type="url" class="form-control mb-3" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[1]->link ?? '' }}">
 
-                        <input type="url" class="form-control mb-3" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->section_8_labels_links)[2]->link ?? '' }}">
+                        <input type="url" class="form-control mb-3" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[2]->link ?? '' }}">
 
-                        <input type="url" class="form-control" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->section_8_labels_links)[3]->link ?? '' }}">
+                        <input type="url" class="form-control" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[3]->link ?? '' }}">
                     </div>
                 </div>
 
@@ -266,13 +269,13 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <div class="mb-4">
-                            <label for="section_9_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_9_title" name="section_9_title" value="{{ $contents->section_9_title ?? '' }}" placeholder="Title">
+                            <label for="section_9_title_{{ $short_code }}" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="section_9_title_{{ $short_code }}" name="section_9_title_{{ $short_code }}" value="{{ $contents->{'section_9_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
                         <div>
-                            <label for="section_9_description" class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="section_9_description" value="{{ $contents->section_9_description ?? '' }}" placeholder="Description">{{ $contents->section_9_description ?? '' }}</textarea>
+                            <label for="section_9_description_{{ $short_code }}" class="form-label">Description</label>
+                            <textarea class="form-control" rows="5" name="section_9_description_{{ $short_code }}" value="{{ $contents->{'section_9_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_9_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
                 </div>

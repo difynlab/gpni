@@ -86,7 +86,7 @@ class CourseChapterController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('error', 'Update failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
         }
 
         $course = Course::where('status', '!=', '0')->find($course_module->course_id);
@@ -261,7 +261,7 @@ class CourseChapterController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('error', 'Update failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
 
         $course_chapter->chapter_no = $request->chapter_no;

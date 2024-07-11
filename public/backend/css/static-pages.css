@@ -181,6 +181,13 @@
 }
 
 /* Static page table styles */
+    .static-pages .page-language {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-style: italic;
+        font-weight: 600;
+        text-align: center;
+    }
     .static-pages .table-title {
         font-size: 18px;
         font-weight: 500;
@@ -228,7 +235,7 @@
         vertical-align: middle;
     }
     .static-pages .table tbody tr td:last-of-type {
-        font-size: 17px;
+        font-size: 15px;
         text-align: end;
     }
     .static-pages .table tbody tr td:last-of-type a {

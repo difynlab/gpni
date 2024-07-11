@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Administration\SettingsController;
 use App\Http\Controllers\Backend\Administration\UserController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
+use App\Http\Controllers\Backend\Course\CoursePromotionController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
@@ -23,14 +24,14 @@ Route::get('/admin', function () {
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
 
-    Route::resource('pages', PageController::class)->only(['index']);
+    Route::get('pages', [PageController::class, 'index'])->name('pages.index');
     Route::prefix('pages')->name('pages.')->group(function() {
-        Route::get('homepage', [HomepageController::class, 'index'])->name('homepage.index');
-        Route::post('homepage', [HomepageController::class, 'update'])->name('homepage.update');
-        Route::get('why-we-are-different', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different.index');
-        Route::post('why-we-are-different', [WhyWeAreDifferentController::class, 'update'])->name('why-we-are-different.update');
-        Route::get('history-of-gpni', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni.index');
-        Route::post('history-of-gpni', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
+        Route::get('homepage/{language}', [HomepageController::class, 'index'])->name('homepage.index');
+        Route::post('homepage/{language}', [HomepageController::class, 'update'])->name('homepage.update');
+        Route::get('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different.index');
+        Route::post('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'update'])->name('why-we-are-different.update');
+        Route::get('history-of-gpni/{language}', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni.index');
+        Route::post('history-of-gpni/{language}', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
     });
 
     Route::resource('users', UserController::class)->except(['create']);
@@ -65,5 +66,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::post('modules/exam-questions/{course_module}/update/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'update'])->name('module-exam-questions.update');
             Route::delete('modules/exam-questions/{course_module}/destroy/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'destroy'])->name('module-exam-questions.destroy');
         });
+
+        Route::resource('course-promotions', CoursePromotionController::class)->except('show');
     // All course related routes
 });

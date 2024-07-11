@@ -43,16 +43,16 @@
             </li>
 
             <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
-                    <img src="{{ asset('storage/sidebar/product.png') }}" alt="Icon">
-                    <span>Product</span>
+                <a href="{{ route('backend.course-promotions.index') }}" class="link {{ Request::segment(2) == 'course-promotions' ? 'active' : null }}">
+                    <img src="{{ asset('storage/sidebar/discount.png') }}" alt="Icon">
+                    <span>Course Promotions</span>
                 </a>
             </li>
 
             <li>
                 <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
-                    <img src="{{ asset('storage/sidebar/discount.png') }}" alt="Icon">
-                    <span>Discounts</span>
+                    <img src="{{ asset('storage/sidebar/product.png') }}" alt="Icon">
+                    <span>Product</span>
                 </a>
             </li>
 

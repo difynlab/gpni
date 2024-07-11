@@ -182,7 +182,7 @@
                                 <div class="col-12 mb-3">
                                     <label class="form-label">Role</label>
                                     <select class="form-control form-select role" name="role" readonly>
-                                        <option value="">Select Role</option>
+                                        <option value="">Select role</option>
                                         <option value="admin">Admin</option>
                                         <option value="customer">Customer</option>
                                     </select>

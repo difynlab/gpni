@@ -14,7 +14,7 @@
                 <p class="inner-page-title">Chapter <span>(Chapter number section)</span></p>
 
                 <div class="row form-input">
-                    <div class="col-12 ">
+                    <div class="col-12">
                         <label for="chapter_no" class="form-label">Chapter No<span class="asterisk">*</span></label>
                         <input type="number" class="form-control" id="chapter_no" name="chapter_no" value="{{ old('chapter_no', $course_chapter->chapter_no) }}" placeholder="Chapter No" required>
                     </div>

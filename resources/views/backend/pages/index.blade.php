@@ -16,19 +16,49 @@
                         <tr>
                             <td>Home Page</td>
                             <td>
-                                <a href="{{ route('backend.pages.homepage.index') }}" title="Edit"><i class="bi bi-pencil-square me-1"></i>Edit</a>
+                                <a href="{{ route('backend.pages.homepage.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.homepage.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.homepage.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>Why we are different</td>
                             <td>
-                                <a href="{{ route('backend.pages.why-we-are-different.index') }}" title="Edit"><i class="bi bi-pencil-square me-1"></i>Edit</a>
+                                <a href="{{ route('backend.pages.why-we-are-different.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.why-we-are-different.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.why-we-are-different.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>History of GPNi</td>
                             <td>
-                                <a href="{{ route('backend.pages.history-of-gpni.index') }}" title="Edit"><i class="bi bi-pencil-square me-1"></i>Edit</a>
+                                <a href="{{ route('backend.pages.history-of-gpni.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.history-of-gpni.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.history-of-gpni.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
                             </td>
                         </tr>
                     </tbody>

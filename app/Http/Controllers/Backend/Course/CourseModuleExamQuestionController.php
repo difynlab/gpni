@@ -65,7 +65,7 @@ class CourseModuleExamQuestionController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
         }
 
         $course = Course::where('status', '!=', '0')->find($course_module->course_id);
