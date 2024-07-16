@@ -28,12 +28,22 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
+            <div class="accordion" id="article-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#article-data-collapse">
                     <img src="{{ asset('storage/sidebar/article.png') }}" alt="Icon">
                     <span>Articles</span>
-                </a>
-            </li>
+                </button>
+
+                <div id="article-data-collapse" class="accordion-collapse collapse {{ Request::segment(2) == 'article-categories' || Request::segment(2) == 'articles' ? 'show' : '' }}" data-bs-parent="#article-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.article-categories.index') }}" class="link {{ Request::segment(2) == 'article-categories' ? 'active' : null }}">Article Categories</a></li>
+
+                            <li><a href="{{ route('backend.articles.index') }}" class="link {{ Request::segment(2) == 'articles' ? 'active' : null }}">Articles</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <li>
                 <a href="{{ route('backend.courses.index') }}" class="link {{ Request::segment(2) == 'courses' ? 'active' : null }}">

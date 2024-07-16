@@ -15,31 +15,31 @@
 
                 <div class="row form-input">
                     <div class="col-12 ">
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="question" class="form-label">Question<span class="asterisk">*</span></label>
                             <textarea class="editor" id="question" name="question" value="{{ old('question') }}">{{ old('question') }}</textarea>
                             <x-backend.input-error field="question"></x-backend.input-error>
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="option_a" class="form-label">Option A<span class="asterisk">*</span></label>
                             <textarea class="editor" id="option_a" name="option_a" value="{{ old('option_a') }}">{{ old('option_a') }}</textarea>
                             <x-backend.input-error field="option_a"></x-backend.input-error>
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="option_b" class="form-label">Option B<span class="asterisk">*</span></label>
                             <textarea class="editor" id="option_b" name="option_b" value="{{ old('option_b') }}">{{ old('option_b') }}</textarea>
                             <x-backend.input-error field="option_b"></x-backend.input-error>
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="option_c" class="form-label">Option C<span class="asterisk">*</span></label>
                             <textarea class="editor" id="option_c" name="option_c" value="{{ old('option_c') }}">{{ old('option_c') }}</textarea>
                             <x-backend.input-error field="option_c"></x-backend.input-error>
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="option_d" class="form-label">Option D<span class="asterisk">*</span></label>
                             <textarea class="editor" id="option_d" name="option_d" value="{{ old('option_d') }}">{{ old('option_d') }}</textarea>
                             <x-backend.input-error field="option_d"></x-backend.input-error>

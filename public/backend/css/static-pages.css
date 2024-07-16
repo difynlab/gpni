@@ -2,7 +2,7 @@
     padding-bottom: 2%;
 }
 .static-pages .section {
-    padding-bottom: 4%;
+    padding-bottom: 3%;
 }
 .static-pages .section:last-of-type {
     padding-bottom: 0;
@@ -48,7 +48,7 @@
 .static-pages .section .row.form-input .left-column, .static-pages .section .row.form-input .right-column {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 2;
 }
 .static-pages .section .row.form-input textarea {
     flex: 1;
@@ -73,6 +73,10 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+}
+.static-pages .section .full-height {
+    display: flex;
+    flex-direction: column;
 }
 .static-pages .section .drop-area.side-box-uploader {
     flex: 1;

@@ -51,6 +51,10 @@
     border: 1px solid #E53E3E;
     transition: all 0.3s;
 }
+.pages .filter-form .form-select {
+    color: #9A9A9A;
+    font-size: 14px;
+}
 .pages .add-button {
     font-size: 13px;
     background-color: #0040C3;

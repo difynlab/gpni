@@ -1,6 +1,10 @@
-@props(['old_name', 'old_value', 'new_name', 'path', 'class'])
+@props(['old_name', 'old_value', 'new_name', 'path', 'class', 'label'])
 
-<label for="image" class="form-label">Upload Image</label>
+@if(isset($label))
+    <label for="image" class="form-label">Upload {{ $label }} Image</label>
+@else
+    <label for="image" class="form-label">Upload Image</label>
+@endif
 
 <div class="drop-area image-drop-area {{ isset($class) ? $class : '' }}">
     <i class="bi bi-cloud-arrow-up"></i>

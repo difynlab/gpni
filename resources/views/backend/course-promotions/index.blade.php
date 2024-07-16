@@ -1,10 +1,10 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Course Discounts')
+@section('title', 'Course Promotions')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Course Discounts"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Course Promotions"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
@@ -58,7 +58,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="6" style="text-align: center;">No data available in table</td>
+                                <td colspan="7" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <x-backend.delete-data title="Course Discount"></x-backend.delete-data>
+        <x-backend.delete-data title="Course Promotion"></x-backend.delete-data>
     </div>
 
 @endsection

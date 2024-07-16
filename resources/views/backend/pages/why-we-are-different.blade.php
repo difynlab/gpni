@@ -13,7 +13,7 @@
         <form action="{{ route('backend.pages.why-we-are-different.update', $language) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="section">
-                <p class="inner-page-title">Section 1 <span>(Hero Section)</span></p>
+                <p class="inner-page-title">Section 1 <span>(Hero section)</span></p>
 
                 <div class="row form-input">
                     <div class="col-12">

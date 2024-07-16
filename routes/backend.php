@@ -4,6 +4,8 @@ use App\Http\Controllers\Backend\Administration\DashboardController;
 use App\Http\Controllers\Backend\Administration\ProfileController;
 use App\Http\Controllers\Backend\Administration\SettingsController;
 use App\Http\Controllers\Backend\Administration\UserController;
+use App\Http\Controllers\Backend\Article\ArticleCategoryController;
+use App\Http\Controllers\Backend\Article\ArticleController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
 use App\Http\Controllers\Backend\Course\CoursePromotionController;
@@ -24,6 +26,7 @@ Route::get('/admin', function () {
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
 
+
     Route::get('pages', [PageController::class, 'index'])->name('pages.index');
     Route::prefix('pages')->name('pages.')->group(function() {
         Route::get('homepage/{language}', [HomepageController::class, 'index'])->name('homepage.index');
@@ -34,8 +37,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::post('history-of-gpni/{language}', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
     });
 
+
     Route::resource('users', UserController::class)->except(['create']);
     Route::post('users/filter', [UserController::class, 'filter'])->name('users.filter');
+
 
     Route::resource('profile', ProfileController::class)->only('index', 'update');
     Route::resource('settings', SettingsController::class)->only('index', 'update');
@@ -69,4 +74,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
         Route::resource('course-promotions', CoursePromotionController::class)->except('show');
     // All course related routes
+
+
+    // All article related routes
+        Route::resource('article-categories', ArticleCategoryController::class)->except(['show']);
+        Route::post('article-categories/filter', [ArticleCategoryController::class, 'filter'])->name('article-categories.filter');
+
+        Route::resource('articles', ArticleController::class)->except(['show']);
+        Route::post('articles/filter', [ArticleController::class, 'filter'])->name('articles.filter');
+    // All article related routes
 });

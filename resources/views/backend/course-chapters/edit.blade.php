@@ -30,12 +30,12 @@
 
                 <div class="row form-input">
                     <div class="col-12">
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $course_chapter->title) }}" placeholder="Title">
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <label for="about" class="form-label">About</label>
                             <textarea class="editor" id="about" name="about" value="{{ old('about', $course_chapter->about) }}">{{ old('about', $course_chapter->about) }}</textarea>
                         </div>
@@ -57,7 +57,7 @@
 
                 <div class="row form-input">
                     <div class="col-12">
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <div class="row align-items-center mb-2">
                                 <div class="col-9">
                                     <label class="form-label mb-0">Book/s</label>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <div class="row align-items-center mb-2">
                                 <div class="col-9">
                                     <label class="form-label">Video/s</label>
@@ -173,7 +173,7 @@
 
                 <div class="row form-input">
                     <div class="col-12">
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <div class="row align-items-center mb-2">
                                 <div class="col-9">
                                     <label class="form-label mb-0">Additional Video/s</label>
@@ -210,7 +210,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-5">
+                        <div class="mb-4">
                             <div class="row align-items-center mb-2">
                                 <div class="col-9">
                                     <label class="form-label">Additional Video Link/s</label>

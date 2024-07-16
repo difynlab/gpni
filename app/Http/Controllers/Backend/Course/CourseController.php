@@ -10,6 +10,7 @@ use App\Models\CourseModuleExamQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -112,6 +113,10 @@ class CourseController extends Controller
         }
 
         if($request->file('new_image_video') != null) {
+            if($request->old_image_video) {
+                Storage::delete('public/courses/course-image-videos/' . $request->old_image_video);
+            }
+
             $image_video = $request->file('new_image_video');
             $image_video_name = Str::random(40) . '.' . $image_video->getClientOriginalExtension();
             $image_video->storeAs('public/courses/course-image-videos', $image_video_name);
@@ -121,6 +126,10 @@ class CourseController extends Controller
         }
 
         if($request->file('new_instructor_profile_image') != null) {
+            if($request->old_instructor_profile_image) {
+                Storage::delete('public/courses/course-instructors/' . $request->old_instructor_profile_image);
+            }
+
             $image = $request->file('new_instructor_profile_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/courses/course-instructors', $image_name);
@@ -139,9 +148,9 @@ class CourseController extends Controller
 
     public function destroy(Course $course)
     {
-        $course_modules = CourseModule::where('course_id', $course->id)->get();
-        $course_chapters = CourseChapter::where('course_id', $course->id)->get();
-        $course_module_exam_questions = CourseModuleExamQuestion::where('course_id', $course->id)->get();
+        $course_modules = CourseModule::where('course_id', $course->id)->where('status', '!=', '0')->get();
+        $course_chapters = CourseChapter::where('course_id', $course->id)->where('status', '!=', '0')->get();
+        $course_module_exam_questions = CourseModuleExamQuestion::where('course_id', $course->id)->where('status', '!=', '0')->get();
 
         if($course_modules) {
             foreach($course_modules as $course_module) {
@@ -177,11 +186,16 @@ class CourseController extends Controller
         }
 
         $title = $request->title;
+        $language = $request->language;
 
         $courses = Course::where('status', '!=', '0')->orderBy('id', 'desc');
 
         if($title != null) {
             $courses->where('title', 'like', '%' . $title . '%');
+        }
+
+        if($language != 'All') {
+            $courses->where('language', $language);
         }
 
         $items = $request->items ?? 10;
@@ -191,7 +205,8 @@ class CourseController extends Controller
         return view('backend.courses.index', [
             'courses' => $courses,
             'items' => $items,
-            'title' => $title
+            'title' => $title,
+            'language' => $language
         ]);
     }
 }

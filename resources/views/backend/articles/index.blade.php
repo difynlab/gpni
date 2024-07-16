@@ -1,27 +1,27 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Courses')
+@section('title', 'Article')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Courses"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Article"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.courses.create') }}" class="add-button">
+                <a href="{{ route('backend.articles.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
-                    Add New Course
+                    Add New Article
                 </a>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.courses.filter') }}" method="POST" class="filter-form">
+                <form action="{{ route('backend.articles.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
-                        <div class="col">
+                        <div class="col-5">
                             <input type="text" class="form-control" name="title" value="{{ $title ?? '' }}" placeholder="Title">
                         </div>
 
@@ -53,42 +53,36 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Price</th>
                             <th scope="col">Language</th>
-                            <th scope="col">Module</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @if(count($courses) > 0)
-                            @foreach($courses as $course)
+                        @if(count($articles) > 0)
+                            @foreach($articles as $article)
                                 <tr>
-                                    <td>#{{ $course->id }}</td>
-                                    <td>{{ $course->title }}</td>
-                                    <td>{{ $course->type }}</td>
-                                    <td>${{ $course->price }}</td>
-                                    <td>{{ $course->language }}</td>
-                                    <td>{!! $course->module !!}</td>
-                                    <td>{!! $course->status !!}</td>
-                                    <td>{!! $course->action !!}</td>
+                                    <td>#{{ $article->id }}</td>
+                                    <td>{{ $article->title }}</td>
+                                    <td>{{ $article->language }}</td>
+                                    <td>{!! $article->status !!}</td>
+                                    <td>{!! $article->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;">No data available in table</td>
+                                <td colspan="5" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
                 </table>
 
-                {{ $courses->links("pagination::bootstrap-5") }}
+                {{ $articles->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="Course"></x-backend.delete-data>
+        <x-backend.delete-data title="Article"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -99,7 +93,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.courses.destroy', [':id']) }}";
+                let url = "{{ route('backend.articles.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -107,7 +101,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $courses->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $articles->url(1) !!}&items=" + this.value; 
             });
         });
     </script>

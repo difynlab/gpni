@@ -1,28 +1,28 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Courses')
+@section('title', 'Article Categories')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Courses"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Article Categories"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.courses.create') }}" class="add-button">
+                <a href="{{ route('backend.article-categories.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
-                    Add New Course
+                    Add New Category
                 </a>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.courses.filter') }}" method="POST" class="filter-form">
+                <form action="{{ route('backend.article-categories.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
-                        <div class="col">
-                            <input type="text" class="form-control" name="title" value="{{ $title ?? '' }}" placeholder="Title">
+                        <div class="col-5">
+                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Name">
                         </div>
 
                         <div class="col-5">
@@ -52,43 +52,37 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Language</th>
-                            <th scope="col">Module</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @if(count($courses) > 0)
-                            @foreach($courses as $course)
+                        @if(count($article_categories) > 0)
+                            @foreach($article_categories as $article_category)
                                 <tr>
-                                    <td>#{{ $course->id }}</td>
-                                    <td>{{ $course->title }}</td>
-                                    <td>{{ $course->type }}</td>
-                                    <td>${{ $course->price }}</td>
-                                    <td>{{ $course->language }}</td>
-                                    <td>{!! $course->module !!}</td>
-                                    <td>{!! $course->status !!}</td>
-                                    <td>{!! $course->action !!}</td>
+                                    <td>#{{ $article_category->id }}</td>
+                                    <td>{{ $article_category->name }}</td>
+                                    <td>{{ $article_category->language }}</td>
+                                    <td>{!! $article_category->status !!}</td>
+                                    <td>{!! $article_category->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;">No data available in table</td>
+                                <td colspan="5" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
                 </table>
 
-                {{ $courses->links("pagination::bootstrap-5") }}
+                {{ $article_categories->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="Course"></x-backend.delete-data>
+        <x-backend.delete-data title="Article Category"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -99,7 +93,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.courses.destroy', [':id']) }}";
+                let url = "{{ route('backend.article-categories.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -107,7 +101,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $courses->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $article_categories->url(1) !!}&items=" + this.value; 
             });
         });
     </script>

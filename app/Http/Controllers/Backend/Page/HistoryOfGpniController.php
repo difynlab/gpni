@@ -11,16 +11,33 @@ use Illuminate\Support\Str;
 
 class HistoryOfGpniController extends Controller
 {
-    public function index()
+    public function index($language)
     {
         $contents = HistoryOfGpniContent::find(1);
 
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
+
         return view('backend.pages.history-of-gpni', [
-            'contents' => $contents
+            'contents' => $contents,
+            'language' => $language,
+            'short_code' => $short_code
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $language) {
         $validator = Validator::make($request->all(), [
             'new_section_1_image' => 'max:2048',
             'new_section_3_image' => 'max:2048',
@@ -45,7 +62,7 @@ class HistoryOfGpniController extends Controller
                 $new_section_1_image->storeAs('public/pages', $section_1_image_name);
             }
             else {
-                if($contents->section_1_image) {
+                if($contents->section_1_image_ . '' . $language) {
                     $section_1_image_name = $request->old_section_1_image;
                 }
                 else {
@@ -65,7 +82,7 @@ class HistoryOfGpniController extends Controller
                 $new_section_3_image->storeAs('public/pages', $section_3_image_name);
             }
             else {
-                if($contents->section_3_image) {
+                if($contents->section_3_image_ . '' . $language) {
                     $section_3_image_name = $request->old_section_3_image;
                 }
                 else {
@@ -85,7 +102,7 @@ class HistoryOfGpniController extends Controller
                 $new_section_4_image->storeAs('public/pages', $section_4_image_name);
             }
             else {
-                if($contents->section_4_image) {
+                if($contents->section_4_image_ . '' . $language) {
                     $section_4_image_name = $request->old_section_4_image;
                 }
                 else {
@@ -105,7 +122,7 @@ class HistoryOfGpniController extends Controller
                 $new_section_5_image->storeAs('public/pages', $section_5_image_name);
             }
             else {
-                if($contents->section_5_image) {
+                if($contents->section_5_image_ . '' . $language) {
                     $section_5_image_name = $request->old_section_5_image;
                 }
                 else {
@@ -124,14 +141,26 @@ class HistoryOfGpniController extends Controller
             'old_section_5_image',
             'new_section_5_image'
         );
+
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
                 
-        $data['section_1_image'] = $section_1_image_name;
-
-        $data['section_3_image'] = $section_3_image_name;
-
-        $data['section_4_image'] = $section_4_image_name;
-
-        $data['section_5_image'] = $section_5_image_name;
+        $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
+        $data['section_3_image_' . '' . $short_code] = $section_3_image_name;
+        $data['section_4_image_' . '' . $short_code] = $section_4_image_name;
+        $data['section_5_image_' . '' . $short_code] = $section_5_image_name;
 
         $contents->fill($data)->save();
 

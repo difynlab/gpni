@@ -8,10 +8,10 @@
     padding-bottom: 40%;
     padding-right: 2%;
 }
-.sidebar .logo {
+.wrapper .sidebar .logo {
     width: 130px;
 }
-.sidebar .gradient-line {
+.wrapper .sidebar .gradient-line {
     margin: 25px 0;
     height: 1px;
     background: rgb(224,225,226);
@@ -30,6 +30,10 @@
     align-items: center;
     padding: 0 25px;
     margin-bottom: 5px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    box-shadow: none;
 }
 .wrapper .sidebar .components .link img {
     color: #0040C3;
@@ -66,4 +70,15 @@
 .wrapper .sidebar .scroll-bar::-webkit-scrollbar-thumb:hover {
     background: rgb(214, 214, 214);
     transition: all 0.2s;
+}
+.wrapper .sidebar .components .accordion ul {
+    padding: 0;
+    list-style-type: none;
+}
+.wrapper .sidebar .components .accordion ul .link {
+    padding-left: 60px;
+    font-size: 13px;
+}
+.wrapper .sidebar .components .accordion .accordion-body {
+    padding: 0;
 }

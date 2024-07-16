@@ -59,8 +59,8 @@ class CourseModuleController extends Controller
 
     public function destroy(CourseModule $course_module)
     {
-        $course_chapters = CourseChapter::where('module_id', $course_module->id)->get();
-        $course_module_exam_questions = CourseModuleExamQuestion::where('module_id', $course_module->id)->get();
+        $course_chapters = CourseChapter::where('module_id', $course_module->id)->where('status', '!=', '0')->get();
+        $course_module_exam_questions = CourseModuleExamQuestion::where('module_id', $course_module->id)->where('status', '!=', '0')->get();
 
         if($course_chapters) {
             foreach($course_chapters as $course_chapter) {
