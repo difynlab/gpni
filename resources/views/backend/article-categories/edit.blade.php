@@ -22,7 +22,7 @@
 
                     <div class="col-6">
                         <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
-                        <select class="form-control form-select" id="language" name="language" value="{{ old('language', $article_category->language) }}" required>
+                        <select class="form-control form-select" id="language" name="language" required>
                             <option value="English" {{ old('language', $article_category->language) == 'English' ? 'selected' : '' }}>English</option>
                             <option value="Chinese" {{ old('language', $article_category->language) == 'Chinese' ? 'selected' : '' }}>Chinese</option>
                             <option value="Japanese" {{ old('language', $article_category->language) == 'Japanese' ? 'selected' : '' }}>Japanese</option>

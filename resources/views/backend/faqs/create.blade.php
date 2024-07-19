@@ -1,24 +1,19 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Create Article Category')
+@section('title', 'Create FAQ')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Create Article Category"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Create FAQ"></x-backend.breadcrumb>
 
     <div class="static-pages">
-        <form action="{{ route('backend.article-categories.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('backend.faqs.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
             <div class="section">
-                <p class="inner-page-title">Article Category Details</p>
+                <p class="inner-page-title">FAQ Details</span></p>
 
                 <div class="row form-input">
-                    <div class="col-6">
-                        <label for="name" class="form-label">Name<span class="asterisk">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Name" required>
-                    </div>
-                    <div class="col-6">
+                    <div class="col-12 mb-4">
                         <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
                         <select class="form-control form-select" id="language" name="language" required>
                             <option value="">Select language</option>
@@ -26,6 +21,17 @@
                             <option value="Chinese" {{ old('language') == 'Chinese' ? 'selected' : '' }}>Chinese</option>
                             <option value="Japanese" {{ old('language') == 'Japanese' ? 'selected' : '' }}>Japanese</option>
                         </select>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                        <label for="question" class="form-label">Question<span class="asterisk">*</span></label>
+                        <textarea class="form-control" id="question" rows="4" name="question" value="{{ old('question') }}" required>{{ old('question') }}</textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="answer" class="form-label">Answer</label>
+                        <textarea class="editor" id="answer" name="answer" value="{{ old('answer') }}">{{ old('answer') }}</textarea>
+                        <x-backend.input-error field="answer"></x-backend.input-error>
                     </div>
                 </div>
             </div>

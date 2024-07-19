@@ -6,11 +6,13 @@ use App\Http\Controllers\Backend\Administration\SettingsController;
 use App\Http\Controllers\Backend\Administration\UserController;
 use App\Http\Controllers\Backend\Article\ArticleCategoryController;
 use App\Http\Controllers\Backend\Article\ArticleController;
+use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
 use App\Http\Controllers\Backend\Course\CoursePromotionController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
+use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\PageController;
@@ -83,4 +85,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('articles', ArticleController::class)->except(['show']);
         Route::post('articles/filter', [ArticleController::class, 'filter'])->name('articles.filter');
     // All article related routes
+
+
+    // Conferences routes
+        Route::resource('conferences', ConferenceController::class)->except('show');
+        Route::post('conferences/filter', [ConferenceController::class, 'filter'])->name('conferences.filter');
+    // Conferences routes
+
+
+    // FAQs routes
+        Route::resource('faqs', FAQController::class)->except('show');
+        Route::post('faqs/filter', [FAQController::class, 'filter'])->name('faqs.filter');
+    // FAQs routes
 });

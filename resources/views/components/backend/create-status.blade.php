@@ -3,7 +3,7 @@
 
     <div class="row form-input">
         <div class="col-12">
-            <select class="form-control form-select" id="status" name="status" value="{{ old('status') }}" required>
+            <select class="form-control form-select" id="status" name="status" required>
                 <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Active</option>
                 <option value="2" {{ old('status') == '2' ? 'selected' : '' }}>Inactive</option>
             </select>

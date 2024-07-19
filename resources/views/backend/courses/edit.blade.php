@@ -27,7 +27,7 @@
                         
                         <div class="mb-4">
                             <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
-                            <select class="form-control form-select" id="language" name="language" value="{{ old('language', $course->language) }}" required>
+                            <select class="form-control form-select" id="language" name="language" required>
                                 <option value="English" {{ old('language', $course->language) == 'English' ? 'selected' : '' }}>English</option>
                                 <option value="Chinese" {{ old('language', $course->language) == 'Chinese' ? 'selected' : '' }}>Chinese</option>
                                 <option value="Japanese" {{ old('language', $course->language) == 'Japanese' ? 'selected' : '' }}>Japanese</option>

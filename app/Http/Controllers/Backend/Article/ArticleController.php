@@ -53,8 +53,8 @@ class ArticleController extends Controller
             'new_thumbnail' => 'nullable|max:2048',
             'new_author_image' => 'nullable|max:2048'
         ], [
-            'new_thumbnail.max' => 'The English thumbnail must not be greater than 2MB.',
-            'new_author_image.max' => 'The English author image must not be greater than 2MB.'
+            'new_thumbnail.max' => 'The English thumbnail must not be greater than 2MB',
+            'new_author_image.max' => 'The English author image must not be greater than 2MB'
         ]);
         
         if($validator->fails()) {

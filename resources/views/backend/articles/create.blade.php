@@ -22,7 +22,7 @@
 
                         <div class="mb-4">
                             <label for="article_category_id" class="form-label">Article Category<span class="asterisk">*</span></label>
-                            <select class="form-control form-select" id="article_category_id" name="article_category_id" value="{{ old('article_category_id') }}" required>
+                            <select class="form-control form-select" id="article_category_id" name="article_category_id" required>
                                 <option value="">Select article category</option>
                                 @foreach($article_categories as $article_category)
                                     <option value="{{ $article_category->id }}" {{ old('article_category_id') == $article_category->id ? 'selected' : '' }}>{{ $article_category->name }}</option>
@@ -32,7 +32,7 @@
 
                         <div class="mb-4">
                             <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
-                            <select class="form-control form-select" id="language" name="language" value="{{ old('language') }}" required>
+                            <select class="form-control form-select" id="language" name="language" required>
                                 <option value="">Select language</option>
                                 <option value="English" {{ old('language') == 'English' ? 'selected' : '' }}>English</option>
                                 <option value="Chinese" {{ old('language') == 'Chinese' ? 'selected' : '' }}>Chinese</option>

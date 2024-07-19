@@ -22,7 +22,7 @@
             </li>
 
             <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
+                <a href="{{ route('backend.conferences.index') }}" class="link {{ Request::segment(2) == 'conferences' ? 'active' : null }}">
                     <img src="{{ asset('storage/sidebar/conference.png') }}" alt="Icon">
                     <span>Conferences</span>
                 </a>
@@ -123,7 +123,7 @@
             </li>
 
             <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
+                <a href="{{ route('backend.faqs.index') }}" class="link {{ Request::segment(2) == 'faqs' ? 'active' : null }}">
                     <img src="{{ asset('storage/sidebar/faq.png') }}" alt="Icon">
                     <span>FAQs</span>
                 </a>

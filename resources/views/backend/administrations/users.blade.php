@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-3 position-relative">
-                    <select class="filter-single-dropdown role" name="role" value="{{ $role }}">
+                    <select class="filter-single-dropdown role" name="role">
                         <option value="all" {{ $role == 'all' ? "selected" : "" }}>Select Role</option>
                         <option value="admin" {{ $role == 'admin' ? "selected" : "" }}>Admin</option>
                         <option value="customer" {{ $role == 'customer' ? "selected" : "" }}>Customer</option>
@@ -121,7 +121,7 @@
 
                                 <div class="col-6 mb-3">
                                     <label class="form-label">Role<span class="asterisk">*</span></label>
-                                    <select class="form-control form-select role" name="role" value="{{ old('role') }}" required>
+                                    <select class="form-control form-select role" name="role" required>
                                         <option value="" {{ old('role') == '' ? 'selected' : '' }}>Select Role</option>
                                         <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                                         <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Customer</option>
@@ -235,7 +235,7 @@
 
                                 <div class="col-12 mb-3">
                                     <label class="form-label">Role<span class="asterisk">*</span></label>
-                                    <select class="form-control form-select role" name="role" value="{{ old('role') }}" required>
+                                    <select class="form-control form-select role" name="role" required>
                                         <option value="" {{ old('role') == '' ? 'selected' : '' }}>Select Role</option>
                                         <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                                         <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Customer</option>

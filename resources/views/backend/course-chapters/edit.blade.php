@@ -286,40 +286,38 @@
 
                 <div class="row form-input">
                     <div class="col-12">
-                        <div class="single-item">
-                            <div class="row align-items-center mb-2">
-                                <div class="col-9">
-                                    <label class="form-label mb-0">Downloadable Resource/s</label>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <button type="button" class="add-row-button downloadable-resources">
-                                        <i class="bi bi-plus-lg"></i>
-                                        Add More
-                                    </button>
-                                </div>
+                        <div class="row align-items-center mb-2">
+                            <div class="col-9">
+                                <label class="form-label mb-0">Downloadable Resource/s</label>
                             </div>
+                            <div class="col-3 text-end">
+                                <button type="button" class="add-row-button downloadable-resources">
+                                    <i class="bi bi-plus-lg"></i>
+                                    Add More
+                                </button>
+                            </div>
+                        </div>
 
-                            @if($course_chapter->downloadable_resources)
-                                @foreach(json_decode($course_chapter->downloadable_resources) as $downloadable_resource)
-                                    <div class="row single-item mt-2">
-                                        <div class="col-11">
-                                            <input type="text" class="form-control" name="old_downloadable_resource_titles[]" value="{{ $downloadable_resource->title }}" placeholder="Title">
-                                        </div>
-                                        <div class="col-1 d-flex align-items-center">
-                                            <input type="hidden" name="old_downloadable_resource_files[]" value="{{ $downloadable_resource->file }}">
-
-                                            <a href="{{ asset('storage/courses/course-chapter-downloadable-resources/' . $downloadable_resource->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
-
-                                            <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
-                                        </div>
+                        @if($course_chapter->downloadable_resources)
+                            @foreach(json_decode($course_chapter->downloadable_resources) as $downloadable_resource)
+                                <div class="row single-item mt-2">
+                                    <div class="col-11">
+                                        <input type="text" class="form-control" name="old_downloadable_resource_titles[]" value="{{ $downloadable_resource->title }}" placeholder="Title">
                                     </div>
-                                @endforeach
-                            @endif
+                                    <div class="col-1 d-flex align-items-center">
+                                        <input type="hidden" name="old_downloadable_resource_files[]" value="{{ $downloadable_resource->file }}">
 
-                            <div class="row mt-2">
-                                <div class="col-12">
-                                    <x-backend.input-error field="downloadable_resource_files.*"></x-backend.input-error>
+                                        <a href="{{ asset('storage/courses/course-chapter-downloadable-resources/' . $downloadable_resource->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
+
+                                        <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
+                                    </div>
                                 </div>
+                            @endforeach
+                        @endif
+
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <x-backend.input-error field="downloadable_resource_files.*"></x-backend.input-error>
                             </div>
                         </div>
                     </div>

@@ -228,29 +228,27 @@
 
                 <div class="row form-input">
                     <div class="col-12">
-                        <div class="single-item">
-                            <div class="row align-items-center mb-2">
-                                <div class="col-9">
-                                    <label class="form-label mb-0">Downloadable Resource/s</label>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <button type="button" class="add-row-button">
-                                        <i class="bi bi-plus-lg"></i>
-                                        Add More
-                                    </button>
-                                </div>
+                        <div class="row align-items-center mb-2">
+                            <div class="col-9">
+                                <label class="form-label mb-0">Downloadable Resource/s</label>
                             </div>
-                            
-                            <div class="row single-item">
-                                <div class="col-9">
-                                    <input type="text" class="form-control" name="downloadable_resource_titles[]" placeholder="Title">
-                                </div>
-                                <div class="col-3">
-                                    <input type="file" class="form-control" name="downloadable_resource_files[]" accept=".pdf, .ppt, .pptx, .xlsx, .xls, .csv, .doc, .docx">
-                                </div>
-                                <div class="col-12 mt-2">
-                                    <x-backend.input-error field="downloadable_resource_files.*"></x-backend.input-error>
-                                </div>
+                            <div class="col-3 text-end">
+                                <button type="button" class="add-row-button">
+                                    <i class="bi bi-plus-lg"></i>
+                                    Add More
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="row single-item">
+                            <div class="col-9">
+                                <input type="text" class="form-control" name="downloadable_resource_titles[]" placeholder="Title">
+                            </div>
+                            <div class="col-3">
+                                <input type="file" class="form-control" name="downloadable_resource_files[]" accept=".pdf, .ppt, .pptx, .xlsx, .xls, .csv, .doc, .docx">
+                            </div>
+                            <div class="col-12 mt-2">
+                                <x-backend.input-error field="downloadable_resource_files.*"></x-backend.input-error>
                             </div>
                         </div>
                     </div>
