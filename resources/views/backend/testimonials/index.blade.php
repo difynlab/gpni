@@ -1,31 +1,42 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Conferences')
+@section('title', 'Testimonials')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Conferences"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Testimonials"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.conferences.create') }}" class="add-button">
+                <a href="{{ route('backend.testimonials.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
-                    Add New Conference
+                    Add New Testimonial
                 </a>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.conferences.filter') }}" method="POST" class="filter-form">
+                <form action="{{ route('backend.testimonials.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
-                        <div class="col-5">
-                            <input type="text" class="form-control" name="title" value="{{ $title ?? '' }}" placeholder="Title">
+                        <div class="col-3">
+                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Name">
                         </div>
 
-                        <div class="col-5">
+                        <div class="col-3">
+                            <select class="form-control form-select" name="rate">
+                                <option value="All" selected>All rate</option>
+                                <option value="1" {{ isset($rate) && $rate == '1' ? "selected" : "" }}>1</option>
+                                <option value="2" {{ isset($rate) && $rate == '2' ? "selected" : "" }}>2</option>
+                                <option value="3" {{ isset($rate) && $rate == '3' ? "selected" : "" }}>3</option>
+                                <option value="4" {{ isset($rate) && $rate == '4' ? "selected" : "" }}>4</option>
+                                <option value="5" {{ isset($rate) && $rate == '5' ? "selected" : "" }}>5</option>
+                            </select>
+                        </div>
+
+                        <div class="col-3">
                             <select class="form-control form-select" name="language">
                                 <option value="All" selected>All languages</option>
                                 <option value="English" {{ isset($language) && $language == 'English' ? "selected" : "" }}>English</option>
@@ -34,7 +45,7 @@
                             </select>
                         </div>
 
-                        <div class="col-2 d-flex justify-content-between">
+                        <div class="col-3 d-flex justify-content-between">
                             <button type="submit" class="filter-search-button" name="action" value="search">SEARCH</button>
 
                             <button type="submit" class="filter-reset-button" name="action" value="reset">RESET</button>
@@ -52,43 +63,41 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Title</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">Rate</th>
                             <th scope="col">Language</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Where</th>
-                            <th scope="col">Early Registration Deadline</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @if(count($conferences) > 0)
-                            @foreach($conferences as $conference)
+                        @if(count($testimonials) > 0)
+                            @foreach($testimonials as $testimonial)
                                 <tr>
-                                    <td>#{{ $conference->id }}</td>
-                                    <td>{{ $conference->title }}</td>
-                                    <td>{{ $conference->language }}</td>
-                                    <td>{{ $conference->date }}</td>
-                                    <td>${{ $conference->where }}</td>
-                                    <td>{{ $conference->early_registration_deadline }}</td>
-                                    <td>{!! $conference->status !!}</td>
-                                    <td>{!! $conference->action !!}</td>
+                                    <td>#{{ $testimonial->id }}</td>
+                                    <td>{{ $testimonial->name }}</td>
+                                    <td>{{ $testimonial->designation }}</td>
+                                    <td>{!! $testimonial->updated_rate !!}</td>
+                                    <td>{{ $testimonial->language }}</td>
+                                    <td>{!! $testimonial->status !!}</td>
+                                    <td>{!! $testimonial->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;">No data available in table</td>
+                                <td colspan="7" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
                 </table>
 
-                {{ $conferences->links("pagination::bootstrap-5") }}
+                {{ $testimonials->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="Conference"></x-backend.delete-data>
+        <x-backend.delete-data title="Testimonial"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -99,7 +108,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.conferences.destroy', [':id']) }}";
+                let url = "{{ route('backend.testimonials.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -107,7 +116,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $conferences->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $testimonials->url(1) !!}&items=" + this.value; 
             });
         });
     </script>

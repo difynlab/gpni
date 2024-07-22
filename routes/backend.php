@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Course\CoursePromotionController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
+use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\PageController;
@@ -97,4 +98,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('faqs', FAQController::class)->except('show');
         Route::post('faqs/filter', [FAQController::class, 'filter'])->name('faqs.filter');
     // FAQs routes
+
+
+    // Testimonials routes
+        Route::resource('testimonials', TestimonialController::class)->except('show');
+        Route::post('testimonials/filter', [TestimonialController::class, 'filter'])->name('testimonials.filter');
+    // Testimonials routes
 });

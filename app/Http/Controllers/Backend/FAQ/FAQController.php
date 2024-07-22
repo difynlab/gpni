@@ -75,7 +75,7 @@ class FAQController extends Controller
         ]);
         
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
 
         $data = $request->all();

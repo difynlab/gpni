@@ -116,7 +116,7 @@
             </li>
 
             <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
+                <a href="{{ route('backend.testimonials.index') }}" class="link {{ Request::segment(2) == 'testimonials' ? 'active' : null }}">
                     <img src="{{ asset('storage/sidebar/testimonial.png') }}" alt="Icon">
                     <span>Testimonials</span>
                 </a>

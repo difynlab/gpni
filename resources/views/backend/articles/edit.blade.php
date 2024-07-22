@@ -107,3 +107,7 @@
     </div>
 
 @endsection
+
+@push('after-scripts')
+    <script src="{{ asset('backend/js/drag-drop-image.js') }}"></script>
+@endpush

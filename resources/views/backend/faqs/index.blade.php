@@ -21,7 +21,7 @@
                 <form action="{{ route('backend.faqs.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
-                        <div class="col">
+                        <div class="col-5">
                             <input type="text" class="form-control" name="question" value="{{ $question ?? '' }}" placeholder="Question">
                         </div>
 
