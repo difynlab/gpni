@@ -11,24 +11,24 @@
         
         @stack('before-styles')
             <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}"></link>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
             <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}"></link>
         @stack('after-styles')
-
     </head>
 
-    <body>
-        <div id="app">
-            <div class="wrapper">
-                <div class="content">
-                    @yield('content')
-                </div>
-            </div>
 
-            @stack('before-scripts')
-                <script src="{{ asset('frontend/js/jquery.js') }}"></script>
-                <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
-            @stack('after-scripts')
-        </div>
+    <body>
+
+        <x-frontend.navigation></x-frontend.navigation>
+        @yield('content')
+        <x-frontend.footer></x-frontend.footer>
+            
+
+        @stack('before-scripts')
+            <script src="{{ asset('frontend/js/jquery.js') }}"></script>
+            <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
+            <script src="{{ asset('frontend/js/main.js') }}"></script>
+        @stack('after-scripts')
     </body>
 
 </html>
