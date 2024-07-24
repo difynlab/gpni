@@ -1,0 +1,33 @@
+<svg class="position-relative" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 638" style="width: 100%; height: auto;">
+    <!-- Image 1, assuming it's also inside the . folder -->
+    <image href="./rectangle-110702@2x.png" x="0" y="0" width="172" height="294" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 2 -->
+    <image href="./rectangle-110703@2x.png" x="202" y="0" width="255" height="132" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 3 -->
+    <image href="./rectangle-110708@2x.png" x="151" y="324" width="255" height="128" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 4 -->
+    <image href="./rectangle-110704@2x.png" x="484" y="0" width="130" height="132" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 5 -->
+    <image href="./rectangle-110709@2x.png" x="2" y="324" width="119" height="128" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 6 -->
+    <image href="./rectangle-110710@2x.png" x="0" y="482" width="404" height="156" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 7 -->
+    <image href="./rectangle-110706@2x.png" x="197" y="162" width="130" height="132" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 8 -->
+    <image href="./rectangle-110705@2x.png" x="357" y="162" width="257" height="132" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 9 -->
+    <image href="./rectangle-110711@2x.png" x="436" y="324" width="178" height="189" style="border-radius: var(--br-8xs);"></image>
+    <!-- Image 10 -->
+    <image href="./rectangle-110712@2x.png" x="434" y="543" width="180" height="95" style="border-radius: var(--br-8xs);"></image>
+    <!-- Background Div -->
+    <rect x="0" y="0" width="614" height="638" rx="5px" ry="5px" style="fill: url(#linear-gradient);"></rect>
+    <defs>
+        <linearGradient id="linear-gradient" gradientTransform="rotate(-0.35)">
+            <stop offset="0%" stop-color="#fbfbfb"/>
+            <stop offset="25.69%" stop-color="rgba(251, 251, 251, 0)"/>
+            <stop offset="53.02%" stop-color="rgba(251, 251, 251, 0.11)"/>
+            <stop offset="75.42%" stop-color="rgba(251, 251, 251, 0)"/>
+            <stop offset="100%" stop-color="#fbfbfb"/>
+        </linearGradient>
+    </defs>
+</svg>
