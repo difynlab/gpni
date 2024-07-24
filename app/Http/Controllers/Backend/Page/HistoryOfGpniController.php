@@ -54,12 +54,12 @@ class HistoryOfGpniController extends Controller
         // Section 1 image
             if($request->file('new_section_1_image')) {
                 if($request->old_section_1_image) {
-                    Storage::delete('public/pages/' . $request->old_section_1_image);
+                    Storage::delete('public/backend/pages/' . $request->old_section_1_image);
                 }
 
                 $new_section_1_image = $request->file('new_section_1_image');
                 $section_1_image_name = Str::random(40) . '.' . $new_section_1_image->getClientOriginalExtension();
-                $new_section_1_image->storeAs('public/pages', $section_1_image_name);
+                $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
             else {
                 if($contents->section_1_image_ . '' . $language) {
@@ -74,12 +74,12 @@ class HistoryOfGpniController extends Controller
         // Section 3 image
             if($request->file('new_section_3_image')) {
                 if($request->old_section_3_image) {
-                    Storage::delete('public/pages/' . $request->old_section_3_image);
+                    Storage::delete('public/backend/pages/' . $request->old_section_3_image);
                 }
 
                 $new_section_3_image = $request->file('new_section_3_image');
                 $section_3_image_name = Str::random(40) . '.' . $new_section_3_image->getClientOriginalExtension();
-                $new_section_3_image->storeAs('public/pages', $section_3_image_name);
+                $new_section_3_image->storeAs('public/backend/pages', $section_3_image_name);
             }
             else {
                 if($contents->section_3_image_ . '' . $language) {
@@ -94,12 +94,12 @@ class HistoryOfGpniController extends Controller
         // Section 4 image
             if($request->file('new_section_4_image')) {
                 if($request->old_section_4_image) {
-                    Storage::delete('public/pages/' . $request->old_section_4_image);
+                    Storage::delete('public/backend/pages/' . $request->old_section_4_image);
                 }
 
                 $new_section_4_image = $request->file('new_section_4_image');
                 $section_4_image_name = Str::random(40) . '.' . $new_section_4_image->getClientOriginalExtension();
-                $new_section_4_image->storeAs('public/pages', $section_4_image_name);
+                $new_section_4_image->storeAs('public/backend/pages', $section_4_image_name);
             }
             else {
                 if($contents->section_4_image_ . '' . $language) {
@@ -114,12 +114,12 @@ class HistoryOfGpniController extends Controller
         // Section 5 image
             if($request->file('new_section_5_image')) {
                 if($request->old_section_5_image) {
-                    Storage::delete('public/pages/' . $request->old_section_5_image);
+                    Storage::delete('public/backend/pages/' . $request->old_section_5_image);
                 }
 
                 $new_section_5_image = $request->file('new_section_5_image');
                 $section_5_image_name = Str::random(40) . '.' . $new_section_5_image->getClientOriginalExtension();
-                $new_section_5_image->storeAs('public/pages', $section_5_image_name);
+                $new_section_5_image->storeAs('public/backend/pages', $section_5_image_name);
             }
             else {
                 if($contents->section_5_image_ . '' . $language) {

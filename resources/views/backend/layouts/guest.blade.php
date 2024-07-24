@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-5">
-                        <img src="{{ asset('storage/guest-image.jpeg') }}" alt="Image" class="image">
+                        <img src="{{ asset('storage/backend/guest-image.jpeg') }}" alt="Image" class="image">
                     </div>
                     <div class="col-7">
                         @yield('content')

@@ -64,7 +64,7 @@ class CourseController extends Controller
         if($request->file('new_image_video') != null) {
             $image_video = $request->file('new_image_video');
             $image_video_name = Str::random(40) . '.' . $image_video->getClientOriginalExtension();
-            $image_video->storeAs('public/courses/course-image-videos', $image_video_name);
+            $image_video->storeAs('public/backend/courses/course-image-videos', $image_video_name);
         }
         else {
             $image_video_name = null;
@@ -73,7 +73,7 @@ class CourseController extends Controller
         if($request->file('new_instructor_profile_image') != null) {
             $image = $request->file('new_instructor_profile_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/courses/course-instructors', $image_name);
+            $image->storeAs('public/backend/courses/course-instructors', $image_name);
         }
         else {
             $image_name = null;
@@ -114,12 +114,12 @@ class CourseController extends Controller
 
         if($request->file('new_image_video') != null) {
             if($request->old_image_video) {
-                Storage::delete('public/courses/course-image-videos/' . $request->old_image_video);
+                Storage::delete('public/backend/courses/course-image-videos/' . $request->old_image_video);
             }
 
             $image_video = $request->file('new_image_video');
             $image_video_name = Str::random(40) . '.' . $image_video->getClientOriginalExtension();
-            $image_video->storeAs('public/courses/course-image-videos', $image_video_name);
+            $image_video->storeAs('public/backend/courses/course-image-videos', $image_video_name);
         }
         else {
             $image_video_name = $request->old_image_video;
@@ -127,12 +127,12 @@ class CourseController extends Controller
 
         if($request->file('new_instructor_profile_image') != null) {
             if($request->old_instructor_profile_image) {
-                Storage::delete('public/courses/course-instructors/' . $request->old_instructor_profile_image);
+                Storage::delete('public/backend/courses/course-instructors/' . $request->old_instructor_profile_image);
             }
 
             $image = $request->file('new_instructor_profile_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/courses/course-instructors', $image_name);
+            $image->storeAs('public/backend/courses/course-instructors', $image_name);
         }
         else {
             $image_name = $request->old_instructor_profile_image;

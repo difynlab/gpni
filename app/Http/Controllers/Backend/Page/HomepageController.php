@@ -57,12 +57,12 @@ class HomepageController extends Controller
         // Section 1 image
             if($request->file('new_section_1_image')) {
                 if($request->old_section_1_image) {
-                    Storage::delete('public/pages/' . $request->old_section_1_image);
+                    Storage::delete('public/backend/pages/' . $request->old_section_1_image);
                 }
 
                 $new_section_1_image = $request->file('new_section_1_image');
                 $section_1_image_name = Str::random(40) . '.' . $new_section_1_image->getClientOriginalExtension();
-                $new_section_1_image->storeAs('public/pages', $section_1_image_name);
+                $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
             else {
                 if($contents->section_1_image_ . '' . $language) {
@@ -87,12 +87,12 @@ class HomepageController extends Controller
         // Section 2 video
             if($request->file('new_section_2_video')) {
                 if($request->old_section_2_video) {
-                    Storage::delete('public/pages/' . $request->old_section_2_video);
+                    Storage::delete('public/backend/pages/' . $request->old_section_2_video);
                 }
 
                 $new_section_2_video = $request->file('new_section_2_video');
                 $section_2_video_name = Str::random(40) . '.' . $new_section_2_video->getClientOriginalExtension();
-                $new_section_2_video->storeAs('public/pages', $section_2_video_name);
+                $new_section_2_video->storeAs('public/backend/pages', $section_2_video_name);
             }
             else {
                 if($contents->section_2_video_ . '' . $language) {
@@ -111,14 +111,14 @@ class HomepageController extends Controller
                     $images = json_decode($encoded_string);
 
                     foreach($images as $image) {
-                        Storage::delete('public/pages/' . $image);
+                        Storage::delete('public/backend/pages/' . $image);
                     }
                 }
 
                 $section_5_images = [];
                 foreach($request->file('new_section_5_images') as $image) {
                     $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-                    $image->storeAs('public/pages', $image_name);
+                    $image->storeAs('public/backend/pages', $image_name);
                     $section_5_images[] = $image_name;
                 }
 

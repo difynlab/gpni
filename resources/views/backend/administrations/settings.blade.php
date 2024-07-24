@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <img src="{{ url('storage', $settings->logo) }}" alt="Logo" class="static-image old_logo">
+                    <img src="{{ asset('storage/backend/'. $settings->logo) }}" alt="Logo" class="static-image old_logo">
                     <input type="hidden" class="form-control old_logo" name="old_logo" value="{{ $settings->logo }}">
 
                     <div class="mt-2">
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <img src="{{ url('storage', $settings->favicon) }}" alt="Favicon" class="static-image old_favicon">
+                    <img src="{{ asset('storage/backend/'. $settings->favicon) }}" alt="Favicon" class="static-image old_favicon">
                     <input type="hidden" class="form-control old_favicon" name="old_favicon" value="{{ $settings->favicon }}">
 
                     <div class="mt-2">

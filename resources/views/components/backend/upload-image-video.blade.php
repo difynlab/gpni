@@ -24,9 +24,9 @@
     <div class="image-video-preview">
         @if($old_value)
             @if(in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'bmp']))
-                <img src="{{ asset('storage/' . $path . '/' . $old_value) }}">
+                <img src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}">
             @elseif(in_array($extension, ['mp4', 'avi', 'mov', 'wmv', 'flv']))
-                <video src="{{ asset('storage/' . $path . '/' . $old_value) }}" controls></video>
+                <video src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}" controls></video>
             @endif
         @endif
     </div>

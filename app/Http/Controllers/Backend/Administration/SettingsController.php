@@ -40,12 +40,12 @@ class SettingsController extends Controller
 
         if($request->file('new_logo') != null) {
             if($request->old_logo) {
-                Storage::delete('public/' . $request->old_logo);
+                Storage::delete('public/backend/' . $request->old_logo);
             }
 
             $logo = $request->file('new_logo');
             $logo_name = 'logo.' . $logo->getClientOriginalExtension();
-            $logo->storeAs('public', $logo_name);
+            $logo->storeAs('public/backend', $logo_name);
         }
         else {
             $logo_name = $request->old_logo;
@@ -53,12 +53,12 @@ class SettingsController extends Controller
 
         if($request->file('new_favicon') != null) {
             if($request->old_favicon) {
-                Storage::delete('public/' . $request->old_favicon);
+                Storage::delete('public/backend/' . $request->old_favicon);
             }
 
             $favicon = $request->file('new_favicon');
             $favicon_name = 'favicon.' . $favicon->getClientOriginalExtension();
-            $favicon->storeAs('public', $favicon_name);
+            $favicon->storeAs('public/backend', $favicon_name);
         }
         else {
             $favicon_name = $request->old_favicon;

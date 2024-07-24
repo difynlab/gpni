@@ -176,6 +176,12 @@
     background-color: #0040C3;
     border-color: #0040C3;
 }
+.pages .table-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
 
 

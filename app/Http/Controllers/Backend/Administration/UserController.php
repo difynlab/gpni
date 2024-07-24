@@ -74,7 +74,7 @@ class UserController extends Controller
         if($request->file('profile_image') != null) {
             $image = $request->file('profile_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/profile_images', $image_name);
+            $image->storeAs('public/backend/profile_images', $image_name);
         }
         else {
             $image_name = null;
@@ -116,12 +116,12 @@ class UserController extends Controller
 
         if($request->file('new_profile_image') != null) {
             if($request->old_profile_image) {
-                Storage::delete('public/profile_images/' . $request->old_profile_image);
+                Storage::delete('public/backend/profile_images/' . $request->old_profile_image);
             }
 
             $image = $request->file('new_profile_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/profile_images', $image_name);
+            $image->storeAs('public/backend/profile_images', $image_name);
         }
         else {
             $image_name = $request->old_profile_image;

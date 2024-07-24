@@ -13,7 +13,7 @@
     <div class="images-preview">
         @if($old_value)
             @foreach(json_decode(htmlspecialchars_decode($old_value)) as $value)
-                <img src="{{ asset('storage/' . $path . '/' . $value) }}">
+                <img src="{{ asset('storage/backend/' . $path . '/' . $value) }}">
             @endforeach
         @endif
     </div>

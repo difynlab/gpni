@@ -27,7 +27,7 @@
 
     <div class="image-preview">
         @if($old_value)
-            <img src="{{ asset('storage/' . $path . '/' . $old_value) }}">
+            <img src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}">
         @endif
     </div>
 </div>

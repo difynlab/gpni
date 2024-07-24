@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class ArticleCategoryController extends Controller
 {

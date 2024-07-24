@@ -18,6 +18,8 @@ use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
+use App\Http\Controllers\Backend\Product\ProductCategoryController;
+use App\Http\Controllers\Backend\Product\ProductController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/backend-auth.php';
@@ -104,4 +106,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('testimonials', TestimonialController::class)->except('show');
         Route::post('testimonials/filter', [TestimonialController::class, 'filter'])->name('testimonials.filter');
     // Testimonials routes
+
+
+    // All product related routes
+        Route::resource('product-categories', ProductCategoryController::class)->except(['show']);
+        Route::post('product-categories/filter', [ProductCategoryController::class, 'filter'])->name('product-categories.filter');
+
+        Route::resource('products', ProductController::class)->except('show');
+        Route::post('products/filter', [ProductController::class, 'filter'])->name('products.filter');
+    // All product related routes
 });

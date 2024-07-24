@@ -52,12 +52,12 @@ class WhyWeAreDifferentController extends Controller
         // Section 1 video
             if($request->file('new_section_1_video')) {
                 if($request->old_section_1_video) {
-                    Storage::delete('public/pages/' . $request->old_section_1_video);
+                    Storage::delete('public/backend/pages/' . $request->old_section_1_video);
                 }
 
                 $new_section_1_video = $request->file('new_section_1_video');
                 $section_1_video_name = Str::random(40) . '.' . $new_section_1_video->getClientOriginalExtension();
-                $new_section_1_video->storeAs('public/pages', $section_1_video_name);
+                $new_section_1_video->storeAs('public/backend/pages', $section_1_video_name);
             }
             else {
                 if($contents->section_1_video_ . '' . $language) {
@@ -72,12 +72,12 @@ class WhyWeAreDifferentController extends Controller
         // Section 2 image
             if($request->file('new_section_2_image')) {
                 if($request->old_section_2_image) {
-                    Storage::delete('public/pages/' . $request->old_section_2_image);
+                    Storage::delete('public/backend/pages/' . $request->old_section_2_image);
                 }
 
                 $new_section_2_image = $request->file('new_section_2_image');
                 $section_2_image_name = Str::random(40) . '.' . $new_section_2_image->getClientOriginalExtension();
-                $new_section_2_image->storeAs('public/pages', $section_2_image_name);
+                $new_section_2_image->storeAs('public/backend/pages', $section_2_image_name);
             }
             else {
                 if($contents->section_2_image_ . '' . $language) {

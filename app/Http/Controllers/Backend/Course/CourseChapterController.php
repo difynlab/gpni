@@ -35,7 +35,7 @@ class CourseChapterController extends Controller
 
         if($missing_files->isNotEmpty()) {
             foreach($missing_files as $key => $missing_file) {
-                Storage::delete('public/courses/' . $path . $missing_file);
+                Storage::delete('public/backend/courses/' . $path . $missing_file);
             }
         }
     }
@@ -104,7 +104,7 @@ class CourseChapterController extends Controller
                     if($request->book_files && $request->book_files[$key]) {
                         $book = $request->book_files[$key];
                         $book_name = Str::random(40) . '.' . $book->getClientOriginalExtension();
-                        $book->storeAs('public/courses/course-chapter-books', $book_name);
+                        $book->storeAs('public/backend/courses/course-chapter-books', $book_name);
                     }
     
                     array_push($books, [
@@ -124,7 +124,7 @@ class CourseChapterController extends Controller
                     if($request->video_files && $request->video_files[$key]) {
                         $video = $request->video_files[$key];
                         $video_name = Str::random(40) . '.' . $video->getClientOriginalExtension();
-                        $video->storeAs('public/courses/course-chapter-videos', $video_name);
+                        $video->storeAs('public/backend/courses/course-chapter-videos', $video_name);
                     }
 
                     array_push($videos, [
@@ -158,7 +158,7 @@ class CourseChapterController extends Controller
                     if($request->additional_video_files && $request->additional_video_files[$key]) {
                         $additional_video = $request->additional_video_files[$key];
                         $additional_video_name = Str::random(40) . '.' . $additional_video->getClientOriginalExtension();
-                        $additional_video->storeAs('public/courses/course-chapter-additional-videos', $additional_video_name);
+                        $additional_video->storeAs('public/backend/courses/course-chapter-additional-videos', $additional_video_name);
                     }
 
                     array_push($additional_videos, [
@@ -179,7 +179,7 @@ class CourseChapterController extends Controller
                     if($request->presentation_media_files && $request->presentation_media_files[$key]) {
                         $presentation_media = $request->presentation_media_files[$key];
                         $presentation_media_name = Str::random(40) . '.' . $presentation_media->getClientOriginalExtension();
-                        $presentation_media->storeAs('public/courses/course-chapter-presentation-medias', $presentation_media_name);
+                        $presentation_media->storeAs('public/backend/courses/course-chapter-presentation-medias', $presentation_media_name);
                     }
     
                     array_push($presentation_medias, [
@@ -199,7 +199,7 @@ class CourseChapterController extends Controller
                     if($request->downloadable_resource_files && $request->downloadable_resource_files[$key]) {
                         $downloadable_resource = $request->downloadable_resource_files[$key];
                         $downloadable_resource_name = Str::random(40) . '.' . $downloadable_resource->getClientOriginalExtension();
-                        $downloadable_resource->storeAs('public/courses/course-chapter-downloadable-resources', $downloadable_resource_name);
+                        $downloadable_resource->storeAs('public/backend/courses/course-chapter-downloadable-resources', $downloadable_resource_name);
                     }
 
                     array_push($downloadable_resources, [
@@ -285,7 +285,7 @@ class CourseChapterController extends Controller
                     if($request->book_files && $request->book_files[$key]) {
                         $book = $request->book_files[$key];
                         $book_name = Str::random(40) . '.' . $book->getClientOriginalExtension();
-                        $book->storeAs('public/courses/course-chapter-books', $book_name);
+                        $book->storeAs('public/backend/courses/course-chapter-books', $book_name);
                     }
     
                     array_push($books, [
@@ -316,7 +316,7 @@ class CourseChapterController extends Controller
                     if($request->video_files && $request->video_files[$key]) {
                         $video = $request->video_files[$key];
                         $video_name = Str::random(40) . '.' . $video->getClientOriginalExtension();
-                        $video->storeAs('public/courses/course-chapter-videos', $video_name);
+                        $video->storeAs('public/backend/courses/course-chapter-videos', $video_name);
                     }
 
                     array_push($videos, [
@@ -360,7 +360,7 @@ class CourseChapterController extends Controller
                     if($request->additional_video_files && $request->additional_video_files[$key]) {
                         $additional_video = $request->additional_video_files[$key];
                         $additional_video_name = Str::random(40) . '.' . $additional_video->getClientOriginalExtension();
-                        $additional_video->storeAs('public/courses/course-chapter-additional-videos', $additional_video_name);
+                        $additional_video->storeAs('public/backend/courses/course-chapter-additional-videos', $additional_video_name);
                     }
 
                     array_push($additional_videos, [
@@ -391,7 +391,7 @@ class CourseChapterController extends Controller
                     if($request->presentation_media_files && $request->presentation_media_files[$key]) {
                         $presentation_media = $request->presentation_media_files[$key];
                         $presentation_media_name = Str::random(40) . '.' . $presentation_media->getClientOriginalExtension();
-                        $presentation_media->storeAs('public/courses/course-chapter-presentation-medias', $presentation_media_name);
+                        $presentation_media->storeAs('public/backend/courses/course-chapter-presentation-medias', $presentation_media_name);
                     }
     
                     array_push($presentation_medias, [
@@ -422,7 +422,7 @@ class CourseChapterController extends Controller
                     if($request->downloadable_resource_files && $request->downloadable_resource_files[$key]) {
                         $downloadable_resource = $request->downloadable_resource_files[$key];
                         $downloadable_resource_name = Str::random(40) . '.' . $downloadable_resource->getClientOriginalExtension();
-                        $downloadable_resource->storeAs('public/courses/course-chapter-downloadable-resources', $downloadable_resource_name);
+                        $downloadable_resource->storeAs('public/backend/courses/course-chapter-downloadable-resources', $downloadable_resource_name);
                     }
 
                     array_push($downloadable_resources, [

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
-    private function processArticle($articles)
+    private function processArticles($articles)
     {
         foreach($articles as $article) {
             $article->action = '
@@ -30,7 +30,7 @@ class ArticleController extends Controller
         $items = $request->items ?? 10;
 
         $articles = Article::where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
-        $articles = $this->processArticle($articles);
+        $articles = $this->processArticles($articles);
 
         return view('backend.articles.index', [
             'articles' => $articles,
@@ -64,7 +64,7 @@ class ArticleController extends Controller
         if($request->file('new_thumbnail') != null) {
             $thumbnail = $request->file('new_thumbnail');
             $thumbnail_name = Str::random(40) . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->storeAs('public/articles/articles', $thumbnail_name);
+            $thumbnail->storeAs('public/backend/articles/articles', $thumbnail_name);
         }
         else {
             $thumbnail_name = $request->old_thumbnail;
@@ -73,7 +73,7 @@ class ArticleController extends Controller
         if($request->file('new_author_image') != null) {
             $author_image = $request->file('new_author_image');
             $author_image_name = Str::random(40) . '.' . $author_image->getClientOriginalExtension();
-            $author_image->storeAs('public/articles/author-images', $author_image_name);
+            $author_image->storeAs('public/backend/articles/author-images', $author_image_name);
         }
         else {
             $author_image_name = $request->old_author_image;
@@ -121,12 +121,12 @@ class ArticleController extends Controller
 
         if($request->file('new_thumbnail') != null) {
             if($request->old_thumbnail) {
-                Storage::delete('public/articles/articles/' . $request->old_thumbnail);
+                Storage::delete('public/backend/articles/articles/' . $request->old_thumbnail);
             }
 
             $thumbnail = $request->file('new_thumbnail');
             $thumbnail_name = Str::random(40) . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->storeAs('public/articles/articles', $thumbnail_name);
+            $thumbnail->storeAs('public/backend/articles/articles', $thumbnail_name);
         }
         else {
             $thumbnail_name = $request->old_thumbnail;
@@ -134,12 +134,12 @@ class ArticleController extends Controller
 
         if($request->file('new_author_image') != null) {
             if($request->old_author_image) {
-                Storage::delete('public/articles/author-images/' . $request->old_author_image);
+                Storage::delete('public/backend/articles/author-images/' . $request->old_author_image);
             }
 
             $author_image = $request->file('new_author_image');
             $author_image_name = Str::random(40) . '.' . $author_image->getClientOriginalExtension();
-            $author_image->storeAs('public/articles/author-images', $author_image_name);
+            $author_image->storeAs('public/backend/articles/author-images', $author_image_name);
         }
         else {
             $author_image_name = $request->old_author_image;
@@ -188,7 +188,7 @@ class ArticleController extends Controller
 
         $items = $request->items ?? 10;
         $articles = $articles->paginate($items);
-        $articles = $this->processArticle($articles);
+        $articles = $this->processArticles($articles);
 
         return view('backend.articles.index', [
             'articles' => $articles,
