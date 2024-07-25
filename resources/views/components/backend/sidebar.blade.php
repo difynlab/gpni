@@ -34,7 +34,7 @@
                     <span>Articles</span>
                 </button>
 
-                <div id="article-data-collapse" class="accordion-collapse collapse {{ Request::segment(2) == 'article-categories' || Request::segment(2) == 'articles' ? 'show' : '' }}" data-bs-parent="#article-accordion">
+                <div id="article-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['article-categories', 'articles']) ? 'show' : '' }}" data-bs-parent="#article-accordion">
                     <div class="accordion-body">
                         <ul>
                             <li><a href="{{ route('backend.article-categories.index') }}" class="link {{ Request::segment(2) == 'article-categories' ? 'active' : null }}">Article Categories</a></li>
@@ -65,7 +65,7 @@
                     <span>Products</span>
                 </button>
 
-                <div id="product-data-collapse" class="accordion-collapse collapse {{ Request::segment(2) == 'product-categories' || Request::segment(2) == 'products' ? 'show' : '' }}" data-bs-parent="#product-accordion">
+                <div id="product-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['product-categories', 'products']) ? 'show' : '' }}" data-bs-parent="#product-accordion">
                     <div class="accordion-body">
                         <ul>
                             <li><a href="{{ route('backend.product-categories.index') }}" class="link {{ Request::segment(2) == 'product-categories' ? 'active' : null }}">Product Categories</a></li>
