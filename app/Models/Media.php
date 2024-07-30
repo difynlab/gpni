@@ -10,4 +10,5 @@ class Media extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'medias';
 }

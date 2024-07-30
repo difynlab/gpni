@@ -77,7 +77,7 @@
             </div>
 
             <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
+                <a href="{{ route('backend.medias.index') }}" class="link {{ Request::segment(2) == 'medias' ? 'active' : null }}">
                     <img src="{{ asset('storage/backend/sidebar/media.png') }}" alt="Icon">
                     <span>Medias</span>
                 </a>

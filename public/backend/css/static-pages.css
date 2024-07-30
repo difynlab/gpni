@@ -183,6 +183,16 @@
 .static-pages .section .delete-button {
     color: #E53E3E;
 }
+.static-pages .old-image {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+.static-pages .old-video {
+    height: 180px;
+    width: 300px;
+    object-fit: cover;
+}
 
 /* Static page table styles */
     .static-pages .page-language {

@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Course\CoursePromotionController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
+use App\Http\Controllers\Backend\Media\MediaController;
 use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
@@ -115,4 +116,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('products', ProductController::class)->except('show');
         Route::post('products/filter', [ProductController::class, 'filter'])->name('products.filter');
     // All product related routes
+
+
+    // Medias routes
+        Route::resource('medias', MediaController::class)->except('show');
+        Route::post('medias/filter', [MediaController::class, 'filter'])->name('medias.filter');
+    // Medias routes
 });
