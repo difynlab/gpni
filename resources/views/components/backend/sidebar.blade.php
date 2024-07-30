@@ -53,9 +53,9 @@
             </li>
 
             <li>
-                <a href="{{ route('backend.course-promotions.index') }}" class="link {{ Request::segment(2) == 'course-promotions' ? 'active' : null }}">
-                    <img src="{{ asset('storage/backend/sidebar/course-promotion.png') }}" alt="Icon">
-                    <span>Course Promotions</span>
+                <a href="{{ route('backend.promotions.index') }}" class="link {{ Request::segment(2) == 'promotions' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/promotion.png') }}" alt="Icon">
+                    <span>Promotions</span>
                 </a>
             </li>
 
@@ -87,13 +87,6 @@
                 <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
                     <img src="{{ asset('storage/backend/sidebar/marketing.png') }}" alt="Icon">
                     <span>Marketings</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
-                    <img src="{{ asset('storage/backend/sidebar/coupon.png') }}" alt="Icon">
-                    <span>Coupons</span>
                 </a>
             </li>
 

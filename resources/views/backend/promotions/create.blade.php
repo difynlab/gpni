@@ -1,16 +1,16 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Create Course Promotion')
+@section('title', 'Create Promotion')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Create Course Promotion"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Create Promotion"></x-backend.breadcrumb>
 
     <div class="static-pages">
-        <form action="{{ route('backend.course-promotions.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('backend.promotions.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="section">
-                <p class="inner-page-title">Course Promotion Details</p>
+                <p class="inner-page-title">Promotion Details</p>
 
                 <div class="row form-input">
                     <div class="col-12">

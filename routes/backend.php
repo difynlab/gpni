@@ -9,7 +9,6 @@ use App\Http\Controllers\Backend\Article\ArticleController;
 use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
-use App\Http\Controllers\Backend\Course\CoursePromotionController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
@@ -21,6 +20,7 @@ use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
+use App\Http\Controllers\Backend\Promotion\PromotionController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/backend-auth.php';
@@ -78,7 +78,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::delete('modules/exam-questions/{course_module}/destroy/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'destroy'])->name('module-exam-questions.destroy');
         });
 
-        Route::resource('course-promotions', CoursePromotionController::class)->except('show');
+        Route::resource('promotions', PromotionController::class)->except('show');
     // All course related routes
 
 

@@ -1,15 +1,15 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Course Promotions')
+@section('title', 'Promotions')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Course Promotions"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Promotions"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.course-promotions.create') }}" class="add-button">
+                <a href="{{ route('backend.promotions.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
                     Add New Promotion
                 </a>
@@ -34,26 +34,26 @@
                     </thead>
 
                     <tbody>
-                        @if(count($course_promotions) > 0)
-                            @foreach($course_promotions as $course_promotion)
+                        @if(count($promotions) > 0)
+                            @foreach($promotions as $promotion)
                                 <tr>
-                                    <td>#{{ $course_promotion->id }}</td>
-                                    <td>{{ $course_promotion->type }}</td>
-                                    <td>{{ $course_promotion->title ?? '-' }}</td>
-                                    <td>{{ $course_promotion->coupon_code_type ?? '-' }}</td>
+                                    <td>#{{ $promotion->id }}</td>
+                                    <td>{{ $promotion->type }}</td>
+                                    <td>{{ $promotion->title ?? '-' }}</td>
+                                    <td>{{ $promotion->coupon_code_type ?? '-' }}</td>
 
-                                    @if($course_promotion->type == 'Course Discount')
-                                        <td>USD {{ $course_promotion->value }}</td>
+                                    @if($promotion->type == 'Course Discount')
+                                        <td>USD {{ $promotion->value }}</td>
                                     @else
-                                        @if($course_promotion->coupon_code_type == 'Percentage')
-                                            <td>{{ $course_promotion->value }} %</td>
+                                        @if($promotion->coupon_code_type == 'Percentage')
+                                            <td>{{ $promotion->value }} %</td>
                                         @else
-                                            <td>USD {{ $course_promotion->value }}</td>
+                                            <td>USD {{ $promotion->value }}</td>
                                         @endif
                                     @endif
                                     
-                                    <td>{!! $course_promotion->status !!}</td>
-                                    <td>{!! $course_promotion->action !!}</td>
+                                    <td>{!! $promotion->status !!}</td>
+                                    <td>{!! $promotion->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
@@ -64,11 +64,11 @@
                     </tbody>
                 </table>
 
-                {{ $course_promotions->links("pagination::bootstrap-5") }}
+                {{ $promotions->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="Course Promotion"></x-backend.delete-data>
+        <x-backend.delete-data title="Promotion"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -79,7 +79,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.course-promotions.destroy', [':id']) }}";
+                let url = "{{ route('backend.promotions.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -87,7 +87,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $course_promotions->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $promotions->url(1) !!}&items=" + this.value; 
             });
         });
     </script>
