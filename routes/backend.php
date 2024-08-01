@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
+use App\Http\Controllers\Backend\Nutritionist\NutritionistController;
 use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
@@ -42,10 +43,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::get('history-of-gpni/{language}', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni.index');
         Route::post('history-of-gpni/{language}', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
     });
-
-
-    Route::resource('users', UserController::class)->except(['create']);
-    Route::post('users/filter', [UserController::class, 'filter'])->name('users.filter');
 
 
     Route::resource('profile', ProfileController::class)->only('index', 'update');
@@ -122,4 +119,17 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('medias', MediaController::class)->except('show');
         Route::post('medias/filter', [MediaController::class, 'filter'])->name('medias.filter');
     // Medias routes
+
+
+    // All users routes
+        // Nutritionists routes
+            Route::resource('nutritionists', NutritionistController::class)->except('show');
+            Route::post('nutritionists/filter', [NutritionistController::class, 'filter'])->name('nutritionists.filter');
+        // Nutritionists routes
+
+        // Users routes
+            Route::resource('users', UserController::class)->except(['show']);
+            Route::post('users/filter', [UserController::class, 'filter'])->name('users.filter');
+        // Users routes
+    // All users routes
 });

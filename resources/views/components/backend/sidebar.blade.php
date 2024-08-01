@@ -104,12 +104,22 @@
                 </a>
             </li>
 
-            <li>
-                <a href="{{ route('backend.users.index') }}" class="link {{ Request::segment(2) == 'users' ? 'active' : null }}">
+            <div class="accordion" id="users-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#users-data-collapse">
                     <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
                     <span>Users</span>
-                </a>
-            </li>
+                </button>
+
+                <div id="users-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['users', 'nutritionists']) ? 'show' : '' }}" data-bs-parent="#users-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.users.index') }}" class="link {{ Request::segment(2) == 'users' ? 'active' : null }}">Users</a></li>
+
+                            <li><a href="{{ route('backend.nutritionists.index') }}" class="link {{ Request::segment(2) == 'nutritionists' ? 'active' : null }}">Nutritionists</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <li>
                 <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
