@@ -15,7 +15,7 @@
                 <div class="row form-input">
                     <div class="col-6 mb-4">
                         <label for="title" class="form-label">Title<span class="asterisk">*</span></label>
-                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Title" required>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Event Title" required>
                     </div>
 
                     <div class="col-6 mb-4">
@@ -25,7 +25,7 @@
 
                     <div class="col-6 mb-4">
                         <label for="where" class="form-label">Where<span class="asterisk">*</span></label>
-                        <input type="text" class="form-control" id="where" name="where" value="{{ old('where') }}" placeholder="Where" required>
+                        <input type="text" class="form-control" id="where" name="where" value="{{ old('where') }}" placeholder="Location" required>
                     </div>
 
                     <div class="col-6 mb-4">
@@ -108,7 +108,7 @@
                                 <input type="text" class="form-control" name="more_detail_titles[]" placeholder="Title">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="more_detail_values[]" placeholder="Value">
+                                <input type="text" class="form-control" name="more_detail_values[]" placeholder="Text">
                             </div>
                             <div class="col-1 d-flex align-items-center">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>

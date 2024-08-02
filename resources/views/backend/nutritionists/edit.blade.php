@@ -113,7 +113,7 @@
                     <div class="col-6">
                         <div class="row align-items-center mb-2">
                             <div class="col-9">
-                                <label class="form-label">Are of Interests</label>
+                                <label class="form-label">Area of Interests</label>
                             </div>
                             <div class="col-3 text-end">
                                 <button type="button" class="add-row-button area-of-interests">

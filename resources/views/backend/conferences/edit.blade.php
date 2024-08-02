@@ -17,7 +17,7 @@
                 <div class="row form-input">
                     <div class="col-6 mb-4">
                         <label for="title" class="form-label">Title<span class="asterisk">*</span></label>
-                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $conference->title) }}" placeholder="Title" required>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $conference->title) }}" placeholder="Event Title" required>
                     </div>
 
                     <div class="col-6 mb-4">
@@ -27,7 +27,7 @@
 
                     <div class="col-6 mb-4">
                         <label for="where" class="form-label">Where<span class="asterisk">*</span></label>
-                        <input type="text" class="form-control" id="where" name="where" value="{{ old('where', $conference->where) }}" placeholder="Where" required>
+                        <input type="text" class="form-control" id="where" name="where" value="{{ old('where', $conference->where) }}" placeholder="Location" required>
                     </div>
 
                     <div class="col-6 mb-4">
@@ -71,7 +71,7 @@
                                     <input type="text" class="form-control" name="more_detail_titles[]" value="{{ $conference_more_detail->title }}" placeholder="Title">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" name="more_detail_values[]" value="{{ $conference_more_detail->value }}" placeholder="Value">
+                                    <input type="text" class="form-control" name="more_detail_values[]" value="{{ $conference_more_detail->value }}" placeholder="Text">
                                 </div>
                                 <div class="col-1 d-flex align-items-center">
                                     <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>

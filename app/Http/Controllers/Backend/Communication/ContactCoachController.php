@@ -51,17 +51,19 @@ class ContactCoachController extends Controller
 
         $name = $request->name;
 
+        $nutritionists = Nutritionist::where('status', '1');
         $contact_coaches = ContactCoach::where('status', '1')->orderBy('id', 'desc');
 
         if($name != null) {
-            $contact_coaches->where('name', 'like', '%' . $name . '%');
+            $nutritionist_ids = $nutritionists->where('name', 'like', '%' . $name . '%')->pluck('id')->toArray();
+            $contact_coaches->whereIn('nutritionist', $nutritionist_ids);
         }
 
         $items = $request->items ?? 10;
         $contact_coaches = $contact_coaches->paginate($items);
         $contact_coaches = $this->processContactCoaches($contact_coaches);
 
-        return view('backend.article-categories.index', [
+        return view('backend.communications.contact-coaches.index', [
             'contact_coaches' => $contact_coaches,
             'items' => $items,
             'name' => $name
