@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('membership_credential_status', [1, 2])->index();
             $table->text('area_of_interests');
             $table->text('self_introduction');
+            $table->string('image')->nullable();
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });

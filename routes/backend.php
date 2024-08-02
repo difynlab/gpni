@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Administration\SettingsController;
 use App\Http\Controllers\Backend\Administration\UserController;
 use App\Http\Controllers\Backend\Article\ArticleCategoryController;
 use App\Http\Controllers\Backend\Article\ArticleController;
+use App\Http\Controllers\Backend\Communication\ContactCoachController;
 use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
@@ -132,4 +133,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::post('users/filter', [UserController::class, 'filter'])->name('users.filter');
         // Users routes
     // All users routes
+
+
+    // All communication routes
+        Route::prefix('communications')->name('communications.')->group(function() {
+            Route::prefix('contact-coaches')->name('contact-coaches.')->group(function() {
+                Route::get('/', [ContactCoachController::class, 'index'])->name('index');
+                Route::post('/filter', [ContactCoachController::class, 'filter'])->name('filter');
+                Route::delete('/{contact_coach}', [ContactCoachController::class, 'destroy'])->name('destroy');
+            });
+        });
+    // All communication routes
 });

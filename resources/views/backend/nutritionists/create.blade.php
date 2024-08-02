@@ -67,9 +67,14 @@
                         </select>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 mb-4">
                         <label for="self_introduction" class="form-label">Self Introduction</label>
                         <textarea class="form-control" rows="5" id="self_introduction" name="self_introduction" value="{{ old('self_introduction') }}" placeholder="Self Introduction">{{ old('self_introduction') }}</textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <x-backend.upload-image old_name="old_image" old_value="{{ old('image') }}" new_name="new_image" path="nutritionists" label="Nutritionist"></x-backend.upload-image>
+                        <x-backend.input-error field="new_image"></x-backend.input-error>
                     </div>
                 </div>
             </div>
@@ -126,7 +131,10 @@
 @endsection
 
 @push('after-scripts')
+    <script src="{{ asset('backend/js/drag-drop-image.js') }}"></script>
+
     <script>
+        
         $(document).on('click', '.delete-button', function() {
             $(this).closest('.single-item').remove();
         });

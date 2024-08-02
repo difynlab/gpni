@@ -142,12 +142,20 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
+            <div class="accordion" id="communications-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#communications-data-collapse">
                     <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                     <span>Communications</span>
-                </a>
-            </li>
+                </button>
+
+                <div id="communications-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['contact-coaches']) ? 'show' : '' }}" data-bs-parent="#communications-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.communications.contact-coaches.index') }}" class="link {{ Request::segment(3) == 'contact-coaches' ? 'active' : null }}">Contact Coaches</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <li>
                 <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Backend\Nutritionist;
 use App\Http\Controllers\Controller;
 use App\Models\Nutritionist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class NutritionistController extends Controller
 {
@@ -300,10 +303,30 @@ class NutritionistController extends Controller
     
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'new_image' => 'nullable|max:2048'
+        ], [
+            'new_image.max' => 'The image must not be greater than 2MB'
+        ]);
+        
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+        }
+
+        if($request->file('new_image') != null) {
+            $image = $request->file('new_image');
+            $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/backend/nutritionists', $image_name);
+        }
+        else {
+            $image_name = $request->old_image;
+        }
+
         $nutritionist = new Nutritionist();
-        $data = $request->all();
+        $data = $request->except('old_image', 'new_image');
         $data['credentials'] = json_encode($request->credentials);
         $data['area_of_interests'] = json_encode($request->area_of_interests);
+        $data['image'] = $image_name;
         $nutritionist->create($data);
 
         return redirect()->route('backend.nutritionists.index')->with('success', 'Successfully created!');
@@ -574,9 +597,33 @@ class NutritionistController extends Controller
 
     public function update(Request $request, Nutritionist $nutritionist)
     {
-        $data = $request->all();
+        $validator = Validator::make($request->all(), [
+            'new_image' => 'nullable|max:2048'
+        ], [
+            'new_image.max' => 'The image must not be greater than 2MB'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
+        }
+
+        if($request->file('new_image') != null) {
+            if($request->old_image) {
+                Storage::delete('public/backend/nutritionists/' . $request->old_image);
+            }
+
+            $image = $request->file('new_image');
+            $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/backend/nutritionists', $image_name);
+        }
+        else {
+            $image_name = $request->old_image;
+        }
+
+        $data = $request->except('old_image', 'new_image');
         $data['credentials'] = json_encode($request->credentials);
         $data['area_of_interests'] = json_encode($request->area_of_interests);
+        $data['image'] = $image_name;
         $nutritionist->fill($data)->save();
         
         return redirect()->route('backend.nutritionists.index')->with('success', "Successfully updated!");
