@@ -83,26 +83,20 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
-                    <img src="{{ asset('storage/backend/sidebar/marketing.png') }}" alt="Icon">
-                    <span>Marketings</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
-                    <img src="{{ asset('storage/backend/sidebar/gift-card.png') }}" alt="Icon">
-                    <span>Gift Cards</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
+            <div class="accordion" id="orders-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#orders-data-collapse">
                     <img src="{{ asset('storage/backend/sidebar/order.png') }}" alt="Icon">
                     <span>Orders</span>
-                </a>
-            </li>
+                </button>
+
+                <div id="orders-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['gift-card-orders']) ? 'show' : '' }}" data-bs-parent="#orders-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.orders.gift-card-orders.index') }}" class="link {{ Request::segment(3) == 'gift-card-orders' ? 'active' : null }}">Gift Card Orders</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <div class="accordion" id="users-accordion">
                 <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#users-data-collapse">

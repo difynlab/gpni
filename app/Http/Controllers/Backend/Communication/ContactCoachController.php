@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend\Communication;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
 use App\Models\ContactCoach;
 use App\Models\Nutritionist;
 use Illuminate\Http\Request;

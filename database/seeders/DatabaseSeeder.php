@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             HomepageContentSeeder::class,
             WhyWeAreDifferentContentSeeder::class,
             HistoryOfGpniContentSeeder::class,
+            GiftCardContentSeeder::class
         ]);
     }
 }

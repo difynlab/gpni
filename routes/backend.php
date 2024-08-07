@@ -15,6 +15,8 @@ use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
 use App\Http\Controllers\Backend\Nutritionist\NutritionistController;
+use App\Http\Controllers\Backend\Order\GiftCardOrderController;
+use App\Http\Controllers\Backend\Page\GiftCardController;
 use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
@@ -37,12 +39,19 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
     Route::get('pages', [PageController::class, 'index'])->name('pages.index');
     Route::prefix('pages')->name('pages.')->group(function() {
+
         Route::get('homepage/{language}', [HomepageController::class, 'index'])->name('homepage.index');
         Route::post('homepage/{language}', [HomepageController::class, 'update'])->name('homepage.update');
+
         Route::get('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different.index');
         Route::post('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'update'])->name('why-we-are-different.update');
+
         Route::get('history-of-gpni/{language}', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni.index');
         Route::post('history-of-gpni/{language}', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
+
+        Route::get('gift-card/{language}', [GiftCardController::class, 'index'])->name('gift-card.index');
+        Route::post('gift-card/{language}', [GiftCardController::class, 'update'])->name('gift-card.update');
+
     });
 
 
@@ -144,4 +153,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             });
         });
     // All communication routes
+
+
+    // All order routes
+        Route::prefix('orders')->name('orders.')->group(function() {
+            Route::prefix('gift-card-orders')->name('gift-card-orders.')->group(function() {
+                Route::get('/', [GiftCardOrderController::class, 'index'])->name('index');
+                Route::post('/filter', [GiftCardOrderController::class, 'filter'])->name('filter');
+                Route::delete('/{gift_card_order}', [GiftCardOrderController::class, 'destroy'])->name('destroy');
+            });
+        });
+    // All order routes
 });

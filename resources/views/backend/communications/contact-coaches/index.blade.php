@@ -48,18 +48,18 @@
 
                     <tbody>
                         @if(count($contact_coaches) > 0)
-                            @foreach($contact_coaches as $nutritionist)
+                            @foreach($contact_coaches as $contact_coach)
                                 <tr>
-                                    <td>#{{ $nutritionist->id }}</td>
-                                    <td>{{ $nutritionist->nutritionist }}</td>
-                                    <td>{{ $nutritionist->email }}</td>
-                                    <td>{{ $nutritionist->phone_number }}</td>
-                                    <td>{{ $nutritionist->city }}</td>
-                                    <td>{{ $nutritionist->country }}</td>
-                                    <td>{{ $nutritionist->app }}</td>
-                                    <td>{{ $nutritionist->app_id }}</td>
-                                    <td>{{ $nutritionist->date }}</td>
-                                    <td>{!! $nutritionist->action !!}</td>
+                                    <td>#{{ $contact_coach->id }}</td>
+                                    <td>{{ $contact_coach->nutritionist }}</td>
+                                    <td>{{ $contact_coach->email }}</td>
+                                    <td>{{ $contact_coach->phone_number }}</td>
+                                    <td>{{ $contact_coach->city }}</td>
+                                    <td>{{ $contact_coach->country }}</td>
+                                    <td>{{ $contact_coach->app }}</td>
+                                    <td>{{ $contact_coach->app_id }}</td>
+                                    <td>{{ $contact_coach->date }}</td>
+                                    <td>{!! $contact_coach->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
