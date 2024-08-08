@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Administration\SettingsController;
 use App\Http\Controllers\Backend\Administration\UserController;
 use App\Http\Controllers\Backend\Article\ArticleCategoryController;
 use App\Http\Controllers\Backend\Article\ArticleController;
+use App\Http\Controllers\Backend\Communication\AskQuestionController;
 use App\Http\Controllers\Backend\Communication\ContactCoachController;
 use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
@@ -37,24 +38,26 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
 
 
-    Route::get('pages', [PageController::class, 'index'])->name('pages.index');
-    Route::prefix('pages')->name('pages.')->group(function() {
+    // All page related routes
+        Route::get('pages', [PageController::class, 'index'])->name('pages.index');
+        Route::prefix('pages')->name('pages.')->group(function() {
 
-        Route::get('homepage/{language}', [HomepageController::class, 'index'])->name('homepage.index');
-        Route::post('homepage/{language}', [HomepageController::class, 'update'])->name('homepage.update');
+            Route::get('homepage/{language}', [HomepageController::class, 'index'])->name('homepage.index');
+            Route::post('homepage/{language}', [HomepageController::class, 'update'])->name('homepage.update');
 
-        Route::get('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different.index');
-        Route::post('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'update'])->name('why-we-are-different.update');
+            Route::get('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different.index');
+            Route::post('why-we-are-different/{language}', [WhyWeAreDifferentController::class, 'update'])->name('why-we-are-different.update');
 
-        Route::get('history-of-gpni/{language}', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni.index');
-        Route::post('history-of-gpni/{language}', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
+            Route::get('history-of-gpni/{language}', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni.index');
+            Route::post('history-of-gpni/{language}', [HistoryOfGpniController::class, 'update'])->name('history-of-gpni.update');
 
-        Route::get('gift-card/{language}', [GiftCardController::class, 'index'])->name('gift-card.index');
-        Route::post('gift-card/{language}', [GiftCardController::class, 'update'])->name('gift-card.update');
+            Route::get('gift-card/{language}', [GiftCardController::class, 'index'])->name('gift-card.index');
+            Route::post('gift-card/{language}', [GiftCardController::class, 'update'])->name('gift-card.update');
 
-    });
+        });
+    // All page related routes
 
-
+    
     Route::resource('profile', ProfileController::class)->only('index', 'update');
     Route::resource('settings', SettingsController::class)->only('index', 'update');
 
@@ -151,6 +154,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                 Route::post('/filter', [ContactCoachController::class, 'filter'])->name('filter');
                 Route::delete('/{contact_coach}', [ContactCoachController::class, 'destroy'])->name('destroy');
             });
+
+            Route::resource('ask-questions', AskQuestionController::class)->except(['create', 'show']);
+            Route::post('ask-questions/filter', [AskQuestionController::class, 'filter'])->name('ask-questions.filter');
         });
     // All communication routes
 

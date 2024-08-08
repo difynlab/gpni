@@ -142,10 +142,12 @@
                     <span>Communications</span>
                 </button>
 
-                <div id="communications-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['contact-coaches']) ? 'show' : '' }}" data-bs-parent="#communications-accordion">
+                <div id="communications-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['contact-coaches', 'ask-questions']) ? 'show' : '' }}" data-bs-parent="#communications-accordion">
                     <div class="accordion-body">
                         <ul>
                             <li><a href="{{ route('backend.communications.contact-coaches.index') }}" class="link {{ Request::segment(3) == 'contact-coaches' ? 'active' : null }}">Contact Coaches</a></li>
+
+                            <li><a href="{{ route('backend.communications.ask-questions.index') }}" class="link {{ Request::segment(3) == 'ask-questions' ? 'active' : null }}">Ask Questions</a></li>
                         </ul>
                     </div>
                 </div>
