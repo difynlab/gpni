@@ -98,18 +98,22 @@
                 </div>
             </div>
 
-            <div class="accordion" id="users-accordion">
-                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#users-data-collapse">
+            <div class="accordion" id="Persons-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Persons-data-collapse">
                     <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
-                    <span>Users</span>
+                    <span>Persons</span>
                 </button>
 
-                <div id="users-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['users', 'nutritionists']) ? 'show' : '' }}" data-bs-parent="#users-accordion">
+                <div id="Persons-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['admins', 'students', 'nutritionists', 'advisory-boards']) ? 'show' : '' }}" data-bs-parent="#Persons-accordion">
                     <div class="accordion-body">
                         <ul>
-                            <li><a href="{{ route('backend.users.index') }}" class="link {{ Request::segment(2) == 'users' ? 'active' : null }}">Users</a></li>
+                            <li><a href="{{ route('backend.persons.admins.index') }}" class="link {{ Request::segment(3) == 'admins' ? 'active' : null }}">Admins</a></li>
 
-                            <li><a href="{{ route('backend.nutritionists.index') }}" class="link {{ Request::segment(2) == 'nutritionists' ? 'active' : null }}">Nutritionists</a></li>
+                            <li><a href="{{ route('backend.persons.students.index') }}" class="link {{ Request::segment(3) == 'students' ? 'active' : null }}">Students</a></li>
+
+                            <li><a href="{{ route('backend.persons.nutritionists.index') }}" class="link {{ Request::segment(3) == 'nutritionists' ? 'active' : null }}">Nutritionists</a></li>
+
+                            <li><a href="{{ route('backend.persons.advisory-boards.index') }}" class="link {{ Request::segment(3) == 'advisory-boards' ? 'active' : null }}">Advisory Boards</a></li>
                         </ul>
                     </div>
                 </div>
@@ -152,13 +156,6 @@
                     </div>
                 </div>
             </div>
-
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
-                    <img src="{{ asset('storage/backend/sidebar/currency.png') }}" alt="Icon">
-                    <span>Currencies</span>
-                </a>
-            </li>
 
             <li>
                 <a href="{{ route('backend.settings.index') }}" class="link {{ Request::segment(2) == 'settings' ? 'active' : null }}">

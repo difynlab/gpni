@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('profile_image')->nullable();
-            $table->string('primary_language')->nullable();
+            $table->string('phone')->nullable()->unique();
+            $table->string('country');
+            $table->enum('language', ['English', 'Chinese', 'Japanese']);
+            $table->string('image')->nullable();
             $table->enum('role', ['admin', 'student']);
             $table->enum('status', [0, 1, 2])->index();
             $table->rememberToken();

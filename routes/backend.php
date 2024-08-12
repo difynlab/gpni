@@ -3,7 +3,6 @@
 use App\Http\Controllers\Backend\Administration\DashboardController;
 use App\Http\Controllers\Backend\Administration\ProfileController;
 use App\Http\Controllers\Backend\Administration\SettingsController;
-use App\Http\Controllers\Backend\Administration\UserController;
 use App\Http\Controllers\Backend\Article\ArticleCategoryController;
 use App\Http\Controllers\Backend\Article\ArticleController;
 use App\Http\Controllers\Backend\Communication\AskQuestionController;
@@ -15,14 +14,18 @@ use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
-use App\Http\Controllers\Backend\Nutritionist\NutritionistController;
 use App\Http\Controllers\Backend\Order\GiftCardOrderController;
+use App\Http\Controllers\Backend\Page\AdvisoryBoardController as PageAdvisoryBoardController;
 use App\Http\Controllers\Backend\Page\GiftCardController;
 use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
+use App\Http\Controllers\Backend\Person\AdminController;
+use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
+use App\Http\Controllers\Backend\Person\NutritionistController;
+use App\Http\Controllers\Backend\Person\StudentController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Promotion\PromotionController;
@@ -54,6 +57,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::get('gift-card/{language}', [GiftCardController::class, 'index'])->name('gift-card.index');
             Route::post('gift-card/{language}', [GiftCardController::class, 'update'])->name('gift-card.update');
 
+            Route::get('advisory-board/{language}', [PageAdvisoryBoardController::class, 'index'])->name('advisory-board.index');
+            Route::post('advisory-board/{language}', [PageAdvisoryBoardController::class, 'update'])->name('advisory-board.update');
         });
     // All page related routes
 
@@ -135,15 +140,27 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
 
     // All users routes
-        // Nutritionists routes
-            Route::resource('nutritionists', NutritionistController::class)->except('show');
-            Route::post('nutritionists/filter', [NutritionistController::class, 'filter'])->name('nutritionists.filter');
-        // Nutritionists routes
+        Route::prefix('persons')->name('persons.')->group(function() {
+            // Nutritionists routes
+                Route::resource('nutritionists', NutritionistController::class)->except('show');
+                Route::post('nutritionists/filter', [NutritionistController::class, 'filter'])->name('nutritionists.filter');
+            // Nutritionists routes
 
-        // Users routes
-            Route::resource('users', UserController::class)->except(['show']);
-            Route::post('users/filter', [UserController::class, 'filter'])->name('users.filter');
-        // Users routes
+            // Students routes
+                Route::resource('students', StudentController::class)->except(['show']);
+                Route::post('students/filter', [StudentController::class, 'filter'])->name('students.filter');
+            // Students routes
+
+            // Admins routes
+                Route::resource('admins', AdminController::class)->except(['show']);
+                Route::post('admins/filter', [AdminController::class, 'filter'])->name('admins.filter');
+            // Admins routes
+
+            // Advisory board routes
+                Route::resource('advisory-boards', PersonAdvisoryBoardController::class)->except('show');
+                Route::post('advisory-boards/filter', [PersonAdvisoryBoardController::class, 'filter'])->name('advisory-boards.filter');
+            // Advisory board routes
+        });
     // All users routes
 
 

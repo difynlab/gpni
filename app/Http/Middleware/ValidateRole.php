@@ -18,7 +18,7 @@ class ValidateRole
     {
         $user = Auth::user();
 
-        if($user->role == $role) {
+        if($user->role == $role && $user->status == '1') {
             return $next($request);
         }
 
@@ -26,8 +26,8 @@ class ValidateRole
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        if ($role == 'admin') {
-            return redirect()->route('backed.login');
+        if($role == 'admin') {
+            return redirect()->route('backend.login');
         }
 
         return redirect()->route('login');

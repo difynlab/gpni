@@ -193,56 +193,87 @@
     width: 300px;
     object-fit: cover;
 }
-.static-pages .chat-box {
-    padding: 4%;
-    background-color: #f1f1f1;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+.static-pages .section .toggle-password {
+    color: #9A9A9A;
+    cursor: pointer;
+    position: absolute;
+    top: 44px;
+    font-size: 20px;
+    right: 25px;
 }
-.static-pages .chat-box .user-single-message {
-    display: flex;
-}
-.static-pages .chat-box .user-single-message .user-profile-image {
-    margin-right: 10px;
-    height: 40px;
-    width: 40px;
-}
-.static-pages .chat-box .user-single-message .user-message {
-    background-color: rgba(0, 64, 195, 0.2);
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-}
-.static-pages .chat-box .admin-single-message {
-    display: flex;
-    justify-content: end;
-}
-.static-pages .chat-box .admin-single-message .admin-profile-image {
-    margin-left: 10px;
-    height: 40px;
-    width: 40px;
-}
-.static-pages .chat-box .admin-single-message .admin-message {
-    background-color: rgba(247, 191, 46, 0.2);
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-}
-.static-pages .chat-box .single-message:last-child {
-    margin-bottom: 0!important;
-}
-.static-pages .chat-box .user-single-message .time {
-    font-size: 11px;
-    color: rgba(153, 153, 153, 0.77);
-    padding-top: 3px;
-}
-.static-pages .chat-box .admin-single-message .time {
-    font-size: 11px;
-    color: rgba(153, 153, 153, 0.77);
-    padding-top: 3px;
-    text-align: end;
-}
+
+
+
+/* Static page chat box styles */
+    .static-pages .chat-box {
+        padding: 4%;
+        background-color: #fbfbfb;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+        overflow-y: scroll;
+        height: 350px;
+    }
+    .static-pages .chat-box .user-single-message {
+        display: flex;
+    }
+    .static-pages .chat-box .user-single-message .user-profile-image {
+        margin-right: 10px;
+        height: 40px;
+        width: 40px;
+    }
+    .static-pages .chat-box .user-single-message .user-message {
+        background-color: rgba(0, 64, 195, 0.2);
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+    .static-pages .chat-box .admin-single-message {
+        display: flex;
+        justify-content: end;
+    }
+    .static-pages .chat-box .admin-single-message .admin-profile-image {
+        margin-left: 10px;
+        height: 40px;
+        width: 40px;
+    }
+    .static-pages .chat-box .admin-single-message .admin-message {
+        background-color: rgba(247, 191, 46, 0.2);
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+    .static-pages .chat-box .single-message:last-child {
+        margin-bottom: 0!important;
+    }
+    .static-pages .chat-box .user-single-message .time {
+        font-size: 11px;
+        color: rgba(153, 153, 153, 0.77);
+        padding-top: 3px;
+    }
+    .static-pages .chat-box .admin-single-message .time {
+        font-size: 11px;
+        color: rgba(153, 153, 153, 0.77);
+        padding-top: 3px;
+        text-align: end;
+    }
+    .static-pages .chat-box::-webkit-scrollbar {
+        width: 12px;
+    }
+    .static-pages .chat-box::-webkit-scrollbar-track {
+        background: #fbfbfb;
+    }
+    .static-pages .chat-box::-webkit-scrollbar-thumb {
+        background-color: #0040C3;
+        border-radius: 10px;
+        border: 3px solid #f1f1f1;
+    }
+    .static-pages .chat-box::-webkit-scrollbar-thumb:hover {
+        background-color: #032c80;
+    }
+/* Static page chat box styles */
+
+
 
 /* Static page table styles */
     .static-pages .page-language {

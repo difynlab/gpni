@@ -9,7 +9,7 @@
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.nutritionists.create') }}" class="add-button">
+                <a href="{{ route('backend.persons.nutritionists.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
                     Add New Nutritionist
                 </a>
@@ -18,7 +18,7 @@
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.nutritionists.filter') }}" method="POST" class="filter-form">
+                <form action="{{ route('backend.persons.nutritionists.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
                         <div class="col-5">
@@ -52,6 +52,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <td scope="col">Image</td>
                             <th scope="col">Name</th>
                             <th scope="col">Language</th>
                             <th scope="col">Certificate Number</th>
@@ -66,6 +67,7 @@
                             @foreach($nutritionists as $nutritionist)
                                 <tr>
                                     <td>#{{ $nutritionist->id }}</td>
+                                    <td>{!! $nutritionist->image !!}</td>
                                     <td>{{ $nutritionist->name }}</td>
                                     <td>{{ $nutritionist->language }}</td>
                                     <td>{{ $nutritionist->certificate_number }}</td>
@@ -97,7 +99,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.nutritionists.destroy', [':id']) }}";
+                let url = "{{ route('backend.persons.nutritionists.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);

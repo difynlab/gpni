@@ -75,7 +75,7 @@
                         
                         <div>
                             <label for="message" class="form-label">Message<span class="asterisk">*</span></label>
-                            <textarea class="form-control" rows="5" id="message" name="message" value="{{ old('message') }}" placeholder="Message" required>{{ old('message') }}</textarea>
+                            <textarea class="form-control" rows="3" id="message" name="message" value="{{ old('message') }}" placeholder="Message" required>{{ old('message') }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -90,3 +90,12 @@
     </div>
 
 @endsection
+
+@push('after-scripts')
+    <script>
+        $(document).ready(function() {
+            var chatBox = $('.chat-box');
+            chatBox.scrollTop(chatBox[0].scrollHeight);
+        });
+    </script>
+@endpush

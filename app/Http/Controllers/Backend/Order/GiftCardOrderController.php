@@ -58,7 +58,10 @@ class GiftCardOrderController extends Controller
         }
 
         if($buyer_receiver_name != null) {
-            $gift_card_orders->where('buyer_name', 'like', '%' . $buyer_receiver_name . '%')->orWhere('receiver_name', 'like', '%' . $buyer_receiver_name . '%');
+            $gift_card_orders->where(function ($query) use ($buyer_receiver_name) {
+                $query->where('buyer_name', 'like', '%' . $buyer_receiver_name . '%')
+                    ->orWhere('receiver_name', 'like', '%' . $buyer_receiver_name . '%');
+            });
         }
 
         if($date != null) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Nutritionist;
+namespace App\Http\Controllers\Backend\Person;
 
 use App\Http\Controllers\Controller;
 use App\Models\Nutritionist;
@@ -15,8 +15,10 @@ class NutritionistController extends Controller
     {
         foreach($nutritionists as $nutritionist) {
             $nutritionist->action = '
-            <a href="'. route('backend.nutritionists.edit', $nutritionist->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
+            <a href="'. route('backend.persons.nutritionists.edit', $nutritionist->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$nutritionist->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+
+            $nutritionist->image = $nutritionist->image != null ? '<img src="'. asset('storage/backend/persons/nutritionists/' . $nutritionist->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/no-image.jpg') .'" class="table-image">';
 
             $nutritionist->cec_status = ($nutritionist->cec_status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
 
@@ -33,7 +35,7 @@ class NutritionistController extends Controller
         $nutritionists = Nutritionist::where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
         $nutritionists = $this->processNutritionists($nutritionists);
 
-        return view('backend.nutritionists.index', [
+        return view('backend.persons.nutritionists.index', [
             'nutritionists' => $nutritionists,
             'items' => $items
         ]);
@@ -296,7 +298,7 @@ class NutritionistController extends Controller
             "Zimbabwe"
         ];
 
-        return view('backend.nutritionists.create', [
+        return view('backend.persons.nutritionists.create', [
             'countries' => $countries
         ]);
     }
@@ -316,7 +318,7 @@ class NutritionistController extends Controller
         if($request->file('new_image') != null) {
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/backend/nutritionists', $image_name);
+            $image->storeAs('public/backend/persons/nutritionists', $image_name);
         }
         else {
             $image_name = $request->old_image;
@@ -329,7 +331,7 @@ class NutritionistController extends Controller
         $data['image'] = $image_name;
         $nutritionist->create($data);
 
-        return redirect()->route('backend.nutritionists.index')->with('success', 'Successfully created!');
+        return redirect()->route('backend.persons.nutritionists.index')->with('success', 'Successfully created!');
     }
 
     public function edit(Nutritionist $nutritionist)
@@ -589,7 +591,7 @@ class NutritionistController extends Controller
             "Zimbabwe"
         ];
 
-        return view('backend.nutritionists.edit', [
+        return view('backend.persons.nutritionists.edit', [
             'nutritionist' => $nutritionist,
             'countries' => $countries
         ]);
@@ -609,12 +611,12 @@ class NutritionistController extends Controller
 
         if($request->file('new_image') != null) {
             if($request->old_image) {
-                Storage::delete('public/backend/nutritionists/' . $request->old_image);
+                Storage::delete('public/backend/persons/nutritionists/' . $request->old_image);
             }
 
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/backend/nutritionists', $image_name);
+            $image->storeAs('public/backend/persons/nutritionists', $image_name);
         }
         else {
             $image_name = $request->old_image;
@@ -626,7 +628,7 @@ class NutritionistController extends Controller
         $data['image'] = $image_name;
         $nutritionist->fill($data)->save();
         
-        return redirect()->route('backend.nutritionists.index')->with('success', "Successfully updated!");
+        return redirect()->route('backend.persons.nutritionists.index')->with('success', "Successfully updated!");
     }
 
     public function destroy(Nutritionist $nutritionist)
@@ -640,7 +642,7 @@ class NutritionistController extends Controller
     public function filter(Request $request)
     {
         if($request->action == 'reset') {
-            return redirect()->route('backend.nutritionists.index');
+            return redirect()->route('backend.persons.nutritionists.index');
         }
 
         $name = $request->name;
@@ -660,7 +662,7 @@ class NutritionistController extends Controller
         $nutritionists = $nutritionists->paginate($items);
         $nutritionists = $this->processNutritionists($nutritionists);
 
-        return view('backend.nutritionists.index', [
+        return view('backend.persons.nutritionists.index', [
             'nutritionists' => $nutritionists,
             'items' => $items,
             'name' => $name,

@@ -7,7 +7,7 @@
     <x-backend.breadcrumb page_name="Edit Nutritionist"></x-backend.breadcrumb>
 
     <div class="static-pages">
-        <form action="{{ route('backend.nutritionists.update', $nutritionist) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('backend.persons.nutritionists.update', $nutritionist) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="col-12">
-                        <x-backend.upload-image old_name="old_image" old_value="{{ $nutritionist->image ?? old('image') }}" new_name="new_image" path="nutritionists"></x-backend.upload-image>
+                        <x-backend.upload-image old_name="old_image" old_value="{{ $nutritionist->image ?? old('image') }}" new_name="new_image" path="persons/nutritionists"></x-backend.upload-image>
                         <x-backend.input-error field="new_image"></x-backend.input-error>
                     </div>
                 </div>
