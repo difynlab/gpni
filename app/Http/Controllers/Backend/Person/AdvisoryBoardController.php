@@ -18,7 +18,7 @@ class AdvisoryBoardController extends Controller
             <a href="'. route('backend.persons.advisory-boards.edit', $advisory_board->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$advisory_board->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $advisory_board->image = $advisory_board->image != null ? '<img src="'. asset('storage/backend/persons/advisory_boards/' . $advisory_board->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/no-image.jpg') .'" class="table-image">';
+            $advisory_board->image = $advisory_board->image != null ? '<img src="'. asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/no-image.jpg') .'" class="table-image">';
 
             $advisory_board->status = ($advisory_board->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }
@@ -62,7 +62,7 @@ class AdvisoryBoardController extends Controller
         if($request->file('new_image') != null) {
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/backend/persons/advisory_boards', $image_name);
+            $image->storeAs('public/backend/persons/advisory-boards', $image_name);
         }
         else {
             $image_name = $request->old_image;
@@ -99,12 +99,12 @@ class AdvisoryBoardController extends Controller
 
         if($request->file('new_image') != null) {
             if($request->old_image) {
-                Storage::delete('public/backend/persons/advisory_boards/' . $request->old_image);
+                Storage::delete('public/backend/persons/advisory-boards/' . $request->old_image);
             }
 
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/backend/persons/advisory_boards', $image_name);
+            $image->storeAs('public/backend/persons/advisory-boards', $image_name);
         }
         else {
             $image_name = $request->old_image;

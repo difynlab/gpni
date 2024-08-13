@@ -20,10 +20,12 @@ use App\Http\Controllers\Backend\Page\GiftCardController;
 use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
+use App\Http\Controllers\Backend\Page\ISSNPartnerController as PageISSNPartnerController;
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
 use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
+use App\Http\Controllers\Backend\Person\ISSNPartnerController as PersonISSNPartnerController;
 use App\Http\Controllers\Backend\Person\NutritionistController;
 use App\Http\Controllers\Backend\Person\StudentController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
@@ -59,6 +61,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
             Route::get('advisory-board/{language}', [PageAdvisoryBoardController::class, 'index'])->name('advisory-board.index');
             Route::post('advisory-board/{language}', [PageAdvisoryBoardController::class, 'update'])->name('advisory-board.update');
+
+            Route::get('issn-partner/{language}', [PageISSNPartnerController::class, 'index'])->name('issn-partner.index');
+            Route::post('issn-partner/{language}', [PageISSNPartnerController::class, 'update'])->name('issn-partner.update');
         });
     // All page related routes
 
@@ -160,6 +165,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                 Route::resource('advisory-boards', PersonAdvisoryBoardController::class)->except('show');
                 Route::post('advisory-boards/filter', [PersonAdvisoryBoardController::class, 'filter'])->name('advisory-boards.filter');
             // Advisory board routes
+
+            // ISSN partner routes
+                Route::resource('issn-partners', PersonISSNPartnerController::class)->except('show');
+                Route::post('issn-partners/filter', [PersonISSNPartnerController::class, 'filter'])->name('issn-partners.filter');
+            // ISSN partner routes
         });
     // All users routes
 

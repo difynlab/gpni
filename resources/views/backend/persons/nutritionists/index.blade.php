@@ -52,7 +52,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <td scope="col">Image</td>
+                            <th scope="col">Image</th>
                             <th scope="col">Name</th>
                             <th scope="col">Language</th>
                             <th scope="col">Certificate Number</th>
@@ -78,7 +78,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7" style="text-align: center;">No data available in table</td>
+                                <td colspan="8" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>

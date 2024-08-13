@@ -104,7 +104,7 @@
                     <span>Persons</span>
                 </button>
 
-                <div id="Persons-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['admins', 'students', 'nutritionists', 'advisory-boards']) ? 'show' : '' }}" data-bs-parent="#Persons-accordion">
+                <div id="Persons-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['admins', 'students', 'nutritionists', 'advisory-boards', 'issn-partners']) ? 'show' : '' }}" data-bs-parent="#Persons-accordion">
                     <div class="accordion-body">
                         <ul>
                             <li><a href="{{ route('backend.persons.admins.index') }}" class="link {{ Request::segment(3) == 'admins' ? 'active' : null }}">Admins</a></li>
@@ -114,17 +114,12 @@
                             <li><a href="{{ route('backend.persons.nutritionists.index') }}" class="link {{ Request::segment(3) == 'nutritionists' ? 'active' : null }}">Nutritionists</a></li>
 
                             <li><a href="{{ route('backend.persons.advisory-boards.index') }}" class="link {{ Request::segment(3) == 'advisory-boards' ? 'active' : null }}">Advisory Boards</a></li>
+
+                            <li><a href="{{ route('backend.persons.issn-partners.index') }}" class="link {{ Request::segment(3) == 'issn-partners' ? 'active' : null }}">ISSN Partners</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <li>
-                <a href="#" class="link {{ Request::segment(2) == '' ? 'active' : null }}">
-                    <img src="{{ asset('storage/backend/sidebar/partner.png') }}" alt="Icon">
-                    <span>Partners</span>
-                </a>
-            </li>
 
             <li>
                 <a href="{{ route('backend.testimonials.index') }}" class="link {{ Request::segment(2) == 'testimonials' ? 'active' : null }}">

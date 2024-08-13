@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             WhyWeAreDifferentContentSeeder::class,
             HistoryOfGpniContentSeeder::class,
             GiftCardContentSeeder::class,
-            AdvisoryBoardContentSeeder::class
+            AdvisoryBoardContentSeeder::class,
+            ISSNPartnerContentSeeder::class
         ]);
     }
 }
