@@ -13,14 +13,24 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
-            $table->string('address');
-            $table->string('postal_code');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('mobile');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->string('logo');
             $table->string('favicon');
+
+            $table->string('fb')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('weibo')->nullable();
+            $table->string('weixin')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('linkedin')->nullable();
+
+            $table->string('guest_image');
+            $table->string('no_image');
+            $table->string('no_profile_image');
+            
             $table->timestamps();
         });
     }

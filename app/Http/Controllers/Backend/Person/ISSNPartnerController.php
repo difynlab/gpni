@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Person;
 
 use App\Http\Controllers\Controller;
 use App\Models\ISSNPartner;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -18,7 +19,7 @@ class ISSNPartnerController extends Controller
             <a href="'. route('backend.persons.issn-partners.edit', $issn_partner->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$issn_partner->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $issn_partner->image = $issn_partner->image != null ? '<img src="'. asset('storage/backend/persons/issn-partners/' . $issn_partner->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/no-image.jpg') .'" class="table-image">';
+            $issn_partner->image = $issn_partner->image != null ? '<img src="'. asset('storage/backend/persons/issn-partners/' . $issn_partner->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/common/' . Setting::find(1)->no_image) .'" class="table-image">';
 
             $issn_partner->status = ($issn_partner->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }

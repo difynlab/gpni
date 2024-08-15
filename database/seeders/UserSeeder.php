@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'last_name' => 'GPNI',
             'email' => 'admin@gpni.com',
             'password' => bcrypt('secret'),
-            'country' => 'USA',
+            'country' => 'United States',
             'language' => 'English',
             'role' => 'admin',
             'status' => '1',

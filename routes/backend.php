@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Administration\DashboardController;
-use App\Http\Controllers\Backend\Administration\ProfileController;
+use App\Http\Controllers\Backend\Administration\MyProfileController;
 use App\Http\Controllers\Backend\Administration\SettingsController;
 use App\Http\Controllers\Backend\Article\ArticleCategoryController;
 use App\Http\Controllers\Backend\Article\ArticleController;
@@ -67,9 +67,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         });
     // All page related routes
 
-    
-    Route::resource('profile', ProfileController::class)->only('index', 'update');
-    Route::resource('settings', SettingsController::class)->only('index', 'update');
+
+    // All administrations routes
+        Route::resource('my-profile', MyProfileController::class)->only('index', 'update');
+        Route::resource('settings', SettingsController::class)->only('index', 'update');
+    // All administrations routes
 
 
     // All course related routes

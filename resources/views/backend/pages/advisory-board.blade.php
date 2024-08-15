@@ -16,7 +16,7 @@
                 <p class="inner-page-title">Introduction</p>
 
                 <div class="row form-input">
-                    <div class="col-6 left-column">
+                    <div class="col-12">
                         <div class="mb-4">
                             <label for="title_{{ $short_code }}" class="form-label">Title</label>
                             <input type="text" class="form-control" id="title_{{ $short_code }}" name="title_{{ $short_code }}" value="{{ $contents->{'title_' . $short_code} ?? '' }}" placeholder="Title">

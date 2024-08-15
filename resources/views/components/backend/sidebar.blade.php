@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <a href="{{ route('backend.dashboard.index') }}">
-        <img src="{{ asset('storage/backend/logo.png') }}" alt="Logo" class="logo">
+        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->logo) }}" alt="Logo" class="logo">
     </a>
 
     <div class="gradient-line"></div>
@@ -152,12 +152,22 @@
                 </div>
             </div>
 
-            <li>
-                <a href="{{ route('backend.settings.index') }}" class="link {{ Request::segment(2) == 'settings' ? 'active' : null }}">
+            <div class="accordion" id="administrations-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#administrations-data-collapse">
                     <img src="{{ asset('storage/backend/sidebar/settings.png') }}" alt="Icon">
-                    <span>Settings</span>
-                </a>
-            </li>
+                    <span>Administrations</span>
+                </button>
+
+                <div id="administrations-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['settings', 'my-profile']) ? 'show' : '' }}" data-bs-parent="#administrations-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.settings.index') }}" class="link {{ Request::segment(2) == 'settings' ? 'active' : null }}">Settings</a></li>
+
+                            <li><a href="{{ route('backend.my-profile.index') }}" class="link {{ Request::segment(2) == 'my-profile' ? 'active' : null }}">My Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </ul>
     </div>
 </nav>

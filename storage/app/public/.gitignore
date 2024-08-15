@@ -11,4 +11,4 @@
 !/backend/sidebar/**
 
 # Include images with a dot in their name in the backend folder
-!/backend/*.*
+# !/backend/*.*

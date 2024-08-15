@@ -21,10 +21,10 @@
     <div class="col-2">
         <div class="row align-items-center">
             <div class="col-5">
-                @if(auth()->user()->profile_image != null)
-                    <img src="{{ asset('storage/backend/' . auth()->user()->profile_image) }}" alt="Image" class="profile-image">
+                @if(auth()->user()->image)
+                    <img src="{{ asset('storage/backend/persons/admins/' . auth()->user()->image) }}" alt="Image" class="profile-image">
                 @else
-                    <img src="{{ asset('storage/backend/no-image.jpg') }}" alt="Image" class="profile-image">
+                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Image" class="profile-image">
                 @endif
             </div>
             <div class="col-7">
