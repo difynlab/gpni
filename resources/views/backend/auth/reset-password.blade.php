@@ -30,6 +30,8 @@
             </div>
 
             <div class="form-input">
+                <input type="hidden" name="email" value="{{ $email }}">
+                <input type="hidden" name="token" value="{{ $token }}">
                 <button type="submit" class="submit-button" disabled>Reset Password</button>
             </div>
         </form>

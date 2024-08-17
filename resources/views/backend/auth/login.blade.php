@@ -5,13 +5,13 @@
 @section('content')
 
     <div class="form">
+        <x-backend.notification></x-backend.notification>
+
         <h3 class="title">Get Started Now</h3>
         <p class="subtitle">Enter your credentials to access your account</p>
 
         <form method="POST" action="{{ route('backend.login.store') }}">
             @csrf
-
-            <x-backend.notification></x-backend.notification>
 
             <div class="form-input">
                 <label for="email" class="form-label">Email Address</label>

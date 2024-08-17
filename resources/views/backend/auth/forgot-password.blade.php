@@ -5,6 +5,8 @@
 @section('content')
 
     <div class="form forgot-password">
+        <x-backend.notification></x-backend.notification>
+
         <h3 class="title">Forgot Password?</h3>
         <p class="subtitle">Enter your email to get a password reset link</p>
 
