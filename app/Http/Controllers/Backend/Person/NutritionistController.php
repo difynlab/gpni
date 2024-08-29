@@ -19,7 +19,7 @@ class NutritionistController extends Controller
             <a href="'. route('backend.persons.nutritionists.edit', $nutritionist->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$nutritionist->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $nutritionist->image = $nutritionist->image != null ? '<img src="'. asset('storage/backend/persons/nutritionists/' . $nutritionist->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/common/' . Setting::find(1)->no_image) .'" class="table-image">';
+            $nutritionist->image = $nutritionist->image != null ? '<img src="'. asset('storage/backend/persons/nutritionists/' . $nutritionist->image) .'" class="table-image">' : '<img src="'. asset('storage/common/' . Setting::find(1)->no_image) .'" class="table-image">';
 
             $nutritionist->cec_status = ($nutritionist->cec_status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
 

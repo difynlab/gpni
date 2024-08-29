@@ -33,6 +33,7 @@ return new class extends Migration
             $table->text('section_6_label_link_en')->nullable();
             $table->text('section_7_title_en')->nullable();
             $table->text('section_7_description_en')->nullable();
+            $table->text('section_7_label_link_en')->nullable();
             $table->text('section_8_title_en')->nullable();
             $table->text('section_8_description_en')->nullable();
             $table->text('section_8_labels_links_en')->nullable();
@@ -58,6 +59,7 @@ return new class extends Migration
             $table->text('section_6_label_link_zh')->nullable();
             $table->text('section_7_title_zh')->nullable();
             $table->text('section_7_description_zh')->nullable();
+            $table->text('section_7_label_link_zh')->nullable();
             $table->text('section_8_title_zh')->nullable();
             $table->text('section_8_description_zh')->nullable();
             $table->text('section_8_labels_links_zh')->nullable();
@@ -83,6 +85,7 @@ return new class extends Migration
             $table->text('section_6_label_link_ja')->nullable();
             $table->text('section_7_title_ja')->nullable();
             $table->text('section_7_description_ja')->nullable();
+            $table->text('section_7_label_link_ja')->nullable();
             $table->text('section_8_title_ja')->nullable();
             $table->text('section_8_description_ja')->nullable();
             $table->text('section_8_labels_links_ja')->nullable();

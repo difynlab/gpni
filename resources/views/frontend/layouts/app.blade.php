@@ -10,19 +10,18 @@
         <link rel="icon" href="{{ asset('storage/favicon.png') }}">
         
         @stack('before-styles')
-            <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}"></link>
+            <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-            <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}"></link>
+            <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
         @stack('after-styles')
     </head>
 
 
     <body>
-
         <x-frontend.navigation></x-frontend.navigation>
         @yield('content')
         <x-frontend.footer></x-frontend.footer>
-            
 
         @stack('before-scripts')
             <script src="{{ asset('frontend/js/jquery.js') }}"></script>

@@ -210,6 +210,20 @@
                     </div>
                 </div>
 
+                <div class="row form-input">
+                    <div class="col-3">
+                        <label class="form-label">Button Label</label>
+
+                        <input class="form-control mb-3" type="text" name="section_7_button_label" value="{{ json_decode($contents->{'section_7_label_link_' . $short_code})->label ?? '' }}" placeholder="Label">
+                    </div>
+
+                    <div class="col-9">
+                        <label class="form-label">Link</label>
+
+                        <input class="form-control mb-3" type="text" name="section_7_button_link" value="{{ json_decode($contents->{'section_7_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
+                    </div>
+                </div>
+
                 <div class="form-input">
                     <button type="submit" class="submit-button">Save the changes</button>
                 </div>

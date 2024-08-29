@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\Frontend\DashboardController;
-use App\Http\Controllers\Frontend\HistoryOfGpniController;
-use App\Http\Controllers\Frontend\HomepageController;
+use App\Http\Controllers\Frontend\Pages\HomepageController;
+use App\Http\Controllers\Frontend\LanguageController;
+use App\Http\Controllers\Frontend\Pages\HistoryOfGpniController;
+use App\Http\Controllers\Frontend\Student\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/frontend-auth.php';
+
+Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set-language');
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 

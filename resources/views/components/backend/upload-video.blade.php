@@ -23,7 +23,7 @@
 
     <div class="video-preview">
         @if($old_value)
-             <video src="{{ asset('storage/' . $path . '/' . $old_value) }}" controls></video>
+             <video src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}" controls></video>
         @endif
     </div>
 </div>

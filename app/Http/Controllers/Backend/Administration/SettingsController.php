@@ -44,12 +44,12 @@ class SettingsController extends Controller
         // Logo
             if($request->file('new_logo')) {
                 if($request->old_logo) {
-                    Storage::delete('public/backend/common/' . $request->old_logo);
+                    Storage::delete('public/common/' . $request->old_logo);
                 }
 
                 $new_logo = $request->file('new_logo');
                 $logo_name = 'logo.' . $new_logo->getClientOriginalExtension();
-                $new_logo->storeAs('public/backend/common', $logo_name);
+                $new_logo->storeAs('public/common', $logo_name);
             }
             else {
                 if($setting->logo) {
@@ -64,12 +64,12 @@ class SettingsController extends Controller
         // Favicon
             if($request->file('new_favicon')) {
                 if($request->old_favicon) {
-                    Storage::delete('public/backend/common/' . $request->old_favicon);
+                    Storage::delete('public/common/' . $request->old_favicon);
                 }
 
                 $new_favicon = $request->file('new_favicon');
                 $favicon_name = 'favicon.' . $new_favicon->getClientOriginalExtension();
-                $new_favicon->storeAs('public/backend/common', $favicon_name);
+                $new_favicon->storeAs('public/common', $favicon_name);
             }
             else {
                 if($setting->favicon) {
@@ -84,12 +84,12 @@ class SettingsController extends Controller
         // Guest image
             if($request->file('new_guest_image')) {
                 if($request->old_guest_image) {
-                    Storage::delete('public/backend/common/' . $request->old_guest_image);
+                    Storage::delete('public/common/' . $request->old_guest_image);
                 }
 
                 $new_guest_image = $request->file('new_guest_image');
                 $guest_image_name = 'guest-image.' . $new_guest_image->getClientOriginalExtension();
-                $new_guest_image->storeAs('public/backend/common', $guest_image_name);
+                $new_guest_image->storeAs('public/common', $guest_image_name);
             }
             else {
                 if($setting->guest_image) {
@@ -104,12 +104,12 @@ class SettingsController extends Controller
         // No image
             if($request->file('new_no_image')) {
                 if($request->old_no_image) {
-                    Storage::delete('public/backend/common/' . $request->old_no_image);
+                    Storage::delete('public/common/' . $request->old_no_image);
                 }
 
                 $new_no_image = $request->file('new_no_image');
                 $no_image_name = 'no-image.' . $new_no_image->getClientOriginalExtension();
-                $new_no_image->storeAs('public/backend/common', $no_image_name);
+                $new_no_image->storeAs('public/common', $no_image_name);
             }
             else {
                 if($setting->no_image) {
@@ -124,12 +124,12 @@ class SettingsController extends Controller
         // No profile image
             if($request->file('new_no_profile_image')) {
                 if($request->old_no_profile_image) {
-                    Storage::delete('public/backend/common/' . $request->old_no_profile_image);
+                    Storage::delete('public/common/' . $request->old_no_profile_image);
                 }
 
                 $new_no_profile_image = $request->file('new_no_profile_image');
                 $no_profile_image_name = 'no-profile-image.' . $new_no_profile_image->getClientOriginalExtension();
-                $new_no_profile_image->storeAs('public/backend/common', $no_profile_image_name);
+                $new_no_profile_image->storeAs('public/common', $no_profile_image_name);
             }
             else {
                 if($setting->no_profile_image) {

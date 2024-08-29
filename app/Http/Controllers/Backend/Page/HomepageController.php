@@ -141,6 +141,13 @@ class HomepageController extends Controller
             ];
         // Section 6 labels & links
 
+        // Section 7 labels & links
+            $section_7_label_link = [
+                'label' => $request->section_7_button_label,
+                'link' => $request->section_7_button_link
+            ];
+        // Section 7 labels & links
+
         // Section 8 labels & links
             $section_8_labels_links = [];
             foreach($request->section_8_button_labels as $key => $section_8_button_label) {
@@ -162,6 +169,8 @@ class HomepageController extends Controller
             'new_section_5_images',
             'section_6_button_label',
             'section_6_button_link',
+            'section_7_button_label',
+            'section_7_button_link',
             'section_8_button_labels',
             'section_8_button_links'
         );
@@ -187,6 +196,7 @@ class HomepageController extends Controller
         $data['section_2_points_' . '' . $short_code] = json_encode($data['section_2_points_' . '' . $short_code]);
         $data['section_5_images_' . '' . $short_code] = $section_5_images;
         $data['section_6_label_link_' . '' . $short_code] = json_encode($section_6_label_link);
+        $data['section_7_label_link_' . '' . $short_code] = json_encode($section_7_label_link);
         $data['section_8_labels_links_' . '' . $short_code] = json_encode($section_8_labels_links);
 
         $contents->fill($data)->save();

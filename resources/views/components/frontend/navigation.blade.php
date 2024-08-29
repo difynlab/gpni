@@ -1,94 +1,162 @@
-<div class="container-xxl bg-white p-0">
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
+<div class="container-xxl bg-white position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 py-3 py-lg-2 sticky-top">
 
+        <a href="{{ route('frontend.homepage') }}" class="navbar-brand ps-2">
+            <img src="{{ asset('storage/common/' . App\Models\Setting::find(1)->logo) }}" alt="Logo">
+        </a>
 
-    <!-- Navbar & Hero Start -->
-    <div class="container-xxl position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light px-4 py-3 py-lg-2 sticky-top">
-            <a href="" class="navbar-brand ps-2">
-                <img src="img/logo.png" alt="Logo" width="70%" height="70%">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0 justify-content-end">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">Education</a>
-                    <a href="service.html" class="nav-item nav-link">About</a>
-                    <a href="contact.html" class="nav-item nav-link">Partners</a>
-                    <a href="contact.html" class="nav-item nav-link">Nutritionists</a>
-                    <!-- Search Icon -->
-                    <a href="#" class="nav-item nav-link">
-                        <i class="bi bi-search"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 justify-content-end">
+
+                <a href="{{ route('frontend.homepage') }}" class="nav-item nav-link">Home</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="educationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Education</a>
+
+                    <ul class="dropdown-menu" aria-labelledby="educationDropdown">
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#">International Courses</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="pne-level-1.html">PNE Level 1 + SNS</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="pne-level-2.html">PNE Level 2 Masters + CISSN</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="master-classes.html">Master Classes</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('frontend.history-of-gpni') }}">The History of GPNI</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/about/why_different.html">Why We Are Different</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/about/Advisoryboard2.html">Advisory Board & Expert Lectures</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/about/faq.html">FAQ</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/about/membership.html">Membership</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/about/policies.html">Our Policies</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="partnersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Partners</a>
+
+                    <ul class="dropdown-menu" aria-labelledby="partnersDropdown">
+                        <li>
+                            <a class="dropdown-item" href="/pages/Partners/Insurance.html">Insurance & Professional Membership</a>
+                            </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/Partners/GPNI Global Education Partners.html">Approved Education Partners</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/Partners/ISSN Official Partners Affiliates.html">ISSN Official Partners & Affiliates</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/pages/Partners/ISSN Official Partners Affiliates.html">Regional & Branding Partners</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <a href="#" class="nav-item nav-link">Nutritionists</a>
+
+                <a href="#" class="nav-item nav-link">
+                    <i class="bi bi-search"></i>
+                </a>
+
+                <a href="#" class="nav-item nav-link position-relative">
+                    <i class="bi bi-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
+                </a>
+
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                        <div class="btn btn-primary px-4">Login</div>
                     </a>
-                    <!-- Cart Icon with Badge -->
-                    <a href="#" class="nav-item nav-link position-relative">
-                        <i class="bi bi-cart"></i>
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0<span
-                                class="visually-hidden">unread
-                                messages</span></span>
+                </div>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="flag-icon">
+                            <img src="{{ asset('storage/frontend/flags/english.svg') }}" alt="English Flag" width="25px" height="18px">
+                        </span>
+                        <i class="bi bi-chevron-down" style="font-size: 0.7rem; color: black;"></i>
                     </a>
-                    <!-- Login Button -->
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">
-                            <div class="btn btn-primary px-4">Login</div>
-                        </a>
-                    </div>
-                    <!-- Country Flag with Dropdown Icon -->
-                    <!-- Trigger Modal -->
-                    <div class="nav-item">
-                        <a class="nav-link" href="#" id="flagModalTrigger" role="button" data-bs-toggle="modal"
-                            data-bs-target="#countrySelectModal">
-                            <div class="flag">
-                                <span class="flag-icon">
-                                    <img src="img/united-states.webp" alt="United States Flag" width="25px"
-                                        height="18px">
-                                </span>
-                                <i class="bi bi-chevron-down" style="font-size: 0.7rem; color: black;"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
 
-        <!-- Modal Start-->
-        <div class="modal fade" id="countrySelectModal" tabindex="-1" aria-labelledby="countrySelectModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title text-center py-5" id="countrySelectModalLabel" style="flex-grow: 1;">
-                            Select Your Location</h1>
-                        <button type="button" class="btn-close position-absolute btn-close-custom"
-                            data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-center align-items-center flex-wrap">
-                            <div class="form-group px-2 py-3 flex-grow-1" style="max-width: 500px;">
-                                <input type="text" class="form-control search-input" id="searchCountry"
-                                    placeholder="Search for country">
-                            </div>
-                            <!-- Filter Icon -->
-                            <div class="filter-icon d-flex align-items-center px-2">
-                                <img src="img/filter.svg" alt="Filter Icon" class="img-fluid" style="max-height: 32px;">
-                            </div>
-                        </div>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="en">
+                                <img src="{{ asset('storage/frontend/flags/english.svg') }}" alt="English Flag" width="25px" height="18px" class="me-2">
+                                <span>English</span>
+                            </a>
+                        </li>
 
-                        <div class="countries-container"></div>
-                    </div>
-                </div>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="zh">
+                                <img src="{{ asset('storage/frontend/flags/chinese.svg') }}" alt="Chinese Flag" width="25px" height="18px" class="me-2">
+                                <span>Chinese</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="ja">
+                                <img src="{{ asset('storage/frontend/flags/japanese.svg') }}" alt="Japanese Flag" width="25px" height="18px" class="me-2">
+                                <span>Japanese</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </div>
         </div>
-        <!-- Modal End-->
-    </div>
+    </nav>
 </div>
+
+@push('after-scripts')
+    <script>
+        document.querySelectorAll('.language-option').forEach(function(element) {
+            element.addEventListener('click', function(event) {
+                event.preventDefault();
+                var lang = this.getAttribute('data-lang');
+                var route = '{{ route("frontend.set-language") }}';
+                csrfToken = '{{ csrf_token() }}';
+
+                $.ajax({
+                    url: route,
+                    method: 'POST',
+                    data: {
+                        language: lang,
+                        _token: csrfToken
+                    },
+                    success: function(data) {
+                        if(data.success) {
+                            location.reload();
+                        }
+                    },
+                    error: function() {
+                        alert('Error setting language!');
+                    }
+                });
+            });
+        });
+    </script>
+@endpush
