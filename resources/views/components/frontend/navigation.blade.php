@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light px-4 py-3 py-lg-2 sticky-top">
 
         <a href="{{ route('frontend.homepage') }}" class="navbar-brand ps-2">
-            <img src="{{ asset('storage/common/' . App\Models\Setting::find(1)->logo) }}" alt="Logo">
+            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->logo) }}" alt="Logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

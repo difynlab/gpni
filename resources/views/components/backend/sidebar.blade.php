@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <a href="{{ route('backend.dashboard.index') }}">
-        <img src="{{ asset('storage/common/' . App\Models\Setting::find(1)->logo) }}" alt="Logo" class="logo">
+        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->logo) }}" alt="Logo" class="logo">
     </a>
 
     <div class="gradient-line"></div>
