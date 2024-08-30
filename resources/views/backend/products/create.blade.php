@@ -30,7 +30,7 @@
                             </select>
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="language" name="language" required>
                                 <option value="">Select language</option>
@@ -38,6 +38,20 @@
                                 <option value="Chinese" {{ old('language') == 'Chinese' ? 'selected' : '' }}>Chinese</option>
                                 <option value="Japanese" {{ old('language') == 'Japanese' ? 'selected' : '' }}>Japanese</option>
                             </select>
+                        </div>
+
+                        <div>
+                            <label for="type" class="form-label">Type<span class="asterisk">*</span></label>
+                            <select class="form-control form-select" id="type" name="type" required>
+                                <option value="">Select Type</option>
+                                <option value="Own" {{ old('type') == 'Own' ? 'selected' : '' }}>Own</option>
+                                <option value="Affiliate" {{ old('type') == 'Affiliate' ? 'selected' : '' }}>Affiliate</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mt-4 affiliate-link">
+                            <label for="affiliate-link" class="form-label">Affiliate Link<span class="asterisk">*</span></label>
+                            <input type="url" class="form-control" id="affiliate-link" name="affiliate_link" placeholder="Affiliate Link">
                         </div>
                     </div>
                     <div class="col-5 full-height">
@@ -201,6 +215,23 @@
                             </div>
                         </div>`;
             $row.parent().append(html);
+        });
+
+        function toggleAffiliateLink() {
+            if($('#type').val() === 'Affiliate') {
+                $('.affiliate-link').show();
+                $('#affiliate-link').attr('required', true);
+            }
+            else {
+                $('.affiliate-link').hide();
+                $('#affiliate-link').removeAttr('required').val('');
+            }
+        }
+
+        toggleAffiliateLink();
+
+        $('#type').change(function() {
+            toggleAffiliateLink();
         });
     </script>
 @endpush

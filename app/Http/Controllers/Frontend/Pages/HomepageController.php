@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\FAQ;
 use App\Models\HomepageContent;
 
@@ -11,7 +12,7 @@ class HomepageController extends Controller
     public function index()
     {
         $contents = HomepageContent::find(1);
-        $language = session('app_locale', 'en');
+        $language = session('language', 'en');
 
         switch($language){
             case 'en':
@@ -28,11 +29,13 @@ class HomepageController extends Controller
                 break;
         }
 
+        $courses = Course::where('language', $language_name)->where('status', '1')->get();
         $faqs = FAQ::where('language', $language_name)->where('status', '1')->get();
 
         return view('frontend.pages.homepage', [
             'contents' => $contents,
             'language' => $language,
+            'courses' => $courses,
             'faqs' => $faqs
         ]);
     }

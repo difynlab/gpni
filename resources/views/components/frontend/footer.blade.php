@@ -2,7 +2,7 @@
     <div class="container py-5">
         <div class="row py-3">
             <div class="col-md-4 text-start">
-                <img src="{{ asset('storage/frontend/footer/gpni-white.png') }}" alt="GPNi" style="width: 286px; margin-bottom: 20px;">
+                <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->footer_logo) }}" alt="GPNi" style="width: 286px; margin-bottom: 20px;">
                 <p>Powered by <img src="{{ asset('storage/frontend/footer/powered-by-white.svg') }}" alt="Power Logo" style="width: 20px;"></p>
             </div>
 

@@ -31,12 +31,12 @@
                     </div>
 
                     <div class="col-6">
-                        <x-backend.upload-image old_name="old_logo" old_value="{{ $settings->{'logo'} ?? '' }}" new_name="new_logo" path="common"></x-backend.upload-image>
+                        <x-backend.upload-image old_name="old_logo" old_value="{{ $settings->{'logo'} ?? '' }}" new_name="new_logo" label="Logo" path="common"></x-backend.upload-image>
                         <x-backend.input-error field="new_logo"></x-backend.input-error>
                     </div>
 
                     <div class="col-6">
-                        <x-backend.upload-image old_name="old_favicon" old_value="{{ $settings->{'favicon'} ?? '' }}" new_name="new_favicon" path="common"></x-backend.upload-image>
+                        <x-backend.upload-image old_name="old_favicon" old_value="{{ $settings->{'favicon'} ?? '' }}" new_name="new_favicon" label="Favicon" path="common"></x-backend.upload-image>
                         <x-backend.input-error field="new_favicon"></x-backend.input-error>
                     </div>
                 </div>
@@ -93,6 +93,11 @@
                     <div class="col-6 mb-4">
                         <x-backend.upload-image old_name="old_guest_image" old_value="{{ $settings->{'guest_image'} ?? '' }}" new_name="new_guest_image" label="Guest" path="common"></x-backend.upload-image>
                         <x-backend.input-error field="new_guest_image"></x-backend.input-error>
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <x-backend.upload-image old_name="old_footer_logo" old_value="{{ $settings->{'footer_logo'} ?? '' }}" new_name="new_footer_logo" label="Footer Logo" path="common"></x-backend.upload-image>
+                        <x-backend.input-error field="new_footer_logo"></x-backend.input-error>
                     </div>
 
                     <div class="col-6 mb-4">

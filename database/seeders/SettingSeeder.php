@@ -19,6 +19,7 @@ class SettingSeeder extends Seeder
             'name' => 'GPNi®',
             'email' => 'edu@thegpni.com',
             'logo' => 'logo.png',
+            'footer_logo' => 'footer-logo.png',
             'favicon' => 'favicon.png',
 
             'fb' => 'https://www.facebook.com/thegpni',

@@ -96,36 +96,36 @@
                     </a>
                 </div>
 
+                @php
+                    $selected_language = session('language', 'en');
+                    $languages = [
+                        'en' => 'English',
+                        'zh' => 'Chinese',
+                        'ja' => 'Japanese'
+                    ];
+                @endphp
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="flag-icon">
-                            <img src="{{ asset('storage/frontend/flags/english.svg') }}" alt="English Flag" width="25px" height="18px">
+                            <img src="{{ asset('storage/frontend/flags/' . $selected_language . '.svg') }}" alt="{{ $languages[$selected_language] }} Flag" width="25px" height="18px">
                         </span>
+                        <span>{{ $languages[$selected_language] }}</span>
                         <i class="bi bi-chevron-down" style="font-size: 0.7rem; color: black;"></i>
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="en">
-                                <img src="{{ asset('storage/frontend/flags/english.svg') }}" alt="English Flag" width="25px" height="18px" class="me-2">
-                                <span>English</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="zh">
-                                <img src="{{ asset('storage/frontend/flags/chinese.svg') }}" alt="Chinese Flag" width="25px" height="18px" class="me-2">
-                                <span>Chinese</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="ja">
-                                <img src="{{ asset('storage/frontend/flags/japanese.svg') }}" alt="Japanese Flag" width="25px" height="18px" class="me-2">
-                                <span>Japanese</span>
-                            </a>
-                        </li>
+                        @foreach($languages as $code => $language)
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="{{ $code }}">
+                                    <img src="{{ asset('storage/frontend/flags/' . $code . '.svg') }}" alt="{{ $language }} Flag" width="25px" height="18px" class="me-2">
+                                    <span>{{ $language }}</span>
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
+
             </div>
         </div>
     </nav>

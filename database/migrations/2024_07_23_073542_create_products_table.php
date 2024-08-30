@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->enum('language', ['English', 'Chinese', 'Japanese']);
+            $table->enum('type', ['Own', 'Affiliate']);
+            $table->string('affiliate_link')->nullable();
             $table->string('product_category_id');
             $table->decimal('price', 10, 2);
             $table->decimal('membership_price', 10, 2)->nullable();

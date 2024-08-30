@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="section">
+    <!-- <div class="section">
         <div class="text-container">
             <div class="since">SINCE<br>
                 <div class="history">Our History</div>2018
@@ -135,6 +135,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 @endsection

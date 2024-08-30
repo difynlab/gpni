@@ -56,6 +56,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Category</th>
                             <th scope="col">Language</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Price</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
@@ -71,6 +72,7 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->category }}</td>
                                     <td>{{ $product->language }}</td>
+                                    <td>{{ $product->type }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>{!! $product->status !!}</td>
                                     <td>{!! $product->action !!}</td>
