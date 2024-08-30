@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\FAQ;
 use App\Models\HomepageContent;
 
@@ -29,10 +30,12 @@ class HomepageController extends Controller
         }
 
         $faqs = FAQ::where('language', $language_name)->where('status', '1')->get();
+        $courses = Course::where('language', $language_name)->where('status', '1')->get();
 
         return view('frontend.pages.homepage', [
             'contents' => $contents,
             'language' => $language,
+            'courses' => $courses,
             'faqs' => $faqs
         ]);
     }
