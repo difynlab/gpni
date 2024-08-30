@@ -31,6 +31,7 @@ class HomepageController extends Controller
 
         $courses = Course::where('language', $language_name)->where('status', '1')->get();
         $faqs = FAQ::where('language', $language_name)->where('status', '1')->get();
+        $courses = Course::where('language', $language_name)->where('status', '1')->get();
 
         return view('frontend.pages.homepage', [
             'contents' => $contents,
