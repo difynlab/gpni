@@ -220,8 +220,8 @@
         <div class="testimonial-container">
             <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 testimonial-heading">What our students say?
-                    </div>
+                    <div class="mb-3 mb-md-5 testimonial-heading">{{ $contents->{'section_4_title_' . $language} ?? $contents->{'section_4_title_en'} }}</div>
+                    
                     <b class="mb-1 testimonial-body">
                         Discover the impact of our programs through the Success Stories from our<br /> previous students and
                         witness
