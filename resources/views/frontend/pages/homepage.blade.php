@@ -8,6 +8,7 @@
 
 @section('content')
 
+    <!-- SECTION 01-->
     @if($contents->{'section_1_title_en'})
         <div class="container-xxl bg-white p-0">
             <div class="container-xxl position-relative p-0">
@@ -44,7 +45,9 @@
             </div>
         </div>
     @endif
+    <!-- END OF SECTION 01 -->
 
+    <!-- SECTION 02-->
     @if($contents->{'section_2_title_en'})
         <div class="container-xxl">
             <div class="container">
@@ -87,7 +90,9 @@
             </div>
         </div>
     @endif
+    <!-- END OF SECTION 02 -->
 
+    <!-- SECTION 03-->
     @if($contents->{'section_3_title_en'})
         <div class="py-5">
             <div class="container pt-4 mt-4">
@@ -214,18 +219,17 @@
             </div>
         </div>
     @endif
+    <!-- END OF SECTION 03 -->
 
-    <!-- This is pending -->
+    <!-- SECTION 04-->
     @if($contents->{'section_4_title_en'})
         <div class="testimonial-container">
             <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 testimonial-heading">What our students say?
+                    <div class="mb-3 mb-md-5 testimonial-heading">{{ $contents->{'section_4_title_' . $language} ?? $contents->{'section_4_title_en'} }}
                     </div>
                     <b class="mb-1 testimonial-body">
-                        Discover the impact of our programs through the Success Stories from our<br /> previous students and
-                        witness
-                        the quality of our education
+                    {{ $contents->{'section_4_description_' . $language} ?? $contents->{'section_4_description_en'} }}
                         </br>
                 </div>
                 <div class="row g-4 pt-5">
@@ -238,61 +242,40 @@
                                 </video>
                             </div>
                         </div>
+
                         <div class="col-md-6 testimonials-wrapper">
                             <div class="testimonials">
-                                <div class="testimonial clear" style="top: 50%; transform: translateY(-50%);">
-                                    <img src="/assets/quotes.svg" alt="Quote Icon" class="quote">
-                                    <p>Asperiores voluptatum explicabo vel maxime et consequuntur eveniet nobis. Tempore aperiam
-                                        dolor aut molestiae soluta modi ut. Hic aspernatur ea uam...</p>
-                                    <div class="author">
-                                        <img src="/assets/ellipse-15.svg" alt="Author Picture">
-                                        <div>
-                                            <p>Byron Rolfson</p>
-                                            <p>Regional Solutions Architect</p>
+                                @foreach($testimonials as $index => $testimonial)
+                                    <div class="testimonial {{ $index === 1 ? 'clear' : 'blurry' }}" style="top: {{ $index * 50 }}%; transform: translateY({{ -$index * 50 }}%);">
+                                        <img src="{{ asset('storage/frontend/homepage/section4/quotes-2.svg') }}" alt="Quote Icon" class="quote">
+                                        <p>{!! $testimonial->content !!}</p>
+                                        <div class="author">
+                                            <img src="{{ asset('storage/backend/testimonials/' . $testimonial->image) }}" alt="Author Picture">
+                                            <div>
+                                                <p>{!! $testimonial->name !!}</p>
+                                                <p>{!! $testimonial->designation !!}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="testimonial blurry" style="top: 0%; transform: translateY(0);">
-                                    <img src="/assets/quotes-2.svg" alt="Quote Icon" class="quote">
-                                    <p>Quisquam similique molestiae quia quod dolorum et. Aliquid blanditiis voluptatem maxime
-                                        qui
-                                        et voluptas minus. Non provident pariatur nisi. Repellat voluptas culpa eius.</p>
-                                    <div class="author">
-                                        <img src="/assets/ellipse-15-2.svg" alt="Author Picture">
-                                        <div>
-                                            <p>Byron Rolfson</p>
-                                            <p>Regional Solutions Architect</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial blurry" style="top: 100%; transform: translateY(-100%);">
-                                    <img src="/assets/quotes-3.svg" alt="Quote Icon" class="quote">
-                                    <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam
-                                        fuga.
-                                        Sed fuga est harum quo nesciunt sint. Optio veniam...</p>
-                                    <div class="author">
-                                        <img src="/assets/ellipse-15-3.svg" alt="Author Picture">
-                                        <div>
-                                            <p>Byron Rolfson</p>
-                                            <p>Regional Solutions Architect</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
     @endif
-    <!-- This is pending -->
+    <!-- END OF SECTION 04 -->
 
+    <!-- SECTION 05-->
     @if($contents->{'section_5_title_en'})
         <div class="partners-container">
             <div class="container">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 ff-poppins-medium fs-49 partners-heading mt-5 pt-5">{{ $contents->{'section_5_title_' . $language} ?? '' }}</div>
-                    <p class="mb-1 partners-body fw-normal fs-25">{{ $contents->{'section_5_description_' . $language} ?? '' }}</p>
+                    <div class="mb-3 mb-md-5 ff-poppins-medium fs-49 partners-heading mt-5 pt-5">{{ $contents->{'section_5_title_' . $language} ?? $contents->{'section_5_title_en'} }}
+                    </div>
+                    <p class="mb-1 partners-body fw-normal fs-25">{{ $contents->{'section_5_description_' . $language} ?? $contents->{'section_5_description_en'} }}</p>
                 </div>
                 <div class="row pb-5">
                     <div class="row px-5 pb-5 gx-1">
@@ -308,13 +291,15 @@
             </div>
         </div>
     @endif
+    <!-- END OF SECTION 05 -->
 
+    <!-- SECTION 06-->
     @if($contents->{'section_6_title_en'})
         <div class="journey-container">
             <div class="container" style="padding-top: 100px; padding-bottom:100px;">
                 <div class=" text-center">
-                    <div class="mb-3 journey-heading fs-49 fw-poppins-medium">{{ $contents->{'section_6_title_' . $language} ?? '' }}</div>
-                    <p class="mb-4 journey-body fs-20 fw-poppins-regular">{{ $contents->{'section_6_description_' . $language} ?? '' }}</p>
+                    <div class="mb-3 journey-heading fs-49 fw-poppins-medium">{{ $contents->{'section_6_title_' . $language} ?? $contents->{'section_6_title_en'} }}</div>
+                    <p class="mb-4 journey-body fs-20 fw-poppins-regular">{{ $contents->{'section_6_description_' . $language} ?? $contents->{'section_6_description_en'} }}</p>
                 </div>
                 <div class="pt-3 d-flex justify-content-center align-items-center flex-wrap">
                     <a href="#" class="btn btn-secondary signup-button fd-20 ff-poppins-medium mb-2 mb-md-0 me-md-3 py-3 px-5">Sign Up</a>
@@ -329,36 +314,40 @@
             </div>
         </div>
     @endif
+    <!-- END OF SECTION 06 -->
 
-    <!-- One div dynamic is pending -->
+    <!-- SECTION 07 -->
     @if($contents->{'section_7_title_en'})
         <div class="expert-container">
             <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
                 <div class="text-center">
-                    <div class="mb-3 expert-heading fs-49 ff-poppins-medium">{{ $contents->{'section_7_title_' . $language} ?? '' }}</div>
-                    <p class="mb-4 expert-body fs-25 ff-poppins-regular">{{ $contents->{'section_7_description_' . $language} ?? '' }}</p>
+                    <div class="mb-3 expert-heading fs-49 ff-poppins-medium">{{ $contents->{'section_7_title_' . $language} ?? $contents->{'section_7_title_en'} }}
+                    </div>
+                    <p class="mb-4 expert-body fs-25 ff-poppins-regular">{{ $contents->{'section_7_description_' . $language} ?? $contents->{'section_7_description_en'} }}</p>
                 </div>
 
                 <div class="row text-center g-4 pt-4 d-flex justify-content-center">
                     <div class="col-6 col-md-2">
-                        <img src="/img/expert1.png" class="img-fluid rounded-circle expert-select" alt="Expert 1"
-                            data-bs-toggle="modal" data-bs-target="#expertModal1">
+                    <img src="{{ asset('storage/frontend/homepage/section7/expert1.png') }}" class="img-fluid rounded-circle expert-select" alt="Expert 1"
+                    data-bs-toggle="modal" data-bs-target="#expertModal1">
+                        <!-- <img src="/img/expert1.png" class="img-fluid rounded-circle expert-select" alt="Expert 1"
+                            data-bs-toggle="modal" data-bs-target="#expertModal1"> -->
                     </div>
                     <div class="col-6  col-md-2">
-                        <img src="/img/expert2.png" class="img-fluid rounded-circle expert-select" alt="Expert 2"
-                            data-bs-toggle="modal" data-bs-target="#expertModal2">
+                    <img src="{{ asset('storage/frontend/homepage/section7/expert2.png') }}" class="img-fluid rounded-circle expert-select" alt="Expert 1"
+                    data-bs-toggle="modal" data-bs-target="#expertModal1">
                     </div>
                     <div class="col-6  col-md-2">
-                        <img src="/img/expert3.png" class="img-fluid rounded-circle expert-select" alt="Expert 3"
-                            data-bs-toggle="modal" data-bs-target="#expertModal3">
+                    <img src="{{ asset('storage/frontend/homepage/section7/expert3.png') }}" class="img-fluid rounded-circle expert-select" alt="Expert 1"
+                    data-bs-toggle="modal" data-bs-target="#expertModal1">
                     </div>
                     <div class="col-6  col-md-2">
-                        <img src="/img/expert4.png" class="img-fluid rounded-circle expert-select" alt="Expert 4"
-                            data-bs-toggle="modal" data-bs-target="#expertModal4">
+                    <img src="{{ asset('storage/frontend/homepage/section7/expert4.png') }}" class="img-fluid rounded-circle expert-select" alt="Expert 1"
+                    data-bs-toggle="modal" data-bs-target="#expertModal1">
                     </div>
                     <div class="col-6  col-md-2">
-                        <img src="/img/expert5.png" class="img-fluid rounded-circle expert-select" alt="Expert 5"
-                            data-bs-toggle="modal" data-bs-target="#expertModal5">
+                    <img src="{{ asset('storage/frontend/homepage/section7/expert5.png') }}" class="img-fluid rounded-circle expert-select" alt="Expert 1"
+                    data-bs-toggle="modal" data-bs-target="#expertModal1">
                     </div>
                 </div>
 
@@ -377,7 +366,8 @@
                     <div class="modal-body p-4">
                         <div class="row align-items-center">
                             <div class="col-md-2 col-4">
-                                <img class="expert-image-15 rounded-circle" alt="" src="/img/expert1.png" />
+                                <img class="expert-image-15 rounded-circle" alt=""  src="{{ asset('storage/frontend/homepage/section7/expert1.png') }}"/>
+                                
                             </div>
                             <div class="col-md-8 col-12 d-flex align-items-center">
                                 <div>
@@ -421,15 +411,16 @@
             </div>
         </div>
     @endif
-    <!-- One div dynamic is pending -->
+    <!-- END OF SECTION 07 -->
 
-    <!-- Two div dynamic is pending -->
+    <!-- SECTION 08-->
     @if($contents->{'section_8_title_en'})
         <div class="nutritionist-container">
             <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 nutritionist-heading ff-poppins-medium fs-49">{{ $contents->{'section_8_title_' . $language} ?? '' }}</div>
-                    <b class="mb-1 nutritionist-body ff-poppins-regular fs-25">{{ $contents->{'section_8_description_' . $language} ?? '' }}</b>
+                    <div class="mb-3 mb-md-5 nutritionist-heading ff-poppins-medium fs-49">{{ $contents->{'section_8_title_' . $language} ?? $contents->{'section_8_title_en'} }}
+                    </div>
+                    <b class="mb-1 nutritionist-body ff-poppins-regular fs-25">{{ $contents->{'section_8_description_' . $language} ?? $contents->{'section_8_description_en'} }}</b>
                 </div>
                 <div class="row g-4">
                     <div class="col-sm-12">
@@ -466,14 +457,15 @@
             </div>
         </div>
     @endif
-    <!-- Two div dynamic is pending -->
+    <!-- END OF SECTION 08 -->
 
+    <!-- SECTION 09-->
     @if($contents->{'section_9_title_en'})
         <div class="faq-container">
             <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
                 <div class="text-center">
-                    <div class="mb-3 faq-heading h1">{{ $contents->{'section_9_title_' . $language} ?? '' }}</div>
-                    <p class="mb-4 faq-body">{{ $contents->{'section_9_description_' . $language} ?? '' }}</p>
+                    <div class="mb-3 faq-heading h1">{{ $contents->{'section_9_title_' . $language} ?? $contents->{'section_9_title_en'} }}</div>
+                    <p class="mb-4 faq-body">{{ $contents->{'section_9_description_' . $language} ?? $contents->{'section_9_description_en'} }}</p>
                 </div>
                 <div class="my-3">
                     <div class="accordion" id="accordionFAQ">
@@ -481,12 +473,14 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed p-2 p-md-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
-                                        {{ $faq->question }}
+                                        {{ $faq->{'question'} }}
                                     </button>
                                 </h2>
 
                                 <div id="collapse_{{ $faq->id }}" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">{!! $faq->answer !!}</div>
+                                    <div class="accordion-body">
+                                        {!! $faq->{'answer'} !!}
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -495,5 +489,6 @@
             </div>
         </div>
     @endif
+    <!-- END OF SECTION 09 -->
 
 @endsection

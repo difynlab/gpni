@@ -10,4 +10,5 @@ class AdvisoryBoard extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'advisory_boards';
 }
