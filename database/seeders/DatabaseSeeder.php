@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
             HistoryOfGpniContentSeeder::class,
             GiftCardContentSeeder::class,
             AdvisoryBoardContentSeeder::class,
-            ISSNPartnerContentSeeder::class
+            ISSNPartnerContentSeeder::class,
+            FAQContentSeeder::class,
+            PolicyContentSeeder::class
         ]);
     }
 }

@@ -16,12 +16,14 @@ use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
 use App\Http\Controllers\Backend\Order\GiftCardOrderController;
 use App\Http\Controllers\Backend\Page\AdvisoryBoardController as PageAdvisoryBoardController;
+use App\Http\Controllers\Backend\Page\FAQController as PageFAQController;
 use App\Http\Controllers\Backend\Page\GiftCardController;
 use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\ISSNPartnerController as PageISSNPartnerController;
 use App\Http\Controllers\Backend\Page\PageController;
+use App\Http\Controllers\Backend\Page\PolicyController as PagePolicyController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
 use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
@@ -64,6 +66,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
             Route::get('issn-partner/{language}', [PageISSNPartnerController::class, 'index'])->name('issn-partner.index');
             Route::post('issn-partner/{language}', [PageISSNPartnerController::class, 'update'])->name('issn-partner.update');
+
+            Route::get('faq/{language}', [PageFAQController::class, 'index'])->name('faq.index');
+            Route::post('faq/{language}', [PageFAQController::class, 'update'])->name('faq.update');
+
+            Route::get('policy/{language}', [PagePolicyController::class, 'index'])->name('policy.index');
+            Route::post('policy/{language}', [PagePolicyController::class, 'update'])->name('policy.update');
         });
     // All page related routes
 
