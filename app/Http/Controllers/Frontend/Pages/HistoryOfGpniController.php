@@ -10,8 +10,6 @@ class HistoryOfGpniController extends Controller
 {
     public function index()
     {
-        // return view('frontend.pages.history-of-gpni');
-
         $contents = HistoryOfGpniContent::find(1);
         $language = session('language', 'en');
 
@@ -26,18 +24,16 @@ class HistoryOfGpniController extends Controller
                 $language_name = 'Japanese';
                 break;
             default:
-                $short_code = 'unknown';
+                $language_name = 'unknown';
                 break;
         }
 
-        $advisoryBoard = AdvisoryBoard::where('language', $language_name)->where('status', '1')->get();
+        $advisory_boards = AdvisoryBoard::where('language', $language_name)->orderBy('id', 'asc')->take(2)->where('status', '1')->get();
 
         return view('frontend.pages.history-of-gpni', [
             'contents' => $contents,
             'language' => $language,
-            'advisoryBoard' => $advisoryBoard
-            // 'faqs' => $faqs,
-            // 'testimonials' => $testimonials
+            'advisory_boards' => $advisory_boards
         ]);
     }
 }

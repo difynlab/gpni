@@ -41,8 +41,8 @@ class HistoryOfGpniController extends Controller
         $validator = Validator::make($request->all(), [
             'new_section_1_image' => 'max:2048',
             'new_section_3_image' => 'max:2048',
-            'new_section_4_image' => 'max:2048',
             'new_section_5_image' => 'max:2048',
+            'new_section_6_image' => 'max:2048',
         ]);
 
         if($validator->fails()) {
@@ -91,26 +91,6 @@ class HistoryOfGpniController extends Controller
             }
         // Section 3 image
 
-        // Section 4 image
-            if($request->file('new_section_4_image')) {
-                if($request->old_section_4_image) {
-                    Storage::delete('public/backend/pages/' . $request->old_section_4_image);
-                }
-
-                $new_section_4_image = $request->file('new_section_4_image');
-                $section_4_image_name = Str::random(40) . '.' . $new_section_4_image->getClientOriginalExtension();
-                $new_section_4_image->storeAs('public/backend/pages', $section_4_image_name);
-            }
-            else {
-                if($contents->section_4_image_ . '' . $language) {
-                    $section_4_image_name = $request->old_section_4_image;
-                }
-                else {
-                    $section_4_image_name = null;
-                }
-            }
-        // Section 4 image
-
         // Section 5 image
             if($request->file('new_section_5_image')) {
                 if($request->old_section_5_image) {
@@ -131,15 +111,35 @@ class HistoryOfGpniController extends Controller
             }
         // Section 5 image
 
+        // Section 6 image
+            if($request->file('new_section_6_image')) {
+                if($request->old_section_6_image) {
+                    Storage::delete('public/backend/pages/' . $request->old_section_6_image);
+                }
+
+                $new_section_6_image = $request->file('new_section_6_image');
+                $section_6_image_name = Str::random(40) . '.' . $new_section_6_image->getClientOriginalExtension();
+                $new_section_6_image->storeAs('public/backend/pages', $section_6_image_name);
+            }
+            else {
+                if($contents->section_6_image_ . '' . $language) {
+                    $section_6_image_name = $request->old_section_6_image;
+                }
+                else {
+                    $section_6_image_name = null;
+                }
+            }
+        // Section 6 image
+
         $data = $request->except(
             'old_section_1_image',
             'new_section_1_image',
             'old_section_3_image',
             'new_section_3_image',
-            'old_section_4_image',
-            'new_section_4_image',
             'old_section_5_image',
-            'new_section_5_image'
+            'new_section_5_image',
+            'old_section_6_image',
+            'new_section_6_image'
         );
 
         switch($language){
@@ -159,8 +159,8 @@ class HistoryOfGpniController extends Controller
                 
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_3_image_' . '' . $short_code] = $section_3_image_name;
-        $data['section_4_image_' . '' . $short_code] = $section_4_image_name;
         $data['section_5_image_' . '' . $short_code] = $section_5_image_name;
+        $data['section_6_image_' . '' . $short_code] = $section_6_image_name;
 
         $contents->fill($data)->save();
 
