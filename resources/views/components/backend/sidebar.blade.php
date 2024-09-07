@@ -1,0 +1,173 @@
+<nav class="sidebar">
+    <a href="{{ route('backend.dashboard.index') }}">
+        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->logo) }}" alt="Logo" class="logo">
+    </a>
+
+    <div class="gradient-line"></div>
+
+    <div class="scroll-bar">
+        <ul class="components">
+            <li>
+                <a href="{{ route('backend.dashboard.index') }}" class="link {{ Request::segment(2) == 'dashboard' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/dashboard.png') }}" alt="Icon">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('backend.pages.index') }}" class="link {{ Request::segment(2) == 'pages' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/page.png') }}" alt="Icon">
+                    <span>Pages</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('backend.conferences.index') }}" class="link {{ Request::segment(2) == 'conferences' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/conference.png') }}" alt="Icon">
+                    <span>Conferences</span>
+                </a>
+            </li>
+
+            <div class="accordion" id="article-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#article-data-collapse">
+                    <img src="{{ asset('storage/backend/sidebar/article.png') }}" alt="Icon">
+                    <span>Articles</span>
+                </button>
+
+                <div id="article-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['article-categories', 'articles']) ? 'show' : '' }}" data-bs-parent="#article-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.article-categories.index') }}" class="link {{ Request::segment(2) == 'article-categories' ? 'active' : null }}">Article Categories</a></li>
+
+                            <li><a href="{{ route('backend.articles.index') }}" class="link {{ Request::segment(2) == 'articles' ? 'active' : null }}">Articles</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <li>
+                <a href="{{ route('backend.courses.index') }}" class="link {{ Request::segment(2) == 'courses' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/course.png') }}" alt="Icon">
+                    <span>Courses</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('backend.promotions.index') }}" class="link {{ Request::segment(2) == 'promotions' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/promotion.png') }}" alt="Icon">
+                    <span>Promotions</span>
+                </a>
+            </li>
+
+            <div class="accordion" id="product-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#product-data-collapse">
+                    <img src="{{ asset('storage/backend/sidebar/product.png') }}" alt="Icon">
+                    <span>Products</span>
+                </button>
+
+                <div id="product-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['product-categories', 'products']) ? 'show' : '' }}" data-bs-parent="#product-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.product-categories.index') }}" class="link {{ Request::segment(2) == 'product-categories' ? 'active' : null }}">Product Categories</a></li>
+
+                            <li><a href="{{ route('backend.products.index') }}" class="link {{ Request::segment(2) == 'products' ? 'active' : null }}">Products</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <li>
+                <a href="{{ route('backend.medias.index') }}" class="link {{ Request::segment(2) == 'medias' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/media.png') }}" alt="Icon">
+                    <span>Medias</span>
+                </a>
+            </li>
+
+            <div class="accordion" id="orders-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#orders-data-collapse">
+                    <img src="{{ asset('storage/backend/sidebar/order.png') }}" alt="Icon">
+                    <span>Orders</span>
+                </button>
+
+                <div id="orders-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['gift-card-orders']) ? 'show' : '' }}" data-bs-parent="#orders-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.orders.gift-card-orders.index') }}" class="link {{ Request::segment(3) == 'gift-card-orders' ? 'active' : null }}">Gift Card Orders</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion" id="Persons-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Persons-data-collapse">
+                    <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
+                    <span>Persons</span>
+                </button>
+
+                <div id="Persons-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['admins', 'students', 'nutritionists', 'advisory-boards', 'issn-partners']) ? 'show' : '' }}" data-bs-parent="#Persons-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.persons.admins.index') }}" class="link {{ Request::segment(3) == 'admins' ? 'active' : null }}">Admins</a></li>
+
+                            <li><a href="{{ route('backend.persons.students.index') }}" class="link {{ Request::segment(3) == 'students' ? 'active' : null }}">Students</a></li>
+
+                            <li><a href="{{ route('backend.persons.nutritionists.index') }}" class="link {{ Request::segment(3) == 'nutritionists' ? 'active' : null }}">Nutritionists</a></li>
+
+                            <li><a href="{{ route('backend.persons.advisory-boards.index') }}" class="link {{ Request::segment(3) == 'advisory-boards' ? 'active' : null }}">Advisory Boards</a></li>
+
+                            <li><a href="{{ route('backend.persons.issn-partners.index') }}" class="link {{ Request::segment(3) == 'issn-partners' ? 'active' : null }}">ISSN Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <li>
+                <a href="{{ route('backend.testimonials.index') }}" class="link {{ Request::segment(2) == 'testimonials' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/testimonial.png') }}" alt="Icon">
+                    <span>Testimonials</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('backend.faqs.index') }}" class="link {{ Request::segment(2) == 'faqs' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/faq.png') }}" alt="Icon">
+                    <span>FAQs</span>
+                </a>
+            </li>
+
+            <div class="accordion" id="communications-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#communications-data-collapse">
+                    <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
+                    <span>Communications</span>
+                </button>
+
+                <div id="communications-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['contact-coaches', 'ask-questions']) ? 'show' : '' }}" data-bs-parent="#communications-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.communications.contact-coaches.index') }}" class="link {{ Request::segment(3) == 'contact-coaches' ? 'active' : null }}">Contact Coaches</a></li>
+
+                            <li><a href="{{ route('backend.communications.ask-questions.index') }}" class="link {{ Request::segment(3) == 'ask-questions' ? 'active' : null }}">Ask Questions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion" id="administrations-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#administrations-data-collapse">
+                    <img src="{{ asset('storage/backend/sidebar/settings.png') }}" alt="Icon">
+                    <span>Administrations</span>
+                </button>
+
+                <div id="administrations-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['settings', 'my-profile']) ? 'show' : '' }}" data-bs-parent="#administrations-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.settings.index') }}" class="link {{ Request::segment(2) == 'settings' ? 'active' : null }}">Settings</a></li>
+
+                            <li><a href="{{ route('backend.my-profile.index') }}" class="link {{ Request::segment(2) == 'my-profile' ? 'active' : null }}">My Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </div>
+</nav>
