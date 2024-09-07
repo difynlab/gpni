@@ -31,7 +31,13 @@
             </div>
         </div><br><br>
         <div class="image-container">
-        <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_' . $language}) }}" alt="Since 2018" class="img-fluid">
+        @if($contents->{'section_1_image_' . $language})
+             <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_' . $language}) }}" alt="Since 2018" class="img-fluid">
+        @elseif($contents->{'section_1_image_en'})
+            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_en' . $language}) }}" alt="Since 2018" class="img-fluid">
+        @else
+            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Since 2018" class="img-fluid">
+        @endif
         </div>
     </div>
     @endif
@@ -57,7 +63,13 @@
                         <p class="fs-25 ff-poppins-regular">{!! $contents->{'section_3_description_' . $language} ?? $contents->{'section_3_description_en'} !!}</p>
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset('storage/backend/pages/' . $contents->{'section_3_image_' . $language}) }}"  alt="GPNI Image" class="img-fluid">
+                        @if($contents->{'section_3_image_' . $language})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_3_image_' . $language}) }}" alt="GPNI Image" class="img-fluid">
+                        @elseif($contents->{'section_3_image_en'})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_3_image_en' . $language}) }}" alt="GPNI Image" class="img-fluid">
+                        @else
+                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="GPNI Image" class="img-fluid">
+                        @endif
                     </div>
                 </div>
             </div>
@@ -120,7 +132,13 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <img src="{{ asset('storage/backend/pages/' . $contents->{'section_4_image_' . $language}) }}"  alt="ISSN Logo" class="img-fluid">
+                        @if($contents->{'section_4_image_' . $language})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_4_image_' . $language}) }}"  alt="ISSN Logo" class="img-fluid">
+                        @elseif($contents->{'section_4_image_en'})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_4_image_en' . $language}) }}" alt="ISSN Logo" class="img-fluid">
+                        @else
+                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="ISSN Logo" class="img-fluid">
+                        @endif
                     </div>
                     <div class="col-md-6">
                         <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_4_title_' . $language} ?? $contents->{'section_4_title_en'} }}</h2>
@@ -142,7 +160,13 @@
                         <p class="fs-25 ff-poppins-regular">{!! $contents->{'section_5_description_' . $language} ?? $contents->{'section_5_description_en'} !!}</p>
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset('storage/backend/pages/' . $contents->{'section_5_image_' . $language}) }}" alt="Gold Standard Image" class="img-fluid">
+                        @if($contents->{'section_5_image_' . $language})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_5_image_' . $language}) }}" alt="Gold Standard Image" class="img-fluid">
+                        @elseif($contents->{'section_5_image_en'})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_5_image_en' . $language}) }}" alt="Gold Standard Image" class="img-fluid">
+                        @else
+                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Gold Standard Image" class="img-fluid">
+                        @endif
                     </div>
                 </div>
             </div>
