@@ -8,133 +8,153 @@
 
 @section('content')
 
-    <!-- <div class="section">
-        <div class="text-container">
-            <div class="since">SINCE<br>
-                <div class="history">Our History</div>2018
-            </div>
-        </div>
-        <div class="image-container">
-            <img src="/assets/bg-removebg-preview 1.png" alt="Since 2018" class="img-fluid">
-        </div>
-    </div>
+    <!-- SECTION 01-->
+    @if($contents->{'section_1_title_en'})
+        <div class="section">
+            <div class="text-container">
+                <div class="since">
+                    {{ $contents->{'section_1_large_title_' . $language} ?? $contents->{'section_1_large_title_en'} }}
 
-    <div class="who-we-are">
-        <h2 class="ff-poppins-medium fs-49">Who We Are?</h2>
-        <h3 class="fs-31 ff-poppins-medium">We are GPNI – Your Nutrition Key</h3>
-        <p class="fs-25 ff-poppins-regular">An educational platform redefining the landscape of nutritional learning. We
-            are not just an educational
-            platform; we are a thriving network of educators and practitioners committed to shaping the future of
-            nutrition.</p>
-    </div>
+                    <br>
 
-    <div class="our-story">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2 class="pb-3 fs-49 ff-poppins-medium">Our Story</h2>
-                    <p class="fs-25 ff-poppins-regular">The Global Performance Nutrition Institute, GPNi® was founded in
-                        2018 and is the official partner
-                        for The International Society of Sports Nutrition.</p>
-                    <p class="fs-25 ff-poppins-regular">GPNi® is an all-access portal, to begin and advance your career
-                        in sports nutrition. GPNi® is the
-                        world’s first science-backed performance nutrition online education portal to be offered in
-                        multiple countries and available in multiple languages.</p>
+                    <div class="history">{{ $contents->{'section_1_title_' . $language} ?? $contents->{'section_1_title_en'} }}</div>
+                    
+                    {{ $contents->{'section_1_year_' . $language} ?? $contents->{'section_1_year_en'} }}
                 </div>
-                <div class="col-md-6">
-                    <img src="/assets/image-5.svg" alt="GPNI Image" class="img-fluid">
+            </div>
+
+            <br>
+            <br>
+
+            <div class="image-container">
+                @if($contents->{'section_1_image_' . $language})
+                    <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_' . $language}) }}" alt="Section 1 Image" class="img-fluid">
+                @elseif($contents->{'section_1_image_en'})
+                    <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_en'}) }}" alt="Section 1 Image" class="img-fluid">
+                @else
+                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="img-fluid">
+                @endif
+            </div>
+        </div>
+    @endif
+    <!-- END OF SECTION 01 -->
+
+    <!-- SECTION 02-->
+    @if($contents->{'section_2_title_en'})
+        <div class="who-we-are">
+            <h2 class="ff-poppins-medium fs-49">{{ $contents->{'section_2_title_' . $language} ?? $contents->{'section_2_title_en'} }}</h2>
+            <h3 class="fs-31 ff-poppins-medium">{{ $contents->{'section_2_sub_title_' . $language} ?? $contents->{'section_2_sub_title_en'} }}</h3>
+            <p class="fs-25 ff-poppins-regular">{{ $contents->{'section_2_description_' . $language} ?? $contents->{'section_2_description_en'} }}</p>
+        </div>
+    @endif
+    <!-- END OF SECTION 02 -->
+
+    <!-- SECTION 03-->
+    @if($contents->{'section_3_title_en'})
+        <div class="our-story">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="pb-3 fs-49 ff-poppins-medium">{{ $contents->{'section_3_title_' . $language} ?? $contents->{'section_3_title_en'} }}</h2>
+                        <p class="fs-25 ff-poppins-regular">{!! $contents->{'section_3_description_' . $language} ?? $contents->{'section_3_description_en'} !!}</p>
+                    </div>
+                    <div class="col-md-6">
+                        @if($contents->{'section_3_image_' . $language})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_3_image_' . $language}) }}" alt="GPNI Image" class="img-fluid">
+                        @elseif($contents->{'section_3_image_en'})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_3_image_en'}) }}" alt="GPNI Image" class="img-fluid">
+                        @else
+                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="GPNI Image" class="img-fluid">
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+    <!-- END OF SECTION 03 -->
 
-    <div class="our-founders">
-        <div class="container">
-            <h2 class="fs-49  ff-poppins-medium">Our Founders</h2>
-            <div class="row founder align-items-center">
-                <div class="col-lg-2 text-center text-md-start">
-                    <img src="/assets/mask-group.svg" alt="Dr. Roger Adams" class="img-fluid">
-                </div>
-                <div class="col-lg-10 text-center text-md-start">
-                    <h4 class="p-0 m-0 fs-31 ff-poppins-semibold">Dr. Roger Adams</h4>
-                    <div class="title py-2 fs-20 ff-poppins-regular">Ph.D. in Nutrition, CISSN</div>
-                    <p class="pt-3 fs-25">In December of 2004, Dr. Roger Adams life-long goal was obtaining a Ph.D. in
-                        Nutrition.
-                        He is a member, as well as certified by the International Society of Sports Nutrition (ISSN)
-                        with
-                        the highest certification available by ISSN, CISSN certification, also known as the Sports
-                        Nutritionist.
-                    </p>
-                </div>
+    <!-- SECTION 04 -->
+    @if($contents->{'section_4_title_en'})
+        <div class="our-founders">
+            <div class="container">
+                <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_4_title_' . $language} ?? $contents->{'section_4_title_en'} }}</h2>
+
+                @foreach($advisory_boards as $key => $advisory_board)
+                    <div class="row founder align-items-center">
+                        @if($key == 0)
+                            {{-- Left-aligned --}}
+                            <div class="col-lg-2 text-center text-md-start">
+                                <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}" alt="{{ $advisory_board->name }}" class="img-fluid">
+                            </div>
+                            <div class="col-lg-10 text-center text-md-start">
+                                <h4 class="p-0 m-0 fs-31 ff-poppins-semibold">{{ $advisory_board->name }}</h4>
+                                <div class="title py-2 fs-20 ff-poppins-regular">{{ $advisory_board->designations }}</div>
+                                <div class="pt-3 fs-25">{!! $advisory_board->description !!}</div>
+                            </div>
+                        @else
+                            {{-- Right-aligned --}}
+                            <div class="col-lg-10 text-center text-md-end order-2 order-md-1">
+                                <h4 class="p-0 m-0 fs-31 ff-poppins-semibold">{{ $advisory_board->name }}</h4>
+                                <div class="title py-2 fs-20 ff-poppins-regular">{{ $advisory_board->designations }}</div>
+                                <div class="pt-3 fs-25">{!! $advisory_board->description !!}</div>
+                            </div>
+                            <div class="col-lg-2 text-center text-md-start order-1 order-md-2">
+                                <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}" alt="{{ $advisory_board->name }}" class="img-fluid">
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
             </div>
-            <div class="row founder align-items-center">
-                <div class="col-lg-10 text-center text-md-end order-2 order-md-1">
-                    <h4 class="p-0 m-0 fs-31 ff-poppins-semibold">Drew Campbell</h4>
-                    <div class="title py-2 fs-20 ff-poppins-regular">CISSN</div>
-                    <p class="pt-3 fs-25">Over 22 years in the fitness industry, and 14 years of this being in China and
-                        Asia.
-                        Drew is a consultant and board member from some of the world's leading nutrition brands and
-                        organizations.
-                    </p>
-                </div>
-                <div class="col-lg-2 order-1 order-md-2 text-center text-md-start">
-                    <img src="/assets/mask-group-2.svg" alt="Drew Campbell" class="img-fluid ms-md-auto">
+        </div>
+    @endif
+    <!-- END OF SECTION 04 -->
+
+    <!-- SECTION 05-->
+    @if($contents->{'section_5_title_en'})
+        <div class="our-partners">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        @if($contents->{'section_5_image_' . $language})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_5_image_' . $language}) }}"  alt="Section 05 Image" class="img-fluid">
+                        @elseif($contents->{'section_5_image_en'})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_5_image_en'}) }}" alt="Section 05 Image" class="img-fluid">
+                        @else
+                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Section 05 Image" class="img-fluid">
+                        @endif
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_5_title_' . $language} ?? $contents->{'section_5_title_en'} }}</h2>
+                        <div class="fs-25 ff-poppins-regular">{!! $contents->{'section_5_description_' . $language} ?? $contents->{'section_5_description_en'} !!}</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+    <!-- END OF SECTION 05 -->
 
-    <div class="our-partners">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img src="/assets/image-6.svg" alt="ISSN Logo" class="img-fluid">
-                </div>
-                <div class="col-md-6">
-                    <h2 class="fs-49 ff-poppins-medium">Our Official Partners</h2>
-                    <p class="fs-25 ff-poppins-regular">GPNI is the official partner for The International Society of
-                        Sports Nutrition (ISSN) from 2018.
-                    </p>
-                    <p class="fs-25 ff-poppins-regular">ISSN founded in 2003 and it is a world leader in providing
-                        scientific sports nutrition and
-                        supplemental information.</p>
-                    <p class="fs-25 ff-poppins-regular">Our peer-reviewed journals (JISSN), conferences, and
-                        participants
-                        are key influencers and thought
-                        leaders in sports nutrition and supplements.</p>
-                    <ul class="custom-list fs-25 ff-poppins-regular">
-                        <li>Jose Antonio, Ph.D.</li>
-                        <li>Doug Kalman, Ph.D., RD</li>
-                        <li>Richard Kreider, Ph.D.</li>
-                        <li>Susan Kleiner, Ph.D., RD</li>
-                        <li>Anthony Almada MSc</li>
-                    </ul>
+    <!-- SECTION 06-->
+    @if($contents->{'section_6_title_en'})
+        <div class="gold-standard py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_6_title_' . $language} ?? $contents->{'section_6_title_en'} }}</h2>
+                        <p class="fs-25 ff-poppins-regular">{!! $contents->{'section_6_description_' . $language} ?? $contents->{'section_6_description_en'} !!}</p>
+                    </div>
+                    <div class="col-md-6">
+                        @if($contents->{'section_6_image_' . $language})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_6_image_' . $language}) }}" alt="Section 06 Image" class="img-fluid">
+                        @elseif($contents->{'section_5_image_en'})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_6_image_en'}) }}" alt="Section 06 Image" class="img-fluid">
+                        @else
+                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Section 06 Image" class="img-fluid">
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="gold-standard py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2 class="fs-49 ff-poppins-medium">Gold Standard</h2>
-                    <p class="fs-25 ff-poppins-regular">ISSN Leads in Research and Innovation and it is recognized by
-                        universities worldwide as offering
-                        the latest, cutting edge, and non-biased research in the science and application of sports
-                        nutrition and supplementation.</p>
-                    <p class="fs-25 ff-poppins-regular">ISSN research has led to the development and discovery of some
-                        of the biggest ingredients and
-                        applications in sports nutrition supplementation. Many of these discoveries are attributed to
-                        fellows within the ISSN (FISSN).</p>
-                    <p class="fs-25 ff-poppins-regular">Creatine, Theacrine, HMB, Beta alanine, Nitrosigine, and many
-                        others.</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="/assets/image-5-2.svg" alt="Gold Standard Image" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div> -->
+    @endif
+    <!-- END OF SECTION 06 -->
 
 @endsection

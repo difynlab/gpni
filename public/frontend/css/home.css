@@ -274,6 +274,9 @@
 }
 .expert-select {
     cursor: pointer;
+    object-fit: cover;
+    width: 100%;
+    height: 185px;
 }
 /* Nutritionist Container */
 .nutritionist-container{
@@ -332,12 +335,12 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
-.nutrionist-button {
+.nutritionist-button {
     color: #FFF !important;
     border-radius: 10px !important;
     border-color: #4574d3 !important;
 }
-.nutrionist-button:hover {
+.nutritionist-button:hover {
     background-color: #4574d3 !important;
     color: #FFF !important;
 }
