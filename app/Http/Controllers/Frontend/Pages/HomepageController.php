@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Frontend\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\FAQ;
+use App\Models\Testimonial;
 use App\Models\HomepageContent;
+use App\Models\Nutritionist;
 
 class HomepageController extends Controller
 {
@@ -25,19 +27,22 @@ class HomepageController extends Controller
                 $language_name = 'Japanese';
                 break;
             default:
-                $short_code = 'unknown';
+                $language_name = 'unknown';
                 break;
         }
 
         $courses = Course::where('language', $language_name)->where('status', '1')->get();
         $faqs = FAQ::where('language', $language_name)->where('status', '1')->get();
-        $courses = Course::where('language', $language_name)->where('status', '1')->get();
+        $testimonials = Testimonial::where('language', $language_name)->where('status', '1')->get();
+        $nutritionists = Nutritionist::where('language', $language_name)->where('status', '1')->get();
 
         return view('frontend.pages.homepage', [
             'contents' => $contents,
             'language' => $language,
             'courses' => $courses,
-            'faqs' => $faqs
+            'faqs' => $faqs,
+            'testimonials' => $testimonials,
+            'nutritionists' => $nutritionists
         ]);
     }
 }

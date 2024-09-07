@@ -50,11 +50,13 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'new_image_video' => 'max:2048',
-            'new_instructor_profile_image' => 'max:2048',
+            'new_image_video' => 'required|max:2048',
+            'new_instructor_profile_image' => 'required|max:2048',
         ], [
             'new_image_video.max' => 'Image or video must not be greater than 2MB',
-            'new_instructor_profile_image.max' => 'Image must not be greater than 2MB'
+            'new_image_video.required' => 'This field is required',
+            'new_instructor_profile_image.max' => 'Image must not be greater than 2MB',
+            'new_instructor_profile_image.required' => 'Instructor profile image is required'
         ]);
 
         if($validator->fails()) {

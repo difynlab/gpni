@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="col-6 right-column">
-                        <label for="image_video_description" class="form-label">Image/ Video Description</label>
+                        <label for="image_video_description" class="form-label">Image/ Video Description<span class="asterisk">*</span></label>
                         <textarea class="form-control" name="image_video_description" value="{{ old('image_video_description') }}" placeholder="Image/ Video Description" required>{{ old('image_video_description') }}</textarea>
                     </div>
                 </div>
