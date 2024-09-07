@@ -9,7 +9,7 @@
 @section('content')
 
     <!-- SECTION 01-->
-    @if($contents->{'section_2_title_en'})
+    @if($contents->{'section_1_title_en'})
     <div class="section">
         <div class="text-container">
             <div class="since">
@@ -65,8 +65,8 @@
     @endif
     <!-- END OF SECTION 03 -->
 
-    <!-- SECTION 04-->
-    @if($contents->{'section_3_title_en'})
+    <!-- FOUNDERS SECTION -->
+    @if($contents->{'section_3_title_en'}) <!-- there is no title for founder section, so section_3_title_en is used -->
         <div class="our-founders">
             <div class="container">
                 <h2 class="fs-49 ff-poppins-medium">
@@ -112,9 +112,9 @@
             </div>
         </div>
     @endif
-    <!-- END OF SECTION 04 -->
+    <!-- END OF FOUNDERS SECTION -->
 
-    <!-- SECTION 05-->
+    <!-- SECTION 04-->
     @if($contents->{'section_4_title_en'})
         <div class="our-partners">
             <div class="container">
@@ -130,16 +130,16 @@
             </div>
         </div>
     @endif
-    <!-- END OF SECTION 05 -->
+    <!-- END OF SECTION 04 -->
 
-    <!-- SECTION 06-->
+    <!-- SECTION 05-->
     @if($contents->{'section_5_title_en'})
         <div class="gold-standard py-4">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_5_title_' . $language} ?? $contents->{'section_5_title_en'} }}</h2>
-                        <p class="fs-25 ff-poppins-regular">{!! $contents->{'section_4_description_' . $language} ?? $contents->{'section_4_description_en'} !!}</p>
+                        <p class="fs-25 ff-poppins-regular">{!! $contents->{'section_5_description_' . $language} ?? $contents->{'section_5_description_en'} !!}</p>
                     </div>
                     <div class="col-md-6">
                         <img src="{{ asset('storage/backend/pages/' . $contents->{'section_5_image_' . $language}) }}" alt="Gold Standard Image" class="img-fluid">
@@ -148,6 +148,6 @@
             </div>
         </div>
     @endif
-    <!-- END OF SECTION 06 -->
+    <!-- END OF SECTION 05 -->
 
 @endsection

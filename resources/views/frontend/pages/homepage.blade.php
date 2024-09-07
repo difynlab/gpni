@@ -277,6 +277,7 @@
                     </div>
                     <p class="mb-1 partners-body fw-normal fs-25">{{ $contents->{'section_5_description_' . $language} ?? $contents->{'section_5_description_en'} }}</p>
                 </div>
+                @if($contents->{'section_5_images_en'})
                 <div class="row pb-5">
                     <div class="row px-5 pb-5 gx-1">
                         @if($contents->{'section_5_images_' . $language})
@@ -285,9 +286,16 @@
                                     <img src="{{ asset('storage/backend/pages/' . $section_5_image) }}" alt="Image" class="event-image">
                                 </div>
                             @endforeach
+                        @else
+                            @foreach(json_decode($contents->{'section_5_images_en'}) as $section_5_image)
+                                <div class="col-md-3 col-6 mt-5">
+                                    <img src="{{ asset('storage/backend/pages/' . $section_5_image) }}" alt="Image" class="event-image">
+                                </div>
+                            @endforeach
                         @endif
                     </div>
-                </div>
+                </div> 
+                @endif
             </div>
         </div>
     @endif
@@ -353,7 +361,7 @@
 
                 <div class="text-center mt-5 pt-5 explore-course-text">
                     <a href="{{ json_decode($contents->{'section_7_label_link_' . $language})->link ?? '' }}" class="py-sm-4 px-sm-5 fw-medium learn-more">
-                        {{ json_decode($contents->{'section_6_label_link_' . $language})->label ?? '' }}
+                        {{ json_decode($contents->{'section_7_label_link_' . $language})->label ?? '' }}
                         <img src="{{ asset('storage/frontend/arrow-right.svg') }}"/>
                     </a>
                 </div>
