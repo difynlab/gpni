@@ -30,6 +30,8 @@ use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisor
 use App\Http\Controllers\Backend\Person\ISSNPartnerController as PersonISSNPartnerController;
 use App\Http\Controllers\Backend\Person\NutritionistController;
 use App\Http\Controllers\Backend\Person\StudentController;
+use App\Http\Controllers\Backend\Policy\PolicyCategoryController;
+use App\Http\Controllers\Backend\Policy\PolicyController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Promotion\PromotionController;
@@ -207,4 +209,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             });
         });
     // All order routes
+
+
+    // All policies related routes
+        Route::resource('policy-categories', PolicyCategoryController::class)->except(['show']);
+        Route::post('policy-categories/filter', [PolicyCategoryController::class, 'filter'])->name('policy-categories.filter');
+
+        Route::resource('policies', PolicyController::class)->except(['show']);
+        Route::post('policies/filter', [PolicyController::class, 'filter'])->name('policies.filter');
+    // All policies related routes
 });

@@ -101,7 +101,6 @@
                 </div>
             </div>
 
-
             <x-backend.edit-status :data="$article"></x-backend.edit-status>
         </form>
     </div>

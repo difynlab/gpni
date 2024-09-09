@@ -19,6 +19,8 @@ class ArticleController extends Controller
             <a href="'. route('backend.articles.edit', $article->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$article->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
+            $article->article_category = ArticleCategory::find($article->article_category_id)->name;
+
             $article->status = ($article->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }
 

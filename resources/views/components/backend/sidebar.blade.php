@@ -121,6 +121,23 @@
                 </div>
             </div>
 
+            <div class="accordion" id="policy-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policy-data-collapse">
+                    <img src="{{ asset('storage/backend/sidebar/policy.png') }}" alt="Icon">
+                    <span>Policies</span>
+                </button>
+
+                <div id="policy-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(2), ['policy-categories', 'policies']) ? 'show' : '' }}" data-bs-parent="#policy-accordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><a href="{{ route('backend.policy-categories.index') }}" class="link {{ Request::segment(2) == 'policy-categories' ? 'active' : null }}">Policy Categories</a></li>
+
+                            <li><a href="{{ route('backend.policies.index') }}" class="link {{ Request::segment(2) == 'policies' ? 'active' : null }}">Policies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <li>
                 <a href="{{ route('backend.testimonials.index') }}" class="link {{ Request::segment(2) == 'testimonials' ? 'active' : null }}">
                     <img src="{{ asset('storage/backend/sidebar/testimonial.png') }}" alt="Icon">

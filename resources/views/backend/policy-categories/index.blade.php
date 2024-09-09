@@ -1,28 +1,28 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Article')
+@section('title', 'Policy Categories')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Article"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Policy Categories"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.articles.create') }}" class="add-button">
+                <a href="{{ route('backend.policy-categories.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
-                    Add New Article
+                    Add New Category
                 </a>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.articles.filter') }}" method="POST" class="filter-form">
+                <form action="{{ route('backend.policy-categories.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
                         <div class="col-5">
-                            <input type="text" class="form-control" name="title" value="{{ $title ?? '' }}" placeholder="Title">
+                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Name">
                         </div>
 
                         <div class="col-5">
@@ -52,8 +52,7 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Article Category</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Language</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
@@ -61,30 +60,29 @@
                     </thead>
 
                     <tbody>
-                        @if(count($articles) > 0)
-                            @foreach($articles as $article)
+                        @if(count($policy_categories) > 0)
+                            @foreach($policy_categories as $policy_category)
                                 <tr>
-                                    <td>#{{ $article->id }}</td>
-                                    <td>{{ $article->title }}</td>
-                                    <td>{{ $article->article_category }}</td>
-                                    <td>{{ $article->language }}</td>
-                                    <td>{!! $article->status !!}</td>
-                                    <td>{!! $article->action !!}</td>
+                                    <td>#{{ $policy_category->id }}</td>
+                                    <td>{{ $policy_category->name }}</td>
+                                    <td>{{ $policy_category->language }}</td>
+                                    <td>{!! $policy_category->status !!}</td>
+                                    <td>{!! $policy_category->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="6" style="text-align: center;">No data available in table</td>
+                                <td colspan="5" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
                 </table>
 
-                {{ $articles->links("pagination::bootstrap-5") }}
+                {{ $policy_categories->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="Article"></x-backend.delete-data>
+        <x-backend.delete-data title="Policy Category"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -95,7 +93,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.articles.destroy', [':id']) }}";
+                let url = "{{ route('backend.policy-categories.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -103,7 +101,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $articles->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $policy_categories->url(1) !!}&items=" + this.value; 
             });
         });
     </script>
