@@ -1,0 +1,16 @@
+# Ignore everything by default
+*
+
+# Include everything in the frontend folder
+!/frontend/
+!/frontend/**
+
+# Include specific items in the backend folder
+!/backend/
+!/backend/sidebar/
+!/backend/sidebar/**
+!/backend/common/
+!/backend/common/**
+
+# Include images with a dot in their name in the backend folder
+# !/backend/*.*
