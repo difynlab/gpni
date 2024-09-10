@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
             AdvisoryBoardContentSeeder::class,
             ISSNPartnerContentSeeder::class,
             FAQContentSeeder::class,
-            PolicyContentSeeder::class
+            PolicyContentSeeder::class,
+            InsuranceProfessionalMembershipContentSeeder::class,
+            ArticleContentSeeder::class,
+            ConferenceContentSeeder::class
         ]);
     }
 }

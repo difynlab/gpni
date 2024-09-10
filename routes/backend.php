@@ -16,11 +16,14 @@ use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
 use App\Http\Controllers\Backend\Order\GiftCardOrderController;
 use App\Http\Controllers\Backend\Page\AdvisoryBoardController as PageAdvisoryBoardController;
+use App\Http\Controllers\Backend\Page\ArticleController as PageArticleController;
+use App\Http\Controllers\Backend\Page\ConferenceController as PageConferenceController;
 use App\Http\Controllers\Backend\Page\FAQController as PageFAQController;
 use App\Http\Controllers\Backend\Page\GiftCardController;
 use App\Http\Controllers\Backend\Testimonial\TestimonialController;
 use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
+use App\Http\Controllers\Backend\Page\InsuranceProfessionalMembershipController;
 use App\Http\Controllers\Backend\Page\ISSNPartnerController as PageISSNPartnerController;
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\PolicyController as PagePolicyController;
@@ -74,6 +77,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
             Route::get('policy/{language}', [PagePolicyController::class, 'index'])->name('policy.index');
             Route::post('policy/{language}', [PagePolicyController::class, 'update'])->name('policy.update');
+
+            Route::get('insurance-professional-membership/{language}', [InsuranceProfessionalMembershipController::class, 'index'])->name('insurance-professional-membership.index');
+            Route::post('insurance-professional-membership/{language}', [InsuranceProfessionalMembershipController::class, 'update'])->name('insurance-professional-membership.update');
+
+            Route::get('article/{language}', [PageArticleController::class, 'index'])->name('article.index');
+            Route::post('article/{language}', [PageArticleController::class, 'update'])->name('article.update');
+
+            Route::get('conference/{language}', [PageConferenceController::class, 'index'])->name('conference.index');
+            Route::post('conference/{language}', [PageConferenceController::class, 'update'])->name('conference.update');
         });
     // All page related routes
 
