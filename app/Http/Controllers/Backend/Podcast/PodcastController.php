@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Backend\Podcast;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
-use App\Models\ArticleCategory;
+use App\Models\Podcast;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -12,159 +11,122 @@ use Illuminate\Support\Facades\Storage;
 
 class PodcastController extends Controller
 {
-    private function processArticles($articles)
+    private function processPodcasts($podcasts)
     {
-        foreach($articles as $article) {
-            $article->action = '
-            <a href="'. route('backend.articles.edit', $article->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
-            <a id="'.$article->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+        foreach($podcasts as $podcast) {
+            $podcast->action = '
+            <a href="'. route('backend.podcasts.edit', $podcast->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
+            <a id="'.$podcast->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $article->article_category = ArticleCategory::find($article->article_category_id)->name;
-
-            $article->status = ($article->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
+            $podcast->status = ($podcast->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }
 
-        return $articles;
+        return $podcasts;
     }
 
     public function index(Request $request)
     {
         $items = $request->items ?? 10;
 
-        $articles = Article::where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
-        $articles = $this->processArticles($articles);
+        $podcasts = Podcast::where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
+        $podcasts = $this->processPodcasts($podcasts);
 
-        return view('backend.articles.index', [
-            'articles' => $articles,
+        return view('backend.podcasts.index', [
+            'podcasts' => $podcasts,
             'items' => $items
         ]);
     }
 
     public function create()
     {
-        $article_categories = ArticleCategory::where('status', '1')->get();
-
-        return view('backend.articles.create', [
-            'article_categories' => $article_categories
-        ]);
+        return view('backend.podcasts.create');
     }
                                                                               
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'new_thumbnail' => 'nullable|max:2048',
-            'new_author_image' => 'nullable|max:2048'
+            'video' => 'max:2048',
+            'content' => 'required'
         ], [
-            'new_thumbnail.max' => 'The thumbnail must not be greater than 2MB',
-            'new_author_image.max' => 'The author image must not be greater than 2MB'
+            'video.max' => 'The video size must not exceed 2 MB',
+            'content.required' => 'This field is required'
         ]);
         
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
         }
 
-        if($request->file('new_thumbnail') != null) {
-            $thumbnail = $request->file('new_thumbnail');
-            $thumbnail_name = Str::random(40) . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->storeAs('public/backend/articles/articles', $thumbnail_name);
+        if($request->file('video') != null) {
+            $video = $request->file('video');
+            $video_name = Str::random(40) . '.' . $video->getClientOriginalExtension();
+            $video->storeAs('public/backend/podcasts', $video_name);
         }
         else {
-            $thumbnail_name = $request->old_thumbnail;
+            $video_name = null;
         }
 
-        if($request->file('new_author_image') != null) {
-            $author_image = $request->file('new_author_image');
-            $author_image_name = Str::random(40) . '.' . $author_image->getClientOriginalExtension();
-            $author_image->storeAs('public/backend/articles/author-images', $author_image_name);
-        }
-        else {
-            $author_image_name = $request->old_author_image;
-        }
-
-        $article = new Article();
+        $podcast = new Podcast();
         $data = $request->except(
-            'old_thumbnail',
-            'new_thumbnail',
-            'old_author_image',
-            'new_author_image'
+            'video'
         );
 
-        $data['thumbnail'] = $thumbnail_name;
-        $data['author_image'] = $author_image_name;
+        $data['video'] = $video_name;
 
-        $article->create($data);
+        $podcast->create($data);
 
-        return redirect()->route('backend.articles.index')->with('success', 'Successfully created!');
+        return redirect()->route('backend.podcasts.index')->with('success', 'Successfully created!');
     }
 
-    public function edit(Article $article)
+    public function edit(Podcast $podcast)
     {
-        $article_categories = ArticleCategory::where('status', '1')->get();
-
-        return view('backend.articles.edit', [
-            'article' => $article,
-            'article_categories' => $article_categories
+        return view('backend.podcasts.edit', [
+            'podcast' => $podcast
         ]);
     }
 
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Podcast $podcast)
     {
         $validator = Validator::make($request->all(), [
-            'new_thumbnail' => 'nullable|max:2048',
-            'new_author_image' => 'nullable|max:2048'
+            'video' => 'nullable|max:2048',
+            'content' => 'required'
         ], [
-            'new_thumbnail.max' => 'The thumbnail must not be greater than 2MB.',
-            'new_author_image.max' => 'The author image must not be greater than 2MB.'
+            'video.max' => 'The video size must not exceed 2 MB',
+            'content.required' => 'This field is required'
         ]);
         
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
 
-        if($request->file('new_thumbnail') != null) {
-            if($request->old_thumbnail) {
-                Storage::delete('public/backend/articles/articles/' . $request->old_thumbnail);
+        if($request->file('new_video') != null) {
+            if($request->old_video) {
+                Storage::delete('public/backend/podcasts/' . $request->old_video);
             }
 
-            $thumbnail = $request->file('new_thumbnail');
-            $thumbnail_name = Str::random(40) . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->storeAs('public/backend/articles/articles', $thumbnail_name);
+            $new_video = $request->file('new_video');
+            $new_video_name = Str::random(40) . '.' . $new_video->getClientOriginalExtension();
+            $new_video->storeAs('public/backend/podcasts', $new_video_name);
         }
         else {
-            $thumbnail_name = $request->old_thumbnail;
-        }
-
-        if($request->file('new_author_image') != null) {
-            if($request->old_author_image) {
-                Storage::delete('public/backend/articles/author-images/' . $request->old_author_image);
-            }
-
-            $author_image = $request->file('new_author_image');
-            $author_image_name = Str::random(40) . '.' . $author_image->getClientOriginalExtension();
-            $author_image->storeAs('public/backend/articles/author-images', $author_image_name);
-        }
-        else {
-            $author_image_name = $request->old_author_image;
+            $new_video_name = $request->old_video;
         }
 
         $data = $request->except(
-            'old_thumbnail',
-            'new_thumbnail',
-            'old_author_image',
-            'new_author_image'
+            'old_video',
+            'new_video',
         );
-        $data['thumbnail'] = $thumbnail_name;
-        $data['author_image'] = $author_image_name;
-
-        $article->fill($data)->save();
         
-        return redirect()->route('backend.articles.index')->with('success', "Successfully updated!");
+        $data['video'] = $new_video_name;
+
+        $podcast->fill($data)->save();
+        
+        return redirect()->route('backend.podcasts.index')->with('success', "Successfully updated!");
     }
 
-    public function destroy(Article $article)
+    public function destroy(Podcast $podcast)
     {
-        $article->status = '0';
-        $article->save();
+        $podcast->status = '0';
+        $podcast->save();
 
         return redirect()->back()->with('success', 'Successfully deleted!');
     }
@@ -172,28 +134,28 @@ class PodcastController extends Controller
     public function filter(Request $request)
     {
         if($request->action == 'reset') {
-            return redirect()->route('backend.articles.index');
+            return redirect()->route('backend.podcasts.index');
         }
 
         $title = $request->title;
         $language = $request->language;
 
-        $articles = Article::where('status', '!=', '0')->orderBy('id', 'desc');
+        $podcasts = Podcast::where('status', '!=', '0')->orderBy('id', 'desc');
 
         if($title != null) {
-            $articles->where('title', 'like', '%' . $title . '%');
+            $podcasts->where('title', 'like', '%' . $title . '%');
         }
 
         if($language != 'All') {
-            $articles->where('language', $language);
+            $podcasts->where('language', $language);
         }
 
         $items = $request->items ?? 10;
-        $articles = $articles->paginate($items);
-        $articles = $this->processArticles($articles);
+        $podcasts = $podcasts->paginate($items);
+        $podcasts = $this->processPodcasts($podcasts);
 
-        return view('backend.articles.index', [
-            'articles' => $articles,
+        return view('backend.podcasts.index', [
+            'podcasts' => $podcasts,
             'items' => $items,
             'title' => $title,
             'language' => $language
