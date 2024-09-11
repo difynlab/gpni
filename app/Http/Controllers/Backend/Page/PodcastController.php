@@ -5,9 +5,6 @@ namespace App\Http\Controllers\Backend\Page;
 use App\Http\Controllers\Controller;
 use App\Models\PodcastContent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class PodcastController extends Controller
 {
