@@ -55,7 +55,7 @@
                             <a class="dropdown-item" href="#">Membership</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('frontend.our-policies') }}">Our Policies</a>
+                            <a class="dropdown-item" href="#">Our Policies</a>
                         </li>
                     </ul>
                 </li>
@@ -71,7 +71,7 @@
                             <a class="dropdown-item" href="/pages/Partners/GPNI Global Education Partners.html">Approved Education Partners</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('frontend.issn-official-partners') }}">ISSN Official Partners & Affiliates</a>
+                            <a class="dropdown-item" href="/pages/Partners/ISSN Official Partners Affiliates.html">ISSN Official Partners & Affiliates</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="/pages/Partners/ISSN Official Partners Affiliates.html">Regional & Branding Partners</a>
