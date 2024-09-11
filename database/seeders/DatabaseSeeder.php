@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             PolicyContentSeeder::class,
             InsuranceProfessionalMembershipContentSeeder::class,
             ArticleContentSeeder::class,
-            ConferenceContentSeeder::class
+            ConferenceContentSeeder::class,
+            PodcastContentSeeder::class
         ]);
     }
 }

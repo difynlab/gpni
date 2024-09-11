@@ -26,6 +26,7 @@ use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\InsuranceProfessionalMembershipController;
 use App\Http\Controllers\Backend\Page\ISSNPartnerController as PageISSNPartnerController;
 use App\Http\Controllers\Backend\Page\PageController;
+use App\Http\Controllers\Backend\Page\PodcastController as PagePodcastController;
 use App\Http\Controllers\Backend\Page\PolicyController as PagePolicyController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
 use App\Http\Controllers\Backend\Person\AdminController;
@@ -33,6 +34,7 @@ use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisor
 use App\Http\Controllers\Backend\Person\ISSNPartnerController as PersonISSNPartnerController;
 use App\Http\Controllers\Backend\Person\NutritionistController;
 use App\Http\Controllers\Backend\Person\StudentController;
+use App\Http\Controllers\Backend\Podcast\PodcastController;
 use App\Http\Controllers\Backend\Policy\PolicyCategoryController;
 use App\Http\Controllers\Backend\Policy\PolicyController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
@@ -86,6 +88,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
             Route::get('conference/{language}', [PageConferenceController::class, 'index'])->name('conference.index');
             Route::post('conference/{language}', [PageConferenceController::class, 'update'])->name('conference.update');
+
+            Route::get('podcast/{language}', [PagePodcastController::class, 'index'])->name('podcast.index');
+            Route::post('podcast/{language}', [PagePodcastController::class, 'update'])->name('podcast.update');
         });
     // All page related routes
 
@@ -166,6 +171,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('medias', MediaController::class)->except('show');
         Route::post('medias/filter', [MediaController::class, 'filter'])->name('medias.filter');
     // Medias routes
+
+    // Podcast routes
+        Route::resource('podcasts', PodcastController::class)->except('show');
+        Route::post('podcasts/filter', [PodcastController::class, 'filter'])->name('podcasts.filter');
+    // Podcast routes
 
 
     // All users routes
