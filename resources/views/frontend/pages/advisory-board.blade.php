@@ -3,7 +3,7 @@
 @section('title', 'Advisory Board')
 
 @push('after-styles')
-    <link rel="stylesheet" href="{{ asset('frontend/css/advisory.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/advisory-board.css') }}">
 @endpush
 
 @section('content')

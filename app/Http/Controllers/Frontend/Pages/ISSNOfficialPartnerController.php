@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ISSNPartner;
 use App\Models\ISSNPartnerContent;
 
-class ISSNOfficialPartnersController extends Controller
+class ISSNOfficialPartnerController extends Controller
 {
     public function index()
     {
@@ -28,11 +28,9 @@ class ISSNOfficialPartnersController extends Controller
                 break;
         }
 
-        $partners = ISSNPartner::where('language', $language_name)->where('status', '1')->first();
-
-        // Fallback to English if no partner is found for the selected language
-        if(!$partners && $language_name !== 'English') {
-            $partners = ISSNPartner::where('language', 'English')->where('status', '1')->first();
+        $partners = ISSNPartner::where('language', $language_name)->where('status', '1')->get();
+        if($partners->isEmpty() && $language_name !== 'English') {
+            $partners = ISSNPartner::where('language', 'English')->where('status', '1')->get();
         }
     
         return view('frontend.pages.issn-official-partners', [

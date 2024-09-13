@@ -7,7 +7,7 @@ use App\Models\PolicyContent;
 use App\Models\PolicyCategory;
 use App\Models\Policy;
 
-class OurPoliciesController extends Controller
+class OurPolicyController extends Controller
 {
     public function index()
     {
@@ -29,14 +29,14 @@ class OurPoliciesController extends Controller
                 break;
         }
 
-        $policies = Policy::where('language', $language_name)->where('status', '1')->get();
+        $policies = Policy::where('language', $language_name)->where('status', '1')->orderBy('id', 'asc')->get();
         if($policies->isEmpty() && $language_name !== 'English') {
-            $policies = Policy::where('language', 'English')->where('status', '1')->get();
+            $policies = Policy::where('language', 'English')->where('status', '1')->orderBy('id', 'asc')->get();
         }
     
-        $policy_categories = PolicyCategory::where('language', $language_name)->where('status', '1')->get();
+        $policy_categories = PolicyCategory::where('language', $language_name)->where('status', '1')->orderBy('id', 'asc')->get();
         if($policy_categories->isEmpty() && $language_name !== 'English') {
-            $policy_categories = PolicyCategory::where('language', 'English')->where('status', '1')->get();
+            $policy_categories = PolicyCategory::where('language', 'English')->where('status', '1')->orderBy('id', 'asc')->get();
         }
     
         return view('frontend.pages.our-policies', [
