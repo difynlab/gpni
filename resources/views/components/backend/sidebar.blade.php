@@ -139,6 +139,13 @@
             </div>
 
             <li>
+                <a href="{{ route('backend.podcasts.index') }}" class="link {{ Request::segment(2) == 'podcasts' ? 'active' : null }}">
+                    <img src="{{ asset('storage/backend/sidebar/podcast.png') }}" alt="Icon">
+                    <span>Podcasts</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="{{ route('backend.testimonials.index') }}" class="link {{ Request::segment(2) == 'testimonials' ? 'active' : null }}">
                     <img src="{{ asset('storage/backend/sidebar/testimonial.png') }}" alt="Icon">
                     <span>Testimonials</span>
