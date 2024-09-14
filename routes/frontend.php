@@ -10,6 +10,8 @@ use App\Http\Controllers\Frontend\Pages\ISSNOfficialPartnerController;
 use App\Http\Controllers\Frontend\Pages\OurPolicyController;
 use App\Http\Controllers\Frontend\Pages\ConferenceController;
 use App\Http\Controllers\Frontend\Pages\InsuranceController;
+use App\Http\Controllers\Frontend\Pages\GiftCardController;
+use App\Http\Controllers\Frontend\Pages\PodcastController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,8 @@ Route::get('/issn-official-partners', [ISSNOfficialPartnerController::class, 'in
 Route::get('/our-policies', [OurPolicyController::class, 'index'])->name('our-policies');
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/insurance', [InsuranceController::class, 'index'])->name('insurance');
+Route::get('/gift-card', [GiftCardController::class, 'index'])->name('gift-card');
+Route::get('/podcasts', [PodcastController::class, 'index'])->name('podcasts');
 
 Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
