@@ -8,6 +8,8 @@ use App\Http\Controllers\Frontend\Pages\AdvisoryBoardController;
 use App\Http\Controllers\Frontend\Pages\FaqController;
 use App\Http\Controllers\Frontend\Pages\ISSNOfficialPartnerController;
 use App\Http\Controllers\Frontend\Pages\OurPolicyController;
+use App\Http\Controllers\Frontend\Pages\ConferenceController;
+use App\Http\Controllers\Frontend\Pages\InsuranceController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,8 @@ Route::get('/advisory-board', [AdvisoryBoardController::class, 'index'])->name('
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/issn-official-partners', [ISSNOfficialPartnerController::class, 'index'])->name('issn-official-partners');
 Route::get('/our-policies', [OurPolicyController::class, 'index'])->name('our-policies');
+Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
+Route::get('/insurance', [InsuranceController::class, 'index'])->name('insurance');
 
 Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');

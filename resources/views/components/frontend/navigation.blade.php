@@ -65,7 +65,7 @@
 
                     <ul class="dropdown-menu" aria-labelledby="partnersDropdown">
                         <li>
-                            <a class="dropdown-item" href="/pages/Partners/Insurance.html">Insurance & Professional Membership</a>
+                            <a class="dropdown-item" href="{{ route('frontend.insurance') }}">Insurance & Professional Membership</a>
                             </li>
                         <li>
                             <a class="dropdown-item" href="/pages/Partners/GPNI Global Education Partners.html">Approved Education Partners</a>
