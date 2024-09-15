@@ -43,7 +43,7 @@
                             <a class="dropdown-item" href="{{ route('frontend.history-of-gpni') }}">The History of GPNI</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Why We Are Different</a>
+                            <a class="dropdown-item" href="{{ route('frontend.why-different') }}">Why We Are Different</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="{{ route('frontend.advisory-board') }}">Advisory Board & Expert Lectures</a>

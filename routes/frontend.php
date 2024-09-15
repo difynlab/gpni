@@ -12,6 +12,8 @@ use App\Http\Controllers\Frontend\Pages\ConferenceController;
 use App\Http\Controllers\Frontend\Pages\InsuranceController;
 use App\Http\Controllers\Frontend\Pages\GiftCardController;
 use App\Http\Controllers\Frontend\Pages\PodcastController;
+use App\Http\Controllers\Frontend\Pages\MainArticleController;
+use App\Http\Controllers\Frontend\Pages\WhyWeAreDifferentController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,8 @@ Route::get('/conference', [ConferenceController::class, 'index'])->name('confere
 Route::get('/insurance', [InsuranceController::class, 'index'])->name('insurance');
 Route::get('/gift-card', [GiftCardController::class, 'index'])->name('gift-card');
 Route::get('/podcasts', [PodcastController::class, 'index'])->name('podcasts');
+Route::get('/main-article', [MainArticleController::class, 'index'])->name('main-article');
+Route::get('/why-different', [WhyWeAreDifferentController::class, 'index'])->name('why-different');
 
 Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
