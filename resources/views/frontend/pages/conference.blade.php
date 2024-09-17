@@ -26,7 +26,7 @@
                         <div class="value">{{ $conference->where }}</div>
                     </div>
                 </div>
-                <a href="/pages/Conferences/3rd Annual Society.html" class="view-more">
+                <a href="{{ route('frontend.single-conference', ['id' => $conference->id]) }}" class="view-more">
                     <span>View More details</span>
                     <img src="{{ asset('storage/frontend/fluent-arrow-up-16-filled-5.svg') }}" alt="Arrow Icon">
                 </a>

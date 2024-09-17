@@ -40,4 +40,10 @@ class ConferenceController extends Controller
             'conferences' => $conferences
         ]);
     }
+
+    public function show($id)
+    {
+        $conference = Conference::findOrFail($id);
+        return view('frontend.pages.single-conference', compact('conference'));
+    }
 }

@@ -32,9 +32,9 @@
                         <div class="card bg-light">
                             <div class="position-relative">
                                 @if($article->thumbnail)
-                                    <img src="{{ asset('storage/backend/articles/articles/' . $article->thumbnail) }}" alt="Main Image" class="img-fluid w-100">
+                                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Main Image" class="img-fluid w-100">
                                 @else
-                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Main Image" class="img-fluid w-100">
+                                    <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}" alt="Main Image" class="img-fluid w-100">
                                 @endif
                                 <div class="share-icon position-absolute">
                                     <button class="btn btn-light" onclick="shareContent('{{ $article->title }}', '{{ asset('storage/backend/articles/articles/' . $article->thumbnail) }}')">
@@ -53,15 +53,13 @@
                                 <p class="text-muted card-text mb-4">{!! $article->content !!}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex align-items-center">
-                                        @if($article->thumbnail)
-                                            <img src="{{ asset('storage/backend/articles/author-images/' . $article->author_image) }}" alt="User" class="rounded-circle" 
+                                        @if($article->author_image)
+                                            <img src="{{ asset('storage/backend/articles/author-images/'.$article->author_image) }}" alt="User" class="rounded-circle" 
                                             style="width:40px; height:40px;">
-                                        @else
-                                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Main Image" class="img-fluid w-100">
-                                        @endif
+                                        @endif 
                                         <span class="username">{{ $article->author_name }}</span>
                                     </div>
-                                    <a href="#" class="text-primary read-more-button">
+                                    <a href="{{ route('frontend.single-article', ['id' => $article->id]) }}" class="text-primary read-more-button">
                                         <span>Read More</span>
                                         <i class="fas fa-arrow-circle-right ml-2"></i>
                                     </a>
@@ -83,9 +81,9 @@
                     @foreach($articles as $article)
                     <div class="trending-article">
                         @if($article -> thumbnail)
-                            <img src="{{ asset('storage/backend/articles/articles/' . $article -> thumbnail) }}" alt="Trending Image">
+                            <img src="{{ asset('storage/backend/articles/articles/'.$article -> thumbnail) }}" alt="Trending Image">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Trending Image">
+                            <img src="{{ asset('storage/backend/common/'.App\Models\Setting::find(1)->no_image) }}" alt="Trending Image">
                         @endif
                         <div class="trending-content">
                         <h6>{!! $article -> title !!}</h6>

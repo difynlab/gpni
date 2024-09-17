@@ -34,6 +34,8 @@ Route::get('/gift-card', [GiftCardController::class, 'index'])->name('gift-card'
 Route::get('/podcasts', [PodcastController::class, 'index'])->name('podcasts');
 Route::get('/main-article', [MainArticleController::class, 'index'])->name('main-article');
 Route::get('/why-different', [WhyWeAreDifferentController::class, 'index'])->name('why-different');
+Route::get('/conference/{id}', [ConferenceController::class, 'show'])->name('single-conference');
+Route::get('/main-article/{id}', [MainArticleController::class, 'show'])->name('single-article');
 
 Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
