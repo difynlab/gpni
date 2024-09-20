@@ -24,6 +24,16 @@
                     </div>
 
                     <div class="col-12 mb-4">
+                        <label for="type" class="form-label">Type<span class="asterisk">*</span></label>
+                        <select class="form-control form-select" id="type" name="type" required>
+                            <option value="">Select type</option>
+                            <option value="Common" {{ old('type') == 'Common' ? 'selected' : '' }}>Common</option>
+                            <option value="Membership" {{ old('type') == 'Membership' ? 'selected' : '' }}>Membership</option>
+                            <option value="Master Class" {{ old('type') == 'Master Class' ? 'selected' : '' }}>Master Class</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 mb-4">
                         <label for="question" class="form-label">Question<span class="asterisk">*</span></label>
                         <textarea class="form-control" id="question" rows="4" name="question" value="{{ old('question') }}" required>{{ old('question') }}</textarea>
                     </div>

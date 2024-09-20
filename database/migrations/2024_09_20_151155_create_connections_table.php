@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('connections', function (Blueprint $table) {
             $table->id();
-            $table->enum('language', ['English', 'Chinese', 'Japanese']);
-            $table->enum('type', ['Common', 'Membership', 'Master Class']);
-            $table->text('question');
-            $table->text('answer');
-            $table->enum('status', [0, 1, 2])->index();
+
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('phone_number');
+            $table->text('reason');
+            $table->text('comments');
+            $table->enum('status', [0, 1])->index();
+
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('faqs');
+        Schema::dropIfExists('connections');
     }
 };

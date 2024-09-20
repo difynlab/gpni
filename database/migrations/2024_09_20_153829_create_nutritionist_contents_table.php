@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('nutritionist_contents', function (Blueprint $table) {
             $table->id();
-            $table->enum('language', ['English', 'Chinese', 'Japanese']);
-            $table->enum('type', ['Common', 'Membership', 'Master Class']);
-            $table->text('question');
-            $table->text('answer');
-            $table->enum('status', [0, 1, 2])->index();
+
+            $table->text('title_en')->nullable();
+            $table->text('title_zh')->nullable();
+            $table->text('title_ja')->nullable();
+            
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('faqs');
+        Schema::dropIfExists('nutritionist_contents');
     }
 };
