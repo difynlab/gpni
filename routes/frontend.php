@@ -8,6 +8,12 @@ use App\Http\Controllers\Frontend\Pages\AdvisoryBoardController;
 use App\Http\Controllers\Frontend\Pages\FaqController;
 use App\Http\Controllers\Frontend\Pages\ISSNOfficialPartnerController;
 use App\Http\Controllers\Frontend\Pages\OurPolicyController;
+use App\Http\Controllers\Frontend\Pages\ConferenceController;
+use App\Http\Controllers\Frontend\Pages\InsuranceController;
+use App\Http\Controllers\Frontend\Pages\GiftCardController;
+use App\Http\Controllers\Frontend\Pages\PodcastController;
+use App\Http\Controllers\Frontend\Pages\MainArticleController;
+use App\Http\Controllers\Frontend\Pages\WhyWeAreDifferentController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +28,14 @@ Route::get('/advisory-board', [AdvisoryBoardController::class, 'index'])->name('
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/issn-official-partners', [ISSNOfficialPartnerController::class, 'index'])->name('issn-official-partners');
 Route::get('/our-policies', [OurPolicyController::class, 'index'])->name('our-policies');
+Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
+Route::get('/insurance', [InsuranceController::class, 'index'])->name('insurance');
+Route::get('/gift-card', [GiftCardController::class, 'index'])->name('gift-card');
+Route::get('/podcasts', [PodcastController::class, 'index'])->name('podcasts');
+Route::get('/main-article', [MainArticleController::class, 'index'])->name('main-article');
+Route::get('/why-different', [WhyWeAreDifferentController::class, 'index'])->name('why-different');
+Route::get('/conference/{id}', [ConferenceController::class, 'show'])->name('single-conference');
+Route::get('/main-article/{id}', [MainArticleController::class, 'show'])->name('single-article');
 
 Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
