@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('global_education_partners', function (Blueprint $table) {
             $table->id();
+
             $table->enum('language', ['English', 'Chinese', 'Japanese']);
-            $table->enum('type', ['Common', 'Membership', 'Master Class']);
-            $table->text('question');
-            $table->text('answer');
+            $table->string('image');
             $table->enum('status', [0, 1, 2])->index();
+            
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('faqs');
+        Schema::dropIfExists('global_education_partners');
     }
 };

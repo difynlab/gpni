@@ -1,31 +1,27 @@
 @extends('backend.layouts.app')
 
-@section('title', 'FAQs')
+@section('title', 'Global Education Partners')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="FAQs"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Global Education Partners"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.faqs.create') }}" class="add-button">
+                <a href="{{ route('backend.persons.global-education-partners.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
-                    Add New FAQ
+                    Add New Global Education Partner
                 </a>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.faqs.filter') }}" method="POST" class="filter-form">
+                <form action="{{ route('backend.persons.global-education-partners.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
-                        <div class="col-5">
-                            <input type="text" class="form-control" name="question" value="{{ $question ?? '' }}" placeholder="Question">
-                        </div>
-
-                        <div class="col-5">
+                        <div class="col-9">
                             <select class="form-control form-select" name="language">
                                 <option value="All" selected>All languages</option>
                                 <option value="English" {{ isset($language) && $language == 'English' ? "selected" : "" }}>English</option>
@@ -34,7 +30,7 @@
                             </select>
                         </div>
 
-                        <div class="col-2 d-flex justify-content-between">
+                        <div class="col-3 d-flex justify-content-between">
                             <button type="submit" class="filter-search-button" name="action" value="search">SEARCH</button>
 
                             <button type="submit" class="filter-reset-button" name="action" value="reset">RESET</button>
@@ -52,41 +48,37 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Language</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Question</th>
-                            <th scope="col">Answer</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @if(count($faqs) > 0)
-                            @foreach($faqs as $faq)
+                        @if(count($global_education_partners) > 0)
+                            @foreach($global_education_partners as $global_education_partner)
                                 <tr>
-                                    <td>#{{ $faq->id }}</td>
-                                    <td>{{ $faq->language }}</td>
-                                    <td>{{ $faq->type }}</td>
-                                    <td>{{ $faq->question }}</td>
-                                    <td>{!! $faq->answer !!}</td>
-                                    <td>{!! $faq->status !!}</td>
-                                    <td>{!! $faq->action !!}</td>
+                                    <td>#{{ $global_education_partner->id }}</td>
+                                    <td>{!! $global_education_partner->image !!}</td>
+                                    <td>{{ $global_education_partner->language }}</td>
+                                    <td>{!! $global_education_partner->status !!}</td>
+                                    <td>{!! $global_education_partner->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7" style="text-align: center;">No data available in table</td>
+                                <td colspan="5" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
                 </table>
 
-                {{ $faqs->links("pagination::bootstrap-5") }}
+                {{ $global_education_partners->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="FAQ"></x-backend.delete-data>
+        <x-backend.delete-data title="Global Education Partner"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -97,7 +89,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.faqs.destroy', [':id']) }}";
+                let url = "{{ route('backend.persons.global-education-partners.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -105,7 +97,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $faqs->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $global_education_partners->url(1) !!}&items=" + this.value; 
             });
         });
     </script>

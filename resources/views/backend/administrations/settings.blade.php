@@ -20,14 +20,19 @@
                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $settings->name) }}" placeholder="Name" required>
                     </div>
 
-                    <div class="col-6 mb-4">
+                    <div class="col-4 mb-4">
                         <label for="email" class="form-label">Email<span class="asterisk">*</span></label>
                         <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $settings->email) }}" placeholder="Email" required>
                     </div>
 
-                    <div class="col-6 mb-4">
+                    <div class="col-4 mb-4">
                         <label for="phone" class="form-label">Phone</label>
                         <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $settings->phone) }}" placeholder="Phone">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="fax" class="form-label">Fax</label>
+                        <input type="text" class="form-control" id="fax" name="fax" value="{{ old('fax', $settings->fax) }}" placeholder="Fax">
                     </div>
 
                     <div class="col-6">

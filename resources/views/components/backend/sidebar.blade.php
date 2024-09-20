@@ -116,6 +116,8 @@
                             <li><a href="{{ route('backend.persons.advisory-boards.index') }}" class="link {{ Request::segment(3) == 'advisory-boards' ? 'active' : null }}">Advisory Boards</a></li>
 
                             <li><a href="{{ route('backend.persons.issn-partners.index') }}" class="link {{ Request::segment(3) == 'issn-partners' ? 'active' : null }}">ISSN Partners</a></li>
+
+                            <li><a href="{{ route('backend.persons.global-education-partners.index') }}" class="link {{ Request::segment(3) == 'global-education-partners' ? 'active' : null }}">Global Education Partners</a></li>
                         </ul>
                     </div>
                 </div>
@@ -171,6 +173,8 @@
                             <li><a href="{{ route('backend.communications.contact-coaches.index') }}" class="link {{ Request::segment(3) == 'contact-coaches' ? 'active' : null }}">Contact Coaches</a></li>
 
                             <li><a href="{{ route('backend.communications.ask-questions.index') }}" class="link {{ Request::segment(3) == 'ask-questions' ? 'active' : null }}">Ask Questions</a></li>
+
+                            <li><a href="{{ route('backend.communications.connections.index') }}" class="link {{ Request::segment(3) == 'connections' ? 'active' : null }}">Connections</a></li>
                         </ul>
                     </div>
                 </div>

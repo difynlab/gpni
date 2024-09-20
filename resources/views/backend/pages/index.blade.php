@@ -167,6 +167,23 @@
                         </tr>
 
                         <tr>
+                            <td>Global Education Partner</td>
+                            <td>
+                                <a href="{{ route('backend.pages.global-education-partner.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.global-education-partner.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.global-education-partner.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
                             <td>Article</td>
                             <td>
                                 <a href="{{ route('backend.pages.article.index', 'english') }}" title="Edit" class="ms-4">
@@ -212,6 +229,57 @@
                                 </a>
 
                                 <a href="{{ route('backend.pages.podcast.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Membership</td>
+                            <td>
+                                <a href="{{ route('backend.pages.membership.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.membership.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.membership.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Connection</td>
+                            <td>
+                                <a href="{{ route('backend.pages.connection.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.connection.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.connection.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Nutritionist</td>
+                            <td>
+                                <a href="{{ route('backend.pages.nutritionist.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.nutritionist.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.nutritionist.index', 'japanese') }}" title="Edit" class="ms-4">
                                     <i class="bi bi-pencil-square me-1"></i>Japanese
                                 </a>
                             </td>
