@@ -72,7 +72,7 @@
                     <li><a href="#">PNE Level 1 With ISSN-SNS</a></li>
                     <li><a href="#">PNE Level 2 With ISSN-CISSN</a></li>
                     <li><a href="#">Small Courses & Seminars</a></li>
-                    <li><a href="/pages/Article/contact us.html">Contact Us</a></li>
+                    <li><a href="{{ route('frontend.contact-us') }}">Contact Us</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 list-of-items">

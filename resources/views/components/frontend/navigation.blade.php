@@ -52,7 +52,7 @@
                             <a class="dropdown-item" href="{{ route('frontend.faq') }}">FAQ</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Membership</a>
+                            <a class="dropdown-item" href="{{ route('frontend.membership') }}">Membership</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="{{ route('frontend.our-policies') }}">Our Policies</a>
