@@ -79,7 +79,7 @@
                     </ul>
                 </li>
 
-                <a href="#" class="nav-item nav-link">Nutritionists</a>
+                <a href="{{ route('frontend.nutrionist') }}" class="nav-item nav-link">Nutritionists</a>
 
                 <a href="#" class="nav-item nav-link">
                     <i class="bi bi-search"></i>

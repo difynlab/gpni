@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\Pages\WhyWeAreDifferentController;
 use App\Http\Controllers\Frontend\Pages\MembershipController;
 use App\Http\Controllers\Frontend\Pages\ContactUsController;
 use App\Http\Controllers\Frontend\Pages\EducationPartnersController;
+use App\Http\Controllers\Frontend\Pages\NutrionistController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,8 @@ Route::get('/main-article/{id}', [MainArticleController::class, 'show'])->name('
 Route::get('/membership', [MembershipController::class, 'index'])->name('membership');
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
 Route::get('/education-partners', [EducationPartnersController::class, 'index'])->name('education-partners');
+Route::get('/nutrionist', [NutrionistController::class, 'index'])->name('nutrionist');
+Route::get('/nutrionist/{id}', [NutrionistController::class, 'viewCoach'])->name('view-coach');
 
 Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
