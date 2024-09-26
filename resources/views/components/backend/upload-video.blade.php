@@ -4,7 +4,7 @@
 
 <div class="drop-area video-drop-area {{ isset($class) ? $class : '' }}">
     <i class="bi bi-cloud-arrow-up"></i>
-    <p class="drag-drop">Drag and drop files here</p>
+    <p class="drag-drop">Drag and drop file here</p>
     <div class="row line-or">
         <div class="col">
             <hr>

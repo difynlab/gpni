@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             MembershipContentSeeder::class,
             ConnectionContentSeeder::class,
             NutritionistContentSeeder::class,
-            GlobalEducationPartnerContentSeeder::class
+            GlobalEducationPartnerContentSeeder::class,
+            TvContentSeeder::class
         ]);
     }
 }
