@@ -33,6 +33,7 @@ use App\Http\Controllers\Backend\Page\NutritionistController as PageNutritionist
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\PodcastController as PagePodcastController;
 use App\Http\Controllers\Backend\Page\PolicyController as PagePolicyController;
+use App\Http\Controllers\Backend\Page\TvController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
 use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
@@ -46,6 +47,7 @@ use App\Http\Controllers\Backend\Policy\PolicyController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Promotion\PromotionController;
+use App\Http\Controllers\Backend\Webinar\WebinarController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/backend-auth.php';
@@ -108,6 +110,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
             Route::get('global-education-partner/{language}', [PageGlobalEducationPartnerController::class, 'index'])->name('global-education-partner.index');
             Route::post('global-education-partner/{language}', [PageGlobalEducationPartnerController::class, 'update'])->name('global-education-partner.update');
+
+            Route::get('tv/{language}', [TvController::class, 'index'])->name('tv.index');
+            Route::post('tv/{language}', [TvController::class, 'update'])->name('tv.update');
         });
     // All page related routes
 
@@ -264,4 +269,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('policies', PolicyController::class)->except(['show']);
         Route::post('policies/filter', [PolicyController::class, 'filter'])->name('policies.filter');
     // All policies related routes
+
+    // Webinars routes
+        Route::resource('webinars', WebinarController::class)->except('show');
+        Route::post('webinars/filter', [WebinarController::class, 'filter'])->name('webinars.filter');
+    // Webinars routes
 });
