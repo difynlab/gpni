@@ -66,6 +66,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Designation</th>
                             <th scope="col">Rate</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Language</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
@@ -80,6 +81,7 @@
                                     <td>{{ $testimonial->name }}</td>
                                     <td>{{ $testimonial->designation }}</td>
                                     <td>{!! $testimonial->updated_rate !!}</td>
+                                    <td>{{ $testimonial->type }}</td>
                                     <td>{{ $testimonial->language }}</td>
                                     <td>{!! $testimonial->status !!}</td>
                                     <td>{!! $testimonial->action !!}</td>
@@ -87,7 +89,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7" style="text-align: center;">No data available in table</td>
+                                <td colspan="8" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>

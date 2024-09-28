@@ -38,8 +38,17 @@
                             <label for="type" class="form-label">Type<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="type" name="type" required>
                                 <option value="">Select type</option>
-                                <option value="certification" {{ old('type') == 'certification' ? 'selected' : '' }}>Certification</option>
-                                <option value="masters" {{ old('type') == 'masters' ? 'selected' : '' }}>Masters</option>
+                                <option value="Certification" {{ old('type') == 'Certification' ? 'selected' : '' }}>Certification</option>
+                                <option value="Masters" {{ old('type') == 'Masters' ? 'selected' : '' }}>Masters</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="course_status" class="form-label">Course Status<span class="asterisk">*</span></label>
+                            <select class="form-control form-select" id="course_status" name="course_status" required>
+                                <option value="">Select course status</option>
+                                <option value="Present" {{ old('course_status') == 'Present' ? 'selected' : '' }}>Present</option>
+                                <option value="Upcoming" {{ old('course_status') == 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
                             </select>
                         </div>
 

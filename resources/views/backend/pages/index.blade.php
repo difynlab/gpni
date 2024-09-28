@@ -301,6 +301,23 @@
                                 </a>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td>Master Class</td>
+                            <td>
+                                <a href="{{ route('backend.pages.master-class.index', 'english') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>English
+                                </a>
+
+                                <a href="{{ route('backend.pages.master-class.index', 'chinese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Chinese
+                                </a>
+
+                                <a href="{{ route('backend.pages.master-class.index', 'japanese') }}" title="Edit" class="ms-4">
+                                    <i class="bi bi-pencil-square me-1"></i>Japanese
+                                </a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

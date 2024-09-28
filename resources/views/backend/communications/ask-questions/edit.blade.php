@@ -19,7 +19,7 @@
                         <div class="chat-box">
                             <div class="single-message user-single-message mb-3">
                                 @if($user->profile_image)
-                                    <img src="{{ asset('storage/users/' . $user->profile_image) }}" class="user-profile-image" alt="Profile Image">
+                                    <img src="{{ asset('storage/backend/users/' . $user->profile_image) }}" class="user-profile-image" alt="Profile Image">
                                 @else
                                     <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" class="user-profile-image" alt="Profile Image">
                                 @endif

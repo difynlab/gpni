@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\InsuranceProfessionalMembershipController;
 use App\Http\Controllers\Backend\Page\ISSNPartnerController as PageISSNPartnerController;
+use App\Http\Controllers\Backend\Page\MasterClassController;
 use App\Http\Controllers\Backend\Page\MembershipController;
 use App\Http\Controllers\Backend\Page\NutritionistController as PageNutritionistController;
 use App\Http\Controllers\Backend\Page\PageController;
@@ -113,6 +114,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
             Route::get('tv/{language}', [TvController::class, 'index'])->name('tv.index');
             Route::post('tv/{language}', [TvController::class, 'update'])->name('tv.update');
+
+            Route::get('master-class/{language}', [MasterClassController::class, 'index'])->name('master-class.index');
+            Route::post('master-class/{language}', [MasterClassController::class, 'update'])->name('master-class.update');
         });
     // All page related routes
 

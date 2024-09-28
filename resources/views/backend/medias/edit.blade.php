@@ -103,7 +103,7 @@
                                     <x-backend.input-error field="new_pdf"></x-backend.input-error>
                                 </div>
                                 <div class="col-1">
-                                    <a href="{{ asset('storage/medias/' . $media->pdf) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                    <a href="{{ asset('storage/backend/medias/' . $media->pdf) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                     <input type="hidden" class="form-control" name="old_pdf" value="{{ $media->pdf }}">
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                                     <x-backend.input-error field="new_word"></x-backend.input-error>
                                 </div>
                                 <div class="col-1">
-                                    <a href="{{ asset('storage/medias/' . $media->word) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                    <a href="{{ asset('storage/backend/medias/' . $media->word) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                     <input type="hidden" class="form-control" name="old_word" value="{{ $media->word }}">
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                                     <x-backend.input-error field="new_excel"></x-backend.input-error>
                                 </div>
                                 <div class="col-1">
-                                    <a href="{{ asset('storage/medias/' . $media->excel) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                    <a href="{{ asset('storage/backend/medias/' . $media->excel) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                     <input type="hidden" class="form-control" name="old_excel" value="{{ $media->excel }}">
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                     <x-backend.input-error field="new_ppt"></x-backend.input-error>
                                 </div>
                                 <div class="col-1">
-                                    <a href="{{ asset('storage/medias/' . $media->ppt) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                    <a href="{{ asset('storage/backend/medias/' . $media->ppt) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                     <input type="hidden" class="form-control" name="old_ppt" value="{{ $media->ppt }}">
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                     <x-backend.input-error field="new_audio"></x-backend.input-error>
                                 </div>
                                 <div class="col-1">
-                                    <a href="{{ asset('storage/medias/' . $media->audio) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                    <a href="{{ asset('storage/backend/medias/' . $media->audio) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                     <input type="hidden" class="form-control" name="old_audio" value="{{ $media->audio }}">
                                 </div>
                             </div>

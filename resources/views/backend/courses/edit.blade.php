@@ -43,6 +43,14 @@
                         </div>
 
                         <div class="mb-4">
+                            <label for="course_status" class="form-label">Course Status<span class="asterisk">*</span></label>
+                            <select class="form-control form-select" id="course_status" name="course_status" required>
+                                <option value="Present" {{ old('course_status', $course->course_status) == 'Present' ? 'selected' : '' }}>Present</option>
+                                <option value="Upcoming" {{ old('course_status', $course->course_status) == 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
                             <label for="no_of_modules" class="form-label">No of Modules<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="no_of_modules" name="no_of_modules" value="{{ old('no_of_modules', $course->no_of_modules) }}" placeholder="No of Modules" required>
                         </div>

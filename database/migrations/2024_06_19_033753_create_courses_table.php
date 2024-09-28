@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('duration');
             $table->enum('language', ['English', 'Chinese', 'Japanese']);
-            $table->enum('type', ['Certification', 'Masters'])->index();
+            $table->enum('type', ['Certification', 'Masters']);
+            $table->enum('course_status', ['Present', 'Upcoming']);
             $table->string('no_of_modules');
             $table->string('no_of_students_enrolled');
             $table->decimal('price', 10, 2);

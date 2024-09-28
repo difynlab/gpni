@@ -116,7 +116,7 @@
                                     <div class="col-1">
                                         <input type="hidden" name="old_downloadable_content" value="{{ $product->downloadable_content }}">
 
-                                        <a href="{{ asset('storage/products/files/' . $product->downloadable_content) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                        <a href="{{ asset('storage/backend/products/files/' . $product->downloadable_content) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                     </div>
                                 @else
                                     <div class="col-12">

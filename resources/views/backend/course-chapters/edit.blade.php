@@ -79,7 +79,7 @@
                                         <div class="col-1 d-flex align-items-center">
                                             <input type="hidden" name="old_book_files[]" value="{{ $book->file }}">
 
-                                            <a href="{{ asset('storage/courses/course-chapter-books/' . $book->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                            <a href="{{ asset('storage/backend/courses/course-chapter-books/' . $book->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
 
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                         </div>
@@ -116,7 +116,7 @@
                                         <div class="col-2 d-flex align-items-center">
                                             <input type="hidden" name="old_video_files[]" value="{{ $video->file }}">
 
-                                            <video class="video-player" src="{{ asset('storage/courses/course-chapter-videos/' . $video->file) }}" controls></video>
+                                            <video class="video-player" src="{{ asset('storage/backend/courses/course-chapter-videos/' . $video->file) }}" controls></video>
 
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                         </div>
@@ -195,7 +195,7 @@
                                         <div class="col-2 d-flex align-items-center">
                                             <input type="hidden" name="old_additional_video_files[]" value="{{ $additional_video->file }}">
 
-                                            <video class="video-player" src="{{ asset('storage/courses/course-chapter-additional-videos/' . $additional_video->file) }}" controls></video>
+                                            <video class="video-player" src="{{ asset('storage/backend/courses/course-chapter-additional-videos/' . $additional_video->file) }}" controls></video>
 
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                         </div>
@@ -259,7 +259,7 @@
                                         <div class="col-1 d-flex align-items-center">
                                             <input type="hidden" name="old_presentation_media_files[]" value="{{ $presentation_media->file }}">
 
-                                            <a href="{{ asset('storage/courses/course-chapter-presentation-medias/' . $presentation_media->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                            <a href="{{ asset('storage/backend/courses/course-chapter-presentation-medias/' . $presentation_media->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
 
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                         </div>
@@ -307,7 +307,7 @@
                                     <div class="col-1 d-flex align-items-center">
                                         <input type="hidden" name="old_downloadable_resource_files[]" value="{{ $downloadable_resource->file }}">
 
-                                        <a href="{{ asset('storage/courses/course-chapter-downloadable-resources/' . $downloadable_resource->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                        <a href="{{ asset('storage/backend/courses/course-chapter-downloadable-resources/' . $downloadable_resource->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
 
                                         <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                     </div>
