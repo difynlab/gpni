@@ -91,7 +91,7 @@
                 </a>
 
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('frontend.sign-in') }}" class="nav-link">
                         <div class="btn btn-primary px-4">Login</div>
                     </a>
                 </div>
