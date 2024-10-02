@@ -22,6 +22,8 @@ use App\Http\Controllers\Frontend\Pages\NutrionistController;
 use App\Http\Controllers\Frontend\Pages\SignInController;
 use App\Http\Controllers\Frontend\Pages\SignUpController;
 use App\Http\Controllers\Frontend\Pages\PasswordController;
+use App\Http\Controllers\Frontend\Student\MyStorageController;
+use App\Http\Controllers\Frontend\Student\CourseDetailController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +55,9 @@ Route::get('/nutrionist/{id}', [NutrionistController::class, 'viewCoach'])->name
 Route::get('/sign-in', [SignInController::class, 'index'])->name('sign-in');
 Route::get('/sign-up', [SignUpController::class, 'index'])->name('sign-up');
 Route::get('/change-password', [PasswordController::class, 'index'])->name('change-password');
+Route::get('/my-storage', [MyStorageController::class, 'index'])->name('my-storage');
+Route::get('/course-detail', [CourseDetailController::class, 'index'])->name('course-detail');
+Route::get('/course-detail-open', [CourseDetailController::class, 'show'])->name('course-detail-open');
 
 Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
