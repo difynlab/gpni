@@ -11,7 +11,7 @@
             @csrf
 
             <div class="section">
-                <p class="inner-page-title">Admin Details</span></p>
+                <p class="inner-page-title">Admin Details</p>
 
                 <div class="row form-input">
                     <div class="col-6 mb-4">

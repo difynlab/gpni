@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="section">
-                <p class="inner-page-title">Nutritionist Details</span></p>
+                <p class="inner-page-title">Nutritionist Details</p>
 
                 <div class="row form-input">
                     <div class="col-12 mb-4">
@@ -81,7 +81,7 @@
             </div>
 
             <div class="section">
-                <p class="inner-page-title">More Details</span></p>
+                <p class="inner-page-title">More Details</p>
 
                 <div class="row form-input">
                     <div class="col-6">

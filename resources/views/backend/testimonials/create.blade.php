@@ -10,7 +10,7 @@
         <form action="{{ route('backend.testimonials.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="section">
-                <p class="inner-page-title">Testimonial Details</span></p>
+                <p class="inner-page-title">Testimonial Details</p>
 
                 <div class="row form-input">
                     <div class="col-6 mb-4">

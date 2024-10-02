@@ -11,7 +11,7 @@
             @csrf
 
             <div class="section">
-                <p class="inner-page-title">Advisory Board Details</span></p>
+                <p class="inner-page-title">Advisory Board Details</p>
 
                 <div class="row form-input">
                     <div class="col-12 mb-4">

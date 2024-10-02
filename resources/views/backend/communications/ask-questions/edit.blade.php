@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="section">
-                <p class="inner-page-title text-center">{{ $ask_question->subject }}</span></p>
+                <p class="inner-page-title text-center">{{ $ask_question->subject }}</p>
 
                 <div class="row form-input justify-content-center">
                     <div class="col-8">
