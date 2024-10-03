@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\Pages\SignUpController;
 use App\Http\Controllers\Frontend\Pages\PasswordController;
 use App\Http\Controllers\Frontend\Student\MyStorageController;
 use App\Http\Controllers\Frontend\Student\CourseDetailController;
+use App\Http\Controllers\Frontend\Student\AskExpertController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,9 @@ Route::get('/my-storage', [MyStorageController::class, 'index'])->name('my-stora
 Route::get('/course-detail', [CourseDetailController::class, 'index'])->name('course-detail');
 Route::get('/course-detail-open', [CourseDetailController::class, 'show'])->name('course-detail-open');
 
-Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
-    Route::resource('dashboard', DashboardController::class)->only('index');
-});
+Route::get('/student-dashboard', [DashboardController::class, 'index'])->name('student-dashboard');
+Route::get('/ask-expert', [AskExpertController::class, 'index'])->name('ask-expert');
+Route::get('/course-list', [CourseDetailController::class, 'list'])->name('course-list');
+// Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
+//     Route::resource('dashboard', DashboardController::class)->only('index');
+// });
