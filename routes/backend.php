@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\Communication\ContactCoachController;
 use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
+use App\Http\Controllers\Backend\Course\CourseInformationController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
@@ -132,6 +133,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::post('courses/filter', [CourseController::class, 'filter'])->name('courses.filter');
 
         Route::prefix('courses')->name('courses.')->group(function() {
+            Route::get('information/{course}', [CourseInformationController::class, 'index'])->name('information.index');
+            Route::post('information/{course}', [CourseInformationController::class, 'update'])->name('information.update');
+
             Route::get('modules/{course}', [CourseModuleController::class, 'index'])->name('modules.index');
             Route::post('modules/store', [CourseModuleController::class, 'store'])->name('modules.store');
             Route::get('modules/edit/{course_module}', [CourseModuleController::class, 'edit'])->name('modules.edit');
@@ -197,6 +201,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('medias', MediaController::class)->except('show');
         Route::post('medias/filter', [MediaController::class, 'filter'])->name('medias.filter');
     // Medias routes
+
 
     // Podcast routes
         Route::resource('podcasts', PodcastController::class)->except('show');
@@ -273,6 +278,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('policies', PolicyController::class)->except(['show']);
         Route::post('policies/filter', [PolicyController::class, 'filter'])->name('policies.filter');
     // All policies related routes
+
 
     // Webinars routes
         Route::resource('webinars', WebinarController::class)->except('show');

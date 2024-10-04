@@ -31,7 +31,7 @@ return new class extends Migration
 
                 $table->text('course_introduction')->nullable();
                 $table->text('course_content')->nullable();
-                $table->text('course_requirement')->nullable();
+                $table->text('course_chapter')->nullable();
             // Common fields
 
             // Certification course fields
@@ -67,7 +67,9 @@ return new class extends Migration
                 $table->text('certification_section_12_label_link')->nullable();
                 $table->text('certification_section_13_title')->nullable();
                 $table->text('certification_section_13_description')->nullable();
-                $table->text('certification_section_13_column_titles')->nullable();
+                $table->text('certification_section_13_first_column')->nullable();
+                $table->text('certification_section_13_second_column')->nullable();
+                $table->text('certification_section_13_third_column')->nullable();
                 $table->text('certification_section_13_table_points')->nullable();
                 $table->text('certification_section_13_labels_links')->nullable();
                 $table->text('certification_section_14_title')->nullable();
