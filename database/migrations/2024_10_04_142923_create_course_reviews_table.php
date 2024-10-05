@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('testimonials', function (Blueprint $table) {
+        Schema::create('course_reviews', function (Blueprint $table) {
             $table->id();
-            $table->enum('language', ['English', 'Chinese', 'Japanese']);
+            $table->string('course_id');
             $table->string('name');
-            $table->string('designation');
-            $table->enum('rate', ['1', '2', '3', '4', '5']);
-            $table->enum('type', ['Common', 'Master Class']);
-            $table->string('image')->nullable();
             $table->text('content');
+            $table->string('video')->nullable();
+            $table->string('rating');
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('testimonials');
+        Schema::dropIfExists('course_reviews');
     }
 };

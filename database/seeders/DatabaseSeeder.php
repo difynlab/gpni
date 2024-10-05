@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
             ConnectionContentSeeder::class,
             NutritionistContentSeeder::class,
             GlobalEducationPartnerContentSeeder::class,
-            TvContentSeeder::class
+            TvContentSeeder::class,
+            MasterClassContentSeeder::class
         ]);
     }
 }

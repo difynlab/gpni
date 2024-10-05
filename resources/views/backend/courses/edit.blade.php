@@ -43,6 +43,14 @@
                         </div>
 
                         <div class="mb-4">
+                            <label for="course_status" class="form-label">Course Status<span class="asterisk">*</span></label>
+                            <select class="form-control form-select" id="course_status" name="course_status" required>
+                                <option value="Present" {{ old('course_status', $course->course_status) == 'Present' ? 'selected' : '' }}>Present</option>
+                                <option value="Upcoming" {{ old('course_status', $course->course_status) == 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
                             <label for="no_of_modules" class="form-label">No of Modules<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="no_of_modules" name="no_of_modules" value="{{ old('no_of_modules', $course->no_of_modules) }}" placeholder="No of Modules" required>
                         </div>
@@ -92,33 +100,6 @@
             </div>
 
             <div class="section">
-                <p class="inner-page-title">Section 2 <span>(Objectives)</span></p>
-
-                <div class="row form-input">
-                    <div class="col-12">
-                        <div class="mb-4">
-                            <label for="section_2_title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_2_title" name="section_2_title" value="{{ old('section_2_title', $course->section_2_title) }}" placeholder="Title">
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="section_2_description" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="section_2_description" name="section_2_description" value="{{ old('section_2_description', $course->section_2_description) }}" placeholder="Description">
-                        </div>
-
-                        <div>
-                            <label for="section_2_content" class="form-label">Content</label>
-                            <textarea class="editor" id="section_2_content" name="section_2_content" value="{{ old('section_2_content', $course->section_2_content) }}">{{ old('section_2_content', $course->section_2_content) }}</textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
-            </div>
-
-            <div class="section">
                 <p class="inner-page-title">More Course Details</p>
 
                 <div class="row form-input">
@@ -134,8 +115,8 @@
                         </div>
 
                         <div>
-                            <label for="course_requirement" class="form-label">Course Requirement</label>
-                            <textarea class="editor" id="course_requirement" name="course_requirement" value="{{ old('course_requirement', $course->course_requirement) }}">{{ old('course_requirement', $course->course_requirement) }}</textarea>
+                            <label for="course_chapter" class="form-label">Course Chapter</label>
+                            <textarea class="editor" id="course_chapter" name="course_chapter" value="{{ old('course_chapter', $course->course_chapter) }}">{{ old('course_chapter', $course->course_chapter) }}</textarea>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@
             @csrf
 
             <div class="section">
-                <p class="inner-page-title">Product Details</span></p>
+                <p class="inner-page-title">Product Details</p>
 
                 <div class="row form-input">
                     <div class="col-7">
@@ -62,7 +62,7 @@
             </div>
 
             <div class="section">
-                <p class="inner-page-title">Pricing Details</span></p>
+                <p class="inner-page-title">Pricing Details</p>
 
                 <div class="row form-input">
                     <div class="col-7">
@@ -89,7 +89,7 @@
             </div>
 
             <div class="section">
-                <p class="inner-page-title">More Details</span></p>
+                <p class="inner-page-title">More Details</p>
 
                 <div class="row form-input">
                     <div class="col-12">

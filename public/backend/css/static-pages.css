@@ -206,6 +206,11 @@
     object-fit: cover;
     margin-bottom: 20px;
 }
+.static-pages .section .add-more-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
 
 
 /* Static page chat box styles */

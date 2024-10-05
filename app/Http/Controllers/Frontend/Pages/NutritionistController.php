@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Nutritionist;
 use App\Models\NutritionistContent;
 
-class NutrionistController extends Controller
+class NutritionistController extends Controller
 {
     public function index()
     {

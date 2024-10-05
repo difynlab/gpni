@@ -18,6 +18,8 @@ class CourseController extends Controller
     {
         foreach($courses as $course) {
             $course->action = '
+            <a href="'. route('backend.courses.information.index', $course->id) .'" class="information-button" title="Information"><i class="bi bi-info-circle-fill"></i></a>
+            <a href="'. route('backend.courses.reviews.index', $course->id) .'" class="review-button" title="Information"><i class="bi bi-chat-square-dots-fill"></i></a>
             <a href="'. route('backend.courses.edit', $course->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$course->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 

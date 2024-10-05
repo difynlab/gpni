@@ -11,8 +11,10 @@ use App\Http\Controllers\Backend\Communication\ContactCoachController;
 use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
+use App\Http\Controllers\Backend\Course\CourseInformationController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
+use App\Http\Controllers\Backend\Course\CourseReviewController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
 use App\Http\Controllers\Backend\Order\GiftCardOrderController;
@@ -28,6 +30,7 @@ use App\Http\Controllers\Backend\Page\HistoryOfGpniController;
 use App\Http\Controllers\Backend\Page\HomepageController;
 use App\Http\Controllers\Backend\Page\InsuranceProfessionalMembershipController;
 use App\Http\Controllers\Backend\Page\ISSNPartnerController as PageISSNPartnerController;
+use App\Http\Controllers\Backend\Page\MasterClassController;
 use App\Http\Controllers\Backend\Page\MembershipController;
 use App\Http\Controllers\Backend\Page\NutritionistController as PageNutritionistController;
 use App\Http\Controllers\Backend\Page\PageController;
@@ -113,6 +116,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
             Route::get('tv/{language}', [TvController::class, 'index'])->name('tv.index');
             Route::post('tv/{language}', [TvController::class, 'update'])->name('tv.update');
+
+            Route::get('master-class/{language}', [MasterClassController::class, 'index'])->name('master-class.index');
+            Route::post('master-class/{language}', [MasterClassController::class, 'update'])->name('master-class.update');
         });
     // All page related routes
 
@@ -128,6 +134,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::post('courses/filter', [CourseController::class, 'filter'])->name('courses.filter');
 
         Route::prefix('courses')->name('courses.')->group(function() {
+            Route::get('information/{course}', [CourseInformationController::class, 'index'])->name('information.index');
+            Route::post('information/{course}', [CourseInformationController::class, 'update'])->name('information.update');
+
+            Route::get('reviews/{course}', [CourseReviewController::class, 'index'])->name('reviews.index');
+            Route::get('reviews/{course}/create', [CourseReviewController::class, 'create'])->name('reviews.create');
+            Route::post('reviews/{course}/store', [CourseReviewController::class, 'store'])->name('reviews.store');
+            Route::get('reviews/edit/{course}/{course_review}', [CourseReviewController::class, 'edit'])->name('reviews.edit');
+            Route::post('reviews/update/{course}/{course_review}', [CourseReviewController::class, 'update'])->name('reviews.update');
+            Route::delete('reviews/destroy/{course}/{course_review}', [CourseReviewController::class, 'destroy'])->name('reviews.destroy');
+
             Route::get('modules/{course}', [CourseModuleController::class, 'index'])->name('modules.index');
             Route::post('modules/store', [CourseModuleController::class, 'store'])->name('modules.store');
             Route::get('modules/edit/{course_module}', [CourseModuleController::class, 'edit'])->name('modules.edit');
@@ -193,6 +209,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('medias', MediaController::class)->except('show');
         Route::post('medias/filter', [MediaController::class, 'filter'])->name('medias.filter');
     // Medias routes
+
 
     // Podcast routes
         Route::resource('podcasts', PodcastController::class)->except('show');
@@ -269,6 +286,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::resource('policies', PolicyController::class)->except(['show']);
         Route::post('policies/filter', [PolicyController::class, 'filter'])->name('policies.filter');
     // All policies related routes
+
 
     // Webinars routes
         Route::resource('webinars', WebinarController::class)->except('show');

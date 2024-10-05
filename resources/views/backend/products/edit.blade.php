@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="section">
-                <p class="inner-page-title">Product Details</span></p>
+                <p class="inner-page-title">Product Details</p>
 
                 <div class="row form-input">
                     <div class="col-7">
@@ -63,7 +63,7 @@
             </div>
 
             <div class="section">
-                <p class="inner-page-title">Pricing Details</span></p>
+                <p class="inner-page-title">Pricing Details</p>
 
                 <div class="row form-input">
                     <div class="col-7">
@@ -90,7 +90,7 @@
             </div>
 
             <div class="section">
-                <p class="inner-page-title">More Details</span></p>
+                <p class="inner-page-title">More Details</p>
 
                 <div class="row form-input">
                     <div class="col-12">
@@ -116,7 +116,7 @@
                                     <div class="col-1">
                                         <input type="hidden" name="old_downloadable_content" value="{{ $product->downloadable_content }}">
 
-                                        <a href="{{ asset('storage/products/files/' . $product->downloadable_content) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                        <a href="{{ asset('storage/backend/products/files/' . $product->downloadable_content) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                     </div>
                                 @else
                                     <div class="col-12">

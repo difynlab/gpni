@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="section">
-                <p class="inner-page-title">Testimonial Details</span></p>
+                <p class="inner-page-title">Testimonial Details</p>
 
                 <div class="row form-input">
                     <div class="col-6 mb-4">
@@ -30,12 +30,12 @@
                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $testimonial->name) }}" placeholder="Name" required>
                     </div>
 
-                    <div class="col-6 mb-4">
+                    <div class="col-4 mb-4">
                         <label for="designation" class="form-label">Designation<span class="asterisk">*</span></label>
                         <input type="text" class="form-control" id="designation" name="designation" value="{{ old('designation', $testimonial->designation) }}" placeholder="Designation" required>
                     </div>
 
-                    <div class="col-6 mb-4">
+                    <div class="col-4 mb-4">
                         <label for="rate" class="form-label">Rate<span class="asterisk">*</span></label>
                         <select class="form-control form-select" id="rate" name="rate" required>
                             <option value="">Select rate</option>
@@ -44,6 +44,14 @@
                             <option value="3" {{ old('rate', $testimonial->rate) == '3' ? 'selected' : '' }}>3</option>
                             <option value="4" {{ old('rate', $testimonial->rate) == '4' ? 'selected' : '' }}>4</option>
                             <option value="5" {{ old('rate', $testimonial->rate) == '5' ? 'selected' : '' }}>5</option>
+                        </select>
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="type" class="form-label">Type<span class="asterisk">*</span></label>
+                        <select class="form-control form-select" id="type" name="type" required>
+                            <option value="Common" {{ old('type', $testimonial->type) == 'Common' ? 'selected' : '' }}>Common</option>
+                            <option value="Master Class" {{ old('type', $testimonial->type) == 'Master Class' ? 'selected' : '' }}>Master Class</option>
                         </select>
                     </div>
 

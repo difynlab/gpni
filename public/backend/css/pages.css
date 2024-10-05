@@ -100,11 +100,17 @@
     padding: 5px 15px;
     border-radius: 20px;
 }
-.pages .table .edit-button, .pages .table .delete-button {
+.pages .table .information-button, .pages .table .review-button, .pages .table .edit-button, .pages .table .delete-button {
     font-size: 20px;
     -webkit-text-stroke: 0.5px;
     margin: 0 7px;
     cursor: pointer;
+}
+.pages .table .information-button {
+    color: #088813;
+}
+.pages .table .review-button {
+    color: #8d9c08;
 }
 .pages .table .edit-button {
     color: #0040C3;

@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="section">
-                <p class="inner-page-title">Conference Important Details</span></p>
+                <p class="inner-page-title">Conference Important Details</p>
 
                 <div class="row form-input">
                     <div class="col-6 mb-4">
@@ -53,7 +53,7 @@
             <div class="section">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <p class="inner-page-title mb-0">Conference More Details</span></p>
+                        <p class="inner-page-title mb-0">Conference More Details</p>
                     </div>
                     <div class="col-3 text-end">
                         <button type="button" class="add-row-button add-more-details-button">
@@ -89,7 +89,7 @@
             <div class="section">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <p class="inner-page-title mb-0">Pricing Details</span></p>
+                        <p class="inner-page-title mb-0">Pricing Details</p>
                     </div>
                     <div class="col-3 text-end">
                         <button type="button" class="add-row-button add-pricing-details-button">

@@ -12,7 +12,7 @@
             @method('PUT')
 
             <div class="section">
-                <p class="inner-page-title">Podcast Details</span></p>
+                <p class="inner-page-title">Podcast Details</p>
 
                 <div class="row form-input">
                     <div class="col-12 mb-4">
