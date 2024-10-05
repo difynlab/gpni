@@ -1,9 +1,9 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Nutrionist')
+@section('title', 'Nutritionist')
 
 @push('after-styles')
-    <link rel="stylesheet" href="{{ asset('frontend/css/nutrionist.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/nutritionist.css') }}">
 @endpush
 
 @section('content')
