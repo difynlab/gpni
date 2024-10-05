@@ -19,6 +19,13 @@ use App\Http\Controllers\Frontend\Pages\ContactUsController;
 use App\Http\Controllers\Frontend\Pages\EducationPartnersController;
 use App\Http\Controllers\Frontend\Pages\NutritionistController;
 
+use App\Http\Controllers\Frontend\Pages\SignInController;
+use App\Http\Controllers\Frontend\Pages\SignUpController;
+use App\Http\Controllers\Frontend\Pages\PasswordController;
+use App\Http\Controllers\Frontend\Student\MyStorageController;
+use App\Http\Controllers\Frontend\Student\CourseDetailController;
+use App\Http\Controllers\Frontend\Student\AskExpertController;
+
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/frontend-auth.php';
@@ -46,6 +53,16 @@ Route::get('/education-partners', [EducationPartnersController::class, 'index'])
 Route::get('/nutritionist', [NutritionistController::class, 'index'])->name('nutritionist');
 Route::get('/nutritionist/{id}', [NutritionistController::class, 'viewCoach'])->name('view-coach');
 
-Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
-    Route::resource('dashboard', DashboardController::class)->only('index');
-});
+Route::get('/sign-in', [SignInController::class, 'index'])->name('sign-in');
+Route::get('/sign-up', [SignUpController::class, 'index'])->name('sign-up');
+Route::get('/change-password', [PasswordController::class, 'index'])->name('change-password');
+Route::get('/my-storage', [MyStorageController::class, 'index'])->name('my-storage');
+Route::get('/course-detail', [CourseDetailController::class, 'index'])->name('course-detail');
+Route::get('/course-detail-open', [CourseDetailController::class, 'show'])->name('course-detail-open');
+
+Route::get('/student-dashboard', [DashboardController::class, 'index'])->name('student-dashboard');
+Route::get('/ask-expert', [AskExpertController::class, 'index'])->name('ask-expert');
+Route::get('/course-list', [CourseDetailController::class, 'list'])->name('course-list');
+// Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
+//     Route::resource('dashboard', DashboardController::class)->only('index');
+// });
