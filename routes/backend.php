@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\Course\CourseController;
 use App\Http\Controllers\Backend\Course\CourseInformationController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
+use App\Http\Controllers\Backend\Course\CourseReviewController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
 use App\Http\Controllers\Backend\Order\GiftCardOrderController;
@@ -135,6 +136,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::prefix('courses')->name('courses.')->group(function() {
             Route::get('information/{course}', [CourseInformationController::class, 'index'])->name('information.index');
             Route::post('information/{course}', [CourseInformationController::class, 'update'])->name('information.update');
+
+            Route::get('reviews/{course}', [CourseReviewController::class, 'index'])->name('reviews.index');
+            Route::get('reviews/{course}/create', [CourseReviewController::class, 'create'])->name('reviews.create');
+            Route::post('reviews/{course}/store', [CourseReviewController::class, 'store'])->name('reviews.store');
+            Route::get('reviews/edit/{course}/{course_review}', [CourseReviewController::class, 'edit'])->name('reviews.edit');
+            Route::post('reviews/update/{course}/{course_review}', [CourseReviewController::class, 'update'])->name('reviews.update');
+            Route::delete('reviews/destroy/{course}/{course_review}', [CourseReviewController::class, 'destroy'])->name('reviews.destroy');
 
             Route::get('modules/{course}', [CourseModuleController::class, 'index'])->name('modules.index');
             Route::post('modules/store', [CourseModuleController::class, 'store'])->name('modules.store');
