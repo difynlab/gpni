@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\Pages;
+namespace App\Http\Controllers\Frontend\Auth;
 
 use App\Http\Controllers\Controller;
 
-class SignUpController extends Controller
+class PasswordController extends Controller
 {
     public function index()
     {
@@ -25,7 +25,7 @@ class SignUpController extends Controller
                 break;
         }
         
-        return view('frontend.pages.sign-up', [
+        return view('frontend.auth.change-password', [
             'language' => $language
         ]);
     }

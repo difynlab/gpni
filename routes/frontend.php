@@ -12,19 +12,19 @@ use App\Http\Controllers\Frontend\Pages\ConferenceController;
 use App\Http\Controllers\Frontend\Pages\InsuranceController;
 use App\Http\Controllers\Frontend\Pages\GiftCardController;
 use App\Http\Controllers\Frontend\Pages\PodcastController;
-use App\Http\Controllers\Frontend\Pages\MainArticleController;
+use App\Http\Controllers\Frontend\Pages\ArticleController;
 use App\Http\Controllers\Frontend\Pages\WhyWeAreDifferentController;
 use App\Http\Controllers\Frontend\Pages\MembershipController;
 use App\Http\Controllers\Frontend\Pages\ContactUsController;
 use App\Http\Controllers\Frontend\Pages\EducationPartnersController;
 use App\Http\Controllers\Frontend\Pages\NutritionistController;
 
-use App\Http\Controllers\Frontend\Pages\SignInController;
-use App\Http\Controllers\Frontend\Pages\SignUpController;
-use App\Http\Controllers\Frontend\Pages\PasswordController;
 use App\Http\Controllers\Frontend\Student\MyStorageController;
 use App\Http\Controllers\Frontend\Student\CourseDetailController;
 use App\Http\Controllers\Frontend\Student\AskExpertController;
+use App\Http\Controllers\Frontend\Pages\GpniTvController;
+
+use App\Http\Controllers\Frontend\Pages\CourseController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -34,35 +34,45 @@ Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
-Route::get('/history-of-gpni', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni');
-Route::get('/advisory-board', [AdvisoryBoardController::class, 'index'])->name('advisory-board');
-Route::get('/faq', [FaqController::class, 'index'])->name('faq');
-Route::get('/issn-official-partners', [ISSNOfficialPartnerController::class, 'index'])->name('issn-official-partners');
-Route::get('/our-policies', [OurPolicyController::class, 'index'])->name('our-policies');
-Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
-Route::get('/insurance', [InsuranceController::class, 'index'])->name('insurance');
-Route::get('/gift-card', [GiftCardController::class, 'index'])->name('gift-card');
-Route::get('/podcasts', [PodcastController::class, 'index'])->name('podcasts');
-Route::get('/main-article', [MainArticleController::class, 'index'])->name('main-article');
-Route::get('/why-different', [WhyWeAreDifferentController::class, 'index'])->name('why-different');
-Route::get('/conference/{id}', [ConferenceController::class, 'show'])->name('single-conference');
-Route::get('/main-article/{id}', [MainArticleController::class, 'show'])->name('single-article');
-Route::get('/membership', [MembershipController::class, 'index'])->name('membership');
-Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
-Route::get('/education-partners', [EducationPartnersController::class, 'index'])->name('education-partners');
-Route::get('/nutritionist', [NutritionistController::class, 'index'])->name('nutritionist');
-Route::get('/nutritionist/{id}', [NutritionistController::class, 'viewCoach'])->name('view-coach');
+// All pages routes
+Route::get('history-of-gpni', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni');
+Route::get('advisory-board-and-expert-lecturers', [AdvisoryBoardController::class, 'index'])->name('advisory-board-and-expert-lecturers');
+Route::get('faq', [FaqController::class, 'index'])->name('faq');
+Route::get('issn-official-partners', [ISSNOfficialPartnerController::class, 'index'])->name('issn-official-partners');
+Route::get('our-policies', [OurPolicyController::class, 'index'])->name('our-policies');
+Route::get('insurance', [InsuranceController::class, 'index'])->name('insurance');
+Route::get('gift-cards', [GiftCardController::class, 'index'])->name('gift-cards');
+Route::get('podcasts', [PodcastController::class, 'index'])->name('podcasts');
+Route::get('why-we-are-different', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different');
 
-Route::get('/sign-in', [SignInController::class, 'index'])->name('sign-in');
-Route::get('/sign-up', [SignUpController::class, 'index'])->name('sign-up');
-Route::get('/change-password', [PasswordController::class, 'index'])->name('change-password');
-Route::get('/my-storage', [MyStorageController::class, 'index'])->name('my-storage');
-Route::get('/course-detail', [CourseDetailController::class, 'index'])->name('course-detail');
-Route::get('/course-detail-open', [CourseDetailController::class, 'show'])->name('course-detail-open');
+Route::get('conferences', [ConferenceController::class, 'index'])->name('conferences');
+Route::get('conferences/{id}', [ConferenceController::class, 'show'])->name('single-conference');
 
-Route::get('/student-dashboard', [DashboardController::class, 'index'])->name('student-dashboard');
-Route::get('/ask-expert', [AskExpertController::class, 'index'])->name('ask-expert');
-Route::get('/course-list', [CourseDetailController::class, 'list'])->name('course-list');
+Route::get('articles', [ArticleController::class, 'index'])->name('articles');
+Route::get('articles/{id}', [ArticleController::class, 'show'])->name('single-article');
+
+Route::get('nutritionists', [NutritionistController::class, 'index'])->name('nutritionists');
+Route::get('nutritionists/{id}', [NutritionistController::class, 'viewCoach'])->name('view-coach');
+
+Route::get('pne-level-1-course', [CourseController::class, 'show_pne_level_1'])->name('pne-level-1-course');
+Route::get('master-class', [CourseController::class, 'show_master_class'])->name('master-class');
+
+Route::get('membership', [MembershipController::class, 'index'])->name('membership');
+Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+Route::get('education-partners', [EducationPartnersController::class, 'index'])->name('education-partners');
+Route::get('gpni-tv', [GpniTvController::class, 'index'])->name('gpni-tv');
+// All pages routes
+
+// All students routes
+Route::get('my-storage', [MyStorageController::class, 'index'])->name('my-storage');
+Route::get('course-detail', [CourseDetailController::class, 'index'])->name('course-detail');
+Route::get('course-detail-open', [CourseDetailController::class, 'show'])->name('course-detail-open');
+
+Route::get('student-dashboard', [DashboardController::class, 'index'])->name('student-dashboard');
+Route::get('ask-expert', [AskExpertController::class, 'index'])->name('ask-expert');
+Route::get('course-list', [CourseDetailController::class, 'list'])->name('course-list');
 // Route::middleware(['auth', 'role:student'])->prefix('student')->group(function () {
 //     Route::resource('dashboard', DashboardController::class)->only('index');
 // });
+
+// All students routes
