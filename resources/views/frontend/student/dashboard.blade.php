@@ -3,12 +3,11 @@
 @section('title', 'Student Dashboard')
 
 @push('after-styles')
-    <link rel="stylesheet" href="{{ asset('frontend/css/student-dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/dashboard.css') }}">
 @endpush
 
 @section('content')
 
-    
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-3 sidebar">
@@ -66,7 +65,7 @@
                         <h2>Student Profile</h2>
                         <p>View or edit student profile details</p>
                     </a>
-                    <a href="changepassword.html" class="card">
+                    <a href="{{ route('frontend.change-password') }}" class="card">
                         <h2>Change Password</h2>
                         <p>View or edit student profile details</p>
                     </a>
@@ -82,6 +81,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection
