@@ -7,7 +7,7 @@ use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleContent;
 
-class MainArticleController extends Controller
+class ArticleController extends Controller
 {
     public function index()
     {

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\TvContent;
 
-class SignInController extends Controller
+class GpniTvController extends Controller
 {
     public function index()
     {
+        $contents = TvContent::find(1);
         $language = session('language', 'en');
         
         switch($language){
@@ -25,8 +27,8 @@ class SignInController extends Controller
                 break;
         }
         
-        return view('frontend.pages.sign-in', [
-            'language' => $language
+        return view('frontend.pages.gpni-tv', [
+            'contents' => $contents
         ]);
     }
 }

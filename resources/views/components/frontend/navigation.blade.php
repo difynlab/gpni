@@ -22,7 +22,7 @@
                             <a class="dropdown-item dropdown-toggle" href="#">International Courses</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="pne-level-1.html">PNE Level 1 + SNS</a>
+                                    <a class="dropdown-item" href="{{ route('frontend.pne-level-1-course') }}">PNE Level 1 + SNS</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="pne-level-2.html">PNE Level 2 Masters + CISSN</a>
@@ -30,7 +30,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="master-classes.html">Master Classes</a>
+                            <a class="dropdown-item" href="{{ route('frontend.master-class') }}">Master Classes</a>
                         </li>
                     </ul>
                 </li>
@@ -43,10 +43,10 @@
                             <a class="dropdown-item" href="{{ route('frontend.history-of-gpni') }}">The History of GPNI</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('frontend.why-different') }}">Why We Are Different</a>
+                            <a class="dropdown-item" href="{{ route('frontend.why-we-are-different') }}">Why We Are Different</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('frontend.advisory-board') }}">Advisory Board & Expert Lectures</a>
+                            <a class="dropdown-item" href="{{ route('frontend.advisory-board-and-expert-lecturers') }}">Advisory Board & Expert Lectures</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="{{ route('frontend.faq') }}">FAQ</a>
@@ -79,7 +79,7 @@
                     </ul>
                 </li>
 
-                <a href="{{ route('frontend.nutritionist') }}" class="nav-item nav-link">Nutritionists</a>
+                <a href="{{ route('frontend.nutritionists') }}" class="nav-item nav-link">Nutritionists</a>
 
                 <a href="#" class="nav-item nav-link">
                     <i class="bi bi-search"></i>
