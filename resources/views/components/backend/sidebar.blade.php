@@ -156,7 +156,7 @@
 
             <li>
                 <a href="{{ route('backend.webinars.index') }}" class="link {{ Request::segment(2) == 'webinars' ? 'active' : null }}">
-                    <img src="{{ asset('storage/backend/sidebar/testimonial.png') }}" alt="Icon">
+                    <img src="{{ asset('storage/backend/sidebar/webinar.png') }}" alt="Icon">
                     <span>Webinars</span>
                 </a>
             </li>
