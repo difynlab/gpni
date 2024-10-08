@@ -167,6 +167,11 @@ body {
     border-radius: 2px;
 }
 
+form .error-message {
+    color: #dd0909;
+    font-size: 14px;
+    margin-top: 5px;
+}
 
     /*** Navbar ***/
 
