@@ -28,7 +28,8 @@ class GpniTvController extends Controller
         }
         
         return view('frontend.pages.gpni-tv', [
-            'contents' => $contents
+            'contents' => $contents,
+            'language' => $language
         ]);
     }
 }
