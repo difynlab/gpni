@@ -445,9 +445,13 @@
     </section>
     <!-- END OF certification_section_11 -->
 
-    <!-- UPDATES ARE PENDING FOR BELOW SECTIONS, WILL BE COMPLETED TOMORROW 10-10-2024-->
+    <!-- certification_section_12 -->
+    @php
+        $advisoryBoardLink = json_decode($course_content->certification_section_12_label_link);
+    @endphp
+
     <section class="advisory-board-section container">
-        <h2 class="advisory-board-title">The International Society Of Sports Nutrition <br>Advisory Board</h2>
+        <h2 class="advisory-board-title">{{  $course_content -> certification_section_12_title }}</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-4">
             <div class="col">
                 <div class="advisory-board-card d-flex align-items-center">
@@ -531,54 +535,41 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="view-more-link">
-            View More
+        <a href="{{ $advisoryBoardLink->link }}" class="view-more-link">
+            {{ $advisoryBoardLink->label }}
+            <br>
             <img src="/storage/frontend/arrow-indication-10.svg" alt="Arrow Icon">
         </a>
     </section>
+    <!-- END OF certification_section_12 -->
 
+    <!-- certification_section_13 -->
+    @php
+        $tablePoints = json_decode($course_content->certification_section_13_table_points);
+        $paymentLinks = json_decode($course_content->certification_section_13_label_link);
+    @endphp
     <section class="payment-options-section container">
-        <h2 class="payment-options-title">Flexible Payment Options for Your PNE Level-2 Masters + CISSN Certification
-            Course</h2>
+        <h2 class="payment-options-title">{{  $course_content -> certification_section_13_title }}</h2>
         <p class="payment-options-description">
-            CISSN Certification Course At GPNi, we understand that investing in education can be a big decision,
-            which is why we offer flexible payment options to make our PNE Level-2 Masters + CISSN program more
-            accessible.
-            With our various payment plans, you can choose the option that best fits your budget and start your journey
-            towards becoming a certified expert in sports nutrition.
-            Explore our payment plans and take advantage of our additional free bonuses to maximize your savings and
-            enhance your learning experience.
+            {{  $course_content -> certification_section_13_description }}
         </p>
         <div class="table-container">
             <table class="payment-table">
                 <thead>
                     <tr>
-                        <th class="highlight-primary">PNE 2</th>
-                        <th class="highlight-secondary">Pay One Time</th>
-                        <th class="highlight-primary">Instalment (Plan for 12 months)</th>
+                        <th class="highlight-primary">{{ $course_content->certification_section_13_first_column }}</th>
+                        <th class="highlight-secondary">{{ $course_content->certification_section_13_second_column }}</th>
+                        <th class="highlight-primary">{{ $course_content->certification_section_13_third_column }}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Payment Amount</td>
-                        <td>USD 1,699.00 <span style="color: red;">USD 1,099.00</span></td>
-                        <td>USD 99.00 Per Month</td>
-                    </tr>
-                    <tr>
-                        <td>Number Of Payments</td>
-                        <td>1</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>Hard copy materials and international logistics</td>
-                        <td>Free</td>
-                        <td>USD 229.00</td>
-                    </tr>
-                    <tr>
-                        <td>GPNi TV 4 X ISSN Webinars</td>
-                        <td>Free</td>
-                        <td>USD 699.00</td>
-                    </tr>
+                    @foreach($tablePoints as $point)
+                        <tr>
+                            <td>{{ $point->first }}</td>
+                            <td>{!! nl2br(e($point->second)) !!}</td>
+                            <td>{{ $point->third }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -588,13 +579,15 @@
                     alt="Arrow Icon"></a>
         </div>
     </section>
+    <!-- END OF certification_section_13 -->
 
+    <!-- certification_section_14 -->
     <section class="student-testimonial-section container">
         <div class="student-testimonial-content">
             <div class="student-testimonial-text">
                 <div class="student-testimonial-header">
                     <img src="/storage/frontend/line-42.svg" alt="Line">
-                    <div class="header-text">What our students say</div>
+                    <div class="header-text">{{  $course_content -> certification_section_14_title }}</div>
                 </div>
                 <div class="student-testimonial-quote">“I was looking for the perfect course that combined theoretical
                     knowledge and practical experience in sports nutrition for many years.</div>
@@ -677,10 +670,11 @@
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_14 -->
 
+    <!-- certification_section_15 -->
     <section class="advanced-certification-section container-fluid">
-        <h2 class="advanced-certification-title">Why Are the ISSN International Certification Courses By the GPNi
-            Superior To Other Sports Nutrition Certifications Globally?</h2>
+        <h2 class="advanced-certification-title">{!!  $course_content -> certification_section_15_title !!}</h2>
         <div class="row mx-5">
             <div class="col-lg-6">
                 <img src="/storage/frontend/1672650802-removebg-preview-1.svg" alt="Certification Image"
@@ -688,18 +682,7 @@
             </div>
             <div class="col-lg-6">
                 <p class="advanced-certification-text">
-                    A question often asked is why both the PNE-L1 + ISSN-SNS, also the PNE-L2 Masters + ISSN-CISSN
-                    (Certified Sports Nutritionist) certification course by the GPNi is superior compared to other
-                    sports nutrition certifications in the world, such as:<br>
-                    NASM-CSNC (Certified Sports Nutrition Coach)<br>
-                    Precision Nutrition PN Level-2 Masters (Master Health Coach)<br>
-                    ISSA – Nutritionist Certification<br>
-                    ACE – Fitness Nutrition Specialist<br>
-                    Clean Health Institute – Performance Nutrition Coach<br>
-                    Sports Nutrition Association – Certified in Applied Sports Nutrition<br><br>
-                    There are many reasons why the the GPNi international certifications course is superior to all
-                    others. Please review below these five key points that make this certification superior to other
-                    sports nutrition certifications in the world:
+                    {!!  $course_content -> certification_section_15_content !!}
                 </p>
             </div>
         </div>
@@ -777,15 +760,16 @@
             <img src="/storage/frontend/arrow-indication-13.svg" alt="Arrow Icon">
         </a>
     </section>
+    <!-- END OF certification_section_15 -->
 
+    <!-- certification_section_16 -->
     <section class="masters-pack-section">
         <div class="masters-pack-overlay"></div>
         <div class="masters-pack-content">
-            <h2 class="masters-pack-title">GPNi Masters Pack</h2>
-            <p class="masters-pack-subtitle">Includes both the PNE L1 + ISSN-SNS and PNE L2 Masters + ISSN-CISSN</p>
-            <p class="masters-pack-description">The “GPNi Masters Pack” is the elite level and a way to jump-start your
-                career to the masters level in sports nutrition for those not eligible, or not ready to go directly into
-                PNE L2 Masters + CISSN program.</p>
+            <h2 class="masters-pack-title">{{  $course_content -> certification_section_16_title }}
+            </h2>
+            {!!  $course_content -> certification_section_16_content !!}
+            
             <div class="btn-group">
                 <a href="#" class="btn-custom">Enroll Now</a>
                 <a href="#" class="btn-custom secondary border-0">
@@ -795,6 +779,7 @@
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_16 -->
 
     </div>
 

@@ -32,11 +32,11 @@
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/profile-2.svg" alt="Buy Study Material icon" width="28" height="28">
-                    <span>Buy Study Material</span>
+                    <span><a href="{{ route('frontend.student-materials') }}">Buy Study Material</a></span>
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/profile-2.svg" alt="Buy Study Material icon" width="28" height="28">
-                    <span>Members Corner</span>
+                    <span><a href="{{ route('frontend.members-corner') }}">Members Corner</a></span>
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/mdi-chat-question-outline.svg" alt="Ask the Experts icon" width="28" height="28">
@@ -61,7 +61,7 @@
                     <img src="/storage/frontend/image-16.svg" alt="Profile image" width="171" height="148">
                 </div>
                 <div class="card-section">
-                    <a href="studentProfile.html" class="card">
+                    <a href="{{ route('frontend.student-profile') }}" class="card">
                         <h2>Student Profile</h2>
                         <p>View or edit student profile details</p>
                     </a>
