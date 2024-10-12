@@ -22,7 +22,7 @@
                 <div class="sidebar-item">
                     <img src="/storage/frontend/healthicons-i-exam-qualification-outline.svg" alt="Qualifications icon" width="28"
                         height="28">
-                    <span>Qualifications</span>
+                    <span><a href="{{ route('frontend.qualifications') }}">Qualifications</a></span>
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/fluent-people-toolbox-20-regular.svg" alt="Study Tools icon" width="28"
@@ -44,7 +44,7 @@
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/ph-hand-coins.svg" alt="Referral Points icon" width="28" height="28">
-                    <span>Referral Points</span>
+                    <span><a href="{{ route('frontend.refer-friend') }}">Referral Points</a></span>
                 </div>
             </div>
             <div class="col-12 col-md-9 main-content">
@@ -69,10 +69,10 @@
                         <h2>Change Password</h2>
                         <p>View or edit student profile details</p>
                     </a>
-                    <div class="card">
+                    <a href="{{ route('frontend.my-orders') }}" class="card">
                         <h2>Courses</h2>
                         <p>Access your course related details</p>
-                    </div>
+                    </a>
                     <div class="card">
                         <h2>Billing Centre</h2>
                         <p>Checkout billing related info</p>
