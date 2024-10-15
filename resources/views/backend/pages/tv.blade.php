@@ -63,10 +63,6 @@
                         <input class="form-control" type="text" name="section_1_button_link" value="{{ json_decode($contents->{'section_1_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -84,10 +80,6 @@
                             <input type="text" class="form-control" id="section_2_sub_title_{{ $short_code }}" name="section_2_sub_title_{{ $short_code }}" value="{{ $contents->{'section_2_sub_title_' . $short_code} ?? '' }}" placeholder="Sub Title">
                         </div>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -116,10 +108,6 @@
                         <x-backend.input-error field="new_section_3_image"></x-backend.input-error>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -138,10 +126,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -158,10 +142,6 @@
                         <x-backend.upload-image old_name="old_section_5_image" old_value="{{ $contents->{'section_5_image_' . $short_code} ?? '' }}" new_name="new_section_5_image" path="pages" class="side-box-uploader"></x-backend.upload-image>
                         <x-backend.input-error field="new_section_5_image"></x-backend.input-error>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -180,10 +160,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -200,10 +176,6 @@
                         <x-backend.upload-video old_name="old_section_7_video" old_value="{{ $contents->{'section_7_video_' . $short_code} ?? '' }}" new_name="new_section_7_video" path="pages" class="side-box-uploader"></x-backend.upload-video>
                         <x-backend.input-error field="new_section_7_video"></x-backend.input-error>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -237,10 +209,6 @@
                         <input class="form-control" type="text" name="section_8_button_link" value="{{ json_decode($contents->{'section_8_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -259,10 +227,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -279,10 +243,6 @@
                             <textarea class="editor" id="section_10_content_{{ $short_code }}" name="section_10_content_{{ $short_code }}" value="{{ $contents->{'section_10_content_' . $short_code} ?? '' }}">{{ $contents->{'section_10_content_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -307,9 +267,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+                    <button type="submit" class="submit-button">Save the updates</button>
                 </div>
             </div>
         </form>

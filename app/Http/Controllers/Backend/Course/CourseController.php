@@ -83,10 +83,20 @@ class CourseController extends Controller
             $image_name = null;
         }
 
+        if($request->file('material_logistic') != null) {
+            $material_logistic = $request->file('material_logistic');
+            $material_logistic_name = Str::random(40) . '.' . $material_logistic->getClientOriginalExtension();
+            $material_logistic->storeAs('public/backend/courses/material-and-logistics', $material_logistic_name);
+        }
+        else {
+            $material_logistic_name = null;
+        }
+
         $course = new Course();
-        $data = $request->except('old_image_video', 'new_image_video', 'old_instructor_profile_image', 'new_instructor_profile_image');
+        $data = $request->except('old_image_video', 'new_image_video', 'old_instructor_profile_image', 'new_instructor_profile_image', 'material_logistic');
         $data['image_video'] = $image_video_name;
         $data['instructor_profile_image'] = $image_name;
+        $data['material_logistic'] = $material_logistic_name;
         $course->create($data);
 
         return redirect()->route('backend.courses.index')->with('success', 'Successfully created!');
@@ -142,9 +152,23 @@ class CourseController extends Controller
             $image_name = $request->old_instructor_profile_image;
         }
 
-        $data = $request->except('old_image_video', 'new_image_video', 'old_instructor_profile_image', 'new_instructor_profile_image');
+        if($request->file('new_material_logistic') != null) {
+            if($request->old_material_logistic) {
+                Storage::delete('public/backend/courses/material-and-logistics/' . $request->old_material_logistic);
+            }
+
+            $new_material_logistic = $request->file('new_material_logistic');
+            $new_material_logistic_name = Str::random(40) . '.' . $new_material_logistic->getClientOriginalExtension();
+            $new_material_logistic->storeAs('public/backend/courses/material-and-logistics', $new_material_logistic_name);
+        }
+        else {
+            $new_material_logistic_name = $request->old_material_logistic;
+        }
+
+        $data = $request->except('old_image_video', 'new_image_video', 'old_instructor_profile_image', 'new_instructor_profile_image', 'old_material_logistic', 'new_material_logistic');
         $data['image_video'] = $image_video_name;
         $data['instructor_profile_image'] = $image_name;
+        $data['material_logistic'] = $new_material_logistic_name;
         $course->fill($data)->save();
         
         return redirect()->route('backend.courses.index')->with('success', "Successfully updated!");

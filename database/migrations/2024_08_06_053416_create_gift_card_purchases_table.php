@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gift_card_orders', function (Blueprint $table) {
+        Schema::create('gift_card_purchases', function (Blueprint $table) {
             $table->id();
 
             $table->string('receiver_name');
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gift_card_orders');
+        Schema::dropIfExists('gift_card_purchases');
     }
 };

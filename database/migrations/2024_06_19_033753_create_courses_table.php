@@ -108,6 +108,10 @@ return new class extends Migration
                 $table->text('master_section_10_description')->nullable();
             // Master course fields
 
+            // Material & logistic field
+                $table->string('material_logistic')->nullable();
+            // Material & logistic field
+
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });

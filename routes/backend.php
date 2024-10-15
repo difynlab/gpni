@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Article\ArticleController;
 use App\Http\Controllers\Backend\Communication\AskQuestionController;
 use App\Http\Controllers\Backend\Communication\ConnectionController;
 use App\Http\Controllers\Backend\Communication\ContactCoachController;
+use App\Http\Controllers\Backend\Communication\ReferFriendController;
 use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
@@ -17,7 +18,6 @@ use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\Course\CourseReviewController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
-use App\Http\Controllers\Backend\Order\GiftCardOrderController;
 use App\Http\Controllers\Backend\Page\AdvisoryBoardController as PageAdvisoryBoardController;
 use App\Http\Controllers\Backend\Page\ArticleController as PageArticleController;
 use App\Http\Controllers\Backend\Page\ConferenceController as PageConferenceController;
@@ -50,6 +50,8 @@ use App\Http\Controllers\Backend\Policy\PolicyController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Promotion\PromotionController;
+use App\Http\Controllers\Backend\Purchase\CoursePurchaseController;
+use App\Http\Controllers\Backend\Purchase\GiftCardPurchaseController;
 use App\Http\Controllers\Backend\Webinar\WebinarController;
 use Illuminate\Support\Facades\Route;
 
@@ -227,6 +229,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             // Students routes
                 Route::resource('students', StudentController::class)->except(['show']);
                 Route::post('students/filter', [StudentController::class, 'filter'])->name('students.filter');
+
+                Route::prefix('students')->name('students.')->group(function() {
+                    Route::get('{student}/information', [StudentController::class, 'informationIndex'])->name('information.index');
+                    Route::post('{student}/information', [StudentController::class, 'informationUpdate'])->name('information.update');
+                });
             // Students routes
 
             // Admins routes
@@ -264,19 +271,32 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::post('ask-questions/filter', [AskQuestionController::class, 'filter'])->name('ask-questions.filter');
 
             Route::resource('connections', ConnectionController::class)->except(['create', 'show']);
+            
+            Route::resource('refer-friends', ReferFriendController::class)->only(['index', 'destroy']);
         });
     // All communication routes
 
 
-    // All order routes
-        Route::prefix('orders')->name('orders.')->group(function() {
-            Route::prefix('gift-card-orders')->name('gift-card-orders.')->group(function() {
-                Route::get('/', [GiftCardOrderController::class, 'index'])->name('index');
-                Route::post('/filter', [GiftCardOrderController::class, 'filter'])->name('filter');
-                Route::delete('/{gift_card_order}', [GiftCardOrderController::class, 'destroy'])->name('destroy');
+    // All purchase routes
+        Route::prefix('purchases')->name('purchases.')->group(function() {
+            Route::prefix('gift-card-purchases')->name('gift-card-purchases.')->group(function() {
+                Route::get('/', [GiftCardPurchaseController::class, 'index'])->name('index');
+                Route::post('/filter', [GiftCardPurchaseController::class, 'filter'])->name('filter');
+                Route::delete('/{gift_card_purchase}', [GiftCardPurchaseController::class, 'destroy'])->name('destroy');
+            });
+
+            Route::prefix('course-purchases')->name('course-purchases.')->group(function() {
+                Route::get('/', [CoursePurchaseController::class, 'index'])->name('index');
+                Route::post('/filter', [CoursePurchaseController::class, 'filter'])->name('filter');
+                Route::delete('/{course_purchase}', [CoursePurchaseController::class, 'destroy'])->name('destroy');
+
+                Route::prefix('certificates')->name('certificates.')->group(function() {
+                    Route::get('/{course_purchase}', [CoursePurchaseController::class, 'certificate'])->name('index');
+                    Route::post('/{course_certificate}/update', [CoursePurchaseController::class, 'certificateUpdate'])->name('update');
+                });
             });
         });
-    // All order routes
+    // All purchase routes
 
 
     // All policies related routes
