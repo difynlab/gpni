@@ -1,10 +1,10 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Home Page')
+@section('title', 'Membership')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Home Page"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Membership"></x-backend.breadcrumb>
 
     <div class="static-pages">
         
@@ -29,10 +29,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -55,10 +51,6 @@
                             <textarea class="editor" id="section_2_bottom_description_{{ $short_code }}" name="section_2_bottom_description_{{ $short_code }}" value="{{ $contents->{'section_2_bottom_description_' . $short_code} ?? '' }}">{{ $contents->{'section_2_bottom_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -120,10 +112,6 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -160,10 +148,6 @@
                         <input type="url" class="form-control" name="section_4_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_4_labels_links_' . $short_code})[1]->link ?? '' }}">
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -182,9 +166,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+                    <button type="submit" class="submit-button">Save the updates</button>
                 </div>
             </div>
         </form>

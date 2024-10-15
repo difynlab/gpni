@@ -44,10 +44,6 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -79,10 +75,6 @@
                             </div>
                         @endforeach
                     @endif
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -118,10 +110,6 @@
                             </div>
                         @endforeach
                     @endif
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 

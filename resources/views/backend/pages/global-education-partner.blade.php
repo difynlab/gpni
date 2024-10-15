@@ -33,10 +33,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -113,10 +109,6 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -181,10 +173,6 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -216,10 +204,6 @@
 
                         <input class="form-control mb-3" type="text" name="section_4_button_link" value="{{ json_decode($contents->{'section_4_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -289,9 +273,11 @@
                         @endif
                     </div>
                 </div>
+            </div>
 
+            <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+                    <button type="submit" class="submit-button">Save the updates</button>
                 </div>
             </div>
         </form>

@@ -83,16 +83,18 @@
                 </a>
             </li>
 
-            <div class="accordion" id="orders-accordion">
-                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#orders-data-collapse">
+            <div class="accordion" id="purchases-accordion">
+                <button class="link accordion-dropdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#purchases-data-collapse">
                     <img src="{{ asset('storage/backend/sidebar/order.png') }}" alt="Icon">
-                    <span>Orders</span>
+                    <span>Purchases</span>
                 </button>
 
-                <div id="orders-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['gift-card-orders']) ? 'show' : '' }}" data-bs-parent="#orders-accordion">
+                <div id="purchases-data-collapse" class="accordion-collapse collapse {{ in_array(Request::segment(3), ['gift-card-purchases', 'course-purchases']) ? 'show' : '' }}" data-bs-parent="#orders-accordion">
                     <div class="accordion-body">
                         <ul>
-                            <li><a href="{{ route('backend.orders.gift-card-orders.index') }}" class="link {{ Request::segment(3) == 'gift-card-orders' ? 'active' : null }}">Gift Card Orders</a></li>
+                            <li><a href="{{ route('backend.purchases.gift-card-purchases.index') }}" class="link {{ Request::segment(3) == 'gift-card-purchases' ? 'active' : null }}">Gift Card Purchases</a></li>
+
+                            <li><a href="{{ route('backend.purchases.course-purchases.index') }}" class="link {{ Request::segment(3) == 'course-purchases' ? 'active' : null }}">Course Purchases</a></li>
                         </ul>
                     </div>
                 </div>
@@ -182,6 +184,8 @@
                             <li><a href="{{ route('backend.communications.ask-questions.index') }}" class="link {{ Request::segment(3) == 'ask-questions' ? 'active' : null }}">Ask Questions</a></li>
 
                             <li><a href="{{ route('backend.communications.connections.index') }}" class="link {{ Request::segment(3) == 'connections' ? 'active' : null }}">Connections</a></li>
+
+                            <li><a href="{{ route('backend.communications.refer-friends.index') }}" class="link {{ Request::segment(3) == 'refer-friends' ? 'active' : null }}">Refer Friends</a></li>
                         </ul>
                     </div>
                 </div>
