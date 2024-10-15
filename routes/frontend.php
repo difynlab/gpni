@@ -24,6 +24,13 @@ use App\Http\Controllers\Frontend\Student\AskExpertController;
 use App\Http\Controllers\Frontend\Pages\GpniTvController;
 use App\Http\Controllers\Frontend\Pages\CourseController;
 use App\Http\Controllers\Frontend\Student\PasswordController;
+use App\Http\Controllers\Frontend\Student\StudentProfileController;
+use App\Http\Controllers\Frontend\Student\StudentMaterialController;
+use App\Http\Controllers\Frontend\Student\MembersCornerController;
+use App\Http\Controllers\Frontend\Student\MyOrdersController;
+use App\Http\Controllers\Frontend\Student\QualificationsController;
+use App\Http\Controllers\Frontend\Student\ReferFriendController;
+
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/frontend-auth.php';
@@ -73,5 +80,11 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
         Route::get('course-detail-open', [CourseDetailController::class, 'show'])->name('course-detail-open');
         Route::get('ask-expert', [AskExpertController::class, 'index'])->name('ask-expert');
         Route::get('course-list', [CourseDetailController::class, 'list'])->name('course-list');
+        Route::get('student-profile', [StudentProfileController::class, 'index'])->name('student-profile');
+        Route::get('student-materials', [StudentMaterialController::class, 'index'])->name('student-materials');
+        Route::get('members-corner', [MembersCornerController::class, 'index'])->name('members-corner');
+        Route::get('my-orders', [MyOrdersController::class, 'index'])->name('my-orders');
+        Route::get('refer-friend', [ReferFriendController::class, 'index'])->name('refer-friend');
+        Route::get('qualifications', [QualificationsController::class, 'index'])->name('qualifications');
     });
-// Student routes
+// Student routes 

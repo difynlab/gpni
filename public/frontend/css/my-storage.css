@@ -19,7 +19,7 @@ body {
 }
 
 .profile-card {
-    background-image: url('/assets/background-01-1.svg');
+    background-image: url('/storage/frontend/background-01-1.svg');
     text-align: center;
     padding: 20px 0;
     position: relative;

@@ -46,7 +46,7 @@ class ArticleController extends Controller
             $article_categories = ArticleCategory::where('language', 'English')->where('status', '1')->get();
         }
 
-        return view('frontend.pages.main-article', [
+        return view('frontend.pages.articles', [
             'contents' => $contents,
             'language' => $language,
             'articles' => $articles,

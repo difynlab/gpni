@@ -22,7 +22,7 @@
                 <div class="sidebar-item">
                     <img src="/storage/frontend/healthicons-i-exam-qualification-outline.svg" alt="Qualifications icon" width="28"
                         height="28">
-                    <span>Qualifications</span>
+                    <span><a href="{{ route('frontend.qualifications') }}">Qualifications</a></span>
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/fluent-people-toolbox-20-regular.svg" alt="Study Tools icon" width="28"
@@ -32,11 +32,11 @@
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/profile-2.svg" alt="Buy Study Material icon" width="28" height="28">
-                    <span>Buy Study Material</span>
+                    <span><a href="{{ route('frontend.student-materials') }}">Buy Study Material</a></span>
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/profile-2.svg" alt="Buy Study Material icon" width="28" height="28">
-                    <span>Members Corner</span>
+                    <span><a href="{{ route('frontend.members-corner') }}">Members Corner</a></span>
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/mdi-chat-question-outline.svg" alt="Ask the Experts icon" width="28" height="28">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="sidebar-item">
                     <img src="/storage/frontend/ph-hand-coins.svg" alt="Referral Points icon" width="28" height="28">
-                    <span>Referral Points</span>
+                    <span><a href="{{ route('frontend.refer-friend') }}">Referral Points</a></span>
                 </div>
             </div>
             <div class="col-12 col-md-9 main-content">
@@ -61,7 +61,7 @@
                     <img src="/storage/frontend/image-16.svg" alt="Profile image" width="171" height="148">
                 </div>
                 <div class="card-section">
-                    <a href="studentProfile.html" class="card">
+                    <a href="{{ route('frontend.student-profile') }}" class="card">
                         <h2>Student Profile</h2>
                         <p>View or edit student profile details</p>
                     </a>
@@ -69,10 +69,10 @@
                         <h2>Change Password</h2>
                         <p>View or edit student profile details</p>
                     </a>
-                    <div class="card">
+                    <a href="{{ route('frontend.my-orders') }}" class="card">
                         <h2>Courses</h2>
                         <p>Access your course related details</p>
-                    </div>
+                    </a>
                     <div class="card">
                         <h2>Billing Centre</h2>
                         <p>Checkout billing related info</p>

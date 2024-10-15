@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\Pages;
+namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
-use App\Models\TvContent;
 
-class GpniTvController extends Controller
+class StudentMaterialController extends Controller
 {
     public function index()
     {
-        $contents = TvContent::find(1);
         $language = session('language', 'en');
         
         switch($language){
@@ -27,8 +25,7 @@ class GpniTvController extends Controller
                 break;
         }
         
-        return view('frontend.pages.gpni-tv', [
-            'contents' => $contents,
+        return view('frontend.student.student-materials', [
             'language' => $language
         ]);
     }

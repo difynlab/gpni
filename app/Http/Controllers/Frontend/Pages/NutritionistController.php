@@ -34,7 +34,7 @@ class NutritionistController extends Controller
             $nutritionists = Nutritionist::where('language', 'English')->where('status', '1')->get();
         }
 
-        return view('frontend.pages.nutritionist', [
+        return view('frontend.pages.nutritionists', [
             'contents' => $contents,
             'language' => $language,
             'nutritionists' => $nutritionists

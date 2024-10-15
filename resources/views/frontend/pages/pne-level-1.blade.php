@@ -14,7 +14,7 @@
         <div class="row d-flex align-items-center">
             <div class="col-lg-7 col-md-12">
                 <section class="certification-section">
-                    <h1 class="title">PNE Level-1 + SNS Double Certification</h1>
+                    <h1 class="title">{{  $course_content->title }}</h1>
                     <div class="certificates-container d-flex flex-wrap justify-content-center">
                         <img src="/storage/frontend/certificate 1.png" alt="Certificate 1" class="img-fluid">
                         <div class="d-flex flex-column align-items-center">
@@ -28,13 +28,7 @@
                     </div>
 
                     <p class="description">
-                        To apply for the PNE L2 Masters + CISSN course, you must meet at least one of the following
-                        eligibility criteria:
-                        holding a degree in exercise or sports science, being a registered Dietician or Nutritionist or
-                        similar qualifications,
-                        having at least five years of previous experience in fitness and nutrition, and/or having
-                        previously been certified by GPNi
-                        with PNE Level-1 + SNS Sports Nutrition Specialist (SNS) within the past two years.
+                    {{  $course_content->course_introduction }}
                     </p>
                 </section>
             </div>
@@ -81,13 +75,13 @@
             <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center">
                 <div class="course-item text-center">
                     <div class="label">Course Type</div>
-                    <div class="value">Certificate</div>
+                    <div class="value">{{  $course_content->type }}</div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center">
                 <div class="course-item text-center">
                     <div class="label">Course Duration</div>
-                    <div class="value">70+ Hours</div>
+                    <div class="value">{{  $course_content->duration }}</div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center">
@@ -99,6 +93,7 @@
         </div>
     </section>
 
+    <!-- certification_section_2 -->
     <section class="plans-payment position-relative">
         <div class="container">
             <div class="row">
@@ -109,8 +104,8 @@
                 </div>
                 <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
                     <div class="text-section">
-                        <h1>Upgrade Your Life in Fitness & Sports Nutrition</h1>
-                        <p>Get Started Now & Enroll – Easy Choices of 1, 2 or 3</p>
+                        <h1>{{  $course_content->certification_section_2_title }}</h1>
+                        <p>{{  $course_content->certification_section_2_description }}</p>
                         <label class="plan plan-highlight">
                             <input type="radio" name="plan" value="type-one">
                             <div class="check-container">
@@ -156,9 +151,11 @@
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_2 -->
 
+    <!-- certification_section_3 -->
     <div class="container-fluid certification-section">
-        <h1 class="text-center mb-4">Why Get Certified By The GPNi®</h1>
+        <h1 class="text-center mb-4">{{  $course_content->certification_section_3_title }}</h1>
 
         <div class="row gy-4">
             <div class="col-12 col-md-6 col-lg-4">
@@ -168,53 +165,18 @@
                         with blossoming career opportunities.</p>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="certification-card">
-                    <img src="/storage/frontend/material-symbols-light-partner-exchange-outline-rounded.svg" alt="Partner Icon">
-                    <p>GPNi® is the official global online partner for The International Society of Sports Nutrition,
-                        The ISSN®. The ISSN® is the leading pioneer's and researcher's in Performance Nutrition
-                        globally, since 2003.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="certification-card">
-                    <img src="/storage/frontend/clarity-language-solid.svg" alt="Language Icon">
-                    <p>GPNi® is the world’s first science backed performance nutrition online education portal to be
-                        offered in multiple countries and available in multiple languages.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="certification-card">
-                    <img src="/storage/frontend/mdi-school-online.svg" alt="School Icon">
-                    <p>GPNi has a unique blend of on-demand content, live tutorials, and classroom-style online
-                        solutions to give the most authentic and quality education solution.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="certification-card">
-                    <img src="/storage/frontend/raphael-people.svg" alt="People Icon">
-                    <p>Plug into the world’s network of fellow fitness professionals and business owners for career and
-                        learning opportunities like no other certification offers. Upgrade your knowledge & global
-                        network like no other certification can.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="certification-card">
-                    <img src="/storage/frontend/fluent-people-chat-24-filled.svg" alt="Chat Icon">
-                    <p>Exclusive access to the world’s most famous and leading sports nutrition researchers and experts
-                        through the GPNi “Access to Experts” LIVE tutorials.</p>
-                </div>
-            </div>
         </div>
     </div>
+    <!-- END OF certification_section_3 -->
 
+    <!-- certification_section_4 -->
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="video-section">
                     <div class="video-container">
                         <video controls>
-                            <source src="/storage/frontend/psn1 video.mp4" type="video/mp4">
+                            <source src="{{ asset('storage/backend/courses/course-image-videos/' . $course_content->certification_section_4_video) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -222,70 +184,62 @@
             </div>
         </div>
     </div>
+    <!-- END OF certification_section_4 -->
 
+    <!-- certification_section_5 -->
     <section class="nutrition-section container-fluid p-5">
         <div class="row content-wrapper">
             <div class="col-12 col-md-6 text-content">
-                <h1>Become A Certified Sports Nutritionist (CISSN) today.</h1>
-                <p>See Why The ISSN-CISSN Is The Most Recognized & Highest Level Certification. The GPNi Offers Now This
-                    Exclusive Course & International </p>
-                <p>Certification Online Now!</p>
+                <h1>{{  $course_content->certification_section_5_title }}</h1>
+                <p>{{  $course_content->certification_section_5_description }}</p>
             </div>
             <div class="col-12 col-md-6 testimonial-content">
                 <div class="testimonial-stars">
-                    <img src="/storage/frontend/frame-1171275930.svg" alt="Rating Stars" class="img-fluid">
+                    <!-- <img src="/storage/frontend/frame-1171275930.svg" alt="Rating Stars" class="img-fluid"> -->
+                    {{  $course_content->certification_section_5_rating }}
                 </div>
-                <div class="testimonial-text">“The CISSN Level-2 Masters ISSN certification and course by the GPNi is
-                    for those that want to position themselves at
-                    the top level in sports and professional athlete nutrition. Boost your knowledge, qualification, and
-                    career”.
+                <div class="testimonial-text">
+                {{  $course_content->certification_section_5_content }}
                 </div>
                 <div class="testimonial-author">
-                    <div class="name">Arlene Semeco</div>
-                    <div class="role">RD-World Class Swimmer/CISSN</div>
+                    <div class="name">
+                    {{  $course_content->certification_section_5_name }}
+                    </div>
+                    <div class="role">
+                    {{  $course_content->certification_section_5_designation }}
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_5 -->
 
+    <!-- certification_section_6 -->
     <section class="team-section container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-4">
-                    <h1 class="title">The Diverse and Experienced Team at GPNi</h1>
-                    <p class="description">Get to know the diverse and highly experienced professionals who make up the
-                        team at Global Performance Nutrition Institute (GPNi). Our team includes leading sports
-                        nutrition experts, successful business owners, and accomplished individuals in the fields of
-                        nutrition and fitness, who bring a wealth of knowledge and dedication to their roles.</p>
+                    <h1 class="title">{{  $course_content->certification_section_6_title }}
+                    </h1>
+                    <p class="description">{{  $course_content->certification_section_6_description }}
+                    </p>
                 </div>
                 <div class="col-6 col-md-3 profile-card">
                     <img src="/storage/frontend/drew.png" alt="Drew Campbell">
                     <div class="name">Drew Campbell</div>
                 </div>
-                <div class="col-6 col-md-3 profile-card">
-                    <img src="/storage/frontend/jose.png" alt="Dr. Jose Antonio">
-                    <div class="name">Dr. Jose Antonio</div>
-                </div>
-                <div class="col-6 col-md-3 profile-card">
-                    <img src="/storage/frontend/reid.png" alt="Dr. Reid Reale">
-                    <div class="name">Dr. Reid Reale</div>
-                </div>
-                <div class="col-6 col-md-3 profile-card">
-                    <img src="/storage/frontend/roger.png" alt="Dr. Roger Adams">
-                    <div class="name">Dr. Roger Adams</div>
-                </div>
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_6 -->
 
+    <!-- certification_section_7 -->
     <section class="enrollment-section container-fluid">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
-                    <h1 class="program-title">Enroll Now To The Master's Program</h1>
-                    <p class="program-description">PNE Level-2 Masters + ISSN-CISSN. Combination of online on-demand
-                        learning together with “live” tutorials in a classroom online together with Ph.D. academic
-                        lectures.</p>
+                    <h1 class="program-title">{{  $course_content->certification_section_7_title }}</h1>
+                    <p class="program-description">{{  $course_content->certification_section_6_description }}</p>
                     <div class="d-flex flex-wrap">
                         <a href="#" class="btn-custom btn-enroll">Enroll Now</a>
                         <a href="#" class="btn-custom btn-contact">Contact us <img src="/storage/frontend/arrow-indication-10.svg"
@@ -298,6 +252,7 @@
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_7 -->
 
     <div class="tab-container container-fluid">
         <nav class="nav content-header d-flex justify-content-center">
@@ -423,45 +378,27 @@
 
     </div>
 
+    <!-- certification_section_9 -->
     <section class="requirements-section container-fluid">
         <div class="row align-items-center">
             <div class="col-lg-6 image-container">
-                <img src="/storage/frontend/div.col-lg-6.svg" alt="Person Image" class="img-fluid person">
+                <!-- <img src="/storage/frontend/div.col-lg-6.svg" alt="Person Image" class="img-fluid person"> -->
+                @if($course_content -> certification_section_9_image)
+                    <img src="{{ asset('storage/backend/courses/course-image-videos/' . $course_content -> certification_section_9_image) }}" alt="Person Image" class="img-fluid person">
+                @else
+                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Person Image" class="img-fluid person">
+                @endif
             </div>
-            <div class="col-lg-6">
-                <h2 class="requirements-title">Requirements</h2>
-                <div class="requirements-list">
-                    There are many thousands of certified SNS® and CISSN® professionals in the world today, these
-                    consist of:
-                    <ul>
-                        <li>Fitness Professional & Personal Trainers</li>
-                        <li>Nurses & Doctors</li>
-                        <li>Health Coaches</li>
-                        <li>Group Fitness Instructors</li>
-                        <li>Registered Dietitians</li>
-                        <li>Fitness Lovers</li>
-                        <li>Parents</li>
-                    </ul>
-                </div>
-            </div>
+            {!!  $course_content -> certification_section_9_content !!}
         </div>
     </section>
+    <!-- END OF certification_section_9 -->
 
+    <!-- certification_section_10 -->
     <section class="cissn-section container">
         <div class="row align-items-start">
             <div class="col-lg-6">
-                <h2 class="cissn-title">The #1 Recognized Certified Sports Nutritionist (CISSN) Certification</h2>
-                <p class="cissn-description pb-4">
-                    Advanced level for those wanting to take their career to the highest level. Become accredited and
-                    globally recognized to be a Certified Sports Nutritionist (CISSN) through the GPNi and ISSN.
-                    <br><br>
-                    Taught by experts, created by experts, and founded by experts in sports and performance nutrition.
-                    No other course certification globally offers this level of authenticity and quality found in the
-                    GPNi and the ISSN double certifications.
-                    <br><br>
-                    <span class="cissn-price">Price: USD 3,199.00 USD 2,999.00*</span>
-                </p>
-                <a href="#" class="cissn-btn">View CEC Policy</a>
+                {!!  $course_content -> certification_section_10_content !!}
             </div>
             <div class="col-lg-6">
                 <img src="/storage/frontend/pne-level-2-masters-cissn-1.svg" alt="CISSN Certification" class="img-fluid mb-4">
@@ -483,41 +420,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <span class="cissn-collapse-title">Rhoncus nullam aliquam nam proin</span>
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p class="cissn-collapse-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <span class="cissn-collapse-title">Rhoncus nullam aliquam nam proin</span>
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p class="cissn-collapse-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_10 -->
 
+    <!-- certification_section_11 -->
     <section class="gpni-section container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -529,33 +438,20 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <h2 class="gpni-title">Who Is The GPNi®</h2>
-                <p class="gpni-description pb-4">
-                    "Your Nutrition Key"
-                    <br><br>
-                    The Global Performance Nutrition Institute (GPNi®). The GPNi® was founded in 2018 and is the
-                    official
-                    partner of The <a href="https://www.sportsnutritionsociety.org/" target="_blank"
-                        style="color: #505050;">
-                        International Society of Sports Nutrition
-                    </a>(ISSN®).
-                    <br><br>
-                    <b>Insurance & Professional Membership</b>
-                    <br><br>
-                    Now Available: Full sports nutrition professional liability and professional membership in selected
-                    countries.
-                    <br><br>
-                    Available with our partners, the <a href="https://www.sportsnutritionsociety.org/" target="_blank"
-                        style="color: #505050;">International Institute for Complementary Therapies (IICT)</a>
-
-                </p>
+                {!!  $course_content -> certification_section_11_content !!}
                 <a href="#" class="gpni-btn">View CEC Policy</a>
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_11 -->
+
+    <!-- certification_section_12 -->
+    @php
+        $advisoryBoardLink = json_decode($course_content->certification_section_12_label_link);
+    @endphp
 
     <section class="advisory-board-section container">
-        <h2 class="advisory-board-title">The International Society Of Sports Nutrition <br>Advisory Board</h2>
+        <h2 class="advisory-board-title">{{  $course_content -> certification_section_12_title }}</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-4">
             <div class="col">
                 <div class="advisory-board-card d-flex align-items-center">
@@ -639,54 +535,41 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="view-more-link">
-            View More
+        <a href="{{ $advisoryBoardLink->link }}" class="view-more-link">
+            {{ $advisoryBoardLink->label }}
+            <br>
             <img src="/storage/frontend/arrow-indication-10.svg" alt="Arrow Icon">
         </a>
     </section>
+    <!-- END OF certification_section_12 -->
 
+    <!-- certification_section_13 -->
+    @php
+        $tablePoints = json_decode($course_content->certification_section_13_table_points);
+        $paymentLinks = json_decode($course_content->certification_section_13_label_link);
+    @endphp
     <section class="payment-options-section container">
-        <h2 class="payment-options-title">Flexible Payment Options for Your PNE Level-2 Masters + CISSN Certification
-            Course</h2>
+        <h2 class="payment-options-title">{{  $course_content -> certification_section_13_title }}</h2>
         <p class="payment-options-description">
-            CISSN Certification Course At GPNi, we understand that investing in education can be a big decision,
-            which is why we offer flexible payment options to make our PNE Level-2 Masters + CISSN program more
-            accessible.
-            With our various payment plans, you can choose the option that best fits your budget and start your journey
-            towards becoming a certified expert in sports nutrition.
-            Explore our payment plans and take advantage of our additional free bonuses to maximize your savings and
-            enhance your learning experience.
+            {{  $course_content -> certification_section_13_description }}
         </p>
         <div class="table-container">
             <table class="payment-table">
                 <thead>
                     <tr>
-                        <th class="highlight-primary">PNE 2</th>
-                        <th class="highlight-secondary">Pay One Time</th>
-                        <th class="highlight-primary">Instalment (Plan for 12 months)</th>
+                        <th class="highlight-primary">{{ $course_content->certification_section_13_first_column }}</th>
+                        <th class="highlight-secondary">{{ $course_content->certification_section_13_second_column }}</th>
+                        <th class="highlight-primary">{{ $course_content->certification_section_13_third_column }}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Payment Amount</td>
-                        <td>USD 1,699.00 <span style="color: red;">USD 1,099.00</span></td>
-                        <td>USD 99.00 Per Month</td>
-                    </tr>
-                    <tr>
-                        <td>Number Of Payments</td>
-                        <td>1</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>Hard copy materials and international logistics</td>
-                        <td>Free</td>
-                        <td>USD 229.00</td>
-                    </tr>
-                    <tr>
-                        <td>GPNi TV 4 X ISSN Webinars</td>
-                        <td>Free</td>
-                        <td>USD 699.00</td>
-                    </tr>
+                    @foreach($tablePoints as $point)
+                        <tr>
+                            <td>{{ $point->first }}</td>
+                            <td>{!! nl2br(e($point->second)) !!}</td>
+                            <td>{{ $point->third }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -696,13 +579,15 @@
                     alt="Arrow Icon"></a>
         </div>
     </section>
+    <!-- END OF certification_section_13 -->
 
+    <!-- certification_section_14 -->
     <section class="student-testimonial-section container">
         <div class="student-testimonial-content">
             <div class="student-testimonial-text">
                 <div class="student-testimonial-header">
                     <img src="/storage/frontend/line-42.svg" alt="Line">
-                    <div class="header-text">What our students say</div>
+                    <div class="header-text">{{  $course_content -> certification_section_14_title }}</div>
                 </div>
                 <div class="student-testimonial-quote">“I was looking for the perfect course that combined theoretical
                     knowledge and practical experience in sports nutrition for many years.</div>
@@ -785,10 +670,11 @@
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_14 -->
 
+    <!-- certification_section_15 -->
     <section class="advanced-certification-section container-fluid">
-        <h2 class="advanced-certification-title">Why Are the ISSN International Certification Courses By the GPNi
-            Superior To Other Sports Nutrition Certifications Globally?</h2>
+        <h2 class="advanced-certification-title">{!!  $course_content -> certification_section_15_title !!}</h2>
         <div class="row mx-5">
             <div class="col-lg-6">
                 <img src="/storage/frontend/1672650802-removebg-preview-1.svg" alt="Certification Image"
@@ -796,18 +682,7 @@
             </div>
             <div class="col-lg-6">
                 <p class="advanced-certification-text">
-                    A question often asked is why both the PNE-L1 + ISSN-SNS, also the PNE-L2 Masters + ISSN-CISSN
-                    (Certified Sports Nutritionist) certification course by the GPNi is superior compared to other
-                    sports nutrition certifications in the world, such as:<br>
-                    NASM-CSNC (Certified Sports Nutrition Coach)<br>
-                    Precision Nutrition PN Level-2 Masters (Master Health Coach)<br>
-                    ISSA – Nutritionist Certification<br>
-                    ACE – Fitness Nutrition Specialist<br>
-                    Clean Health Institute – Performance Nutrition Coach<br>
-                    Sports Nutrition Association – Certified in Applied Sports Nutrition<br><br>
-                    There are many reasons why the the GPNi international certifications course is superior to all
-                    others. Please review below these five key points that make this certification superior to other
-                    sports nutrition certifications in the world:
+                    {!!  $course_content -> certification_section_15_content !!}
                 </p>
             </div>
         </div>
@@ -885,15 +760,16 @@
             <img src="/storage/frontend/arrow-indication-13.svg" alt="Arrow Icon">
         </a>
     </section>
+    <!-- END OF certification_section_15 -->
 
+    <!-- certification_section_16 -->
     <section class="masters-pack-section">
         <div class="masters-pack-overlay"></div>
         <div class="masters-pack-content">
-            <h2 class="masters-pack-title">GPNi Masters Pack</h2>
-            <p class="masters-pack-subtitle">Includes both the PNE L1 + ISSN-SNS and PNE L2 Masters + ISSN-CISSN</p>
-            <p class="masters-pack-description">The “GPNi Masters Pack” is the elite level and a way to jump-start your
-                career to the masters level in sports nutrition for those not eligible, or not ready to go directly into
-                PNE L2 Masters + CISSN program.</p>
+            <h2 class="masters-pack-title">{{  $course_content -> certification_section_16_title }}
+            </h2>
+            {!!  $course_content -> certification_section_16_content !!}
+            
             <div class="btn-group">
                 <a href="#" class="btn-custom">Enroll Now</a>
                 <a href="#" class="btn-custom secondary border-0">
@@ -903,6 +779,7 @@
             </div>
         </div>
     </section>
+    <!-- END OF certification_section_16 -->
 
     </div>
 
