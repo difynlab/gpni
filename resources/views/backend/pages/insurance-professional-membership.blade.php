@@ -32,10 +32,6 @@
                         <x-backend.input-error field="new_section_1_image"></x-backend.input-error>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -53,10 +49,6 @@
                         <x-backend.input-error field="new_section_2_image"></x-backend.input-error>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -67,10 +59,6 @@
                         <label for="section_3_content_{{ $short_code }}" class="form-label">Content</label>
                         <textarea class="editor" id="section_3_content_{{ $short_code }}" name="section_3_content_{{ $short_code }}" value="{{ $contents->{'section_3_content_' . $short_code} ?? '' }}">{{ $contents->{'section_3_content_' . $short_code} ?? '' }}</textarea>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -94,10 +82,6 @@
                         <x-backend.input-error field="new_section_4_image"></x-backend.input-error>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -109,9 +93,11 @@
                         <textarea class="editor" id="section_5_content_{{ $short_code }}" name="section_5_content_{{ $short_code }}" value="{{ $contents->{'section_5_content_' . $short_code} ?? '' }}">{{ $contents->{'section_5_content_' . $short_code} ?? '' }}</textarea>
                     </div>
                 </div>
+            </div>
 
+            <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+                    <button type="submit" class="submit-button">Save the updates</button>
                 </div>
             </div>
         </form>

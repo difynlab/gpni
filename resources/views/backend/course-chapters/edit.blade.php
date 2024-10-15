@@ -19,10 +19,6 @@
                         <input type="number" class="form-control" id="chapter_no" name="chapter_no" value="{{ old('chapter_no', $course_chapter->chapter_no) }}" placeholder="Chapter No" required>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -45,10 +41,6 @@
                             <textarea class="editor" id="content" name="content" value="{{ old('content', $course_chapter->content) }}">{{ old('content', $course_chapter->content) }}</textarea>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -162,10 +154,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -275,10 +263,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
             
             <div class="section">
@@ -321,10 +305,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 

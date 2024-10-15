@@ -93,10 +93,6 @@
                         <textarea class="form-control" name="image_video_description" value="{{ old('image_video_description', $course->image_video_description) }}" placeholder="Image/ Video Description" required>{{ old('image_video_description', $course->image_video_description) }}</textarea>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -120,9 +116,34 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+            <div class="section">
+                <p class="inner-page-title">Material & Logistics</p>
+
+                <div class="row form-input">
+                    <div class="col-12">
+                        <div>
+                            @if($course->material_logistic)
+                                <label for="pdf" class="form-label">PDF</label>
+
+                                <div class="row align-items-center">
+                                    <div class="col-11">
+                                        <input type="file" class="form-control" id="new_material_logistic" name="new_material_logistic" placeholder="PDF" accept=".pdf">
+                                        <x-backend.input-error field="new_material_logistic"></x-backend.input-error>
+                                    </div>
+                                    <div class="col-1">
+                                        <a href="{{ asset('storage/backend/courses/material-and-logistics/' . $course->material_logistic) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                        <input type="hidden" class="form-control" name="old_material_logistic" value="{{ $course->material_logistic }}">
+                                    </div>
+                                </div>
+                            @else
+                                <label for="new_material_logistic" class="form-label">PDF</label>
+                                <input type="file" class="form-control" id="new_material_logistic" name="new_material_logistic" placeholder="PDF" accept=".pdf">
+                                <x-backend.input-error field="new_material_logistic"></x-backend.input-error>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
 

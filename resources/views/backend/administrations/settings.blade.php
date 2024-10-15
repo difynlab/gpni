@@ -45,10 +45,6 @@
                         <x-backend.input-error field="new_favicon"></x-backend.input-error>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -85,10 +81,6 @@
                         <input type="url" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin', $settings->linkedin) }}" placeholder="Linkedin">
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -105,7 +97,7 @@
                         <x-backend.input-error field="new_footer_logo"></x-backend.input-error>
                     </div>
 
-                    <div class="col-6 mb-4">
+                    <div class="col-6">
                         <x-backend.upload-image old_name="old_no_image" old_value="{{ $settings->{'no_image'} ?? '' }}" new_name="new_no_image" label="No" path="common"></x-backend.upload-image>
                         <x-backend.input-error field="new_no_image"></x-backend.input-error>
                     </div>
@@ -115,9 +107,11 @@
                         <x-backend.input-error field="new_no_profile_image"></x-backend.input-error>
                     </div>
                 </div>
+            </div>
 
+            <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+                    <button type="submit" class="submit-button">Save the updates</button>
                 </div>
             </div>
         </form>

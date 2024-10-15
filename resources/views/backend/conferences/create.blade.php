@@ -43,10 +43,6 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -63,10 +59,6 @@
                 </div>
 
                 <div class="form-input"></div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -83,10 +75,6 @@
                 </div>
 
                 <div class="form-input"></div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <x-backend.create-status></x-backend.create-status>

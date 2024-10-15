@@ -55,10 +55,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -109,10 +105,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -125,10 +117,6 @@
                                 <x-backend.input-error field="new_certification_section_4_video"></x-backend.input-error>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
 
@@ -174,10 +162,6 @@
                                 <input type="text" class="form-control" id="certification_section_5_designation" name="certification_section_5_designation" value="{{ $course->certification_section_5_designation ?? '' }}" placeholder="Designation">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
 
@@ -234,10 +218,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -278,10 +258,6 @@
                             <input type="url" class="form-control" name="certification_section_7_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_7_labels_links)[1]->link ?? '' }}">
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -299,10 +275,6 @@
                                 <textarea class="editor" id="certification_section_9_content" name="certification_section_9_content" value="{{ $course->certification_section_9_content ?? '' }}">{{ $course->certification_section_9_content ?? '' }}</textarea>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
 
@@ -366,10 +338,6 @@
                             @endforeach
                         @endif
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -402,10 +370,6 @@
                             <input class="form-control" type="text" name="certification_section_11_button_link" value="{{ json_decode($course->certification_section_11_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -432,10 +396,6 @@
 
                             <input class="form-control" type="text" name="certification_section_12_button_link" value="{{ json_decode($course->certification_section_12_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
 
@@ -521,10 +481,6 @@
                             <input type="url" class="form-control" name="certification_section_13_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_13_labels_links)[1]->link ?? '' }}">
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -537,10 +493,6 @@
                                 <input type="text" class="form-control" id="certification_section_14_title" name="certification_section_14_title" value="{{ $course->certification_section_14_title ?? '' }}" placeholder="Title">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
 
@@ -609,10 +561,6 @@
                             @endforeach
                         @endif
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -649,10 +597,6 @@
                             <input type="url" class="form-control" name="certification_section_16_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_16_labels_links)[1]->link ?? '' }}">
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
             @else
                 <div class="section">
@@ -675,10 +619,6 @@
                                 <textarea class="editor" id="master_section_2_content" name="master_section_2_content" value="{{ $course->master_section_2_content ?? '' }}">{{ $course->master_section_2_content ?? '' }}</textarea>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
                 
@@ -712,10 +652,6 @@
                             <input class="form-control" type="text" name="master_section_3_button_link" value="{{ json_decode($course->master_section_3_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -748,10 +684,6 @@
                             <input class="form-control" type="text" name="master_section_4_button_link" value="{{ json_decode($course->master_section_4_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -779,10 +711,6 @@
                             <input class="form-control" type="text" name="master_section_5_button_link" value="{{ json_decode($course->master_section_5_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -806,10 +734,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -822,10 +746,6 @@
                                 <input type="text" class="form-control" id="master_section_7_title" name="master_section_7_title" value="{{ $course->master_section_7_title ?? '' }}" placeholder="Title">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
 
@@ -880,10 +800,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -902,10 +818,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -923,10 +835,6 @@
                                 <textarea class="form-control textarea" id="master_section_10_description" name="master_section_10_description" value="{{ $course->master_section_10_description ?? '' }}" rows="5" placeholder="Description">{{ $course->master_section_10_description ?? '' }}</textarea>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-input">
-                        <button type="submit" class="submit-button">Save the changes</button>
                     </div>
                 </div>
             @endif

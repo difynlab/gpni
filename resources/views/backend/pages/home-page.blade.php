@@ -50,10 +50,6 @@
                         <input type="url" class="form-control" name="section_1_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_1_labels_links_' . $short_code})[1]->link ?? '' }}">
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -80,10 +76,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -102,10 +94,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -123,10 +111,6 @@
                             <textarea class="form-control" rows="5" name="section_4_description_{{ $short_code }}" value="{{ $contents->{'section_4_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_4_description_' . $short_code} ?? '' }}</textarea>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -150,10 +134,6 @@
                             <x-backend.input-error field="new_section_5_images.*"></x-backend.input-error>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -187,10 +167,6 @@
                         <input class="form-control" type="text" name="section_6_button_link" value="{{ json_decode($contents->{'section_6_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -222,10 +198,6 @@
 
                         <input class="form-control" type="text" name="section_7_button_link" value="{{ json_decode($contents->{'section_7_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
                     </div>
-                </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
                 </div>
             </div>
 
@@ -271,10 +243,6 @@
                         <input type="url" class="form-control" name="section_8_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_8_labels_links_' . $short_code})[3]->link ?? '' }}">
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -293,9 +261,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+                    <button type="submit" class="submit-button">Save the updates</button>
                 </div>
             </div>
         </form>

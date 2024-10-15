@@ -95,10 +95,6 @@
                         <textarea class="form-control" name="image_video_description" value="{{ old('image_video_description') }}" placeholder="Image/ Video Description" required>{{ old('image_video_description') }}</textarea>
                     </div>
                 </div>
-
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
-                </div>
             </div>
 
             <div class="section">
@@ -122,9 +118,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save the changes</button>
+            <div class="section">
+                <p class="inner-page-title">Material & Logistics</p>
+
+                <div class="row form-input">
+                    <div class="col-12">
+                        <div>
+                            <label for="material_logistic" class="form-label">PDF</label>
+                            <input type="file" class="form-control" id="material_logistic" name="material_logistic" placeholder="PDF" accept=".pdf">
+                            <x-backend.input-error field="material_logistic"></x-backend.input-error>
+                        </div>
+                    </div>
                 </div>
             </div>
 

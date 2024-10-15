@@ -1,15 +1,15 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Gift Card Orders')
+@section('title', 'Gift Card Purchases')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Gift Card Orders"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Gift Card Purchases"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.orders.gift-card-orders.filter') }}" method="POST" class="filter-form">
+                <form action="{{ route('backend.purchases.gift-card-purchases.filter') }}" method="POST" class="filter-form">
                     @csrf
                     <div class="row align-items-center">
                         <div class="col">
@@ -55,19 +55,19 @@
                     </thead>
 
                     <tbody>
-                        @if(count($gift_card_orders) > 0)
-                            @foreach($gift_card_orders as $gift_card_order)
+                        @if(count($gift_card_purchases) > 0)
+                            @foreach($gift_card_purchases as $gift_card_purchase)
                                 <tr>
-                                    <td>#{{ $gift_card_order->id }}</td>
-                                    <td>{{ $gift_card_order->reference_code }}</td>
-                                    <td>{{ $gift_card_order->amount }}</td>
-                                    <td>{{ $gift_card_order->receiver_name }}</td>
-                                    <td>{{ $gift_card_order->receiver_email }}</td>
-                                    <td>{{ $gift_card_order->buyer_name }}</td>
-                                    <td>{{ $gift_card_order->buyer_email }}</td>
-                                    <td>{{ $gift_card_order->date }}</td>
-                                    <td>{!! $gift_card_order->payment_status !!}</td>
-                                    <td>{!! $gift_card_order->action !!}</td>
+                                    <td>#{{ $gift_card_purchase->id }}</td>
+                                    <td>{{ $gift_card_purchase->reference_code }}</td>
+                                    <td>{{ $gift_card_purchase->amount }}</td>
+                                    <td>{{ $gift_card_purchase->receiver_name }}</td>
+                                    <td>{{ $gift_card_purchase->receiver_email }}</td>
+                                    <td>{{ $gift_card_purchase->buyer_name }}</td>
+                                    <td>{{ $gift_card_purchase->buyer_email }}</td>
+                                    <td>{{ $gift_card_purchase->date }}</td>
+                                    <td>{!! $gift_card_purchase->payment_status !!}</td>
+                                    <td>{!! $gift_card_purchase->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
@@ -78,11 +78,11 @@
                     </tbody>
                 </table>
 
-                {{ $gift_card_orders->links("pagination::bootstrap-5") }}
+                {{ $gift_card_purchases->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="Gift Card Order"></x-backend.delete-data>
+        <x-backend.delete-data title="Gift Card Purchase"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -93,7 +93,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.orders.gift-card-orders.destroy', [':id']) }}";
+                let url = "{{ route('backend.purchases.gift-card-purchases.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -101,7 +101,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $gift_card_orders->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $gift_card_purchases->url(1) !!}&items=" + this.value; 
             });
         });
     </script>
