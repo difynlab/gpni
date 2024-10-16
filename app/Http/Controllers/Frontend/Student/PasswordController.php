@@ -38,4 +38,5 @@ class PasswordController extends Controller
 
         return redirect()->back()->with('success', 'Successfully updated!');
     }
+
 }

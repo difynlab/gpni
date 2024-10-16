@@ -95,7 +95,7 @@
                                 <label class="form-check-label" for="remember-password"
                                     style="font-size:13px; font-weight:400;">Remember password</label>
                             </div>
-                            <a href="#" class="text-primary" style="font-size:13px; font-weight:400;">Forget
+                            <a href="{{ route('frontend.forgot-password') }}" class="text-primary" style="font-size:13px; font-weight:400;">Forget
                                 Password?</a>
                         </div>
 
