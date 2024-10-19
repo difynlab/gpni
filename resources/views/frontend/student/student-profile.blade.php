@@ -69,25 +69,25 @@
         <div class="col-md-9 main-content">
             <div class="student-profile-container">
                 <div class="profile-header">
-                    <h1>Student Profile</h1>
+                    <h1>{{ $language_text['profile_header'] }}</h1>
                     <a href="#">
-                        <img src="/storage/frontend/iconamoon-edit-light.svg" alt="Edit icon" width="20" height="20"> Edit
-                        profile details
+                        <img src="/storage/frontend/iconamoon-edit-light.svg" alt="Edit icon" width="20" height="20"> 
+                        {{ $language_text['edit_profile'] }}
                     </a>
                 </div>
                 <form>
                     <div class="section">
-                        <h2 class="section-title">Personal Details</h2>
+                        <h2 class="section-title">{{ $language_text['personal_details'] }}</h2>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="firstName">First Name</label>
+                                    <label for="firstName">{{ $language_text['first_name'] }}</label>
                                     <input type="text" class="form-control" id="firstName" value="Tim" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="lastName">Last Name</label>
+                                    <label for="lastName">{{ $language_text['last_name'] }}</label>
                                     <input type="text" class="form-control" id="lastName" value="Stevens" disabled>
                                 </div>
                             </div>
@@ -95,14 +95,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="text" class="form-control" id="email" value="enews@thegpni.com"
-                                        disabled>
+                                    <label for="email">{{ $language_text['email_address'] }}</label>
+                                    <input type="text" class="form-control" id="email" value="enews@thegpni.com" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="primaryLanguage">Primary Language</label>
+                                    <label for="primaryLanguage">{{ $language_text['primary_language'] }}</label>
                                     <select class="form-control" id="primaryLanguage" disabled>
                                         <option>Chinese</option>
                                     </select>
@@ -111,29 +110,26 @@
                         </div>
                         <div class="form-group checkbox-inline">
                             <input type="checkbox" id="newsletter" checked disabled>
-                            <label for="newsletter">Subscribed to Member newsletter</label>
+                            <label for="newsletter">{{ $language_text['newsletter'] }}</label>
                         </div>
                     </div>
                     <hr>
                     <div class="section">
-                        <h2 class="section-title">Primary Practice</h2>
+                        <h2 class="section-title">{{ $language_text['primary_practice'] }}</h2>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="businessName">Business Name</label>
-                                    <input type="text" class="form-control" id="businessName" value="Business Name"
-                                        disabled>
+                                    <label for="businessName">{{ $language_text['business_name'] }}</label>
+                                    <input type="text" class="form-control" id="businessName" value="Business Name" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="businessAddress">Business Address</label>
-                                    <input type="text" class="form-control" id="businessAddress"
-                                        value="Business Address" disabled>
+                                    <label for="businessAddress">{{ $language_text['business_address'] }}</label>
+                                    <input type="text" class="form-control" id="businessAddress" value="Business Address" disabled>
                                 </div>
                             </div>
                         </div>
-                        <!-- Additional fields can be added here, similar to above -->
                     </div>
                 </form>
             </div>
