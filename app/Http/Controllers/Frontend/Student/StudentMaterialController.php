@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\CoursePurchase;
+use App\Models\Course;
 
 class StudentMaterialController extends Controller
 {
@@ -10,6 +13,8 @@ class StudentMaterialController extends Controller
     {
         $language = session('language', 'en');
         
+        $student_id = Auth::id();
+
         switch($language){
             case 'en':
                 $language_name = 'English';
@@ -24,9 +29,12 @@ class StudentMaterialController extends Controller
                 $language_name = 'unknown';
                 break;
         }
-        
+        $courses = CoursePurchase::with('course')
+        ->where('student_id', $student_id)
+        ->get();
+
         return view('frontend.student.student-materials', [
-            'language' => $language
+            'courses' => $courses
         ]);
     }
 }

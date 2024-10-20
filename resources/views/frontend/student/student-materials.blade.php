@@ -73,17 +73,19 @@
                 </div>
                 <form>
                     <div class="mb-4 text-left">
-                        <label for="courseSelect" class="form-label">Select your course</label>
-                        <div class="position-relative">
-                            <select class="custom-select" id="courseSelect">
-                                <option selected value="" disabled>Choose your course</option>
-                                <option value="course1">Course 1</option>
-                                <option value="course2">Course 2</option>
-                                <option value="course3">Course 3</option>
-                            </select>
-                            <img src="/storage/frontend/ep-arrow-down-bold.svg" alt="Dropdown Icon" class="icon-dropdown"
-                                width="10" height="6">
-                        </div>
+                    <label for="courseSelect" class="form-label">Select your course</label>
+                    <div class="position-relative">
+                        <select class="custom-select" id="courseSelect">
+                            <option selected value="" disabled>Choose your course</option>
+
+                            @foreach ($courses as $purchase)
+                                <option value="{{ $purchase->course->id }}">{{ $purchase->course->title }}</option>
+                            @endforeach
+
+                        </select>
+                        <img src="/storage/frontend/ep-arrow-down-bold.svg" alt="Dropdown Icon" class="icon-dropdown"
+                            width="10" height="6">
+                    </div>
                     </div>
                     <button type="submit" class="btn btn-pay-now">Pay Now</button>
                 </form>
