@@ -69,68 +69,43 @@
 
         <div class="col-md-9 main-content">
             <div class="course-details-container">
-                <div class="course-title">Science of Building A Successful PT Business (On-Demand Webinar)</div>
+                <div class="course-title">{{ $coursePurchase->course->title }}</div>
 
                 <div class="section-title">Description</div>
                 <div class="section-content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia deserunt mollit anim id est laborum.
+                    {{ $coursePurchase->course->course_introduction }}
                 </div>
+
                 <div class="section-title">Content Includes</div>
                 <div class="section-content">
                     <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>Consectetur adipiscing elit</li>
-                        <li>Sed do eiusmod tempor incididunt ut labore et dolore</li>
+                        @foreach ($modules as $module)
+                            <li>{{ $module->title }}</li>
+                        @endforeach
                     </ul>
                 </div>
 
-                <div class="section-title">Additional Information</div>
-                <div class="section-content">
-                    sed do eiusmod tempor incididunt ut labore et dolore
-                    Ut enim ad minim veniam
-                    quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo
-                </div>
-
-                <div class="section-title">Guides</div>
-                <button class="accordion-button">
-                    Course Book <img src="/storage/frontend/ep-arrow-down-bold.svg" alt="Arrow Down" width="24" height="24">
-                </button>
-                <div class="accordion-content">
-                    No data found
-                </div>
-                <button class="accordion-button">
-                    Course Video <img src="/storage/frontend/ep-arrow-down-bold-2.svg" alt="Arrow Down" width="24" height="24">
-                </button>
-                <div class="accordion-content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                </div>
-
-                <div class="section-title">Additional Resources</div>
-                <button class="accordion-button">
-                    Additional Video Media <img src="/storage/frontend/ep-arrow-down-bold-3.svg" alt="Arrow Down" width="24"
-                        height="24">
-                </button>
-                <div class="accordion-content">
-                    No data found
-                </div>
-                <button class="accordion-button">
-                    Presentation Media <img src="/storage/frontend/ep-arrow-down-bold-4.svg" alt="Arrow Down" width="24"
-                        height="24">
-                </button>
-                <div class="accordion-content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                </div>
-                <button class="accordion-button">
-                    Downloadable Resources <img src="/storage/frontend/ep-arrow-down-bold-5.svg" alt="Arrow Down" width="24"
-                        height="24">
-                </button>
-                <div class="accordion-content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                </div>
+                <div class="section-title">Chapters</div>
+                @foreach ($modules as $module)
+                    <div class="module-container">
+                        <h4>{{ $module->title }}</h4>
+                        @foreach ($chapters[$module->id] as $chapter)
+                            <div class="chapter-details">
+                                <h5>{{ $chapter->title }}</h5>
+                                <div class="about">{{ $chapter->about }}</div>
+                                <div class="content">{!! $chapter->content !!}</div>
+                                <div class="additional-resources">
+                                    <h6>Books:</h6>
+                                    <ul>
+                                        @foreach (json_decode($chapter->books) as $book)
+                                            <li><a href="{{ asset($book->file) }}">{{ $book->title }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

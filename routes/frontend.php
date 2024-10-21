@@ -82,8 +82,16 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
         Route::get('my-storage', [MyStorageController::class, 'index'])->name('my-storage');
         Route::get('course-detail', [CourseDetailController::class, 'index'])->name('course-detail');
-        Route::get('course-detail-open', [CourseDetailController::class, 'show'])->name('course-detail-open');
+        Route::get('course-detail-open/{id}', [CourseDetailController::class, 'show'])->name('course-detail-open');
+
         Route::get('ask-expert', [AskExpertController::class, 'index'])->name('ask-expert');
+        Route::get('view-history', [AskExpertController::class, 'viewHistory'])->name('view-history');
+        Route::get('question-and-answer/{id?}', [AskExpertController::class, 'questionAnswer'])->name('question-and-answer');
+        Route::post('ask-expert', [AskExpertController::class, 'store'])->name('ask-expert.store');
+        Route::post('send-reply', [AskExpertController::class, 'sendReply'])->name('send-reply');
+
+        
+
         Route::get('course-list', [CourseDetailController::class, 'list'])->name('course-list');
         Route::get('student-profile', [StudentProfileController::class, 'index'])->name('student-profile');
         Route::get('student-materials', [StudentMaterialController::class, 'index'])->name('student-materials');
