@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media;
+use Illuminate\Http\Request;
 
 class MyStorageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $language = session('language', 'en');
         
@@ -25,8 +27,21 @@ class MyStorageController extends Controller
                 break;
         }
         
-        return view('frontend.pages.student.my-storage', [
-            'language' => $language
+        $filterType = $request->input('type', 'All');
+        
+        $query = Media::where('location', 'Student Center')
+                      ->where('language', $language_name);
+
+        if ($filterType !== 'All') {
+            $query->where('type', $filterType);
+        }
+
+        $medias = $query->get();
+        
+        return view('frontend.student.my-storage', [
+            'medias' => $medias,
+            'language' => $language,
+            'filterType' => $filterType
         ]);
     }
 }
