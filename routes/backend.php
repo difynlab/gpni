@@ -38,6 +38,7 @@ use App\Http\Controllers\Backend\Page\PodcastController as PagePodcastController
 use App\Http\Controllers\Backend\Page\PolicyController as PagePolicyController;
 use App\Http\Controllers\Backend\Page\TvController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
+use App\Http\Controllers\Backend\Payment\PaymentController;
 use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
 use App\Http\Controllers\Backend\Person\GlobalEducationPartnerController;
@@ -313,3 +314,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         Route::post('webinars/filter', [WebinarController::class, 'filter'])->name('webinars.filter');
     // Webinars routes
 });
+
+
+// Payment routes
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+    Route::post('/payment/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
+    Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+// Payment routes
