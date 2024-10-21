@@ -38,7 +38,7 @@ use App\Http\Controllers\Backend\Page\PodcastController as PagePodcastController
 use App\Http\Controllers\Backend\Page\PolicyController as PagePolicyController;
 use App\Http\Controllers\Backend\Page\TvController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
-use App\Http\Controllers\Backend\Payment\PaymentController;
+use App\Http\Controllers\Backend\Payment\ProductPaymentController;
 use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
 use App\Http\Controllers\Backend\Person\GlobalEducationPartnerController;
@@ -53,6 +53,7 @@ use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Promotion\PromotionController;
 use App\Http\Controllers\Backend\Purchase\CoursePurchaseController;
 use App\Http\Controllers\Backend\Purchase\GiftCardPurchaseController;
+use App\Http\Controllers\Backend\Purchase\ProductPurchaseController;
 use App\Http\Controllers\Backend\Webinar\WebinarController;
 use Illuminate\Support\Facades\Route;
 
@@ -296,6 +297,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                     Route::post('/{course_certificate}/update', [CoursePurchaseController::class, 'certificateUpdate'])->name('update');
                 });
             });
+
+            Route::prefix('product-purchases')->name('product-purchases.')->group(function() {
+                Route::get('/', [ProductPurchaseController::class, 'index'])->name('index');
+                Route::get('/{product_purchase}/show', [ProductPurchaseController::class, 'show'])->name('show');
+                Route::delete('/{product_purchase}', [ProductPurchaseController::class, 'destroy'])->name('destroy');
+                Route::post('/filter', [ProductPurchaseController::class, 'filter'])->name('filter');
+
+                Route::get('/products/{product_purchase}', [ProductPurchaseController::class, 'products'])->name('products');
+            });
         });
     // All purchase routes
 
@@ -315,9 +325,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Webinars routes
 });
 
-
-// Payment routes
-    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-    Route::post('/payment/checkout', [PaymentController::class, 'checkout'])->name('payment.checkout');
-    Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
-// Payment routes
+Route::middleware(['auth', 'role:student'])->group(function () {
+    // All payment routes
+        Route::get('/product-payment', [ProductPaymentController::class, 'productPayment'])->name('product-payment.index');
+        Route::post('/product-payment/checkout', [ProductPaymentController::class, 'productCheckout'])->name('product-payment.checkout');
+        Route::get('/product-payment/success', [ProductPaymentController::class, 'productSuccess'])->name('product-payment.success');
+    // All payment routes
+});
