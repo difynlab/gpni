@@ -68,82 +68,98 @@
 
         <div class="col-md-9 main-content">
             <div class="container-main">
-                <div class="d-flex justify-content-between align-items-center mb-3" >
-                    <div class="header">Members Corner</div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="header">Memers Corner</div>
                     <button class="btn add-new-button" data-toggle="modal" data-target="#newUploadModal" hidden>
                         <img src="/storage/frontend/ic-round-add.svg" alt="Add" style="width: 20px; height: 20px" class="mr-2">
                         Add New
                     </button>
                 </div>
+                
+                <!-- Navigation for filtering media types -->
                 <nav class="mb-3">
                     <ul class="tabs nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#">All</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Image</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Video</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">PDF</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">PPT</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Excel</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Doc</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Audio</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'All' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'All']) }}">All</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'Image' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'Image']) }}">Image</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'Video' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'Video']) }}">Video</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'Vimeo Video Link' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'Vimeo Video Link']) }}">Vimeo Video Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'PDF' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'PDF']) }}">PDF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'Word' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'Word']) }}">Word</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'Excel' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'Excel']) }}">Excel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'PPT' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'PPT']) }}">PPT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filterType == 'Audio' ? 'active' : '' }}" href="{{ route('frontend.members-corner', ['type' => 'Audio']) }}">Audio</a>
+                        </li>
+                        <!-- Add other media types here -->
                     </ul>
                 </nav>
-                <div class="search-field mb-3">
-                    <img src="/storage/frontend/vector.svg" alt="Search">
-                    <input type="text" placeholder="Search for Certificates">
-                </div>
+                
+                <!-- Table displaying the filtered media -->
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Description/item details</th>
-                            <th>Title</th>
-                            <th hidden>Size</th>
-                            <th hidden>Action</th>
+                            <th>Name</th>
+                            <th>Description/Item details</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><img src="/storage/frontend/16990035859 1.svg" alt="SupplySide EAST" style="width: 100px"></td>
-                            <td>Test</td>
-                            <td hidden>10.78Kb</td>
-                            <td hidden>
-                                <button class="btn btn-link"><img src="/storage/frontend/akar-icons-edit.svg" alt="Edit"
-                                        style="width: 20px;"></button>
-                                <button class="btn btn-link" data-toggle="modal"
-                                    data-target="#deleteModal"></button><img
-                                    src="/storage/frontend/solar-trash-bin-trash-linear.svg" alt="Delete"
-                                    style="width: 20px;"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><img src="/storage/frontend/image 22.svg" alt="FirstVimeo" style="width: 100px"></td>
-                            <td>FirstVimeo</td>
-                            <td hidden>0.00Kb</td>
-                            <td hidden>
-                                <button class="btn btn-link"><img src="/storage/frontend/akar-icons-edit.svg" alt="Edit"
-                                        style="width: 20px;"></button>
-                                <button class="btn btn-link" data-toggle="modal"
-                                    data-target="#deleteModal"></button><img
-                                    src="/storage/frontend/solar-trash-bin-trash-linear.svg" alt="Delete"
-                                    style="width: 20px;"></button>
-                            </td>
-                        </tr>
+                        @foreach ($medias as $media)
+                            <tr>
+                                <td>{{ $media->id }}</td>
+                                <td>{{ $media->name }}</td>
+                                <td>
+                                    @if($media->type == 'Image')
+                                        <img src="{{ asset('storage/backend/medias/' . $media->image) }}" alt="{{ $media->name }}" style="width: 100px">
+                                    @elseif($media->type == 'Video')
+                                        <a href="{{ asset('storage/backend/medias/' . $media->video) }}" target="_blank">View Video</a>
+                                    @elseif($media->type == 'Vimeo Video Link')
+                                        <a href="{{ $media->vimeo_video_link }}" target="_blank">Watch on Vimeo</a>
+                                    @elseif($media->type == 'PDF')
+                                        <a href="{{ asset('storage/backend/medias/' . $media->pdf) }}" target="_blank">View PDF</a>
+                                    @elseif($media->type == 'Word')
+                                        <a href="{{ asset('storage/backend/medias/' . $media->word) }}" target="_blank">Download Word</a>
+                                    @elseif($media->type == 'Excel')
+                                        <a href="{{ asset('storage/backend/medias/' . $media->excel) }}" target="_blank">Download Excel</a>
+                                    @elseif($media->type == 'PPT')
+                                        <a href="{{ asset('storage/backend/medias/' . $media->ppt) }}" target="_blank">Download PPT</a>
+                                    @elseif($media->type == 'Audio')
+                                        <audio controls>
+                                            <source src="{{ asset('storage/backend/medias/' . $media->audio) }}" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+
                 <div class="pagination mt-3">
-                    <div class="pagination-details">Showing 1 to 2 of 2 entries</div>
+                    <div class="pagination-details">
+                        Showing {{ $medias->firstItem() }} to {{ $medias->lastItem() }} of {{ $medias->total() }} entries
+                    </div>
                     <div class="pagination-links">
-                        <div class="page-link">Prev</div>
-                        <div class="page-link current-page">1</div>
-                        <div class="page-link">Next</div>
+                    {{ $medias->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </div>
     <!-- Modal Structure -->

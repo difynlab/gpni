@@ -151,10 +151,13 @@
                     </tbody>
                 </table>
 
-                <!-- Pagination (if needed) -->
                 <div class="pagination mt-3">
-                    <div class="pagination-details">Showing {{ $medias->count() }} entries</div>
-                    <!-- Implement pagination logic here -->
+                    <div class="pagination-details">
+                        Showing {{ $medias->firstItem() }} to {{ $medias->lastItem() }} of {{ $medias->total() }} entries
+                    </div>
+                    <div class="pagination-links">
+                    {{ $medias->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
             </div>
         </div>

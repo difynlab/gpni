@@ -36,7 +36,8 @@ class MyStorageController extends Controller
             $query->where('type', $filterType);
         }
 
-        $medias = $query->get();
+        // $medias = $query->get();
+        $medias = $query->paginate(5);
         
         return view('frontend.student.my-storage', [
             'medias' => $medias,
