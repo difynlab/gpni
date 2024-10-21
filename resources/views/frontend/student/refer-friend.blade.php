@@ -70,19 +70,37 @@
         <div class="col-md-9 main-content">
             <div class="container-main">
                 <div class="header-section">
-                    <h1>Refer a Friend</h1>
+                    <h1>{{ $translatedText['title'] }}</h1>
                 </div>
-                <form>
+                <form method="POST" action="{{ route('frontend.send-invite') }}">
+                    @csrf
                     <div class="mb-4">
-                        <label for="emailAddress" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="emailAddress"
-                            placeholder="Enter the email address of the friend you'd like to refer">
+                        <label for="emailAddress" class="form-label">{{ $translatedText['email_label'] }}</label>
+                        <input type="email" class="form-control" id="emailAddress" name="email"
+                            placeholder="{{ $translatedText['email_placeholder'] }}">
                     </div>
-                    <a href="#" class="view-history">
-                        <img src="/storage/frontend/solar-history-linear.svg" class="icon-history" alt="History Icon" width="22"
-                            height="22"> View History
+                    
+                    <button type="submit" class="btn btn-submit">{{ $translatedText['submit_button'] }}</button>
+
+                    <hr>
+                    <a href="#" class="view-history" onclick="toggleHistory()">
+                        <img src="/storage/frontend/solar-history-linear.svg" class="icon-history" alt="History Icon" width="22" height="22">
+                        {{ $translatedText['view_history'] }}
                     </a>
                 </form>
+                
+                <div id="showHistory" style="display:none;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Email Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
@@ -92,3 +110,30 @@
     </div>
 
 @endsection
+
+
+@push('after-scripts')
+<script>
+function toggleHistory() {
+    var historyDiv = document.getElementById('showHistory');
+    if (historyDiv.style.display === "none") {
+        fetch('/get-history')
+            .then(response => response.json())
+            .then(data => {
+                let tbody = document.getElementById('historyTableBody');
+                tbody.innerHTML = '';
+                data.forEach((invite, index) => {
+                    let row = `<tr>
+                                <td>${index + 1}</td>
+                                <td>${invite.email}</td>
+                               </tr>`;
+                    tbody.innerHTML += row;
+                });
+            });
+        historyDiv.style.display = "block";
+    } else {
+        historyDiv.style.display = "none";
+    }
+}
+</script>
+@endpush

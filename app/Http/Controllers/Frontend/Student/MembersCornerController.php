@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media;
+use Illuminate\Http\Request;
 
 class MembersCornerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $language = session('language', 'en');
         
@@ -24,9 +26,24 @@ class MembersCornerController extends Controller
                 $language_name = 'unknown';
                 break;
         }
+
+        
+        $filterType = $request->input('type', 'All');
+        
+        $query = Media::where('location', 'Member Corner')
+                      ->where('language', $language_name);
+
+        if ($filterType !== 'All') {
+            $query->where('type', $filterType);
+        }
+
+        // $medias = $query->get();
+        $medias = $query->paginate(5);
         
         return view('frontend.student.members-corner', [
-            'language' => $language
+            'medias' => $medias,
+            'language' => $language,
+            'filterType' => $filterType
         ]);
     }
 }
