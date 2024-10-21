@@ -58,7 +58,7 @@
                     <li><a href="{{ route('frontend.advisory-board-and-expert-lecturers') }}">Advisory Board & Lectures</a></li>
                     <li><a href="{{ route('frontend.membership') }}">Membership</a></li>
                     <li><a href="{{ route('frontend.nutritionists') }}">Nutritionists</a></li>
-                    <li><a href="#">Products</a></li>
+                    <li><a href="{{ route('frontend.products') }}">Products</a></li>
                     <li><a href="{{ route('frontend.our-policies') }}">Policies</a></li>
 
                 </ul>

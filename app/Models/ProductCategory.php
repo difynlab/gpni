@@ -10,4 +10,5 @@ class ProductCategory extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'product_categories';
 }

@@ -92,20 +92,22 @@
 
                         <!-- Certificates List -->
                         <div class="certificate-list">
-                            <div class="certificate-card">
-                                <div class="certificate-header">
-                                    <div class="title">ASNC</div>
-                                    <img src="/storage/frontend/icon.svg" alt="Download Icon" width="32" height="32">
+                        @foreach($purchases as $purchase)
+                            @if($purchase->certificate)
+                                <div class="certificate-card">
+                                    <div class="certificate-header">
+                                        <div class="title">Course ID: {{ $purchase->course_id }}</div> <!-- Display course title or ID -->
+                                        <a href="/path/to/certificate/{{ $purchase->certificate->id }}/download">
+                                            <img src="/storage/frontend/icon.svg" alt="Download Icon" width="32" height="32">
+                                        </a>
+                                    </div>
+                                    <img src="/storage/frontend/rectangle-110694.svg" class="certificate-image" alt="Certificate">
+                                    <div class="certificate-issued">
+                                        Issued on: {{ $purchase->certificate->certificate_issued_date }} at {{ $purchase->certificate->certificate_issued_time }}
+                                    </div>
                                 </div>
-                                <img src="/storage/frontend/rectangle-110694.svg" class="certificate-image" alt="Certificate">
-                            </div>
-                            <div class="certificate-card">
-                                <div class="certificate-header">
-                                    <div class="title">CISSN</div>
-                                    <img src="/storage/frontend/icon-2.svg" alt="Download Icon" width="32" height="32">
-                                </div>
-                                <img src="/storage/frontend/rectangle-110694-2.svg" class="certificate-image" alt="Certificate">
-                            </div>
+                            @endif
+                        @endforeach
                         </div>
                     </div>
                     <div class="tab-pane fade" id="cecs" role="tabpanel" aria-labelledby="cecs-tab">

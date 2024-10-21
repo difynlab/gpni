@@ -30,6 +30,8 @@ use App\Http\Controllers\Frontend\Student\MembersCornerController;
 use App\Http\Controllers\Frontend\Student\MyOrdersController;
 use App\Http\Controllers\Frontend\Student\QualificationsController;
 use App\Http\Controllers\Frontend\Student\ReferFriendController;
+use App\Http\Controllers\Frontend\auth\ForgotPasswordController;
+use App\Http\Controllers\Frontend\Pages\ProductController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -66,6 +68,9 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
     Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-us');
     Route::get('education-partners', [EducationPartnersController::class, 'index'])->name('education-partners');
     Route::get('gpni-tv', [GpniTvController::class, 'index'])->name('gpni-tv');
+    Route::get('products', [ProductController::class, 'index'])->name('products');
+    
+    Route::get('forgot-password', [ForgotPasswordController::class, 'index'])->name('forgot-password');
 // All pages routes
 
 // Student routes

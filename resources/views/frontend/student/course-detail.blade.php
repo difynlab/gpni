@@ -68,22 +68,31 @@
         </div>
 
         <div class="col-md-9 main-content">
-            <div class="module-container">
-                <div class="module-title">Science of Building A Successful PT Business (On-Demand Webinar)</div>
-                <a href="courseDetailOpen.html" class="module-card">
-                    <div class="module-info">
-                        <h2>Module 1</h2>
-                        <div class="completed-badge">Completed</div>
-                    </div>
-                    <div class="module-description">
-                        Module Chapters: The Science of Building A Successful PT Business
-                    </div>
-                </a>
-                <a href="#" class="return-link pt-2">
-                    <img src="/storage/frontend/ep-arrow-left-bold.svg" alt="Arrow Left" width="20" height="20">
-                    Return to course
-                </a>
-            </div>
+            @foreach($courses_with_modules as $course_data)
+                <div class="module-container">
+                    <!-- Display course title -->
+                    <div class="module-title">{{ $course_data['course']->title }}</div>
+
+                    <!-- Loop through modules of the course -->
+                    @foreach($course_data['modules'] as $module)
+                        <a href="{{ route('frontend.course-detail-open', ['id' => $course_id]) }}" class="module-card">
+                            <div class="module-info">
+                                <h2>{{ $module->title }}</h2>
+                                <div class="completed-badge">{{ $module->status == 1 ? 'Completed' : 'In Progress' }}</div>
+                            </div>
+                            <div class="module-description">
+                                Module Chapters: {{ $module->description }}
+                            </div>
+                        </a>
+                    @endforeach
+
+                    <!-- Link to return to the course -->
+                    <a href="{{ route('frontend.course-list') }}" class="return-link pt-2">
+                        <img src="/storage/frontend/ep-arrow-left-bold.svg" alt="Arrow Left" width="20" height="20">
+                        Return to course
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
         
