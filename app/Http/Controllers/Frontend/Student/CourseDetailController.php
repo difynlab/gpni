@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Frontend\Student;
+use Illuminate\Support\Facades\Auth;
+use App\Models\CoursePurchase;
+use App\Models\Course;
+use App\Models\CourseModule;
+use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
 
@@ -8,6 +13,8 @@ class CourseDetailController extends Controller
 {
     public function index()
     {
+        $student_id = Auth::id();
+
         $language = session('language', 'en');
         
         switch($language){
@@ -24,10 +31,33 @@ class CourseDetailController extends Controller
                 $language_name = 'unknown';
                 break;
         }
-        
-        return view('frontend.pages.student.course-detail', [
-            'language' => $language
+
+        $purchased_courses = CoursePurchase::where('student_id', $student_id)->get();
+
+        $courses_with_modules = [];
+
+        foreach ($purchased_courses as $purchase) {
+
+            $course_id = $purchase->course_id;
+            
+            $course = Course::find($course_id); // Get the course details
+            
+            if ($course) {
+                // Get modules for the course
+                $modules = CourseModule::where('course_id', $course->id)->get();
+
+                $courses_with_modules[] = [
+                    'course' => $course,
+                    'modules' => $modules
+                ];
+            }
+        }
+
+        return view('frontend.student.course-detail', [
+            'courses_with_modules' => $courses_with_modules,
+            'course_id' => $course_id
         ]);
+
     }
 
     // public function show($id)
@@ -53,13 +83,14 @@ class CourseDetailController extends Controller
 
         // $articles = Article::findOrFail($id);
 
-        return view('frontend.pages.student.course-detail-open', [
+        return view('frontend.student.course-detail-open', [
             // 'articles' => $articles
         ]);
     }
 
     public function list()
     {
+        $student_id = Auth::id();
         $language = session('language', 'en');
         
         switch($language){
@@ -77,10 +108,30 @@ class CourseDetailController extends Controller
                 break;
         }
 
-        // $articles = Article::findOrFail($id);
+        // Get all courses the student has purchased
+        $purchased_courses = CoursePurchase::where('student_id', $student_id)->get();
 
-        return view('frontend.pages.student.course-list', [
-            // 'articles' => $articles
+        // Fetch course details for the purchased courses
+        $courses = [];
+        foreach ($purchased_courses as $purchase) {
+            $course = Course::find($purchase->course_id);
+            if ($course) {
+                $completion_date = Carbon::parse($purchase->expiration_date)->format('d M Y'); // Convert string to Carbon and format it
+                $courses[] = [
+                    'id' => $course->course_id,
+                    'title' => $course->title,
+                    'duration' => $course->duration,
+                    'start_date' => $purchase->created_at->format('d M Y'), // Date of purchase
+                    'completion_date' => $completion_date, // Formatted expiration date
+                    'course_status' => $purchase->course_access_status, // Course access status (Active/Expired)
+                    'image' => $course->image_video, // Assuming this is the image field
+                    'completed' => ($purchase->course_access_status == 'Active') ? 'Completed' : 'In Progress',
+                ];
+            }
+        }
+
+        return view('frontend.student.course-list', [
+            'courses' => $courses
         ]);
     }
 }

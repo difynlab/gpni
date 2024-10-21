@@ -50,7 +50,7 @@
             <div class="col-12 col-md-9 main-content">
                 <div class="profile-card mb-4">
                     <div class="profile-card-details">
-                        <div class="date">January 18 2024</div>
+                    <div class="date">{{ $current_date }}</div>
                         <h1>Welcome Back, Tim Stevens!</h1>
                         <div class="location">
                             <img src="/storage/frontend/dashicons-location.svg" alt="Location icon" width="24" height="24"
@@ -62,20 +62,20 @@
                 </div>
                 <div class="card-section">
                     <a href="{{ route('frontend.student-profile') }}" class="card">
-                        <h2>Student Profile</h2>
-                        <p>View or edit student profile details</p>
+                        <h2>{{ $dashboard_text['student_profile'] }}</h2>
+                        <p>{{ $dashboard_text['view_edit_profile'] }}</p>
                     </a>
                     <a href="{{ route('frontend.change-password') }}" class="card">
-                        <h2>Change Password</h2>
-                        <p>View or edit student profile details</p>
+                        <h2>{{ $dashboard_text['change_password'] }}</h2>
+                        <p>{{ $dashboard_text['view_edit_password'] }}</p>
                     </a>
                     <a href="{{ route('frontend.my-orders') }}" class="card">
-                        <h2>Courses</h2>
-                        <p>Access your course related details</p>
+                        <h2>{{ $dashboard_text['courses'] }}</h2>
+                        <p>{{ $dashboard_text['access_course_details'] }}</p>
                     </a>
                     <div class="card">
-                        <h2>Billing Centre</h2>
-                        <p>Checkout billing related info</p>
+                        <h2>{{ $dashboard_text['billing_center'] }}</h2>
+                        <p>{{ $dashboard_text['billing_info'] }}</p>
                     </div>
                 </div>
             </div>

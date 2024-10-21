@@ -71,62 +71,20 @@
                 <div class="course-header">
                     <h1>Course List</h1>
                 </div>
-                <div class="course-card">
-                    <img src="/storage/frontend/video-play-icon.svg" alt="Play icon">
-                    <div class="course-info">
-                        <h2>Science of Building A Successful PT Business (On-Demand Webinar)</h2>
-                        <p>Started: 29 Sep 2021 | Completed: 28 Oct 2022 <span class="badge-completed">Completed</span>
-                        </p>
+                @foreach($courses as $course)
+                    <div class="course-card">
+                        <img src="/storage/backend/courses/course-image-videos/{{ $course['image'] }}" alt="Course image">
+                        <div class="course-info">
+                            <h2>{{ $course['title'] }}</h2>
+                            <p>Started: {{ $course['start_date'] }} | Completed: {{ $course['completion_date'] }}
+                                <span class="badge-completed">{{ $course['completed'] }}</span>
+                            </p>
+                        </div>
+                        <div class="course-actions">
+                            <a href="{{ route('frontend.course-detail', ['id' => $course['id']]) }}">View Details <img src="/storage/frontend/arrow-indication.svg" alt="Arrow"></a>
+                        </div>
                     </div>
-                    <div class="course-actions">
-                        <a href="courseDetail.html">View Details <img src="/storage/frontend/arrow-indication.svg"
-                                alt="Arrow"></a>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/storage/frontend/video-play-icon-2.svg" alt="Play icon">
-                    <div class="course-info">
-                        <h2>PNE Level 1 + SNS</h2>
-                        <p>Started: 29 Sep 2021 | Completed: 30 Sep 2021 <span class="badge-completed">Completed</span>
-                        </p>
-                    </div>
-                    <div class="course-actions">
-                        <a href="#">View Details <img src="/storage/frontend/arrow-indication-2.svg" alt="Arrow"></a>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/storage/frontend/video-play-icon-3.svg" alt="Play icon">
-                    <div class="course-info">
-                        <h2>EMNC® Endurance Introduction</h2>
-                        <p>Started: 19 Oct 2021 | Completed: not yet <span class="badge-in-progress">In progress</span>
-                        </p>
-                    </div>
-                    <div class="course-actions">
-                        <a href="#">View Details <img src="/storage/frontend/arrow-indication-3.svg" alt="Arrow"></a>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/storage/frontend/video-play-icon-4.svg" alt="Play icon">
-                    <div class="course-info">
-                        <h2>PNE Level 2 Masters + CISSN</h2>
-                        <p>Started: 19 Oct 2021 | Completed: 27 Oct 2022 <span class="badge-completed">Completed</span>
-                        </p>
-                    </div>
-                    <div class="course-actions">
-                        <a href="#">View Details <img src="/storage/frontend/arrow-indication-4.svg" alt="Arrow"></a>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="/storage/frontend/video-play-icon-5.svg" alt="Play icon">
-                    <div class="course-info">
-                        <h2>ISSN Female Health & Performance Webinar</h2>
-                        <p>Started: 21 Oct 2021 | Completed: 29 Aug 2023 <span class="badge-completed">Completed</span>
-                        </p>
-                    </div>
-                    <div class="course-actions">
-                        <a href="#">View Details <img src="/storage/frontend/arrow-indication-5.svg" alt="Arrow"></a>
-                    </div>
-                </div>
+                @endforeach
                 <!-- Add more course cards here as needed -->
             </div>
         </div>
