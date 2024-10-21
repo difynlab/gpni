@@ -89,7 +89,11 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
         Route::get('student-materials', [StudentMaterialController::class, 'index'])->name('student-materials');
         Route::get('members-corner', [MembersCornerController::class, 'index'])->name('members-corner');
         Route::get('my-orders', [MyOrdersController::class, 'index'])->name('my-orders');
+        
         Route::get('refer-friend', [ReferFriendController::class, 'index'])->name('refer-friend');
+        Route::get('get-history', [ReferFriendController::class, 'showHistory'])->name('get-history');
+        Route::post('send-invite', [ReferFriendController::class, 'sendInvite'])->name('send-invite');
+
         Route::get('qualifications', [QualificationsController::class, 'index'])->name('qualifications');
     });
 // Student routes 

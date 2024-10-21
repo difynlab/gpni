@@ -4,6 +4,17 @@ body {
     padding-top: 120px;
 }
 
+.btn-submit {
+    background-color: #0040c3;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+}
+
 .dashboard-container {
     margin: 50px;
     background-color: #FFFFFF;
@@ -19,7 +30,7 @@ body {
 }
 
 .profile-card {
-    background-image: url('/assets/background-01-1.svg');
+    background-image: url('/storage/frontend/background-01-1.svg');
     text-align: center;
     padding: 20px 0;
     position: relative;
