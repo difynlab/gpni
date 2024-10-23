@@ -70,31 +70,42 @@
         <div class="col-md-9 main-content">
             <div class="container-main">
                 <div class="header-section">
-                    <h1>Ask the Expert</h1>
-                    <a href="viewHistory.html"><img src="/storage/frontend/solar-history-linear.svg" class="icon-history"
-                            alt="History Icon" width="22" height="22"> View History & Replies</a>
+                    <h1>{{ $language_text['header_text'] }}</h1>
+                    <a href="{{ route('frontend.view-history') }}">
+                        <img src="/storage/frontend/solar-history-linear.svg" class="icon-history" alt="History Icon" width="22" height="22">
+                        {{ $language_text['view_history'] }}
+                    </a>
                 </div>
-                <form>
+                <form action="{{ route('frontend.ask-expert.store') }}" method="POST">
+                    @csrf
                     <div class="mb-4">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title"
-                            placeholder="Please mention a title related to question">
+                        <label for="subject" class="form-label">{{ $language_text['subject_label'] }}</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="{{ $language_text['subject_placeholder'] }}">
                     </div>
                     <div class="mb-4">
-                        <label for="question" class="form-label">Your Question</label>
-                        <input type="text" class="form-control" id="question"
-                            placeholder="Please mention a title related to question">
+                        <label for="question" class="form-label">{{ $language_text['question_label'] }}</label>
+                        <input type="text" class="form-control" id="question" name="question" placeholder="{{ $language_text['question_placeholder'] }}">
                     </div>
-                    <div class="mb-4">
-                        <label for="comments" class="form-label">Comments</label>
-                        <textarea class="form-control" id="comments" rows="5"
-                            placeholder="Write any comments related to your question"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-submit">Submit</button>
+                    <button type="submit" class="btn btn-submit">{{ $language_text['submit'] }}</button>
                 </form>
             </div>
         </div>
+
     </div>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
         
     </div>

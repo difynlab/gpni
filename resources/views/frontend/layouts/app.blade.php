@@ -27,6 +27,8 @@
             <script src="{{ asset('frontend/js/jquery.js') }}"></script>
             <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
             <script src="{{ asset('frontend/js/main.js') }}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
         @stack('after-scripts')
     </body>
 

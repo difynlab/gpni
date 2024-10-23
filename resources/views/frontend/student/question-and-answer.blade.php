@@ -1,9 +1,9 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Courses')
+@section('title', 'Ask A Question')
 
 @push('after-styles')
-    <link rel="stylesheet" href="{{ asset('frontend/css/course-detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/question-answer.css') }}">
 @endpush
 
 @section('content')
@@ -68,31 +68,74 @@
         </div>
 
         <div class="col-md-9 main-content">
-            @foreach($courses_with_modules as $course_data)
-                <div class="module-container">
-                    <div class="module-title">{{ $course_data['course']->title }}</div>
-
-                    @foreach($course_data['modules'] as $module)
-                        <a href="{{ route('frontend.course-detail-open', ['id' => $course_id]) }}" class="module-card">
-                            <div class="module-info">
-                                <h2>{{ $module->title }}</h2>
-                                <div class="completed-badge">{{ $module->status == 1 ? 'Completed' : 'In Progress' }}</div>
-                            </div>
-                            <div class="module-description">
-                                Module Chapters: {{ $module->description }}
-                            </div>
-                        </a>
-                    @endforeach
-
-                    <a href="{{ route('frontend.course-list') }}" class="return-link pt-2">
-                        <img src="/storage/frontend/ep-arrow-left-bold.svg" alt="Arrow Left" width="20" height="20">
-                        Return to course
+            <div class="container-main">
+                <div class="header-section">
+                    <h1>{{ $language_text['question_answer'] }}</h1>
+                    <a href="{{ route('frontend.view-history') }}">
+                        <img src="/storage/frontend/solar-history-linear.svg" class="icon-history" alt="History Icon" width="22" height="22">
+                        {{ $language_text['return_to_history'] }}
                     </a>
                 </div>
-            @endforeach
+
+                <!-- Display Initial Question -->
+                <div class="chat-message">
+                    <img src="/storage/frontend/ellipse-3.svg" class="avatar" alt="User Avatar">
+                    <div class="message">{{ $question->initial_message }}</div>
+                </div>
+
+                <!-- Loop through replies -->
+                @foreach($replies as $reply)
+                    @if($reply->replied_by == 1) <!-- Admin's reply -->
+                        <div class="chat-message chat-message-reply">
+                            <div class="message">{{ $reply->message }}</div>
+                            <img src="/storage/frontend/ellipse-1.svg" class="avatar" alt="Admin Avatar">
+                        </div>
+                    @else <!-- User's reply -->
+                        <div class="chat-message">
+                            <img src="/storage/frontend/ellipse-3.svg" class="avatar" alt="User Avatar">
+                            <div class="message">{{ $reply->message }}</div>
+                        </div>
+                    @endif
+                @endforeach
+
+                <!-- Message Input -->
+                <div class="message-input">
+                    <label for="leaveMessage" class="form-label">{{ $language_text['leave_message'] }}</label>
+                    <textarea class="form-control" id="leaveMessage" rows="3" placeholder="{{ $language_text['continue_conversation'] }}"></textarea>
+                    <button type="button" class="btn-send">{{ $language_text['send_message'] }}</button>
+                </div>
+            </div>
         </div>
+
+
     </div>
-        
+
+
     </div>
 
 @endsection
+
+
+@push('after-scripts')
+<script>
+document.querySelector('.btn-send').addEventListener('click', function() {
+    console.log("clicked");
+    const message = document.querySelector('#leaveMessage').value;
+
+    if (message.trim()) {
+        // Perform an AJAX request to send the message
+        axios.post('{{ route('frontend.send-reply') }}', {
+            ask_question_id: {{ $question->id }},
+            message: message
+        })
+        .then(response => {
+            // Reload the page or append the new message to the chat
+            location.reload();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+});
+</script>
+@endpush

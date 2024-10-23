@@ -6,6 +6,7 @@ use App\Models\CoursePurchase;
 use App\Models\Course;
 use App\Models\CourseModule;
 use Carbon\Carbon;
+use App\Models\CourseChapter;
 
 use App\Http\Controllers\Controller;
 
@@ -62,29 +63,28 @@ class CourseDetailController extends Controller
 
     // public function show($id)
     
-    public function show()
+    public function show($courseId)
     {
-        $language = session('language', 'en');
-        
-        switch($language){
-            case 'en':
-                $language_name = 'English';
-                break;
-            case 'zh':
-                $language_name = 'Chinese';
-                break;
-            case 'ja':
-                $language_name = 'Japanese';
-                break;
-            default:
-                $language_name = 'unknown';
-                break;
+        $student_id = Auth::id();
+
+        // Fetch the course purchase record for the student
+        $coursePurchase = CoursePurchase::where('student_id', $student_id)
+            ->where('course_id', $courseId)
+            ->firstOrFail();
+
+        // Fetch modules related to the course
+        $modules = CourseModule::where('course_id', $courseId)->get();
+
+        // Fetch chapters for each module
+        $chapters = [];
+        foreach ($modules as $module) {
+            $chapters[$module->id] = CourseChapter::where('module_id', $module->id)->get();
         }
 
-        // $articles = Article::findOrFail($id);
-
         return view('frontend.student.course-detail-open', [
-            // 'articles' => $articles
+            'coursePurchase' => $coursePurchase,
+            'modules' => $modules,
+            'chapters' => $chapters,
         ]);
     }
 
