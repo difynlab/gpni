@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductPaymentController extends Controller
 {
-    public function productPayment()
+    public function index()
     {
         return view('frontend.payment.product-payment');
     }
 
-    public function productCheckout(Request $request)
+    public function checkout(Request $request)
     {
         $products = $request->products;
         $quantities = $request->quantities;
@@ -68,7 +68,7 @@ class ProductPaymentController extends Controller
         return redirect()->away($session->url);
     }
 
-    public function productSuccess(Request $request)
+    public function success(Request $request)
     {
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
@@ -76,18 +76,14 @@ class ProductPaymentController extends Controller
         $product_order_id = $request->query('product_order_id');
 
         $session = \Stripe\Checkout\Session::retrieve($session_id);
-        $payment_intent = \Stripe\PaymentIntent::retrieve($session->payment_intent);
-        $payment_method = $payment_intent->payment_method;
-        $payment_method_details = \Stripe\PaymentMethod::retrieve($payment_method);
-        $payment_type = $payment_method_details->type;
 
         $product_order = ProductOrder::find($product_order_id);
 
         if($product_order) {
             $product_order->date = now()->toDateString();
             $product_order->time = now()->toTimeString();
-            $product_order->payment_method = $payment_type;
-            $product_order->transaction_id = $session->payment_intent;
+            $product_order->mode = $session->mode;
+            $product_order->transaction_id = $session->id;
             $product_order->amount_paid = $session->amount_total / 100;
             $product_order->payment_status = 'Completed';
             $product_order->save();

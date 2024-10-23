@@ -12,10 +12,10 @@ Route::post('login', [AuthenticationController::class, 'store'])->name('login.st
 Route::get('register', [RegisterController::class, 'register'])->name('register');
 Route::post('register', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('forgot-password', [ForgotPasswordController::class, 'create'])->name('password.request');
+Route::get('forgot-password', [ForgotPasswordController::class, 'index'])->name('password.request');
 Route::post('forgot-password', [ForgotPasswordController::class, 'store'])->name('password.email');
 
-Route::get('reset-password/{token}', [ResetPasswordController::class, 'create'])->name('password.reset');
+Route::get('reset-password/{token}', [ResetPasswordController::class, 'index'])->name('password.reset');
 Route::post('reset-password', [ResetPasswordController::class, 'store'])->name('password.store');
 
 Route::middleware('auth', 'role:student')->group(function () {

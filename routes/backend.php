@@ -38,6 +38,7 @@ use App\Http\Controllers\Backend\Page\PodcastController as PagePodcastController
 use App\Http\Controllers\Backend\Page\PolicyController as PagePolicyController;
 use App\Http\Controllers\Backend\Page\TvController;
 use App\Http\Controllers\Backend\Page\WhyWeAreDifferentController;
+use App\Http\Controllers\Backend\Payment\CoursePaymentController;
 use App\Http\Controllers\Backend\Payment\ProductPaymentController;
 use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
@@ -327,8 +328,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
 Route::middleware(['auth', 'role:student'])->group(function () {
     // All payment routes
-        Route::get('/product-payment', [ProductPaymentController::class, 'productPayment'])->name('product-payment.index');
-        Route::post('/product-payment/checkout', [ProductPaymentController::class, 'productCheckout'])->name('product-payment.checkout');
-        Route::get('/product-payment/success', [ProductPaymentController::class, 'productSuccess'])->name('product-payment.success');
+        Route::prefix('product-payment')->name('product-payment.')->group(function() {
+            Route::get('/', [ProductPaymentController::class, 'index'])->name('index');
+            Route::post('/checkout', [ProductPaymentController::class, 'checkout'])->name('checkout');
+            Route::get('/success', [ProductPaymentController::class, 'success'])->name('success');
+        });
+
+        Route::prefix('course-payment')->name('course-payment.')->group(function() {
+            Route::get('/', [CoursePaymentController::class, 'index'])->name('index');
+            Route::post('/checkout', [CoursePaymentController::class, 'checkout'])->name('checkout');
+            Route::get('/success', [CoursePaymentController::class, 'success'])->name('success');
+        });
     // All payment routes
 });

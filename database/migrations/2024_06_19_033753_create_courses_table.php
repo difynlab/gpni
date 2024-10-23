@@ -29,6 +29,10 @@ return new class extends Migration
                 $table->string('instructor_designation');
                 $table->string('instructor_profile_image');
 
+                $table->integer('instalment_months')->nullable();
+                $table->decimal('instalment_price', 10, 2)->nullable();
+                $table->string('instalment_price_id')->nullable();
+
                 $table->text('course_introduction')->nullable();
                 $table->text('course_content')->nullable();
                 $table->text('course_chapter')->nullable();
@@ -110,6 +114,7 @@ return new class extends Migration
 
             // Material & logistic field
                 $table->string('material_logistic')->nullable();
+                $table->decimal('material_logistic_price', 10, 2)->nullable();
             // Material & logistic field
 
             $table->enum('status', [0, 1, 2])->index();
