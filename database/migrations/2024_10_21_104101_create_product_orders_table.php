@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('student_id');
             $table->date('date')->nullable();
             $table->time('time')->nullable();
-            $table->string('payment_method')->nullable();
+            $table->string('mode')->nullable();
             $table->string('transaction_id')->nullable()->unique();
             $table->decimal('amount_paid', 8, 2)->nullable();
             $table->string('discount_applied')->nullable();

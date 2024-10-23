@@ -4,6 +4,7 @@
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('frontend/css/forgot-password.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/captcha.css') }}">
 @endpush
 
 @section('content')
@@ -26,28 +27,32 @@
 
         <!-- White Section -->
         <div class="col-lg-5 offset-lg-1 white-section">
+            <x-frontend.notification></x-frontend.notification>
+
             <h1>{{ $translation['forgot_password'] }}</h1>
             <p class="subtitle">{{ $translation['subtitle'] }}</p>
-            <form>
+
+            <form method="POST" action="{{ route('frontend.password.email') }}">
+                @csrf
                 <div class="form-group">
                     <label for="email">{{ $translation['email_label'] }}</label>
-                    <input type="email" class="form-control" id="email" placeholder="{{ $translation['email_placeholder'] }}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="{{ $translation['email_placeholder'] }}" value="{{ old('email') }}" required>
+                    <x-frontend.input-error field="email"></x-frontend.input-error>
                 </div>
-                <div class="captcha-container my-4">
-                    <div class="validate-captcha">{{ $translation['validate_captcha'] }}</div>
-                    <div class="captcha-equation">
-                        <span>10</span>
-                        <span>+</span>
-                        <span>6</span>
-                        <span>=</span>
-                        <span>?</span>
-                    </div>
-                    <button class="verify-button" type="button">{{ $translation['verify_button'] }}</button>
+
+                <div class="form-input">
+                    <x-frontend.captcha></x-frontend.captcha>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">{{ $translation['send_reset_link'] }}</button>
+
+                <button type="submit" class="btn btn-primary btn-block submit-button" style="background-color: #0040c3; color: #fff; border: none; border-radius: 10px; height: 46px;" disabled>{{ $translation['send_reset_link'] }}</button>
             </form>
+
         </div>
     </div>
 </div>
 
 @endsection
+
+@push('after-scripts')
+    <script src="{{ asset('frontend/js/captcha.js') }}"></script>
+@endpush

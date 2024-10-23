@@ -16,17 +16,18 @@ return new class extends Migration
 
             $table->string('student_id');
             $table->string('course_id');
-            $table->date('date');
-            $table->time('time');
-            $table->string('payment_method');
-            $table->string('transaction_id')->unique();
-            $table->decimal('amount_paid', 8, 2);
+            $table->date('date')->nullable();
+            $table->time('time')->nullable();
+            $table->string('mode')->nullable();
+            $table->string('transaction_id')->nullable()->unique();
+            $table->decimal('amount_paid', 8, 2)->nullable();
             $table->string('discount_applied')->nullable();
             $table->enum('payment_status', ['Completed', 'Pending', 'Failed'])->default('Pending');
             $table->enum('course_access_status', ['Active', 'Revoked'])->default('Active');
             $table->timestamp('expiration_date')->nullable();
             $table->string('receipt_url')->nullable();
             $table->enum('refund_status', ['Refunded', 'Not Refunded'])->default('Not Refunded');
+            $table->enum('material_logistic', ['Yes', 'No'])->default('No');
 
             $table->enum('status', [0, 1])->index();
             $table->timestamps();

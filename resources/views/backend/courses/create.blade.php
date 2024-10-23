@@ -98,6 +98,27 @@
             </div>
 
             <div class="section">
+                <p class="inner-page-title">Instalment Details</p>
+
+                <div class="row form-input">
+                    <div class="col-4">
+                        <label for="instalment_months" class="form-label">Instalment Months</label>
+                        <input type="number" class="form-control" id="instalment_months" name="instalment_months" value="{{ old('instalment_months') }}" placeholder="Instalment Months">
+                    </div>
+                    
+                    <div class="col-4">
+                        <label for="instalment_price" class="form-label">Instalment Price</label>
+                        <input type="text" class="form-control" id="instalment_price" name="instalment_price" value="{{ old('instalment_price') }}" placeholder="Instalment Price">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="instalment_price_id" class="form-label">Instalment Price ID</label>
+                        <input type="text" class="form-control" id="instalment_price_id" name="instalment_price_id" value="{{ old('instalment_price_id') }}" placeholder="Instalment Price ID">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
                 <p class="inner-page-title">More Course Details</p>
 
                 <div class="row form-input">
@@ -125,10 +146,15 @@
 
                 <div class="row form-input">
                     <div class="col-12">
-                        <div>
+                        <div class="mb-4">
                             <label for="material_logistic" class="form-label">PDF</label>
                             <input type="file" class="form-control" id="material_logistic" name="material_logistic" placeholder="PDF" accept=".pdf">
                             <x-backend.input-error field="material_logistic"></x-backend.input-error>
+                        </div>
+
+                        <div>
+                            <label for="material_logistic_price" class="form-label">Material & Logistic Price</label>
+                            <input type="text" class="form-control" id="material_logistic_price" name="material_logistic_price" value="{{ old('material_logistic_price') }}" placeholder="Material & Logistic Price">
                         </div>
                     </div>
                 </div>
