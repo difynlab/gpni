@@ -77,6 +77,8 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
         Route::get('change-password', [PasswordController::class, 'index'])->name('change-password');
         Route::post('change-password', [PasswordController::class, 'update'])->name('change-password.update');
 
+        Route::get('payment-flow/{id}', [CourseController::class, 'enrollNow'])->name('payment-flow');
+
         Route::get('my-storage', [MyStorageController::class, 'index'])->name('my-storage');
         Route::get('course-detail', [CourseDetailController::class, 'index'])->name('course-detail');
         Route::get('course-detail-open/{id}', [CourseDetailController::class, 'show'])->name('course-detail-open');
@@ -86,8 +88,6 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
         Route::get('question-and-answer/{id?}', [AskExpertController::class, 'questionAnswer'])->name('question-and-answer');
         Route::post('ask-expert', [AskExpertController::class, 'store'])->name('ask-expert.store');
         Route::post('send-reply', [AskExpertController::class, 'sendReply'])->name('send-reply');
-
-        
 
         Route::get('course-list', [CourseDetailController::class, 'list'])->name('course-list');
         Route::get('student-profile', [StudentProfileController::class, 'index'])->name('student-profile');

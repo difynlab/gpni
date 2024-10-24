@@ -53,15 +53,22 @@
 
                             <img src="/storage/frontend/group-1171276042.svg" class="card-img-top" alt="Card Image">
                             <div class="card-body">
-                                <!-- spell-checker: disable-next-line -->
                                 <h5 class="card-title">{{ $course->title }}</h5>
-                                <p class="card-text">{{ $course->course_introduction }} <a href="#" class="learn-more">Learn More</a>
-                                </p>
+                                <p class="card-text">{{ $course->course_introduction }} <a href="#" class="learn-more">Learn More</a></p>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <a href="#" class="enroll-button">
-                                        <span>Enroll Now</span>
-                                        <img src="/storage/frontend/arr.svg" alt="Arrow Icon" width="12" height="10">
-                                    </a>
+                                    @if(Auth::check())
+                                        <!-- If the user is logged in, show the Enroll Now button -->
+                                        <a href="{{ route('frontend.payment-flow', ['id' => $course->id]) }}" class="enroll-button">
+                                            <span>Enroll Now</span>
+                                            <img src="/storage/frontend/arr.svg" alt="Arrow Icon" width="12" height="10">
+                                        </a>
+                                    @else
+                                        <!-- If the user is not logged in, show the Sign In button -->
+                                        <a href="{{ route('frontend.login') }}" class="enroll-button">
+                                            <span>Sign In</span>
+                                            <img src="/storage/frontend/arr.svg" alt="Arrow Icon" width="12" height="10">
+                                        </a>
+                                    @endif
                                     <div class="d-flex flex-column align-items-end">
                                         <div class="card-price-label">PRICE</div>
                                         <div class="card-price">{{ $course->price }}</div>
@@ -71,6 +78,7 @@
                         </div>
                     </div>
                 @endforeach
+
 
                 </div>
             </div>
