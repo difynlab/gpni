@@ -27,7 +27,7 @@ class ProductController extends Controller
                 break;
         }
         
-    $categories = ProductCategory::where('language', $language_name)->where('status', 1)->get();
+    $categories = ProductCategory::where('language', $language_name)->where('status', '1')->get();
 
     // If no categories in selected language, fallback to English
     if($categories->isEmpty() && $language_name !== 'English') {
@@ -35,16 +35,16 @@ class ProductController extends Controller
     }
 
     // Fetch products with product_category_id = 2 books
-    $product_books = Product::where('product_category_id', 2)->where('status', 1)->get();
+    $product_books = Product::where('product_category_id', '2')->where('status', '1')->get();
 
     // Fetch products with product_category_id = 3 clothing
-    $product_cloths = Product::where('product_category_id', 3)->where('status', 1)->get();
+    $product_cloths = Product::where('product_category_id', '3')->where('status', '1')->get();
 
     // Fetch products with product_category_id = 4 courses
-    $product_courses = Product::where('product_category_id', 4)->where('status', 1)->get();
+    $product_courses = Product::where('product_category_id', '4')->where('status', '1')->get();
 
     // Fetch products with product_category_id = 5 merchandises
-    $product_merchandises = Product::where('product_category_id', 5)->where('status', 1)->get();
+    $product_merchandises = Product::where('product_category_id', '5')->where('status', '1')->get();
 
 
     return view('frontend.pages.products', [

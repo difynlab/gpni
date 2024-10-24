@@ -32,7 +32,7 @@
                         <!-- Card 1 -->
                         <div class="col-md-3">
                             <div class="card-custom">
-                                <img src="{{ asset('storage/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
                                 <div class="product-info">
                                     <div class="d-flex justify-content-between">
                                         <span class="category">{{ $product_book ->name }}</span>
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
 
-                                <a href="#" class="cta-button">
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
                                     <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
                                     Add to cart
                                 </a>
@@ -65,7 +65,7 @@
                         <!-- Card 1 -->
                         <div class="col-md-3">
                             <div class="card-custom">
-                                <img src="{{ asset('storage/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
                                 <div class="product-info">
                                     <div class="d-flex justify-content-between">
                                         <span class="category">{{ $product_cloth ->name }}</span>
@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
 
-                                <a href="#" class="cta-button">
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
                                     <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
                                     Add to cart
                                 </a>
@@ -98,7 +98,7 @@
                         <!-- Card 1 -->
                         <div class="col-md-3">
                             <div class="card-custom">
-                                <img src="{{ asset('storage/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
                                 <div class="product-info">
                                     <div class="d-flex justify-content-between">
                                         <span class="category">{{ $product_course ->name }}</span>
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
 
-                                <a href="#" class="cta-button">
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
                                     <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
                                     Add to cart
                                 </a>
@@ -131,7 +131,7 @@
                         <!-- Card 1 -->
                         <div class="col-md-3">
                             <div class="card-custom">
-                                <img src="{{ asset('storage/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
                                 <div class="product-info">
                                     <div class="d-flex justify-content-between">
                                         <span class="category">{{ $product_course ->name }}</span>
@@ -145,7 +145,7 @@
                                     </div>
                                 </div>
 
-                                <a href="#" class="cta-button">
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
                                     <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
                                     Add to cart
                                 </a>
@@ -158,144 +158,121 @@
 
             <div class="tab-pane fade" id="books" role="tabpanel" aria-labelledby="books-tab">
                 <div class="row row-horizontal">
-                    <!-- Card 1 -->
-                    <div class="col-md-3">
-                        <div class="card-custom">
-                            <img src="storage/frontend/products/image-54.svg" alt="Product Image 1" class="card-img">
-                            <div class="product-info">
-                                <div class="d-flex justify-content-between">
-                                    <span class="category">Books</span>
-                                    <span class="rating">
-                                        <img src="storage/frontend/products/rating.svg" alt="Rating">
-                                    </span>
+                    @foreach($product_books as $product_book)
+                        <!-- Card 1 -->
+                        <div class="col-md-3">
+                            <div class="card-custom">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <div class="product-info">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="category">{{ $product_book ->name }}</span>
+                                        <span class="rating">
+                                            <img src="{{ asset('storage/frontend/products/rating.svg') }}" alt="Rating">
+                                        </span>
+                                    </div>
+                                    <span class="product-name py-2">{{ $product_book ->description }}</span>
+                                    <div class="product-details">
+                                        <span class="price">${{ $product_book ->price }}</span>
+                                    </div>
                                 </div>
-                                <span class="product-name py-2">PNE Level-1 Merchandise & Course Materials</span>
-                                <div class="product-details">
-                                    <span class="price">$229</span>
-                                </div>
-                            </div>
 
-                            <a href="#" class="cta-button">
-                                <img src="storage/frontend/products/fluent-cart-20-regular-2.svg" alt="Cart Icon">
-                                Add to cart
-                            </a>
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
+                                    <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
+                                    Add to cart
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
             <div class="tab-pane fade" id="clothing" role="tabpanel" aria-labelledby="clothing-tab">
                 <div class="row row-horizontal">
-                    <!-- Card 1 -->
-                    <div class="col-md-3">
-                        <div class="card-custom">
-                            <img src="storage/frontend/products/image-49.svg" alt="Product Image 1" class="card-img pt-5">
-                            <div class="product-info">
-                                <div class="d-flex justify-content-between py-2">
-                                    <span class="category">Clothing</span>
-                                    <span class="rating">
-                                        <img src="storage/frontend/products/rating.svg" alt="Rating">
-                                    </span>
+                    @foreach($product_cloths as $product_cloth)
+                        <!-- Card 1 -->
+                        <div class="col-md-3">
+                            <div class="card-custom">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <div class="product-info">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="category">{{ $product_cloth ->name }}</span>
+                                        <span class="rating">
+                                            <img src="{{ asset('storage/frontend/products/rating.svg') }}" alt="Rating">
+                                        </span>
+                                    </div>
+                                    <span class="product-name py-2">{{ $product_cloth ->description }}</span>
+                                    <div class="product-details">
+                                        <span class="price">${{ $product_cloth ->price }}</span>
+                                    </div>
                                 </div>
-                                <span class="product-name">GPNi & ISSN Polo - (White)</span>
-                                <div class="product-details  d-flex justify-content-between align-items-center">
-                                    <span class="price pt-1">$29</span>
-                                </div>
+
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
+                                    <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
+                                    Add to cart
+                                </a>
                             </div>
-                            <a href="#" class="cta-button">
-                                <img src="storage/frontend/products/fluent-cart-20-regular-2.svg" alt="Cart Icon">
-                                Add to cart
-                            </a>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
             <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
                 <div class="row row-horizontal">
-                    <!-- Card 1 -->
-                    <div class="col-md-3">
-                        <div class="card-custom position-relative">
-                            <img src="storage/frontend/products/image-56.svg" alt="GPNi Yearly Membership" class="card-img">
-                            <div class="courses-membership-offer">Membership Offer!</div>
-                            <div class="product-info">
-                                <div class="d-flex justify-content-between">
-                                    <span class="category">Course</span>
-                                    <span class="rating">
-                                        <img src="storage/frontend/products/rating.svg" alt="Rating">
-                                    </span>
+                    @foreach($product_courses as $product_course)
+                        <!-- Card 1 -->
+                        <div class="col-md-3">
+                            <div class="card-custom">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <div class="product-info">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="category">{{ $product_course ->name }}</span>
+                                        <span class="rating">
+                                            <img src="{{ asset('storage/frontend/products/rating.svg') }}" alt="Rating">
+                                        </span>
+                                    </div>
+                                    <span class="product-name py-2">{{ $product_course ->description }}</span>
+                                    <div class="product-details">
+                                        <span class="price">${{ $product_course ->price }}</span>
+                                    </div>
                                 </div>
-                                <span class="product-name">GPNi Yearly Membership</span>
-                                <div class="offer-price d-flex align-items-center">
-                                    <span class="strike-price">$199</span>
-                                    <span class="price">$99</span>
-                                </div>
+
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
+                                    <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
+                                    Add to cart
+                                </a>
                             </div>
-                            <a href="#" class="cta-button">
-                                <img src="storage/frontend/products/fluent-cart-20-regular-2.svg" alt="Cart Icon">
-                                Add to cart
-                            </a>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
             <div class="tab-pane fade" id="merchandise" role="tabpanel" aria-labelledby="merchandise-tab">
                 <div class="row row-horizontal">
-                    <!-- Card 1 -->
-                    <div class="col-md-3">
-                        <div class="hover-card-custom card-custom position-relative">
-                            <!-- Radio buttons for color selection -->
-                            <input type="radio" name="color4" id="color-white-4" class="color-radio" checked>
-                            <input type="radio" name="color4" id="color-blue-4" class="color-radio">
-                            <input type="radio" name="color4" id="color-2-colors-4" class="color-radio">
-
-                            <!-- Product images -->
-                            <img src="storage/frontend/gpni white pen.svg" alt="GPNi Pen White" class="card-img"
-                                id="image-white-4">
-                            <img src="storage/frontend/gpni blue pen.svg" alt="GPNi Pen Blue" class="card-img" id="image-blue-4">
-                            <img src="storage/frontend/gpni blue + white.svg" alt="GPNi Pen 2 Colors" class="card-img"
-                                id="image-2-colors-4">
-
-                            <div class="product-info">
-                                <div class="d-flex justify-content-between">
-                                    <span class="category">Merchandise</span>
-                                    <span class="rating">
-                                        <img src="storage/frontend/products/rating.svg" alt="Rating">
-                                    </span>
-                                </div>
-                                <!-- Product names -->
-                                <span class="product-name" id="product-name-white-4">GPNi Pen (White)</span>
-                                <span class="product-name" id="product-name-blue-4">GPNi Pen (Blue)</span>
-                                <span class="product-name" id="product-name-2-colors-4">GPNi Pen (Blue + White)</span>
-                                <div class="product-details d-flex justify-content-between align-items-center">
-                                    <!-- Prices -->
-                                    <span class="price" id="price-white-4">$19.95</span>
-                                    <span class="price" id="price-blue-4">$10.95</span>
-                                    <span class="price" id="price-2-colors-4">$10.95</span>
-                                    <div class="color-options">
-                                        <label for="color-white-4">
-                                            <img src="storage/frontend/products/white.svg" alt="Color White">
-                                        </label>
-                                        <label for="color-blue-4">
-                                            <img src="storage/frontend/products/blue.svg" alt="Color Blue">
-                                        </label>
-                                        <label for="color-2-colors-4">
-                                            <img src="storage/frontend/products/2-colors.svg" alt="Color 2 Colors">
-                                        </label>
+                    @foreach($product_courses as $product_course)
+                        <!-- Card 1 -->
+                        <div class="col-md-3">
+                            <div class="card-custom">
+                                <img src="{{ asset('storage/backend/products/products/' . $product_book ->thumbnail) }}" alt="Product Image" class="card-img">
+                                <div class="product-info">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="category">{{ $product_course ->name }}</span>
+                                        <span class="rating">
+                                            <img src="{{ asset('storage/frontend/products/rating.svg') }}" alt="Rating">
+                                        </span>
+                                    </div>
+                                    <span class="product-name py-2">{{ $product_course ->description }}</span>
+                                    <div class="product-details">
+                                        <span class="price">${{ $product_course ->price }}</span>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="#" class="cta-button">
-                                <img src="storage/frontend/products/fluent-cart-20-regular.svg" alt="Cart Icon">
-                                Add to cart
-                            </a>
 
-                            <!-- Navigation Arrows -->
-                            <label for="color-blue-4" class="nav-arrow left-arrow">&#10094;</label>
-                            <label for="color-2-colors-4" class="nav-arrow right-arrow">&#10095;</label>
+                                <a href="{{ route('frontend.cart') }}" class="cta-button">
+                                    <img src="{{ asset('storage/frontend/products/fluent-cart-20-regular-2.svg') }}" alt="Cart Icon">
+                                    Add to cart
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -362,7 +339,7 @@
                                         occasion.</p>
 
                                     <div>
-                                        <a href="#" class="size-guide d-flex align-items-center">
+                                        <a href="{{ route('frontend.cart') }}" class="size-guide d-flex align-items-center">
                                             <img src="storage/frontend/mdi-ruler.svg" alt="Size guide">
                                             Size guide
                                         </a>

@@ -30,6 +30,7 @@ use App\Http\Controllers\Frontend\Student\MembersCornerController;
 use App\Http\Controllers\Frontend\Student\MyOrdersController;
 use App\Http\Controllers\Frontend\Student\QualificationsController;
 use App\Http\Controllers\Frontend\Student\ReferFriendController;
+use App\Http\Controllers\Frontend\Student\CartController;
 use App\Http\Controllers\Frontend\Pages\ProductController;
 
 use Illuminate\Support\Facades\Route;
@@ -100,5 +101,6 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
         Route::post('send-invite', [ReferFriendController::class, 'sendInvite'])->name('send-invite');
 
         Route::get('qualifications', [QualificationsController::class, 'index'])->name('qualifications');
+        Route::get('cart', [CartController::class, 'index'])->name('cart');
     });
 // Student routes 

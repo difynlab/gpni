@@ -85,15 +85,29 @@
                     <i class="bi bi-search"></i>
                 </a>
 
-                <a href="#" class="nav-item nav-link position-relative">
+                <a href="{{ route('frontend.cart') }}" class="nav-item nav-link position-relative">
                     <i class="bi bi-cart"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
                 </a>
 
                 <div class="nav-item">
-                    <a href="{{ route('frontend.login') }}" class="nav-link">
-                        <div class="btn btn-primary px-4">Login</div>
-                    </a>
+                    @if(Auth::check())
+                        <!-- If user is logged in, show "Logout" -->
+                        <a href="{{ route('frontend.logout') }}" class="nav-link"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <div class="btn btn-primary px-4">Logout</div>
+                        </a>
+
+                        <!-- Logout form (needed for the logout route to work) -->
+                        <form id="logout-form" action="{{ route('frontend.logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @else
+                        <!-- If user is not logged in, show "Login" -->
+                        <a href="{{ route('frontend.login') }}" class="nav-link">
+                            <div class="btn btn-primary px-4">Login</div>
+                        </a>
+                    @endif
                 </div>
 
                 @php

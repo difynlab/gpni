@@ -70,35 +70,41 @@
         <div class="col-md-9 main-content">
             <div class="orders-container">
                 <div class="orders-header">
-                    <h1>My Orders</h1>
+                    <h1>{{ $text['my_orders'] }}</h1>
                 </div>
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Order No</th>
-                                <th>Amount</th>
-                                <th>Order Date</th>
-                                <th>Action</th>
+                                <th>{{ $text['order_no'] }}</th>
+                                <th>{{ $text['amount'] }}</th>
+                                <th>{{ $text['order_date'] }}</th>
+                                <th>{{ $text['action'] }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
+                            @if($orders->isEmpty())
+                                <tr>
+                                    <td colspan="5" class="empty-record">{{ $text['record_not_available'] }}</td>
+                                </tr>
+                            @else
+                                @foreach($orders as $order)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $order->transaction_id ?? '-' }}</td>
+                                    <td>${{ number_format($order->amount_paid, 2) }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($order->date)->format('Y-m-d') }}</td>
+                                    <td>{{ $order->payment_status ?? '-' }}</td>
+                                </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
-                <div class="empty-record">
-                    Record not available
-                </div>
             </div>
         </div>
+
     </div>
 
        
