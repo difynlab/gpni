@@ -42,6 +42,7 @@ class CourseModuleController extends Controller
     {
         $course_module->title = $request->title;
         $course_module->description = $request->description;
+        $course_module->module_exam = $request->module_exam;
         $course_module->time_required = $request->time_required;
 
         if($request->time_required == 'Yes') {

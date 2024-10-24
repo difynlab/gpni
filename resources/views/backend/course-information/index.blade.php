@@ -838,6 +838,12 @@
                     </div>
                 </div>
             @endif
+
+            <div class="section">
+                <div class="form-input">
+                    <button type="submit" class="submit-button">Save the updates</button>
+                </div>
+            </div>
         </form>
     </div>
 
