@@ -117,6 +117,8 @@ return new class extends Migration
                 $table->decimal('material_logistic_price', 10, 2)->nullable();
             // Material & logistic field
 
+            $table->enum('final_exam', ['Yes', 'No'])->default('No');
+
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });
