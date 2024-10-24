@@ -160,6 +160,23 @@
                 </div>
             </div>
 
+            <div class="section">
+                <p class="inner-page-title">Final Exam</p>
+
+                <div class="row form-input">
+                    <div class="col-12">
+                        <div>
+                            <label for="final_exam" class="form-label">Final Exam<span class="asterisk">*</span></label>
+                            <select class="form-control form-select" id="final_exam" name="final_exam" required>
+                                <option value="">Select final exam</option>
+                                <option value="Yes" {{ old('final_exam') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                <option value="No" {{ old('final_exam') == 'No' ? 'selected' : '' }}>No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <x-backend.create-status></x-backend.create-status>
         </form>
     </div>

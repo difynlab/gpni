@@ -33,9 +33,11 @@
                                         <textarea class="form-control module-description table-input" name="description" value="{{ $course_module->description }}" disabled>{{ $course_module->description }}</textarea>
                                     </td>
                                     <td>
-                                        <a href="{{ route('backend.courses.module-exam-questions.index', $course_module->id) }}" class="exam-questions-button" title="Exam Questions">
-                                            <i class="bi bi-patch-question-fill"></i>
-                                        </a>
+                                        @if($course_module->module_exam == 'Yes')
+                                            <a href="{{ route('backend.courses.module-exam-questions.index', $course_module->id) }}" class="exam-questions-button" title="Exam Questions">
+                                                <i class="bi bi-patch-question-fill"></i>
+                                            </a>
+                                        @endif
 
                                         <a href="{{ route('backend.courses.module-chapters.index', $course_module->id) }}" class="chapter-button" title="Chapters">
                                             <i class="bi bi-bookmarks-fill"></i>
@@ -84,8 +86,17 @@
                                     </div>
 
                                     <div class="mb-4">
+                                        <label for="module_exam" class="form-label">Module Exam<span class="asterisk">*</span></label>
+                                        <select class="form-control form-select module-exam" id="module_exam" name="module_exam" required>
+                                            <option value="">Select</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
                                         <label for="time_required" class="form-label">Time Required<span class="asterisk">*</span></label>
-                                        <select class="form-control form-select time-required" id="time-required" name="time_required" required>
+                                        <select class="form-control form-select time-required" id="time_required" name="time_required" required>
                                             <option value="Yes">Yes</option>
                                             <option value="No" selected>No</option>
                                         </select>
@@ -140,8 +151,16 @@
                                     </div>
 
                                     <div class="mb-4">
+                                        <label for="module_exam" class="form-label">Module Exam<span class="asterisk">*</span></label>
+                                        <select class="form-control form-select module-exam" id="module_exam" name="module_exam" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No" selected>No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
                                         <label for="time_required" class="form-label">Time Required<span class="asterisk">*</span></label>
-                                        <select class="form-control form-select time-required" id="time-required" name="time_required" required>
+                                        <select class="form-control form-select time-required" id="time_required" name="time_required" required>
                                             <option value="Yes">Yes</option>
                                             <option value="No" selected>No</option>
                                         </select>
@@ -207,9 +226,12 @@
                 url: edit_url,
                 method: 'GET',
                 success: function(data) {
+                    console.log(data);
+
                     $('.edit-module-form-modal #title').val(data['title']);
                     $('.edit-module-form-modal #description').val(data['description']);
-                    $('.edit-module-form-modal #time-required').val(data['time_required']);
+                    $('.edit-module-form-modal #module_exam').val(data['module_exam']);
+                    $('.edit-module-form-modal #time_required').val(data['time_required']);
 
                     if(data['exam_time'] != null) {
                         $('.edit-module-form-modal #exam-time').val(data['exam_time']);

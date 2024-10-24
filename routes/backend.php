@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\Communication\ReferFriendController;
 use App\Http\Controllers\Backend\Conference\ConferenceController;
 use App\Http\Controllers\Backend\Course\CourseChapterController;
 use App\Http\Controllers\Backend\Course\CourseController;
+use App\Http\Controllers\Backend\Course\CourseFinalExamQuestionController;
 use App\Http\Controllers\Backend\Course\CourseInformationController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
@@ -168,6 +169,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::get('modules/exam-questions/{course_module}/edit/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'edit'])->name('module-exam-questions.edit');
             Route::post('modules/exam-questions/{course_module}/update/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'update'])->name('module-exam-questions.update');
             Route::delete('modules/exam-questions/{course_module}/destroy/{course_module_exam_question}', [CourseModuleExamQuestionController::class, 'destroy'])->name('module-exam-questions.destroy');
+
+            Route::get('final-exam-questions/{course}', [CourseFinalExamQuestionController::class, 'index'])->name('final-exam-questions.index');
+            Route::get('final-exam-questions/{course}/create', [CourseFinalExamQuestionController::class, 'create'])->name('final-exam-questions.create');
+            Route::post('final-exam-questions/{course}/store', [CourseFinalExamQuestionController::class, 'store'])->name('final-exam-questions.store');
+            Route::get('final-exam-questions/{course}/edit/{course_final_exam_question}', [CourseFinalExamQuestionController::class, 'edit'])->name('final-exam-questions.edit');
+            Route::post('final-exam-questions/{course}/update/{course_final_exam_question}', [CourseFinalExamQuestionController::class, 'update'])->name('final-exam-questions.update');
+            Route::delete('final-exam-questions/{course}/destroy/{course_final_exam_question}', [CourseFinalExamQuestionController::class, 'destroy'])->name('final-exam-questions.destroy');
         });
 
         Route::resource('promotions', PromotionController::class)->except('show');

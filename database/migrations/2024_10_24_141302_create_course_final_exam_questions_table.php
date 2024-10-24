@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('course_modules', function (Blueprint $table) {
+        Schema::create('course_final_exam_questions', function (Blueprint $table) {
             $table->id();
+
             $table->string('course_id');
-            $table->string('module_no');
-            $table->string('title');
-            $table->text('description');
-            $table->enum('module_exam', ['Yes', 'No'])->default('No');
-            $table->enum('time_required', ['Yes', 'No'])->default('No');
-            $table->time('exam_time')->nullable();
+            $table->text('question');
+            $table->text('option_a');
+            $table->text('option_b');
+            $table->text('option_c');
+            $table->text('option_d');
+            $table->enum('answer', ['A', 'B', 'C', 'D']);
             $table->enum('status', [0, 1, 2])->index();
+
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('course_modules');
+        Schema::dropIfExists('course_final_exam_questions');
     }
 };
