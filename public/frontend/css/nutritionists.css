@@ -460,7 +460,7 @@ body {
 /* Ensure "Be the Best" comes in one line on large mobile devices */
 @media (max-width: 767.98px) {
     .learn-best-section h1 {
-        font-size: 2.5rem; /* Adjust font size to fit in one line */
+        font-size: 2rem; /* Adjust font size to fit in one line */
     }
 }
 

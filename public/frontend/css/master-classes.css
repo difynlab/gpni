@@ -2,14 +2,16 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .heading-section {
     padding-top: 100px;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .description {
@@ -22,6 +24,27 @@ body {
     color: #0e0e0e;
 }
 
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .title {
+        font-size: 61px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .title {
+        font-size: var(--fs-49);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .title {
+        font-size: var(--fs-39);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .title {
+        font-size: var(--fs-36);
     }
 }
 
@@ -346,6 +369,38 @@ body {
     color: #0e0e0e;
 }
 
+/* @media (max-width: 1199.98px) {
+    .certification-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .certification-section h1 {
+        font-size: 36px;
+    }
+} */
+
+@media (max-width: 991.98px) {
+    .certification-section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .certification-section h1 {
+        font-size: 31px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .certification-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .certification-section h1 {
+        font-size: 23px;
+    }
+}
 
 @media (max-width: 768px) {
     .certification-section .certificates-container {
@@ -358,6 +413,9 @@ body {
 /* FAQ Container */
 .faq-container {
     background-color: #FFF;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 50px;
 }
 .faq-heading {
     color: #000;
@@ -614,6 +672,8 @@ body {
 .why-certified-section {
     padding: 50px 20px;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .why-certified-section h2 {
