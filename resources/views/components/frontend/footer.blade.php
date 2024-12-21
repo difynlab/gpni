@@ -125,23 +125,23 @@
 
                     @if($middleware_language == 'en')
                         <li>
-                            <a href="{{ route('frontend.certification-courses.show', 6) }}">PNE Level-1 + SNS</a>
+                            <a href="{{ route('frontend.certification-courses.show', [6, Str::slug(App\Models\Course::find(6)->title)]) }}">PNE Level-1 + SNS</a>
                         </li>
 
                         <li>
-                            <a href="{{ route('frontend.certification-courses.show', 7) }}">PNE Level-2 Masters + CISSN</a>
+                            <a href="{{ route('frontend.certification-courses.show', [7, Str::slug(App\Models\Course::find(7)->title)]) }}">PNE Level-2 Masters + CISSN</a>
                         </li>
                     @elseif($middleware_language == 'zh')
                         <li>
-                            <a href="{{ route('frontend.certification-courses.show', 25) }}">PNE L1 + ISSN-SNS 中文版</a>
+                            <a href="{{ route('frontend.certification-courses.show', [25, Str::slug(App\Models\Course::find(25)->title)]) }}">PNE L1 + ISSN-SNS 中文版</a>
                         </li>
 
                         <li>
-                            <a href="{{ route('frontend.certification-courses.show', 23) }}">PNE LEVEL-2 MASTERS + CISSN 中文</a>
+                            <a href="{{ route('frontend.certification-courses.show', [23, Str::slug(App\Models\Course::find(23)->title)]) }}">PNE LEVEL-2 MASTERS + CISSN 中文</a>
                         </li>
                     @else
                         <li>
-                            <a href="{{ route('frontend.certification-courses.show', 24) }}">スポーツ栄養スペシャリスト（PNE L1 + ISSN-SNS）資格認定講座</a>
+                            <a href="{{ route('frontend.certification-courses.show', [24, Str::slug(App\Models\Course::find(24)->title)]) }}">スポーツ栄養スペシャリスト（PNE L1 + ISSN-SNS）資格認定講座</a>
                         </li>
                     @endif
 

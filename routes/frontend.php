@@ -56,11 +56,11 @@ Route::middleware(['set_language'])->group(function () {
         Route::get('issn-official-partners-and-affiliates', [ISSNOfficialPartnerAffiliateController::class, 'index'])->name('issn-official-partners-and-affiliates');
         Route::prefix('articles')->name('articles.')->group(function() {
             Route::get('/', [ArticleController::class, 'index'])->name('index');
-            Route::get('show/{article}', [ArticleController::class, 'show'])->name('show');
+            Route::get('show/{article}/{title}', [ArticleController::class, 'show'])->name('show');
         });
         Route::prefix('conferences')->name('conferences.')->group(function() {
             Route::get('/', [ConferenceController::class, 'index'])->name('index');
-            Route::get('show/{conference}', [ConferenceController::class, 'show'])->name('show');
+            Route::get('show/{conference}/{title}', [ConferenceController::class, 'show'])->name('show');
         });
         Route::prefix('contact-us')->name('contact-us.')->group(function() {
             Route::get('/', [ContactUsController::class, 'index'])->name('index');
@@ -74,24 +74,22 @@ Route::middleware(['set_language'])->group(function () {
         Route::get('gpni-tv', [TvController::class, 'index'])->name('gpni-tv');
         Route::prefix('podcasts')->name('podcasts.')->group(function() {
             Route::get('/', [PodcastController::class, 'index'])->name('index');
-            Route::get('show/{podcast}', [PodcastController::class, 'show'])->name('show');
+            Route::get('show/{podcast}/{title}', [PodcastController::class, 'show'])->name('show');
         });
         Route::prefix('nutritionists')->name('nutritionists.')->group(function() {
             Route::get('/', [NutritionistController::class, 'index'])->name('index');
-            Route::get('show/{nutritionist}', [NutritionistController::class, 'show'])->name('show');
             Route::post('contact/{nutritionist}', [NutritionistController::class, 'contact'])->name('contact');
             Route::get('fetch/{nutritionist}', [NutritionistController::class, 'fetch'])->name('fetch');
         });
         Route::prefix('master-classes')->name('master-classes.')->group(function() {
             Route::get('/', [MasterClassController::class, 'index'])->name('index');
-            Route::get('show/{course}', [MasterClassController::class, 'show'])->name('show');
+            Route::get('show/{course}/{title}', [MasterClassController::class, 'show'])->name('show');
         });
         Route::prefix('products')->name('products.')->group(function() {
             Route::get('/', [ProductController::class, 'index'])->name('index');
-            Route::get('show/{product}', [ProductController::class, 'show'])->name('show');
         });
         Route::prefix('certification-courses')->name('certification-courses.')->group(function() {
-            Route::get('show/{course}', [CertificationCourseController::class, 'show'])->name('show');
+            Route::get('show/{course}/{title}', [CertificationCourseController::class, 'show'])->name('show');
             Route::get('purchase/{course}', [CertificationCourseController::class, 'purchase'])->name('purchase');
         });
     // Page routes

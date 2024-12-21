@@ -29,7 +29,7 @@
                                         <div class="value fs-16 text-truncate">{{ $conference->where }}</div>
                                     </div>
                                 </div>
-                                <a href="{{ route('frontend.conferences.show', $conference) }}" class="view-more fs-16">
+                                <a href="{{ route('frontend.conferences.show', [$conference, Str::slug($conference->title)]) }}" class="view-more fs-16">
                                     <span>{{ $contents->{'view_' . $middleware_language} ?? $contents->view_en }}</span>
                                     <img src="{{ asset('storage/frontend/small-arrow-right.svg') }}" alt="Arrow Icon">
                                 </a>

@@ -84,7 +84,7 @@
                                                             @endif
                                                             <span class="username fs-13">{{ $article->author_name }}</span>
                                                         </div>
-                                                        <a href="{{ route('frontend.articles.show', $article) }}"
+                                                        <a href="{{ route('frontend.articles.show', [$article, Str::slug($article->title)]) }}"
                                                             class="fs-13 read-more-button">
                                                             <span>{{ $contents->{'section_1_read_' . $middleware_language} ?? $contents->section_1_read_en }}</span>
                                                             <i class="fas fa-arrow-circle-right ms-2"></i>
@@ -154,7 +154,7 @@
                                                     @endif
                                                     <span class="username fs-13">{{ $recommended_article->author_name }}</span>
                                                 </div>
-                                                <a href="{{ route('frontend.articles.show', $recommended_article) }}"
+                                                <a href="{{ route('frontend.articles.show', [$recommended_article, Str::slug($recommended_article->title)]) }}"
                                                     class="fs-13 text-primary read-more-button">
                                                     <span>{{ $contents->{'section_1_read_' . $middleware_language} ?? $contents->section_1_read_en }}</span>
                                                     <i class="fas fa-arrow-circle-right ms-2"></i>
@@ -178,13 +178,12 @@
 
                         @if($trending_articles->isNotEmpty())
                             @foreach($trending_articles as $trending_article)
-                                <a href="{{ route('frontend.articles.show', $trending_article) }}" class="text-decoration-none">
+                                <a href="{{ route('frontend.articles.show', [$trending_article, Str::slug($trending_article->title)]) }}" class="text-decoration-none">
                                     <div class="trending-article">
                                         <div class="row g-3 w-100">
                                             <div class="col-4 col-lg-6">
                                                 @if($trending_article->thumbnail)
-                                                <img src="{{ asset('storage/backend/articles/articles/' . $trending_article->thumbnail) }}"
-                                                    alt="Trending Image" class="img-fluid object-fit-cover">
+                                                <img src="{{ asset('storage/backend/articles/articles/' . $trending_article->thumbnail) }}" alt="Trending Image" class="img-fluid object-fit-cover">
 
                                                 @else
                                                 <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"

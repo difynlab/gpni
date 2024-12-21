@@ -59,10 +59,10 @@
                                             <div class="card-body d-flex flex-column">
                                                 <h5 class="card-title">{{ $all_course->title }}</h5>
 
-                                                <p class="card-text">{{ \Illuminate\Support\Str::words($all_course->short_description, 6, '...') }}<a href="{{ route('frontend.master-classes.show', $all_course) }}" class="learn-more">{{ $contents->{'section_2_learn_' . $middleware_language} ?? $contents->section_2_learn_en }}</a></p>
+                                                <p class="card-text">{{ \Illuminate\Support\Str::words($all_course->short_description, 6, '...') }}<a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}" class="learn-more">{{ $contents->{'section_2_learn_' . $middleware_language} ?? $contents->section_2_learn_en }}</a></p>
 
                                                 <div class="card-footer">
-                                                    <a href="{{ route('frontend.master-classes.show', $all_course) }}" class="enroll-button">
+                                                    <a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}" class="enroll-button">
                                                         <span>{{ $contents->{'section_2_enroll_' . $middleware_language} ?? $contents->section_2_enroll_en }}</span>
                                                         <img src="{{ asset('storage/frontend/small-arrow-right.svg') }}" alt="Arrow Icon" width="12" height="10">
                                                     </a>
@@ -94,11 +94,11 @@
                                                 <h5 class="card-title">{{ $upcoming_course->title }}</h5>
 
                                                 <p class="card-text">{{ \Illuminate\Support\Str::words($upcoming_course->short_description, 6, '...') }}
-                                                    <a href="{{ route('frontend.master-classes.show', $upcoming_course) }}" class="learn-more">{{ $contents->{'section_2_learn_' . $middleware_language} ?? $contents->section_2_learn_en }}</a>
+                                                    <a href="{{ route('frontend.master-classes.show', [$upcoming_course, Str::slug($upcoming_course->title)]) }}" class="learn-more">{{ $contents->{'section_2_learn_' . $middleware_language} ?? $contents->section_2_learn_en }}</a>
                                                 </p>
 
                                                 <div class="card-footer">
-                                                    <a href="{{ route('frontend.master-classes.show', $upcoming_course) }}" class="enroll-button">
+                                                    <a href="{{ route('frontend.master-classes.show', [$upcoming_course, Str::slug($upcoming_course->title)]) }}" class="enroll-button">
                                                         <span>{{ $contents->{'section_2_enroll_' . $middleware_language} ?? $contents->section_2_enroll_en }}</span>
                                                         <img src="{{ asset('storage/frontend/small-arrow-right.svg') }}" alt="Arrow Icon" width="12" height="10">
                                                     </a>

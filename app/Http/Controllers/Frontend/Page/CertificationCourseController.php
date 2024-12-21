@@ -94,6 +94,8 @@ class CertificationCourseController extends Controller
         $course_order->status = '1';
         $course_order->save();
 
+        $course = Course::find($request->course_id);
+
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
         if($request->payment_mode == 'payment') {
@@ -115,7 +117,7 @@ class CertificationCourseController extends Controller
                 ],
                 'mode' => 'payment',
                 'success_url' => route('frontend.certification-courses.success', ['course_order_id' => $course_order->id, 'material_logistic' => $request->material_logistic]) . '&session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => route('frontend.certification-courses.show', $request->course_id)
+                'cancel_url' => route('frontend.certification-courses.show', [$request->course_id, $course->title])
             ]);
         }
         else {
@@ -130,7 +132,7 @@ class CertificationCourseController extends Controller
                 ],
                 'mode' => 'subscription',
                 'success_url' => route('frontend.certification-courses.success', ['course_order_id' => $course_order->id, 'material_logistic' => $request->material_logistic]) . '&session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => route('frontend.certification-courses.show', $request->course_id)
+                'cancel_url' => route('frontend.certification-courses.show', [$request->course_id, $course->title])
             ]);
 
             // $subscriptionSchedule = \Stripe\SubscriptionSchedule::create([

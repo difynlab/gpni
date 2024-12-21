@@ -57,7 +57,7 @@
                     <div class="latest-articles-section">
                         @if($latest_articles->isNotEmpty())
                             @foreach($latest_articles as $latest_article)
-                                <a href="{{ route('frontend.articles.show', $latest_article) }}" class="text-decoration-none">
+                                <a href="{{ route('frontend.articles.show', [$latest_article, Str::slug($latest_article->title)]) }}" class="text-decoration-none">
                                     <div class="article-container">
                                         <div class="row g-3 w-100">
                                             <div class="col-4 col-lg-6">
