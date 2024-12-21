@@ -304,8 +304,9 @@
 
 .event-image {
     width: auto; /* Ensure the image takes up the full width of its container */
-    height: 30%; /* Maintain aspect ratio */
-    object-fit: fill; /* Ensure the image covers the container while maintaining aspect ratio */
+    height: 8rem !important; /* Maintain aspect ratio */
+    object-fit: fill;
+    margin-bottom: 3rem; /* Ensure the image covers the container while maintaining aspect ratio */
 }
 
 .custom-row-gap {
@@ -323,8 +324,9 @@
     }
     .event-image {
         width: auto; /* Ensure the image takes up the full width of its container */
-        height: 50%; /* Maintain aspect ratio */
-        object-fit: fill; /* Ensure the image covers the container while maintaining aspect ratio */
+        height: 4rem !important; /* Maintain aspect ratio */
+        object-fit: fill;
+        margin-bottom: 2rem; /* Ensure the image covers the container while maintaining aspect ratio */
     }
 }
 /* Journey Container */
@@ -708,7 +710,6 @@
 .faq-container .accordion-button {
     background-color: #fff;
     color: #000;
-    font-size: 1rem;
     font-weight: 500;
     border-radius: 20px;
     height: 100px;
@@ -777,5 +778,12 @@
     }
     .accordion-body {
         font-size: 0.875rem; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Add this media query to center text on mobile devices */
+@media (max-width: 767.98px) {
+    .nav-item a {
+        text-align: center !important;
     }
 }

@@ -107,9 +107,6 @@ body {
         margin-bottom: 40px; /* Adjust as needed */
     }
 
-    body {
-        padding-top: 20px; /* Add padding for laptops */
-    }
 
     .card {
         width: 250px; /* Reduce width for laptops */
@@ -181,9 +178,6 @@ body {
         visibility: visible; /* Ensure visibility */
     }
 
-    body {
-        padding-top: 60px; /* Add padding for large laptops and desktops */
-    }
 
     .card {
         width: 392px; /* Set width for large laptops and desktops */
@@ -516,9 +510,6 @@ body {
         margin-bottom: 40px; /* Adjust as needed */
     }
 
-    body {
-        padding-top: 60px; /* Add padding for laptops */
-    }
 
     .card {
         width: 280px; /* Reduce width for laptops */
@@ -569,9 +560,6 @@ body {
         visibility: visible; /* Ensure visibility */
     }
 
-    body {
-        padding-top: 60px; /* Add padding for large laptops and desktops */
-    }
 
     .card {
         width: 392px; /* Set width for large laptops and desktops */

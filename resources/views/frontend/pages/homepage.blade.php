@@ -108,26 +108,23 @@
                 </div>
 
                 <div class="tab-class pt-5 text-center">
-                    <ul class="nav nav-pills d-flex flex-wrap justify-content-center mb-5">
+                                        <ul class="nav nav-pills d-flex justify-content-center mb-5 flex-md-row flex-column w-100">
                         <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active pill-link"
-                                data-bs-toggle="pill" href="#tab-1">
+                            <a class="d-flex align-items-center mx-3 ms-0 pb-3 active pill-link w-100" data-bs-toggle="pill" href="#tab-1">
                                 <div class="tab-text mt-n1 mb-0">
                                     {{ $contents->{'section_3_first_tab_' . $middleware_language} ?? $contents->section_3_first_tab_en }}
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="d-flex align-items-center text-center mx-3 pb-3 pill-link"
-                                data-bs-toggle="pill" href="#tab-2">
+                            <a class="d-flex align-items-center mx-3 pb-3 pill-link w-100" data-bs-toggle="pill" href="#tab-2">
                                 <div class="tab-text mt-n1 mb-0">
                                     {{ $contents->{'section_3_second_tab_' . $middleware_language} ?? $contents->section_3_second_tab_en }}
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3 pill-link" data-bs-toggle="pill"
-                                href="#tab-3">
+                            <a class="d-flex align-items-center mx-3 me-0 pb-3 pill-link w-100" data-bs-toggle="pill" href="#tab-3">
                                 <div class="tab-text mt-n1 mb-0">
                                     {{ $contents->{'section_3_third_tab_' . $middleware_language} ?? $contents->section_3_third_tab_en }}
                                 </div>
@@ -298,27 +295,31 @@
         <div class="partners-container">
             <div class="container">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 ff-poppins-medium fs-49 partners-heading mt-5 pt-5 px-5">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
+                    <div class="mb-3 mb-md-5 ff-poppins-medium fs-49 partners-heading mt-0 mt-md-5 pt-5 px-5">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
                     <p class="mb-1 partners-body fw-normal fs-25">{{ $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en }}</p>
                 </div>
         
                 @if($contents->section_5_images_en)
-                    <div class="row py-md-5 py-2">
-                        <div class="row px-5 pb-5 gx-1 custom-row-gap">
-                            @if($contents->{'section_5_images_' . $middleware_language})
+                    <div class="row py-md-5 py-2 gx-1 custom-row-gap">
+                        <!-- <div class="row px-5 pb-5 gx-1 custom-row-gap"> -->
+                        @if($contents->{'section_5_images_' . $middleware_language})
+                            <div class="d-flex flex-wrap justify-content-center align-items-center">
                                 @foreach(json_decode($contents->{'section_5_images_' . $middleware_language}) as $section_5_image)
                                     <div class="col-md-3 col-6 d-flex justify-content-center align-items-center">
                                         <img src="{{ asset('storage/backend/pages/' . $section_5_image) }}" alt="Image" class="event-image img-fluid">
                                     </div>
                                 @endforeach
-                            @else
+                            </div>
+                        @else
+                            <div class="d-flex flex-wrap justify-content-center align-items-center">
                                 @foreach(json_decode($contents->section_5_images_en) as $section_5_image)
                                     <div class="col-md-3 col-6 d-flex justify-content-center align-items-center">
                                         <img src="{{ asset('storage/backend/pages/' . $section_5_image) }}" alt="Image" class="event-image img-fluid">
                                     </div>
                                 @endforeach
-                            @endif
-                        </div>
+                            </div>
+                        @endif
+                        <!-- </div> -->
                     </div>
                 @endif
             </div>
@@ -499,7 +500,7 @@
                         @foreach($faqs as $faq)
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed p-2 p-md-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
+                                    <button class="accordion-button collapsed p-2 p-md-3 fs-25" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
                                         {{ $faq->{'question'} }}
                                     </button>
                                 </h2>
