@@ -1,7 +1,7 @@
 body {
     background: #fff;
     font-family: 'Poppins', sans-serif;
-    padding-top: 120px;
+    padding-top: 120px; /* Adjust this value */
 }
 
 .card-custom {
@@ -29,27 +29,23 @@ body {
     width: 0;
 }
 
+/* Ensure the radio-custom is an accurate circle in all devices */
 .radio-custom {
     display: inline-block;
-    width: 24px;
-    height: 24px;
+    width: 24px; /* Adjust width */
+    height: 24px; /* Adjust height */
     border: 2px solid #D9DDE0;
-    border-radius: 50%;
+    border-radius: 50%; /* Ensure accurate circle */
     position: relative;
     margin-right: 20px;
-}
-
-.radio-container input[type="radio"]:checked~.radio-custom {
-    border-color: #0040C3;
-    background: #ffffff;
 }
 
 .radio-custom::after {
     content: '';
     display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+    width: 12px; /* Adjust width */
+    height: 12px; /* Adjust height */
+    border-radius: 50%; /* Ensure accurate circle */
     background: #0040C3;
     position: absolute;
     top: 50%;
@@ -58,28 +54,25 @@ body {
     opacity: 0;
 }
 
+.radio-container input[type="radio"]:checked~.radio-custom {
+    border-color: #0040C3;
+    background: #ffffff;
+}
+
 .radio-container input[type="radio"]:checked~.radio-custom::after {
     opacity: 1;
 }
 
 .payment-option-title {
-    font-size: 25px;
+    font-size: 1.562rem; /* fs-25 */
     font-weight: 500;
     color: #505050;
     margin-bottom: 0;
 }
 .payment-option-subtitle {
     margin-top: 10px;
-}
-
-.payment-option-subtitle {
+    font-size: 1rem; /* fs-16 */
     color: #9A9A9A;
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    margin-bottom: 0;
 }
 
 .payment-option-subtitle ul {
@@ -99,11 +92,7 @@ body {
     background: rgba(120, 164, 254, 0.06);
     color: #0040c3;
     margin-top: 100px;
-    font-family: Poppins;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
+    font-size: 1.562rem; /* fs-25 */
 }
 
 .coupon-code .couple-code-number {
@@ -127,46 +116,36 @@ body {
 
 .order-details h3 {
     color: #FFF;
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
+    font-size: 1rem; /* fs-16 */
     font-weight: 300;
-    line-height: 120%;
 }
 
 .order-details h1 {
-    font-size: 39px;
+    font-size: 2.438rem; /* fs-39 */
     font-weight: 500;
-    line-height: 120%;
 }
 
 .order-details .total-amount {
-    font-size: 39px;
+    font-size: 2.438rem; /* fs-39 */
     font-weight: 500;
-    line-height: 120%;
     text-align: right;
     color: white;
 }
 
 .order-details .title {
-    font-size: 20px;
+    font-size: 1.25rem; /* fs-20 */
     font-weight: 300;
-    line-height: 120%;
 }
 
 .order-details .section-subtitle {
-    font-size: 13px;
+    font-size: 0.812rem; /* fs-13 */
     font-weight: 300;
-    line-height: 120%;
 }
 
 .order-details .PNE-level {
     color: #FFF;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
+    font-size: 1.125rem; /* fs-18 */
     font-weight: 500;
-    line-height: 120%;
 }
 
 .line {
@@ -177,7 +156,7 @@ body {
 .page-title {
     color: var(--Colors-Neutral, #0E0E0E);
     font-family: Poppins;
-    font-size: 39px;
+    font-size: 2.188rem; /* fs-35 */
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
@@ -200,7 +179,6 @@ body {
 }
 
 .additional-option {
-    /* display: none; */
     text-align: center;
     margin-bottom: 35px;
 }
@@ -211,118 +189,142 @@ input[type="radio"][name="paymentMethod"][value="oneTimePayment"]:checked~.addit
 
 @media (max-width: 768px) {
     .radio-custom {
-        width: 20px;
-        height: 20px;
+        width: 18px; /* Adjust width */
+        height: 18px; /* Adjust height */
     }
 
     .radio-custom::after {
-        width: 10px;
-        height: 10px;
+        width: 9px; /* Adjust width */
+        height: 9px; /* Adjust height */
     }
 
     .payment-option-title {
-        font-size: 22px;
+        font-size: 1.375rem; /* fs-22 */
     }
 
     .payment-option-subtitle {
-        font-size: 14px;
+        font-size: 0.875rem; /* fs-14 */
     }
 
     .coupon-code {
-        font-size: 22px;
+        font-size: 1.375rem; /* fs-22 */
         margin-top: 50px;
     }
 
     .coupon-code .couple-code-number {
-        font-size: 18px;
+        font-size: 1.125rem; /* fs-18 */
     }
 
     .order-details h1 {
-        font-size: 35px;
+        font-size: 2.188rem; /* fs-35 */
     }
 
     .order-details h3 {
-        font-size: 14px;
+        font-size: 0.875rem; /* fs-14 */
     }
 
     .order-details .total-amount {
-        font-size: 35px;
+        font-size: 2.188rem; /* fs-35 */
     }
 
     .order-details .title {
-        font-size: 18px;
+        font-size: 1.125rem; /* fs-18 */
     }
 
     .order-details .section-subtitle {
-        font-size: 12px;
+        font-size: 0.75rem; /* fs-12 */
     }
 
     .order-details .PNE-level {
-        font-size: 18px;
+        font-size: 1.125rem; /* fs-18 */
     }
 
     .page-title {
-        font-size: 35px;
+        font-size: 2.188rem; /* fs-35 */
     }
 }
 
 @media (max-width: 576px) {
+    .radio-container {
+        width: 100%; /* Increase width */
+        padding: 20px; /* Adjust padding */
+    }
+
     .radio-custom {
-        width: 16px;
-        height: 16px;
+        width: 16px; /* Adjust width */
+        height: 16px; /* Adjust height */
+        border-radius: 50%; /* Ensure accurate circle */
     }
 
     .radio-custom::after {
-        width: 8px;
-        height: 8px;
+        width: 8px; /* Adjust width */
+        height: 8px; /* Adjust height */
     }
 
     .payment-option-title {
-        font-size: 20px;
+        font-size: 1.25rem; /* fs-20 */
     }
 
     .payment-option-subtitle {
-        font-size: 12px;
+        font-size: 0.75rem; /* fs-12 */
     }
 
     .coupon-code {
-        font-size: 20px;
+        font-size: 1.25rem; /* fs-20 */
         margin-top: 30px;
     }
 
     .coupon-code .couple-code-number {
-        font-size: 16px;
+        font-size: 1rem; /* fs-16 */
     }
 
     .order-details h1 {
-        font-size: 30px;
+        font-size: 1.875rem; /* fs-30 */
     }
 
     .order-details h3 {
-        font-size: 12px;
+        font-size: 0.75rem; /* fs-12 */
     }
 
     .order-details .total-amount {
-        font-size: 30px;
+        font-size: 1.875rem; /* fs-30 */
     }
 
     .order-details .title {
-        font-size: 16px;
+        font-size: 1rem; /* fs-16 */
     }
 
     .order-details .section-subtitle {
-        font-size: 10px;
+        font-size: 0.625rem; /* fs-10 */
     }
 
     .order-details .PNE-level {
-        font-size: 16px;
+        font-size: 1rem; /* fs-16 */
     }
 
     .page-title {
-        font-size: 30px;
+        font-size: 1.875rem; /* fs-30 */
     }
 }
 
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 60px; /* Adjust this value for mobile devices */
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .radio-custom {
+        width: 20px; /* Adjust width */
+        height: 20px; /* Adjust height */
+    }
+
+    .radio-custom::after {
+        width: 10px; /* Adjust width */
+        height: 10px; /* Adjust height */
+    }
+}
 
 .information-box {
     display: flex;
@@ -336,12 +338,9 @@ input[type="radio"][name="paymentMethod"][value="oneTimePayment"]:checked~.addit
 .information-box p {
     margin: 0;
     color: #FFB700;
-    font-family: Poppins;
-    font-size: 16px;
-    font-style: normal;
+    font-size: 1rem; /* fs-16 */
     font-weight: 500;
     line-height: 140%;
-    /* 22.4px */
 }
 
 .information-box img {
@@ -357,11 +356,12 @@ input[type="radio"][name="paymentMethod"][value="oneTimePayment"]:checked~.addit
     display: block;
     width: 100%;
     background: white;
-    font-size: 20px;
+    font-size: 1.25rem; /* fs-20 */
     font-weight: 500;
     line-height: 30px;
     transition: all 0.3s;
 }
+
 .pay-now:hover {
     background-color: black;
     color: white;

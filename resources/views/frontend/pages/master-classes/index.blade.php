@@ -121,20 +121,20 @@
 
         @if($contents->section_3_title_en)
             <div class="container-fluid certification-section">
-                <h1>{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
+                <h1 class="text-center fs-39 my-4">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
 
-                <div class="row gy-4">
-                    @if($contents->section_3_points_en)
+                @if($contents->section_3_points_en)
+                    <div class="row gy-4">
                         @foreach(json_decode($contents->{'section_3_points_' . $middleware_language} ?? $contents->section_3_points_en) as $point)
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-6 col-lg-4">
                                 <div class="certification-card">
                                     <img src="{{ asset('storage/backend/courses/course-images/' . $point->image) }}" alt="Certification Icon">
-                                    <p>{{ $point->description }}</p>
+                                    <p class="fs-16">{{ $point->description }}</p>
                                 </div>
                             </div>
                         @endforeach
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
         @endif
 
@@ -198,11 +198,10 @@
 
         @if($contents->section_5_title_en)
             <div class="faq-container">
-                <div class="container-fluid" style="padding-top: 100px; padding-bottom: 100px;">
+                <div class="container-fluid py-5">
                     <div class="text-center">
-                        <div class="mb-3 faq-heading h1">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
-
-                        <div class="faq-body">{{ $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en }}</div>
+                        <div class="mb-3 faq-heading fs-39">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
+                        <div class="faq-body fs-20">{{ $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en }}</div>
                     </div>
 
                     @if($faqs->isNotEmpty())
