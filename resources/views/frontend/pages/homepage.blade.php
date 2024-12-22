@@ -13,8 +13,8 @@
     @if($contents->section_1_title_en)
         <div class="container-xxl bg-white p-0">
             <div class="container-xxl position-relative p-0">
-                <div class="container-xxl pt-lg-5 pt-md-4 pt-3 hero-header">
-                    <div class="container my-5 py-5">
+                <div class="container-xxl hero-header">
+                    <div class="container my-5">
                         <div class="row align-items-center g-5">
                             <div class="col-md-12 col-lg-6 text-center text-lg-start">
                                 <h1 class="display-3 text-black ff-poppins-semibold fs-61 mb-4">

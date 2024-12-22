@@ -1,14 +1,8 @@
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
 }
 
 .heading-section {
-    padding-top: 100px;
     text-align: center;
     width: 100%;
     max-width: 100%;

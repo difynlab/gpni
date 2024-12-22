@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5%; /* Default top padding */
     position: relative;
 }
 
@@ -655,9 +654,6 @@
 
 /* For larger laptops with width 1440px */
 @media (min-width: 1440px) {
-    .section {
-        padding-top: 5%; /* Reduce top padding for larger laptops */
-    }
 
     .text-container {
         top: 15%; /* Adjust top position for larger laptops */

@@ -12,7 +12,7 @@
 
     <div class="container my-5">
         @if($contents->title_en)
-            <div class="faq-title fs-61 pt-md-5 pt-0">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
+            <div class="faq-title fs-61">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
 
             <div class="accordion pt-5" id="faqAccordion">
                 @if($faqs->isNotEmpty())
