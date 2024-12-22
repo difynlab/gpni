@@ -50,9 +50,6 @@ h1.display-4 {
     background-color: #FFC107;
     border-radius: 10px;
     color: #fff;
-}
-.author-card {
-    position: relative;
     z-index: 2; 
 }
 
@@ -268,6 +265,8 @@ h1.display-4 {
     color: #898989;
     border: none;
     background-color: transparent;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
 }
 
 .nav-tabs .nav-link.active {
@@ -312,11 +311,6 @@ h1.display-4 {
     margin-top: 30px;
 }
 
-.nav-tabs .nav-link {
-    padding: 0.5rem 1rem;
-    white-space: nowrap;
-}
-
 @media (max-width: 768px) {
     .nav-tabs .nav-item {
         margin-bottom: 0.5rem;
@@ -342,12 +336,10 @@ h1.display-4 {
 
     .course-content .content-title,
     .course-content .learn-more-link {
-        font-size: 20px;
         line-height: 120%;
     }
 
     .course-content .content-description {
-        font-size: 14px;
         line-height: 20px;
     }
 }
@@ -431,7 +423,6 @@ h1.display-4 {
 
 .testimonial-name {
     font-weight: 500;
-    font-size: 20px;
     color: #505050;
     margin-bottom: 5px;
 }
@@ -446,7 +437,6 @@ h1.display-4 {
 
 .testimonial-content {
     font-weight: 400;
-    font-size: 16px;
     line-height: 180%;
     color: #3e3e3e;
 }
@@ -573,12 +563,7 @@ h1.display-4 {
         padding: 15px;
     }
 
-    .testimonial-name {
-        font-size: 18px;
-    }
-
     .testimonial-content {
-        font-size: 14px;
         line-height: 160%;
     }
 
@@ -596,17 +581,10 @@ h1.display-4 {
         margin-bottom: 10px;
     }
 
-    .testimonial-name {
-        font-size: 16px;
-    }
-
     .testimonial-stars i {
         font-size: 16px;
     }
 
-    .testimonial-content {
-        font-size: 14px;
-    }
 }
 
 .merchandise-title {
@@ -1028,15 +1006,6 @@ h1.display-4 {
     margin-top: 20px;
 }
 
-.custom-testimonial-header {
-    font-weight: 300;
-    font-size: 20px;
-    color: #0e0e0e;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
 .quote {
     font-weight: 500;
     color: #0040c3;
@@ -1104,6 +1073,7 @@ h1.display-4 {
     display: flex;
     align-items: center;
     margin-top: 5px;
+    font-size: 16px;
 }
 
 .student-name {
@@ -1117,15 +1087,9 @@ h1.display-4 {
     line-height: 24px;
 }
 
-.stars {
-    font-size: 16px;
-}
-
 .font-weight-bold {
     color: #505050;
 }
-
-
 
 .student-image {
     width: 100%;

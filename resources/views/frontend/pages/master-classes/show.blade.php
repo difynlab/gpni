@@ -203,7 +203,7 @@
                                         <div class="testimonial-header">
                                             <img src="{{ asset('storage/backend/courses/course-reviews/' . $course_review->image) }}" alt="{{ $course_review->name }}" class="rounded-circle">
                                             <div>
-                                                <div class="testimonial-name">{{ $course_review->name }}</div>
+                                                <div class="testimonial-name fs-20">{{ $course_review->name }}</div>
                                                 <div class="testimonial-stars">
                                                     @for($i = 0; $i < $course_review->rating; $i++)
                                                         <i class="bi bi-star-fill star"></i>
@@ -211,7 +211,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="testimonial-content">
+                                        <div class="testimonial-content fs-20">
                                             {{ $course_review->content }}
                                         </div>
                                     </div>

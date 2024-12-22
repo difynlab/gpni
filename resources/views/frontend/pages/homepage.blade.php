@@ -108,24 +108,24 @@
                 </div>
 
                 <div class="tab-class pt-5 text-center">
-                                        <ul class="nav nav-pills d-flex justify-content-center mb-5 flex-md-row flex-column w-100">
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center mx-3 ms-0 pb-3 active pill-link w-100" data-bs-toggle="pill" href="#tab-1">
+                    <ul class="nav nav-pills d-flex justify-content-center mb-5 flex-md-row flex-column w-100">
+                        <li class="nav-item mx-5">
+                            <a class="d-flex align-items-center ms-0 pb-md-3 pb-0 active pill-link w-100" data-bs-toggle="pill" href="#tab-1">
                                 <div class="tab-text mt-n1 mb-0">
                                     {{ $contents->{'section_3_first_tab_' . $middleware_language} ?? $contents->section_3_first_tab_en }}
                                 </div>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center mx-3 pb-3 pill-link w-100" data-bs-toggle="pill" href="#tab-2">
-                                <div class="tab-text mt-n1 mb-0">
+                        <li class="nav-item mx-5">
+                            <a class="d-flex align-items-center pb-md-3 pb-0 pill-link" data-bs-toggle="pill" href="#tab-2">
+                                <div class="tab-text mt-1 mb-0">
                                     {{ $contents->{'section_3_second_tab_' . $middleware_language} ?? $contents->section_3_second_tab_en }}
                                 </div>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center mx-3 me-0 pb-3 pill-link w-100" data-bs-toggle="pill" href="#tab-3">
-                                <div class="tab-text mt-n1 mb-0">
+                        <li class="nav-item mx-5">
+                            <a class="d-flex align-items-center me-0 pb-md-3 pb-0 pill-link" data-bs-toggle="pill" href="#tab-3">
+                                <div class="tab-text mt-1 mb-0">
                                     {{ $contents->{'section_3_third_tab_' . $middleware_language} ?? $contents->section_3_third_tab_en }}
                                 </div>
                             </a>
