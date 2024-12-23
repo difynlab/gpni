@@ -17,8 +17,27 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
     color: #0E0E0E;
-    padding-top: 6rem;
+     padding-top: 6rem; 
 }
+
+@media (max-width: 1199.98px) {
+    body {
+        padding-top: 6rem; /* Padding for tablets and small desktops */
+    }
+}
+
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 4.6rem; /* Padding for tablets */
+    }
+}
+
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 4.6rem; /* Padding for mobile devices */
+    }
+}
+
 /* FONT FAMILIES */
 
 /* Define font weights for Poppins */

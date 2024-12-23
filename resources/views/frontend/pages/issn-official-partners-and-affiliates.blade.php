@@ -4,24 +4,23 @@
     ? $contents->{'page_name_' . $middleware_language} 
     : $contents->page_name_en)
 
-@push('after-styles')
+@push('after-styles') 
     <link rel="stylesheet" href="{{ asset('frontend/css/issn-official-partners-and-affiliates.css') }}">
 @endpush
 
 @section('content')
 
-    <main>
         @if($contents->section_1_title_en)
-            <section class="container issn-container mt-4 mt-md-5 pt-3 pt-md-5">
-                <div class="pt-3 pt-md-5 fs-61 fs-md-49 fs-sm-31 text-center mx-auto issn-heading">
+            <section class="container py-5">
+                <h2 class="text-center mx-auto issn-heading">
                     {{ $contents->{'section_1_title_'. $middleware_language} ?? $contents->section_1_title_en }}
-                </div>
+                </h2>
 
                 <div class="partners-section container pt-3 pt-md-5 mt-3 mt-md-4">
-                    <h2 class="fs-49 fs-md-39 fs-sm-31 mb-3 mb-md-4">
+                    <h2 class="fs-49  mb-3 mb-md-4">
                         {{ $contents->{'section_1_sub_title_'. $middleware_language} ?? $contents->section_1_sub_title_en }}
                     </h2>
-                    <div class="fs-25 fs-md-20 fs-sm-16 px-2 px-md-4 pt-2 pt-md-3">
+                    <div class="fs-25  px-2 px-md-4 pt-2 pt-md-3">
                         {!! $contents->{'section_1_description_'. $middleware_language} ?? $contents->section_1_description_en
                         !!}
                     </div>
@@ -52,10 +51,10 @@
                 <div class="container">
                     <div class="row g-4 image-content-container">
                         <div class="content col-12 col-lg-6 order-2 order-lg-1">
-                            <h2 class="fs-49 fs-md-39 fs-sm-31 mb-3 mb-md-4">
+                            <h2 class="fs-49  mb-3 mb-md-4">
                                 {{ $contents->{'section_2_title_'. $middleware_language} ?? $contents->section_2_title_en }}
                             </h2>
-                            <div class="description-content fs-25 fs-md-20 fs-sm-16">
+                            <div class="description-content fs-25">
                                 {!! $contents->{'section_2_description_'. $middleware_language} ??
                                 $contents->section_2_description_en !!}
                             </div>
@@ -80,10 +79,10 @@
         @if($contents->section_3_title_en)
             <section class="text-center py-4 py-md-5">
                 <div class="container">
-                    <h2 class="fs-49 fs-md-39 fs-sm-31 mb-3 mb-md-4">
+                    <h2 class="fs-49  mb-3 mb-md-4">
                         {{ $contents->{'section_3_title_'. $middleware_language} ?? $contents->section_3_title_en }}
                     </h2>
-                    <div class="fs-25 fs-md-20 fs-sm-16 text-subtitle text-center mx-auto mb-4">
+                    <div class="fs-25  text-subtitle text-center mx-auto mb-4">
                         {!! $contents->{'section_3_description_'. $middleware_language} ?? $contents->section_3_description_en
                         !!}
                     </div>
@@ -105,6 +104,5 @@
                 </div>
             </section>
         @endif
-    </main>
 
 @endsection

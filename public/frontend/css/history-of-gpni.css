@@ -598,9 +598,9 @@
 
 /* For laptops with width 1024px */
 @media (min-width: 1024px) and (max-width: 1199.98px) {
-    .section {
-        padding-top: 20%; /* Increase top padding for laptops */
-    }
+    /* section {
+        padding-top: 20%; /* Increase top padding for laptops
+    }. */
 
     .text-container {
         top: 20%; /* Increase top position for laptops */
@@ -654,22 +654,21 @@
 
 /* For larger laptops with width 1440px */
 @media (min-width: 1440px) {
-
+    .section {
+        padding-top: 5%; /* Reduce top padding for larger laptops */
+    }
     .text-container {
         top: 15%; /* Adjust top position for larger laptops */
         position: relative; /* Ensure text is not in front of the image */
     }
 
-    .since {
-        font-size: 160px; /* Adjust font size for larger laptops */
-    }
 
     .history {
         font-size: 49px; /* Adjust font size for "Our History" */
     }
 
     .text-container .since {
-        font-size: 124px; /* Adjust font size for "since" */
+        font-size: 114px; /* Adjust font size for "since" */
     }
 
     .text-container .history {

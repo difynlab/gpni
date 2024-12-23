@@ -399,10 +399,6 @@ body {
         width: 100px; /* Adjust width for mobile devices */
         height: 30px; /* Adjust height for mobile devices */
     }
-
-    .heading-text {
-        margin-top: -20px!important; /* Reduce top margin for small devices */
-    }
 }
 
 @media (max-width: 575.98px) {
@@ -419,10 +415,6 @@ body {
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
-    }
-
-    .heading-text {
-        margin-top: -20px!important;/* Reduce top margin for small devices */
     }
 
     .modal-content {
@@ -602,7 +594,6 @@ body {
     color: rgba(14, 14, 14, 0.90);
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 28px */
@@ -614,12 +605,9 @@ body {
     color: #0E0E0E;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 61px;
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 73.2px */
-    margin-top: 20px; /* Add some space above the text */
-    margin-bottom: 20px; /* Reduce space below the text */
 }
 
 /* Styles for medium mobile devices */
@@ -638,21 +626,15 @@ body {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
-    .heading-text {
-        margin-top: -20px !important; /* Reduce top margin for small devices */
-    }
 }
 
 /* Styles for tablets and small laptops */
 @media (max-width: 1023.98px) {
     .heading-text {
-        font-size: 2rem; /* Adjust font size for tablets */
         line-height: 120%; /* Adjust line height for tablets */
     }
 
     .description-text {
-        font-size: 1.25rem; /* Adjust font size for tablets */
         line-height: 130%; /* Adjust line height for tablets */
     }
 
@@ -708,12 +690,10 @@ body {
 /* Styles for laptops */
 @media (min-width: 1024px) and (max-width: 1439.98px) {
     .heading-text {
-        font-size: 61px; /* Ensure correct font size for laptops */
         line-height: 120%; /* Ensure correct line height for laptops */
     }
 
     .description-text {
-        font-size: 20px; /* Ensure correct font size for laptops */
         line-height: 140%; /* Ensure correct line height for laptops */
     }
 
@@ -734,12 +714,10 @@ body {
 /* Styles for large laptops and desktops */
 @media (min-width: 1440px) {
     .heading-text {
-        font-size: 61px; /* Ensure correct font size for large laptops and desktops */
         line-height: 120%; /* Ensure correct line height for large laptops and desktops */
     }
 
     .description-text {
-        font-size: 20px; /* Ensure correct font size for large laptops and desktops */
         line-height: 140%; /* Ensure correct line height for large laptops and desktops */
         max-width: 800px; /* Limit the width to ensure it fits in 2 lines */
         margin: 0 auto; /* Center the text */

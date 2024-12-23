@@ -8,16 +8,14 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/gift-cards.css') }}">
 @endpush
 
-@section('content')
+@section('content') 
 
     @if($contents->title_en)
-        <main class="container my-5 pt-5">
+        <div class="container py-5">
+            <h2 class="header-title text-center">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
             <div class="pt-5">
                 <x-frontend.notification></x-frontend.notification>
             </div>
-
-            <h1 class="header-title fs-49 pt-5 text-center">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
-
             <p class="description fs-25 text-center">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
 
             <p class="description fs-25 text-center">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
@@ -82,7 +80,7 @@
                     </form>
                 </div>
             </div>
-        </main>
+        </div>
     @endif
 
 @endsection

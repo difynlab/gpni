@@ -3,15 +3,15 @@
 @section('title', $contents->{'page_name_' . $middleware_language} !== '' 
     ? $contents->{'page_name_' . $middleware_language} 
     : $contents->page_name_en)
-
+ 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('frontend/css/insurance-and-professional-membership.css') }}">
 @endpush
 
 @section('content')
     @if($contents->section_1_title_en)
-        <div class="container bg-white section my-md-5 my-0">
-            <h2 class="title-main text-center mx-auto my-5 fs-61">
+        <div class="container bg-white section py-5">
+            <h2 class="title-main text-center mx-auto">
                 {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
             </h2>
             <div class="row align-items-center g-0 my-5">
@@ -27,7 +27,7 @@
                             class="img-fluid img-fluid-custom">
                     @endif
                 </div>
-                <div class="col-md-6 content-text fs-25 px-md-0 px-4">
+                <div class="col-md-6 content-text fs-25 px-4">
                     {!! $contents->{'section_1_content_' . $middleware_language} ?? $contents->section_1_content_en !!}
                 </div>
             </div>

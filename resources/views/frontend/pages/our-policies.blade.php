@@ -3,7 +3,6 @@
 @section('title', $contents->{'page_name_' . $middleware_language} !== '' 
     ? $contents->{'page_name_' . $middleware_language} 
     : $contents->page_name_en)
-
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('frontend/css/our-policies.css') }}">
 @endpush
@@ -11,9 +10,9 @@
 @section('content')
 
     @if($contents->title_en)
-        <div class="container policies-section">
+        <div class="container py-5 policies-section">
             <h2>{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
-            <div class="text-center">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
+            <div class="text-center fs-20">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
 
             @if($policy_categories->isNotEmpty())
                 <ul class="nav nav-tabs justify-content-center pt-5" id="policiesTabs" role="tablist">

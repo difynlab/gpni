@@ -3,10 +3,6 @@ body {
     background-color: #fff;
 }
 
-.section {
-    padding: 50px 0;
-}
-
 .title-main {
     width: 70%;
     color: #0E0E0E;
@@ -14,7 +10,6 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     line-height: 120%;
-    padding: 3rem;
     margin-bottom: 50px;
 }
 
@@ -167,7 +162,6 @@ ul li {
 
 
     .title-main {
-        padding: 1rem;
         width: 100%;
     }
 
@@ -200,7 +194,6 @@ ul li {
     }
     
     .title-main {
-        padding: 2rem; 
         width: 70%;
     }
 
@@ -223,11 +216,7 @@ ul li {
     .section {
         padding: 50px 0;
     }
-
-    .title-main {
-        padding: 3rem; 
-    }
-
+    
     .img-fluid-custom {
         max-width: 610px; /* Adjust image width for larger screens */
     }

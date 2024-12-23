@@ -1,19 +1,8 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #505050;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
-
 .header-title {
     color: #0E0E0E;
     text-align: center;
-    font-size: 3.062rem; /* 49px */
     font-weight: 500;
     line-height: 3.675rem; /* 58.8px */
-    /* 120% of font size */
-    margin: 0 auto 30px auto;
 }
 
 .description {
@@ -145,7 +134,6 @@ input[type=number] {
 /* Responsive adjustments */
 @media (max-width: 1199.98px) {
     .header-title {
-        font-size: 2.5rem; /* Reduced from 3.062rem */
         line-height: 3rem; /* Adjusted line height */
     }
 
@@ -171,7 +159,6 @@ input[type=number] {
 
 @media (max-width: 991.98px) {
     .header-title {
-        font-size: 2rem; /* Further reduced */
         line-height: 2.5rem; /* Adjusted line height */
     }
 
@@ -201,7 +188,6 @@ input[type=number] {
 
 @media (max-width: 767.98px) {
     .header-title {
-        font-size: 1.5rem; /* Further reduced */
         line-height: 2rem; /* Adjusted line height */
     }
 

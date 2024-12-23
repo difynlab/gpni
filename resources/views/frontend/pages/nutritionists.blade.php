@@ -17,8 +17,8 @@
                 <x-frontend.notification></x-frontend.notification>
 
                 <div class="container">
-                    <h1 class="fs-49">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
-                    <h1 class="fs-39">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</h1>
+                    <h2>{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
+                    <h2>{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</h2>
 
                     <form action="{{ route('frontend.nutritionists.index') }}" method="GET">
                         <div class="search-field">

@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <div class="container my-5">
+    <div class="container py-5">
         @if($contents->title_en)
             <div class="faq-title fs-61">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
 

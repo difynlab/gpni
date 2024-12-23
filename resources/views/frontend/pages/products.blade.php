@@ -10,10 +10,10 @@
 
 @section('content')
 
-    <div class="container mt-5">
+    <div class="container py-5">
         <x-frontend.notification></x-frontend.notification>
 
-        <div class="product-heading">{{ $contents->{'page_title_' . $middleware_language} ?? $contents->page_title_en }}</div>
+        <h2 class="product-heading pb-2">{{ $contents->{'page_title_' . $middleware_language} ?? $contents->page_title_en }}</h2>
 
         @if($products->isNotEmpty())
             <nav class="nav nav-tabs category-tabs" id="myTab" role="tablist">

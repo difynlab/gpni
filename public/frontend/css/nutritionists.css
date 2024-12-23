@@ -1,12 +1,5 @@
-body {
-    background-color: #f6fbff;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
 .learn-best-section {
     text-align: center;
-    padding-top: 100px;
     padding-bottom: 0;
 }
 
@@ -433,7 +426,7 @@ body {
 
     .learn-best-section .search-field input {
         font-size: 0.75rem; /* 12px */
-    }
+    } 
 
     .coach-image {
         max-width: 200px; /* Adjust the maximum width for small screens */
