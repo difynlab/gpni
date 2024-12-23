@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container py-5">
         <div class="row mb-4">
             <div class="col">
                 <h1 class="display-4 fs-49">{{ $course->title }}</h1>

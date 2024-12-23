@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container mt-lg-5 py-lg-5">
+    <div class="container py-5">
         <div class="main-container">
             <x-frontend.notification></x-frontend.notification>
 

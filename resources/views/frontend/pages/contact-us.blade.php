@@ -12,7 +12,7 @@
 @section('content')
 
     @if($contents->title_en)
-        <main class="container my-5">
+        <main class="container py-5">
 
             <x-frontend.notification></x-frontend.notification>
 
