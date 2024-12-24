@@ -10,11 +10,11 @@
 
 @section('content')
 
-    <div class="container-fluid membership-section">
+    <div class="container py-5 membership-section">
         <x-frontend.notification></x-frontend.notification>
 
         @if($contents->section_1_title_en)
-            <h2 class="ff-poppins-medium fs-61">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
+            <h2 class="ff-poppins-medium fs-49">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
             <div class="px-4 ff-poppins-regular fs-25 pt-2">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
             </div>
         @endif

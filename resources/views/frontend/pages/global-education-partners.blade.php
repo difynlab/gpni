@@ -3,7 +3,7 @@
 @section('title', $contents->{'page_name_' . $middleware_language} !== '' 
     ? $contents->{'page_name_' . $middleware_language} 
     : $contents->page_name_en)
-
+ 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('frontend/css/global-education-partners.css') }}">
 @endpush
@@ -11,13 +11,13 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <section class="global-education-partners py-md-5 mt-md-5">
-            <div class="container text-center pt-5">
-                <h2 class="section-title-global text-center mx-auto mb-4 fs-61">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
+        <section class="global-education-partners container py-5">
+            <div class="container text-center">
+                <h2 class="section-title-global text-center mx-auto">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
             </div>
         </section>
 
-        <section class="education-partners py-5">
+        <section class="education-partners">
             <div class="container text-center">
                 <h2 class="section-title-partners text-center mx-auto mb-4 fs-49">{{ $contents->{'section_1_sub_title_' . $middleware_language} ?? $contents->section_1_sub_title_en }}</h2>
 

@@ -1,14 +1,10 @@
-body {
-    padding-top: 58px;
-}
-
-/* Navigation Bar Styles */
+/* Navigation Bar Styles */ */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #fff;
+    background-color: #fff; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -31,31 +27,9 @@ body {
     color: #000;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 61px;
     font-style: normal;
     font-weight: 500;
     line-height: 140%; /* 85.4px */
-    margin-bottom: 20px; /* Add margin to create space */
-    padding-top: 30px; /* Add top padding */
-}
-
-/* Responsive Font Sizes for Product Heading */
-@media (max-width: 1199.98px) {
-    .product-heading {
-        font-size: 3rem; /* fs-61 */
-    }
-}
-
-@media (max-width: 991.98px) {
-    .product-heading {
-        font-size: 2.5rem; /* fs-61 */
-    }
-}
-
-@media (max-width: 767.98px) {
-    .product-heading {
-        font-size: 2rem; /* fs-61 */
-    }
 }
 
 .category-tabs {
@@ -257,6 +231,7 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
+    text-align: left;
 }
 
 /* Responsive Styles */

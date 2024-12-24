@@ -1,17 +1,15 @@
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
 }
 
 .heading-section {
-    padding-top: 100px;
     text-align: center;
     width: 100%;
     max-width: 100%;
+}
+
+.description {
+    color: #505050;
 }
 
 .title {
@@ -20,224 +18,15 @@ body {
     color: #0e0e0e;
 }
 
-@media (max-width: 1440px) and (min-width: 1024px), (max-width: 1024px) {
+@media (max-width: 1440px) and (min-width: 1024px) {
     .title {
         font-size: 61px;
-        text-align: center;
     }
-
-    .header-section h1 {
-        font-size: 61px;
-        text-align: center;
-    }
-
-    .header-section p {
-        font-size: 25px;
-        text-align: center;
-    }
-
-    .faq-heading {
-        font-size: 2rem; /* fs-36 */
-        text-align: center;
-    }
-
-    .faq-body {
-        font-size: 1.25rem; /* fs-20 */
-        text-align: center;
-    }
-
-    .faq-container .accordion-button {
-        font-size: 0.875rem;
-        text-align: center;
-    }
-
-    .faq-container .accordion-header {
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    .faq-container .accordion-body {
-        font-size: 0.875rem;
-        text-align: center;
-    }
-
-    .testimonial-heading {
-        font-size: 2.25rem; /* fs-36 */
-        text-align: center;
-    }
-
-    .testimonial-body {
-        font-size: 1.5rem;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 140%;
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .student-video {
-        background-color: transparent;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        max-width: 700px;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .student-video video {
-        width: 100%;
-        border-radius: 10px;
-        background-color: #000;
-    }
-
-    .testimonials-wrapper {
-        height: 550px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .why-certified-section h2 {
-        font-size: var(--fs-36);
-        text-align: center;
-    }
-
-    .why-certified-section p {
-        font-size: var(--fs-20);
-        text-align: center;
-    }
-
-    /* .certification-section {
-        text-align: center;
-        padding-left: 50px;
-        padding-right: 50px;
-        width: 100%;
-        box-sizing: border-box;
-    } */
-
-    .certification-section h1 {
-        font-size: 36px;
-        text-align: center;
-    }
-
-    .testimonial-container {
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .faq-container {
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* .container, .container-fluid {
-        width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-left: auto;
-        margin-right: auto;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 100%;
-    } */
-
-    /* .container-fluid {
-        width: 100%;
-        height: 100vh; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        padding-left: 15px; /* Add left padding 
-        padding-right: 15px; /* Add right padding 
-    }
-} */
+}
 
 @media (max-width: 1199.98px) {
     .title {
         font-size: var(--fs-49);
-    }
-}
-
-@media (max-width: 1024px) {
-    .title {
-        font-size: 61px;
-    }
-
-    .header-section h1 {
-        font-size: 61px;
-    }
-
-    .header-section p {
-        font-size: 25px;
-    }
-
-    .faq-heading {
-        font-size: 2rem; /* fs-36 */
-    }
-
-    .faq-body {
-        font-size: 1.25rem; /* fs-20 */
-    }
-
-    .faq-container .accordion-button {
-        font-size: 0.875rem;
-    }
-
-    .faq-container .accordion-header {
-        font-size: 1rem;
-    }
-
-    .faq-container .accordion-body {
-        font-size: 0.875rem;
-    }
-
-    .testimonial-heading {
-        font-size: 2.25rem; /* fs-36 */
-    }
-
-    .testimonial-body {
-        font-size: 1.5rem;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 140%;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .student-video {
-        background-color: transparent;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        max-width: 700px;
-        width: 100%;
-    }
-
-    .student-video video {
-        width: 100%;
-        border-radius: 10px;
-        background-color: #000;
-    }
-
-    .testimonials-wrapper {
-        height: 550px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
     }
 }
 
@@ -289,59 +78,22 @@ body {
 
 .header-section h1 {
     font-weight: 500;
-    font-size: 40px;
     line-height: 120%;
     color: #0e0e0e;
     padding-top: 46px;
 }
 
-@media (max-width: 1199.98px) {
-    .header-section h1 {
-        font-size: var(--fs-36);
-    }
-}
-
-@media (max-width: 991.98px) {
-    .header-section h1 {
-        font-size: var(--fs-31);
-    }
-}
-
-@media (max-width: 767.98px) {
-    .header-section h1 {
-        font-size: var(--fs-25);
-    }
-}
-
 .header-section p {
     font-weight: 400;
-    font-size: var(--fs-25);
     line-height: 140%;
     color: #505050;
-    max-width: 924px;
+    /* max-width: 924px; */
     margin: 0 auto;
-}
-
-@media (max-width: 1199.98px) {
-    .header-section p {
-        font-size: var(--fs-20);
-    }
-}
-
-@media (max-width: 991.98px) {
-    .header-section p {
-        font-size: var(--fs-16);
-    }
-}
-
-@media (max-width: 767.98px) {
-    .header-section p {
-        font-size: var(--fs-13);
-    }
 }
 
 .course-filter-section {
     text-align: center;
+    margin-top: 5rem;
     margin-bottom: 20px;
 }
 
@@ -374,7 +126,6 @@ body {
 }
 
 .no-data {
-    font-size: 30px;
     text-align: center;
     margin-bottom: 0;
     font-weight: 500;
@@ -382,15 +133,11 @@ body {
 }
 
 .card {
-    margin: 1rem; /* Increased margin for all devices */
-    box-shadow: 0px 1.291px 12.909px 0px #E3E3E3;
+    /* width: 22rem;
+    margin: 2rem; Increased margin for all devices */
+    box-shadow: 0px 1.291px 12.909px 0px #E3E3E3;        
     border-radius: 6.455px;
-}
-
-@media (max-width: 991.98px) {
-    .card {
-        margin: 2rem; /* Same margin for tablets */
-    }
+    border: none;
 }
 
 .card img {
@@ -399,9 +146,8 @@ body {
 
 .card-price {
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 140%;
+    font-weight: 600;
+    line-height: 140%; /* 42px */
     color: #0040c3;
     text-align: center;
 }
@@ -427,12 +173,23 @@ body {
 }
 
 .nav-tabs .nav-link {
-    font-size: 20px;
+    /* font-size: 20px; */
     font-weight: 500;
     color: #898989;
     border: none;
     background-color: transparent;
 }
+@media (max-width: 768px) {
+    .nav-tabs {
+        border-bottom-width: 1px !important;
+        border-bottom-color: #dee2e6;
+    }
+    .nav-tabs .nav-link {
+        border-width: 1px;
+        margin-bottom: 5px;
+    }
+}
+
 
 .nav-tabs .nav-link.active {
     background-color: transparent;
@@ -451,7 +208,6 @@ body {
 .card-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 23px;
     line-height: 140%;
     color: #0e0e0e;
     text-align: left;
@@ -508,14 +264,15 @@ body {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    border: 2px solid #2C68E3;
+    border: 2px solid #0040C3;
     border-radius: 25px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 12px;
-    color: #2C68E3;
+    color: #0040C3;
     text-decoration: none;
     text-transform: uppercase;
+    width: 147px;
 }
 
 @media (max-width: 767.98px) {
@@ -525,33 +282,66 @@ body {
     }
 }
 
+@media (max-width: 991.98px) {
+    .enroll-button {
+        padding: 2px 5px;
+        font-size: 10px;
+        width: 58%;
+    }
+}
+
 .card-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin-top: auto;
+    background-color: transparent !important;
+    border-top: none;
+    padding: 0;
 }
-
-/* .certification-section {
-    text-align: center;
-    margin-top: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
-    width: 100%;
-    max-width: 100%;
-} */
 
 .certification-section h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 39px;
     line-height: 120%;
     color: #0e0e0e;
     margin-bottom: 40px;
 }
 
+.certification-section {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+.certification-section .title {
+    font-weight: 500;
+    line-height: 140%;
+    color: #0040c3;
+    margin-bottom: 25px;
+}
+.certification-section .certificates-container {
+    margin-bottom: 25px;
+}
+.certification-section .certificates-container .certificate-image {
+    width: 100%;
+    border-radius: 8px;
+}
+.certification-section .rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 16.58px;
+    line-height: 140%;
+    color: #898989;
+    justify-content: center;
+}
+.certification-section .rating img {
+    height: 20px;
+}
+
+
 .certification-card {
-    background: white;
     max-width: 392px;
     margin: auto;
     padding: 20px;
@@ -569,7 +359,6 @@ body {
 .certification-card p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 16px;
     line-height: 140%;
     color: #0e0e0e;
 }
@@ -607,52 +396,51 @@ body {
     }
 }
 
-/* FAQ */
+@media (max-width: 768px) {
+    .certification-section .certificates-container {
+        flex-direction: column;
+    }
+    .certification-section {
+        padding: 20px 10px;
+    }
+}
+/* FAQ Container */
 .faq-container {
     background-color: #FFF;
     width: 100%;
     max-width: 100%;
     padding: 20px 50px;
 }
-
 .faq-heading {
-    font-size: 3rem;
     color: #000;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
-
 .faq-body {
-    font-size: 1.5rem;
     color: #000;
     font-weight: 400;
 }
-
 .arrow-icon {
-    width: 24px;
+    width: 24px; /* Adjust as needed */
     height: auto;
     transition: transform 0.3s ease;
 }
-
 .card-header .collapsed .arrow-icon {
     transform: rotate(-180deg);
 }
-
 .btn-link {
     width: 100%;
-    text-align: left;
+    text-align: left; /* Align text to the left */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between text and arrow */
     align-items: center;
 }
-
 .faq-container .accordion-item {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Adds bottom margin to each accordion card */
     border-radius: 20px;
     color: #FFF;
     box-shadow: 0 4px 8px rgba(21, 21, 21, 0.1);
 }
-
 .faq-container .accordion-button {
     background-color: #fff;
     color: #000;
@@ -661,50 +449,41 @@ body {
     border-radius: 20px;
     height: 100px;
 }
-
 .faq-container .accordion-item:first-of-type {
     border-radius: 20px;
 }
-
 .faq-container .accordion-item:last-of-type {
     border-radius: 20px;
 }
-
-.faq-container .accordion-item:first-of-type .accordion-button,
-.accordion-item:first-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+/* Apply border-radius to the first accordion button */
+.faq-container .accordion-item:first-of-type .accordion-button, .accordion-item:first-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
+    border-top-left-radius: 20px; /* Adjust as needed */
+    border-top-right-radius: 20px; /* Adjust as needed */
 }
-
+/* Apply border-radius to the last accordion item when not collapsed */
 .faq-container .accordion-item:last-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px; /* Adjust as needed */
+    border-bottom-right-radius: 20px; /* Adjust as needed */
 }
-
-.faq-container .accordion-item:last-of-type .accordion-button.collapsed {
+.faq-container .accordion-item:last-of-type .accordion-button.collapsed{
     border-radius: 20px;
 }
-
-.faq-container .accordion-item:last-of-type,
-.accordion-item:last-of-type .accordion-button {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+/* Ensure the last accordion item always has rounded corners at the bottom */
+.faq-container .accordion-item:last-of-type, .accordion-item:last-of-type .accordion-button {
+    border-bottom-left-radius: 20px; /* Adjust as needed */
+    border-bottom-right-radius: 20px; /* Adjust as needed */
 }
-
 .faq-container .accordion-button:not(.collapsed)::after {
     background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23e59114\'%3e%3cpath stroke=\'%23e59114\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e');
     transform: rotate(-180deg);
 }
-
 .faq-container .accordion-button::after {
     background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23666565\'%3e%3cpath stroke=\'%23666565\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e');
 }
-
 .faq-container .accordion-button:hover {
-    background-color: inherit;
-    color: inherit;
+    background-color: inherit; /* Or use the specific color of the button's non-hover state */
+    color: inherit; /* Adjust if the text color also changes on hover */
 }
-
 .faq-container .accordion-header {
     background-color: #fff;
     color: #000;
@@ -718,8 +497,7 @@ body {
 .faq-container .accordion {
     border-radius: 20px;
 }
-
-.faq-container .accordion-body {
+.faq-container .accordion-body{
     color: #000;
     background-color: #FFF;
     border-radius: 0 0 20px 20px;
@@ -727,73 +505,17 @@ body {
     font-size: 1rem;
 }
 
-@media (max-width: 1199.98px) {
-    .faq-heading {
-        font-size: 2rem; /* fs-36 */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .accordion-button {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
     }
-
-    .faq-body {
-        font-size: 1.25rem; /* fs-20 */
-    }
-
-    .faq-container .accordion-button {
-        font-size: 1rem;
-    }
-
-    .faq-container .accordion-header {
-        font-size: 1.25rem;
-    }
-
-    .faq-container .accordion-body {
-        font-size: 1rem;
+    .accordion-body {
+        font-size: 0.875rem; /* Adjust font size for smaller screens */
     }
 }
-
-@media (max-width: 991.98px) {
-    .faq-heading {
-        font-size: 1.25rem; /* fs-25 */
-    }
-
-    .faq-body {
-        font-size: 1rem; /* fs-16 */
-    }
-
-    .faq-container .accordion-button {
-        font-size: 0.875rem;
-    }
-
-    .faq-container .accordion-header {
-        font-size: 1rem;
-    }
-
-    .faq-container .accordion-body {
-        font-size: 0.875rem;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .faq-heading {
-        font-size: 1.5rem; /* fs-31 */
-    }
-
-    .faq-body {
-        font-size: 0.875rem; /* fs-13 */
-    }
-
-    .faq-container .accordion-button {
-        font-size: 0.75rem;
-    }
-
-    .faq-container .accordion-header {
-        font-size: 0.875rem;
-    }
-
-    .faq-container .accordion-body {
-        font-size: 0.75rem;
-    }
-}
-
-/* Testimonial styles */
+/* Testimonial Container */
 .testimonial-container {
     background-color: #0040c3;
     background-image: url('../../../storage/frontend/testimonial-background.svg');
@@ -801,15 +523,11 @@ body {
     background-repeat: repeat-y;
     background-position: center;
     font-family: 'Poppins', sans-serif;
+    background-color: #0040c3 !important;
     color: #fff !important;
-    width: 100vw; /* Full width of the viewport */
-    position: relative; /* Ensure it spans the entire width */
-    left: 50%; /* Center the container */
-    transform: translateX(-50%); /* Center the container */
-    margin: 0; /* Remove any default margins */
+    margin: 0;
     padding: 0;
 }
-
 .testimonial-heading {
     font-size: 3.062rem; /* fs-49 */
     color: #fff;
@@ -831,6 +549,8 @@ body {
     }
 }
 
+
+
 .testimonial-body {
     font-size: 1.5rem;
     font-size: 20px;
@@ -839,7 +559,6 @@ body {
     max-width: 800px;
     margin: 0 auto;
 }
-
 .student-video {
     background-color: transparent;
     border-radius: 10px;
@@ -848,13 +567,11 @@ body {
     max-width: 700px;
     width: 100%;
 }
-
 .student-video video {
     width: 100%;
     border-radius: 10px;
     background-color: #000;
 }
-
 .testimonials-wrapper {
     height: 550px;
     display: flex;
@@ -863,7 +580,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 .testimonials {
     height: 100%;
     width: 100%;
@@ -873,7 +589,6 @@ body {
     justify-content: center;
     position: relative;
 }
-
 .testimonial {
     width: 80%;
     background-color: #fff;
@@ -886,31 +601,26 @@ body {
     opacity: 0.3;
     transform: scale(0.9);
 }
-
 .testimonial img.quote {
     width: 30px;
     margin-bottom: 10px;
 }
-
 .testimonial .author {
     display: flex;
     align-items: center;
     margin-top: 20px;
 }
-
 .testimonial .author img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 15px;
 }
-
 .testimonial.clear {
     opacity: 1;
     transform: scale(1);
     z-index: 1;
 }
-
 .responsive-video {
     width: 100%;
     height: auto;
@@ -948,6 +658,7 @@ body {
     .enroll-button {
         padding: 5px 10px;
         font-size: 10px;
+        width: 147px;
     }
 }
 
@@ -1006,69 +717,33 @@ body {
 }
 
 
-
-/* Update FAQ section styles */
-.faq-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 20px 50px;
-}
-
-
-
-@media (max-width: 767px) {
-    .faq-container {
-        padding: 20px 15px;
+/* For medium devices */
+@media (max-width: 991.98px) {
+    .fs-16 {
+        font-size: 14px;
     }
 }
 
-
-/* Remove dotted outlines */
-* {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/* Reset container styles
-.container-xxl, 
-.container-fluid, 
-.container,
-.container-my-5 {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    margin: 0 !important;
-} */
-
-/* Reset section styles */
-.heading-section,
-.course-filter-section,
-.certification-section,
-.header-section,
-/* .faq-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 20px 50px !important;
-    margin: 0 !important;
-} */
-
-
-/* Remove any browser debugging outlines */
-:focus {
-    outline: none !important;
- }
-}
-
-
-/* Override any Bootstrap container max-widths
-@media (min-width: 768px) {
-    .container,
-    .container-md,
-    .container-sm,
-    .container-fluid,
-    .container-xxl,
-    .container-my-5 {
-        max-width: 100% !important;
+/* For small devices */
+@media (max-width: 767.98px) {
+    .fs-16 {
+        font-size: 12px;
     }
-} */
+}
+
+/* For extra small devices */
+@media (max-width: 575.98px) {
+    .fs-16 {
+        font-size: 11px;
+    }
+}
+
+.card-price-column {
+    color: #898989;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

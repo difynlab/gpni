@@ -10,7 +10,7 @@
 @section('content')
 
     @if ($contents->section_1_title_en)
-        <div class="different-section">
+        <div class="different-section fs-61 px-4 py-5">
             <div class="container">
                 <h2>{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
                 <div class="image-placeholder">

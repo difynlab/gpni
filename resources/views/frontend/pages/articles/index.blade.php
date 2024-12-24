@@ -11,11 +11,11 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <div class="container my-lg-5 pt-lg-5">
+        <div class="container py-5">
             <x-frontend.notification></x-frontend.notification>
 
-            <h1 class="all-articles-heading fs-49 py-5">{{ $contents->{'section_1_title_' . $middleware_language} ??
-                $contents->section_1_title_en }}</h1>
+            <h2 class="all-articles-heading">{{ $contents->{'section_1_title_' . $middleware_language} ??
+                $contents->section_1_title_en }}</h2>
 
             <div class="row">
                 <div class="col-lg-8">

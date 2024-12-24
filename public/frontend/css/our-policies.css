@@ -1,5 +1,4 @@
 .policies-section {
-    padding-top: 6rem !important; /* Reduce top padding */
     padding: 20px 20px; /* Adjust padding to left and right */
 }
 
@@ -7,7 +6,6 @@
     color: #0E0E0E;
     text-align: center;
     font-family: "Poppins";
-    font-size: 3.812rem; /* 61px */
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
@@ -18,7 +16,6 @@
     color: rgba(14, 14, 14, 0.90);
     text-align: left; /* Center align the text */
     font-family: "Poppins";
-    font-size: 1.562rem; /* 25px */
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
@@ -31,7 +28,6 @@
 
 .policies-section .description {
     text-align: center;
-    font-size: 1.562rem; /* 25px */
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
@@ -157,17 +153,7 @@
 /* Responsive adjustments */
 @media (max-width: 1440px) {
     .policies-section {
-        padding-top: 8rem !important; /* Add top padding for 1440px */
         padding: 20px 20px; /* Adjust padding for 1440px */
-    }
-
-    .policies-section h2 {
-        font-size: 3.812rem; /* Same font size for 1440px */
-    }
-
-    .policies-section p,
-    .policies-section .description {
-        font-size: 1.562rem; /* Same font size for 1440px */
     }
 
     .policies-section .description {
@@ -187,17 +173,7 @@
 
 @media (max-width: 1199.98px) {
     .policies-section {
-        padding-top: 4rem !important; /* Reduce top padding for large devices */
         padding: 20px 15px; /* Adjust padding for large devices */
-    }
-
-    .policies-section h2 {
-        font-size: 3rem; /* Reduced from 3.812rem */
-    }
-
-    .policies-section p,
-    .policies-section .description {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
     }
 
     .nav-tabs .nav-link {
@@ -207,17 +183,7 @@
 
 @media (max-width: 1024px) {
     .policies-section {
-        padding-top: 8rem !important; /* Add top padding for laptops */
         padding: 20px 15px; /* Adjust padding for laptops */
-    }
-
-    .policies-section h2 {
-        font-size: 2.5rem; /* Reduced from 3.812rem */
-    }
-
-    .policies-section p,
-    .policies-section .description {
-        font-size: 1rem; /* Reduced from 1.562rem */
     }
 
     .policies-section .description {
@@ -237,12 +203,7 @@
 
 @media (max-width: 991.98px) {
     .policies-section {
-        padding-top: 3rem !important; /* Reduce top padding for medium devices */
         padding: 20px 10px; /* Adjust padding for medium devices */
-    }
-
-    .policies-section h2 {
-        font-size: 2rem; /* Further reduced */
     }
 
     .policies-section p,
@@ -259,12 +220,7 @@
 
 @media (max-width: 767.98px) {
     .policies-section {
-        padding-top: 2rem !important; /* Reduce top padding for small devices */
         padding: 20px 5px; /* Adjust padding for small devices */
-    }
-
-    .policies-section h2 {
-        font-size: 1.5rem; /* Further reduced */
     }
 
     .policies-section p,
@@ -285,13 +241,9 @@
 
 @media (max-width: 575.98px) {
     .policies-section {
-        padding-top: 1rem !important; /* Reduce top padding for extra small devices */
         padding: 10px 5px; /* Adjust padding for extra small devices */
     }
 
-    .policies-section h2 {
-        font-size: 1.25rem; /* Further reduced */
-    }
 
     .policies-section p,
     .policies-section .description,

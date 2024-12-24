@@ -10,12 +10,12 @@
 
 @section('content')
 
-    <div class="container mt-5">
+    <div class="container py-5">
         @if ($contents->title_en)
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
                     <h2 class="heading-text">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
-                    <div class="description-text">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
+                    <div class="description-text py-2 fs-20">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
                 </div>
             </div>
         @endif
