@@ -45,7 +45,8 @@
                                                 @foreach($books as $book)
                                                     <div class="chapter-item">
                                                         <span>{{ $book->title }}</span>
-                                                        <a href="{{ asset('storage/backend/courses/course-chapter-books/' . $book->file) }}" download class="btn-download">{{ $student_dashboard_contents->courses_download }}</a>
+                                                        <!-- <a href="{{ asset('storage/backend/courses/course-chapter-books/' . $book->file) }}" download class="btn-download">{{ $student_dashboard_contents->courses_download }}</a> -->
+                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $book->file }}" >Read Document</button>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -84,11 +85,18 @@
                                         </h2>
                                         <div id="collapseVideoLinks" class="accordion-collapse collapse" data-bs-parent="#accordionContents">
                                             <div class="accordion-body pb-0">
-                                                @foreach($video_links as $video_link)
-                                                    <div class="link-item">
-                                                        <a href="{{ $video_link->link }}" target="_blank">{{ $video_link->title }}</a>
-                                                    </div>
-                                                @endforeach
+                                                <div class="row">
+                                                    @foreach($video_links as $video_link)
+                                                        <!-- <div class="link-item">
+                                                            <a href="{{ $video_link->link }}" target="_blank">{{ $video_link->title }}</a>
+                                                        </div> -->
+
+                                                        <div class="col-6 mb-3">
+                                                            <p class="mb-2">{{ $video_link->title }}</p>
+                                                            <iframe src="{{ $video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -134,11 +142,18 @@
                                         </h2>
                                         <div id="collapseAdditionalVideoLinks" class="accordion-collapse collapse" data-bs-parent="#accordionAdditional">
                                             <div class="accordion-body pb-0">
-                                                @foreach($additional_video_links as $additional_video_link)
-                                                    <div class="link-item">
-                                                        <a href="{{ $additional_video_link }}" target="_blank">{{ $additional_video_link }}</a>
-                                                    </div>
-                                                @endforeach
+                                                <div class="row">
+                                                    @foreach($additional_video_links as $additional_video_link)
+                                                        <!-- <div class="link-item">
+                                                            <a href="{{ $additional_video_link }}" target="_blank">{{ $additional_video_link }}</a>
+                                                        </div> -->
+
+                                                        <div class="col-6 mb-3">
+                                                            <p class="mb-2">{{ $additional_video_link->title }}</p>
+                                                            <iframe src="{{ $additional_video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +171,8 @@
                                                 @foreach($presentation_medias as $presentation_media)
                                                     <div class="chapter-item">
                                                         <span>{{ $presentation_media->title }}</span>
-                                                        <a href="{{ asset('storage/backend/courses/course-chapter-presentation-medias/' . $presentation_media->file) }}" download class="btn-download">Download</a>
+                                                        <!-- <a href="{{ asset('storage/backend/courses/course-chapter-presentation-medias/' . $presentation_media->file) }}" download class="btn-download">Download</a> -->
+                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $presentation_media->file }}" data-bs-toggle="modal" data-bs-target="#pdf-modal">Read Document</button>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -188,9 +204,61 @@
                     @else
                         <p class="no-data">{{ $student_dashboard_contents->courses_no_additional_resources }}</p>
                     @endif
+
+                    <div class="modal fade" id="unitContentPopUP" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <script src='https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.385/build/pdf.min.js'></script> 
+                            <script src="{{ asset('frontend/js/canvas_pdf.js') }}"></script>
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="unitDocTitle"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="resAjaxUnitContent"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 @endsection
+
+
+@push('after-scripts')
+    <script>
+        $('.btn-read-document').on('click', function() {
+
+            let book = $(this).attr('data-book');
+            let url = `{{ route('frontend.courses.content') }}`;
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: url,
+                data: {
+                    'book' : book
+                },
+                method:'POST',
+                dataType: 'json',
+                success:function(res){
+                    console.log(res);
+                    $("#unitContentPopUP").modal('show');
+                    $("#resAjaxUnitContent").html(res.content_view);
+                    $("#unitDocTitle").html(res.doctitle);
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            })
+        });
+    </script>
+@endpush
