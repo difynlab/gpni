@@ -95,22 +95,26 @@ class CourseController extends Controller
         ]);
     }
 
-    function unitContentPopup(Request $request)
+    function getFile(Request $request)
     {
         if($request->ajax()) {
-            $content_view = view("frontend.student.courses.content-view", [
-                'book' => $request->book
+            $file_view = view("frontend.student.courses.file-view", [
+                'book' => $request->book,
+                'type' => $request->type,
             ])->render();
+
+            $file_title = $request->title;
         }
 
         return response()->json(
             [
                 'Content-Type' => 'application/pdf',
-                'Content-Disposition' => 'inline; filename="' . basename($content_view) . '"',
+                'Content-Disposition' => 'inline; filename="' . basename($file_view) . '"',
                 'Cache-Control' => 'no-cache, no-store, must-revalidate',
                 'Pragma' => 'no-cache',
                 'Expires' => '0',
-                'content_view' => $content_view
+                'file_view' => $file_view,
+                'file_title' => $file_title
             ]
         );
     }
