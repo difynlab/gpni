@@ -329,7 +329,7 @@
                                 <input type="text" class="form-control" name="book_titles[]" placeholder="Title" required>
                             </div>
                             <div class="col-2">
-                                <input type="file" class="form-control" name="book_files[]" accept=".pdf, .ppt, .pptx, .xlsx, .xls, .csv, .doc, .docx" required>
+                                <input type="file" class="form-control" name="book_files[]" accept=".pdf" required>
                             </div>
                             <div class="col-1 d-flex align-items-center">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
@@ -406,7 +406,7 @@
                                 <input type="text" class="form-control" name="presentation_media_titles[]" placeholder="Title" required>
                             </div>
                             <div class="col-2">
-                                <input type="file" class="form-control" name="presentation_media_files[]" accept=".pdf, .ppt, .pptx, .xlsx, .xls, .csv, .doc, .docx" required>
+                                <input type="file" class="form-control" name="presentation_media_files[]" accept=".pdf" required>
                             </div>
                             <div class="col-1 d-flex align-items-center">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>

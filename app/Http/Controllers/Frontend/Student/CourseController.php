@@ -11,6 +11,7 @@ use App\Models\CourseChapter;
 use App\Http\Controllers\Controller;
 use App\Models\CourseFinalExam;
 use App\Models\CourseModuleExam;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
@@ -92,5 +93,25 @@ class CourseController extends Controller
             'presentation_medias' => $presentation_medias,
             'downloadable_resources' => $downloadable_resources
         ]);
+    }
+
+    function unitContentPopup(Request $request)
+    {
+        if($request->ajax()) {
+            $content_view = view("frontend.student.courses.content-view", [
+                'book' => $request->book
+            ])->render();
+        }
+
+        return response()->json(
+            [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="' . basename($content_view) . '"',
+                'Cache-Control' => 'no-cache, no-store, must-revalidate',
+                'Pragma' => 'no-cache',
+                'Expires' => '0',
+                'content_view' => $content_view
+            ]
+        );
     }
 }
