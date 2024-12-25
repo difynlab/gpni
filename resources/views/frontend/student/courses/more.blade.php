@@ -216,7 +216,11 @@
                                     <h5 class="modal-title" id="file-title"></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body" id="file-view"></div>
+                                <div class="modal-body" id="file-view">
+                                    <div class='pre-loader'>
+                                        <img class='loading-gif' alt='loading' src="{{ asset('storage/frontend/pre-loader.gif') }}"/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -237,6 +241,8 @@
             let type = $(this).attr('data-type');
             let url = `{{ route('frontend.courses.get-file') }}`;
 
+            $("#file-modal").modal('show');
+
             $.ajax({
                 url: url,
                 data: {
@@ -250,7 +256,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success:function(response){
-                    $("#file-modal").modal('show');
+                    $(".pre-loader").addClass('d-none');
                     $("#file-view").html(response.file_view);
                     $("#file-title").html(response.file_title);
                 },
@@ -258,6 +264,10 @@
                     console.log(error);
                 }
             })
+        });
+
+        $('#file-modal').on('hidden.bs.modal', function() {
+            $(".pre-loader").removeClass('d-none');
         });
     </script>
 @endpush

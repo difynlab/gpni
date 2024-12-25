@@ -135,3 +135,18 @@ iframe {
 .dashboard .modal-content .modal-body #view canvas {
     width: 100%;
 }
+.dashboard .modal-content .modal-body .loading-gif {
+    width: 500px;
+    height: 400px;
+}
+.dashboard .modal-content .modal-body .pre-loader {
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background: #191f26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
