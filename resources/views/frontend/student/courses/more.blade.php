@@ -46,7 +46,7 @@
                                                     <div class="chapter-item">
                                                         <span>{{ $book->title }}</span>
                                                         <!-- <a href="{{ asset('storage/backend/courses/course-chapter-books/' . $book->file) }}" download class="btn-download">{{ $student_dashboard_contents->courses_download }}</a> -->
-                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $book->file }}" >Read Document</button>
+                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $book->file }}" data-title="{{ $book->title }}" data-type="book">Read Document</button>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -172,7 +172,7 @@
                                                     <div class="chapter-item">
                                                         <span>{{ $presentation_media->title }}</span>
                                                         <!-- <a href="{{ asset('storage/backend/courses/course-chapter-presentation-medias/' . $presentation_media->file) }}" download class="btn-download">Download</a> -->
-                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $presentation_media->file }}" data-bs-toggle="modal" data-bs-target="#pdf-modal">Read Document</button>
+                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $presentation_media->file }}" data-title="{{ $presentation_media->title }}" data-type="presentation_media">Read Document</button>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -205,19 +205,18 @@
                         <p class="no-data">{{ $student_dashboard_contents->courses_no_additional_resources }}</p>
                     @endif
 
-                    <div class="modal fade" id="unitContentPopUP" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="file-modal">
                         <div class="modal-dialog modal-dialog-centered modal-xl">
-                            <script src='https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.385/build/pdf.min.js'></script> 
-                            <script src="{{ asset('frontend/js/canvas_pdf.js') }}"></script>
+                            <script src="{{ asset('frontend/js/pdf.js') }}"></script>
+                            <script src="{{ asset('frontend/js/pdf-worker.js') }}"></script>
+                            <script src="{{ asset('frontend/js/canvas-pdf.js') }}"></script>
 
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="unitDocTitle"></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <h5 class="modal-title" id="file-title"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body" id="resAjaxUnitContent"></div>
+                                <div class="modal-body" id="file-view"></div>
                             </div>
                         </div>
                     </div>
@@ -234,26 +233,26 @@
         $('.btn-read-document').on('click', function() {
 
             let book = $(this).attr('data-book');
-            let url = `{{ route('frontend.courses.content') }}`;
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+            let title = $(this).attr('data-title');
+            let type = $(this).attr('data-type');
+            let url = `{{ route('frontend.courses.get-file') }}`;
 
             $.ajax({
                 url: url,
                 data: {
-                    'book' : book
+                    'book' : book,
+                    'title' : title,
+                    'type' : type
                 },
                 method:'POST',
                 dataType: 'json',
-                success:function(res){
-                    console.log(res);
-                    $("#unitContentPopUP").modal('show');
-                    $("#resAjaxUnitContent").html(res.content_view);
-                    $("#unitDocTitle").html(res.doctitle);
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success:function(response){
+                    $("#file-modal").modal('show');
+                    $("#file-view").html(response.file_view);
+                    $("#file-title").html(response.file_title);
                 },
                 error:function(error){
                     console.log(error);

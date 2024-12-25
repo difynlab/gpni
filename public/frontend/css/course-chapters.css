@@ -126,17 +126,12 @@ iframe {
 .dashboard .modal-content .modal-body {
     padding: 10px;
 }
-.dashboard .modal-content .modal-body#pdf-viewer {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.dashboard .modal-content .modal-body #pages-container {
-    flex-grow: 1;
-    overflow-y: auto;
+.dashboard .modal-content .modal-body #view {
+    height: 100vh;
+    overflow: auto;
     overflow-x: hidden;
-    height: 100%;
+    text-align: center;
 }
-.dashboard .modal-content .modal-body #pages-container canvas {
+.dashboard .modal-content .modal-body #view canvas {
     width: 100%;
 }

@@ -145,7 +145,7 @@ Route::middleware(['set_language'])->group(function () {
                 Route::get('/', [CourseController::class, 'index'])->name('index');
                 Route::get('{course}', [CourseController::class, 'show'])->name('show');
                 Route::get('{course}/{course_module}/{course_chapter}', [CourseController::class, 'showMore'])->name('show-more');
-                Route::post('ajax/unit-content-popup', [CourseController::class, 'unitContentPopup'])->name('content');
+                Route::post('get-file', [CourseController::class, 'getFile'])->name('get-file');
             });
 
             Route::prefix('carts')->name('carts.')->group(function() {
