@@ -69,7 +69,7 @@
                                                     @elseif($media->type == $student_dashboard_contents->my_storage_corner_third_tab)
                                                         <video class="video-player" src="{{ asset('storage/backend/medias/' . $media->video) }}" controls style="width: 300px; height: 170px; object-fit: cover;"></video>
                                                     @elseif($media->type == $student_dashboard_contents->my_storage_corner_fourth_tab)
-                                                        <a class="text-decoration-none" href="{{ $media->vimeo_video_link }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_watch_on_vimeo }}</a>
+                                                        <a class="text-decoration-none" href="{{ $media->vimeo_video_link }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_play_now }}</a>
                                                     @elseif($media->type == $student_dashboard_contents->my_storage_corner_fifth_tab)
                                                         <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->pdf) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
                                                     @elseif($media->type == $student_dashboard_contents->my_storage_corner_sixth_tab)

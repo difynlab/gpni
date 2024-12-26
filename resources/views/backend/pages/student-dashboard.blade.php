@@ -737,8 +737,8 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="courses_download" class="form-label">Download</label>
-                        <input type="text" class="form-control" id="courses_download" name="courses_download" value="{{ $contents->courses_download ?? '' }}" placeholder="Download">
+                        <label for="courses_read_now" class="form-label">Read Now</label>
+                        <input type="text" class="form-control" id="courses_read_now" name="courses_read_now" value="{{ $contents->courses_read_now ?? '' }}" placeholder="Read Now">
                     </div>
 
                     <div class="col-4 mb-3">
@@ -1002,6 +1002,81 @@
                         <input type="text" class="form-control" id="member_corner_title" name="member_corner_title" value="{{ $contents->member_corner_title ?? '' }}" placeholder="Member Corner Title">
                     </div>
 
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_title" class="form-label">Member Corner Top Title</label>
+                        <input type="text" class="form-control" id="member_corner_top_title" name="member_corner_top_title" value="{{ $contents->member_corner_top_title ?? '' }}" placeholder="Member Corner Top Title">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_first_column" class="form-label">Member Corner Top First Column</label>
+                        <input type="text" class="form-control" id="member_corner_top_first_column" name="member_corner_top_first_column" value="{{ $contents->member_corner_top_first_column ?? '' }}" placeholder="Member Corner Top First Column">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_first_lifetime" class="form-label">Member Corner Top First Lifetime</label>
+                        <input type="text" class="form-control" id="member_corner_top_first_lifetime" name="member_corner_top_first_lifetime" value="{{ $contents->member_corner_top_first_lifetime ?? '' }}" placeholder="Member Corner Top First Lifetime">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_first_annual" class="form-label">Member Corner Top First Annual</label>
+                        <input type="text" class="form-control" id="member_corner_top_first_annual" name="member_corner_top_first_annual" value="{{ $contents->member_corner_top_first_annual ?? '' }}" placeholder="Member Corner Top First Annual">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_second_column" class="form-label">Member Corner Top Second Column</label>
+                        <input type="text" class="form-control" id="member_corner_top_second_column" name="member_corner_top_second_column" value="{{ $contents->member_corner_top_second_column ?? '' }}" placeholder="Member Corner Top Second Column">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_third_column" class="form-label">Member Corner Top Third Column</label>
+                        <input type="text" class="form-control" id="member_corner_top_third_column" name="member_corner_top_third_column" value="{{ $contents->member_corner_top_third_column ?? '' }}" placeholder="Member Corner Top Third Column">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_third_active" class="form-label">Member Corner Top Third Active</label>
+                        <input type="text" class="form-control" id="member_corner_top_third_active" name="member_corner_top_third_active" value="{{ $contents->member_corner_top_third_active ?? '' }}" placeholder="Member Corner Top Third Active">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_third_inactive" class="form-label">Member Corner Top Third Inactive</label>
+                        <input type="text" class="form-control" id="member_corner_top_third_inactive" name="member_corner_top_third_inactive" value="{{ $contents->member_corner_top_third_inactive ?? '' }}" placeholder="Member Corner Top Third Inactive">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_fourth_column" class="form-label">Member Corner Top Fourth Column</label>
+                        <input type="text" class="form-control" id="member_corner_top_fourth_column" name="member_corner_top_fourth_column" value="{{ $contents->member_corner_top_fourth_column ?? '' }}" placeholder="Member Corner Top Fourth Column">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_top_fourth_action" class="form-label">Member Corner Top Fourth Action</label>
+                        <input type="text" class="form-control" id="member_corner_top_fourth_action" name="member_corner_top_fourth_action" value="{{ $contents->member_corner_top_fourth_action ?? '' }}" placeholder="Member Corner Top Fourth Action">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_middle_title" class="form-label">Member Corner Middle Title</label>
+                        <input type="text" class="form-control" id="member_corner_middle_title" name="member_corner_middle_title" value="{{ $contents->member_corner_middle_title ?? '' }}" placeholder="Member Corner Middle Title">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_middle_first_column" class="form-label">Member Corner Middle First Column</label>
+                        <input type="text" class="form-control" id="member_corner_middle_first_column" name="member_corner_middle_first_column" value="{{ $contents->member_corner_middle_first_column ?? '' }}" placeholder="Member Corner Middle First Column">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_middle_second_column" class="form-label">Member Corner Middle Second Column</label>
+                        <input type="text" class="form-control" id="member_corner_middle_second_column" name="member_corner_middle_second_column" value="{{ $contents->member_corner_middle_second_column ?? '' }}" placeholder="Member Corner Middle Second Column">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_middle_second_action" class="form-label">Member Corner Middle Second Action</label>
+                        <input type="text" class="form-control" id="member_corner_middle_second_action" name="member_corner_middle_second_action" value="{{ $contents->member_corner_middle_second_action ?? '' }}" placeholder="Member Corner Middle Second Action">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="member_corner_bottom_title" class="form-label">Member Corner Bottom Title</label>
+                        <input type="text" class="form-control" id="member_corner_bottom_title" name="member_corner_bottom_title" value="{{ $contents->member_corner_bottom_title ?? '' }}" placeholder="Member Corner Bottom Title">
+                    </div>
+
                     <div class="col-4 mb-3">
                         <label for="my_storage_corner_first_tab" class="form-label">First Tab</label>
                         <input type="text" class="form-control" id="my_storage_corner_first_tab" name="my_storage_corner_first_tab" value="{{ $contents->my_storage_corner_first_tab ?? '' }}" placeholder="First Tab">
@@ -1063,8 +1138,8 @@
                     </div>
 
                     <div class="col-4">
-                        <label for="my_storage_corner_watch_on_vimeo" class="form-label">Watch on Vimeo</label>
-                        <input type="text" class="form-control" id="my_storage_corner_watch_on_vimeo" name="my_storage_corner_watch_on_vimeo" value="{{ $contents->my_storage_corner_watch_on_vimeo ?? '' }}" placeholder="Watch on Vimeo">
+                        <label for="my_storage_corner_play_now" class="form-label">Play Now</label>
+                        <input type="text" class="form-control" id="my_storage_corner_play_now" name="my_storage_corner_play_now" value="{{ $contents->my_storage_corner_play_now ?? '' }}" placeholder="Play Now">
                     </div>
 
                     <div class="col-4">

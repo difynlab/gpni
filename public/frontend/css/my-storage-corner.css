@@ -53,6 +53,11 @@
     font-size: 0.875rem; /* fs-14 */
     padding: 15px;
 }
+.table td .member-button {
+    font-size: 0.875rem;
+    background-color: #0040c3;
+    color: white;
+}
 .table td:last-child {
     text-align: center;
     vertical-align: middle;

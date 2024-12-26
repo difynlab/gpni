@@ -200,6 +200,21 @@
                 </div>
             </div>
 
+            <div class="section">
+                <p class="inner-page-title">Member Course</p>
+
+                <div class="row form-input">
+                    <div class="col-12">
+                        <label for="member_course" class="form-label">Member Course?<span class="asterisk">*</span></label>
+                        <select class="form-control form-select" id="member_course" name="member_course" required>
+                            <option value="">Select</option>
+                            <option value="Yes" {{ old('final_exam') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                            <option value="No" {{ old('final_exam') == 'No' ? 'selected' : '' }}>No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <x-backend.create-status></x-backend.create-status>
         </form>
     </div>

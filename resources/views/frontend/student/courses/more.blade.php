@@ -46,7 +46,7 @@
                                                     <div class="chapter-item">
                                                         <span>{{ $book->title }}</span>
                                                         <!-- <a href="{{ asset('storage/backend/courses/course-chapter-books/' . $book->file) }}" download class="btn-download">{{ $student_dashboard_contents->courses_download }}</a> -->
-                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $book->file }}" data-title="{{ $book->title }}" data-type="book">Read Document</button>
+                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $book->file }}" data-title="{{ $book->title }}" data-type="book">{{ $student_dashboard_contents->courses_read_now }}</button>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -172,7 +172,7 @@
                                                     <div class="chapter-item">
                                                         <span>{{ $presentation_media->title }}</span>
                                                         <!-- <a href="{{ asset('storage/backend/courses/course-chapter-presentation-medias/' . $presentation_media->file) }}" download class="btn-download">Download</a> -->
-                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $presentation_media->file }}" data-title="{{ $presentation_media->title }}" data-type="presentation_media">Read Document</button>
+                                                        <button class="btn btn-primary btn-read-document" data-book="{{ $presentation_media->file }}" data-title="{{ $presentation_media->title }}" data-type="presentation_media">{{ $student_dashboard_contents->courses_read_now }}</button>
                                                     </div>
                                                 @endforeach
                                             </div>

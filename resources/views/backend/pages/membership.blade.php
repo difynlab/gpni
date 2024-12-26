@@ -88,15 +88,15 @@
                             <input class="form-control" type="text" id="section_3_lifetime_proceed_{{ $short_code }}" name="section_3_lifetime_proceed_{{ $short_code }}" value="{{ $contents->{'section_3_lifetime_proceed_' . $short_code} ?? '' }}" placeholder="Lifetime Proceed Button">
                         </div>
 
-                        <div class="mb-4">
+                        <div>
                             <label class="form-label">Already Purchased Button</label>
                             <input class="form-control" type="text" id="section_3_already_purchased_{{ $short_code }}" name="section_3_already_purchased_{{ $short_code }}" value="{{ $contents->{'section_3_already_purchased_' . $short_code} ?? '' }}" placeholder="Already Purchased Button">
                         </div>
 
-                        <div>
+                        <!-- <div>
                             <label class="form-label">Membership Disabled Button</label>
                             <input class="form-control" type="text" id="section_3_membership_disabled_{{ $short_code }}" name="section_3_membership_disabled_{{ $short_code }}" value="{{ $contents->{'section_3_membership_disabled_' . $short_code} ?? '' }}" placeholder="Membership Disabled Button">
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="col-6">

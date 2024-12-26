@@ -61,11 +61,7 @@
                     @if(auth()->check())
                         @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name))
                             @if(hasUserPurchasedMembership(auth()->user()->id))
-                                @if(auth()->user()->member == 'Yes')
-                                    <button class="btn-pay-now">{{ $contents->{'section_3_already_purchased_' . $middleware_language} ?? $contents->section_3_already_purchased_en }}</button>
-                                @else
-                                    <button class="btn-pay-now">{{ $contents->{'section_3_membership_disabled_' . $middleware_language} ?? $contents->section_3_membership_disabled_en }}</button>
-                                @endif
+                                <button class="btn-pay-now">{{ $contents->{'section_3_already_purchased_' . $middleware_language} ?? $contents->section_3_already_purchased_en }}</button>
                             @else
                                 <form action="{{ route('frontend.membership.checkout') }}" method="POST">
                                     @csrf

@@ -9,6 +9,7 @@ use App\Models\CoursePurchase;
 use App\Models\MembershipPurchase;
 use App\Models\Product;
 use App\Models\User;
+use Carbon\Carbon;
 
 if(!function_exists('hasUserPurchasedCourse')) {
     function hasUserPurchasedCourse($user_id, $course_id)
@@ -101,7 +102,16 @@ if(!function_exists('hasUserPurchasedMembership')) {
             return false;
         }
 
-        return MembershipPurchase::where('user_id', $user_id)->where('payment_status', 'Completed')->where('status', '1')->exists();
+        $check = MembershipPurchase::where('user_id', $user_id)->where('payment_status', 'Completed')->where('status', '1')->exists();
+
+        if($check) {
+            if(($user->member == 'Yes' && $user->member_type == 'Lifetime') || ($user->member == 'Yes' && $user->member_type == 'Annual' && $user->member_annual_expiry_date >= Carbon::now()->toDateString())) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
     }
 }
 

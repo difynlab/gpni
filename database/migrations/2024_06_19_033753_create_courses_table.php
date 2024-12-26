@@ -126,6 +126,8 @@ return new class extends Migration
             $table->enum('time_required', ['Yes', 'No'])->default('No');
             $table->time('exam_time')->nullable();
 
+            $table->enum('member_course', ['Yes', 'No'])->default('No');
+
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });
