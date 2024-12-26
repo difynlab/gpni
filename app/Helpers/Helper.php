@@ -104,10 +104,12 @@ if(!function_exists('hasUserPurchasedMembership')) {
 
         $check = MembershipPurchase::where('user_id', $user_id)->where('payment_status', 'Completed')->where('status', '1')->exists();
 
-        if($check) {
+        if($check || $user->member == 'Yes') {
             if(($user->member == 'Yes' && $user->member_type == 'Lifetime') || ($user->member == 'Yes' && $user->member_type == 'Annual' && $user->member_annual_expiry_date >= Carbon::now()->toDateString())) {
                 return true;
             }
+            
+            return false;
         }
         else {
             return false;
