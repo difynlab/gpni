@@ -232,16 +232,9 @@
                 </li>
 
                 <li class="sub-menu-link">
-                    <a href="{{ route('backend.persons.students.index') }}">
+                    <a href="{{ route('backend.persons.users.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
-                        <span>Students</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu-link">
-                    <a href="{{ route('backend.persons.nutritionists.index') }}">
-                        <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
-                        <span>Nutritionists</span>
+                        <span>Users</span>
                     </a>
                 </li>
 

@@ -39,22 +39,25 @@
                         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                             <div class="coach-card">
                                 <div class="flex-grow">
-                                    <div class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</div>
+
+                                    @if($nutritionist->is_qualified == '1')
+                                        <div class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</div>
+                                    @endif
 
                                     @if($nutritionist->image)
-                                        <img src="{{ asset('storage/backend/persons/nutritionists/' . $nutritionist->image) }}" class="image" alt="User Image">
+                                        <img src="{{ asset('storage/backend/persons/users/' . $nutritionist->image) }}" class="image" alt="User Image">
                                     @else
                                         <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}" class="image">
                                     @endif
 
-                                    <div class="coach-name fs-20">{{ $nutritionist->name }}</div>
+                                    <div class="coach-name fs-20">{{ $nutritionist->first_name }} {{ $nutritionist->last_name }}</div>
 
                                     <div class="coach-location-row">
                                         <div class="coach-location-item">
                                             <img src="{{ asset('storage/frontend/globe-icon.svg') }}" alt="Location Icon" width="20px" height="20px">
                                             <span>{{ $nutritionist->country }}</span>
                                         </div>
-                                        <div class="coach-location-item coach-contact-link" id="{{ $nutritionist->id }}">
+                                        <div class="coach-location-item" id="{{ $nutritionist->id }}" data-bs-toggle="modal" data-bs-target="#contact-modal">
                                             <img src="{{ asset('storage/frontend/connect-icon.svg') }}" alt="Contact Icon" width="20px" height="20px">
                                             <span>{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</span>
                                         </div>
@@ -80,15 +83,15 @@
                         </div>
                     @endforeach
 
-                    {{ $nutritionists->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
+                    {{ $nutritionists->links("pagination::bootstrap-5") }}
                 </div>
             </div>
         </div>
     @endif
 
-    <form action="#" method="POST" class="contact-modal">
+    <form action="{{ route('frontend.nutritionists.contact') }}" method="POST">
         @csrf
-        <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 99999;">
+        <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -332,6 +335,8 @@
                             <input type="text" class="form-control" id="app-id" name="app_id" required>
                         </div>
 
+                        <input type="hidden" id="coach-id" name="nutritionist" value="">
+
                         <button type="submit" class="btn submit-btn">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
                     </div>
                 </div>
@@ -380,9 +385,12 @@
                             </div>
 
                             <div class="bottom-section">
-                                <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
+                                @if($nutritionist->is_qualified == '1')
+                                    <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
+                                @endif
+
                                 <div class="coach-location-model-item coach-contact-link">
-                                    <a class="contact-now">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</a>
+                                    <a class="contact-now" data-bs-toggle="modal" data-bs-target="#contact-modal">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</a>
                                 </div>
                             </div>
                         </div>
@@ -396,13 +404,9 @@
 
 @push('after-scripts')
     <script>
-        $('.coach-contact-link').on('click', function() {
+        $('.coach-location-item').on('click', function() {
             let id = $(this).attr('id');
-            let url = "{{ route('frontend.nutritionists.contact', [':id']) }}";
-            url = url.replace(':id', id);
-
-            $('.contact-modal').attr('action', url);
-            $('.contact-modal .modal').modal('show');
+            $('#coach-id').val(id);
         });
 
         $('.view-profile-btn').on('click', function() {
@@ -417,13 +421,13 @@
                 type: "GET",
                 success: function(response) {
                     if(response.image) {
-                        $('#view-modal .coach-image').attr('src', 'storage/backend/persons/nutritionists/' + response.image);
+                        $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.image);
                     }
                     else {
                         $('#view-modal .coach-image').attr('src', noImageUrl);
                     }
                     
-                    $('#view-modal .name').text(response.name);
+                    $('#view-modal .name').text(response.first_name + ' ' + response.last_name);
                     $('#view-modal .age').text(response.age);
                     $('#view-modal .country').text(response.country);
                     $('#view-modal .cec-status').text(response.cec_status == '1' ? 'Active' : 'Inactive');
@@ -449,6 +453,8 @@
             });
 
             $('.view-modal').modal('show');
+
+            $('#coach-id').val(id);
         });
     </script>
 @endpush

@@ -12,7 +12,7 @@
                 <form action="{{ route('backend.communications.contact-coaches.filter') }}" method="GET" class="filter-form">
                     <div class="row align-items-center">
                         <div class="col-8 col-xl-10">
-                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Nutritionist Name">
+                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Name">
                         </div>
 
                         <div class="col-4 col-xl-2 d-flex justify-content-between">
@@ -51,7 +51,7 @@
                             @foreach($contact_coaches as $contact_coach)
                                 <tr>
                                     <td>#{{ $contact_coach->id }}</td>
-                                    <td>{{ $contact_coach->nutritionist }}</td>
+                                    <td>{{ $contact_coach->user }}</td>
                                     <td>{{ $contact_coach->email }}</td>
                                     <td>{{ $contact_coach->phone_number }}</td>
                                     <td>{{ $contact_coach->city }}</td>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Communication;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactCoach;
-use App\Models\Nutritionist;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ContactCoachController extends Controller
@@ -15,7 +15,8 @@ class ContactCoachController extends Controller
             $contact_coach->action = '
             <a id="'.$contact_coach->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $contact_coach->nutritionist = Nutritionist::find($contact_coach->nutritionist)->name;
+            $user = User::find($contact_coach->user);
+            $contact_coach->user = $user->first_name . ' ' . $user->last_name;
         }
 
         return $contact_coaches;
@@ -50,12 +51,12 @@ class ContactCoachController extends Controller
 
         $name = $request->name;
 
-        $nutritionists = Nutritionist::where('status', '1');
+        $users = User::where('status', '1');
         $contact_coaches = ContactCoach::where('status', '1')->orderBy('id', 'desc');
 
         if($name != null) {
-            $nutritionist_ids = $nutritionists->where('name', 'like', '%' . $name . '%')->pluck('id')->toArray();
-            $contact_coaches->whereIn('nutritionist', $nutritionist_ids);
+            $user_ids = $users->where('name', 'like', '%' . $name . '%')->pluck('id')->toArray();
+            $contact_coaches->whereIn('user', $user_ids);
         }
 
         $items = $request->items ?? 10;

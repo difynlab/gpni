@@ -11,44 +11,44 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-class StudentController extends Controller
+class UserController extends Controller
 {
-    private function processStudents($students)
+    private function processUsers($users)
     {
-        foreach($students as $student) {
-            $student->action = '
-            <a href="'. route('backend.persons.students.information.index', $student->id) .'" class="information-button" title="Information"><i class="bi bi-info-circle-fill"></i></a>
-            <a href="'. route('backend.persons.students.courses.index', $student->id) .'" class="courses-button" title="Courses"><i class="bi bi-mortarboard-fill"></i></a>
-            <a href="'. route('backend.persons.students.edit', $student->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
-            <a id="'.$student->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+        foreach($users as $user) {
+            $user->action = '
+            <a href="'. route('backend.persons.users.information.index', $user->id) .'" class="information-button" title="Information"><i class="bi bi-info-circle-fill"></i></a>
+            <a href="'. route('backend.persons.users.courses.index', $user->id) .'" class="courses-button" title="Courses"><i class="bi bi-mortarboard-fill"></i></a>
+            <a href="'. route('backend.persons.users.edit', $user->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
+            <a id="'.$user->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $student->image = $student->image != null ? '<img src="'. asset('storage/backend/persons/students/' . $student->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/common/' . Setting::find(1)->no_image) .'" class="table-image">';
+            $user->image = $user->image != null ? '<img src="'. asset('storage/backend/persons/users/' . $user->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/common/' . Setting::find(1)->no_image) .'" class="table-image">';
 
-            $currency_symbol = ($student->language === 'English') ? '$' : '¥';
-            $wallet_exist = Wallet::where('user_id', $student->id)->first();
+            $currency_symbol = ($user->language === 'English') ? '$' : '¥';
+            $wallet_exist = Wallet::where('user_id', $user->id)->first();
 
             if($wallet_exist) {
-                $student->wallet = $currency_symbol . '' . $wallet_exist->balance;
+                $user->wallet = $currency_symbol . '' . $wallet_exist->balance;
             }
             else {
-                $student->wallet =  $currency_symbol . '0.00';
+                $user->wallet =  $currency_symbol . '0.00';
             }
 
-            $student->status = ($student->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
+            $user->status = ($user->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }
 
-        return $students;
+        return $users;
     }
 
     public function index(Request $request)
     {
         $items = $request->items ?? 10;
 
-        $students = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
-        $students = $this->processStudents($students);
+        $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
+        $users = $this->processUsers($users);
 
-        return view('backend.persons.students.index', [
-            'students' => $students,
+        return view('backend.persons.users.index', [
+            'users' => $users,
             'items' => $items
         ]);
     }
@@ -310,7 +310,7 @@ class StudentController extends Controller
             "Zimbabwe"
         ];
 
-        return view('backend.persons.students.create', [
+        return view('backend.persons.users.create', [
             'countries' => $countries
         ]);
     }
@@ -340,22 +340,34 @@ class StudentController extends Controller
         if($request->file('new_image') != null) {
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/backend/persons/students', $image_name);
+            $image->storeAs('public/backend/persons/users', $image_name);
         }
         else {
             $image_name = $request->old_image;
         }
 
-        $student = new User();
+        $user = new User();
         $data = $request->except('old_image', 'new_image', 'confirm_password');
-        $data['image'] = $image_name;
-        $data['role'] = 'student';
-        $student->create($data);
+        
+        $is_certified = $request->has('is_certified') ? '1' : null;
+        $is_sns = $request->has('is_sns') ? '1' : null;
+        $is_snc = $request->has('is_snc') ? '1' : null;
+        $is_cissn = $request->has('is_cissn') ? '1' : null;
+        $is_asnc = $request->has('is_asnc') ? '1' : null;
 
-        return redirect()->route('backend.persons.students.index')->with('success', 'Successfully created!');
+        $data['image'] = $image_name;
+        $data['is_certified'] = $is_certified;
+        $data['is_sns'] = $is_sns;
+        $data['is_snc'] = $is_snc;
+        $data['is_cissn'] = $is_cissn;
+        $data['is_asnc'] = $is_asnc;
+        $data['role'] = 'student';
+        $user->create($data);
+
+        return redirect()->route('backend.persons.users.index')->with('success', 'Successfully created!');
     }
 
-    public function edit(User $student)
+    public function edit(User $user)
     {
         $countries = [
             "Afghanistan",
@@ -612,17 +624,17 @@ class StudentController extends Controller
             "Zimbabwe"
         ];
 
-        return view('backend.persons.students.edit', [
-            'student' => $student,
+        return view('backend.persons.users.edit', [
+            'user' => $user,
             'countries' => $countries
         ]);
     }
 
-    public function update(Request $request, User $student)
+    public function update(Request $request, User $user)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:users,email,'.$student->id,
-            'phone' => 'nullable|unique:users,phone,'.$student->id,
+            'email' => 'required|email|unique:users,email,'.$user->id,
+            'phone' => 'nullable|unique:users,phone,'.$user->id,
             'new_image' => 'nullable|max:30720'
         ], [
             'email.unique' => 'The email address is already in use',
@@ -636,18 +648,23 @@ class StudentController extends Controller
 
         if($request->file('new_image') != null) {
             if($request->old_image) {
-                Storage::delete('public/backend/persons/students/' . $request->old_image);
+                Storage::delete('public/backend/persons/users/' . $request->old_image);
             }
 
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/backend/persons/students', $image_name);
+            $image->storeAs('public/backend/persons/users', $image_name);
         }
         else {
             $image_name = $request->old_image;
         }
 
-        $data = $request->except('old_image', 'new_image', 'password', 'confirm_password');
+        $data = $request->except(
+            'old_image',
+            'new_image',
+            'password',
+            'confirm_password'
+        );
 
         if($request->password != null) {
             $validator = Validator::make($request->all(), [
@@ -665,16 +682,27 @@ class StudentController extends Controller
             $data['password'] = $request->password;
         }
         
+        $is_certified = $request->has('is_certified') ? '1' : null;
+        $is_sns = $request->has('is_sns') ? '1' : null;
+        $is_snc = $request->has('is_snc') ? '1' : null;
+        $is_cissn = $request->has('is_cissn') ? '1' : null;
+        $is_asnc = $request->has('is_asnc') ? '1' : null;
+
         $data['image'] = $image_name;
-        $student->fill($data)->save();
+        $data['is_certified'] = $is_certified;
+        $data['is_sns'] = $is_sns;
+        $data['is_snc'] = $is_snc;
+        $data['is_cissn'] = $is_cissn;
+        $data['is_asnc'] = $is_asnc;
+        $user->fill($data)->save();
         
-        return redirect()->route('backend.persons.students.index')->with('success', "Successfully updated!");
+        return redirect()->route('backend.persons.users.index')->with('success', "Successfully updated!");
     }
 
-    public function destroy(User $student)
+    public function destroy(User $user)
     {
-        $student->status = '0';
-        $student->save();
+        $user->status = '0';
+        $user->save();
 
         return redirect()->back()->with('success', 'Successfully deleted!');
     }
@@ -682,36 +710,36 @@ class StudentController extends Controller
     public function filter(Request $request)
     {
         if($request->action == 'reset') {
-            return redirect()->route('backend.persons.students.index');
+            return redirect()->route('backend.persons.users.index');
         }
 
         $name = $request->name;
         $email = $request->email;
         $language = $request->language;
 
-        $students = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc');
+        $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc');
 
         if($name != null) {
-            $students->where(function ($query) use ($name) {
+            $users->where(function ($query) use ($name) {
                 $query->where('first_name', 'like', '%' . $name . '%')
                       ->orWhere('last_name', 'like', '%' . $name . '%');
             });
         }
 
         if($email != null) {
-            $students->where('email', 'like', '%' . $email . '%');
+            $users->where('email', 'like', '%' . $email . '%');
         }
 
         if($language != 'All') {
-            $students->where('language', $language);
+            $users->where('language', $language);
         }
 
         $items = $request->items ?? 10;
-        $students = $students->paginate($items);
-        $students = $this->processStudents($students);
+        $users = $users->paginate($items);
+        $users = $this->processUsers($users);
 
-        return view('backend.persons.students.index', [
-            'students' => $students,
+        return view('backend.persons.users.index', [
+            'users' => $users,
             'items' => $items,
             'name' => $name,
             'email' => $email,
@@ -719,18 +747,18 @@ class StudentController extends Controller
         ]);
     }
 
-    public function informationIndex(User $student)
+    public function informationIndex(User $user)
     {
-        return view('backend.persons.students.information', [
-            'student' => $student
+        return view('backend.persons.users.information', [
+            'user' => $user
         ]);
     }
 
-    public function informationUpdate(Request $request, User $student)
+    public function informationUpdate(Request $request, User $user)
     {
         $data = $request->all();
-        $student->fill($data)->save();
+        $user->fill($data)->save();
 
-        return redirect()->route('backend.persons.students.information.index', $student)->with('success', "Successfully updated!");
+        return redirect()->route('backend.persons.users.information.index', $user)->with('success', "Successfully updated!");
     }
 }

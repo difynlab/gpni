@@ -78,7 +78,7 @@ Route::middleware(['set_language'])->group(function () {
         });
         Route::prefix('nutritionists')->name('nutritionists.')->group(function() {
             Route::get('/', [NutritionistController::class, 'index'])->name('index');
-            Route::post('contact/{nutritionist}', [NutritionistController::class, 'contact'])->name('contact');
+            Route::post('contact', [NutritionistController::class, 'contact'])->name('contact');
             Route::get('fetch/{nutritionist}', [NutritionistController::class, 'fetch'])->name('fetch');
         });
         Route::prefix('master-classes')->name('master-classes.')->group(function() {

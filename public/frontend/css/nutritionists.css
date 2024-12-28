@@ -161,12 +161,12 @@
     height: 5rem; 
     text-align: center;
     width: 100px;
+    cursor: pointer;
 }
 
 .coach-contact-link{
     cursor: pointer;
     white-space: normal;
-
 }
 
 .coach-info-row {

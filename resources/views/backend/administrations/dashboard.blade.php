@@ -77,7 +77,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="single-item mb-5">
-                                <a href="{{ route('backend.persons.students.index') }}" class="link">Users</a>
+                                <a href="{{ route('backend.persons.users.index') }}" class="link">Users</a>
                                 <hr class="line">
                             </div>
                             
@@ -89,7 +89,7 @@
 
                         <div class="col-6">
                             <div class="single-item mb-5">
-                                <a href="{{ route('backend.persons.nutritionists.index') }}" class="link">Nutritionists</a>
+                                <a href="{{ route('backend.persons.issn-partners.index') }}" class="link">ISSN Partners</a>
                                 <hr class="line">
                             </div>
                             
