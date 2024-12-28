@@ -113,6 +113,10 @@
         font-size: 15px;
         margin-bottom: 10px;
     }
+    form .form-check-label {
+        color: #2D3748;
+        font-size: 14px;
+    }
     form .form-control {
         font-size: 15px;
         border: 1px solid #EAEAEA;

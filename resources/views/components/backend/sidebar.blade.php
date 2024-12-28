@@ -246,6 +246,13 @@
                 </li>
 
                 <li class="sub-menu-link">
+                    <a href="{{ route('backend.persons.our-founders.index') }}">
+                        <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
+                        <span>Our Founders</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu-link">
                     <a href="{{ route('backend.persons.issn-partners.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
                         <span>ISSN Partners</span>

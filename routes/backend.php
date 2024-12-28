@@ -53,6 +53,7 @@ use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
 use App\Http\Controllers\Backend\Person\GlobalEducationPartnerController;
 use App\Http\Controllers\Backend\Person\ISSNPartnerController;
+use App\Http\Controllers\Backend\Person\OurFounderController;
 use App\Http\Controllers\Backend\Person\UserController;
 use App\Http\Controllers\Backend\Podcast\PodcastController;
 use App\Http\Controllers\Backend\Policy\PolicyCategoryController;
@@ -296,6 +297,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             // Advisory board routes
                 Route::resource('advisory-boards', PersonAdvisoryBoardController::class)->except('show');
                 Route::get('advisory-boards/filter', [PersonAdvisoryBoardController::class, 'filter'])->name('advisory-boards.filter');
+            // Advisory board routes
+
+            // Advisory board routes
+                Route::resource('our-founders', OurFounderController::class)->except('show');
+                Route::get('our-founders/filter', [OurFounderController::class, 'filter'])->name('our-founders.filter');
             // Advisory board routes
 
             // ISSN partner routes
