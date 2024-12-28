@@ -47,7 +47,7 @@
                                     @if($nutritionist->image)
                                         <img src="{{ asset('storage/backend/persons/users/' . $nutritionist->image) }}" class="image" alt="User Image">
                                     @else
-                                        <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}" class="image">
+                                        <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_profile_image) }}" class="image">
                                     @endif
 
                                     <div class="coach-name fs-20">{{ $nutritionist->first_name }} {{ $nutritionist->last_name }}</div>

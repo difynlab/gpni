@@ -195,9 +195,9 @@
                         @if(auth()->check())
                             @if(auth()->user()->role == 'student')
                                 @if(auth()->user()->image)
-                                    <img src="{{ asset('storage/backend/persons/students/' . auth()->user()->image) }}" alt="Image" class="profile-image img-fluid" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{ asset('storage/backend/persons/users/' . auth()->user()->image) }}" alt="Image" class="profile-image img-fluid" data-bs-toggle="dropdown" aria-expanded="false">
                                 @else
-                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Image" class="profile-image img-fluid" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" alt="Image" class="profile-image img-fluid" data-bs-toggle="dropdown" aria-expanded="false">
                                 @endif
 
                                 <ul class="dropdown-menu" aria-labelledby="partnersDropdown">

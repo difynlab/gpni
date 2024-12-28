@@ -34,7 +34,7 @@
                                     </div>
 
                                     @if($student->image)
-                                        <img src="{{ asset('storage/backend/persons/students/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
+                                        <img src="{{ asset('storage/backend/persons/users/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
                                     @else
                                         <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" class="student-profile-image" alt="Profile Image">
                                     @endif
@@ -50,7 +50,7 @@
                                                 </div>
 
                                                 @if($student->image)
-                                                    <img src="{{ asset('storage/backend/persons/students/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
+                                                    <img src="{{ asset('storage/backend/persons/users/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
                                                 @else
                                                     <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" class="student-profile-image" alt="Profile Image">
                                                 @endif
