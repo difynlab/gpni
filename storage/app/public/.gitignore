@@ -1,0 +1,14 @@
+# Ignore everything by default
+*
+!.gitignore
+
+# Include everything in the frontend folder
+!/frontend/
+!/frontend/**
+
+# Ignore everything else in the backend folder
+/backend/**
+
+# Re-include the sidebar folder to override the previous ignore rule
+!/backend/sidebar/
+!/backend/sidebar/**
