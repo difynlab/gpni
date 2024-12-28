@@ -36,7 +36,7 @@
                             @endforeach
                             @else
                             <div class="col-6 col-md-3 pt-2 d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"
+                                <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
                                     alt="No Image" class="partner-images img-fluid">
                             </div>
                             @endif
@@ -67,7 +67,7 @@
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_2_image_en) }}"
                                 alt="Affiliates Image" class="image img-fluid">
                             @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
                                 alt="Affiliates Image" class="image img-fluid">
                             @endif
                         </div>

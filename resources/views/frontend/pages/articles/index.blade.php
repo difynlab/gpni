@@ -45,7 +45,7 @@
                                                     <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}"
                                                         alt="Main Image" class="img-fluid article-image">
                                                     @else
-                                                    <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}"
+                                                    <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
                                                         alt="Main Image" class="img-fluid article-image">
                                                     @endif
                                                     <div class="share-icon position-absolute">
@@ -78,7 +78,7 @@
                                                             <img src="{{ asset('storage/backend/articles/author-images/'.$article->author_image) }}"
                                                                 alt="User" class="rounded-circle" style="width:40px; height:40px;">
                                                             @else
-                                                            <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}"
+                                                            <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
                                                                 alt="Main Image" class="rounded-circle"
                                                                 style="width:40px; height:40px;">
                                                             @endif
@@ -112,7 +112,7 @@
                                             <img src="{{ asset('storage/backend/articles/articles/'. $recommended_article->thumbnail) }}"
                                                 alt="Main Image" class="img-fluid w-100">
                                             @else
-                                            <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}"
+                                            <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
                                                 alt="Main Image" class="img-fluid w-100">
                                             @endif
                                             <div class="share-icon position-absolute">
@@ -148,7 +148,7 @@
                                                     <img src="{{ asset('storage/backend/articles/author-images/'.$recommended_article->author_image) }}"
                                                         alt="User" class="rounded-circle" style="width:40px; height:40px;">
                                                     @else
-                                                    <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}"
+                                                    <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
                                                         alt="Main Image" class="rounded-circle"
                                                         style="width:40px; height:40px;">
                                                     @endif
@@ -186,7 +186,7 @@
                                                 <img src="{{ asset('storage/backend/articles/articles/' . $trending_article->thumbnail) }}" alt="Trending Image" class="img-fluid object-fit-cover">
 
                                                 @else
-                                                <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"
+                                                <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
                                                     alt="Trending Image" class="img-fluid object-fit-cover">
                                                 @endif
                                             </div>

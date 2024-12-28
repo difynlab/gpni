@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="col-4 col-xl-3">
                                         <div class="image-div">
-                                            <img src="{{ asset('storage/backend/common/users.png') }}" alt="Users">
+                                            <img src="{{ asset('storage/backend/main/users.png') }}" alt="Users">
                                         </div>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="col-4 col-xl-3">
                                         <div class="image-div">
-                                            <img src="{{ asset('storage/backend/common/courses.png') }}" alt="Users">
+                                            <img src="{{ asset('storage/backend/main/courses.png') }}" alt="Users">
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-4 col-xl-3">
                                         <div class="image-div">
-                                            <img src="{{ asset('storage/backend/common/products.png') }}" alt="Users">
+                                            <img src="{{ asset('storage/backend/main/products.png') }}" alt="Users">
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="col-4 col-xl-3">
                                         <div class="image-div">
-                                            <img src="{{ asset('storage/backend/common/affiliate-products.png') }}" alt="Users">
+                                            <img src="{{ asset('storage/backend/main/affiliate-products.png') }}" alt="Users">
                                         </div>
                                     </div>
                                 </div>

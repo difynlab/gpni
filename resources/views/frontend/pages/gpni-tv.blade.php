@@ -46,7 +46,7 @@
                     @elseif($contents->section_1_image_en)
                         <img src="{{ asset('storage/backend/pages/' . $contents->section_1_image_en) }}" alt="GPNi-TV" class="img-fluid pt-lg-0 pt-3 hide-on-small">
                     @else
-                        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="GPNi-TV" class="img-fluid pt-lg-0 pt-3 hide-on-small">
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="GPNi-TV" class="img-fluid pt-lg-0 pt-3 hide-on-small">
                     @endif
                 </div>
             </div>
@@ -99,7 +99,7 @@
                         @elseif($contents->section_3_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_3_image_en) }}" alt="Global Experts" class="img-fluid">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Global Experts" class="img-fluid">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Global Experts" class="img-fluid">
                         @endif
                     </div>
                     <div class="col-md-7">
@@ -136,7 +136,7 @@
                         @elseif($contents->section_5_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_5_image_en) }}" alt="Webinar Image" class="img-fluid">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Webinar Image" class="img-fluid">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Webinar Image" class="img-fluid">
                         @endif
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                         @elseif($contents->section_6_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_6_image_en) }}" alt="On-Demand Benefits" class="img-fluid learn-more-image">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="On-Demand Benefits" class="img-fluid learn-more-image">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="On-Demand Benefits" class="img-fluid learn-more-image">
                         @endif
                     </div>
                     <div class="col-md-6 d-flex flex-column justify-content-center content-section">
@@ -182,7 +182,7 @@
                                 <source src="{{ asset('storage/backend/pages/' . $contents->section_7_video_en) }}" type="video/mp4">
                             </video>
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="On-Demand Benefits" class="img-fluid learn-grow-video">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="On-Demand Benefits" class="img-fluid learn-grow-video">
                         @endif
                     </div>
                 </div>
@@ -238,7 +238,7 @@
                         @elseif($contents->section_10_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_10_image_en) }}" alt="Special Offer" class="img-fluid">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Special Offer" class="img-fluid">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Special Offer" class="img-fluid">
                         @endif
                     </div>
                     <div class="col-md-6 pt-md-0 pt-3">

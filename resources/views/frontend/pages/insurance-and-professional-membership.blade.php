@@ -23,7 +23,7 @@
                         <img src="{{ asset('storage/backend/pages/' . $contents->section_1_image_en) }}" alt="Cover image"
                             class="img-fluid img-fluid-custom">
                     @else
-                        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Cover image"
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Cover image"
                             class="img-fluid img-fluid-custom">
                     @endif
                 </div>
@@ -49,7 +49,7 @@
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_2_image_en) }}" alt="Certified"
                                 class="img-fluid img-approved">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
                                 alt="Certified" class="img-fluid img-approved">
                         @endif
                     </div>
@@ -78,7 +78,7 @@
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_4_image_en) }}"
                                 alt="Importance of insurance" class="img-fluid img-fluid-custom">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
                                 alt="Importance of insurance" class="img-fluid img-fluid-custom">
                         @endif
                     </div>

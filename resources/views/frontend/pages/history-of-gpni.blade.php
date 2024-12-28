@@ -30,7 +30,7 @@
                 @elseif($contents->section_1_image_en)
                     <img src="{{ asset('storage/backend/pages/' . $contents->section_1_image_en) }}" alt="Section 1 Image" class="img-fluid">
                 @else
-                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="img-fluid">
+                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="img-fluid">
                 @endif
             </div>
         </div>
@@ -62,7 +62,7 @@
                         @elseif($contents->section_3_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_3_image_en) }}" alt="GPNI Image" class="img-fluid">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="GPNI Image" class="img-fluid">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="GPNI Image" class="img-fluid">
                         @endif
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                         @elseif($contents->section_5_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_5_image_en) }}" alt="Section 05 Image" class="img-fluid">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Section 05 Image" class="img-fluid">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Section 05 Image" class="img-fluid">
                         @endif
                     </div>
                     <div class="col-md-6">
@@ -140,7 +140,7 @@
                         @elseif($contents->section_6_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_6_image_en) }}" alt="Section 06 Image" class="img-fluid">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Section 06 Image" class="img-fluid">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Section 06 Image" class="img-fluid">
                         @endif
                     </div>
                 </div>

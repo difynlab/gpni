@@ -44,7 +44,7 @@ class SettingsController extends Controller
         // Logo
             if($request->file('new_logo')) {
                 if($request->old_logo) {
-                    Storage::delete('public/backend/common/' . $request->old_logo);
+                    Storage::delete('public/backend/main/' . $request->old_logo);
                 }
 
                 $new_logo = $request->file('new_logo');
@@ -64,7 +64,7 @@ class SettingsController extends Controller
         // Favicon
             if($request->file('new_favicon')) {
                 if($request->old_favicon) {
-                    Storage::delete('public/backend/common/' . $request->old_favicon);
+                    Storage::delete('public/backend/main/' . $request->old_favicon);
                 }
 
                 $new_favicon = $request->file('new_favicon');
@@ -84,7 +84,7 @@ class SettingsController extends Controller
         // Guest image
             if($request->file('new_guest_image')) {
                 if($request->old_guest_image) {
-                    Storage::delete('public/backend/common/' . $request->old_guest_image);
+                    Storage::delete('public/backend/main/' . $request->old_guest_image);
                 }
 
                 $new_guest_image = $request->file('new_guest_image');
@@ -104,7 +104,7 @@ class SettingsController extends Controller
         // Footer logo
             if($request->file('new_footer_logo')) {
                 if($request->old_footer_logo) {
-                    Storage::delete('public/backend/common/' . $request->old_footer_logo);
+                    Storage::delete('public/backend/main/' . $request->old_footer_logo);
                 }
 
                 $new_footer_logo = $request->file('new_footer_logo');
@@ -124,7 +124,7 @@ class SettingsController extends Controller
         // No image
             if($request->file('new_no_image')) {
                 if($request->old_no_image) {
-                    Storage::delete('public/backend/common/' . $request->old_no_image);
+                    Storage::delete('public/backend/main/' . $request->old_no_image);
                 }
 
                 $new_no_image = $request->file('new_no_image');
@@ -144,7 +144,7 @@ class SettingsController extends Controller
         // No profile image
             if($request->file('new_no_profile_image')) {
                 if($request->old_no_profile_image) {
-                    Storage::delete('public/backend/common/' . $request->old_no_profile_image);
+                    Storage::delete('public/backend/main/' . $request->old_no_profile_image);
                 }
 
                 $new_no_profile_image = $request->file('new_no_profile_image');

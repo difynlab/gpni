@@ -9,7 +9,7 @@
             @if($student->image)
                 <img src="{{ asset('storage/backend/persons/users/' . $student->image) }}" class="profile-img" alt="Profile Image">
             @else
-                <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" class="profile-img" alt="Profile Image">
+                <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" class="profile-img" alt="Profile Image">
             @endif
 
             <div class="sidebar-edit-icon">

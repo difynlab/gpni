@@ -24,7 +24,7 @@ class WebinarController extends Controller
                 <source src="'. asset('storage/backend/webinars/' . $webinar->video) .'" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            ' : '<img src="'. asset('storage/backend/common/' . Setting::find(1)->no_image) .'" class="table-image">';
+            ' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_image) .'" class="table-image">';
 
             $webinar->status = ($webinar->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }

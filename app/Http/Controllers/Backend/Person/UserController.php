@@ -22,7 +22,7 @@ class UserController extends Controller
             <a href="'. route('backend.persons.users.edit', $user->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$user->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $user->image = $user->image != null ? '<img src="'. asset('storage/backend/persons/users/' . $user->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/common/' . Setting::find(1)->no_image) .'" class="table-image">';
+            $user->image = $user->image != null ? '<img src="'. asset('storage/backend/persons/users/' . $user->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_image) .'" class="table-image">';
 
             $currency_symbol = ($user->language === 'English') ? '$' : '¥';
             $wallet_exist = Wallet::where('user_id', $user->id)->first();

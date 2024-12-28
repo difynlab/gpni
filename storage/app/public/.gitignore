@@ -8,10 +8,6 @@
 
 # Ignore everything else in the backend folder
 /backend/**
-/backend/common/*
-/backend/common/*.png
-/backend/common/*.jpg
-/backend/common/*.jpeg
 
 # Re-include the sidebar folder to override the previous ignore rule
 !/backend/sidebar/

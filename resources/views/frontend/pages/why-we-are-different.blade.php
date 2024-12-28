@@ -22,7 +22,7 @@
                         <video src="{{ asset('storage/backend/pages/' . $contents->section_1_video_en ?? '') }}" controls
                             class="w-100"></video>
                     @else
-                        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
                             class="w-100" alt="Header Image">
                     @endif
                 </div>
