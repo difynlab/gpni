@@ -20,7 +20,9 @@ return new class extends Migration
             $table->text('page_name_zh')->after('page_name_en');
             $table->text('page_name_ja')->after('page_name_zh');
 
-            $table->text('search_en')->nullable();
+            $table->text('search_placeholder_en')->nullable();
+            $table->text('search_button_en')->nullable();
+            $table->text('search_labels_links_en')->nullable();
             $table->text('contact_coach_en')->nullable();
             $table->text('qualified_coach_en')->nullable();
             $table->text('age_en')->nullable();
@@ -47,8 +49,11 @@ return new class extends Migration
             $table->text('membership_credential_status_en')->nullable();
             $table->text('area_of_interest_en')->nullable();
             $table->text('self_introduction_en')->nullable();
+            $table->text('no_nutritionists_en')->nullable();
 
-            $table->text('search_zh')->nullable();
+            $table->text('search_placeholder_zh')->nullable();
+            $table->text('search_button_zh')->nullable();
+            $table->text('search_labels_links_zh')->nullable();
             $table->text('contact_coach_zh')->nullable();
             $table->text('qualified_coach_zh')->nullable();
             $table->text('age_zh')->nullable();
@@ -75,8 +80,11 @@ return new class extends Migration
             $table->text('membership_credential_status_zh')->nullable();
             $table->text('area_of_interest_zh')->nullable();
             $table->text('self_introduction_zh')->nullable();
+            $table->text('no_nutritionists_zh')->nullable();
 
-            $table->text('search_ja')->nullable();
+            $table->text('search_placeholder_ja')->nullable();
+            $table->text('search_button_ja')->nullable();
+            $table->text('search_labels_links_ja')->nullable();
             $table->text('contact_coach_ja')->nullable();
             $table->text('qualified_coach_ja')->nullable();
             $table->text('age_ja')->nullable();
@@ -103,6 +111,7 @@ return new class extends Migration
             $table->text('membership_credential_status_ja')->nullable();
             $table->text('area_of_interest_ja')->nullable();
             $table->text('self_introduction_ja')->nullable();
+            $table->text('no_nutritionists_ja')->nullable();
 
             $table->timestamps();
         });
