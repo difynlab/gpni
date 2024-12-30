@@ -447,7 +447,7 @@
                         }
 
                         $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
-                        $('#coach-id').val(id);
+                        $('#coach-id').val(nutritionistId);
                         $('#view-modal').modal('show');
                     },
                     error: function(xhr) {
