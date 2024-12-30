@@ -385,7 +385,7 @@
 
     .profile-content {
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
     }
 
     .coach-image {
@@ -433,6 +433,74 @@
         width: 100%;
         height: auto;
         margin-bottom: 20px;
+    }
+
+    /* Make modal full width on mobile */
+    .modal-dialog.modal-lg,
+    .modal-dialog.modal-xl {
+        max-width: 100% !important;
+        margin: 0.5rem;
+    }
+
+    /* Adjust modal content padding */
+    .modal-content {
+        padding: 1rem;
+    }
+
+    /* Adjust form fields spacing */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    /* Make submit button full width */
+    .submit-btn {
+        width: 100%;
+    }
+
+    /* Adjust form field font sizes */
+    .form-control,
+    .form-select {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    /* Adjust labels */
+    .form-group label {
+        font-size: 14px;
+    }
+
+    /* Adjust modal title */
+    .modal-title {
+        font-size: 18px;
+    }
+
+    /* Profile content adjustments */
+    .profile-content {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    /* Side section with image adjustments */
+    .side-section {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    /* Coach image adjustments */
+    .coach-image {
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+        margin: 0 0 15px 0; /* Remove center margin, add bottom margin */
+        align-self: flex-start; /* Align image to the left */
+    }
+
+    /* Details content adjustments */
+    .details-content {
+        padding-left: 0;
+        width: 100%;
     }
 }
 /* Ensure "Contact Coach Now" and "Qualified Coach" appear in one line for small, medium, and large devices */
