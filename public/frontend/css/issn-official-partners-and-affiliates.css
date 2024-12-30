@@ -30,8 +30,8 @@ body {
 }
 
 .partner-images {
-    width: auto;
-    height: 40%;
+    width: auto; /* Ensure the image takes up the full width of its container */
+    height: 8rem !important; /* Maintain aspect ratio */
     object-fit: fill;
 }
 

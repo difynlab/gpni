@@ -12,9 +12,9 @@
 
         @if($contents->section_1_title_en)
             <section class="container py-5">
-                <h2 class="text-center mx-auto issn-heading">
+                <h1 class="text-center mx-auto issn-heading">
                     {{ $contents->{'section_1_title_'. $middleware_language} ?? $contents->section_1_title_en }}
-                </h2>
+                </h1>
 
                 <div class="partners-section container pt-3 pt-md-5 mt-3 mt-md-4">
                     <h2 class="fs-49  mb-3 mb-md-4">
@@ -25,7 +25,7 @@
                         !!}
                     </div>
 
-                    <div class="row py-3 py-md-5">
+                    <div class="row py-md-5 py-2 gx-1 custom-row-gap">
                         <div class="row px-2 px-md-5 pb-3 pb-md-5 gx-2 gx-md-4 custom-row-gap">
                             @if(!$partners->isEmpty())
                             @foreach($partners as $partner)
