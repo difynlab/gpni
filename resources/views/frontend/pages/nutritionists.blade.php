@@ -357,7 +357,7 @@
                             <img src="" alt="Coach Image" class="coach-image">
                         </div>
                         <div class="details-content">
-                            <img src="{{ asset('storage/frontend/qr.png') }}" alt="QR Code" class="qr-code">
+                            <img src="" class="qr-code" alt="QR Code">
 
                             <h5 class="mb-2 name">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</h5>
                             
@@ -404,6 +404,59 @@
 
 @push('after-scripts')
     <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nutritionistId = urlParams.get('nutritionist-id');
+
+            if(nutritionistId) {
+                let url = "{{ route('frontend.nutritionists.fetch', [':id']) }}";
+                url = url.replace(':id', nutritionistId);
+
+                let noImageUrl = "{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}";
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function(response) {
+                        if(response.nutritionist['image']) {
+                            $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
+                        }
+                        else {
+                            $('#view-modal .coach-image').attr('src', noImageUrl);
+                        }
+
+                        $('#view-modal .qr-code').attr('src', response.html);
+                        $('#view-modal .name').text(response.nutritionist['first_name'] + ' ' + response.nutritionist['last_name']);
+                        $('#view-modal .age').text(response.nutritionist['age']);
+                        $('#view-modal .country').text(response.nutritionist['country']);
+                        $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
+                        $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
+                        $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
+                        $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
+
+                        let credentials = JSON.parse(response.nutritionist['credentials']);
+                        $('#view-modal .credentials').text(credentials.join(', '));
+
+                        let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
+                        let areaOfInterestContainer = $('#view-modal .area-of-interest');
+                        areaOfInterestContainer.empty();
+                        if(areaOfInterests) {
+                            areaOfInterests.forEach(function(interest) {
+                                areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
+                            });
+                        }
+
+                        $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
+                        $('#coach-id').val(id);
+                        $('#view-modal').modal('show');
+                    },
+                    error: function(xhr) {
+                        console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+                    }
+                });
+            }
+        });
+
         $('.coach-location-item').on('click', function() {
             let id = $(this).attr('id');
             $('#coach-id').val(id);
@@ -414,47 +467,49 @@
             let url = "{{ route('frontend.nutritionists.fetch', [':id']) }}";
             url = url.replace(':id', id);
 
-            let noImageUrl = "{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}";
+            let noImageUrl = "{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}";
 
             $.ajax({
                 url: url,
                 type: "GET",
                 success: function(response) {
-                    if(response.image) {
-                        $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.image);
+                    if(response.nutritionist['image']) {
+                        $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
                     }
                     else {
                         $('#view-modal .coach-image').attr('src', noImageUrl);
                     }
-                    
-                    $('#view-modal .name').text(response.first_name + ' ' + response.last_name);
-                    $('#view-modal .age').text(response.age);
-                    $('#view-modal .country').text(response.country);
-                    $('#view-modal .cec-status').text(response.cec_status == '1' ? 'Active' : 'Inactive');
-                    $('#view-modal .certificate-number').text(response.certificate_number);
-                    $('#view-modal .membership-credential-status').text(response.membership_credential_status == '1' ? 'Active' : 'Inactive');
-                    $('#view-modal .intro-paragraph').text(response.self_introduction);
 
-                    let credentials = JSON.parse(response.credentials);
+                    $('#view-modal .qr-code').attr('src', response.html);
+                    
+                    $('#view-modal .name').text(response.nutritionist['first_name'] + ' ' + response.nutritionist['last_name']);
+                    $('#view-modal .age').text(response.nutritionist['age']);
+                    $('#view-modal .country').text(response.nutritionist['country']);
+                    $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
+                    $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
+                    $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
+                    $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
+
+                    let credentials = JSON.parse(response.nutritionist['credentials']);
                     $('#view-modal .credentials').text(credentials.join(', '));
 
-                    let areaOfInterests = JSON.parse(response.area_of_interests);
+                    let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
                     let areaOfInterestContainer = $('#view-modal .area-of-interest');
                     areaOfInterestContainer.empty();
-                    areaOfInterests.forEach(function(interest) {
-                        areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
-                    });
-
-                    $('#view-modal .coach-contact-link').attr('id', response.id);
+                    if(areaOfInterests) {
+                        areaOfInterests.forEach(function(interest) {
+                            areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
+                        });
+                    }
+                    
+                    $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
+                    $('#coach-id').val(id);
+                    $('.view-modal').modal('show');
                 },
                 error: function(xhr) {
                     console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
                 }
             });
-
-            $('.view-modal').modal('show');
-
-            $('#coach-id').val(id);
         });
     </script>
 @endpush

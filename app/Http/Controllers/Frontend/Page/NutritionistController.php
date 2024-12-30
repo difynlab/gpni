@@ -8,6 +8,7 @@ use App\Models\NutritionistContent;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class NutritionistController extends Controller
 {
@@ -88,7 +89,16 @@ class NutritionistController extends Controller
 
     public function fetch(User $nutritionist)
     {
-        return response()->json($nutritionist);
+        $url = url("nutritionists?nutritionist-id=" . $nutritionist->id);
+
+        $qrcode = QrCode::generate($url);
+
+        $html = 'data:image/svg+xml;base64,' . base64_encode($qrcode);
+
+        return response()->json([
+            'nutritionist' => $nutritionist,
+            'html' => $html
+        ]);
     }
 
     public function contact(Request $request)
