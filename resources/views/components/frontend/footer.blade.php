@@ -5,7 +5,7 @@
 <div class="footer">
     <div class="container py-5">
         <div class="row py-3">
-            <div class="col-md-4 text-start">
+            <div class="col-lg-3 list-of-items">
                 <a href="{{ route('frontend.homepage') }}">
                     <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->footer_logo) }}" alt="GPNi" style="width: 286px; margin-bottom: 20px;">
                     <p>{{ $contents->{'footer_powered_' . $middleware_language} ?? $contents->footer_powered_en }} <img src="{{ asset('storage/frontend/powered-by-white.svg') }}" alt="Power Logo" style="width: 20px;"></p>
@@ -44,23 +44,19 @@
 
                 <form action="{{ route('frontend.subscription') }}" method="POST">
                     @csrf
-                    <div class="subscribe-form pb-3">
-                        <div class="d-flex flex-column flex-md-row align-items-md-center mb-3">
-                            <input type="email" class="form-control subscribe-input flex-grow-1 mb-3 mb-md-0 mr-md-3" name="email" placeholder="{{ $contents->{'footer_placeholder_' . $middleware_language} ?? $contents->footer_placeholder_en }}" required>
-                            <button type="submit" class="btn subscribe-button">{{ $contents->{'footer_button_' . $middleware_language} ?? $contents->footer_button_en }}</button>
-                        </div>
-
-                        <x-frontend.input-error field="email"></x-frontend.input-error>
-
-                        <x-frontend.notification></x-frontend.notification>
+                    <div class="subscribe-form">
+                        <input type="email" class="form-control subscribe-input flex-grow-1 mb-3 mb-md-0 mr-md-3" name="email" placeholder="{{ $contents->{'footer_placeholder_' . $middleware_language} ?? $contents->footer_placeholder_en }}" required>
+                        <button type="submit" class="btn subscribe-button">{{ $contents->{'footer_button_' . $middleware_language} ?? $contents->footer_button_en }}</button>
                     </div>
+
+                    <x-frontend.input-error field="email"></x-frontend.input-error>
+                    <x-frontend.notification></x-frontend.notification>
                 </form>
 
-                <div>
-                    <a href="#"><img src="{{ asset('storage/frontend/app-store.svg') }}" alt="App Store" style="width: 120px; margin-right: 10px;"></a>
+                <div class="app-stores mt-3">
                     <a href="#"><img src="{{ asset('storage/frontend/play-store.svg') }}" alt="Google Play" style="width: 120px;"></a>
+                    <a href="#"><img src="{{ asset('storage/frontend/app-store.svg') }}" alt="App Store" style="width: 120px; margin-right: 10px;"></a>
                 </div>
-
             </div>
         </div>
         

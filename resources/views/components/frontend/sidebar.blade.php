@@ -12,9 +12,9 @@
                 <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" class="profile-img" alt="Profile Image">
             @endif
 
-            <div class="sidebar-edit-icon">
+            <!-- <div class="sidebar-edit-icon">
                 <img src="{{ asset('storage/frontend/edit-icon.svg') }}" alt="Edit">
-            </div>
+            </div> -->
         </div>
         <h2 class="fs-31">{{ $student->first_name . ' ' . $student->last_name}}</h2>
         <p class="fs-20">

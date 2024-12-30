@@ -18,10 +18,11 @@
                 <div class="header mb-4">{{ $student_dashboard_contents->member_corner_title }}</div>
 
                 <div class="container-main mb-3">
+                     <div class="table-responsive"> 
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <div class="header">{{ $student_dashboard_contents->member_corner_top_title }}</div>
                     </div>
-
+                    <!-- <div class="table-responsive"> -->
                     <table class="table table-bordered">
                         <thead>
                             <tr>

@@ -132,7 +132,7 @@
                             <img src="{{ asset('storage/backend/pages/' . $section_5_point->image) }}" 
                                 alt="Other Partner Logo" 
                                 class="partner-logo mb-3 mb-md-0"
-                                style="max-width: 120px; width: 100%; height: auto;"/>
+                                style="max-width: 200px; width: 100%; height: auto;"/>
                             <div class="partner-info fs-20 text-center text-md-start">
                                 {!! $section_5_point->content !!}
                             </div>
