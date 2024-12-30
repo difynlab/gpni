@@ -37,7 +37,7 @@
                             @if($podcast->thumbnail)
                                 <img src="{{ asset('storage/backend/podcasts/'. $podcast->thumbnail) }}" alt="Main Image" class="img-fluid podcast-image">
                             @else
-                                <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}" alt="Main Image" class="img-fluid podcast-image">
+                                <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}" alt="Main Image" class="img-fluid podcast-image">
                             @endif
                         </div>
 

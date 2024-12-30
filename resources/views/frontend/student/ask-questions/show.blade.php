@@ -34,9 +34,9 @@
                                     </div>
 
                                     @if($student->image)
-                                        <img src="{{ asset('storage/backend/persons/students/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
+                                        <img src="{{ asset('storage/backend/persons/users/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
                                     @else
-                                        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" class="student-profile-image" alt="Profile Image">
+                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" class="student-profile-image" alt="Profile Image">
                                     @endif
                                 </div>
                                 
@@ -50,9 +50,9 @@
                                                 </div>
 
                                                 @if($student->image)
-                                                    <img src="{{ asset('storage/backend/persons/students/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
+                                                    <img src="{{ asset('storage/backend/persons/users/' . $student->image) }}" class="student-profile-image" alt="Profile Image">
                                                 @else
-                                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" class="student-profile-image" alt="Profile Image">
+                                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" class="student-profile-image" alt="Profile Image">
                                                 @endif
                                             </div>
                                         @else
@@ -60,7 +60,7 @@
                                                 @if(App\Models\User::find($ask_question_reply->replied_by)->image)
                                                     <img src="{{ asset('storage/backend/persons/admins/' . App\Models\User::find($ask_question_reply->replied_by)->image) }}" class="admin-profile-image" alt="Profile Image">
                                                 @else
-                                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_profile_image) }}" class="admin-profile-image" alt="Profile Image">
+                                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" class="admin-profile-image" alt="Profile Image">
                                                 @endif
 
                                                 <div>

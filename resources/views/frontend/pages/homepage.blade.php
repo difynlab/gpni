@@ -45,7 +45,7 @@
                                 @elseif($contents->section_1_image_en)
                                     <img src="{{ asset('storage/backend/pages/' . $contents->section_1_image_en) }}" alt="Header Image" class="img-fluid">
                                 @else
-                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
                                 @endif
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             @elseif($contents->section_2_video_en)
                                 <video src="{{ asset('storage/backend/pages/' . $contents->section_2_video_en ?? '') }}" controls class="w-100"></video>
                             @else
-                                <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid w-100" alt="Header Image">
+                                <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid w-100" alt="Header Image">
                             @endif
 
                             @if($contents->section_2_points_en)
@@ -257,7 +257,7 @@
                                     <source src="{{ asset('storage/backend/pages/' . $contents->section_4_video_en) }}" type="video/mp4">
                                 </video>
                             @else
-                                <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" class="responsive-video">
+                                <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="responsive-video">
                             @endif
                         </div>
                     </div>
@@ -274,7 +274,7 @@
                                     @if($testimonial->image)
                                         <img src="{{ asset('storage/backend/testimonials/' . $testimonial->image) }}" alt="Author Picture">
                                     @else
-                                        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}">
+                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}">
                                     @endif
                                     
                                     <div>

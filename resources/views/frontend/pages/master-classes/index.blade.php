@@ -174,7 +174,7 @@
                                         <source src="{{ asset('storage/backend/pages/' . $contents->section_4_video_en) }}" type="video/mp4">
                                     </video>
                                 @else
-                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" class="responsive-video">
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="responsive-video">
                                 @endif
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                                         @if($testimonial->image)
                                             <img src="{{ asset('storage/backend/testimonials/' . $testimonial->image) }}" alt="Author Picture">
                                         @else
-                                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}">
+                                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}">
                                         @endif
                                         
                                         <div>

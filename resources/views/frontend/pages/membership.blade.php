@@ -26,7 +26,7 @@
                 @elseif($contents->section_2_image_en)
                     <img src="{{ asset('storage/backend/pages/' . $contents->section_2_image_en) }}" class="img-fluid">
                 @else
-                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid">
+                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid">
                 @endif
             </div>
 

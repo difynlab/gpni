@@ -7,7 +7,7 @@
         <div class="row py-3">
             <div class="col-md-4 text-start">
                 <a href="{{ route('frontend.homepage') }}">
-                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->footer_logo) }}" alt="GPNi" style="width: 286px; margin-bottom: 20px;">
+                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->footer_logo) }}" alt="GPNi" style="width: 286px; margin-bottom: 20px;">
                     <p>{{ $contents->{'footer_powered_' . $middleware_language} ?? $contents->footer_powered_en }} <img src="{{ asset('storage/frontend/powered-by-white.svg') }}" alt="Power Logo" style="width: 20px;"></p>
                 </a>
             </div>

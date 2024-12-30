@@ -1,34 +1,30 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Nutritionists')
+@section('title', 'Our Founders')
 
 @section('content')
 
-    <x-backend.breadcrumb page_name="Nutritionists"></x-backend.breadcrumb>
+    <x-backend.breadcrumb page_name="Our Founders"></x-backend.breadcrumb>
 
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.persons.nutritionists.create') }}" class="add-button">
+                <a href="{{ route('backend.persons.our-founders.create') }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
-                    Add New Nutritionist
+                    Add New Our Founder
                 </a>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.persons.nutritionists.filter') }}" method="GET" class="filter-form">
+                <form action="{{ route('backend.persons.our-founders.filter') }}" method="GET" class="filter-form">
                     <div class="row align-items-center">
-                        <div class="col-3">
+                        <div class="col-4 col-xl-5">
                             <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Name">
                         </div>
 
-                        <div class="col-3">
-                            <input type="text" class="form-control" name="email" value="{{ $email ?? '' }}" placeholder="Email">
-                        </div>
-
-                        <div class="col-3">
+                        <div class="col-4 col-xl-5">
                             <select class="form-control form-select" name="language">
                                 <option value="All" selected>All languages</option>
                                 <option value="English" {{ isset($language) && $language == 'English' ? "selected" : "" }}>English</option>
@@ -37,7 +33,7 @@
                             </select>
                         </div>
 
-                        <div class="col-3 d-flex justify-content-between">
+                        <div class="col-4 col-xl-2 d-flex justify-content-between">
                             <button type="submit" class="filter-search-button" name="action" value="search">SEARCH</button>
 
                             <button type="submit" class="filter-reset-button" name="action" value="reset">RESET</button>
@@ -58,42 +54,40 @@
                             <th scope="col">ID</th>
                             <th scope="col">Image</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Designations</th>
                             <th scope="col">Language</th>
-                            <th scope="col">Certificate Number</th>
-                            <th scope="col">CEC Status</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @if(count($nutritionists) > 0)
-                            @foreach($nutritionists as $nutritionist)
+                        @if(count($our_founders) > 0)
+                            @foreach($our_founders as $our_founder)
                                 <tr>
-                                    <td>#{{ $nutritionist->id }}</td>
-                                    <td>{!! $nutritionist->image !!}</td>
-                                    <td>{{ $nutritionist->name }}</td>
-                                    <td>{{ $nutritionist->language }}</td>
-                                    <td>{{ $nutritionist->certificate_number }}</td>
-                                    <td>{!! $nutritionist->cec_status !!}</td>
-                                    <td>{!! $nutritionist->status !!}</td>
-                                    <td>{!! $nutritionist->action !!}</td>
+                                    <td>#{{ $our_founder->id }}</td>
+                                    <td>{!! $our_founder->image !!}</td>
+                                    <td>{{ $our_founder->name }}</td>
+                                    <td>{{ $our_founder->designations }}</td>
+                                    <td>{{ $our_founder->language }}</td>
+                                    <td>{!! $our_founder->status !!}</td>
+                                    <td>{!! $our_founder->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;">No data available in table</td>
+                                <td colspan="7" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
                 </table>
                 </div>
 
-                {{ $nutritionists->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
+                {{ $our_founders->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
             </div>
         </div>
 
-        <x-backend.delete-data title="Nutritionist"></x-backend.delete-data>
+        <x-backend.delete-data title="Advisory Board"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -104,7 +98,7 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let url = "{{ route('backend.persons.nutritionists.destroy', [':id']) }}";
+                let url = "{{ route('backend.persons.our-founders.destroy', [':id']) }}";
                 destroy_url = url.replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
@@ -112,7 +106,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $nutritionists->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $our_founders->url(1) !!}&items=" + this.value; 
             });
         });
     </script>

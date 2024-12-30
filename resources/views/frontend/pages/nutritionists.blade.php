@@ -20,41 +20,83 @@
                     <h2>{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
                     <h2>{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</h2>
 
-                    <form action="{{ route('frontend.nutritionists.index') }}" method="GET">
-                        <div class="search-field">
-                            <img src="{{ asset('storage/frontend/search-icon-gray.svg') }}" alt="Search Icon">
-                            <input type="text" name="nutritionist" value="{{ $nutritionist ?? '' }}" placeholder="{{ $contents->{'search_' . $middleware_language} ?? $contents->search_en }}">
+                    <div class="row align-items-center">
+                        <div class="col-11">
+                            <form action="{{ route('frontend.nutritionists.index') }}" method="GET">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="search-field">
+                                            <img src="{{ asset('storage/frontend/search-icon-gray.svg') }}" alt="Search Icon">
+                                            <input type="text" name="nutritionist" value="{{ $filter_nutritionist ?? '' }}" placeholder="{{ $contents->{'search_placeholder_' . $middleware_language} ?? $contents->search_placeholder_en }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-5">
+                                        <select class="form-control form-select search-field" id="country" name="country">
+                                            <option value="">{{ $contents->{'choose_country_' . $middleware_language} ?? $contents->choose_country_en }}</option>
+                                            @foreach($countries as $country)
+                                                <option value="{{ $country }}" {{ isset($filter_country) && $filter_country == $country ? 'selected' : '' }}>{{ $country }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-2">
+                                        <button class="btn btn-primary btn-lg search-button btn-responsive" type="submit">{{ $contents->{'search_button_' . $middleware_language} ?? $contents->search_button_en }}</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="col-1">
+                            <a href="{{ route('frontend.nutritionists.index') }}" class="reset-button">
+                                <i class="bi bi-arrow-clockwise"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+
+                    @if($contents->search_labels_links_en)
+                        <div class="d-flex justify-content-center flex-wrap mt-3">
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->search_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->search_labels_links_en)[0]->label }}</a>
+
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->search_labels_links_en)[1]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->search_labels_links_en)[1]->label }}</a>
+
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->link ?? json_decode($contents->search_labels_links_en)[2]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->label ?? json_decode($contents->search_labels_links_en)[2]->label }}</a>
+
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->link ?? json_decode($contents->search_labels_links_en)[3]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->label ?? json_decode($contents->search_labels_links_en)[3]->label }}</a>
+                        </div>
+                    @endif
                 </div>
             </section>
         </div>
     @endif
 
-    @if($nutritionists->isNotEmpty())
-        <div class="coaches-section">
-            <div class="container">
-                <div class="row">
+    <div class="coaches-section">
+        <div class="container">
+            <div class="row">
+                @if($nutritionists->isNotEmpty())
                     @foreach($nutritionists as $nutritionist)
                         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                             <div class="coach-card">
                                 <div class="flex-grow">
-                                    <div class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</div>
 
-                                    @if($nutritionist->image)
-                                        <img src="{{ asset('storage/backend/persons/nutritionists/' . $nutritionist->image) }}" class="image" alt="User Image">
-                                    @else
-                                        <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}" class="image">
+                                    @if($nutritionist->is_qualified == '1')
+                                        <div class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</div>
                                     @endif
 
-                                    <div class="coach-name fs-20">{{ $nutritionist->name }}</div>
+                                    @if($nutritionist->image)
+                                        <img src="{{ asset('storage/backend/persons/users/' . $nutritionist->image) }}" class="image" alt="User Image">
+                                    @else
+                                        <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_profile_image) }}" class="image">
+                                    @endif
+
+                                    <div class="coach-name fs-20">{{ $nutritionist->first_name }} {{ $nutritionist->last_name }}</div>
 
                                     <div class="coach-location-row">
                                         <div class="coach-location-item">
                                             <img src="{{ asset('storage/frontend/globe-icon.svg') }}" alt="Location Icon" width="20px" height="20px">
                                             <span>{{ $nutritionist->country }}</span>
                                         </div>
-                                        <div class="coach-location-item coach-contact-link" id="{{ $nutritionist->id }}">
+                                        <div class="coach-location-item" id="{{ $nutritionist->id }}" data-bs-toggle="modal" data-bs-target="#contact-modal">
                                             <img src="{{ asset('storage/frontend/connect-icon.svg') }}" alt="Contact Icon" width="20px" height="20px">
                                             <span>{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</span>
                                         </div>
@@ -80,15 +122,19 @@
                         </div>
                     @endforeach
 
-                    {{ $nutritionists->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
-                </div>
+                    {{ $nutritionists->links("pagination::bootstrap-5") }}
+                @else
+                    <div class="col-12">
+                        <p class="no-data">{{ $contents->{'no_nutritionists_' . $middleware_language} ?? $contents->no_nutritionists_en }}</p>
+                    </div>
+                @endif
             </div>
         </div>
-    @endif
+    </div>
 
-    <form action="#" method="POST" class="contact-modal">
+    <form action="{{ route('frontend.nutritionists.contact') }}" method="POST">
         @csrf
-        <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 99999;">
+        <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -332,6 +378,8 @@
                             <input type="text" class="form-control" id="app-id" name="app_id" required>
                         </div>
 
+                        <input type="hidden" id="coach-id" name="nutritionist" value="">
+
                         <button type="submit" class="btn submit-btn">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
                     </div>
                 </div>
@@ -352,7 +400,7 @@
                             <img src="" alt="Coach Image" class="coach-image">
                         </div>
                         <div class="details-content">
-                            <img src="{{ asset('storage/frontend/qr.png') }}" alt="QR Code" class="qr-code">
+                            <img src="" class="qr-code" alt="QR Code">
 
                             <h5 class="mb-2 name">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</h5>
                             
@@ -381,8 +429,9 @@
 
                             <div class="bottom-section">
                                 <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
+
                                 <div class="coach-location-model-item coach-contact-link">
-                                    <a class="contact-now">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</a>
+                                    <a class="contact-now" data-bs-toggle="modal" data-bs-target="#contact-modal">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</a>
                                 </div>
                             </div>
                         </div>
@@ -396,13 +445,69 @@
 
 @push('after-scripts')
     <script>
-        $('.coach-contact-link').on('click', function() {
-            let id = $(this).attr('id');
-            let url = "{{ route('frontend.nutritionists.contact', [':id']) }}";
-            url = url.replace(':id', id);
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nutritionistId = urlParams.get('nutritionist-id');
 
-            $('.contact-modal').attr('action', url);
-            $('.contact-modal .modal').modal('show');
+            if(nutritionistId) {
+                let url = "{{ route('frontend.nutritionists.fetch', [':id']) }}";
+                url = url.replace(':id', nutritionistId);
+
+                let noImageUrl = "{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}";
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function(response) {
+                        if(response.nutritionist['image']) {
+                            $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
+                        }
+                        else {
+                            $('#view-modal .coach-image').attr('src', noImageUrl);
+                        }
+
+                        $('#view-modal .qr-code').attr('src', response.html);
+                        $('#view-modal .name').text(response.nutritionist['first_name'] + ' ' + response.nutritionist['last_name']);
+                        $('#view-modal .age').text(response.nutritionist['age']);
+                        $('#view-modal .country').text(response.nutritionist['country']);
+                        $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
+                        $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
+                        $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
+                        $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
+
+                        let credentials = JSON.parse(response.nutritionist['credentials']);
+                        $('#view-modal .credentials').text(credentials.join(', '));
+
+                        let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
+                        let areaOfInterestContainer = $('#view-modal .area-of-interest');
+                        areaOfInterestContainer.empty();
+                        if(areaOfInterests) {
+                            areaOfInterests.forEach(function(interest) {
+                                areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
+                            });
+                        }
+
+                        if(response.nutritionist['is_qualified'] == '1') {
+                            $('.qualified-coach').addClass('d-none');
+                        }
+                        else {
+                            $('.qualified-coach').removeClass('d-none');
+                        }
+
+                        $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
+                        $('#coach-id').val(nutritionistId);
+                        $('#view-modal').modal('show');
+                    },
+                    error: function(xhr) {
+                        console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+                    }
+                });
+            }
+        });
+
+        $('.coach-location-item').on('click', function() {
+            let id = $(this).attr('id');
+            $('#coach-id').val(id);
         });
 
         $('.view-profile-btn').on('click', function() {
@@ -410,45 +515,56 @@
             let url = "{{ route('frontend.nutritionists.fetch', [':id']) }}";
             url = url.replace(':id', id);
 
-            let noImageUrl = "{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}";
+            let noImageUrl = "{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}";
 
             $.ajax({
                 url: url,
                 type: "GET",
                 success: function(response) {
-                    if(response.image) {
-                        $('#view-modal .coach-image').attr('src', 'storage/backend/persons/nutritionists/' + response.image);
+                    if(response.nutritionist['image']) {
+                        $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
                     }
                     else {
                         $('#view-modal .coach-image').attr('src', noImageUrl);
                     }
-                    
-                    $('#view-modal .name').text(response.name);
-                    $('#view-modal .age').text(response.age);
-                    $('#view-modal .country').text(response.country);
-                    $('#view-modal .cec-status').text(response.cec_status == '1' ? 'Active' : 'Inactive');
-                    $('#view-modal .certificate-number').text(response.certificate_number);
-                    $('#view-modal .membership-credential-status').text(response.membership_credential_status == '1' ? 'Active' : 'Inactive');
-                    $('#view-modal .intro-paragraph').text(response.self_introduction);
 
-                    let credentials = JSON.parse(response.credentials);
+                    $('#view-modal .qr-code').attr('src', response.html);
+                    
+                    $('#view-modal .name').text(response.nutritionist['first_name'] + ' ' + response.nutritionist['last_name']);
+                    $('#view-modal .age').text(response.nutritionist['age']);
+                    $('#view-modal .country').text(response.nutritionist['country']);
+                    $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
+                    $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
+                    $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
+                    $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
+
+                    let credentials = JSON.parse(response.nutritionist['credentials']);
                     $('#view-modal .credentials').text(credentials.join(', '));
 
-                    let areaOfInterests = JSON.parse(response.area_of_interests);
+                    let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
                     let areaOfInterestContainer = $('#view-modal .area-of-interest');
                     areaOfInterestContainer.empty();
-                    areaOfInterests.forEach(function(interest) {
-                        areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
-                    });
+                    if(areaOfInterests) {
+                        areaOfInterests.forEach(function(interest) {
+                            areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
+                        });
+                    }
 
-                    $('#view-modal .coach-contact-link').attr('id', response.id);
+                    if(response.nutritionist['is_qualified'] == '1') {
+                        $('.qualified-coach').addClass('d-none');
+                    }
+                    else {
+                        $('.qualified-coach').removeClass('d-none');
+                    }
+
+                    $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
+                    $('#coach-id').val(id);
+                    $('.view-modal').modal('show');
                 },
                 error: function(xhr) {
                     console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
                 }
             });
-
-            $('.view-modal').modal('show');
         });
     </script>
 @endpush

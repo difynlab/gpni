@@ -7,7 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name') }} | @yield('title')</title>
-        <link rel="icon" href="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->favicon) }}">
+        <link rel="icon" href="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->favicon) }}">
 
         @stack('before-styles')
             <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.css') }}"></link>
@@ -21,7 +21,7 @@
             <div class="container-fluid container-lg">
                 <div class="row justify-content-between align-items-center">
                     <div class="d-none d-lg-block col-5">
-                        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->guest_image) }}" alt="Image" class="image">
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->guest_image) }}" alt="Image" class="image">
                     </div>
                     <div class="col-12 col-lg-7">
                         @yield('content')

@@ -232,16 +232,9 @@
                 </li>
 
                 <li class="sub-menu-link">
-                    <a href="{{ route('backend.persons.students.index') }}">
+                    <a href="{{ route('backend.persons.users.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
-                        <span>Students</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu-link">
-                    <a href="{{ route('backend.persons.nutritionists.index') }}">
-                        <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
-                        <span>Nutritionists</span>
+                        <span>Users</span>
                     </a>
                 </li>
 
@@ -249,6 +242,13 @@
                     <a href="{{ route('backend.persons.advisory-boards.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
                         <span>Advisory Boards</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu-link">
+                    <a href="{{ route('backend.persons.our-founders.index') }}">
+                        <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
+                        <span>Our Founders</span>
                     </a>
                 </li>
 

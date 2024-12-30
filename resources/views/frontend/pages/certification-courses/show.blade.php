@@ -99,7 +99,7 @@
                                 @if($course->certification_section_2_image)
                                     <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="Certificate" class="img-fluid">
                                 @else
-                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
                                 @endif
                             </div>
                         </div>
@@ -307,7 +307,7 @@
                         @if($course->certification_section_9_image)
                             <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_9_image) }}" alt="Person Image" class="img-fluid person section-9-image">
                         @else
-                            <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}" alt="Person Image" class="img-fluid person section-9-image">
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Person Image" class="img-fluid person section-9-image">
                         @endif
                     </div>
                     <div class="col-lg-6">

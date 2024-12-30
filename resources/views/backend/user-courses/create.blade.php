@@ -7,7 +7,7 @@
     <x-backend.breadcrumb page_name="Add Course"></x-backend.breadcrumb>
 
     <div class="static-pages">
-        <form action="{{ route('backend.persons.students.courses.store', $student) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('backend.persons.users.courses.store', $user) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="section">
                 <div class="row form-input">

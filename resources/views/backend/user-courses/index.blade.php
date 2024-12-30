@@ -9,7 +9,7 @@
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <a href="{{ route('backend.persons.students.courses.create', $student) }}" class="add-button">
+                <a href="{{ route('backend.persons.users.courses.create', $user) }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
                     Add Course
                 </a>
@@ -18,7 +18,7 @@
 
         <div class="row mb-4">
             <div class="col-12">
-                <form action="{{ route('backend.persons.students.courses.filter', $student) }}" method="GET" class="filter-form">
+                <form action="{{ route('backend.persons.users.courses.filter', $user) }}" method="GET" class="filter-form">
                     <div class="row align-items-center">
                         <div class="col-9">
                             <input type="text" class="form-control" name="title" value="{{ $title ?? '' }}" placeholder="Title">
@@ -84,8 +84,8 @@
         $(document).ready(function() {
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
-                let user_id = '<?php echo $student->id; ?>';
-                let url = "{{ route('backend.persons.students.courses.destroy', [':id', ':user_id']) }}";
+                let user_id = '<?php echo $user->id; ?>';
+                let url = "{{ route('backend.persons.users.courses.destroy', [':id', ':user_id']) }}";
                 destroy_url = url.replace(':id', id).replace(':user_id', user_id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);

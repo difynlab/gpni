@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('contact_coaches', function (Blueprint $table) {
             $table->id();
-            $table->string('nutritionist');
+            $table->string('user');
             $table->string('email');
             $table->string('phone_number');
             $table->string('city');

@@ -28,7 +28,7 @@
                     </div>
 
                     @if($student->image)
-                        <img src="{{ asset('storage/backend/persons/students/' . $student->image) }}" alt="Profile image" width="171" height="148">
+                        <img src="{{ asset('storage/backend/persons/users/' . $student->image) }}" alt="Profile image" width="171" height="148">
                     @else
                         <img src="{{ asset('storage/frontend/sample-profile-image.svg') }}" alt="Profile image" width="171" height="148">
                     @endif

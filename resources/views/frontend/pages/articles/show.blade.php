@@ -33,7 +33,7 @@
                         <img src="{{ asset('storage/backend/articles/author-images/' . $article->author_image) }}"
                             alt="User" class="rounded-circle img-fluid mx-auto mx-md-0" style="width:60px; height:60px;">
                         @else
-                        <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->no_image) }}"
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
                             alt="Main Image" class="rounded-circle img-fluid mx-auto mx-md-0"
                             style="width:60px; height:60px;">
                         @endif
@@ -65,7 +65,7 @@
                                                 <img src="{{ asset('storage/backend/articles/articles/'. $latest_article->thumbnail) }}"
                                                     alt="Main Image" class="img-fluid object-fit-cover">
                                                 @else
-                                                <img src="{{ asset('storage/backend/common/'. App\Models\Setting::find(1)->no_image) }}"
+                                                <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
                                                     alt="Trending Image" class="img-fluid object-fit-cover">
                                                 @endif
                                             </div>

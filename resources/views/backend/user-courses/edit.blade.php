@@ -7,7 +7,7 @@
     <x-backend.breadcrumb page_name="Edit Course"></x-backend.breadcrumb>
 
     <div class="static-pages">
-        <form action="{{ route('backend.persons.students.courses.update', [$student, $course_purchase]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('backend.persons.users.courses.update', [$user, $course_purchase]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="section">
                 <div class="row form-input">

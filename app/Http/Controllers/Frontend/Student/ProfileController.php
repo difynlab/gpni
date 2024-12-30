@@ -295,12 +295,12 @@ class ProfileController extends Controller
 
         if($request->file('new_image') != null) {
             if($request->old_image) {
-                Storage::delete('public/backend/persons/students/' . $request->old_image);
+                Storage::delete('public/backend/persons/users/' . $request->old_image);
             }
 
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/backend/persons/students', $image_name);
+            $image->storeAs('public/backend/persons/users', $image_name);
         }
         else {
             $image_name = $request->old_image;

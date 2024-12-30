@@ -20,7 +20,7 @@ use App\Http\Controllers\Backend\Course\CourseInformationController;
 use App\Http\Controllers\Backend\Course\CourseModuleController;
 use App\Http\Controllers\Backend\Course\CourseModuleExamQuestionController;
 use App\Http\Controllers\Backend\Course\CourseReviewController;
-use App\Http\Controllers\Backend\Course\StudentCourseController;
+use App\Http\Controllers\Backend\Course\UserCourseController;
 use App\Http\Controllers\Backend\FAQ\FAQController;
 use App\Http\Controllers\Backend\Media\MediaController;
 use App\Http\Controllers\Backend\Page\AdvisoryBoardExpertLectureController;
@@ -41,7 +41,7 @@ use App\Http\Controllers\Backend\Page\InsuranceProfessionalMembershipController;
 use App\Http\Controllers\Backend\Page\ISSNOfficialPartnerAffiliateController;
 use App\Http\Controllers\Backend\Page\MasterClassController;
 use App\Http\Controllers\Backend\Page\MembershipController;
-use App\Http\Controllers\Backend\Page\NutritionistController as PageNutritionistController;
+use App\Http\Controllers\Backend\Page\NutritionistController;
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\PodcastController as PagePodcastController;
 use App\Http\Controllers\Backend\Page\OurPolicyController;
@@ -53,8 +53,8 @@ use App\Http\Controllers\Backend\Person\AdminController;
 use App\Http\Controllers\Backend\Person\AdvisoryBoardController as PersonAdvisoryBoardController;
 use App\Http\Controllers\Backend\Person\GlobalEducationPartnerController;
 use App\Http\Controllers\Backend\Person\ISSNPartnerController;
-use App\Http\Controllers\Backend\Person\NutritionistController;
-use App\Http\Controllers\Backend\Person\StudentController;
+use App\Http\Controllers\Backend\Person\OurFounderController;
+use App\Http\Controllers\Backend\Person\UserController;
 use App\Http\Controllers\Backend\Podcast\PodcastController;
 use App\Http\Controllers\Backend\Policy\PolicyCategoryController;
 use App\Http\Controllers\Backend\Policy\PolicyController;
@@ -131,8 +131,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::get('contact-us/{language}', [ContactUsController::class, 'index'])->name('contact-us.index');
             Route::post('contact-us/{language}', [ContactUsController::class, 'update'])->name('contact-us.update');
 
-            Route::get('nutritionist/{language}', [PageNutritionistController::class, 'index'])->name('nutritionist.index');
-            Route::post('nutritionist/{language}', [PageNutritionistController::class, 'update'])->name('nutritionist.update');
+            Route::get('nutritionist/{language}', [NutritionistController::class, 'index'])->name('nutritionist.index');
+            Route::post('nutritionist/{language}', [NutritionistController::class, 'update'])->name('nutritionist.update');
 
             Route::get('global-education-partner/{language}', [PageGlobalEducationPartnerController::class, 'index'])->name('global-education-partner.index');
             Route::post('global-education-partner/{language}', [PageGlobalEducationPartnerController::class, 'update'])->name('global-education-partner.update');
@@ -267,32 +267,27 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
     // All users routes
         Route::prefix('persons')->name('persons.')->group(function() {
-            // Nutritionists routes
-                Route::resource('nutritionists', NutritionistController::class)->except('show');
-                Route::get('nutritionists/filter', [NutritionistController::class, 'filter'])->name('nutritionists.filter');
-            // Nutritionists routes
+            // Users routes
+                Route::resource('users', UserController::class)->except(['show']);
+                Route::get('users/filter', [UserController::class, 'filter'])->name('users.filter');
 
-            // Students routes
-                Route::resource('students', StudentController::class)->except(['show']);
-                Route::get('students/filter', [StudentController::class, 'filter'])->name('students.filter');
+                Route::prefix('users')->name('users.')->group(function() {
+                    Route::get('{user}/information', [UserController::class, 'informationIndex'])->name('information.index');
+                    Route::post('{user}/information', [UserController::class, 'informationUpdate'])->name('information.update');
 
-                Route::prefix('students')->name('students.')->group(function() {
-                    Route::get('{student}/information', [StudentController::class, 'informationIndex'])->name('information.index');
-                    Route::post('{student}/information', [StudentController::class, 'informationUpdate'])->name('information.update');
-
-                    Route::prefix('{student}/courses')->name('courses.')->group(function() {
-                        // Student courses routes
-                            Route::get('/', [StudentCourseController::class, 'index'])->name('index');
-                            Route::get('create', [StudentCourseController::class, 'create'])->name('create');
-                            Route::post('/', [StudentCourseController::class, 'store'])->name('store');
-                            Route::get('{course_purchase}/edit', [StudentCourseController::class, 'edit'])->name('edit');
-                            Route::get('filter', [StudentCourseController::class, 'filter'])->name('filter');
-                            Route::post('{course_purchase}', [StudentCourseController::class, 'update'])->name('update');
-                            Route::delete('{course_purchase}', [StudentCourseController::class, 'destroy'])->name('destroy');
-                        // Student courses routes
+                    Route::prefix('{user}/courses')->name('courses.')->group(function() {
+                        // Users courses routes
+                            Route::get('/', [UserCourseController::class, 'index'])->name('index');
+                            Route::get('create', [UserCourseController::class, 'create'])->name('create');
+                            Route::post('/', [UserCourseController::class, 'store'])->name('store');
+                            Route::get('{course_purchase}/edit', [UserCourseController::class, 'edit'])->name('edit');
+                            Route::get('filter', [UserCourseController::class, 'filter'])->name('filter');
+                            Route::post('{course_purchase}', [UserCourseController::class, 'update'])->name('update');
+                            Route::delete('{course_purchase}', [UserCourseController::class, 'destroy'])->name('destroy');
+                        // User courses routes
                     });
                 });
-            // Students routes
+            // Users routes
 
             // Admins routes
                 Route::resource('admins', AdminController::class)->except(['show']);
@@ -302,6 +297,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             // Advisory board routes
                 Route::resource('advisory-boards', PersonAdvisoryBoardController::class)->except('show');
                 Route::get('advisory-boards/filter', [PersonAdvisoryBoardController::class, 'filter'])->name('advisory-boards.filter');
+            // Advisory board routes
+
+            // Advisory board routes
+                Route::resource('our-founders', OurFounderController::class)->except('show');
+                Route::get('our-founders/filter', [OurFounderController::class, 'filter'])->name('our-founders.filter');
             // Advisory board routes
 
             // ISSN partner routes

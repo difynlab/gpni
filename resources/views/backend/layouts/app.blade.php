@@ -7,7 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name') }} | @yield('title')</title>
-        <link rel="icon" href="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->favicon) }}">
+        <link rel="icon" href="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->favicon) }}">
         
         @stack('before-styles')
             <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.css') }}"></link>

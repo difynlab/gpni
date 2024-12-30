@@ -72,7 +72,7 @@
 
                                     </div>
 
-                                    <img src="{{ asset('storage/backend/common/' . App\Models\Setting::find(1)->logo) }}"
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->logo) }}"
                                         class="gpni-logo" alt="GPNi">
 
                                 </div>
