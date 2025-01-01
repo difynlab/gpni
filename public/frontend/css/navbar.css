@@ -62,7 +62,7 @@
 }
 
 .offcanvas-end{
-    width: 320px !important;
+    width: 350px !important;
 }
 
 .navbar-light .navbar-nav .dropdown-item:hover,
@@ -225,3 +225,9 @@
     border-radius: 0.25rem;
 }
 
+
+@media (max-width: 767.98px) {
+    .nav-item a {
+        text-align: start !important;
+    }
+}

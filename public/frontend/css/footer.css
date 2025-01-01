@@ -27,15 +27,12 @@
 .social-icon {
     display: inline-flex;
     align-items: center;
-    margin-right: 20px;
     margin-bottom: 15px;
     color: #FFF;
     font-family: "Poppins";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 100%;
-    /* 16px */
     text-transform: capitalize;
 }
 
@@ -44,8 +41,8 @@
 }
 
 .footer input[type="email"] {
-    background: #333;
-    border: none;
+    background: transparent;
+    border: 1px solid #2D2D2D;
     color: white;
     flex-grow: 1;
 }
@@ -56,17 +53,12 @@
 
 .footer-bottom {
     background: #0040C3;
-    padding: 20px;
-    text-align: center;
-    color: white;
+    padding: 15px;
     color: #FFF;
-    text-align: center;
     font-family: Poppins;
     font-size: 13px;
-    font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    /* 19.5px */
 }
 
 .footer ul {
@@ -86,7 +78,9 @@
 
 .subscribe-form {
     position: relative;
-    width: 327px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -100,13 +94,14 @@
 
 .subscribe-input {
     width: 100%;
-    padding: 0 130px 0 15px;
+    padding: 0.75rem 1rem;
     height: 50px;
     border-radius: 10px;
     border: 1px solid #2D2D2D;
     box-shadow: none;
     background-color: transparent;
     color: white;
+    padding-right: 120px; /* Make room for button */
 }
 
 .subscribe-input::placeholder {
@@ -126,25 +121,60 @@
 }
 
 .subscribe-button {
+    font-size:0.8rem;
     position: absolute;
-    right: 9px;
-    top: 8px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    height: 34px;
+    padding: 0 20px;
+    white-space: nowrap;
+    min-width: 100px;
     background-color: #0040C3;
     color: white;
     border: none;
-    border-radius: 10px;
-    height: 34px;
-    padding-right: 20px;
-    padding-left: 20px;
-    color: #FFF;
-    text-align: center;
-    font-family: "Poppins";
-    font-size: 10.111px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+}
+
+@media (max-width: 576px) {
+    .subscribe-form {
+        max-width: 100%;
+    }
+    
+    .subscribe-input {
+        padding-right: 110px;
+        font-size: 14px;
+    }
+    
+    .subscribe-button {
+        font-size: 12px;
+        padding: 0 15px;
+        min-width: 90px;
+    }
+}
+
+/* Tablet specific styles */
+@media (min-width: 768px) and (max-width: 991px) {
+    .subscribe-form {
+        max-width: 100%;
+    }
+    
+    .subscribe-input {
+        font-size: 15px;
+        padding-right: 115px;
+    }
+    
+    .subscribe-button {
+        font-size: 10px;
+        padding: 0 18px;
+        min-width: 95px;
+    }
+}
+
+/* Update newsletter form container spacing */
+.newsletter-form {
+    margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 /* Footer */
@@ -179,7 +209,6 @@
 
 .footer .col-lg-3 {
     position: relative;
-    padding-left: 2rem;
     margin-bottom: 20px;
 }
 
@@ -188,6 +217,8 @@
         margin-bottom: 0;
     }
 }
+
+
 
 .footer .list-of-items:not(:last-child)::after {
     content: "";
@@ -210,6 +241,9 @@
     align-items: center;
     margin: 0;
     padding: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-bottom-content a {
@@ -217,7 +251,7 @@
 }
 .footer-bottom-content i {
     font-size: 4px;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 .app-stores {
@@ -251,4 +285,23 @@
 
 .footer .get-latest {
     text-align: right;
+}
+
+.footer-bottom-content p,
+.footer-bottom-content a {
+    font-size: 13px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        text-align: center;
+        padding: 20px 10px;
+    }
+    
+    
+    .footer-bottom-content p,
+    .footer-bottom-content a {
+        text-align: center;
+    }
 }

@@ -836,10 +836,3 @@
         font-size: 0.875rem; /* Adjust font size for smaller screens */
     }
 }
-
-/* Add this media query to center text on mobile devices */
-@media (max-width: 767.98px) {
-    .nav-item a {
-        text-align: center !important;
-    }
-}
