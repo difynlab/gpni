@@ -18,8 +18,7 @@ return new class extends Migration
             $table->enum('is_cissn', [1, 2])->nullable()->after('is_snc');
             $table->enum('is_asnc', [1, 2])->nullable()->after('is_cissn');
             $table->enum('cec_status', [1, 2])->nullable()->index()->after('is_asnc');
-            $table->text('credentials')->nullable()->after('cec_status');
-            $table->string('certificate_number')->nullable()->after('credentials');
+            $table->string('certificate_number')->nullable()->after('cec_status');
             $table->enum('membership_credential_status', [1, 2])->nullable()->after('certificate_number');
             $table->enum('is_qualified', [1, 2])->nullable()->after('membership_credential_status');
         });
@@ -38,7 +37,6 @@ return new class extends Migration
                 'is_cissn',
                 'is_asnc',
                 'cec_status',
-                'credentials',
                 'certificate_number',
                 'membership_credential_status',
                 'is_qualified'

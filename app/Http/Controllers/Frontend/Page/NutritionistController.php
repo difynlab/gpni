@@ -336,7 +336,8 @@ class NutritionistController extends Controller
 
         return response()->json([
             'nutritionist' => $nutritionist,
-            'html' => $html
+            'html' => $html,
+            'credentials' => userCredentials($nutritionist->id)
         ]);
     }
 
