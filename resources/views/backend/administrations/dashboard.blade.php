@@ -119,33 +119,35 @@
             </div>
         </div>
 
-        <div class="section">
-            <div class="row">
-                <div class="col-12 col-xl-6 mb-4 mb-xl-0">
-                    <p class="title">User Countries</p>
-                    <p class="description">in {{ $current_year }}</p>
-                    <canvas id="user-country-chart"></canvas>
-                </div>
+        @if(count($country_users_percentages) > 0)
+            <div class="section">
+                <div class="row">
+                    <div class="col-12 col-xl-6 mb-4 mb-xl-0">
+                        <p class="title">User Countries</p>
+                        <p class="description">in {{ $current_year }}</p>
+                        <canvas id="user-country-chart"></canvas>
+                    </div>
 
-                <div class="col-12 col-xl-6 p-xl-4">
-                    @foreach($country_users_percentages as $key => $country_users_percentage)
-                        <div class="single-country">
-                            <div class="row align-items-center">
-                                <div class="col-11 col-xl-10">
-                                    <p class="text">{{ $key }}</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill {{ $loop->index % 2 == 0 ? 'yellow-fill' : 'blue-fill' }}" style="width: {{ $country_users_percentage }}%;"></div>
+                    <div class="col-12 col-xl-6 p-xl-4">
+                        @foreach($country_users_percentages as $key => $country_users_percentage)
+                            <div class="single-country">
+                                <div class="row align-items-center">
+                                    <div class="col-11 col-xl-10">
+                                        <p class="text">{{ $key }}</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill {{ $loop->index % 2 == 0 ? 'yellow-fill' : 'blue-fill' }}" style="width: {{ $country_users_percentage }}%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-1 col-xl-2">
+                                        <p class="percentage-text">{{ $country_users_percentage }}%</p>
                                     </div>
                                 </div>
-                                <div class="col-1 col-xl-2">
-                                    <p class="percentage-text">{{ $country_users_percentage }}%</p>
-                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
 
         <div class="section">
             <div class="row">
