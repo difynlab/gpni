@@ -75,7 +75,8 @@ class DashboardController extends Controller
                 $users_percentage_increase = 0 . '%';
             }
             else {
-                $users_year_difference = $total_current_year_users - $total_last_year_users;
+                // $users_year_difference = $total_current_year_users - $total_last_year_users;
+                $users_year_difference = 0;
                 $users_percentage_increase = 0 . '%';
             }
 
@@ -136,7 +137,8 @@ class DashboardController extends Controller
                 $course_purchases_percentage_increase = 0 . '%';
             }
             else {
-                $course_purchases_year_difference = $total_current_year_users - $total_last_year_users;
+                // $course_purchases_year_difference = $total_current_year_users - $total_last_year_users;
+                $course_purchases_year_difference = 0;
                 $course_purchases_percentage_increase = 0 . '%';
             }
 

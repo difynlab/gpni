@@ -128,14 +128,8 @@
 
                         <input type="text" class="form-control" id="certificate_number" name="certificate_number" placeholder="Certificate Number" value="{{ old('certificate_number', $user->certificate_number) }}">
                     </div>
-
-                    <div class="col-6 col-xl-3 mb-4 mb-xl-0">
-                        <label for="credentials" class="form-label">Credentials</label>
-
-                        <input type="text" class="form-control" id="credentials" name="credentials" placeholder="Credentials" value="{{ old('credentials', $user->credentials) }}">
-                    </div>
                     
-                    <div class="col-6 col-xl-3 mb-4 mb-xl-0">
+                    <div class="col-4">
                         <label for="cec_status" class="form-label">CEC Status</label>
                         <select class="form-control form-select" id="cec_status" name="cec_status">
                             <option value="">Select</option>
@@ -144,7 +138,7 @@
                         </select>
                     </div>
 
-                    <div class="col-6 col-xl-3">
+                    <div class="col-4">
                         <label for="membership_credential_status" class="form-label">Membership Credentials Status</label>
                         <select class="form-control form-select" id="membership_credential_status" name="membership_credential_status">
                             <option value="">Select</option>
@@ -153,7 +147,7 @@
                         </select>
                     </div>
 
-                    <div class="col-6 col-xl-3">
+                    <div class="col-4">
                         <label for="is_qualified" class="form-label">Is Qualified?</label>
                         <select class="form-control form-select" id="is_qualified" name="is_qualified">
                             <option value="">Select</option>

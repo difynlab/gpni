@@ -105,13 +105,9 @@
                                     <div class="coach-info-row">
                                         <div class="coach-info fs-16">{{ $contents->{'age_' . $middleware_language} ?? $contents->age_en }}: {{ $nutritionist->age }}</div>
 
-                                        @if($nutritionist->credentials)
-                                            <div class="coach-info">{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}: 
-                                                @foreach(json_decode($nutritionist->credentials) as $credential)
-                                                    {{ $credential }}
-                                                @endforeach
-                                            </div>
-                                        @endif
+                                        <div class="coach-info">{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}: 
+                                            {{ userCredentials($nutritionist->id) }}
+                                        </div>
 
                                         <div class="coach-info">{{ $contents->{'cec_status_' . $middleware_language} ?? $contents->cec_status_en }}: <span class="cec-status">{{ $nutritionist->cec_status == '1' ? $contents->{'active_' . $middleware_language} ?? $contents->active_en : $contents->{'inactive_' . $middleware_language} ?? $contents->inactive_en }}</span></div>
                                     </div>
@@ -459,6 +455,7 @@
                     url: url,
                     type: "GET",
                     success: function(response) {
+                        console.log(response);
                         if(response.nutritionist['image']) {
                             $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
                         }
@@ -474,9 +471,7 @@
                         $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
                         $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
                         $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
-
-                        let credentials = JSON.parse(response.nutritionist['credentials']);
-                        $('#view-modal .credentials').text(credentials.join(', '));
+                        $('#view-modal .credentials').text(response.credentials);
 
                         let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
                         let areaOfInterestContainer = $('#view-modal .area-of-interest');
@@ -537,9 +532,7 @@
                     $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
                     $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
                     $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
-
-                    let credentials = JSON.parse(response.nutritionist['credentials']);
-                    $('#view-modal .credentials').text(credentials.join(', '));
+                    $('#view-modal .credentials').text(response.credentials);
 
                     let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
                     let areaOfInterestContainer = $('#view-modal .area-of-interest');

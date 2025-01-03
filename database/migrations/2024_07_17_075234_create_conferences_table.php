@@ -17,7 +17,7 @@ return new class extends Migration
             $table->enum('language', ['English', 'Chinese', 'Japanese']);
             $table->string('date');
             $table->text('where');
-            $table->date('early_registration_deadline');
+            $table->date('early_registration_deadline')->nullable();
             $table->text('more_details')->nullable();
             $table->text('price_details')->nullable();
             $table->enum('status', [0, 1, 2])->index();

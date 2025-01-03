@@ -133,3 +133,36 @@ if(!function_exists('hasUserSelectedCorrectLanguage')) {
         return false;
     }
 }
+
+if(!function_exists('userCredentials')) {
+    function userCredentials($user_id)
+    {
+        $user = User::find($user_id);
+
+        if(!$user) {
+            return false;
+        }
+
+        $certificates = [];
+
+        if($user->is_sns == '1'){
+            $certificates[] = 'SNS';
+        }
+
+        if($user->is_snc == '1') {
+            $certificates[] = 'SNC';
+        }
+
+        if($user->is_cissn == '1'){
+            $certificates[] = 'CISSN';
+        }
+
+        if($user->is_asnc == '1'){
+            $certificates[] = 'PNE';
+        }
+
+        $credentials = implode(", ", $certificates);
+
+        return $credentials ;
+    }
+}

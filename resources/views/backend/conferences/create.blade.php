@@ -29,8 +29,8 @@
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="early_registration_deadline" class="form-label">Early Registration Deadline<span class="asterisk">*</span></label>
-                        <input type="date" class="form-control" id="early_registration_deadline" name="early_registration_deadline" value="{{ old('early_registration_deadline') }}" placeholder="Early Registration Deadline" required>
+                        <label for="early_registration_deadline" class="form-label">Early Registration Deadline</label>
+                        <input type="date" class="form-control" id="early_registration_deadline" name="early_registration_deadline" value="{{ old('early_registration_deadline') }}" placeholder="Early Registration Deadline">
                     </div>
 
                     <div class="col-12">

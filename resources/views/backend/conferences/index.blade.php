@@ -71,7 +71,7 @@
                                     <td>{{ $conference->language }}</td>
                                     <td>{{ $conference->date }}</td>
                                     <td>{{ $conference->where }}</td>
-                                    <td>{{ $conference->early_registration_deadline }}</td>
+                                    <td>{{ $conference->early_registration_deadline ?? '-' }}</td>
                                     <td>{!! $conference->status !!}</td>
                                     <td>{!! $conference->action !!}</td>
                                 </tr>
