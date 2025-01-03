@@ -349,14 +349,14 @@ body {
     margin-right: 16px;
 }
 
-.gpni-logo {
+/* .gpni-logo-2 {
     width: 146px;
     height: 43px;
     flex-shrink: 0;
     position: absolute;
     bottom: 20px;
     right: 20px;
-}
+} */
 
 /* Responsive adjustments */
 @media (max-width: 767.98px) {

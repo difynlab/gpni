@@ -131,7 +131,7 @@
         @endif
 
         @if($course->certification_section_3_title)
-            <div class="container-fluid certification-section">
+            <div class="container certification-section py-md-5 py-2">
                 <h1 class="text-center fs-39 my-4">{{ $course->certification_section_3_title }}</h1>
 
                 @if($course->certification_section_3_points)
@@ -150,7 +150,7 @@
         @endif
 
         @if($course->certification_section_4_video)
-            <div class="container-fluid">
+            <div class="container py-md-5 py-2">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="video-section section-4-video-container">
@@ -166,25 +166,28 @@
         @endif
 
         @if($course->certification_section_5_title)
-            <section class="nutrition-section container-fluid p-5">
-                <div class="row content-wrapper">
-                    <div class="col-12 col-md-6 text-content">
-                        <h1 class="fs-36">{{ $course->certification_section_5_title }}</h1>
-                        <p class="fs-16">{{ $course->certification_section_5_description }}</p>
-                    </div>
-                    <div class="col-12 col-md-6 testimonial-content">
-                        <div class="testimonial-stars">
-                            @for($i = 0; $i < $course->certification_section_5_rating; $i++)
-                                <i class="bi bi-star-fill star"></i>
-                            @endfor
-                        </div>
-
-                        <div class="testimonial-text"> {{ $course->certification_section_5_content }}</div>
-
-                        <div class="testimonial-author">
-                            <div class="name">{{ $course->certification_section_5_name }}</div>
-
-                            <div class="role">{{ $course->certification_section_5_designation }}</div>
+            <section class="container py-md-5 py-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card content-wrapper">
+                            <div class="row">
+                                <div class="col-12 col-md-6 text-content">
+                                    <h1 class="fs-36">{{ $course->certification_section_5_title }}</h1>
+                                    <p class="fs-16">{{ $course->certification_section_5_description }}</p>
+                                </div>
+                                <div class="col-12 col-md-6 testimonial-content">
+                                    <div class="testimonial-stars">
+                                        @for($i = 0; $i < $course->certification_section_5_rating; $i++)
+                                            <i class="bi bi-star-fill star"></i>
+                                        @endfor
+                                    </div>
+                                    <div class="testimonial-text">{{ $course->certification_section_5_content }}</div>
+                                    <div class="testimonial-author">
+                                        <div class="name">{{ $course->certification_section_5_name }}</div>
+                                        <div class="role">{{ $course->certification_section_5_designation }}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -192,52 +195,46 @@
         @endif
 
         @if($course->certification_section_6_title)
-            <section class="team-section container-fluid">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <h1 class="title fs-39">{{ $course->certification_section_6_title }}
-                            </h1>
-                            <p class="description fs-20">{{ $course->certification_section_6_description }}
-                            </p>
-                        </div>
-                        
-                        @if($course->certification_section_6_teams)
-                            @foreach(json_decode($course->certification_section_6_teams) as $certification_section_6_team)
-                                <div class="col-6 col-md-3 profile-card mt-md-0 mt-2">
-                                    <img src="{{ asset('storage/backend/courses/course-images/' . $certification_section_6_team->image) }}" alt="Person">
-                                    <div class="name fs-20">{{ $certification_section_6_team->name }}</div>
-                                </div>
-                            @endforeach
-                        @endif
+            <section class="container team-section py-md-5 py-2">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h1 class="title fs-39">{{ $course->certification_section_6_title }}</h1>
+                        <p class="description fs-20">{{ $course->certification_section_6_description }}</p>
                     </div>
+                        
+                    @if($course->certification_section_6_teams)
+                        @foreach(json_decode($course->certification_section_6_teams) as $certification_section_6_team)
+                            <div class="col-6 col-md-3 profile-card mt-md-0 mt-2">
+                                <img src="{{ asset('storage/backend/courses/course-images/' . $certification_section_6_team->image) }}" alt="Person">
+                                <div class="name fs-20">{{ $certification_section_6_team->name }}</div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </section>
         @endif
 
         @if($course->certification_section_7_title)
-            <section class="enrollment-section container-fluid">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-lg-6">
-                            <h1 class="program-title fs-36">{{ $course->certification_section_7_title }}</h1>
-                            <div class="program-description fs-20">{!! $course->certification_section_7_description !!}</div>
-                            <div class="pt-3 d-flex align-items-center flex-wrap justify-content-lg-start justify-content-center mb-3">
-                                <a href="{{ json_decode($course->certification_section_7_labels_links)[0]->link }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_7_labels_links)[0]->label }}</a>
-                                <a href="{{ json_decode($course->certification_section_7_labels_links)[1]->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_7_labels_links)[1]->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow" class="ms-2"></a>
-                            </div>
+            <section class="enrollment-section container py-md-5 py-2">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <h1 class="program-title fs-36">{{ $course->certification_section_7_title }}</h1>
+                        <div class="program-description fs-20">{!! $course->certification_section_7_description !!}</div>
+                        <div class="pt-3 d-flex align-items-center flex-wrap justify-content-lg-start justify-content-center mb-3">
+                            <a href="{{ json_decode($course->certification_section_7_labels_links)[0]->link }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_7_labels_links)[0]->label }}</a>
+                            <a href="{{ json_decode($course->certification_section_7_labels_links)[1]->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_7_labels_links)[1]->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow" class="ms-2"></a>
                         </div>
-                        <div class="col-12 col-lg-6 d-flex justify-content-center">
-                            <video controls class="section-7-video">
-                                <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_7_video) }}" type="video/mp4">
-                            </video>
-                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 d-flex justify-content-center">
+                        <video controls class="section-7-video">
+                            <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_7_video) }}" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </section>
         @endif
 
-        <div class="tab-container container-fluid">
+        <section class="tab-container container py-md-5 py-2">
             <nav class="nav content-header d-flex justify-content-center">
                 <ul class="nav nav-tabs flex-column flex-md-row">
                     <li class="nav-item">
@@ -255,7 +252,7 @@
                 </ul>
             </nav>
 
-            <div class="tab-content mt-3 px-md-5 px-2">
+            <div class="tab-content mt-3 px-md-0 px-2">
                 <div class="tab-pane fade show active" id="introduction">
                     <div class="content-box">
                         <div>{!! $course->course_introduction !!}</div>
@@ -301,7 +298,7 @@
         </div>
 
         @if($course->certification_section_9_content)
-            <section class="requirements-section container-fluid">
+            <section class="requirements-section container py-md-5 py-2">
                 <div class="row align-items-center">
                     <div class="col-lg-6 d-flex justify-content-center align-items-center image-container pb-md-0 py-4">
                         @if($course->certification_section_9_image)
@@ -318,7 +315,7 @@
         @endif
 
         @if($course->certification_section_10_content)
-            <section class="cissn-section container">
+            <section class="cissn-section container py-md-5 py-2">
                 <div class="row align-items-start">
                     <div class="col-lg-6">
                         <div>{!! $course->certification_section_10_content !!}</div>
@@ -356,7 +353,7 @@
         @endif
 
         @if($course->certification_section_11_content)
-            <section class="gpni-section container">
+            <section class="gpni-section container py-md-5 py-2">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="video-section">
@@ -377,7 +374,7 @@
         @endif
 
         @if($course->certification_section_12_title)
-            <section class="advisory-board-section container">
+            <section class="advisory-board-section container py-md-5 py-2">
                 <h2 class="advisory-board-title fs-39">{{ $course->certification_section_12_title }}</h2>
 
                 @if($advisory_boards->isNotEmpty())
@@ -404,7 +401,7 @@
         @endif
 
         @if($course->certification_section_13_title)
-            <section class="payment-options-section container">
+            <section class="payment-options-section container py-md-5 py-2">
                 <h2 class="payment-options-title fs-39">{{ $course->certification_section_13_title }}</h2>
                 <p class="payment-options-description fs-20">{{ $course->certification_section_13_description }}</p>
 
@@ -441,7 +438,7 @@
         @endif
 
         @if($course->certification_section_14_title)
-            <section class="student-testimonial-section container">
+            <section class="student-testimonial-section container py-md-5 py-2">
                 <div class="student-testimonial-content">
                     <div class="student-testimonial-text">
                         <div class="student-testimonial-header">
@@ -474,7 +471,7 @@
             </section>
 
             @if(count($testimonials) > 1)
-                <section class="student-reviews-section container">
+                <section class="student-reviews-section container py-md-5 py-2">
                     <div class="row g-4">
                         @foreach($testimonials as $index => $testimonial)
                             @if($index !== 0)
@@ -510,7 +507,7 @@
         @endif
 
         @if($course->certification_section_15_title)
-            <section class="advanced-certification-section container-fluid">
+            <section class="advanced-certification-section container py-md-5 py-2">
                 <h2 class="advanced-certification-title fs-39">{{ $course->certification_section_15_title }}</h2>
                 <div class="row mx-5 mb-4">
                     <div class="col-lg-6">

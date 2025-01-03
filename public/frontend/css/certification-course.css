@@ -10,11 +10,7 @@ body {
     background: url('../../../storage/frontend/certification-course-background.png') no-repeat center center;
     background-size: cover;
 }
-.certification-section {
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 8px;
-}
+
 .certification-section .title {
     font-weight: 500;
     line-height: 140%;
@@ -390,7 +386,6 @@ a.btn-primary {
 
 
 .team-section {
-    padding: 40px 20px;
     text-align: center;
 }
 
@@ -425,7 +420,6 @@ a.btn-primary {
 
 .enrollment-section {
     background-color: #ffffff;
-    padding: 40px 20px;
 }
 
 .program-title {
@@ -765,10 +759,6 @@ course-content {
 }
 
 
-.requirements-section {
-    padding: 60px 20px;
-}
-
 .requirements-title {
     font-weight: 500;
     font-size: 39px;
@@ -846,10 +836,6 @@ course-content {
     }
 }
 
-.cissn-section {
-    padding: 60px 20px;
-}
-
 .cissn-title {
     font-weight: 500;
     font-size: 39px;
@@ -919,10 +905,6 @@ course-content {
     }
 }
 
-.gpni-section {
-    padding: 60px 20px;
-}
-
 .gpni-title {
     font-weight: 500;
     font-size: 39px;
@@ -974,7 +956,6 @@ course-content {
 }
 
 .advisory-board-section {
-    padding: 60px 20px;
     text-align: center;
 }
 
@@ -1034,7 +1015,6 @@ course-content {
 
 
 .payment-options-section {
-    padding: 60px 20px;
     text-align: center;
 }
 
@@ -1152,7 +1132,6 @@ course-content {
 }
 
 .student-testimonial-section {
-    padding: 60px 20px;
     text-align: left;
 }
 
@@ -1206,7 +1185,6 @@ course-content {
 }
 
 .student-reviews-section {
-    padding: 60px 20px;
     text-align: center;
 }
 
@@ -1294,7 +1272,6 @@ course-content {
 }
 
 .advanced-certification-section {
-    padding: 60px 20px;
     background: url('../../../storage/frontend/advanced-certification-background.svg') no-repeat center center;
     background-size: cover;
 }
@@ -1523,7 +1500,6 @@ course-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
 }
 
 .section-4-video {
