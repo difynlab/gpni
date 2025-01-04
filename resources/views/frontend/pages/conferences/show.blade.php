@@ -137,7 +137,7 @@
 
                 <div class="contact-info text-center">
                     <div class="contact-info-row row">
-                        <div class="info-item col-md-4">
+                        <div class="info-item col-md-6">
                             <div class="icon-background">
                                 <img src="{{ asset('storage/frontend/email.svg') }}" alt="Email Icon">
                             </div>
@@ -146,22 +146,13 @@
                                 <p class="info fs-16">{{ $settings->email }}</p>
                             </div>
                         </div>
-                        <div class="info-item col-md-4">
+                        <div class="info-item col-md-6">
                             <div class="icon-background">
                                 <img src="{{ asset('storage/frontend/phone.svg') }}" alt="Phone Icon">
                             </div>
                             <div class="info-item-content text-truncate">
-                                <p class="title fs-20">{{ $contents->{'contact_phone_' . $middleware_language} ?? $contents->contact_phone_en }}</p>
-                                <p class="info fs-16">{{ $settings->phone }}</p>
-                            </div>
-                        </div>
-                        <div class="info-item col-md-4">
-                            <div class="icon-background">
-                                <img src="{{ asset('storage/frontend/fax.svg') }}" alt="Fax Icon">
-                            </div>
-                            <div class="info-item-content text-truncate">
-                                <p class="title fs-20">{{ $contents->{'contact_fax_' . $middleware_language} ?? $contents->contact_fax_en }}</p>
-                                <p class="info fs-16">{{ $settings->fax }}</p>
+                                <p class="title fs-20">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}</p>
+                                <p class="info fs-16">{{ $settings->whatsapp }}</p>
                             </div>
                         </div>
                     </div>

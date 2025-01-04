@@ -88,14 +88,9 @@
                             <input type="text" class="form-control" id="contact_email_{{ $short_code }}" name="contact_email_{{ $short_code }}" value="{{ $contents->{'contact_email_' . $short_code} ?? '' }}" placeholder="Contact Email">
                         </div>
 
-                        <div class="mb-4">
-                            <label for="contact_phone_{{ $short_code }}" class="form-label">Contact Phone</label>
-                            <input type="text" class="form-control" id="contact_phone_{{ $short_code }}" name="contact_phone_{{ $short_code }}" value="{{ $contents->{'contact_phone_' . $short_code} ?? '' }}" placeholder="Contact Phone">
-                        </div>
-
                         <div>
-                            <label for="contact_fax_{{ $short_code }}" class="form-label">Contact Fax</label>
-                            <input type="text" class="form-control" id="contact_fax_{{ $short_code }}" name="contact_fax_{{ $short_code }}" value="{{ $contents->{'contact_fax_' . $short_code} ?? '' }}" placeholder="Contact Fax">
+                            <label for="contact_whatsapp_{{ $short_code }}" class="form-label">Contact Whatsapp</label>
+                            <input type="text" class="form-control" id="contact_whatsapp_{{ $short_code }}" name="contact_whatsapp_{{ $short_code }}" value="{{ $contents->{'contact_whatsapp_' . $short_code} ?? '' }}" placeholder="Contact Whatsapp">
                         </div>
                     </div>
                 </div>
@@ -103,7 +98,7 @@
 
             <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the updates</button>
+                    <button type="submit" class="submit-button">Save Updates</button>
                 </div>
             </div>
         </form>

@@ -16,8 +16,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('fax')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->string('logo');
             $table->string('footer_logo');
             $table->string('favicon');

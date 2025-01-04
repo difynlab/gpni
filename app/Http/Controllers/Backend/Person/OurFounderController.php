@@ -19,7 +19,7 @@ class OurFounderController extends Controller
             <a href="'. route('backend.persons.our-founders.edit', $our_founder->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$our_founder->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $our_founder->image = $our_founder->image != null ? '<img src="'. asset('storage/backend/persons/our-founders/' . $our_founder->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_image) .'" class="table-image">';
+            $our_founder->image = $our_founder->image != null ? '<img src="'. asset('storage/backend/persons/our-founders/' . $our_founder->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_profile_image) .'" class="table-image">';
 
             $our_founder->status = ($our_founder->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }

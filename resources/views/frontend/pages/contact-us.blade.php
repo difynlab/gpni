@@ -79,17 +79,8 @@
                             <img src="{{ asset('storage/frontend/phone.svg') }}" alt="Phone Icon">
                         </div>
                         <div class="info-item-content">
-                            <p class="title">{{ $contents->{'contact_phone_' . $middleware_language} ?? $contents->contact_phone_en }}</p>
-                            <p class="info">{{ $settings->phone }}</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="icon-background">
-                            <img src="{{ asset('storage/frontend/fax.svg') }}" alt="Fax Icon">
-                        </div>
-                        <div class="info-item-content">
-                            <p class="title">{{ $contents->{'contact_fax_' . $middleware_language} ?? $contents->contact_fax_en }}</p>
-                            <p class="info">{{ $settings->fax }}</p>
+                            <p class="title">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}</p>
+                            <p class="info">{{ $settings->whatsapp }}</p>
                         </div>
                     </div>
                 </div>

@@ -157,7 +157,7 @@ if(!function_exists('userCredentials')) {
             $certificates[] = 'CISSN';
         }
 
-        if($user->is_asnc == '1'){
+        if($user->is_pne == '1'){
             $certificates[] = 'PNE';
         }
 

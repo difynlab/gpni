@@ -1335,7 +1335,7 @@
 
             <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the updates</button>
+                    <button type="submit" class="submit-button">Save Updates</button>
                 </div>
             </div>
         </form>

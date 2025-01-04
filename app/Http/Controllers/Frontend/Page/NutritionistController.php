@@ -43,7 +43,7 @@ class NutritionistController extends Controller
             });
         }
 
-        $nutritionists = $nutritionist_query->paginate(20);
+        $nutritionists = $nutritionist_query->paginate(20)->appends($request->except(['middleware_language', 'middleware_language_name']));
 
         if($nutritionists->isEmpty() && $request->middleware_language_name != 'English') {
             $nutritionists = User::query()

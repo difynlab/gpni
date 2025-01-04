@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('header_fourth_tab_en')->nullable();
             $table->text('header_login_en')->nullable();
             $table->text('header_user_dashboard_en')->nullable();
+            $table->text('header_user_member_en')->nullable();
             $table->text('header_user_logout_en')->nullable();
             $table->text('footer_powered_en')->nullable();
             $table->text('footer_get_in_touch_en')->nullable();
@@ -44,6 +45,7 @@ return new class extends Migration
             $table->text('header_fourth_tab_zh')->nullable();
             $table->text('header_login_zh')->nullable();
             $table->text('header_user_dashboard_zh')->nullable();
+            $table->text('header_user_member_zh')->nullable();
             $table->text('header_user_logout_zh')->nullable();
             $table->text('footer_powered_zh')->nullable();
             $table->text('footer_get_in_touch_zh')->nullable();
@@ -69,6 +71,7 @@ return new class extends Migration
             $table->text('header_fourth_tab_ja')->nullable();
             $table->text('header_login_ja')->nullable();
             $table->text('header_user_dashboard_ja')->nullable();
+            $table->text('header_user_member_ja')->nullable();
             $table->text('header_user_logout_ja')->nullable();
             $table->text('footer_powered_ja')->nullable();
             $table->text('footer_get_in_touch_ja')->nullable();
@@ -88,6 +91,8 @@ return new class extends Migration
             $table->text('footer_copyright_ja')->nullable();
             $table->text('captcha_title_ja')->nullable();
             $table->text('captcha_button_ja')->nullable();
+
+            $table->text('footer_podcast_link')->nullable();
 
             $table->timestamps();
         });

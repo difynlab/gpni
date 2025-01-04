@@ -21,9 +21,9 @@ class HomepageController extends Controller
             $courses = Course::where('language', 'English')->where('status', '1')->get();
         }
 
-        $faqs = FAQ::where('language', $request->middleware_language_name)->where('type', 'Common')->where('status', '1')->get();
+        $faqs = FAQ::where('language', $request->middleware_language_name)->where('type', 'Common')->where('status', '1')->inRandomOrder()->take(5)->get();
         if($faqs->isEmpty() && $request->middleware_language_name != 'English') {
-            $faqs = FAQ::where('language', 'English')->where('type', 'Common')->where('status', '1')->get();
+            $faqs = FAQ::where('language', 'English')->where('type', 'Common')->where('status', '1')->inRandomOrder()->take(5)->get();
         }
 
         $advisory_boards = AdvisoryBoard::where('language', $request->middleware_language_name)->where('status', '1')->get();

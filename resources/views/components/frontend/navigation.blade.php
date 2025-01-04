@@ -229,6 +229,13 @@
                                         <a class="dropdown-item" href="{{ route('frontend.dashboard.index') }}">{{ $contents->{'header_user_dashboard_' . $middleware_language} ?? $contents->header_user_dashboard_en }}</a>
                                     </li>
                                     <li>
+                                        @if(auth()->user()->member == 'Yes')
+                                            <a class="dropdown-item" href="{{ route('frontend.member-corner') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
+                                        @else
+                                            <a class="dropdown-item" href="{{ route('frontend.membership') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
+                                        @endif
+                                    </li>
+                                    <li>
                                         <form method="POST" action="{{ route('frontend.logout') }}">
                                             @csrf
                                             <a href="{{ route('frontend.logout') }}" class="dropdown-item"

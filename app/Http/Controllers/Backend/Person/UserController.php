@@ -22,7 +22,7 @@ class UserController extends Controller
             <a href="'. route('backend.persons.users.edit', $user->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$user->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $user->image = $user->image != null ? '<img src="'. asset('storage/backend/persons/users/' . $user->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_image) .'" class="table-image">';
+            $user->image = $user->image != null ? '<img src="'. asset('storage/backend/persons/users/' . $user->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_profile_image) .'" class="table-image">';
 
             $currency_symbol = ($user->language === 'English') ? '$' : '¥';
             $wallet_exist = Wallet::where('user_id', $user->id)->first();
@@ -353,14 +353,14 @@ class UserController extends Controller
         $is_sns = $request->has('is_sns') ? '1' : null;
         $is_snc = $request->has('is_snc') ? '1' : null;
         $is_cissn = $request->has('is_cissn') ? '1' : null;
-        $is_asnc = $request->has('is_asnc') ? '1' : null;
+        $is_pne = $request->has('is_pne') ? '1' : null;
 
         $data['image'] = $image_name;
         $data['is_certified'] = $is_certified;
         $data['is_sns'] = $is_sns;
         $data['is_snc'] = $is_snc;
         $data['is_cissn'] = $is_cissn;
-        $data['is_asnc'] = $is_asnc;
+        $data['is_pne'] = $is_pne;
         $data['role'] = 'student';
         $user->create($data);
 
@@ -686,14 +686,14 @@ class UserController extends Controller
         $is_sns = $request->has('is_sns') ? '1' : null;
         $is_snc = $request->has('is_snc') ? '1' : null;
         $is_cissn = $request->has('is_cissn') ? '1' : null;
-        $is_asnc = $request->has('is_asnc') ? '1' : null;
+        $is_pne = $request->has('is_pne') ? '1' : null;
 
         $data['image'] = $image_name;
         $data['is_certified'] = $is_certified;
         $data['is_sns'] = $is_sns;
         $data['is_snc'] = $is_snc;
         $data['is_cissn'] = $is_cissn;
-        $data['is_asnc'] = $is_asnc;
+        $data['is_pne'] = $is_pne;
         $user->fill($data)->save();
         
         return redirect()->route('backend.persons.users.index')->with('success', "Successfully updated!");

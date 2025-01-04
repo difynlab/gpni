@@ -20,7 +20,7 @@ class AdminController extends Controller
             <a href="'. route('backend.persons.admins.edit', $admin->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$admin->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $admin->image = $admin->image != null ? '<img src="'. asset('storage/backend/persons/admins/' . $admin->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_image) .'" class="table-image">';
+            $admin->image = $admin->image != null ? '<img src="'. asset('storage/backend/persons/admins/' . $admin->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_profile_image) .'" class="table-image">';
 
             $admin->status = ($admin->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }

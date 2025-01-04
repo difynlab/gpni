@@ -28,8 +28,7 @@ return new class extends Migration
             $table->text('comments_en')->nullable();
             $table->text('button_en')->nullable();
             $table->text('contact_email_en')->nullable();
-            $table->text('contact_phone_en')->nullable();
-            $table->text('contact_fax_en')->nullable();
+            $table->text('contact_whatsapp_en')->nullable();
 
             $table->text('first_name_zh')->nullable();
             $table->text('last_name_zh')->nullable();
@@ -39,8 +38,7 @@ return new class extends Migration
             $table->text('comments_zh')->nullable();
             $table->text('button_zh')->nullable();
             $table->text('contact_email_zh')->nullable();
-            $table->text('contact_phone_zh')->nullable();
-            $table->text('contact_fax_zh')->nullable();
+            $table->text('contact_whatsapp_zh')->nullable();
 
             $table->text('first_name_ja')->nullable();
             $table->text('last_name_ja')->nullable();
@@ -50,8 +48,7 @@ return new class extends Migration
             $table->text('comments_ja')->nullable();
             $table->text('button_ja')->nullable();
             $table->text('contact_email_ja')->nullable();
-            $table->text('contact_phone_ja')->nullable();
-            $table->text('contact_fax_ja')->nullable();
+            $table->text('contact_whatsapp_ja')->nullable();
 
             $table->timestamps();
         });
@@ -68,15 +65,15 @@ return new class extends Migration
                 
                 'first_name_en', 'last_name_en', 'email_en', 'phone_en',
                 'question_en', 'comments_en', 'button_en', 'contact_email_en',
-                'contact_phone_en', 'contact_fax_en',
+                'contact_whatsapp_en',
 
                 'first_name_zh', 'last_name_zh', 'email_zh', 'phone_zh',
                 'question_zh', 'comments_zh', 'button_zh', 'contact_email_zh',
-                'contact_phone_zh', 'contact_fax_zh',
+                'contact_whatsapp_zh',
                 
                 'first_name_ja', 'last_name_ja', 'email_ja', 'phone_ja',
                 'question_ja', 'comments_ja', 'button_ja', 'contact_email_ja',
-                'contact_phone_ja', 'contact_fax_ja'
+                'contact_whatsapp_ja'
             ]);
 
             $table->dropTimestamps();

@@ -115,8 +115,8 @@
 
                             <div class="col-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="is_asnc" name="is_asnc" {{ old('is_asnc') == '1' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="is_asnc">ASNC</label>
+                                    <input class="form-check-input" type="checkbox" id="is_pne" name="is_pne" {{ old('is_pne') == '1' ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="is_pne">PNE</label>
                                 </div>
                             </div>
                         </div>

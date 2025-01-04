@@ -50,19 +50,14 @@
                         <input type="text" class="form-control" id="annual_membership_price_ja" name="annual_membership_price_ja" value="{{ old('annual_membership_price_ja', $settings->annual_membership_price_ja) }}" placeholder="Annual Membership Price (Japanese)" required>
                     </div>
 
-                    <div class="col-4 mb-4">
+                    <div class="col-6 mb-4">
                         <label for="email" class="form-label">Email<span class="asterisk">*</span></label>
                         <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $settings->email) }}" placeholder="Email" required>
                     </div>
 
-                    <div class="col-4 mb-4">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $settings->phone) }}" placeholder="Phone">
-                    </div>
-
-                    <div class="col-4 mb-4">
-                        <label for="fax" class="form-label">Fax</label>
-                        <input type="text" class="form-control" id="fax" name="fax" value="{{ old('fax', $settings->fax) }}" placeholder="Fax">
+                    <div class="col-6 mb-4">
+                        <label for="whatsapp" class="form-label">Whatsapp</label>
+                        <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ old('whatsapp', $settings->whatsapp) }}" placeholder="Whatsapp">
                     </div>
 
                     <div class="col-6">
@@ -146,7 +141,7 @@
 
             <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the updates</button>
+                    <button type="submit" class="submit-button">Save Updates</button>
                 </div>
             </div>
         </form>

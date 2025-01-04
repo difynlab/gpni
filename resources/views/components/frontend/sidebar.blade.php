@@ -68,7 +68,14 @@
     @if(auth()->user()->member == 'Yes')
         <a href="{{ route('frontend.member-corner') }}" class="sidebar-link">
             <div class="sidebar-item {{ Request::segment(1) == 'member-corner' ? 'active' : '' }}">
-                <img src="{{ asset('storage/frontend/profile-icon.svg') }}" alt="Member COrner" width="28" height="28">
+                <img src="{{ asset('storage/frontend/profile-icon.svg') }}" alt="Member Corner" width="28" height="28">
+                <span class="fs-25">{{ $student_dashboard_contents->sidebar_member_corner }}</span>
+            </div>
+        </a>
+    @else
+        <a href="{{ route('frontend.membership') }}" class="sidebar-link">
+            <div class="sidebar-item">
+                <img src="{{ asset('storage/frontend/profile-icon.svg') }}" alt="Member Corner" width="28" height="28">
                 <span class="fs-25">{{ $student_dashboard_contents->sidebar_member_corner }}</span>
             </div>
         </a>

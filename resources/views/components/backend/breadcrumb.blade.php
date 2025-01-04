@@ -31,7 +31,7 @@
                     @if(auth()->user()->image)
                         <img src="{{ asset('storage/backend/persons/admins/' . auth()->user()->image) }}" alt="Image" class="profile-image">
                     @else
-                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Image" class="profile-image">
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" alt="Image" class="profile-image">
                     @endif
                 </div>
                 <div class="col-8">

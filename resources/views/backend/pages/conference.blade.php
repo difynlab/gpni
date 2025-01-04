@@ -92,14 +92,9 @@
                             <input type="text" class="form-control" id="early_registration_price_{{ $short_code }}" name="early_registration_price_{{ $short_code }}" value="{{ $contents->{'early_registration_price_' . $short_code} ?? '' }}" placeholder="Early Registration Price">
                         </div>
 
-                        <div class="mb-4">
+                        <div>
                             <label for="regular_registration_price_{{ $short_code }}" class="form-label">Regular Registration Price</label>
                             <input type="text" class="form-control" id="regular_registration_price_{{ $short_code }}" name="regular_registration_price_{{ $short_code }}" value="{{ $contents->{'regular_registration_price_' . $short_code} ?? '' }}" placeholder="Regular Registration Price">
-                        </div>
-
-                        <div>
-                            <label for="get_in_touch_{{ $short_code }}" class="form-label">Get in Touch</label>
-                            <input type="text" class="form-control" id="get_in_touch_{{ $short_code }}" name="get_in_touch_{{ $short_code }}" value="{{ $contents->{'get_in_touch_' . $short_code} ?? '' }}" placeholder="Get in Touch">
                         </div>
                     </div>
 
@@ -145,13 +140,13 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="contact_phone_{{ $short_code }}" class="form-label">Contact Phone</label>
-                            <input type="text" class="form-control" id="contact_phone_{{ $short_code }}" name="contact_phone_{{ $short_code }}" value="{{ $contents->{'contact_phone_' . $short_code} ?? '' }}" placeholder="Contact Phone">
+                            <label for="contact_whatsapp_{{ $short_code }}" class="form-label">Contact Whatsapp</label>
+                            <input type="text" class="form-control" id="contact_whatsapp_{{ $short_code }}" name="contact_whatsapp_{{ $short_code }}" value="{{ $contents->{'contact_whatsapp_' . $short_code} ?? '' }}" placeholder="Contact Whatsapp">
                         </div>
 
                         <div>
-                            <label for="contact_fax_{{ $short_code }}" class="form-label">Contact Fax</label>
-                            <input type="text" class="form-control" id="contact_fax_{{ $short_code }}" name="contact_fax_{{ $short_code }}" value="{{ $contents->{'contact_fax_' . $short_code} ?? '' }}" placeholder="Contact Fax">
+                            <label for="get_in_touch_{{ $short_code }}" class="form-label">Get in Touch</label>
+                            <input type="text" class="form-control" id="get_in_touch_{{ $short_code }}" name="get_in_touch_{{ $short_code }}" value="{{ $contents->{'get_in_touch_' . $short_code} ?? '' }}" placeholder="Get in Touch">
                         </div>
                     </div>
                 </div>
@@ -159,7 +154,7 @@
 
             <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the updates</button>
+                    <button type="submit" class="submit-button">Save Updates</button>
                 </div>
             </div>
         </form>

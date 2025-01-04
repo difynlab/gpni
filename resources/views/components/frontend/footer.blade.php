@@ -222,8 +222,11 @@
                         <li>
                             @php
                                 $fifteenth = App\Models\PodcastContent::find(1);
+                                $common = App\Models\CommonContent::find(1);
                             @endphp
-                            <a href="{{ route('frontend.podcasts.index') }}">{{ $fifteenth->{'page_name_' . $middleware_language} !== '' ? $fifteenth->{'page_name_' . $middleware_language} : $fifteenth->page_name_en }}</a>
+                            <!-- <a href="{{ route('frontend.podcasts.index') }}">{{ $fifteenth->{'page_name_' . $middleware_language} !== '' ? $fifteenth->{'page_name_' . $middleware_language} : $fifteenth->page_name_en }}</a> -->
+
+                            <a href="{{ $common->footer_podcast_link }}" target="_blank">{{ $fifteenth->{'page_name_' . $middleware_language} !== '' ? $fifteenth->{'page_name_' . $middleware_language} : $fifteenth->page_name_en }}</a>
                         </li>
                         <li>
                             @php

@@ -16,7 +16,13 @@
     font-size: 2.4375rem; /* 39px */
     line-height: 100%;
     color: #0e0e0e;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.learn-best-section p {
+    font-size: 19px;
+    color: #0e0e0e;
+    margin-bottom: 40px;
 }
 
 .learn-best-section .search-field {
@@ -55,6 +61,9 @@
     font-size: 16.88px;
     color: #969696;
     background-color: transparent;
+}
+.learn-best-section .search-field input::placeholder {
+    font-size: 13px;
 }
 
 .learn-best-section .reset-button {
@@ -396,6 +405,11 @@
         font-size: 1.75rem; /* 28px */
     }
 
+    .learn-best-section p {
+        font-size: 17px;
+        margin-bottom: 30px;
+    }
+
     .learn-best-section .search-field {
         height: 55px;
     }
@@ -443,6 +457,11 @@
 
     .learn-best-section h2 {
         font-size: 1.5rem; /* 24px */
+    }
+
+    .learn-best-section p {
+        font-size: 15px;
+        margin-bottom: 20px;
     }
 
     .learn-best-section .search-field {

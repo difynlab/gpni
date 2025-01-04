@@ -291,7 +291,7 @@
                                         @if($student->image)
                                             <img src="{{ asset('storage/backend/persons/users/' . $student->image) }}" alt="Profile image">
                                         @else
-                                            <img src="{{ asset('storage/frontend/sample-profile-image.svg') }}" alt="Profile image">
+                                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" alt="Profile image">
                                         @endif
                                     </div>
                                     <input type="hidden" name="old_image" value="{{ $student->image }}">

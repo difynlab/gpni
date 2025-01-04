@@ -18,7 +18,7 @@
 
                 <div class="container">
                     <h2>{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
-                    <h2>{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</h2>
+                    <p>{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
 
                     <div class="row align-items-center">
                         <div class="col-11">

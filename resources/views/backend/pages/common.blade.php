@@ -32,14 +32,19 @@
                         <input type="text" class="form-control" id="header_fourth_tab_{{ $short_code }}" name="header_fourth_tab_{{ $short_code }}" value="{{ $contents->{'header_fourth_tab_' . $short_code} ?? '' }}" placeholder="Fourth Tab">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-4">
                         <label for="header_login_{{ $short_code }}" class="form-label">Login</label>
                         <input type="text" class="form-control" id="header_login_{{ $short_code }}" name="header_login_{{ $short_code }}" value="{{ $contents->{'header_login_' . $short_code} ?? '' }}" placeholder="Login">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-4">
                         <label for="header_user_dashboard_{{ $short_code }}" class="form-label">User Dashboard</label>
                         <input type="text" class="form-control" id="header_user_dashboard_{{ $short_code }}" name="header_user_dashboard_{{ $short_code }}" value="{{ $contents->{'header_user_dashboard_' . $short_code} ?? '' }}" placeholder="User Dashboard">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="header_user_member_{{ $short_code }}" class="form-label">User Member Corner</label>
+                        <input type="text" class="form-control" id="header_user_member_{{ $short_code }}" name="header_user_member_{{ $short_code }}" value="{{ $contents->{'header_user_member_' . $short_code} ?? '' }}" placeholder="User Member Corner">
                     </div>
 
                     <div class="col-4">
@@ -132,6 +137,11 @@
                         <label for="footer_copyright_{{ $short_code }}" class="form-label">Copyright</label>
                         <input type="text" class="form-control" id="footer_copyright_{{ $short_code }}" name="footer_copyright_{{ $short_code }}" value="{{ $contents->{'footer_copyright_' . $short_code} ?? '' }}" placeholder="Copyright">
                     </div>
+
+                    <div class="col-4">
+                        <label for="footer_podcast_link" class="form-label">Podcast Link</label>
+                        <input type="url" class="form-control" id="footer_podcast_link" name="footer_podcast_link" value="{{ $contents->footer_podcast_link ?? '' }}" placeholder="Podcast Link">
+                    </div>
                 </div>
             </div>
 
@@ -153,7 +163,7 @@
 
             <div class="section">
                 <div class="form-input">
-                    <button type="submit" class="submit-button">Save the updates</button>
+                    <button type="submit" class="submit-button">Save Updates</button>
                 </div>
             </div>
         </form>

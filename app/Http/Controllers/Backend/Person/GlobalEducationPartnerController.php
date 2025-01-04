@@ -19,7 +19,7 @@ class GlobalEducationPartnerController extends Controller
             <a href="'. route('backend.persons.global-education-partners.edit', $global_education_partner->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$global_education_partner->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $global_education_partner->image = $global_education_partner->image != null ? '<img src="'. asset('storage/backend/persons/global-education-partners/' . $global_education_partner->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_image) .'" class="table-image">';
+            $global_education_partner->image = $global_education_partner->image != null ? '<img src="'. asset('storage/backend/persons/global-education-partners/' . $global_education_partner->image) .'" class="table-image">' : '<img src="'. asset('storage/backend/main/' . Setting::find(1)->no_profile_image) .'" class="table-image">';
 
             $global_education_partner->status = ($global_education_partner->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }
