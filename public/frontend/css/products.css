@@ -402,3 +402,31 @@
         font-size: 1.25rem; /* fs-49 */
     }
 }
+
+.card-custom {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-custom .card-img {
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.card-custom .product-info {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+}
+
+.card-custom:hover .card-img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .card-custom:hover .card-img {
+        transform: scale(1.05);
+    }
+}
