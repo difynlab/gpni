@@ -41,38 +41,38 @@
                                         <div class="col-md-6 col-sm-12 my-3 card-wrapper">
                                             <div class="card shadow-none border-0">
                                                 <div class="position-relative">
-                                                    @if($article->thumbnail)
-                                                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}"
-                                                        alt="Main Image" class="img-fluid article-image">
-                                                    @else
-                                                    <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
-                                                        alt="Main Image" class="img-fluid article-image">
-                                                    @endif
+                                                    <a href="{{ route('frontend.articles.show', [$article, Str::slug($article->title)]) }}">
+                                                        @if($article->thumbnail)
+                                                            <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}"
+                                                                alt="Main Image" class="img-fluid article-image">
+                                                        @else
+                                                            <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
+                                                                alt="Main Image" class="img-fluid article-image">
+                                                        @endif
+                                                    </a>
                                                     <div class="share-icon position-absolute">
                                                         <button class="btn btn-light" onclick="shareContent('{{ $article->title }}', '{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}')">
                                                             <img src="{{ asset('storage/frontend/share-icon.svg') }}" alt="Share Icon">
                                                         </button>
                                                     </div>
                                                 </div>
-
+                                        
                                                 <div>
                                                     <div class="header-metadata mb-2 fs-13 pt-3">
-                                                        <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon"
-                                                            class="icon mr-2">
-                                                        <span class="custom-text-muted date-meta fs-13">{{
-                                                            $article->created_at->format('d M,Y') }}</span>
+                                                        <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon" class="icon mr-2">
+                                                        <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M,Y') }}</span>
                                                         <div class="divider">|</div>
-                                                        <span class="custom-text-muted fs-13">{{
-                                                            App\Models\ArticleCategory::find($article->article_category_id)->name
-                                                            }}</span>
+                                                        <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</span>
                                                     </div>
-                                                    <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $article->title }}</h5>
-                                                    <div class="fs-16 card-text mb-4 line-clamp-4">{!! $article->content !!}</div>
-                                                    <svg height="1" width="100%" class="mb-3">
+                                                    <a href="{{ route('frontend.articles.show', [$article, Str::slug($article->title)]) }}" class="text-decoration-none">
+                                                        <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $article->title }}</h5>
+                                                    </a>
+                                                    <div class="fs-16 card-text mb-4 line-clamp-3">{!! $article->content !!}</div>
+                                                    <!-- <svg height="1" width="100%" class="mb-3">
                                                         <line x1="0" y1="0" x2="100%" y2="0"
                                                             style="stroke-width: 0.5px; stroke: #747474;"></line>
-                                                    </svg>
-                                                    <div class="d-flex justify-content-between align-items-center">
+                                                    </svg> -->
+                                                    <!-- <div class="d-flex justify-content-between align-items-center">
                                                         <div class="d-flex align-items-center">
                                                             @if($article->author_image)
                                                             <img src="{{ asset('storage/backend/articles/author-images/'.$article->author_image) }}"
@@ -89,7 +89,7 @@
                                                             <span>{{ $contents->{'section_1_read_' . $middleware_language} ?? $contents->section_1_read_en }}</span>
                                                             <i class="fas fa-arrow-circle-right ms-2"></i>
                                                         </a>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>

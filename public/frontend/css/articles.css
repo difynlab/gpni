@@ -339,10 +339,10 @@ body {
     border-bottom-color: #0040c3;
   }
 
-  .line-clamp-4 {
+  .line-clamp-3 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     overflow: hidden;
 }
 
@@ -461,4 +461,15 @@ body {
 /* Define a media query for desktop devices */
 @media screen and (min-width: 769px) {
   
+}
+
+.card-wrapper {
+  position: relative;
+}
+.hover-effect {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+.hover-effect:hover {
+  transform: translateY(-5px);
 }
