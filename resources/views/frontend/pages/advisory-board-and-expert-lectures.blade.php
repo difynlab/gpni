@@ -23,7 +23,7 @@
         <div class="row gap-32">
             @if ($advisory_boards->isNotEmpty())
                 @foreach ($advisory_boards as $advisory_board)
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-3 mb-4">
                         <div class="card" role="button" data-bs-toggle="modal"
                             data-bs-target="#my-modal-{{ $advisory_board->id }}">
                             <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}"
