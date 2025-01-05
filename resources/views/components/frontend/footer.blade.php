@@ -111,19 +111,11 @@
                             @endphp
                             <a href="{{ route('frontend.nutritionists.index') }}">{{ $fifth->{'page_name_' . $middleware_language} !== '' ? $fifth->{'page_name_' . $middleware_language} : $fifth->page_name_en }}</a>
                         </li>
-
                         <li>
                             @php
-                                $sixth = App\Models\ProductContent::find(1);
+                                $ninth = App\Models\ContactUsContent::find(1);
                             @endphp
-                            <a href="{{ route('frontend.products.index') }}">{{ $sixth->{'page_name_' . $middleware_language} !== '' ? $sixth->{'page_name_' . $middleware_language} : $sixth->page_name_en }}</a>
-                        </li>
-                        
-                        <li>
-                            @php
-                                $seventh = App\Models\OurPolicyContent::find(1);
-                            @endphp
-                            <a href="{{ route('frontend.our-policies') }}">{{ $seventh->{'page_name_' . $middleware_language} !== '' ? $seventh->{'page_name_' . $middleware_language} : $seventh->page_name_en }}</a>
+                            <a href="{{ route('frontend.contact-us.index') }}">{{ $ninth->{'page_name_' . $middleware_language} !== '' ? $ninth->{'page_name_' . $middleware_language} : $ninth->page_name_en }}</a>
                         </li>
                     </ul>
                 </div>
@@ -162,13 +154,6 @@
                                 $eighth = App\Models\MasterClassContent::find(1);
                             @endphp
                             <a href="{{ route('frontend.master-classes.index') }}">{{ $eighth->{'page_name_' . $middleware_language} !== '' ? $eighth->{'page_name_' . $middleware_language} : $eighth->page_name_en }}</a>
-                        </li>
-
-                        <li>
-                            @php
-                                $ninth = App\Models\ContactUsContent::find(1);
-                            @endphp
-                            <a href="{{ route('frontend.contact-us.index') }}">{{ $ninth->{'page_name_' . $middleware_language} !== '' ? $ninth->{'page_name_' . $middleware_language} : $ninth->page_name_en }}</a>
                         </li>
                     </ul>
                 </div>
@@ -239,6 +224,12 @@
                                 $seventeenth = App\Models\TvContent::find(1);
                             @endphp
                             <a href="{{ route('frontend.gpni-tv') }}">{{ $seventeenth->{'page_name_' . $middleware_language} !== '' ? $seventeenth->{'page_name_' . $middleware_language} : $seventeenth->page_name_en }}</a>
+                        </li>
+                                 <li>
+                            @php
+                                $sixth = App\Models\ProductContent::find(1);
+                            @endphp
+                            <a href="{{ route('frontend.products.index') }}">{{ $sixth->{'page_name_' . $middleware_language} !== '' ? $sixth->{'page_name_' . $middleware_language} : $sixth->page_name_en }}</a>
                         </li>
                     </ul>
                 </div>
