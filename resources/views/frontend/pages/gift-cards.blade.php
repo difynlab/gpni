@@ -46,18 +46,18 @@
                 <div class="col-lg-6 col-md-12">
                     <form action="{{ route('frontend.gift-cards.checkout') }}" method="POST" onsubmit="return validateForm()">
                         @csrf
-                        <div class="form-group">
-                            <label for="receiver-name" class="fs-16">{{ $contents->{'receiver_name_' . $middleware_language} ?? $contents->receiver_name_en }}</label>
+                        <div class="form-group pb-3">
+                            <label for="receiver-name" class="fs-16 pb-1">{{ $contents->{'receiver_name_' . $middleware_language} ?? $contents->receiver_name_en }}</label>
                             <input type="text" class="form-control" id="receiver-name" name="receiver_name" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="receiver-email" class="required fs-16">{{ $contents->{'receiver_email_' . $middleware_language} ?? $contents->receiver_email_en }}</label>
+                        <div class="form-group pb-3">
+                            <label for="receiver-email" class="required fs-16 pb-1">{{ $contents->{'receiver_email_' . $middleware_language} ?? $contents->receiver_email_en }}</label>
                             <input type="email" class="form-control" id="receiver-email" name="receiver_email" required>
                         </div>
 
-                        <div class="form-group">
-                            <label class="required fs-16">{{ $contents->{'select_amount_' . $middleware_language} ?? $contents->select_amount_en }}</label>
+                        <div class="form-group pb-3">
+                            <label class="required fs-16 pb-1">{{ $contents->{'select_amount_' . $middleware_language} ?? $contents->select_amount_en }}</label>
                             <div class="d-flex flex-wrap justify-content-between justify-content-md-start">
                                 @foreach($amounts as $amount)
                                     <button type="button" class="btn btn-outline-primary mx-1 my-2 btn-responsive" onclick="setAmount({{ $amount }})">{{ $currency_symbol }}{{ $amount }}</button>
@@ -66,13 +66,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group d-none" id="custom-amount-section">
-                            <label for="custom-amount" class="fs-16">{{ $contents->{'enter_the_amount_' . $middleware_language} ?? $contents->enter_the_amount_en }}</label>
+                        <div class="form-group d-none pb-3" id="custom-amount-section">
+                            <label for="custom-amount pb-1" class="fs-16">{{ $contents->{'enter_the_amount_' . $middleware_language} ?? $contents->enter_the_amount_en }}</label>
                             <input type="number" class="form-control" id="custom-amount" name="amount">
                         </div>
 
-                        <div class="form-group">
-                            <label for="message" class="required fs-16">{{ $contents->{'message_' . $middleware_language} ?? $contents->message_en }}</label>
+                        <div class="form-group pb-3">
+                            <label for="message" class="required fs-16 pb-1">{{ $contents->{'message_' . $middleware_language} ?? $contents->message_en }}</label>
                             <textarea class="form-control form-textarea" id="message" rows="3" name="message" required></textarea>
                         </div>
 
