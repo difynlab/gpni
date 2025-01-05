@@ -20,36 +20,37 @@
                     <h2>{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
                     <p>{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
 
-                    <div class="row align-items-center">
-                        <div class="col-11">
+                    <div class="row align-items-center gy-3">
+                        <div class="col-12 col-lg-11">
                             <form action="{{ route('frontend.nutritionists.index') }}" method="GET">
-                                <div class="row">
-                                    <div class="col-5">
-                                        <div class="search-field">
+                                <div class="row gy-3">
+                                    <div class="col-12 col-md-5">
+                                        <div class="search-field w-100">
                                             <img src="{{ asset('storage/frontend/search-icon-gray.svg') }}" alt="Search Icon">
-                                            <input type="text" name="nutritionist" value="{{ $filter_nutritionist ?? '' }}" placeholder="{{ $contents->{'search_placeholder_' . $middleware_language} ?? $contents->search_placeholder_en }}">
+                                            <input type="text" class="w-100" name="nutritionist" value="{{ $filter_nutritionist ?? '' }}" 
+                                                placeholder="{{ $contents->{'search_placeholder_' . $middleware_language} ?? $contents->search_placeholder_en }}">
                                         </div>
                                     </div>
-
-                                    <div class="col-5">
-                                        <select class="form-control form-select search-field" id="country" name="country">
+                    
+                                    <div class="col-12 col-md-5">
+                                        <select class="form-control form-select search-field w-100" id="country" name="country">
                                             <option value="">{{ $contents->{'choose_country_' . $middleware_language} ?? $contents->choose_country_en }}</option>
                                             @foreach($countries as $country)
                                                 <option value="{{ $country }}" {{ isset($filter_country) && $filter_country == $country ? 'selected' : '' }}>{{ $country }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-
-                                    <div class="col-2">
-                                        <button class="btn btn-primary btn-lg search-button btn-responsive" type="submit">{{ $contents->{'search_button_' . $middleware_language} ?? $contents->search_button_en }}</button>
+                    
+                                    <div class="col-12 col-md-2 d-flex align-items-center">
+                                        <button class="btn btn-primary btn-lg search-button me-2 flex-grow-1 fs-20" type="submit">
+                                            {{ $contents->{'search_button_' . $middleware_language} ?? $contents->search_button_en }}
+                                        </button>
+                                        <a href="{{ route('frontend.nutritionists.index') }}" class="reset-button">
+                                            <i class="bi bi-arrow-clockwise"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                        <div class="col-1">
-                            <a href="{{ route('frontend.nutritionists.index') }}" class="reset-button">
-                                <i class="bi bi-arrow-clockwise"></i>
-                            </a>
                         </div>
                     </div>
                     

@@ -11,15 +11,15 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <section class="global-education-partners container py-5">
+        <section class="global-education-partners container pt-5 pb-3">
             <div class="container text-center">
                 <h2 class="section-title-global text-center mx-auto">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
+                <h5 class="section-title-partners text-center mx-auto mb-4 fs-25">{{ $contents->{'section_1_sub_title_' . $middleware_language} ?? $contents->section_1_sub_title_en }}</h5>
             </div>
         </section>
 
         <section class="education-partners">
             <div class="container text-center">
-                <h2 class="section-title-partners text-center mx-auto mb-4 fs-49">{{ $contents->{'section_1_sub_title_' . $middleware_language} ?? $contents->section_1_sub_title_en }}</h2>
 
                 <div class="mb-5 fs-25">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}</div>
 

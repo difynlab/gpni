@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <div class="container-fluid my-5 p-0 m-0">
+    <div class="container-fluid my-5 p-0 m-0 mb-0">
 
         @if($contents->section_1_title_en)
             <section class="heading-section container text-center">
@@ -208,7 +208,7 @@
             </div>
         @endif
 
-        @if($contents->section_5_title_en)
+        <!-- @if($contents->section_5_title_en)
             <div class="faq-container">
                 <div class="container py-5">
                     <div class="text-center">
@@ -240,7 +240,7 @@
                     @endif
                 </div>
             </div>
-        @endif
+        @endif -->
 
     </div>
 
