@@ -272,9 +272,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                 Route::get('users/filter', [UserController::class, 'filter'])->name('users.filter');
 
                 Route::prefix('users')->name('users.')->group(function() {
-                    Route::get('{user}/information', [UserController::class, 'informationIndex'])->name('information.index');
-                    Route::post('{user}/information', [UserController::class, 'informationUpdate'])->name('information.update');
-
                     Route::prefix('{user}/courses')->name('courses.')->group(function() {
                         // Users courses routes
                             Route::get('/', [UserCourseController::class, 'index'])->name('index');

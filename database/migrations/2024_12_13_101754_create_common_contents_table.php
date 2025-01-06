@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->text('header_second_tab_en')->nullable();
+            $table->text('header_second_tab_third_en')->nullable();
             $table->text('header_third_tab_en')->nullable();
             $table->text('header_fourth_tab_en')->nullable();
             $table->text('header_login_en')->nullable();
@@ -41,6 +42,7 @@ return new class extends Migration
             $table->text('captcha_button_en')->nullable();
 
             $table->text('header_second_tab_zh')->nullable();
+            $table->text('header_second_tab_third_zh')->nullable();
             $table->text('header_third_tab_zh')->nullable();
             $table->text('header_fourth_tab_zh')->nullable();
             $table->text('header_login_zh')->nullable();
@@ -67,6 +69,7 @@ return new class extends Migration
             $table->text('captcha_button_zh')->nullable();
 
             $table->text('header_second_tab_ja')->nullable();
+            $table->text('header_second_tab_third_ja')->nullable();
             $table->text('header_third_tab_ja')->nullable();
             $table->text('header_fourth_tab_ja')->nullable();
             $table->text('header_login_ja')->nullable();

@@ -17,7 +17,6 @@ class UserController extends Controller
     {
         foreach($users as $user) {
             $user->action = '
-            <a href="'. route('backend.persons.users.information.index', $user->id) .'" class="information-button" title="Information"><i class="bi bi-info-circle-fill"></i></a>
             <a href="'. route('backend.persons.users.courses.index', $user->id) .'" class="courses-button" title="Courses"><i class="bi bi-mortarboard-fill"></i></a>
             <a href="'. route('backend.persons.users.edit', $user->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
             <a id="'.$user->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
@@ -745,20 +744,5 @@ class UserController extends Controller
             'email' => $email,
             'language' => $language
         ]);
-    }
-
-    public function informationIndex(User $user)
-    {
-        return view('backend.persons.users.information', [
-            'user' => $user
-        ]);
-    }
-
-    public function informationUpdate(Request $request, User $user)
-    {
-        $data = $request->all();
-        $user->fill($data)->save();
-
-        return redirect()->route('backend.persons.users.information.index', $user)->with('success', "Successfully updated!");
     }
 }
