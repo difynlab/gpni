@@ -408,7 +408,7 @@ ul, ol {
 }
 
 li {
-    font-size: inherit;
+    font-size: 1.250rem; /* Using fs-20 size */
     line-height: 1.6;
     margin-bottom: 0.5rem;
 }

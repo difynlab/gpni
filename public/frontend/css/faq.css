@@ -1,49 +1,100 @@
-.accordion-item {
-    background: #ffffff !important;
-    margin-bottom: 15px !important;
-    border: none !important;
-    color: #505050 !important;
-    font-family: Poppins !important;
-    font-size: 1.2rem !important;
-    font-style: normal !important;
-    font-weight: 600 !important;
-    line-height: 140% !important;
-    border: 1px solid #C4C4C4 !important;
-    border-radius: 0 !important;
-    /* 28px */
+.faq-container .accordion-item {
+    margin-bottom: 20px; /* Adds bottom margin to each accordion card */
+    border-radius: 20px;
+    color: #FFF;
+    box-shadow: 0 4px 8px rgba(21, 21, 21, 0.1);
+}
+.faq-container .accordion-button {
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    border-radius: 20px;
+    height: 100px;
+}
+.faq-container .accordion-item:first-of-type {
+    border-radius: 20px;
+}
+.faq-container .accordion-item:last-of-type {
+    border-radius: 20px;
+}
+/* Apply border-radius to the first accordion button */
+.faq-container .accordion-item:first-of-type .accordion-button, .accordion-item:first-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
+    border-top-left-radius: 20px; /* Adjust as needed */
+    border-top-right-radius: 20px; /* Adjust as needed */
+}
+/* Apply border-radius to the last accordion item when not collapsed */
+.faq-container .accordion-item:last-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
+    border-bottom-left-radius: 20px; /* Adjust as needed */
+    border-bottom-right-radius: 20px; /* Adjust as needed */
+}
+.faq-container .accordion-item:last-of-type .accordion-button.collapsed{
+    border-radius: 20px;
+}
+/* Ensure the last accordion item always has rounded corners at the bottom */
+.faq-container .accordion-item:last-of-type, .accordion-item:last-of-type .accordion-button {
+    border-bottom-left-radius: 20px; /* Adjust as needed */
+    border-bottom-right-radius: 20px; /* Adjust as needed */
+}
+.faq-container .accordion-button:not(.collapsed)::after {
+    background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23e59114\'%3e%3cpath stroke=\'%23e59114\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e');
+    transform: rotate(-180deg);
+}
+.faq-container .accordion-button::after {
+    background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23666565\'%3e%3cpath stroke=\'%23666565\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e');
+    width: clamp(16px, 2vw, 24px);
+    height: clamp(16px, 2vw, 24px);
+    background-size: contain;
+    transition: transform 0.3s ease;
 }
 
-.accordion-button {
-    font-weight: 500 !important;
-    line-height: 140% !important;
-    color: #0e0e0e !important;
-    background: #fff !important;
-    border: none !important;
-    border: 1px solid #0E0E0E !important;
-    border-radius: 0 !important;
+@media (max-width: 768px) {
+    .faq-container .accordion-button::after {
+        width: clamp(14px, 1.8vw, 20px);
+        height: clamp(14px, 1.8vw, 20px);
+    }
 }
 
-.accordion-button::after {
-    background-image: url("../../../storage/frontend/accordion-down-arrow.svg") !important;
-    background-size: 20px !important;
-    color: #0e0e0e !important;
-    transform: rotate(0deg) !important;
-    transition: transform 0.2s ease !important;
+@media (min-width: 769px) and (max-width: 1024px) {
+    .faq-container .accordion-button::after {
+        width: clamp(15px, 1.9vw, 22px);
+        height: clamp(15px, 1.9vw, 22px);
+    }
+}
+.faq-container .accordion-button:hover {
+    background-color: inherit; /* Or use the specific color of the button's non-hover state */
+    color: inherit; /* Adjust if the text color also changes on hover */
+}
+.faq-container .accordion-header {
+    background-color: #fff;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 20px;
+    height: 100px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.accordion-button:not(.collapsed)::after {
-    transform: rotate(-180deg) !important;
+.faq-container .accordion {
+    border-radius: 20px;
+}
+.faq-container .accordion-body{
+    color: #000;
+    background-color: #FFF;
+    border-radius: 0 0 20px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
 }
 
-.accordion-body {
-    color: #505050 !important;
-    font-family: Poppins !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-    line-height: 200% !important;
-    border-radius: 0 !important;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .accordion-button {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+    }
+    .accordion-body {
+        font-size: 0.875rem; /* Adjust font size for smaller screens */
+    }
 }
-
 .faq-title {
     color: #000;
     text-align: center;
@@ -51,25 +102,4 @@
     font-style: normal;
     font-weight: 500;
     line-height: 140%;
-}
-
-
-/* Define a media query for mobile devices */
-@media screen and (max-width: 480px) {
-    .accordion-button::after {
-        background-size: 15px !important;
-    }
-   
-}
-
-/* Define a media query for tablets */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    .accordion-button::after {
-        background-size: 20px !important;
-    }
-}
-
-/* Define a media query for desktop devices */
-@media screen and (min-width: 769px) {
- 
 }

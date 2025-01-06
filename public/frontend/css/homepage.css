@@ -800,6 +800,24 @@
 }
 .faq-container .accordion-button::after {
     background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23666565\'%3e%3cpath stroke=\'%23666565\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e');
+    width: clamp(16px, 2vw, 24px);
+    height: clamp(16px, 2vw, 24px);
+    background-size: contain;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .faq-container .accordion-button::after {
+        width: clamp(14px, 1.8vw, 20px);
+        height: clamp(14px, 1.8vw, 20px);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .faq-container .accordion-button::after {
+        width: clamp(15px, 1.9vw, 22px);
+        height: clamp(15px, 1.9vw, 22px);
+    }
 }
 .faq-container .accordion-button:hover {
     background-color: inherit; /* Or use the specific color of the button's non-hover state */
@@ -836,3 +854,29 @@
         font-size: 0.875rem; /* Adjust font size for smaller screens */
     }
 }
+
+.arrow-right-icon {
+    width: clamp(16px, 2vw, 24px);
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .arrow-right-icon {
+        width: clamp(18px, 2.5vw, 22px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .arrow-right-icon {
+        width: clamp(14px, 1.8vw, 20px);
+    }
+}
+
+/* Hover effect */
+.arrow-right-icon:hover {
+    transform: translateX(5px);
+}
+

@@ -236,7 +236,7 @@ body {
 
 .card {
     background-color: #f8f8f8ff !important;
-    width: 392px; /* Set card width */
+    width: 100%; /* Adjust base width */
     height: 556px; /* Set card height */
 }
 
@@ -504,8 +504,8 @@ body {
 
 
     .card {
-        width: 280px; /* Reduce width for laptops */
-        height: 400px; /* Set height for laptops */
+        width: 100%; /* Reduce width for laptops */
+        height: 425px; /* Set height for laptops */
         margin: 20px auto; /* Center the card and add top and bottom margin */
     }
 
@@ -554,8 +554,8 @@ body {
 
 
     .card {
-        width: 392px; /* Set width for large laptops and desktops */
-        height: 556px; /* Set height for large laptops and desktops */
+        width: 100%; /* Set width for large laptops and desktops */
+        height: 525px; /* Set height for large laptops and desktops */
         margin: 20px auto; /* Center the card and add top and bottom margin */
     }
 
@@ -613,7 +613,7 @@ body {
 /* Styles for medium mobile devices */
 @media (max-width: 575.98px) {
     .card {
-        height: auto; /* Auto height for medium mobile devices */
+        height: auto !important; /* Auto height for medium mobile devices */
     }
 
     .card-title, .card-subtitle, .card-text {
@@ -653,7 +653,7 @@ body {
 
     .card {
         width: 100%; /* Full width for tablets and small laptops */
-        height: auto; /* Auto height for tablets and small laptops */
+        height: 380px; /* Auto height for tablets and small laptops */
         margin: 10px 0; /* Add top and bottom margin */
     }
 
@@ -736,3 +736,4 @@ body {
         line-height: 1.8125rem; /* Ensure correct line height for large laptops and desktops */
     }
 }
+

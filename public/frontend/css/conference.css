@@ -69,7 +69,22 @@ body {
 }
 
 .table-container img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .table-container img {
+        max-height: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .table-container img {
+        max-height: 150px;
+    }
 }
 
 .event-info-container {
@@ -86,7 +101,7 @@ body {
 }
 
 .event-info-title {
-    /* flex-basis: 300px; */
+    flex: 1; /* Ensure equal width */
     padding: 22px 20px;
     background: #eaeaea;
     line-height: 130%;
@@ -95,7 +110,7 @@ body {
 }
 
 .event-info-value {
-    flex-grow: 1;
+    flex: 1; /* Ensure equal width */
     padding: 22px 15px;
     line-height: 130%;
     color: #505050;
@@ -255,7 +270,7 @@ body {
 .price-table th,
 .price-table td {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 140%;
     text-align: left;
     padding: 10px 12px;

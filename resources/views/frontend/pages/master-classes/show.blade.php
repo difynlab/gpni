@@ -155,7 +155,7 @@
         </div>
     @endif
 
-    <div class="tab-container container-fluid">
+    <div class="tab-container container">
         <nav class="nav content-header d-flex justify-content-center">
             <ul class="nav nav-tabs d-flex flex-column flex-sm-row justify-content-center align-items-center">
                 <li class="nav-item fs-20 text-center">
@@ -173,7 +173,7 @@
             </ul>
         </nav>
 
-        <div class="tab-content mt-3 px-3 px-md-5">
+        <div class="tab-content mt-3 px-3 px-md-0">
             <div class="tab-pane fade show active" id="introduction">
                 <div class="content-box">
                     {!! $course->course_introduction !!}
@@ -248,7 +248,7 @@
         </div>
     @endif
 
-    @if($course->master_section_5_title)
+    <!-- @if($course->master_section_5_title)
         <div class="container py-3 py-md-5">
             <div class="text-center mb-3 mb-md-4">
                 <h2 class="advisory-title fs-4 fs-md-49 mb-0">{{ $course->master_section_5_title }}</h2>
@@ -290,9 +290,9 @@
                 </div>
             @endif
         </div>
-    @endif
+    @endif -->
 
-    @if($course->master_section_6_title)
+    <!-- @if($course->master_section_6_title)
         <div class="regions-languages-section">
             <div class="container">
                 <h2 class="fs-49">{{ $course->master_section_6_title }}</h2>
@@ -324,11 +324,11 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif -->
 
     @if($course->master_section_7_title)
-        <div class="container-fluid mt-5 custom-testimonial-section">
-            <div class="row d-flex align-items-center justify-content-center mx-md-5 mx-2">
+        <div class="container mt-5 custom-testimonial-section">
+            <div class="row d-flex align-items-center justify-content-center mx-md-0 mx-2">
                 <div class="col-md-6">
                     <div class="testimonial-header mb-3 d-flex align-items-center">
                         <div class="line me-3"></div>
@@ -408,7 +408,7 @@
         </div>
     @endif
 
-    @if($course->master_section_8_title)
+    <!-- @if($course->master_section_8_title)
         <div class="container text-center mt-5">
             <h2 class="experts-title fs-49">{{ $course->master_section_8_title }}</h2>
             <p class="experts-description fs-25">{{ $course->master_section_8_description }}</p>
@@ -520,7 +520,7 @@
                 </div>
             @endif
         </div>
-    @endif
+    @endif -->
 
 @endsection
 

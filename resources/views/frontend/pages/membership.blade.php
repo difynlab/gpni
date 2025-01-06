@@ -115,7 +115,8 @@
                     </div>
                 </div>
             @endif
-
+            
+            <!--
             @if($contents->section_5_title_en)
                 <div class="faq-section">
                     <h2>{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</h2>
@@ -144,6 +145,7 @@
                     @endif
                 </div>
             @endif
+            -->
         </div>
     </div>
 

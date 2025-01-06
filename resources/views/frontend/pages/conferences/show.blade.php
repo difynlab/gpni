@@ -29,21 +29,21 @@
             </section>
 
             <section class="container-shadow">
-                <div class="table-container">
-                    <img src="{{ asset('storage/frontend/conference-image.svg') }}" alt="Conference Image" class="img-fluid">
+                <div class="table-container d-flex justify-content-center">
+                    <img src="{{ asset('storage/frontend/conference-image.png') }}" alt="Conference Image" class="img-fluid">
                 </div>
 
                 <div class="event-info-container">
                     <div class="event-info-row d-flex flex-column flex-md-row">
-                        <div class="event-info-title fs-25">{{ $contents->{'date_' . $middleware_language} ?? $contents->date_en }}</div>
+                        <div class="event-info-title fs-20">{{ $contents->{'date_' . $middleware_language} ?? $contents->date_en }}</div>
                         <div class="event-info-value fs-20">{{ $conference->date }}</div>
                     </div>
                     <div class="event-info-row d-flex flex-column flex-md-row">
-                        <div class="event-info-title fs-25">{{ $contents->{'where_' . $middleware_language} ?? $contents->where_en }}</div>
+                        <div class="event-info-title fs-20">{{ $contents->{'where_' . $middleware_language} ?? $contents->where_en }}</div>
                         <div class="event-info-value fs-20">{{ $conference->where }}</div>
                     </div>
                     <div class="event-info-row d-flex flex-column flex-md-row">
-                        <div class="event-info-title event-info-warning-title fs-25">{{ $contents->{'early_registration_deadline_' . $middleware_language} ?? $contents->early_registration_deadline_en }}</div>
+                        <div class="event-info-title event-info-warning-title fs-20">{{ $contents->{'early_registration_deadline_' . $middleware_language} ?? $contents->early_registration_deadline_en }}</div>
                         <div class="event-info-value event-info-warning-value fs-20">{{ $conference->early_registration_deadline }}</div>
                     </div>
 
@@ -51,7 +51,7 @@
                         @foreach(json_decode($conference->more_details) as $more_detail)
                             <div class="event-info-row d-flex flex-column flex-md-row">
                                 <div class="event-info-title fs-20">{{ $more_detail->title }}</div>
-                                <div class="event-info-value fs-16">{{ $more_detail->value }}</div>
+                                <div class="event-info-value fs-20">{{ $more_detail->value }}</div>
                             </div>
                         @endforeach
                     @endif
@@ -95,36 +95,36 @@
                         @csrf
                         <div class="form-row row">
                             <div class="form-group col-md-6">
-                                <label for="first-name" class="required fs-16 fs-md-13">{{ $contents->{'first_name_' . $middleware_language} ?? $contents->first_name_en }}</label>
+                                <label for="first-name" class="required fs-20">{{ $contents->{'first_name_' . $middleware_language} ?? $contents->first_name_en }}</label>
                                 <input type="text" class="form-control" id="first-name" name="first_name" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="last-name" class="required fs-16 fs-md-13">{{ $contents->{'last_name_' . $middleware_language} ?? $contents->last_name_en }}</label>
+                                <label for="last-name" class="required fs-20">{{ $contents->{'last_name_' . $middleware_language} ?? $contents->last_name_en }}</label>
                                 <input type="text" class="form-control" id="last-name" name="last_name" required>
                             </div>
                         </div>
 
                         <div class="form-row row">
                             <div class="form-group col-md-6">
-                                <label for="email" class="required fs-16">{{ $contents->{'email_' . $middleware_language} ?? $contents->email_en }}</label>
+                                <label for="email" class="required fs-20">{{ $contents->{'email_' . $middleware_language} ?? $contents->email_en }}</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="phone" class="required fs-16">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
+                                <label for="phone" class="required fs-20">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
                                 <input type="tel" class="form-control" id="phone" name="phone" required>
                             </div>
                         </div>
 
                         <div class="form-row row">
                             <div class="form-group col-md-12 reason-group">
-                                <label for="question" class="required fs-16">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
+                                <label for="question" class="required fs-20">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
                                 <input type="text" class="form-control" id="question" name="question" required>
                             </div>
                         </div>
 
                         <div class="form-row row">
                             <div class="form-group col-md-12 comments-group">
-                                <label for="comments" class="required fs-16">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
+                                <label for="comments" class="required fs-20">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
                                 <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" required></textarea>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                     </form>
                 </div>
 
-                <div class="contact-info text-center">
+                <!-- <div class="contact-info text-center">
                     <div class="contact-info-row row">
                         <div class="info-item col-md-6">
                             <div class="icon-background">
@@ -156,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </section>
         </div>
     </div>

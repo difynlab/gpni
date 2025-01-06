@@ -34,7 +34,7 @@
                                     <a href="{{ json_decode($contents->{'section_1_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->section_1_labels_links_en)[1]->link }}"
                                     class="py-sm-3 px-sm-2 fs-20 fw-semi-bold learn-more btn-responsive">
                                         {{ json_decode($contents->{'section_1_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->section_1_labels_links_en)[1]->label }}
-                                        <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Right"/>
+                                        <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Right" class="arrow-right-icon"/>
                                     </a>
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
                 <div class="text-center mt-5 pt-5">
                     <a href="{{ json_decode($contents->{'section_3_label_link_' . $middleware_language})->link ?? json_decode($contents->section_3_label_link_en)->link }}" class="py-sm-4 px-sm-5 ff-poppins-medium fs-20 explore-course-text">
                         {{ json_decode($contents->{'section_3_label_link_' . $middleware_language})->label ?? json_decode($contents->section_3_label_link_en)->label }}
-                        <img src="{{ asset('storage/frontend/arrow-right.svg') }}"/>
+                        <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                     </a>
                 </div>
             </div>
@@ -337,9 +337,7 @@
                     <a href="{{ json_decode($contents->{'section_6_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->section_6_labels_links_en)[0]->link }}" class="btn btn-secondary signup-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($contents->{'section_6_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->section_6_labels_links_en)[0]->label }}</a>
     
                     <a href="{{ json_decode($contents->{'section_6_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->section_6_labels_links_en)[1]->link }}" class="btn explore-lesson btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($contents->{'section_6_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->section_6_labels_links_en)[1]->label }}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
-                            <path d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z" />
-                        </svg>
+                        <img src="{{ asset('storage/frontend/arrow-icon-white.svg') }}" class="arrow-right-icon"/>
                     </a>
                 </div>
             </div>
@@ -432,9 +430,9 @@
                 @endif
 
                 <div class="text-center mt-5 pt-5 explore-course-text">
-                    <a href="{{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->link ?? json_decode($contents->section_7_label_link_en)->link }}" class="py-sm-4 px-sm-5 fw-medium learn-more">
+                    <a href="{{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->link ?? json_decode($contents->section_7_label_link_en)->link }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-20">
                         {{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->label ?? json_decode($contents->section_7_label_link_en)->label }}
-                        <img src="{{ asset('storage/frontend/arrow-right.svg') }}"/>
+                        <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                     </a>
                 </div>
             </div>
@@ -492,12 +490,12 @@
         <div class="faq-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 faq-heading h1 fs-49 ">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</div>
+                    <div class="mb-3 faq-heading h1 fs-49">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</div>
                     <p class="mb-4 faq-body fs-25 fs-md-20">{{ $contents->{'section_9_description_' . $middleware_language} ?? $contents->section_9_description_en }}</p>
                 </div>
                 <div class="my-3">
                     <div class="accordion" id="accordionFAQ">
-                        @foreach($faqs as $faq)
+                        @foreach($faqs->take(5) as $faq)
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed p-2 p-md-3 fs-25" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
@@ -513,10 +511,16 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="text-center mt-5 pt-5 explore-course-text">
+                        <a href="{{ route('frontend.faqs') }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-20">
+                            Load More FAQs
+                            <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    @endif
+@endif
 
 @endsection
 

@@ -76,8 +76,6 @@ body {
 
 .content p,
 .content ul {
-    font-size: 23px;
-    font-weight: 300;
     line-height: 140%;
 }
 
@@ -88,7 +86,7 @@ body {
 .description-content ul,
 .description-content ol,
 .description-content li {
-    font-size: inherit;
+    /* font-size: inherit; */
     margin-bottom: 1rem;
     line-height: 140%;
 }

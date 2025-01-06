@@ -26,7 +26,6 @@
 }
 
 .learn-best-section .search-field {
-    margin-top: 50px;
     width: 100%;
     max-width: 600px;
     height: 65px;
@@ -414,6 +413,10 @@
         height: 55px;
     }
 
+    .learn-best-section .search-button {
+        height: 55px;
+    }
+
     .learn-best-section .search-field input {
         font-size: 0.875rem; /* 14px */
     }
@@ -465,6 +468,10 @@
     }
 
     .learn-best-section .search-field {
+        height: 45px;
+    }
+
+    .learn-best-section .search-button {
         height: 45px;
     }
 
