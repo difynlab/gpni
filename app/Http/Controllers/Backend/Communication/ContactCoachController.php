@@ -29,6 +29,8 @@ class ContactCoachController extends Controller
         $contact_coaches = ContactCoach::where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $contact_coaches = $this->processContactCoaches($contact_coaches);
 
+        ContactCoach::where('status', '1')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.communications.contact-coaches.index', [
             'contact_coaches' => $contact_coaches,
             'items' => $items

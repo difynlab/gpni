@@ -123,9 +123,10 @@
         $(".toggle-password").click(function() {
             $(this).toggleClass("bi-eye-slash-fill bi-eye-fill");
 
-            if ($(this).prev().attr("type") == "password") {
+            if($(this).prev().attr("type") == "password") {
                 $(this).prev().attr("type", "text");
-            } else {
+            }
+            else {
                 $(this).prev().attr("type", "password");
             }
         });

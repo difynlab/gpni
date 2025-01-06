@@ -10,16 +10,20 @@
         <div class="row mb-4">
             <div class="col-12">
                 <form action="{{ route('backend.purchases.course-purchases.filter') }}" method="GET" class="filter-form">
-                    <div class="row align-items-center">
-                        <div class="col">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-3 col-xl mb-3 mb-xl-0">
                             <input type="text" class="form-control" name="transaction_id" value="{{ $transaction_id ?? '' }}" placeholder="Transaction ID">
                         </div>
 
-                        <!-- <div class="col">
-                            <input type="text" class="form-control" name="buyer_receiver_name" value="{{ $buyer_receiver_name ?? '' }}" placeholder="Buyer/ receiver name">
-                        </div> -->
+                        <div class="col-3 col-xl mb-3 mb-xl-0">
+                            <input type="text" class="form-control" name="student_name" value="{{ $student_name ?? '' }}" placeholder="Student name">
+                        </div>
 
-                        <div class="col">
+                        <div class="col-3 col-xl mb-3 mb-xl-0">
+                            <input type="text" class="form-control" name="course_name" value="{{ $course_name ?? '' }}" placeholder="Course Name">
+                        </div>
+
+                        <div class="col-3 col-xl mb-3 mb-xl-0">
                             <input type="date" class="form-control" name="date" value="{{ $date ?? '' }}" placeholder="Date">
                         </div>
 
@@ -48,6 +52,7 @@
                             <th scope="col">Amount Paid</th>
                             <th scope="col">Payment Status</th>
                             <th scope="col">Course Access Status</th>
+                            <th scope="col">Final Exam</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -57,12 +62,13 @@
                             @foreach($course_purchases as $course_purchase)
                                 <tr>
                                     <td>#{{ $course_purchase->id }}</td>
-                                    <td>{{ $course_purchase->user_id }}</td>
-                                    <td>{{ $course_purchase->course_id }}</td>
+                                    <td>{{ $course_purchase->user }}</td>
+                                    <td>{{ $course_purchase->course }}</td>
                                     <td>{{ $course_purchase->date_time }}</td>
                                     <td>{{ $course_purchase->currency === 'usd' ? '$' : '¥' }}{{ $course_purchase->amount_paid }}</td>
                                     <td>{!! $course_purchase->payment_status !!}</td>
                                     <td>{!! $course_purchase->course_access_status !!}</td>
+                                    <td>{!! $course_purchase->final_exam !!}</td>
                                     <td>{!! $course_purchase->action !!}</td>
                                 </tr>
                             @endforeach

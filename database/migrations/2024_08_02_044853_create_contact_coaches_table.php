@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('app', ['WhatsApp', 'WeChat', 'Skype', 'Other']);
             $table->string('app_id');
             $table->date('date');
+            $table->enum('is_new', [0, 1])->default('1');
             $table->enum('status', [0, 1])->index();
             $table->timestamps();
         });

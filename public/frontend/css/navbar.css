@@ -72,6 +72,10 @@
     background-color: transparent; /* Optional: to remove background color on hover/focus/active */
 }
 
+.dropdown-menu {
+    left: -120%!important;
+}
+
 @media (max-width: 991.98px) {
 
 

@@ -28,14 +28,8 @@ class MasterClassController extends Controller
         }
 
         $all_courses = $request->master_class ? Course::where('title', 'like', '%' . $request->master_class . '%')->where('language', $request->middleware_language_name)->where('type', 'Masters')->where('status', '1')->paginate(6) : Course::where('language', $request->middleware_language_name)->where('type', 'Masters')->where('status', '1')->paginate(6);
-        // if($all_courses->isEmpty() && $request->middleware_language_name != 'English') {
-        //     $all_courses = Course::where('language', 'English')->where('type', 'Masters')->where('status', '1')->paginate(6);
-        // }
 
-        $upcoming_courses = $request->master_class ? Course::where('title', 'like', '%' . $request->master_class . '%')->where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6) : Course::where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6);
-        // if($upcoming_courses->isEmpty() && $request->middleware_language_name != 'English') {
-        //     $upcoming_courses = Course::where('language', 'English')->where('course_status', 'Upcoming')->where('type', 'Masters')->where('status', '1')->paginate(6);
-        // }
+        // $upcoming_courses = $request->master_class ? Course::where('title', 'like', '%' . $request->master_class . '%')->where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6) : Course::where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6);
 
         $testimonials = Testimonial::where('language', $request->middleware_language_name)->where('type', 'Master Class')->where('status', '1')->get();
         if($testimonials->isEmpty() && $request->middleware_language_name != 'English') {
@@ -46,7 +40,7 @@ class MasterClassController extends Controller
             'contents' => $contents,
             'faqs' => $faqs,
             'all_courses' => $all_courses,
-            'upcoming_courses' => $upcoming_courses,
+            // 'upcoming_courses' => $upcoming_courses,
             'testimonials' => $testimonials,
             'currency_symbol' => $currency_symbol,
             'master_class' => $request->master_class

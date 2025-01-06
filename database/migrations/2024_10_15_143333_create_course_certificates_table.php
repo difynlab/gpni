@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('course_purchase_id');
             $table->string('certificate')->nullable();
             $table->date('certificate_issued_date')->nullable();
-            $table->time('certificate_issued_time')->nullable();
+            $table->string('certificate_issued_time')->nullable();
             
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();

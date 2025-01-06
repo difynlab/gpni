@@ -62,82 +62,97 @@
 
 
 /* Sub menu */
-  .wrapper .sidebar .sub-menu {
-      position: absolute;
-      background-color: #F7BF2E;
-      height: auto;
-      width: 270px;
-      top: 0;
-      left: 100%;
-      padding: 0;
-      list-style-type: none;
-      display: none;
-      transition: opacity 0.3s, visibility 0.3s;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link {
-      position: relative;
-      padding: 15px 20px;
-      cursor: pointer;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link:last-child {
-      margin-bottom: 0;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link a {
-      color: black;
-      display: flex;
-      gap: 15px;
-      align-items: center;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link a img {
-      filter: brightness(0);
-      height: 25px;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link:hover {
-      background-color: #0040C3;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link:hover > .sub-sub-menu {
-      display: block;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link:hover > a {
-      color: white;
-  }
-  .wrapper .sidebar .sub-menu .sub-menu-link:hover > a img {
-      filter: invert(1) brightness(10);
-  }
+    .wrapper .sidebar .sub-menu {
+        position: absolute;
+        background-color: #F7BF2E;
+        height: auto;
+        width: 270px;
+        top: 0;
+        left: 100%;
+        padding: 0;
+        list-style-type: none;
+        display: none;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link {
+        position: relative;
+        padding: 15px 20px;
+        cursor: pointer;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link:last-child {
+        margin-bottom: 0;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link a {
+        position: relative;
+        color: black;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link a img {
+        filter: brightness(0);
+        height: 25px;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link:hover {
+        background-color: #0040C3;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link:hover > .sub-sub-menu {
+        display: block;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link:hover > a {
+        color: white;
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link:hover > a img {
+        filter: invert(1) brightness(10);
+    }
+    .wrapper .sidebar .sub-menu .sub-menu-link:hover > a p {
+        background-color: #F7BF2E;
+    }
 /* Sub menu */
 
 
 /* Sub sub menu */
-  .wrapper .sidebar .sub-sub-menu {
-      position: absolute;
-      background-color: #F7BF2E;
-      height: auto;
-      width: 220px;
-      top: 0;
-      left: 100%;
-      padding: 0;
-      list-style-type: none;
-      display: none;
-      transition: opacity 0.3s, visibility 0.3s;
-  }
-  .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link {
-      padding: 15px 20px;
-      cursor: pointer;
-  }
-  .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:last-child {
-      margin-bottom: 0;
-  }
-  .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link a {
-      color: black!important;
-      font-size: 14px;
-  }
-  .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover {
-      background-color: #0040C3;
-  }
-  .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover > a {
-      color: white!important;
-  }
-  .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover > a img {
-    filter: invert(1) brightness(10);
-}
+    .wrapper .sidebar .sub-sub-menu {
+        position: absolute;
+        background-color: #F7BF2E;
+        height: auto;
+        width: 220px;
+        top: 0;
+        left: 100%;
+        padding: 0;
+        list-style-type: none;
+        display: none;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link {
+        padding: 15px 20px;
+        cursor: pointer;
+    }
+    .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:last-child {
+        margin-bottom: 0;
+    }
+    .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link a {
+        color: black!important;
+        font-size: 14px;
+    }
+    .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover {
+        background-color: #0040C3;
+    }
+    .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover > a {
+        color: white!important;
+    }
+    .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover > a img {
+        filter: invert(1) brightness(10);
+    }
 /* Sub sub menu */
+
+
+.new-count-badge {
+    background-color: #0040C3;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px!important;
+    position: absolute;
+    top: -5%;
+    right: 0%;
+}

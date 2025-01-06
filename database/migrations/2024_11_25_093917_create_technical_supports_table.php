@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->text('subject');
             $table->text('message');
+            $table->enum('is_new', [0, 1])->default('1');
             $table->enum('status', [0, 1])->default('0')->index();
 
             $table->timestamps();

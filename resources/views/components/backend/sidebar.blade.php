@@ -235,6 +235,13 @@
                     <a href="{{ route('backend.persons.users.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/user.png') }}" alt="Icon">
                         <span>Users</span>
+                        @php
+                            $new_users = App\Models\User::where('role', 'student')->where('status', '!=', '0')->where('is_new', '1')->count();
+                        @endphp
+
+                        @if($new_users > 0)
+                            <p class="new-count-badge">{{ $new_users }}</p>
+                        @endif
                     </a>
                 </li>
 
@@ -279,6 +286,13 @@
                     <a href="{{ route('backend.communications.contact-coaches.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                         <span>Contact Coaches</span>
+                        @php
+                            $new_count = App\Models\ContactCoach::where('status', '1')->where('is_new', '1')->count();
+                        @endphp
+
+                        @if($new_count > 0)
+                            <p class="new-count-badge">{{ $new_count }}</p>
+                        @endif
                     </a>
                 </li>
 
@@ -286,6 +300,13 @@
                     <a href="{{ route('backend.communications.ask-questions.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                         <span>Ask Questions</span>
+                        @php
+                            $new_count = App\Models\AskQuestion::where('status', '1')->where('is_new', '1')->count();
+                        @endphp
+
+                        @if($new_count > 0)
+                            <p class="new-count-badge">{{ $new_count }}</p>
+                        @endif
                     </a>
                 </li>
 
@@ -293,6 +314,13 @@
                     <a href="{{ route('backend.communications.connections.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                         <span>Inquiries from Users</span>
+                        @php
+                            $new_count = App\Models\Connection::where('status', '1')->where('is_new', '1')->count();
+                        @endphp
+
+                        @if($new_count > 0)
+                            <p class="new-count-badge">{{ $new_count }}</p>
+                        @endif
                     </a>
                 </li>
 
@@ -300,6 +328,13 @@
                     <a href="{{ route('backend.communications.refer-friends.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                         <span>Refer Friends</span>
+                        @php
+                            $new_count = App\Models\ReferFriend::where('status', '1')->where('is_new', '1')->count();
+                        @endphp
+
+                        @if($new_count > 0)
+                            <p class="new-count-badge">{{ $new_count }}</p>
+                        @endif
                     </a>
                 </li>
 
@@ -307,6 +342,13 @@
                     <a href="{{ route('backend.communications.technical-supports.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                         <span>Technical Supports</span>
+                        @php
+                            $new_count = App\Models\TechnicalSupport::where('status', '1')->where('is_new', '1')->count();
+                        @endphp
+
+                        @if($new_count > 0)
+                            <p class="new-count-badge">{{ $new_count }}</p>
+                        @endif
                     </a>
                 </li>
 
@@ -314,6 +356,13 @@
                     <a href="{{ route('backend.communications.subscriptions.index') }}">
                         <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                         <span>Subscriptions</span>
+                        @php
+                            $new_count = App\Models\Subscription::where('status', '1')->where('is_new', '1')->count();
+                        @endphp
+
+                        @if($new_count > 0)
+                            <p class="new-count-badge">{{ $new_count }}</p>
+                        @endif
                     </a>
                 </li>
             </ul>

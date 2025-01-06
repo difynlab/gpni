@@ -30,6 +30,8 @@ class TechnicalSupportController extends Controller
         $technical_supports = TechnicalSupport::where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $technical_supports = $this->processTechnicalSupports($technical_supports);
 
+        TechnicalSupport::where('status', '1')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.communications.technical-supports.index', [
             'technical_supports' => $technical_supports,
             'items' => $items

@@ -25,6 +25,8 @@ class SubscriptionController extends Controller
         $subscriptions = Subscription::where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $subscriptions = $this->processSubscriptions($subscriptions);
 
+        Subscription::where('status', '1')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.communications.subscriptions.index', [
             'subscriptions' => $subscriptions,
             'items' => $items

@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Backend\Purchase;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseCertificate;
+use App\Models\CourseFinalExam;
 use App\Models\CoursePurchase;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -22,8 +25,8 @@ class CoursePurchaseController extends Controller
             <a href="'. route('backend.purchases.course-purchases.certificates.index', $course_purchase->id) .'" class="edit-button" title="Provide Certificate"><i class="bi bi-patch-check-fill"></i></a>
             <a id="'.$course_purchase->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
 
-            $course_purchase->user_id = User::find($course_purchase->user_id)->first_name . ' ' . User::find($course_purchase->user_id)->last_name;
-            $course_purchase->course_id = Course::find($course_purchase->course_id)->title;
+            $course_purchase->user = User::find($course_purchase->user_id)->first_name . ' ' . User::find($course_purchase->user_id)->last_name;
+            $course_purchase->course = Course::find($course_purchase->course_id)->title;
 
             $course_purchase->date_time = $course_purchase->date . ' | ' . $course_purchase->time;
 
@@ -35,6 +38,20 @@ class CoursePurchaseController extends Controller
                     : (($course_purchase->payment_status == 'Failed') 
                     ? '<span class="pending-status">Failed</span>' 
                     : '<span class="active-status">Directly Added</span>'));
+
+            if(hasStudentCompletedFinalExam($course_purchase->user_id, $course_purchase->course_id)) {
+                $final_exam = CourseFinalExam::where('user_id', $course_purchase->user_id)->where('course_id', $course_purchase->course_id)->where('status', '1')->orderBy('id', 'desc')->first();
+                
+                if($final_exam->result == 'Pass') {
+                    $course_purchase->final_exam = '<span class="active-status">Pass</span>';
+                }
+                else {
+                    $course_purchase->final_exam = '<span class="inactive-status">Fail</span>';
+                }
+            }
+            else {
+                $course_purchase->final_exam = '<span class="pending-status">Pending</span>';
+            }
 
             $course_purchase->course_access_status = ($course_purchase->course_access_status == 'Active') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Revoked</span>';
         }
@@ -83,23 +100,36 @@ class CoursePurchaseController extends Controller
         }
 
         $transaction_id = $request->transaction_id;
-        // $buyer_receiver_name = $request->buyer_receiver_name;
+        $student_name = $request->student_name;
+        $course_name = $request->course_name;
         $date = $request->date;
 
         $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc');
 
-        if($transaction_id != null) {
+        if($transaction_id) {
             $course_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');
         }
 
-        // if($buyer_receiver_name != null) {
-        //     $course_purchases->where(function ($query) use ($buyer_receiver_name) {
-        //         $query->where('buyer_name', 'like', '%' . $buyer_receiver_name . '%')
-        //             ->orWhere('receiver_name', 'like', '%' . $buyer_receiver_name . '%');
-        //     });
-        // }
+        if($student_name) {
+            $user_ids = User::where('role', 'student')
+            ->where('status', '1')
+            ->where(function ($query) use ($student_name) {
+                $query->where('first_name', 'like', '%' . $student_name . '%')
+                      ->orWhere('last_name', 'like', '%' . $student_name . '%')
+                      ->orWhere(DB::raw("CONCAT(first_name, ' ', last_name)"), 'like', '%' . $student_name . '%');
+            })
+            ->pluck('id')->toArray();
 
-        if($date != null) {
+            $course_purchases->whereIn('user_id', $user_ids);
+        }
+
+        if($course_name) {
+            $course_ids = Course::where('status', '1')->where('title', 'like', '%' . $course_name . '%')->pluck('id')->toArray();
+
+            $course_purchases->whereIn('course_id', $course_ids);
+        }
+
+        if($date) {
             $course_purchases->where('date', $date);
         }
 
@@ -111,7 +141,8 @@ class CoursePurchaseController extends Controller
             'course_purchases' => $course_purchases,
             'items' => $items,
             'transaction_id' => $transaction_id,
-            // 'buyer_receiver_name' => $buyer_receiver_name,
+            'student_name' => $student_name,
+            'course_name' => $course_name,
             'date' => $date,
         ]);
     }
@@ -136,9 +167,11 @@ class CoursePurchaseController extends Controller
     public function certificateUpdate(Request $request, CourseCertificate $course_certificate)
     {
         $validator = Validator::make($request->all(), [
-            'new_certificate' => 'nullable|max:30720'
+            'new_certificate' => 'nullable|max:30720',
+            'certificate_issued_time' => ['required', 'regex:/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/']
         ], [
-            'new_certificate.max' => 'The file must not be greater than 30 MB'
+            'new_certificate.max' => 'The file must not be greater than 30 MB',
+            'certificate_issued_time.regex' => 'The time format must be HH:MM'
         ]);
         
         if($validator->fails()) {
@@ -160,6 +193,8 @@ class CoursePurchaseController extends Controller
 
         $data = $request->except('old_certificate', 'new_certificate');
         $data['certificate'] = $new_certificate_name;
+        $data['certificate_issued_date'] = $request->certificate_issued_date ?? Carbon::now()->toDateString();
+        $data['certificate_issued_time'] = $request->certificate_issued_time ?? Carbon::now()->toTimeString();
         $course_certificate->fill($data)->save();
         
         return redirect()->route('backend.purchases.course-purchases.certificates.index', $course_certificate->course_purchase_id)->with('success', "Successfully updated!");

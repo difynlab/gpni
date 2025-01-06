@@ -32,6 +32,8 @@ class AskQuestionController extends Controller
         $ask_questions = AskQuestion::where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $ask_questions = $this->processAskQuestions($ask_questions);
 
+        AskQuestion::where('status', '1')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.communications.ask-questions.index', [
             'ask_questions' => $ask_questions,
             'items' => $items

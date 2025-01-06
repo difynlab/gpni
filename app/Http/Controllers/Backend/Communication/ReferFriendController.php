@@ -29,6 +29,8 @@ class ReferFriendController extends Controller
         $refer_friends = ReferFriend::where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $refer_friends = $this->processReferFriends($refer_friends);
 
+        ReferFriend::where('status', '1')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.communications.refer-friends.index', [
             'refer_friends' => $refer_friends,
             'items' => $items

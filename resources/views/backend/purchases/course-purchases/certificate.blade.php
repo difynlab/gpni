@@ -37,23 +37,20 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="certificate_issued_date" class="form-label">Certificate Issued Date<span class="asterisk">*</span></label>
-                            <input type="date" class="form-control" id="certificate_issued_date" name="certificate_issued_date" value="{{ old('certificate_issued_date', $certificate->certificate_issued_date) }}" placeholder="Certificate Issued Date" required>
+                            <label for="certificate_issued_date" class="form-label">Certificate Issued Date</label>
+                            <input type="date" class="form-control" id="certificate_issued_date" name="certificate_issued_date" value="{{ old('certificate_issued_date', $certificate->certificate_issued_date) }}" placeholder="Certificate Issued Date">
                         </div>
 
                         <div>
-                            <label for="certificate_issued_time" class="form-label">Certificate Issued Time<span class="asterisk">*</span></label>
-                            <input type="time" class="form-control" id="certificate_issued_time" name="certificate_issued_time" value="{{ old('certificate_issued_time', $certificate->certificate_issued_time) }}" placeholder="Certificate Issued Time" required>
+                            <label for="certificate_issued_time" class="form-label">Certificate Issued Time (HH:MM)</label>
+                            <input type="text" class="form-control" id="certificate_issued_time" name="certificate_issued_time" value="{{ old('certificate_issued_time', $certificate->certificate_issued_time) }}" step="60" placeholder="Certificate Issued Time">
+                            <x-backend.input-error field="certificate_issued_time"></x-backend.input-error>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
-                <div class="form-input">
-                    <button type="submit" class="submit-button">Save Updates</button>
-                </div>
-            </div>
+            <x-backend.edit-status :data="$certificate"></x-backend.edit-status>
         </form>
     </div>
 

@@ -46,6 +46,8 @@ class UserController extends Controller
         $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
         $users = $this->processUsers($users);
 
+        User::where('role', 'student')->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.persons.users.index', [
             'users' => $users,
             'items' => $items

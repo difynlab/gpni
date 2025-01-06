@@ -25,6 +25,8 @@ class ConnectionController extends Controller
         $connections = Connection::where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $connections = $this->processConnections($connections);
 
+        Connection::where('status', '1')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.communications.connections.index', [
             'connections' => $connections,
             'items' => $items

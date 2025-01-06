@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->text('question');
             $table->text('comments')->nullable();
+            $table->enum('is_new', [0, 1])->default('1');
             $table->enum('status', [0, 1])->index();
 
             $table->timestamps();

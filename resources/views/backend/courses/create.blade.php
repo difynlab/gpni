@@ -43,14 +43,14 @@
                             </select>
                         </div>
 
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <label for="course_status" class="form-label">Course Status<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="course_status" name="course_status" required>
                                 <option value="">Select course status</option>
                                 <option value="Present" {{ old('course_status') == 'Present' ? 'selected' : '' }}>Present</option>
                                 <option value="Upcoming" {{ old('course_status') == 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="mb-4">
                             <label for="no_of_modules" class="form-label">No of Modules<span class="asterisk">*</span></label>

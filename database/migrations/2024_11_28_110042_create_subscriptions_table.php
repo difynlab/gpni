@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('email');
+            $table->enum('is_new', [0, 1])->default('1');
             $table->enum('status', [0, 1, 2])->index();
 
             $table->timestamps();

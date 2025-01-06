@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('certificate_number')->nullable()->after('cec_status');
             $table->enum('membership_credential_status', [1, 2])->nullable()->after('certificate_number');
             $table->enum('is_qualified', [1, 2])->nullable()->after('membership_credential_status');
+            $table->enum('is_new', [0, 1])->default('1')->after('is_qualified');
         });
     }
 

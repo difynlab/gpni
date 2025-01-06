@@ -36,7 +36,7 @@
             </header>
         @endif
 
-        <section class="course-filter-section">
+        <!-- <section class="course-filter-section">
             <ul class="nav nav-tabs d-flex flex-column flex-md-row justify-content-center w-100" role="tablist">
                 <li class="nav-item mb-3 mb-md-0" role="presentation">
                     <button class="nav-link active w-100 fs-20 fs-md-18 px-4" id="all-courses-tab" data-bs-toggle="tab" 
@@ -94,7 +94,7 @@
                 <div class="tab-pane fade" id="upcoming-courses-tab-pane" role="tabpanel" aria-labelledby="upcoming-courses-tab" tabindex="0">
                     <div class="container py-5">
                         <div class="row g-3 mb-3 m-0">
-                            @if($upcoming_courses->isNotEmpty())
+                            @if(isset($upcoming_courses) && $upcoming_courses->isNotEmpty())
                                 @foreach($upcoming_courses as $upcoming_course)
                                 <div class="col-md-4 col-sm-6 col-12 mb-4">
                                     <div class="card h-100 d-flex flex-column mx-1">
@@ -125,9 +125,45 @@
                             @endif
                         </div>
 
-                        {{ $upcoming_courses->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
+                        {{ isset($upcoming_courses) && $upcoming_courses->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
                     </div>
                 </div>
+            </div>
+        </section> -->
+
+        <section>
+            <div class="container py-5">
+                <div class="row g-3 mb-3 m-0">
+                    @if($all_courses->isNotEmpty())
+                        @foreach($all_courses as $all_course)
+                            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                                <div class="card h-100 d-flex flex-column mx-1">
+                                    <img src="{{ asset('storage/backend/courses/course-images/' . $all_course->image) }}" class="card-img-top" alt="Card Image">
+
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fs-25">{{ $all_course->title }}</h5>
+
+                                        <p class="card-text fs-16">{{ \Illuminate\Support\Str::words($all_course->short_description, 6, '...') }}<a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}" class="learn-more">{{ $contents->{'section_2_learn_' . $middleware_language} ?? $contents->section_2_learn_en }}</a></p>
+
+                                        <div class="card-footer pt-2">
+                                            <a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}" class="enroll-button">
+                                                <span class="pe-2">{{ $contents->{'section_2_enroll_' . $middleware_language} ?? $contents->section_2_enroll_en }}</span>
+                                                <img src="{{ asset('storage/frontend/small-arrow-right.svg') }}" alt="Arrow Icon" width="15" height="15">
+                                            </a>
+                                            <div class="d-flex flex-column gap-2">
+                                                <div class="card-price-column">PRICE</div>
+                                                <div class="card-price fs-31">{{ $currency_symbol }}{{ $all_course->price }}</div>
+                                            </div>                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p class="no-data fs-31">{{ $contents->{'section_2_no_all_courses_' . $middleware_language} ?? $contents->section_2_no_all_courses_en }}</p>
+                    @endif
+                </div>
+
+                {{ $all_courses->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
             </div>
         </section>
 
