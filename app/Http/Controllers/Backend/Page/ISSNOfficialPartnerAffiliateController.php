@@ -50,6 +50,21 @@ class ISSNOfficialPartnerAffiliateController extends Controller
 
         $contents = ISSNOfficialPartnerAffiliateContent::find(1);
 
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
+
         // Section 2 image
             if($request->file('new_section_2_image')) {
                 if($request->old_section_2_image) {
@@ -61,7 +76,7 @@ class ISSNOfficialPartnerAffiliateController extends Controller
                 $new_section_2_image->storeAs('public/backend/pages', $section_2_image_name);
             }
             else {
-                if($contents->section_2_image_ . '' . $language) {
+                if($contents->{'section_2_image_' . $short_code}) {
                     $section_2_image_name = $request->old_section_2_image;
                 }
                 else {
@@ -86,22 +101,6 @@ class ISSNOfficialPartnerAffiliateController extends Controller
             'section_3_button_labels',
             'section_3_button_links',
         );
-
-        switch($language){
-            case 'english':
-                $short_code = 'en';
-                break;
-            case 'chinese':
-                $short_code = 'zh';
-                break;
-            case 'japanese':
-                $short_code = 'ja';
-                break;
-            default:
-                $short_code = 'unknown';
-                break;
-        }
-
         $data['section_2_image_' . '' . $short_code] = $section_2_image_name;
         $data['section_3_labels_links_' . '' . $short_code] = json_encode($section_3_labels_links);
         

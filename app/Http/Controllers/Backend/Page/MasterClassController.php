@@ -63,7 +63,9 @@ class MasterClassController extends Controller
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
-        
+
+        $contents = MasterClassContent::find(1);
+
         switch($language){
             case 'english':
                 $short_code = 'en';
@@ -78,8 +80,6 @@ class MasterClassController extends Controller
                 $short_code = 'unknown';
                 break;
         }
-
-        $contents = MasterClassContent::find(1);
 
         // Section points store function
             $section_3_points = [];
@@ -124,7 +124,7 @@ class MasterClassController extends Controller
                 $new_section_4_video->storeAs('public/backend/pages', $section_4_video_name);
             }
             else {
-                if($contents->section_4_video_ . '' . $language) {
+                if($contents->{'section_4_video_' . $short_code}) {
                     $section_4_video_name = $request->old_section_4_video;
                 }
                 else {
@@ -141,7 +141,6 @@ class MasterClassController extends Controller
             'old_section_4_video',
             'new_section_4_video',
         );
-
         $data['section_3_points_' . '' . $short_code] = $final_section_3_points ?? null;
         $data['section_4_video_' . '' . $short_code] = $section_4_video_name;
 

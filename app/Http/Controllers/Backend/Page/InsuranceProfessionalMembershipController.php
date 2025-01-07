@@ -54,6 +54,21 @@ class InsuranceProfessionalMembershipController extends Controller
         
         $contents = InsuranceProfessionalMembershipContent::find(1);
 
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
+
         // Section 1 image
             if($request->file('new_section_1_image')) {
                 if($request->old_section_1_image) {
@@ -65,7 +80,7 @@ class InsuranceProfessionalMembershipController extends Controller
                 $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
             else {
-                if($contents->section_1_image_ . '' . $language) {
+                if($contents->{'section_1_image_' . $short_code}) {
                     $section_1_image_name = $request->old_section_1_image;
                 }
                 else {
@@ -85,7 +100,7 @@ class InsuranceProfessionalMembershipController extends Controller
                 $new_section_2_image->storeAs('public/backend/pages', $section_2_image_name);
             }
             else {
-                if($contents->section_2_image_ . '' . $language) {
+                if($contents->{'section_2_image_' . $short_code}) {
                     $section_2_image_name = $request->old_section_2_image;
                 }
                 else {
@@ -105,7 +120,7 @@ class InsuranceProfessionalMembershipController extends Controller
                 $new_section_4_image->storeAs('public/backend/pages', $section_4_image_name);
             }
             else {
-                if($contents->section_4_image_ . '' . $language) {
+                if($contents->{'section_4_image_' . $short_code}) {
                     $section_4_image_name = $request->old_section_4_image;
                 }
                 else {
@@ -122,22 +137,6 @@ class InsuranceProfessionalMembershipController extends Controller
             'old_section_4_image',
             'new_section_4_image'
         );
-        
-        switch($language){
-            case 'english':
-                $short_code = 'en';
-                break;
-            case 'chinese':
-                $short_code = 'zh';
-                break;
-            case 'japanese':
-                $short_code = 'ja';
-                break;
-            default:
-                $short_code = 'unknown';
-                break;
-        }
-
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_2_image_' . '' . $short_code] = $section_2_image_name;
         $data['section_4_image_' . '' . $short_code] = $section_4_image_name;

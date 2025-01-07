@@ -54,8 +54,23 @@ class HomepageController extends Controller
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
-        
+
         $contents = HomepageContent::find(1);
+
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
 
         // Section 1 image
             if($request->file('new_section_1_image')) {
@@ -68,7 +83,7 @@ class HomepageController extends Controller
                 $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
             else {
-                if($contents->section_1_image_ . '' . $language) {
+                if($contents->{'section_1_image_' . $short_code}) {
                     $section_1_image_name = $request->old_section_1_image;
                 }
                 else {
@@ -98,7 +113,7 @@ class HomepageController extends Controller
                 $new_section_2_video->storeAs('public/backend/pages', $section_2_video_name);
             }
             else {
-                if($contents->section_2_video_ . '' . $language) {
+                if($contents->{'section_2_video_' . $short_code}) {
                     $section_2_video_name = $request->old_section_2_video;
                 }
                 else {
@@ -125,7 +140,7 @@ class HomepageController extends Controller
                 $new_section_4_video->storeAs('public/backend/pages', $section_4_video_name);
             }
             else {
-                if($contents->section_4_video_ . '' . $language) {
+                if($contents->{'section_4_video_' . $short_code}) {
                     $section_4_video_name = $request->old_section_4_video;
                 }
                 else {
@@ -155,7 +170,7 @@ class HomepageController extends Controller
                 $section_5_images = json_encode($section_5_images);
             }
             else {
-                if($contents->section_5_images_ . '' . $language) {
+                if($contents->{'section_5_image_' . $short_code}) {
                     $section_5_images = htmlspecialchars_decode($request->old_section_5_images);
                 }
                 else {

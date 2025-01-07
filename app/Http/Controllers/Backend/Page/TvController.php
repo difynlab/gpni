@@ -60,6 +60,21 @@ class TvController extends Controller
         
         $contents = TvContent::find(1);
 
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
+
         // Section 1 image
             if($request->file('new_section_1_image')) {
                 if($request->old_section_1_image) {
@@ -71,7 +86,7 @@ class TvController extends Controller
                 $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
             else {
-                if($contents->section_1_image_ . '' . $language) {
+                if($contents->{'section_1_image_' . $short_code}) {
                     $section_1_image_name = $request->old_section_1_image;
                 }
                 else {
@@ -91,7 +106,7 @@ class TvController extends Controller
                 $new_section_3_image->storeAs('public/backend/pages', $section_3_image_name);
             }
             else {
-                if($contents->section_3_image_ . '' . $language) {
+                if($contents->{'section_3_image_' . $short_code}) {
                     $section_3_image_name = $request->old_section_3_image;
                 }
                 else {
@@ -111,7 +126,7 @@ class TvController extends Controller
                 $new_section_5_image->storeAs('public/backend/pages', $section_5_image_name);
             }
             else {
-                if($contents->section_5_image_ . '' . $language) {
+                if($contents->{'section_5_image_' . $short_code}) {
                     $section_5_image_name = $request->old_section_5_image;
                 }
                 else {
@@ -131,7 +146,7 @@ class TvController extends Controller
                 $new_section_6_image->storeAs('public/backend/pages', $section_6_image_name);
             }
             else {
-                if($contents->section_6_image_ . '' . $language) {
+                if($contents->{'section_6_image_' . $short_code}) {
                     $section_6_image_name = $request->old_section_6_image;
                 }
                 else {
@@ -151,7 +166,7 @@ class TvController extends Controller
                 $new_section_7_video->storeAs('public/backend/pages', $section_7_video_name);
             }
             else {
-                if($contents->section_7_video_ . '' . $language) {
+                if($contents->{'section_7_video_' . $short_code}) {
                     $section_7_video_name = $request->old_section_7_video;
                 }
                 else {
@@ -171,7 +186,7 @@ class TvController extends Controller
                 $new_section_10_image->storeAs('public/backend/pages', $section_10_image_name);
             }
             else {
-                if($contents->section_10_image_ . '' . $language) {
+                if($contents->{'section_10_image_' . $short_code}) {
                     $section_10_image_name = $request->old_section_10_image;
                 }
                 else {
@@ -212,22 +227,6 @@ class TvController extends Controller
             'section_8_button_label',
             'section_8_button_link'
         );
-        
-        switch($language){
-            case 'english':
-                $short_code = 'en';
-                break;
-            case 'chinese':
-                $short_code = 'zh';
-                break;
-            case 'japanese':
-                $short_code = 'ja';
-                break;
-            default:
-                $short_code = 'unknown';
-                break;
-        }
-
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_3_image_' . '' . $short_code] = $section_3_image_name;
         $data['section_5_image_' . '' . $short_code] = $section_5_image_name;

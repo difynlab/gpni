@@ -52,6 +52,21 @@ class WhyWeAreDifferentController extends Controller
         
         $contents = WhyWeAreDifferentContent::find(1);
 
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
+
         // Section 1 video
             if($request->file('new_section_1_video')) {
                 if($request->old_section_1_video) {
@@ -63,7 +78,7 @@ class WhyWeAreDifferentController extends Controller
                 $new_section_1_video->storeAs('public/backend/pages', $section_1_video_name);
             }
             else {
-                if($contents->section_1_video_ . '' . $language) {
+                if($contents->{'section_1_video_' . $short_code}) {
                     $section_1_video_name = $request->old_section_1_video;
                 }
                 else {
@@ -83,7 +98,7 @@ class WhyWeAreDifferentController extends Controller
                 $new_section_2_image->storeAs('public/backend/pages', $section_2_image_name);
             }
             else {
-                if($contents->section_2_image_ . '' . $language) {
+                if($contents->{'section_2_image_' . $short_code}) {
                     $section_2_image_name = $request->old_section_2_image;
                 }
                 else {
@@ -98,22 +113,6 @@ class WhyWeAreDifferentController extends Controller
             'old_section_2_image',
             'new_section_2_image'
         );
-
-        switch($language){
-            case 'english':
-                $short_code = 'en';
-                break;
-            case 'chinese':
-                $short_code = 'zh';
-                break;
-            case 'japanese':
-                $short_code = 'ja';
-                break;
-            default:
-                $short_code = 'unknown';
-                break;
-        }
-
         $data['section_1_video_' . '' . $short_code] = $section_1_video_name;
         $data['section_2_image_' . '' . $short_code] = $section_2_image_name;
 

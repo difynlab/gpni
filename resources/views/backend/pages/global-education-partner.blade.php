@@ -105,18 +105,6 @@
                                     </div>
                                 </div>
                             @endforeach
-                        @else
-                            <div class="row single-item mt-4">
-                                <div class="col-4">
-                                    <textarea class="editor ckeditor-initialized" id="section_2_points_partner_name" name="section_2_points_partner_name[]" placeholder="Partner Name"></textarea>
-                                </div>
-                                <div class="col-4">
-                                    <textarea class="editor ckeditor-initialized" id="section_2_points_course_name" name="section_2_points_course_name[]" placeholder="Course Name"></textarea>
-                                </div>
-                                <div class="col-4">
-                                    <textarea class="editor ckeditor-initialized" id="section_2_points" name="section_2_points[]" placeholder="Points"></textarea>
-                                </div>
-                            </div>
                         @endif
                     </div>
                 </div>

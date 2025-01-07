@@ -17,11 +17,38 @@ return new class extends Migration
             $table->text('title_en')->nullable();
             $table->text('description_en')->nullable();
 
+            $table->text('cec_images_en')->nullable();
+            $table->text('cec_images_description_en')->nullable();
+            $table->text('cec_title_en')->nullable();
+            $table->text('cec_first_column_title_en')->nullable();
+            $table->text('cec_second_column_title_en')->nullable();
+            $table->text('cec_third_column_title_en')->nullable();
+            $table->text('cec_points_en')->nullable();
+            $table->text('cec_points_description_en')->nullable();
+
             $table->text('title_zh')->nullable();
             $table->text('description_zh')->nullable();
 
+            $table->text('cec_images_zh')->nullable();
+            $table->text('cec_images_description_zh')->nullable();
+            $table->text('cec_title_zh')->nullable();
+            $table->text('cec_first_column_title_zh')->nullable();
+            $table->text('cec_second_column_title_zh')->nullable();
+            $table->text('cec_third_column_title_zh')->nullable();
+            $table->text('cec_points_zh')->nullable();
+            $table->text('cec_points_description_zh')->nullable();
+
             $table->text('title_ja')->nullable();
             $table->text('description_ja')->nullable();
+
+            $table->text('cec_images_ja')->nullable();
+            $table->text('cec_images_description_ja')->nullable();
+            $table->text('cec_title_ja')->nullable();
+            $table->text('cec_first_column_title_ja')->nullable();
+            $table->text('cec_second_column_title_ja')->nullable();
+            $table->text('cec_third_column_title_ja')->nullable();
+            $table->text('cec_points_ja')->nullable();
+            $table->text('cec_points_description_ja')->nullable();
 
             $table->timestamps();
         });

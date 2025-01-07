@@ -49,6 +49,21 @@ class GiftCardController extends Controller
         }
 
         $contents = GiftCardContent::find(1);
+        
+        switch($language){
+            case 'english':
+                $short_code = 'en';
+                break;
+            case 'chinese':
+                $short_code = 'zh';
+                break;
+            case 'japanese':
+                $short_code = 'ja';
+                break;
+            default:
+                $short_code = 'unknown';
+                break;
+        }
 
         // Images
             if($request->file('new_images') != null) {
@@ -71,7 +86,7 @@ class GiftCardController extends Controller
                 $images = json_encode($images);
             }
             else {
-                if($contents->images_ . '' . $language) {
+                if($contents->{'images_' . $short_code}) {
                     $images = htmlspecialchars_decode($request->old_images);
                 }
                 else {
@@ -84,22 +99,6 @@ class GiftCardController extends Controller
             'old_images',
             'new_images'
         );
-        
-        switch($language){
-            case 'english':
-                $short_code = 'en';
-                break;
-            case 'chinese':
-                $short_code = 'zh';
-                break;
-            case 'japanese':
-                $short_code = 'ja';
-                break;
-            default:
-                $short_code = 'unknown';
-                break;
-        }
-
         $data['images_' . '' . $short_code] = $images;
 
         $contents->fill($data)->save();
