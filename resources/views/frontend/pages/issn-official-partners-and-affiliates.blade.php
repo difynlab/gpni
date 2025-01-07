@@ -29,7 +29,7 @@
                         <div class="row px-2 px-md-5 pb-3 pb-md-5 gx-2 gx-md-4 custom-row-gap">
                             @if(!$partners->isEmpty())
                             @foreach($partners as $partner)
-                            <div class="col-6 col-md-3 pt-2 d-flex justify-content-center align-items-center">
+                            <div class="col-6 col-md-3 pt-2 d-flex justify-content-center a+gn-items-center">
                                 <img src="{{ asset('storage/backend/persons/issn-partners/' . $partner->image) }}"
                                     alt="Partner Logo" class="partner-images img-fluid">
                             </div>

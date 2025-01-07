@@ -31,8 +31,9 @@ body {
 
 .partner-images {
     width: auto; /* Ensure the image takes up the full width of its container */
-    height: 8rem !important; /* Maintain aspect ratio */
+    height: 7.9rem !important; /* Maintain aspect ratio */
     object-fit: fill;
+    margin-bottom: 30px; /* Add margin to increase gap between images */
 }
 
 .custom-row-gap {
