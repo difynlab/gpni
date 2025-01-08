@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <!-- <div class="section">
                 <p class="inner-page-title">Author Details</p>
 
                 <div class="row form-input">
@@ -77,7 +77,7 @@
                         <x-backend.input-error field="new_author_image"></x-backend.input-error>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="section">
                 <p class="inner-page-title">More Details</p>
@@ -93,27 +93,16 @@
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="trending" class="form-label">Trending<span class="asterisk">*</span></label>
-                        <select class="form-control form-select" id="trending" name="trending" required>
-                            <option value="">Trending?</option>
-                            <option value="Yes" {{ old('trending') == 'Yes' ? 'selected' : '' }}>Yes</option>
-                            <option value="No" {{ old('trending') == 'No' ? 'selected' : '' }}>No</option>
-                        </select>
+                        <label for="reading_time" class="form-label">Reading Time</label>
+                        <input type="text" class="form-control" id="reading_time" name="reading_time" value="{{ old('reading_time') }}" placeholder="Reading Time">
                     </div>
 
                     <div class="col-6">
-                        <div class="mb-4">
-                            <label for="reading_time" class="form-label">Reading Time</label>
-                            <input type="text" class="form-control" id="reading_time" name="reading_time" value="{{ old('reading_time') }}" placeholder="Reading Time">
-                        </div>
-                        
-                        <div>
-                            <label for="meta_keywords" class="form-label">Meta Keywords</label>
-                            <textarea class="form-control" rows="4" id="meta_keywords" name="meta_keywords" value="{{ old('meta_keywords') }}" placeholder="Meta Keywords">{{ old('meta_keywords') }}</textarea>
-                        </div>
+                        <label for="meta_keywords" class="form-label">Meta Keywords</label>
+                        <textarea class="form-control" rows="4" id="meta_keywords" name="meta_keywords" value="{{ old('meta_keywords') }}" placeholder="Meta Keywords">{{ old('meta_keywords') }}</textarea>
                     </div>
                     
-                    <div class="col-6 full-height">
+                    <div class="col-6">
                         <label for="meta_description" class="form-label">Meta Description</label>
                         <textarea class="form-control" rows="4" id="meta_description" name="meta_description" value="{{ old('meta_description') }}" placeholder="Meta Description">{{ old('meta_description') }}</textarea>
                     </div>

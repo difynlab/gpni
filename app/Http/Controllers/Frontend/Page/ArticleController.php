@@ -24,10 +24,10 @@ class ArticleController extends Controller
             $recommended_articles = Article::where('recommending', 'Yes')->where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->paginate(4);
         }
 
-        $trending_articles = Article::where('trending', 'Yes')->where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc')->take(5)->get();
+        $trending_articles = Article::where('language', $request->middleware_language_name)->where('status', '1')->orderBy('view_count', 'desc')->take(5)->get();
 
         if($trending_articles->isEmpty() && $request->middleware_language_name != 'English') {
-            $trending_articles = Article::where('trending', 'Yes')->where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->take(5)->get();
+            $trending_articles = Article::where('language', 'English')->where('status', '1')->orderBy('view_count', 'desc')->take(5)->get();
         }
 
         $settings = Setting::find(1);
@@ -51,6 +51,9 @@ class ArticleController extends Controller
         }
 
         $settings = Setting::find(1);
+
+        $article->view_count += 1;
+        $article->save();
 
         return view('frontend.pages.articles.show', [
             'contents' => $contents,

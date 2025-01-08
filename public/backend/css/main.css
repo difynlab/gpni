@@ -134,6 +134,9 @@
         color: #9A9A9A;
         font-size: 14px;
     }
+    form .ck.ck-editor {
+        overflow-x: hidden;
+    }
     form .ck.ck-sticky-panel__content {
         border-color:#EAEAEA!important;
         border-top-right-radius: 10px!important;

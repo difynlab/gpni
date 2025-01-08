@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-<div class="modal fade" id="start-exam-modal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+<div class="modal fade final-start-exam-modal" id="start-exam-modal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
     data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -17,7 +17,7 @@
                 <p class="title">{{ $student_dashboard_contents->courses_exam_start_modal_title }}</p>
                 <p class="description">{{ $student_dashboard_contents->courses_exam_start_modal_description }}</p>
 
-                {!! $student_dashboard_contents->courses_exam_start_modal_instructions !!}
+                {!! $student_dashboard_contents->courses_final_exam_start_modal_instructions !!}
             </div>
 
             <div class="modal-footer text-center">
@@ -319,7 +319,7 @@
 </div>
 
 @endsection
-<!-- 
+
 @push('after-scripts')
     <script>
         $(document).ready(function() {
@@ -543,9 +543,9 @@
                 });
             });
 
-            document.addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-            });
+            // document.addEventListener('contextmenu', (e) => {
+            //     e.preventDefault();
+            // });
 
             document.addEventListener('keydown', (e) => {
                 if(
@@ -573,4 +573,4 @@
             });
         </script>
     @endif
-@endpush -->
+@endpush

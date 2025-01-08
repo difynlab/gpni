@@ -942,16 +942,17 @@
                     </div>
 
                     <div class="col-4">
-                        <label for="courses_exam_start_modal_instructions" class="form-label">Start Modal Instructions</label>
-                        <!-- <input type="text" class="form-control" id="courses_exam_start_modal_instructions" name="courses_exam_start_modal_instructions" value="{{ $contents->courses_exam_start_modal_instructions ?? '' }}" placeholder="Start Modal Instructions"> -->
+                        <label for="courses_exam_start_modal_instructions" class="form-label">Start Modal Module Exam Instructions</label>
+                        <textarea class="editor" id="content" name="courses_module_exam_start_modal_instructions">{{ $contents->courses_module_exam_start_modal_instructions }}</textarea>
+                    </div>
 
-                        <textarea class="editor" id="content" name="courses_exam_start_modal_instructions">{{ $contents->courses_exam_start_modal_instructions }}</textarea>
+                    <div class="col-4">
+                        <label for="courses_exam_start_modal_instructions" class="form-label">Start Modal Final Exam Instructions</label>
+                        <textarea class="editor" id="content" name="courses_final_exam_start_modal_instructions">{{ $contents->courses_final_exam_start_modal_instructions }}</textarea>
                     </div>
 
                     <div class="col-4">
                         <label for="courses_exam_instructions" class="form-label">Exam Instructions</label>
-                        <!-- <input type="text" class="form-control" id="courses_exam_instructions" name="courses_exam_instructions" value="{{ $contents->courses_exam_instructions ?? '' }}" placeholder="Exam Instructions"> -->
-
                         <textarea class="editor" id="content" name="courses_exam_instructions">{{ $contents->courses_exam_instructions }}</textarea>
                     </div>
                 </div>

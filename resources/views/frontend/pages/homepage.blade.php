@@ -513,7 +513,7 @@
                     </div>
                     <div class="text-center mt-5 pt-5 explore-course-text">
                         <a href="{{ route('frontend.faqs') }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-20">
-                            Load More FAQs
+                            {{ $contents->{'section_9_button_' . $middleware_language} ?? $contents->section_9_button_en }}
                             <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                         </a>
                     </div>

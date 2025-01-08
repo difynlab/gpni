@@ -25,7 +25,7 @@
                         <div>{!! $article->content !!}</div>
                     </div>
 
-                    <h6 class="mt-4 fs-16 author-title text-center text-md-start">{{ $contents->{'single_article_author_' . $middleware_language} ?? $contents->single_article_author_en }}</h6>
+                    <!-- <h6 class="mt-4 fs-16 author-title text-center text-md-start">{{ $contents->{'single_article_author_' . $middleware_language} ?? $contents->single_article_author_en }}</h6>
 
                     <div
                         class="d-flex mt-1 flex-column flex-md-row align-items-center align-items-md-start text-center text-md-start">
@@ -43,7 +43,7 @@
                             <p class="mb-0 fs-13">{{ $article->author_designation }}</p>
                             <p class="mb-0 fs-12">{{ $article->author_description }}</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -72,8 +72,8 @@
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
                                                     <h6 class="article-title fs-13 title-clamp">{{ $latest_article->title }}</h6>
-                                                    <div class="line-clamp-2 fs-12">{!! $latest_article->content
-                                                        !!}
+                                                    <div class="line-clamp-2 fs-12">
+                                                        {!! strip_tags($latest_article->content) !!}
                                                     </div>
                                                     <div
                                                         class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-md-3">

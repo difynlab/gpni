@@ -183,11 +183,9 @@
                                         <div class="row g-3 w-100">
                                             <div class="col-4 col-lg-6">
                                                 @if($trending_article->thumbnail)
-                                                <img src="{{ asset('storage/backend/articles/articles/' . $trending_article->thumbnail) }}" alt="Trending Image" class="img-fluid object-fit-cover">
-
+                                                    <img src="{{ asset('storage/backend/articles/articles/' . $trending_article->thumbnail) }}" alt="Trending Image" class="img-fluid object-fit-cover">
                                                 @else
-                                                <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}"
-                                                    alt="Trending Image" class="img-fluid object-fit-cover">
+                                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Trending Image" class="img-fluid object-fit-cover">
                                                 @endif
                                             </div>
                                             <div class="col-8 col-lg-6">
@@ -195,7 +193,7 @@
                                                     <h6 class="trending-content-title title-clamp fs-13">{{ $trending_article->title }}
                                                     </h6>
 
-                                                    <div class="line-clamp-2">{!! $trending_article->content !!}</div>
+                                                    <div class="line-clamp-2">{!! strip_tags($trending_article->content) !!}</div>
 
                                                     <div
                                                         class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-md-3">

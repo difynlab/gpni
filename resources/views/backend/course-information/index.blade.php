@@ -724,7 +724,7 @@
                     </div>
                 </div>
 
-                <div class="section">
+                <!-- <div class="section">
                     <p class="inner-page-title">Section 5</p>
 
                     <div class="row form-input">
@@ -772,7 +772,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="section">
                     <p class="inner-page-title">Section 7</p>
@@ -790,7 +790,7 @@
                     </div>
                 </div>
 
-                <div class="section">
+                <!-- <div class="section">
                     <p class="inner-page-title">Section 8</p>
 
                     <div class="row form-input">
@@ -877,7 +877,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             @endif
 
             <div class="section">

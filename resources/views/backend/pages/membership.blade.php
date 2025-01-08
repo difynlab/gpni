@@ -196,7 +196,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <!-- <div class="section">
                 <p class="inner-page-title">Section 5 <span>(FAQ)</span></p>
 
                 <div class="row form-input">
@@ -212,7 +212,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="section">
                 <div class="form-input">

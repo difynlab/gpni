@@ -332,9 +332,14 @@
                             <input type="text" class="form-control" id="section_9_title_{{ $short_code }}" name="section_9_title_{{ $short_code }}" value="{{ $contents->{'section_9_title_' . $short_code} ?? '' }}" placeholder="Title">
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <label for="section_9_description_{{ $short_code }}" class="form-label">Description</label>
                             <textarea class="form-control" rows="5" name="section_9_description_{{ $short_code }}" value="{{ $contents->{'section_9_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_9_description_' . $short_code} ?? '' }}</textarea>
+                        </div>
+
+                        <div>
+                            <label for="section_9_button_{{ $short_code }}" class="form-label">Button</label>
+                            <input type="text" class="form-control" id="section_9_button_{{ $short_code }}" name="section_9_button_{{ $short_code }}" value="{{ $contents->{'section_9_button_' . $short_code} ?? '' }}" placeholder="Button">
                         </div>
                     </div>
                 </div>

@@ -61,7 +61,7 @@
             <div class="section">
                 <p class="inner-page-title">Section 2</p>
 
-                <div class="row form-input">
+                <!-- <div class="row form-input">
                     <div class="col-6">
                         <div class="mb-4">
                             <label for="section_2_first_tab_{{ $short_code }}" class="form-label">First Tab</label>
@@ -94,6 +94,25 @@
                             <label for="section_2_no_upcoming_courses_{{ $short_code }}" class="form-label">No Upcoming Courses</label>
                             <input type="text" class="form-control" id="section_2_no_upcoming_courses_{{ $short_code }}" name="section_2_no_upcoming_courses_{{ $short_code }}" value="{{ $contents->{'section_2_no_upcoming_courses_' . $short_code} ?? '' }}" placeholder="No Upcoming Courses">
                         </div>
+                    </div>
+                </div> -->
+
+                <div class="row form-input">
+                    <div class="col-6">
+                        <div class="mb-4">
+                            <label for="section_2_learn_{{ $short_code }}" class="form-label">Learn</label>
+                            <input type="text" class="form-control" id="section_2_learn_{{ $short_code }}" name="section_2_learn_{{ $short_code }}" value="{{ $contents->{'section_2_learn_' . $short_code} ?? '' }}" placeholder="Learn">
+                        </div>
+
+                        <div>
+                            <label for="section_2_no_all_courses_{{ $short_code }}" class="form-label">No All Courses</label>
+                            <input type="text" class="form-control" id="section_2_no_all_courses_{{ $short_code }}" name="section_2_no_all_courses_{{ $short_code }}" value="{{ $contents->{'section_2_no_all_courses_' . $short_code} ?? '' }}" placeholder="No All Courses">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="section_2_enroll_{{ $short_code }}" class="form-label">Enroll</label>
+                        <input type="text" class="form-control" id="section_2_enroll_{{ $short_code }}" name="section_2_enroll_{{ $short_code }}" value="{{ $contents->{'section_2_enroll_' . $short_code} ?? '' }}" placeholder="Enroll">
                     </div>
                 </div>
             </div>
@@ -171,7 +190,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <!-- <div class="section">
                 <p class="inner-page-title">Section 5</p>
 
                 <div class="row form-input">
@@ -187,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="section">
                 <p class="inner-page-title">Common Words</p>

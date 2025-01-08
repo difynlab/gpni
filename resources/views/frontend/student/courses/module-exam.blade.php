@@ -16,7 +16,7 @@
                     <p class="title">{{ $student_dashboard_contents->courses_exam_start_modal_title }}</p>
                     <p class="description">{{ $student_dashboard_contents->courses_exam_start_modal_description }}</p>
 
-                    {!! $student_dashboard_contents->courses_exam_start_modal_instructions !!}
+                    {!! $student_dashboard_contents->courses_module_exam_start_modal_instructions !!}
                 </div>
 
                 <div class="modal-footer text-center">

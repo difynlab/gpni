@@ -17,7 +17,6 @@ return new class extends Migration
             $table->enum('language', ['English', 'Chinese', 'Japanese']);
             $table->string('article_category_id');
             $table->enum('recommending', ['Yes', 'No']);
-            $table->enum('trending', ['Yes', 'No']);
             $table->mediumText('content')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('author_name')->nullable();
@@ -27,6 +26,7 @@ return new class extends Migration
             $table->string('reading_time')->nullable();
             $table->string('meta_keywords')->nullable();
             $table->string('meta_description')->nullable();
+            $table->integer('view_count')->default(0);
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });
