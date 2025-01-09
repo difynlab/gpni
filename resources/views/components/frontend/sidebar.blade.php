@@ -44,12 +44,40 @@
         </div>
     </a>
 
-    <a href="{{ route('frontend.courses.gpni-tv') }}" class="sidebar-link">
-        <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == 'gpni-tv' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses icon" width="28" height="28">
-            <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
-        </div>
-    </a>
+    @php
+        $student = Auth::user();
+
+        $course_ids = App\Models\CoursePurchase::
+        where('user_id', $student->id)
+        ->where(function ($query) {
+            $query->where('payment_status', 'Completed')
+                ->orWhereNull('payment_status');
+        })
+        ->where('course_access_status', 'Active')
+        ->where(function ($query) {
+            $query->where('refund_status', 'Not Refunded')
+                ->orWhereNull('refund_status');
+        })
+        ->where('status', '1')->pluck('course_id')->toArray();
+
+        $courses = App\Models\Course::whereIn('id', $course_ids)->where('status', '1')->where('type', 'Small Course')->orderBy('id', 'desc')->get();
+    @endphp
+
+    @if($courses->isNotEmpty())
+        <a href="{{ route('frontend.courses.gpni-tv') }}" class="sidebar-link">
+            <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == 'gpni-tv' ? 'active' : '' }}">
+                <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses icon" width="28" height="28">
+                <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
+            </div>
+        </a>
+    @else
+        <a href="{{ route('frontend.gpni-tv.index') }}" class="sidebar-link">
+            <div class="sidebar-item">
+                <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses icon" width="28" height="28">
+                <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
+            </div>
+        </a>
+    @endif
 
     <a href="{{ route('frontend.qualifications') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'qualifications' ? 'active' : '' }}">
