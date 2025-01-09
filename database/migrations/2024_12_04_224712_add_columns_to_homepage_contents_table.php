@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('homepage_contents', function (Blueprint $table) {
-            $table->text('page_name_en')->after('id');
-            $table->text('page_name_zh')->after('page_name_en');
-            $table->text('page_name_ja')->after('page_name_zh');
+            $table->text('page_name_en')->nullable()->after('id');
+            $table->text('page_name_zh')->nullable()->after('page_name_en');
+            $table->text('page_name_ja')->nullable()->after('page_name_zh');
 
             $table->text('section_3_first_tab_en')->nullable()->after('section_3_description_en');
             $table->text('section_3_second_tab_en')->nullable()->after('section_3_first_tab_en');

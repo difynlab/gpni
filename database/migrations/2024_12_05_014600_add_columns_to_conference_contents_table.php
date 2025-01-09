@@ -16,13 +16,13 @@ return new class extends Migration
         });
 
         Schema::table('conference_contents', function (Blueprint $table) {
-            $table->text('page_name_en')->after('id');
+            $table->text('page_name_en')->nullable()->after('id');
             $table->text('single_conference_page_name_en')->nullable()->after('page_name_en');
 
-            $table->text('page_name_zh')->after('single_conference_page_name_en');
+            $table->text('page_name_zh')->nullable()->after('single_conference_page_name_en');
             $table->text('single_conference_page_name_zh')->nullable()->after('page_name_zh');
 
-            $table->text('page_name_ja')->after('single_conference_page_name_zh');
+            $table->text('page_name_ja')->nullable()->after('single_conference_page_name_zh');
             $table->text('single_conference_page_name_ja')->nullable()->after('page_name_ja');
 
             $table->text('date_en')->nullable();

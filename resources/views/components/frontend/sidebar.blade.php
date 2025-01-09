@@ -66,14 +66,14 @@
     @if($courses->isNotEmpty())
         <a href="{{ route('frontend.courses.gpni-tv') }}" class="sidebar-link">
             <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == 'gpni-tv' ? 'active' : '' }}">
-                <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses icon" width="28" height="28">
+                <img src="{{ asset('storage/frontend/gpni-tv-icon.svg') }}" alt="Courses icon" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
             </div>
         </a>
     @else
         <a href="{{ route('frontend.gpni-tv.index') }}" class="sidebar-link">
             <div class="sidebar-item">
-                <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses icon" width="28" height="28">
+                <img src="{{ asset('storage/frontend/gpni-tv-icon.svg') }}" alt="Courses icon" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
             </div>
         </a>

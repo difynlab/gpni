@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('podcast_contents', function (Blueprint $table) {
-            $table->text('page_name_en')->after('id');
+            $table->text('page_name_en')->nullable()->after('id');
             $table->text('single_podcast_page_name_en')->nullable()->after('page_name_en');
             $table->text('section_2_listen_en')->nullable()->after('section_2_title_en');
             $table->text('section_2_watch_en')->nullable()->after('section_2_listen_en');
 
-            $table->text('page_name_zh')->after('single_podcast_page_name_en');
+            $table->text('page_name_zh')->nullable()->after('single_podcast_page_name_en');
             $table->text('single_podcast_page_name_zh')->nullable()->after('page_name_zh');
             $table->text('section_2_listen_zh')->nullable()->after('section_2_title_zh');
             $table->text('section_2_watch_zh')->nullable()->after('section_2_listen_zh');
 
-            $table->text('page_name_ja')->after('single_podcast_page_name_zh');
+            $table->text('page_name_ja')->nullable()->after('single_podcast_page_name_zh');
             $table->text('single_podcast_page_name_ja')->nullable()->after('page_name_ja');
             $table->text('section_2_listen_ja')->nullable()->after('section_2_title_ja');
             $table->text('section_2_watch_ja')->nullable()->after('section_2_listen_ja');

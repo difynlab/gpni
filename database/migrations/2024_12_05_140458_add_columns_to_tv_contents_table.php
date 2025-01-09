@@ -16,11 +16,11 @@ return new class extends Migration
         });
 
         Schema::table('tv_contents', function (Blueprint $table) {
-            $table->text('page_name_en')->after('id');
+            $table->text('page_name_en')->nullable()->after('id');
             $table->text('single_tv_page_name_en')->nullable()->after('page_name_en');
-            $table->text('page_name_zh')->after('single_tv_page_name_en');
+            $table->text('page_name_zh')->nullable()->after('single_tv_page_name_en');
             $table->text('single_tv_page_name_zh')->nullable()->after('page_name_zh');
-            $table->text('page_name_ja')->after('single_tv_page_name_zh');
+            $table->text('page_name_ja')->nullable()->after('single_tv_page_name_zh');
             $table->text('single_tv_page_name_ja')->nullable()->after('page_name_ja');
 
             $table->text('section_11_instagram_en')->nullable()->after('section_11_sub_title_en');

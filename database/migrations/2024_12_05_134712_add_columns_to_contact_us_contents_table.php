@@ -16,9 +16,9 @@ return new class extends Migration
         });
 
         Schema::table('contact_us_contents', function (Blueprint $table) {
-            $table->text('page_name_en')->after('id');
-            $table->text('page_name_zh')->after('page_name_en');
-            $table->text('page_name_ja')->after('page_name_zh');
+            $table->text('page_name_en')->nullable()->after('id');
+            $table->text('page_name_zh')->nullable()->after('page_name_en');
+            $table->text('page_name_ja')->nullable()->after('page_name_zh');
 
             $table->text('first_name_en')->nullable();
             $table->text('last_name_en')->nullable();

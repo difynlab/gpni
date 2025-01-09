@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('authentication_contents', function (Blueprint $table) {
             $table->id();
 
-            $table->text('login_page_name_en');
+            $table->text('login_page_name_en')->nullable();
             $table->text('login_page_title_en')->nullable();
             $table->text('login_page_sub_title_en')->nullable();
             $table->text('login_page_username_en')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('login_page_button_en')->nullable();
             $table->text('login_page_no_account_en')->nullable();
             $table->text('login_page_register_en')->nullable();
-            $table->text('register_page_name_en');
+            $table->text('register_page_name_en')->nullable();
             $table->text('register_page_title_en')->nullable();
             $table->text('register_page_sub_title_en')->nullable();
             $table->text('register_page_login_en')->nullable();
@@ -41,12 +41,12 @@ return new class extends Migration
             $table->text('register_page_second_language_en')->nullable();
             $table->text('register_page_third_language_en')->nullable();
             $table->text('register_page_button_en')->nullable();
-            $table->text('forgot_page_name_en');
+            $table->text('forgot_page_name_en')->nullable();
             $table->text('forgot_page_title_en')->nullable();
             $table->text('forgot_page_sub_title_en')->nullable();
             $table->text('forgot_page_email_en')->nullable();
             $table->text('forgot_page_button_en')->nullable();
-            $table->text('reset_page_name_en');
+            $table->text('reset_page_name_en')->nullable();
             $table->text('reset_page_title_en')->nullable();
             $table->text('reset_page_sub_title_en')->nullable();
             $table->text('reset_page_new_password_en')->nullable();
@@ -54,7 +54,7 @@ return new class extends Migration
             $table->text('reset_page_button_en')->nullable();
 
 
-            $table->text('login_page_name_zh');
+            $table->text('login_page_name_zh')->nullable();
             $table->text('login_page_title_zh')->nullable();
             $table->text('login_page_sub_title_zh')->nullable();
             $table->text('login_page_username_zh')->nullable();
@@ -64,7 +64,7 @@ return new class extends Migration
             $table->text('login_page_button_zh')->nullable();
             $table->text('login_page_no_account_zh')->nullable();
             $table->text('login_page_register_zh')->nullable();
-            $table->text('register_page_name_zh');
+            $table->text('register_page_name_zh')->nullable();
             $table->text('register_page_title_zh')->nullable();
             $table->text('register_page_sub_title_zh')->nullable();
             $table->text('register_page_login_zh')->nullable();
@@ -81,12 +81,12 @@ return new class extends Migration
             $table->text('register_page_second_language_zh')->nullable();
             $table->text('register_page_third_language_zh')->nullable();
             $table->text('register_page_button_zh')->nullable();
-            $table->text('forgot_page_name_zh');
+            $table->text('forgot_page_name_zh')->nullable();
             $table->text('forgot_page_title_zh')->nullable();
             $table->text('forgot_page_sub_title_zh')->nullable();
             $table->text('forgot_page_email_zh')->nullable();
             $table->text('forgot_page_button_zh')->nullable();
-            $table->text('reset_page_name_zh');
+            $table->text('reset_page_name_zh')->nullable();
             $table->text('reset_page_title_zh')->nullable();
             $table->text('reset_page_sub_title_zh')->nullable();
             $table->text('reset_page_new_password_zh')->nullable();
@@ -94,7 +94,7 @@ return new class extends Migration
             $table->text('reset_page_button_zh')->nullable();
 
 
-            $table->text('login_page_name_ja');
+            $table->text('login_page_name_ja')->nullable();
             $table->text('login_page_title_ja')->nullable();
             $table->text('login_page_sub_title_ja')->nullable();
             $table->text('login_page_username_ja')->nullable();
@@ -104,7 +104,7 @@ return new class extends Migration
             $table->text('login_page_button_ja')->nullable();
             $table->text('login_page_no_account_ja')->nullable();
             $table->text('login_page_register_ja')->nullable();
-            $table->text('register_page_name_ja');
+            $table->text('register_page_name_ja')->nullable();
             $table->text('register_page_title_ja')->nullable();
             $table->text('register_page_sub_title_ja')->nullable();
             $table->text('register_page_login_ja')->nullable();
@@ -121,12 +121,12 @@ return new class extends Migration
             $table->text('register_page_second_language_ja')->nullable();
             $table->text('register_page_third_language_ja')->nullable();
             $table->text('register_page_button_ja')->nullable();
-            $table->text('forgot_page_name_ja');
+            $table->text('forgot_page_name_ja')->nullable();
             $table->text('forgot_page_title_ja')->nullable();
             $table->text('forgot_page_sub_title_ja')->nullable();
             $table->text('forgot_page_email_ja')->nullable();
             $table->text('forgot_page_button_ja')->nullable();
-            $table->text('reset_page_name_ja');
+            $table->text('reset_page_name_ja')->nullable();
             $table->text('reset_page_title_ja')->nullable();
             $table->text('reset_page_sub_title_ja')->nullable();
             $table->text('reset_page_new_password_ja')->nullable();

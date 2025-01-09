@@ -16,11 +16,11 @@ return new class extends Migration
         });
 
         Schema::table('master_class_contents', function (Blueprint $table) {
-            $table->text('page_name_en')->after('id');
+            $table->text('page_name_en')->nullable()->after('id');
             $table->text('single_master_class_page_name_en')->nullable()->after('page_name_en');
-            $table->text('page_name_zh')->after('single_master_class_page_name_en');
+            $table->text('page_name_zh')->nullable()->after('single_master_class_page_name_en');
             $table->text('single_master_class_page_name_zh')->nullable()->after('page_name_zh');
-            $table->text('page_name_ja')->after('single_master_class_page_name_zh');
+            $table->text('page_name_ja')->nullable()->after('single_master_class_page_name_zh');
             $table->text('single_master_class_page_name_ja')->nullable()->after('page_name_ja');
 
             $table->text('section_1_search_en')->nullable()->after('section_1_title_en');
