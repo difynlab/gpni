@@ -223,7 +223,7 @@
                             @php
                                 $seventeenth = App\Models\TvContent::find(1);
                             @endphp
-                            <a href="{{ route('frontend.gpni-tv') }}">{{ $seventeenth->{'page_name_' . $middleware_language} !== '' ? $seventeenth->{'page_name_' . $middleware_language} : $seventeenth->page_name_en }}</a>
+                            <a href="{{ route('frontend.gpni-tv.index') }}">{{ $seventeenth->{'page_name_' . $middleware_language} !== '' ? $seventeenth->{'page_name_' . $middleware_language} : $seventeenth->page_name_en }}</a>
                         </li>
                                  <li>
                             @php

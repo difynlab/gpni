@@ -151,9 +151,10 @@
                                                 <img src="{{ asset('storage/frontend/small-arrow-right.svg') }}" alt="Arrow Icon" width="15" height="15">
                                             </a>
                                             <div class="d-flex flex-column gap-2">
-                                                <div class="card-price-column">PRICE</div>
+                                                <div class="card-price-column">{{ $contents->{'section_2_price_' . $middleware_language} ?? $contents->section_2_price_en }}</div>
                                                 <div class="card-price fs-31">{{ $currency_symbol }}{{ $all_course->price }}</div>
-                                            </div>                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

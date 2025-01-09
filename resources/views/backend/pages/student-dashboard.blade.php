@@ -32,6 +32,11 @@
                     </div>
 
                     <div class="col-4 mb-3">
+                        <label for="sidebar_gpni_tv" class="form-label">GPNi Tv</label>
+                        <input type="text" class="form-control" id="sidebar_gpni_tv" name="sidebar_gpni_tv" value="{{ $contents->sidebar_gpni_tv ?? '' }}" placeholder="GPNi Tv">
+                    </div>
+
+                    <div class="col-4 mb-3">
                         <label for="sidebar_qualifications" class="form-label">Qualifications</label>
                         <input type="text" class="form-control" id="sidebar_qualifications" name="sidebar_qualifications" value="{{ $contents->sidebar_qualifications ?? '' }}" placeholder="Qualifications">
                     </div>
@@ -56,7 +61,7 @@
                         <input type="text" class="form-control" id="sidebar_ask_the_experts" name="sidebar_ask_the_experts" value="{{ $contents->sidebar_ask_the_experts ?? '' }}" placeholder="Ask the Experts">
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-4">
                         <label for="sidebar_technical_supports" class="form-label">Technical Supports</label>
                         <input type="text" class="form-control" id="sidebar_technical_supports" name="sidebar_technical_supports" value="{{ $contents->sidebar_technical_supports ?? '' }}" placeholder="Technical Supports">
                     </div>

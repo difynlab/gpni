@@ -27,7 +27,7 @@ class MasterClassController extends Controller
             $faqs = FAQ::where('language', 'English')->where('type', 'Master Class')->where('status', '1')->get();
         }
 
-        $all_courses = $request->master_class ? Course::where('title', 'like', '%' . $request->master_class . '%')->where('language', $request->middleware_language_name)->where('type', 'Masters')->where('status', '1')->paginate(6) : Course::where('language', $request->middleware_language_name)->where('type', 'Masters')->where('status', '1')->paginate(6);
+        $all_courses = $request->master_class ? Course::where('title', 'like', '%' . $request->master_class . '%')->where('language', $request->middleware_language_name)->where('type', 'Master')->where('status', '1')->paginate(6) : Course::where('language', $request->middleware_language_name)->where('type', 'Master')->where('status', '1')->paginate(6);
 
         // $upcoming_courses = $request->master_class ? Course::where('title', 'like', '%' . $request->master_class . '%')->where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6) : Course::where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6);
 

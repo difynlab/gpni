@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $student = Auth::user();
 
@@ -32,7 +32,18 @@ class CourseController extends Controller
         })
         ->where('status', '1')->pluck('course_id')->toArray();
 
-        $courses = Course::whereIn('id', $course_ids)->where('status', '1')->orderBy('id', 'desc')->get();
+        // $courses = Course::whereIn('id', $course_ids)->where('status', '1')->orderBy('id', 'desc')->get();
+
+        $query = Course::whereIn('id', $course_ids)->where('status', '1');
+
+        if($request->route()->getName() === 'frontend.courses.gpni-tv') {
+            $query->where('type', 'Small Course');
+        }
+        else {
+            $query->whereNot('type', 'Small Course');
+        }
+
+        $courses = $query->orderBy('id', 'desc')->get();
 
         foreach($courses as $course) {
             $course_purchase = CoursePurchase::where('course_id', $course->id)->where('user_id', $student->id)->first();

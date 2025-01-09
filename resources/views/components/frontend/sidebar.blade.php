@@ -38,9 +38,16 @@
     </a>
 
     <a href="{{ route('frontend.courses.index') }}" class="sidebar-link">
-        <div class="sidebar-item  {{ Request::segment(1) == 'courses' ? 'active' : '' }}">
+        <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == '' ? 'active' : '' }}">
             <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_courses }}</span>
+        </div>
+    </a>
+
+    <a href="{{ route('frontend.courses.gpni-tv') }}" class="sidebar-link">
+        <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == 'gpni-tv' ? 'active' : '' }}">
+            <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses icon" width="28" height="28">
+            <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
         </div>
     </a>
 

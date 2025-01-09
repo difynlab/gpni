@@ -111,8 +111,15 @@
                     </div>
 
                     <div class="col-6">
-                        <label for="section_2_enroll_{{ $short_code }}" class="form-label">Enroll</label>
-                        <input type="text" class="form-control" id="section_2_enroll_{{ $short_code }}" name="section_2_enroll_{{ $short_code }}" value="{{ $contents->{'section_2_enroll_' . $short_code} ?? '' }}" placeholder="Enroll">
+                        <div class="mb-4">
+                            <label for="section_2_enroll_{{ $short_code }}" class="form-label">Enroll</label>
+                            <input type="text" class="form-control" id="section_2_enroll_{{ $short_code }}" name="section_2_enroll_{{ $short_code }}" value="{{ $contents->{'section_2_enroll_' . $short_code} ?? '' }}" placeholder="Enroll">
+                        </div>
+
+                        <div>
+                            <label for="section_2_price_{{ $short_code }}" class="form-label">Price</label>
+                            <input type="text" class="form-control" id="section_2_price_{{ $short_code }}" name="section_2_price_{{ $short_code }}" value="{{ $contents->{'section_2_price_' . $short_code} ?? '' }}" placeholder="Price">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -18,9 +18,9 @@ return new class extends Migration
         Schema::table('master_class_contents', function (Blueprint $table) {
             $table->text('page_name_en')->after('id');
             $table->text('single_master_class_page_name_en')->nullable()->after('page_name_en');
-            $table->text('page_name_zh')->after('page_name_en');
+            $table->text('page_name_zh')->after('single_master_class_page_name_en');
             $table->text('single_master_class_page_name_zh')->nullable()->after('page_name_zh');
-            $table->text('page_name_ja')->after('page_name_zh');
+            $table->text('page_name_ja')->after('single_master_class_page_name_zh');
             $table->text('single_master_class_page_name_ja')->nullable()->after('page_name_ja');
 
             $table->text('section_1_search_en')->nullable()->after('section_1_title_en');
@@ -28,7 +28,8 @@ return new class extends Migration
             $table->text('section_2_second_tab_en')->nullable()->after('section_2_first_tab_en');
             $table->text('section_2_learn_en')->nullable()->after('section_2_second_tab_en');
             $table->text('section_2_enroll_en')->nullable()->after('section_2_learn_en');
-            $table->text('section_2_no_all_courses_en')->nullable()->after('section_2_enroll_en');
+            $table->text('section_2_price_en')->nullable()->after('section_2_enroll_en');
+            $table->text('section_2_no_all_courses_en')->nullable()->after('section_2_price_en');
             $table->text('section_2_no_upcoming_courses_en')->nullable()->after('section_2_no_all_courses_en');
 
             $table->text('section_1_search_zh')->nullable()->after('section_1_title_zh');
@@ -36,7 +37,8 @@ return new class extends Migration
             $table->text('section_2_second_tab_zh')->nullable()->after('section_2_first_tab_zh');
             $table->text('section_2_learn_zh')->nullable()->after('section_2_second_tab_zh');
             $table->text('section_2_enroll_zh')->nullable()->after('section_2_learn_zh');
-            $table->text('section_2_no_all_courses_zh')->nullable()->after('section_2_enroll_zh');
+            $table->text('section_2_price_zh')->nullable()->after('section_2_enroll_zh');
+            $table->text('section_2_no_all_courses_zh')->nullable()->after('section_2_price_zh');
             $table->text('section_2_no_upcoming_courses_zh')->nullable()->after('section_2_no_all_courses_zh');
 
             $table->text('section_1_search_ja')->nullable()->after('section_1_title_ja');
@@ -44,7 +46,8 @@ return new class extends Migration
             $table->text('section_2_second_tab_ja')->nullable()->after('section_2_first_tab_ja');
             $table->text('section_2_learn_ja')->nullable()->after('section_2_second_tab_ja');
             $table->text('section_2_enroll_ja')->nullable()->after('section_2_learn_ja');
-            $table->text('section_2_no_all_courses_ja')->nullable()->after('section_2_enroll_ja');
+            $table->text('section_2_price_ja')->nullable()->after('section_2_enroll_ja');
+            $table->text('section_2_no_all_courses_ja')->nullable()->after('section_2_price_ja');
             $table->text('section_2_no_upcoming_courses_ja')->nullable()->after('section_2_no_all_courses_ja');
 
             $table->text('course_duration_en')->nullable();
@@ -141,7 +144,8 @@ return new class extends Migration
                 'section_2_first_tab_en', 
                 'section_2_second_tab_en', 
                 'section_2_learn_en', 
-                'section_2_enroll_en', 
+                'section_2_enroll_en',
+                'section_2_price_en',
                 'section_2_no_all_courses_en', 
                 'section_2_no_upcoming_courses_en',
 
@@ -149,15 +153,17 @@ return new class extends Migration
                 'section_2_first_tab_zh', 
                 'section_2_second_tab_zh', 
                 'section_2_learn_zh', 
-                'section_2_enroll_zh', 
+                'section_2_enroll_zh',
+                'section_2_price_zh',
                 'section_2_no_all_courses_zh', 
                 'section_2_no_upcoming_courses_zh',
 
-                'section_1_search_ja', 
-                'section_2_first_tab_ja', 
-                'section_2_second_tab_ja', 
-                'section_2_learn_ja', 
-                'section_2_enroll_ja', 
+                'section_1_search_ja',
+                'section_2_first_tab_ja',
+                'section_2_second_tab_ja',
+                'section_2_learn_ja',
+                'section_2_enroll_ja',
+                'section_2_price_ja',
                 'section_2_no_all_courses_ja', 
                 'section_2_no_upcoming_courses_ja',
 

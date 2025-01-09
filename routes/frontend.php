@@ -71,7 +71,12 @@ Route::middleware(['set_language'])->group(function () {
             Route::post('checkout', [GiftCardController::class, 'checkout'])->name('checkout');
             Route::get('success', [GiftCardController::class, 'success'])->name('success');
         });
-        Route::get('gpni-tv', [TvController::class, 'index'])->name('gpni-tv');
+        Route::prefix('gpni-tv')->name('gpni-tv.')->group(function() {
+            Route::get('/', [TvController::class, 'index'])->name('index');
+            Route::get('show/{course}/{title}', [TvController::class, 'show'])->name('show');
+            Route::post('checkout', [TvController::class, 'checkout'])->name('checkout');
+            Route::get('success', [TvController::class, 'success'])->name('success');
+        });
         Route::prefix('podcasts')->name('podcasts.')->group(function() {
             Route::get('/', [PodcastController::class, 'index'])->name('index');
             Route::get('show/{podcast}/{title}', [PodcastController::class, 'show'])->name('show');
@@ -143,6 +148,7 @@ Route::middleware(['set_language'])->group(function () {
 
             Route::prefix('courses')->name('courses.')->group(function() {
                 Route::get('/', [CourseController::class, 'index'])->name('index');
+                Route::get('/gpni-tv', [CourseController::class, 'index'])->name('gpni-tv');
                 Route::get('{course}', [CourseController::class, 'show'])->name('show');
                 Route::get('{course}/{course_module}/{course_chapter}', [CourseController::class, 'showMore'])->name('show-more');
                 Route::post('get-file', [CourseController::class, 'getFile'])->name('get-file');

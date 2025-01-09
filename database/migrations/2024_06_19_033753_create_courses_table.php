@@ -16,19 +16,19 @@ return new class extends Migration
 
             // Common fields
                 $table->string('title');
-                $table->string('duration');
+                $table->string('duration')->nullable();
                 $table->enum('language', ['English', 'Chinese', 'Japanese']);
-                $table->enum('type', ['Certification', 'Masters']);
-                $table->enum('course_status', ['Present', 'Upcoming']);
-                $table->string('no_of_modules');
-                $table->string('no_of_students_enrolled');
+                $table->enum('type', ['Certification', 'Master', 'Small Course']);
+                $table->enum('course_status', ['Present', 'Upcoming'])->nullable();
+                $table->string('no_of_modules')->nullable();
+                $table->string('no_of_students_enrolled')->nullable();
                 $table->decimal('price', 10, 2);
-                $table->string('image');
-                $table->string('video');
-                $table->text('short_description');
-                $table->string('instructor_name');
-                $table->string('instructor_designation');
-                $table->string('instructor_profile_image');
+                $table->string('image')->nullable();
+                $table->string('video')->nullable();
+                $table->text('short_description')->nullable();
+                $table->string('instructor_name')->nullable();
+                $table->string('instructor_designation')->nullable();
+                $table->string('instructor_profile_image')->nullable();
 
                 $table->integer('instalment_months')->nullable();
                 $table->decimal('instalment_price', 10, 2)->nullable();

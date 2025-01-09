@@ -19,6 +19,7 @@ return new class extends Migration
                 'sidebar_dashboard',
                 'sidebar_student_profile',
                 'sidebar_courses',
+                'sidebar_gpni_tv',
                 'sidebar_qualifications',
                 'sidebar_my_storage',
                 'sidebar_buy_study_material',

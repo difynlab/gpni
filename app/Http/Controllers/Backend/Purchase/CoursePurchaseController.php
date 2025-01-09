@@ -39,19 +39,26 @@ class CoursePurchaseController extends Controller
                     ? '<span class="pending-status">Failed</span>' 
                     : '<span class="active-status">Directly Added</span>'));
 
-            if(hasStudentCompletedFinalExam($course_purchase->user_id, $course_purchase->course_id)) {
-                $final_exam = CourseFinalExam::where('user_id', $course_purchase->user_id)->where('course_id', $course_purchase->course_id)->where('status', '1')->orderBy('id', 'desc')->first();
-                
-                if($final_exam->result == 'Pass') {
-                    $course_purchase->final_exam = '<span class="active-status">Pass</span>';
+            $course = Course::find($course_purchase->course_id);
+            if($course->final_exam == 'Yes') {
+                if(hasStudentCompletedFinalExam($course_purchase->user_id, $course_purchase->course_id)) {
+                    $final_exam = CourseFinalExam::where('user_id', $course_purchase->user_id)->where('course_id', $course_purchase->course_id)->where('status', '1')->orderBy('id', 'desc')->first();
+                    
+                    if($final_exam->result == 'Pass') {
+                        $course_purchase->final_exam = '<span class="active-status">Pass</span>';
+                    }
+                    else {
+                        $course_purchase->final_exam = '<span class="inactive-status">Fail</span>';
+                    }
                 }
                 else {
-                    $course_purchase->final_exam = '<span class="inactive-status">Fail</span>';
+                    $course_purchase->final_exam = '<span class="pending-status">Pending</span>';
                 }
             }
             else {
-                $course_purchase->final_exam = '<span class="pending-status">Pending</span>';
+                $course_purchase->final_exam = '-';
             }
+            
 
             $course_purchase->course_access_status = ($course_purchase->course_access_status == 'Active') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Revoked</span>';
         }

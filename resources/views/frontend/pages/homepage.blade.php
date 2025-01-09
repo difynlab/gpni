@@ -197,7 +197,7 @@
                                 <div class="tab-content" id="tab1Content">
                                     <div class="scrollable-container">
                                         @foreach($courses as $course)
-                                            @if($course->type == "Masters")
+                                            @if($course->type == "Master")
                                                 <a href="{{ route('frontend.master-classes.show', [$course, Str::slug($course->title)]) }}">
                                                     <div class="card">
                                                         <div class="overlay-logo p-3">

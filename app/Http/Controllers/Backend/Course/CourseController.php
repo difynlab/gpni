@@ -64,17 +64,14 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'new_image' => 'required|max:30720',
-            'new_video' => 'required|max:102400',
-            'new_instructor_profile_image' => 'required|max:30720',
+            'new_image' => 'nullable|max:30720',
+            'new_video' => 'nullable|max:102400',
+            'new_instructor_profile_image' => 'nullable|max:30720',
             'new_certificate_images.*' => 'max:30720',
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
-            'new_image.required' => 'This field is required',
             'new_video.max' => 'Video must not be greater than 100 MB',
-            'new_video.required' => 'This field is required',
             'new_instructor_profile_image.max' => 'Image must not be greater than 30 MB',
-            'new_instructor_profile_image.required' => 'Instructor profile image is required',
             'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB'
         ]);
 
@@ -155,18 +152,12 @@ class CourseController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'new_image' => 'max:30720',
-            'new_video' => [
-                'max:102400',
-                Rule::requiredIf(function () use ($request) {
-                    return is_null($request->old_video);
-                }),
-            ],
+            'new_video' => 'max:102400',
             'new_instructor_profile_image' => 'max:30720',
             'new_certificate_images.*' => 'max:30720'
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
             'new_video.max' => 'Video must not be greater than 100 MB',
-            'new_video.required' => 'New video is required if there is no old video',
             'new_instructor_profile_image.max' => 'Image must not be greater than 30 MB',
             'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB'
         ]);

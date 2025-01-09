@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <div class="container my-5 py-5 gpni-container">
+        <div class="container mt-5 pt-5 gpni-container">
             <x-frontend.notification></x-frontend.notification>
 
             <div class="row d-flex align-items-center">
@@ -33,11 +33,6 @@
                     <h1 class="fs-49">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h1>
                 
                     <div class="section-1">{!! $contents->{'section_1_content_' . $middleware_language} ?? $contents->section_1_content_en !!}</div>
-                
-                    <a href="{{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->link ?? json_decode($contents->section_1_label_link_en)->link }}" class="btn btn-enroll mt-4 fs-20">
-                        {{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->label ?? json_decode($contents->section_1_label_link_en)->label }}
-                        <img src="{{ asset('storage/frontend/right-white-arrow.svg') }}" alt="arrow-icon" width="10" height="12">
-                    </a>
                 </div>
 
                 <div class="col-lg-5 text-lg-end">
@@ -50,6 +45,33 @@
                     @endif
                 </div>
             </div>
+        </div>
+    @endif
+
+    @if($small_courses->isNotEmpty())
+        <div class="container">
+            <div class="row g-3 mb-5 m-0">
+                @foreach($small_courses as $small_course)
+                    <div class="col-md-4 col-sm-6 col-12 mb-4">
+                        <div class="card h-100 mx-1">
+                            <a href="{{ route('frontend.gpni-tv.show', [$small_course, Str::slug($small_course->title)]) }}">
+                                @if($small_course->image)
+                                    <img src="{{ asset('storage/backend/courses/course-images/' . $small_course->image) }}" class="card-img-top" alt="Card Image">
+                                @else
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="card-img-top">
+                                @endif
+
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $small_course->title }}</h5>
+                                    <div class="card-price">{{ $contents->{'section_1_price_' . $middleware_language} ?? $contents->section_1_price_en }}: <span class="fw-bold">{{ $currency_symbol }}{{ $small_course->price }}</span></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            {{ $small_courses->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
         </div>
     @endif
 

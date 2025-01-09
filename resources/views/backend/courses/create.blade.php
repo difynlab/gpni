@@ -20,8 +20,8 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="duration" class="form-label">Duration<span class="asterisk">*</span></label>
-                            <input type="text" class="form-control" id="duration" name="duration" value="{{ old('duration') }}" placeholder="Duration" required>
+                            <label for="duration" class="form-label">Duration</label>
+                            <input type="text" class="form-control" id="duration" name="duration" value="{{ old('duration') }}" placeholder="Duration">
                         </div>
 
                         <div class="mb-4">
@@ -39,7 +39,8 @@
                             <select class="form-control form-select" id="type" name="type" required>
                                 <option value="">Select type</option>
                                 <option value="Certification" {{ old('type') == 'Certification' ? 'selected' : '' }}>Certification</option>
-                                <option value="Masters" {{ old('type') == 'Masters' ? 'selected' : '' }}>Masters</option>
+                                <option value="Master" {{ old('type') == 'Master' ? 'selected' : '' }}>Master</option>
+                                <option value="Small Course" {{ old('type') == 'Small Course' ? 'selected' : '' }}>Small Course</option>
                             </select>
                         </div>
 
@@ -53,13 +54,13 @@
                         </div> -->
 
                         <div class="mb-4">
-                            <label for="no_of_modules" class="form-label">No of Modules<span class="asterisk">*</span></label>
-                            <input type="text" class="form-control" id="no_of_modules" name="no_of_modules" value="{{ old('no_of_modules') }}" placeholder="No of Modules" required>
+                            <label for="no_of_modules" class="form-label">No of Modules</label>
+                            <input type="text" class="form-control" id="no_of_modules" name="no_of_modules" value="{{ old('no_of_modules') }}" placeholder="No of Modules">
                         </div>
 
                         <div class="mb-4">
-                            <label for="no_of_students_enrolled" class="form-label">No of Students Enrolled<span class="asterisk">*</span></label>
-                            <input type="text" class="form-control" id="no_of_students_enrolled" name="no_of_students_enrolled" value="{{ old('no_of_students_enrolled') }}" placeholder="No of Students Enrolled" required>
+                            <label for="no_of_students_enrolled" class="form-label">No of Students Enrolled</label>
+                            <input type="text" class="form-control" id="no_of_students_enrolled" name="no_of_students_enrolled" value="{{ old('no_of_students_enrolled') }}" placeholder="No of Students Enrolled">
                         </div>
 
                         <div>
@@ -76,13 +77,13 @@
                 <div class="row form-input">
                     <div class="col-6 left-column">
                         <div class="mb-4">
-                            <label for="instructor_name" class="form-label">Instructor Name<span class="asterisk">*</span></label>
-                            <input type="text" class="form-control" id="instructor_name" name="instructor_name" value="{{ old('instructor_name') }}" placeholder="Instructor Name" required>
+                            <label for="instructor_name" class="form-label">Instructor Name</label>
+                            <input type="text" class="form-control" id="instructor_name" name="instructor_name" value="{{ old('instructor_name') }}" placeholder="Instructor Name">
                         </div>
 
                         <div class="mb-4">
-                            <label for="instructor_designation" class="form-label">Instructor Designation<span class="asterisk">*</span></label>
-                            <input type="text" class="form-control" id="instructor_designation" name="instructor_designation" value="{{ old('instructor_designation') }}" placeholder="Instructor Designation" required>
+                            <label for="instructor_designation" class="form-label">Instructor Designation</label>
+                            <input type="text" class="form-control" id="instructor_designation" name="instructor_designation" value="{{ old('instructor_designation') }}" placeholder="Instructor Designation">
                         </div>
 
                         <div>
@@ -96,8 +97,8 @@
                             <x-backend.input-error field="new_video"></x-backend.input-error>
                         </div>
 
-                        <label for="short_description" class="form-label">Short Description<span class="asterisk">*</span></label>
-                        <textarea class="form-control" name="short_description" value="{{ old('short_description') }}" placeholder="Short Description" required>{{ old('short_description') }}</textarea>
+                        <label for="short_description" class="form-label">Short Description</label>
+                        <textarea class="form-control" name="short_description" value="{{ old('short_description') }}" placeholder="Short Description">{{ old('short_description') }}</textarea>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('section_1_rating_title_en')->nullable();
             $table->text('section_1_rating_en')->nullable();
             $table->text('section_1_image_en')->nullable();
-            $table->text('section_1_label_link_en')->nullable();
+            $table->text('section_1_price_en')->nullable();
             $table->text('section_2_title_en')->nullable();
             $table->text('section_2_sub_title_en')->nullable();
             $table->text('section_3_title_en')->nullable();
@@ -52,7 +52,7 @@ return new class extends Migration
             $table->text('section_1_rating_title_zh')->nullable();
             $table->text('section_1_rating_zh')->nullable();
             $table->text('section_1_image_zh')->nullable();
-            $table->text('section_1_label_link_zh')->nullable();
+            $table->text('section_1_price_zh')->nullable();
             $table->text('section_2_title_zh')->nullable();
             $table->text('section_2_sub_title_zh')->nullable();
             $table->text('section_3_title_zh')->nullable();
@@ -85,7 +85,7 @@ return new class extends Migration
             $table->text('section_1_rating_title_ja')->nullable();
             $table->text('section_1_rating_ja')->nullable();
             $table->text('section_1_image_ja')->nullable();
-            $table->text('section_1_label_link_ja')->nullable();
+            $table->text('section_1_price_ja')->nullable();
             $table->text('section_2_title_ja')->nullable();
             $table->text('section_2_sub_title_ja')->nullable();
             $table->text('section_3_title_ja')->nullable();
