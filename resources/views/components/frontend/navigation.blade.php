@@ -17,7 +17,7 @@
         @endphp
 
         <div class="d-flex ms-auto d-lg-none align-items-center">
-            <li class="nav-item dropdown mx-2">
+            <li class="nav-item dropdown mx-2 position-relative">
                 <a class="nav-link dropdown-toggle fs-20" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="flag-icon">
                         <img src="{{ asset('storage/frontend/flags/' . $selected_language . '.svg') }}" alt="{{ $languages[$selected_language] }} Flag" class="img-fluid" style="width: 25px; height: 18px; filter: drop-shadow(0px 1.665px 8.324px #B8BAC1);">
@@ -30,7 +30,7 @@
                         <li>
                             <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="{{ $code }}">
                                 <img src="{{ asset('storage/frontend/flags/' . $code . '.svg') }}" alt="{{ $language }} Flag" class="img-fluid me-2" style="width: 25px; height: 18px;">
-                                <span>{{ $language }}</span>
+                                <span class="fs-20">{{ $language }}</span>
                             </a>
                         </li>
                     @endforeach
@@ -272,7 +272,7 @@
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="{{ $code }}">
                                         <img src="{{ asset('storage/frontend/flags/' . $code . '.svg') }}" alt="{{ $language }} Flag" class="img-fluid me-2" style="width: 25px; height: 18px;">
-                                        <span>{{ $language }}</span>
+                                        <span class="fs-20">{{ $language }}</span>
                                     </a>
                                 </li>
                             @endforeach

@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container my-lg-5 pt-lg-5">
+    <div class="container article-main-container">
         <x-frontend.notification></x-frontend.notification>
 
         <div class="main-content row">
@@ -136,7 +136,7 @@
         </div>
 
 
-        @if($contents->section_2_title_en)
+        {{-- @if($contents->section_2_title_en)
             <div class="instagram-section container-fluid px-3 px-md-4 pt-md-5 pt-2">
                 <h2 class="fs-49 mb-3 mb-md-4">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
 
@@ -161,7 +161,7 @@
                     </div>
                 </div>
             </div>
-        @endif
+        @endif --}}
     </div>
 
 @endsection
