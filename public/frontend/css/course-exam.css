@@ -327,3 +327,9 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 768px) {
+    #start-exam-modal {
+        display: none !important;
+    }
+}
