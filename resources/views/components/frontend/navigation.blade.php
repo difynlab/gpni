@@ -113,10 +113,6 @@
                                 @endphp
                                 <a class="dropdown-item fs-20" href="{{ route('frontend.master-classes.index') }}">{{ $second_second_tab->{'page_name_' . $middleware_language} !== '' ? $second_second_tab->{'page_name_' . $middleware_language} : $second_second_tab->page_name_en }}</a>
                             </li>
-
-                            <li>
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.our-policies') }}">{{ $contents->{'header_second_tab_third_' . $middleware_language} ?? $contents->header_second_tab_third_en }}</a>
-                            </li>
                         </ul>
                     </li>
 
