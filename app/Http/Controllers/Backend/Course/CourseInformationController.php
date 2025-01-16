@@ -221,25 +221,9 @@ class CourseInformationController extends Controller
             }
         // Section 7 labels & links
 
-        // Section 9 image
-            if($request->file('new_certification_section_9_image')) {
-                if($request->old_certification_section_9_image) {
-                    Storage::delete('public/backend/courses/course-images/' . $request->old_certification_section_9_image);
-                }
-
-                $new_certification_section_9_image = $request->file('new_certification_section_9_image');
-                $certification_section_9_image_name = Str::random(40) . '.' . $new_certification_section_9_image->getClientOriginalExtension();
-                $new_certification_section_9_image->storeAs('public/backend/courses/course-images', $certification_section_9_image_name);
-            }
-            else {
-                if($course->certification_section_9_image) {
-                    $certification_section_9_image_name = $request->old_certification_section_9_image;
-                }
-                else {
-                    $certification_section_9_image_name = null;
-                }
-            }
-        // Section 9 image
+        // Section 9 points
+            $certification_section_9_points = $request->certification_section_9_points ? json_encode($request->certification_section_9_points) : null;
+        // Section 9 points
 
         // Section 10 video
             if($request->file('new_certification_section_10_video')) {
@@ -603,7 +587,7 @@ class CourseInformationController extends Controller
         $data['certification_section_6_teams'] = $final_certification_section_6_teams;
         $data['certification_section_7_labels_links'] = $certification_section_7_labels_links;
         $data['certification_section_7_video'] = $certification_section_7_video_name;
-        $data['certification_section_9_image'] = $certification_section_9_image_name;
+        $data['certification_section_9_points'] = $certification_section_9_points;
         $data['certification_section_10_video'] = $certification_section_10_video_name;
         $data['certification_section_10_label_link'] = json_encode($certification_section_10_label_link);
         $data['certification_section_10_points'] = $certification_section_10_points;

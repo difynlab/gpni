@@ -155,6 +155,10 @@
                             @endphp
                             <a href="{{ route('frontend.master-classes.index') }}">{{ $eighth->{'page_name_' . $middleware_language} !== '' ? $eighth->{'page_name_' . $middleware_language} : $eighth->page_name_en }}</a>
                         </li>
+
+                        <li>
+                            <a href="{{ route('frontend.our-policies') }}">{{ $contents->{'footer_education_policy_' . $middleware_language} ?? $contents->footer_education_policy_en }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>

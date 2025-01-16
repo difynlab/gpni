@@ -116,11 +116,15 @@
         left: 0 !important;
         right: auto !important;
         transform: none !important;
-        border: none !important;
+        position: static !important;
+        width: 100%;
+        margin: 0;
     }
 
     .dropdown-submenu .dropdown-menu {
-        border: none !important;
+        margin-left: 1rem !important;
+        padding-left: 1rem;
+        border-left: 1px solid #dee2e6;
     }
 
     .dropdown-submenu .dropdown-menu {
@@ -142,6 +146,28 @@
     .dropdown-submenu .bi-chevron-right {
         float: right;
         margin-left: 10px;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+    }
+
+    .dropdown-toggle.show + .dropdown-menu {
+        display: block;
+    }
+
+    /* Add these new rules */
+    .nav-item.dropdown .dropdown-menu {
+        right: 0 !important;
+        left: auto !important;
+    }
+
+    #languageDropdown + .dropdown-menu {
+        position: absolute !important;
+        right: 0 !important;
+        left: auto !important;
+        min-width: 200px;
+        margin-top: 5px;
     }
 }
 

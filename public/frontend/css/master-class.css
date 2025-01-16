@@ -1649,3 +1649,12 @@ h1.display-4 {
     border: 1px solid #CFDEFF;
     background: #FDFDFD;
 }
+
+.card-img-top {
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.card-img-top:hover {
+    opacity: 0.9;
+}

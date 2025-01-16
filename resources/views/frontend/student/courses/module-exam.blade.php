@@ -255,6 +255,20 @@
         </div>
     </div>
 
+    <div class="modal fade" id="mobile-warning-modal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p class="title">Warning</p>
+                    <p class="description">This exam should be opened on a desktop only. Please switch to a desktop device to continue.</p>
+                </div>
+                <div class="modal-footer text-center">
+                    <button class="btn confirm-button" data-bs-dismiss="modal" onclick="window.location.href='{{ route('frontend.courses.show', $course) }}'">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @push('after-scripts')
@@ -493,6 +507,43 @@
                 ){
                     e.preventDefault();
                 }
+            });
+
+            function isMobileDevice() {
+                // Check for touch capability and screen size
+                const hasTouchScreen = (('maxTouchPoints' in navigator) && navigator.maxTouchPoints > 0) || 
+                                      (('msMaxTouchPoints' in navigator) && navigator.msMaxTouchPoints > 0);
+                
+                const isSmallScreen = window.innerWidth <= 768;
+                
+                return hasTouchScreen && isSmallScreen;
+            }
+
+            // Wrap modal logic in a function for better control
+            function handleMobileWarning() {
+                if (isMobileDevice()) {
+                    $('#start-exam-modal').modal('hide');
+                    $('#mobile-warning-modal').modal('show');
+                    $('#success-modal').modal('hide');
+                    $('#timer-modal').modal('hide');
+                } else {
+                    // Only show start exam modal if not mobile and no success message
+                    if (!$('#success-modal').hasClass('show')) {
+                        $('#start-exam-modal').modal('show');
+                    }
+                }
+            }
+
+            // Call the handler when document is ready
+            $(document).ready(function() {
+                handleMobileWarning();
+                
+                // Also check on resize in case of orientation changes
+                $(window).on('resize', function() {
+                    handleMobileWarning();
+                });
+                
+                // ...rest of your existing document.ready code...
             });
         });
     </script>

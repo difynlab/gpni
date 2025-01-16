@@ -217,7 +217,7 @@
 
                                 <div class="row mt-2">
                                     <div class="col-12">
-                                        <x-backend.input-error field="certification_section_3_point_files.*"></x-backend.input-error>
+                                        <x-backend.input-error field="certification_section_6_team_files.*"></x-backend.input-error>
                                     </div>
                                 </div>
                             </div>
@@ -269,15 +269,44 @@
                     <p class="inner-page-title">Section 9</p>
 
                     <div class="row form-input">
-                        <div class="col-6 left-column">
-                            <x-backend.upload-image old_name="old_certification_section_9_image" old_value="{{ $course->certification_section_9_image ?? '' }}" new_name="new_certification_section_9_image" path="courses/course-images" class="side-box-uploader"></x-backend.upload-image>
-                            <x-backend.input-error field="new_certification_section_9_image"></x-backend.input-error>
-                        </div>
+                        <div class="col-12">
+                            <div class="mb-4">
+                                <label for="certification_section_9_title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="certification_section_9_title" name="certification_section_9_title" value="{{ $course->certification_section_9_title ?? '' }}" placeholder="Title">
+                            </div>
 
-                        <div class="col-6 right-column">
+                            <div class="mb-4">
+                                <label for="certification_section_9_description" class="form-label">Description</label>
+                                <textarea class="form-control textarea" id="certification_section_9_description" name="certification_section_9_description" value="{{ $course->certification_section_9_description ?? '' }}" rows="5" placeholder="Description">{{ $course->certification_section_9_description ?? '' }}</textarea>
+                            </div>
+
                             <div>
-                                <label for="certification_section_9_content" class="form-label">Content</label>
-                                <textarea class="editor" id="certification_section_9_content" name="certification_section_9_content" value="{{ $course->certification_section_9_content ?? '' }}">{{ $course->certification_section_9_content ?? '' }}</textarea>
+                                <div class="form-input">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-9">
+                                            <label class="form-label mb-0">Points</label>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                            <button type="button" class="add-row-button add-certification-section-9-row-button">
+                                                <i class="bi bi-plus-lg"></i>
+                                                Add More
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    @if($course->certification_section_9_points)
+                                        @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
+                                            <div class="row single-item mt-2 align-items-center">
+                                                <div class="col-10">
+                                                    <textarea class="form-control textarea" name="certification_section_9_points[]" rows="5" placeholder="Description" value="{{ $certification_section_9_point }}">{{ $certification_section_9_point }}</textarea>
+                                                </div>
+                                                <div class="col-2 d-flex align-items-center">
+                                                    <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -648,12 +677,6 @@
                                             </div>
                                         @endforeach
                                     @endif
-
-                                    <div class="row mt-2">
-                                        <div class="col-12">
-                                            <x-backend.input-error field="certification_section_3_point_files.*"></x-backend.input-error>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -930,6 +953,19 @@
             let html = `<div class="row single-item mt-2 align-items-center">
                             <div class="col-11">
                                 <textarea class="form-control textarea" name="master_section_2_points[]" rows="5" placeholder="Point"></textarea>
+                            </div>
+                            <div class="col-1 d-flex">
+                                <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
+                            </div>
+                        </div>`;
+
+            $(this).closest('.row').parent().append(html);
+        });
+
+        $('.add-certification-section-9-row-button').on('click', function() {
+            let html = `<div class="row single-item mt-2 align-items-center">
+                            <div class="col-11">
+                                <textarea class="form-control textarea" name="certification_section_9_points[]" rows="5" placeholder="Point"></textarea>
                             </div>
                             <div class="col-1 d-flex">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>

@@ -138,8 +138,9 @@
                         @foreach($all_courses as $all_course)
                             <div class="col-md-4 col-sm-6 col-12 mb-4">
                                 <div class="card h-100 d-flex flex-column mx-1">
-                                    <img src="{{ asset('storage/backend/courses/course-images/' . $all_course->image) }}" class="card-img-top" alt="Card Image">
-
+                                    <a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}">
+                                        <img src="{{ asset('storage/backend/courses/course-images/' . $all_course->image) }}" class="card-img-top" alt="Card Image">
+                                    </a>
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title fs-25">{{ $all_course->title }}</h5>
 

@@ -32,6 +32,12 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
+.gpni-logo {
+    width: auto;
+    height: 30px;
+    margin-right: 4rem;
+}
+
 /* Styles for tablets and small laptops */
 @media (min-width: 768px) and (max-width: 1023.98px) {
     .section-heading {

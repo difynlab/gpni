@@ -24,8 +24,8 @@ body {
 }
 
 .img-fluid {
-    width: 380px;
-    height: 285px;
+    /* width: 380px; */
+    /* height: 285px; */
     object-fit: cover;
 }
 
@@ -35,7 +35,7 @@ h5 {
     color: #0e0e0e;
 }
 
-p {
+.article-main-container p {
     color: #505050;
     line-height: normal;
     font-weight: 400;
@@ -60,8 +60,8 @@ p {
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 24px !important;
+    height: 24px !important;
 }
 
 .social-icons img {
@@ -251,7 +251,7 @@ p {
     height: 102px;
     border-radius: 0;
     flex-shrink: 0;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 .article-details {
