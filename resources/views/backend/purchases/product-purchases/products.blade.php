@@ -19,6 +19,8 @@
                             <th scope="col">Image</th>
                             <th scope="col">Name</th>
                             <th scope="col">Category</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Color</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
                             <th scope="col">Shipping Cost</th>
@@ -34,6 +36,8 @@
                                     <td>{!! $ordered_product->image !!}</td>
                                     <td>{{ $ordered_product->name }}</td>
                                     <td>{{ $ordered_product->category }}</td>
+                                    <td>{{ $ordered_product->size ?? '-' }}</td>
+                                    <td>{{ $ordered_product->color ?? '-' }}</td>
                                     <td>{{ $ordered_product->quantity }}</td>
                                     <td>{{ $ordered_product->price }}</td>
                                     <td>{{ $ordered_product->shipping_cost }}</td>
@@ -42,7 +46,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7" style="text-align: center;">No data available in table</td>
+                                <td colspan="10" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>

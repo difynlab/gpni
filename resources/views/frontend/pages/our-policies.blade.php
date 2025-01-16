@@ -44,79 +44,52 @@
                                     </div>
                                 @endforeach
                             </div>
+
+                            @if($loop->last)
+                                <div class="container mt-5">
+                                    <div class="row">
+                                        @if($contents->cec_images_en)
+                                            @foreach(json_decode($contents->{'cec_images_' . $middleware_language} ?? $contents->cec_images_en) as $cec_image)
+                                                <div class="col-md-4 text-center">
+                                                    <img src="{{ asset('storage/backend/pages/' . $cec_image) }}" alt="Image" class="img-fluid">
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+
+                                    <div class="mt-5">
+                                        <p>{{ $contents->{'cec_images_description_' . $middleware_language} ?? $contents->cec_images_description_en }}</p>
+
+                                        <h5>{{ $contents->{'cec_title_' . $middleware_language} ?? $contents->cec_title_en }}</h5>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>{{ $contents->{'cec_first_column_title_' . $middleware_language} ?? $contents->cec_first_column_title_en }}</th>
+                                                    <th>{{ $contents->{'cec_second_column_title_' . $middleware_language} ?? $contents->cec_second_column_title_en }}</th>
+                                                    <th>{{ $contents->{'cec_third_column_title_' . $middleware_language} ?? $contents->cec_third_column_title_en }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if($contents->cec_points_en)
+                                                    @foreach(json_decode($contents->{'cec_points_' . $middleware_language} ?? $contents->cec_points_en) as $cec_point)
+                                                        <tr>
+                                                            <td>{{ $cec_point->type }}</td>
+                                                            <td>{{ $cec_point->description }}</td>
+                                                            <td>{{ $cec_point->points }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+
+                                        <p>{!! $contents->{'cec_points_description_' . $middleware_language} ?? $contents->cec_points_description_en !!}</p>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>
             @endif
         </div>
     @endif
-
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img src="assets/Screenshot 2025-01-15 191040.png" alt="Profile Image" class="img-fluid">
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="assets/Screenshot 2025-01-15 191057.png" alt="Profile Image" class="img-fluid">
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="https://via.placeholder.com/150" alt="Quality Assurance" class="img-fluid">
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <p>Students are required to obtain 10 Continued Education Credits (CEC) every 2 years to remain qualified and eligible for the PNE Level-1 + SNS and PNE Level-2 Masters + CISSN International certifications.</p>
-
-            <h5>CEC Points Policy Table</h5>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Detailed Description</th>
-                        <th>CEC Points</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Continued Education Course (SNC)</td>
-                        <td>Sports Nutrition Coach (SNC ©) certificate continued education programs at or above 12 hours in length.</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Sports Nutrition Coach (SNC ©) certificate continued education programs at or above 8 hours in length.</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Seminars & Online Talks</td>
-                        <td>On-demand seminars by the ISSN® or GPNi®. Four hours to one full day in length – each day.</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>GPNi® Membership</td>
-                        <td>Every active year of membership</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>ISSN “Live Conferences”</td>
-                        <td>Online and offline seminars “live” with the ISSN® at or above 4 hours to 1 full day in length – each day.</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>Books & Products</td>
-                        <td>Books & approved resource products</td>
-                        <td>2-3</td>
-                    </tr>
-                    <tr>
-                        <td>Online Tests & Exams</td>
-                        <td>Online tests and exams</td>
-                        <td>3-5</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p>To submit your Continued Education approval please email to <a href="mailto:edu@gpni.fit">edu@gpni.fit</a> or submit directly through your GPNi online Student Centre.</p>
-        </div>
-    </div>
 @endsection

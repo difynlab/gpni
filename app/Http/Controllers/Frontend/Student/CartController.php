@@ -57,6 +57,8 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->user_id = $user->id;
         $cart->product_id = $request->product_id;
+        $cart->size = $request->size;
+        $cart->color = $request->color;
         $cart->quantity = 1;
         $cart->price = $product->price;
         $cart->total_price = $product->price;

@@ -78,6 +78,7 @@
                 </video>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-md-5">
                 <div class="author-card bg-warning rounded d-flex align-items-center p-3 position-relative mt-3">

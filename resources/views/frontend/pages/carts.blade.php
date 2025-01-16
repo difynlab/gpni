@@ -29,8 +29,8 @@
                                         <div class="item-details">
                                             <h5 class="fs-20 fw-medium">{{ $item->product->name }}</h5>
 
-                                            @if($item->product->colors || $item->product->available_sizes)
-                                                <p class="fs-13">{{ $item->product->colors }} / {{ $item->product->available_sizes }}</p>
+                                            @if($item->color || $item->size)
+                                                <p class="fs-13">{{ $item->color }} / {{ $item->size }}</p>
                                             @endif
 
                                             <div class="d-flex align-items-center my-2">
