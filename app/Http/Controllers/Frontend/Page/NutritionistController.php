@@ -45,22 +45,32 @@ class NutritionistController extends Controller
 
         $nutritionists = $nutritionist_query->paginate(20)->appends($request->except(['middleware_language', 'middleware_language_name']));
 
-        if($nutritionists->isEmpty() && $request->middleware_language_name != 'English') {
-            $nutritionists = User::query()
-                ->where('language', 'English')
-                ->where('is_certified', '1')
-                ->where('role', 'student')
-                ->where('status', '1');
+        // if($nutritionists->isEmpty() && $request->middleware_language_name != 'English') {
+        //     $nutritionist_query = User::query()
+        //         ->where('language', 'English')
+        //         ->where('is_certified', '1')
+        //         ->where('role', 'student')
+        //         ->where('status', '1');
 
-            if($request->nutritionist) {
-                $nutritionists->where(function ($query) use ($request) {
-                    $query->where('name', 'like', '%' . $request->nutritionist . '%')
-                            ->orWhere('last_name', 'like', '%' . $request->nutritionist . '%')
-                            ->orWhere('certificate_number', 'like', '%' . $request->nutritionist . '%')
-                            ->orWhere(DB::raw("CONCAT(first_name, ' ', last_name)"), 'like', '%' . $request->nutritionist . '%');
-                });
-            }
-        }
+        //     if($type) {
+        //         $nutritionist_query->where($type, '1');
+        //     }
+    
+        //     if($country) {
+        //         $nutritionist_query->where('country', $country);
+        //     }
+
+        //     if($request->nutritionist) {
+        //         $nutritionist_query->where(function ($query) use ($request) {
+        //             $query->where('first_name', 'like', '%' . $request->nutritionist . '%')
+        //                   ->orWhere('last_name', 'like', '%' . $request->nutritionist . '%')
+        //                   ->orWhere('certificate_number', 'like', '%' . $request->nutritionist . '%')
+        //                   ->orWhere(DB::raw("CONCAT(first_name, ' ', last_name)"), 'like', '%' . $request->nutritionist . '%');
+        //         });
+        //     }
+
+        //     $nutritionists = $nutritionist_query->paginate(20)->appends($request->except(['middleware_language', 'middleware_language_name']));
+        // }
 
         $countries = [
             "Afghanistan",
