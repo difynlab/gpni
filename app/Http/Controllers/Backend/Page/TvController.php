@@ -195,13 +195,6 @@ class TvController extends Controller
             }
         // Section 10 image
 
-        // Section 1 label & link
-            $section_1_label_link = [
-                'label' => $request->section_1_button_label,
-                'link' => $request->section_1_button_link
-            ];
-        // Section 1 label & link
-
         // Section 8 label & link
             $section_8_label_link = [
                 'label' => $request->section_8_button_label,
@@ -233,7 +226,6 @@ class TvController extends Controller
         $data['section_6_image_' . '' . $short_code] = $section_6_image_name;
         $data['section_7_video_' . '' . $short_code] = $section_7_video_name;
         $data['section_10_image_' . '' . $short_code] = $section_10_image_name;
-        $data['section_1_label_link_' . '' . $short_code] = json_encode($section_1_label_link);
         $data['section_8_label_link_' . '' . $short_code] = json_encode($section_8_label_link);
 
         $contents->fill($data)->save();
