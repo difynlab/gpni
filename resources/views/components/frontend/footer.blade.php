@@ -128,25 +128,35 @@
                     <ul class="list-unstyled">
 
                         @if($middleware_language == 'en')
-                            <li>
-                                <a href="{{ route('frontend.certification-courses.show', [6, Str::slug(App\Models\Course::find(6)->title)]) }}">PNE Level-1 + SNS</a>
-                            </li>
+                            @if(App\Models\Course::find(6))
+                                <li>
+                                    <a href="{{ route('frontend.certification-courses.show', [6, Str::slug(App\Models\Course::find(6)->title)]) }}">PNE Level-1 + SNS</a>
+                                </li>
+                            @endif
 
-                            <li>
-                                <a href="{{ route('frontend.certification-courses.show', [7, Str::slug(App\Models\Course::find(7)->title)]) }}">PNE Level-2 Masters + CISSN</a>
-                            </li>
+                            @if(App\Models\Course::find(7))
+                                <li>
+                                    <a href="{{ route('frontend.certification-courses.show', [7, Str::slug(App\Models\Course::find(7)->title)]) }}">PNE Level-2 Masters + CISSN</a>
+                                </li>
+                            @endif
                         @elseif($middleware_language == 'zh')
-                            <li>
-                                <a href="{{ route('frontend.certification-courses.show', [25, Str::slug(App\Models\Course::find(25)->title)]) }}">PNE L1 + ISSN-SNS 中文版</a>
-                            </li>
+                            @if(App\Models\Course::find(25))
+                                <li>
+                                    <a href="{{ route('frontend.certification-courses.show', [25, Str::slug(App\Models\Course::find(25)->title)]) }}">PNE L1 + ISSN-SNS 中文版</a>
+                                </li>
+                            @endif
 
-                            <li>
-                                <a href="{{ route('frontend.certification-courses.show', [23, Str::slug(App\Models\Course::find(23)->title)]) }}">PNE LEVEL-2 MASTERS + CISSN 中文</a>
-                            </li>
+                            @if(App\Models\Course::find(23))
+                                <li>
+                                    <a href="{{ route('frontend.certification-courses.show', [23, Str::slug(App\Models\Course::find(23)->title)]) }}">PNE LEVEL-2 MASTERS + CISSN 中文</a>
+                                </li>
+                            @endif
                         @else
-                            <li>
-                                <a href="{{ route('frontend.certification-courses.show', [24, Str::slug(App\Models\Course::find(24)->title)]) }}">スポーツ栄養スペシャリスト（PNE L1 + ISSN-SNS）資格認定講座</a>
-                            </li>
+                            @if(App\Models\Course::find(24))
+                                <li>
+                                    <a href="{{ route('frontend.certification-courses.show', [24, Str::slug(App\Models\Course::find(24)->title)]) }}">スポーツ栄養スペシャリスト（PNE L1 + ISSN-SNS）資格認定講座</a>
+                                </li>
+                            @endif
                         @endif
 
                         <li>
