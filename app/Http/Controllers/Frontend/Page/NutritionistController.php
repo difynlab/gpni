@@ -21,10 +21,11 @@ class NutritionistController extends Controller
         $contents = NutritionistContent::find(1);
 
         $nutritionist_query = User::query()
-            ->where('language', $request->middleware_language_name)
+            // ->where('language', $request->middleware_language_name)
             ->where('is_certified', '1')
             ->where('role', 'student')
-            ->where('status', '1');
+            ->where('status', '1')
+            ->orderBy('id', 'desc');
 
         if($type) {
             $nutritionist_query->where($type, '1');
@@ -39,7 +40,8 @@ class NutritionistController extends Controller
                 $query->where('first_name', 'like', '%' . $request->nutritionist . '%')
                       ->orWhere('last_name', 'like', '%' . $request->nutritionist . '%')
                       ->orWhere('certificate_number', 'like', '%' . $request->nutritionist . '%')
-                      ->orWhere(DB::raw("CONCAT(first_name, ' ', last_name)"), 'like', '%' . $request->nutritionist . '%');
+                      ->orWhere(DB::raw("CONCAT(first_name, ' ', last_name)"), 'like', '%' . $request->nutritionist . '%')
+                      ->orderBy('id', 'desc');
             });
         }
 
