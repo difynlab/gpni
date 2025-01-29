@@ -226,21 +226,6 @@ class HomepageController extends Controller
             'section_8_button_labels',
             'section_8_button_links'
         );
-        
-        switch($language){
-            case 'english':
-                $short_code = 'en';
-                break;
-            case 'chinese':
-                $short_code = 'zh';
-                break;
-            case 'japanese':
-                $short_code = 'ja';
-                break;
-            default:
-                $short_code = 'unknown';
-                break;
-        }
 
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_1_labels_links_' . '' . $short_code] = json_encode($section_1_labels_links);

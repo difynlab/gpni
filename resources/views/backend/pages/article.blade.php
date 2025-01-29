@@ -79,14 +79,19 @@
                         <input type="text" class="form-control" id="section_1_newsletter_description_{{ $short_code }}" name="section_1_newsletter_description_{{ $short_code }}" value="{{ $contents->{'section_1_newsletter_description_' . $short_code} ?? '' }}" placeholder="Newsletter Description">
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 mb-4">
                         <label for="section_1_newsletter_placeholder_{{ $short_code }}" class="form-label">Newsletter Placeholder</label>
                         <input type="text" class="form-control" id="section_1_newsletter_placeholder_{{ $short_code }}" name="section_1_newsletter_placeholder_{{ $short_code }}" value="{{ $contents->{'section_1_newsletter_placeholder_' . $short_code} ?? '' }}" placeholder="Newsletter Placeholder">
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 mb-4">
                         <label for="section_1_newsletter_button_{{ $short_code }}" class="form-label">Newsletter Button</label>
                         <input type="text" class="form-control" id="section_1_newsletter_button_{{ $short_code }}" name="section_1_newsletter_button_{{ $short_code }}" value="{{ $contents->{'section_1_newsletter_button_' . $short_code} ?? '' }}" placeholder="Newsletter Button">
+                    </div>
+
+                    <div class="col-12">
+                        <x-backend.upload-video old_name="old_section_1_video" old_value="{{ $contents->{'section_1_video_' . $short_code} ?? '' }}" new_name="new_section_1_video" path="pages"></x-backend.upload-video>
+                        <x-backend.input-error field="new_section_1_video"></x-backend.input-error>
                     </div>
                 </div>
             </div>
@@ -118,3 +123,8 @@
     </div>
 
 @endsection
+
+
+@push('after-scripts')
+    <script src="{{ asset('backend/js/drag-drop-video.js') }}"></script>
+@endpush

@@ -14,20 +14,21 @@
         <div class="container py-5">
             <x-frontend.notification></x-frontend.notification>
 
-            <h2 class="all-articles-heading">{{ $contents->{'section_1_title_' . $middleware_language} ??
-                $contents->section_1_title_en }}</h2>
+            <h2 class="all-articles-heading">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
 
-        
-                <div class="video-section my-4">
-                    <div class="container">
-                        <div class="video-placeholder">
-                                <video
-                                    src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
-                                    controls class="w-100"></video>
-                        </div>
+            <div class="video-section my-4">
+                <div class="container">
+                    <div class="video-placeholder">
+                        @if($contents->{'section_1_video_' . $middleware_language})
+                            <video src="{{ asset('storage/backend/pages/' . $contents->{'section_1_video_' . $middleware_language} ?? '') }}" controls class="w-100"></video>
+                        @elseif($contents->section_1_video_en)
+                            <video src="{{ asset('storage/backend/pages/' . $contents->section_1_video_en ?? '') }}" controls class="w-100"></video>
+                        @else
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid w-100" alt="Header Image">
+                        @endif
                     </div>
                 </div>
-    
+            </div>
 
             <div class="row">
                 <div class="col-lg-8">
