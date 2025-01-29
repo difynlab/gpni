@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="mt-5">
+        <div class="mt-5 policies-section">
             <p>Students are required to obtain 10 Continued Education Credits (CEC) every 2 years to remain qualified and eligible for the PNE Level-1 + SNS and PNE Level-2 Masters + CISSN International certifications.</p>
 
             <h5>CEC Points Policy Table</h5>

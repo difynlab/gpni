@@ -16,9 +16,9 @@
             <div class="pt-5">
                 <x-frontend.notification></x-frontend.notification>
             </div>
-            <p class="description fs-25 text-center">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
+            <p class="description fs-20 text-center">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
 
-            <p class="description fs-25 text-center">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
+            <p class="description fs-20 text-center">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
 
             <div class="row mt-5">
                 <div class="col-lg-6 col-md-12">

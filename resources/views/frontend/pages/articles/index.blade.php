@@ -17,6 +17,18 @@
             <h2 class="all-articles-heading">{{ $contents->{'section_1_title_' . $middleware_language} ??
                 $contents->section_1_title_en }}</h2>
 
+        
+                <div class="video-section my-4">
+                    <div class="container">
+                        <div class="video-placeholder">
+                                <video
+                                    src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
+                                    controls class="w-100"></video>
+                        </div>
+                    </div>
+                </div>
+    
+
             <div class="row">
                 <div class="col-lg-8">
                     <ul class="nav" role="tablist">
@@ -68,28 +80,6 @@
                                                         <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $article->title }}</h5>
                                                     </a>
                                                     <div class="fs-16 card-text mb-4 line-clamp-3">{!! $article->content !!}</div>
-                                                    <!-- <svg height="1" width="100%" class="mb-3">
-                                                        <line x1="0" y1="0" x2="100%" y2="0"
-                                                            style="stroke-width: 0.5px; stroke: #747474;"></line>
-                                                    </svg> -->
-                                                    <!-- <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="d-flex align-items-center">
-                                                            @if($article->author_image)
-                                                            <img src="{{ asset('storage/backend/articles/author-images/'.$article->author_image) }}"
-                                                                alt="User" class="rounded-circle" style="width:40px; height:40px;">
-                                                            @else
-                                                            <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
-                                                                alt="Main Image" class="rounded-circle"
-                                                                style="width:40px; height:40px;">
-                                                            @endif
-                                                            <span class="username fs-13">{{ $article->author_name }}</span>
-                                                        </div>
-                                                        <a href="{{ route('frontend.articles.show', [$article, Str::slug($article->title)]) }}"
-                                                            class="fs-13 read-more-button">
-                                                            <span>{{ $contents->{'section_1_read_' . $middleware_language} ?? $contents->section_1_read_en }}</span>
-                                                            <i class="fas fa-arrow-circle-right ms-2"></i>
-                                                        </a>
-                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>

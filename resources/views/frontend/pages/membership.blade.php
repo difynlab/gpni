@@ -10,17 +10,17 @@
 
 @section('content')
 
-    <div class="container py-5 membership-section">
+    <div class="membership-section py-5">
         <x-frontend.notification></x-frontend.notification>
 
         @if($contents->section_1_title_en)
             <h2 class="ff-poppins-medium fs-49">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
-            <div class="px-4 ff-poppins-regular fs-25 pt-2">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
+            <div class="px-4 ff-poppins-regular fs-25 pt-2 mx-5">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
             </div>
         @endif
 
-        <div class="row d-flex align-items-center py-4">
-            <div class="col-12 col-md-6">
+        <div class="row d-flex align-items-center py-4 mx-md-5 mx-1">
+                <div class="col-12 col-md-6">
                 @if($contents->{'section_2_image_' . $middleware_language})
                     <img src="{{ asset('storage/backend/pages/' . $contents->{'section_2_image_' . $middleware_language}) }}" class="img-fluid">
                 @elseif($contents->section_2_image_en)
@@ -51,10 +51,11 @@
                     @endif
                 </div>
             @endif
+        </div>
 
             
             @if($contents->section_3_title_en)
-                <div class="benefits-section py-5">
+                <div class="benefits-section py-5 mx-md-5 mx-1">
                     <h2 class="text-center mb-4 pt-3 fs-49 ff-poppins-medium">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h2>
                     <div class="text-center mb-5 fs-25 ff-poppins-regular">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
 
@@ -97,7 +98,7 @@
             @endif
 
             @if($contents->section_4_title_en)
-                <div class="container-fluid journey-section">
+                <div class="container-fluid journey-section mx-0">
 
                     <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h2>
 

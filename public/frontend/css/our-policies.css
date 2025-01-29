@@ -18,8 +18,9 @@
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
+    line-height: 200%;
     /* 35px */
+    margin-bottom: 40px; /* Add margin-bottom for spacing */
 }
 
 .policies-section .last-updated {
@@ -30,8 +31,17 @@
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
+    line-height: 200%;
     color: rgba(14, 14, 14, 0.90);
+}
+
+.policies-section h5 {
+    margin-top: 30px; /* Add margin-top for spacing */
+    margin-bottom: 40px; /* Add margin-bottom for spacing */
+}
+
+.policies-section table {
+    margin-bottom: 40px; /* Add margin-bottom for spacing */
 }
 
 .nav-tabs .nav-link {
@@ -276,6 +286,7 @@
 .table th, .table td {
     vertical-align: middle;
     font-size: 20px; /* Ensure font size is 20px */
+    line-height: 200%;
 }
 
 .badge-warning {

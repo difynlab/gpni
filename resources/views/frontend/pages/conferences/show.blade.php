@@ -34,24 +34,24 @@
                 </div>
 
                 <div class="event-info-container">
-                    <div class="event-info-row d-flex flex-column flex-md-row">
-                        <div class="event-info-title fs-20">{{ $contents->{'date_' . $middleware_language} ?? $contents->date_en }}</div>
-                        <div class="event-info-value fs-20">{{ $conference->date }}</div>
+                    <div class="event-info-row row mx-0">
+                        <div class="event-info-title title-column col-12 col-md-4 fs-20">{{ $contents->{'date_' . $middleware_language} ?? $contents->date_en }}</div>
+                        <div class="event-info-value col-12 col-md-8 fs-20">{{ $conference->date }}</div>
                     </div>
-                    <div class="event-info-row d-flex flex-column flex-md-row">
-                        <div class="event-info-title fs-20">{{ $contents->{'where_' . $middleware_language} ?? $contents->where_en }}</div>
-                        <div class="event-info-value fs-20">{{ $conference->where }}</div>
+                    <div class="event-info-row row mx-0">
+                        <div class="event-info-title title-column col-12 col-md-4 fs-20">{{ $contents->{'where_' . $middleware_language} ?? $contents->where_en }}</div>
+                        <div class="event-info-value col-12 col-md-8 fs-20">{{ $conference->where }}</div>
                     </div>
-                    <div class="event-info-row d-flex flex-column flex-md-row">
-                        <div class="event-info-title event-info-warning-title fs-20">{{ $contents->{'early_registration_deadline_' . $middleware_language} ?? $contents->early_registration_deadline_en }}</div>
-                        <div class="event-info-value event-info-warning-value fs-20">{{ $conference->early_registration_deadline }}</div>
+                    <div class="event-info-row row mx-0">
+                        <div class="event-info-title event-info-warning-title title-column col-12 col-md-4 fs-20">{{ $contents->{'early_registration_deadline_' . $middleware_language} ?? $contents->early_registration_deadline_en }}</div>
+                        <div class="event-info-value event-info-warning-value col-12 col-md-8 fs-20">{{ $conference->early_registration_deadline }}</div>
                     </div>
 
                     @if($conference->more_details)
                         @foreach(json_decode($conference->more_details) as $more_detail)
-                            <div class="event-info-row d-flex flex-column flex-md-row">
-                                <div class="event-info-title fs-20">{{ $more_detail->title }}</div>
-                                <div class="event-info-value fs-20">{{ $more_detail->value }}</div>
+                            <div class="event-info-row row mx-0">
+                                <div class="event-info-title title-column col-12 col-md-4 fs-20">{{ $more_detail->title }}</div>
+                                <div class="event-info-value col-12 col-md-8 fs-20">{{ $more_detail->value }}</div>
                             </div>
                         @endforeach
                     @endif
@@ -161,3 +161,23 @@
         </div>
     </div>
 @endsection
+
+@push('after-scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const titleColumns = document.querySelectorAll('.title-column');
+    let maxWidth = 0;
+    
+    // Find the widest title
+    titleColumns.forEach(column => {
+        const width = column.offsetWidth;
+        maxWidth = Math.max(maxWidth, width);
+    });
+    
+    // Set all title columns to the same width
+    titleColumns.forEach(column => {
+        column.style.width = `${maxWidth}px`;
+    });
+});
+</script>
+@endpush

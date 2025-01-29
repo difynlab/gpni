@@ -63,12 +63,12 @@ body {
 
 /* Define font weights for Open Sans */
 .ff-open-sans-regular {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
 
 .ff-open-sans-semibold {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
@@ -134,7 +134,8 @@ body {
 }
 
 .fs-49 {
-    font-size: 3.062rem;
+    /* font-size: 3.062rem; */
+    font-size: 3.812rem;
 }
 
 .fs-61 {
@@ -373,7 +374,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    font-size: 3.062rem; /* Using fs-49 size */
+    font-size: 3.812rem; /* Using fs-49 size */
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
@@ -398,7 +399,7 @@ h5, .h5 {
 
 p, .p {
     font-size: 1.250rem; /* Using fs-20 size */
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
 }
 

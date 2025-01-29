@@ -1,7 +1,7 @@
 .membership-section {
     text-align: center;
-    padding-left: 108.5px; /* Add space on the left */
-    padding-right: 108.5px; /* Add space on the right */
+    /* padding-left: 108.5px; /* Add space on the left */
+    /* padding-right: 108.5px; Add space on the right */ 
 }
 
 .membership-section h2 {
@@ -76,8 +76,6 @@
 .benefits-section {
     text-align: center;
     padding: 40px 0;
-    padding-left: 108.5px; /* Add space on the left */
-    padding-right: 108.5px; /* Add space on the right */
 }
 
 .benefits-section h2 {
@@ -142,18 +140,19 @@
 }
 
 .accordion-button {
-    font-size: 1.562rem; /* 25px */
-    font-weight: 500;
-    line-height: 140%;
-    color: #0e0e0e;
-    background: #f7f6fb;
     border: none;
-    padding: 20px 40px;
-    border-radius: 20px;
+    background: #f7f6fb;
+    color: #0e0e0e;
+    font-weight: 500;
+    line-height: 120%;
 }
 
 .accordion-button::after {
     background-image: url("../../../storage/frontend/accordion-down-arrow.svg") !important;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
     /* Content icon URL */
 }
 
@@ -240,12 +239,6 @@
 
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {
-    .membership-section {
-        padding-left: 50px; /* Adjust left padding for large devices */
-        padding-right: 50px; /* Adjust right padding for large devices */
-    }
-
-
     .feature .sub-head {
         font-size: 1.25rem; /* Reduced from 1.562rem */
     }
@@ -268,9 +261,6 @@
         margin-bottom: 0; /* Remove space for large devices */
     }
 
-    .img-fluid {
-        margin-bottom: 1.5rem; /* Increased space for large devices */
-    }
 
     .benefits-section {
         padding-left: 50px; /* Adjust left padding for large devices */
@@ -296,10 +286,6 @@
 }
 
 @media (max-width: 991.98px) {
-    .membership-section {
-        padding-left: 30px; /* Adjust left padding for medium devices */
-        padding-right: 30px; /* Adjust right padding for medium devices */
-    }
 
     .feature .sub-head {
         font-size: 1rem; /* Further reduced */
@@ -329,10 +315,6 @@
         margin-bottom: 0; /* Remove space for medium devices */
     }
 
-    .img-fluid {
-        margin-bottom: 2rem; /* Increased space for medium devices */
-    }
-
     .benefits-section {
         padding-left: 30px; /* Adjust left padding for medium devices */
         padding-right: 30px; /* Adjust right padding for medium devices */
@@ -354,13 +336,16 @@
     .accordion-body {
         font-size: 0.875rem; /* Further reduced */
     }
+
+    .accordion-button::after {
+        width: 1rem;
+        height: 1rem;
+        background-size: 1rem;
+        min-width: 1rem;
+    }
 }
 
 @media (max-width: 767.98px) {
-    .membership-section {
-        padding-left: 20px; /* Adjust left padding for small devices */
-        padding-right: 20px; /* Adjust right padding for small devices */
-    }
 
     .feature .sub-head {
         font-size: 0.875rem; /* Further reduced */
@@ -390,10 +375,6 @@
         margin-bottom: 0; /* Remove space for small devices */
     }
 
-    .img-fluid {
-        margin-bottom: 2.5rem; /* Increased space for small devices */
-    }
-
     .benefits-section {
         padding-left: 20px; /* Adjust left padding for small devices */
         padding-right: 20px; /* Adjust right padding for small devices */
@@ -418,10 +399,6 @@
 }
 
 @media (max-width: 575.98px) {
-    .membership-section {
-        padding-left: 10px; /* Adjust left padding for extra small devices */
-        padding-right: 10px; /* Adjust right padding for extra small devices */
-    }
 
     .feature .sub-head {
         font-size: 0.75rem; /* Further reduced */
@@ -451,10 +428,6 @@
         margin-bottom: 0; /* Remove space for extra small devices */
     }
 
-    .img-fluid {
-        margin-bottom: 3rem; /* Increased space for extra small devices */
-    }
-
     .benefits-section {
         padding-left: 10px; /* Adjust left padding for extra small devices */
         padding-right: 10px; /* Adjust right padding for extra small devices */
@@ -476,6 +449,13 @@
     .accordion-body {
         font-size: 0.625rem; /* Further reduced */
     }
+
+    .accordion-button::after {
+        width: 0.875rem;
+        height: 0.875rem;
+        background-size: 0.875rem;
+        min-width: 0.875rem;
+    }
 }
 
 /* Specific adjustments for laptops and tablets */
@@ -483,5 +463,40 @@
     .welcome-text {
         font-size: 1.5rem; /* Adjust as needed */
         white-space: nowrap;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn-responsive {
+        padding: 0.3rem 0.6rem; /* Further reduced for mobile */
+        font-size: 0.875rem;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+    .accordion-button {
+        padding: 20px 40px;
+        border-radius: 20px;
+        font-size: 1.562rem;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .accordion-button {
+        padding: 15px 30px;
+        border-radius: 15px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .accordion-button {
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-size: 1.125rem;
     }
 }

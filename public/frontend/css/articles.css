@@ -481,3 +481,20 @@ body {
 .hover-effect:hover {
   transform: translateY(-5px);
 }
+
+.video-section {
+    margin-bottom: 30px;
+}
+
+.video-placeholder {
+    width: 100%;
+    background-color: black;
+    margin-bottom: 30px;
+}
+
+
+.video-section + .row {
+    margin-top: 10%;
+    padding-left: 1.2%; /* Added to move content right */
+
+}
