@@ -16,6 +16,8 @@ return new class extends Migration
 
             $table->string('product_order_id');
             $table->string('product_id');
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
             $table->integer('quantity');
             $table->decimal('price', 8, 2);
             $table->decimal('shipping_cost', 8, 2);

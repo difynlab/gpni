@@ -16,6 +16,8 @@ return new class extends Migration
 
             $table->string('user_id');
             $table->string('product_id');
+            $table->string('color')->nullable();
+            $table->string('size')->nullable();
             $table->integer('quantity');
             $table->decimal('price', 10, 2);
             $table->decimal('total_price', 10, 2);

@@ -43,7 +43,7 @@
                                     @foreach($products as $product)
                                         @if($product->product_category_id == $category->id)
                                             <div class="col-md-3 mb-4">
-                                                <div class="card-custom">
+                                                <div class="card-custom" data-bs-toggle="modal" data-bs-target="#all-view-product-{{ $product->id }}">
                                                     <img src="{{ asset('storage/backend/products/products/' . $product->thumbnail) }}" alt="Product Image" class="card-img">
                                                     <div class="product-info">
                                                         <div class="d-flex justify-content-between">
@@ -86,6 +86,102 @@
                                                             class="cta-button">{{ $contents->{'page_login_for_purchase_' . $middleware_language} ?? $contents->page_login_for_purchase_en }}</a>
                                                     @endif
                                                 </div>
+
+                                                <div class="modal fade" id="all-view-product-{{ $product->id }}">
+                                                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+
+                                                            <div class="modal-body">
+                                                            <div class="popup container">
+                                                                <div class="row">
+                                                                    @if($product->images)
+                                                                        <div class="col-lg-2 col-md-3 col-sm-4 d-none d-sm-flex flex-column align-items-center">
+                                                                            <div class="thumbnails d-flex flex-column gap-1 mb-3">
+                                                                                @foreach(json_decode($product->images) as $image)
+                                                                                    <img src="{{ asset('storage/backend/products/products/' . $image) }}" alt="Product Image" class="thumbnail all-product-image" data-id="{{ $product->id }}">
+                                                                                @endforeach
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
+
+                                                                    <div class="col-lg-4 col-md-6 col-sm-8 d-flex flex-column align-items-center">
+                                                                        <img id="all-main-image-{{ $product->id }}" src="{{ asset('storage/backend/products/products/' . $product->thumbnail) }}" alt="Product Image" class="img-fluid product-image mb-3">
+                                                                    </div>
+
+                                                                    <div class="col-lg-6 col-md-12 product-info">
+                                                                        <div class="category-ratings d-flex justify-content-between align-items-center mb-3">
+                                                                            <span class="category">{{ $category->name }}</span>
+                                                                        </div>
+                                                                        
+                                                                        <h1 class="product-title mb-3">{{ $product->name }}</h1>
+                                                                        <div class="price-colors d-flex justify-content-between align-items-center mb-3">
+                                                                            <span class="price">{{ $currency_symbol }}{{ $product->price }}</span>
+                                                                            @if($product->colors)
+                                                                                <div class="colors d-flex align-items-center gap-2">
+                                                                                    <div class="color-options d-flex gap-2">
+                                                                                        @foreach(json_decode($product->colors) as $color)
+                                                                                            <div class="form-check">
+                                                                                                <input class="form-check-input color-radio" type="radio" name="color" value="{{ $color }}" data-id="{{ $product->id }}">
+                                                                                                <label class="form-check-label">
+                                                                                                    {{ $color }}
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endif
+                                                                        </div>
+                                                                        <div class="description-section mb-3">
+                                                                            <div class="description-text">{!! $product->description !!}</div>
+                                                                        </div>
+
+                                                                        @if($product->available_sizes)
+                                                                            <div class="size-section mb-2">
+                                                                                <div class="size-options d-flex flex-wrap gap-2">
+                                                                                    @foreach(json_decode($product->available_sizes) as $available_size)
+                                                                                        <button class="size-btn btn btn-outline-secondary" type="button" data-value="{{ $available_size }}" data-id="{{ $product->id }}">
+                                                                                            {{ $available_size }}
+                                                                                        </button>
+                                                                                    @endforeach
+                                                                                </div>
+                                                                            </div>
+                                                                        @endif
+
+                                                                        <div class="d-flex justify-content-start">
+                                                                            @if(auth()->check())
+                                                                                @if(hasUserAddedToCart(auth()->user()->id, $product->id))
+                                                                                    <button class="cta-button-disabled" disabled>
+                                                                                        {{ $contents->{'page_added_to_cart_' . $middleware_language} ?? $contents->page_added_to_cart_en }}
+                                                                                    </button>
+                                                                                @else
+                                                                                    <form action="{{ route('frontend.carts.store') }}" method="POST" id="product-form">
+                                                                                        @csrf
+                                                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                                                                        <input type="hidden" name="color" id="color-{{ $product->id }}">
+
+                                                                                        <input type="hidden" name="size" id="size-{{ $product->id }}">
+
+                                                                                        <button type="submit" class="cta-button" id="cta-button">
+                                                                                            <img src="{{ asset('storage/frontend/cart.svg') }}" alt="Cart Icon">
+                                                                                                {{ $contents->{'page_add_to_cart_' . $middleware_language} ?? $contents->page_add_to_cart_en }}
+                                                                                        </button>
+                                                                                    </form>
+                                                                                @endif
+                                                                            @else
+                                                                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="cta-button">{{ $contents->{'page_login_for_purchase_' . $middleware_language} ?? $contents->page_login_for_purchase_en }}</a>
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endif
                                     @endforeach
@@ -106,7 +202,7 @@
                                     @foreach($products as $product)
                                         @if($product->product_category_id == $category->id)
                                             <div class="col-md-3 mb-4">
-                                                <div class="card-custom">
+                                                <div class="card-custom" data-bs-toggle="modal" data-bs-target="#category-view-product-{{ $product->id }}">
                                                     <img src="{{ asset('storage/backend/products/products/' . $product->thumbnail) }}" alt="Product Image" class="card-img">
 
                                                     <div class="product-info">
@@ -142,6 +238,102 @@
                                                         <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="cta-button">{{ $contents->{'page_login_for_purchase_' . $middleware_language} ?? $contents->page_login_for_purchase_en }}</a>
                                                     @endif
                                                 </div>
+
+                                                <div class="modal fade" id="category-view-product-{{ $product->id }}">
+                                                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+
+                                                            <div class="modal-body">
+                                                            <div class="popup container">
+                                                                <div class="row">
+                                                                    @if($product->images)
+                                                                        <div class="col-lg-2 col-md-3 col-sm-4 d-none d-sm-flex flex-column align-items-center">
+                                                                            <div class="thumbnails d-flex flex-column gap-1 mb-3">
+                                                                                @foreach(json_decode($product->images) as $image)
+                                                                                    <img src="{{ asset('storage/backend/products/products/' . $image) }}" alt="Product Image" class="thumbnail category-product-image" data-id="{{ $product->id }}">
+                                                                                @endforeach
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
+
+                                                                    <div class="col-lg-4 col-md-6 col-sm-8 d-flex flex-column align-items-center">
+                                                                        <img id="category-main-image-{{ $product->id }}" src="{{ asset('storage/backend/products/products/' . $product->thumbnail) }}" alt="Product Image" class="img-fluid product-image mb-3">
+                                                                    </div>
+
+                                                                    <div class="col-lg-6 col-md-12 product-info">
+                                                                        <div class="category-ratings d-flex justify-content-between align-items-center mb-3">
+                                                                            <span class="category">{{ $category->name }}</span>
+                                                                        </div>
+                                                                        
+                                                                        <h1 class="product-title mb-3">{{ $product->name }}</h1>
+                                                                        <div class="price-colors d-flex justify-content-between align-items-center mb-3">
+                                                                            <span class="price">{{ $currency_symbol }}{{ $product->price }}</span>
+                                                                            @if($product->colors)
+                                                                                <div class="colors d-flex align-items-center gap-2">
+                                                                                    <div class="color-options d-flex gap-2">
+                                                                                        @foreach(json_decode($product->colors) as $color)
+                                                                                            <div class="form-check">
+                                                                                                <input class="form-check-input category-color-radio" type="radio" name="color" value="{{ $color }}" data-id="{{ $product->id }}">
+                                                                                                <label class="form-check-label">
+                                                                                                    {{ $color }}
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endif
+                                                                        </div>
+                                                                        <div class="description-section mb-3">
+                                                                            <div class="description-text">{!! $product->description !!}</div>
+                                                                        </div>
+
+                                                                        @if($product->available_sizes)
+                                                                            <div class="size-section mb-2">
+                                                                                <div class="size-options d-flex flex-wrap gap-2">
+                                                                                    @foreach(json_decode($product->available_sizes) as $available_size)
+                                                                                        <button class="category-size-btn btn btn-outline-secondary" type="button" data-value="{{ $available_size }}" data-id="{{ $product->id }}">
+                                                                                            {{ $available_size }}
+                                                                                        </button>
+                                                                                    @endforeach
+                                                                                </div>
+                                                                            </div>
+                                                                        @endif
+
+                                                                        <div class="d-flex justify-content-start">
+                                                                            @if(auth()->check())
+                                                                                @if(hasUserAddedToCart(auth()->user()->id, $product->id))
+                                                                                    <button class="cta-button-disabled" disabled>
+                                                                                        {{ $contents->{'page_added_to_cart_' . $middleware_language} ?? $contents->page_added_to_cart_en }}
+                                                                                    </button>
+                                                                                @else
+                                                                                    <form action="{{ route('frontend.carts.store') }}" method="POST" id="product-form">
+                                                                                        @csrf
+                                                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                                                                        <input type="hidden" name="color" id="category-color-{{ $product->id }}">
+
+                                                                                        <input type="hidden" name="size" id="category-size-{{ $product->id }}">
+
+                                                                                        <button type="submit" class="cta-button" id="cta-button">
+                                                                                            <img src="{{ asset('storage/frontend/cart.svg') }}" alt="Cart Icon">
+                                                                                                {{ $contents->{'page_add_to_cart_' . $middleware_language} ?? $contents->page_add_to_cart_en }}
+                                                                                        </button>
+                                                                                    </form>
+                                                                                @endif
+                                                                            @else
+                                                                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="cta-button">{{ $contents->{'page_login_for_purchase_' . $middleware_language} ?? $contents->page_login_for_purchase_en }}</a>
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endif
                                     @endforeach
@@ -154,105 +346,56 @@
         @else
             <p class="no-data">{{ $contents->{'page_no_products_' . $middleware_language} ?? $contents->page_no_products_en }}</p>
         @endif
-
-        <div class="modal fade" id="view-product" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                <div class="popup container">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-3 col-sm-4 d-none d-sm-flex flex-column align-items-center">
-                            <div class="thumbnails d-flex flex-column gap-1 mb-3">
-                                <img src="assets/image 58.png" alt="Product Image 2" class="thumbnail" onclick="changeImage('https://dashboard.codeparrot.ai/api/assets/Z4c1efzJ0Q4FLAQm', 'blue')">
-                                <img src="assets/image 51.png" alt="Product Image 3" class="thumbnail" onclick="changeImage('https://dashboard.codeparrot.ai/api/assets/Z4c1efzJ0Q4FLAQn', 'dark-blue')">
-                                <img src="assets/image 50.png" alt="Product Image 4" class="thumbnail" onclick="changeImage('https://dashboard.codeparrot.ai/api/assets/Z4c1efzJ0Q4FLAQo', 'white')">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-8 d-flex flex-column align-items-center">
-                            <img id="mainImage" src="assets/image 50.png" alt="Product Image 1" class="img-fluid product-image mb-3">
-                            <div class="thumbnails d-flex d-sm-none flex-row gap-1">
-                                <img src="assets/image 58.png" alt="Product Image 2" class="thumbnail" onclick="changeImage('https://dashboard.codeparrot.ai/api/assets/Z4c1efzJ0Q4FLAQm', 'blue')">
-                                <img src="assets/image 51.png" alt="Product Image 3" class="thumbnail" onclick="changeImage('https://dashboard.codeparrot.ai/api/assets/Z4c1efzJ0Q4FLAQn', 'dark-blue')">
-                                <img src="assets/image 50.png" alt="Product Image 4" class="thumbnail" onclick="changeImage('https://dashboard.codeparrot.ai/api/assets/Z4c1efzJ0Q4FLAQo', 'white')">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 product-info">
-                            <div class="category-ratings d-flex justify-content-between align-items-center mb-3">
-                                <span class="category">Clothing</span>
-                                <div class="reviews d-flex align-items-center gap-2">
-                                    <span>567 reviews</span>
-                                    <img src="/assets/Z4c1f_zJ0Q4FLAQp" alt="rating" class="rating-img">
-                                </div>
-                            </div>
-                            <h1 class="product-title mb-3">ISSN T-shirt (<span id="colorName">White</span>)</h1>
-                            <div class="price-colors d-flex justify-content-between align-items-center mb-3">
-                                <span class="price">$23</span>
-                                <div class="colors d-flex align-items-center gap-2">
-                                    <span>Colors available</span>
-                                    <div class="color-options d-flex gap-2">
-                                        <div class="color white"></div>
-                                        <div class="color blue"></div>
-                                        <div class="color dark-blue"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="description-section mb-3">
-                                <span class="label">Description</span>
-                                <p class="description-text">This ISSN T-shirt is a must-have for any fitness enthusiast. Crafted from a lightweight, breathable fabric, it's designed to keep you cool and comfortable during your workouts. The classic white color makes it perfect for any occasion.</p>
-                            </div>
-                            <div class="size-section mb-2">
-                                <div class="size-header d-flex gap-2 align-items-center mb-2">
-                                    <span class="label">Size</span>
-                                    <div class="size-guide d-flex align-items-center gap-1">
-                                        <img src="assets/mdi_ruler.svg" alt="ruler" class="ruler-icon">
-                                        <span>Size guide</span>
-                                    </div>
-                                </div>
-                                <div class="size-options d-flex flex-wrap gap-2">
-                                    <button class="size-btn btn btn-outline-secondary" onclick="selectSize(this)">XS</button>
-                                    <button class="size-btn btn btn-outline-secondary" onclick="selectSize(this)">S</button>
-                                    <button class="size-btn btn btn-outline-secondary" onclick="selectSize(this)">M</button>
-                                    <button class="size-btn btn btn-outline-secondary" onclick="selectSize(this)">L</button>
-                                    <button class="size-btn btn btn-outline-secondary" onclick="selectSize(this)">XL</button>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-start">
-                                <button class="add-to-cart btn btn-outline-primary" onclick="fadeButton(this)">
-                                    <img src="assets/fluent_cart-20-regular.svg" alt="cart">
-                                    <span>Add to cart</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
-
-
 
 @endsection
+
 @push('after-scripts')
-<script>
-        function changeImage(imageUrl, color) {
-            document.getElementById('mainImage').src = imageUrl;
-            document.getElementById('colorName').textContent = color.charAt(0).toUpperCase() + color.slice(1);
-        }
+    <script>
+        $('.all-product-image').on('click', function() {
+            let image = $(this).attr('src');
+            let id = $(this).attr('data-id');
 
-        function selectSize(button) {
-            const buttons = document.querySelectorAll('.size-btn');
-            buttons.forEach(btn => btn.classList.remove('active', 'clicked'));
-            button.classList.add('active', 'clicked');
-        }
+            $('#all-main-image-' + id).attr('src', image);
+        });
 
-        function fadeButton(button) {
-            button.classList.add('clicked');
-        }
+        $('.category-product-image').on('click', function() {
+            let image = $(this).attr('src');
+            let id = $(this).attr('data-id');
+
+            $('#category-main-image-' + id).attr('src', image);
+        });
+
+        $('.size-btn').on('click', function() {
+            let size = $(this).attr('data-value');
+            let id = $(this).attr('data-id');
+
+            $('#size-' + id).val(size);
+            $('.size-btn').removeClass('active');
+            $(this).addClass('active');
+        })
+
+        $('.color-radio').on('change', function () {
+            let color = $(this).val();
+            let id = $(this).attr('data-id');
+
+            $('#color-' + id).val(color);
+        });
+
+        $('.category-size-btn').on('click', function() {
+            let size = $(this).attr('data-value');
+            let id = $(this).attr('data-id');
+
+            $('#category-size-' + id).val(size);
+            $('.category-size-btn').removeClass('active');
+            $(this).addClass('active');
+        })
+
+        $('.category-color-radio').on('change', function () {
+            let color = $(this).val();
+            let id = $(this).attr('data-id');
+
+            $('#category-color-' + id).val(color);
+        });
     </script>
-    @endpush
+@endpush

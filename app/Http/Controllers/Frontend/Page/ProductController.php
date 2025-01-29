@@ -71,6 +71,8 @@ class ProductController extends Controller
             $product_order_detail = new ProductOrderDetail();
             $product_order_detail->product_order_id = $product_order->id;
             $product_order_detail->product_id = $product;
+            $product_order_detail->size = Cart::where('product_id', $product)->where('status', 'Active')->first()->size;
+            $product_order_detail->color = Cart::where('product_id', $product)->where('status', 'Active')->first()->color;
             $product_order_detail->quantity = $quantities[$key];
             $product_order_detail->price = $selected_product->price;
             $product_order_detail->shipping_cost = $selected_product->shipping_cost;
@@ -86,7 +88,6 @@ class ProductController extends Controller
         else {
             $amount = '0.00';
         }
-
 
         $total_order_amount_in_cents = $currency === 'jpy' ? (int)$amount : (int)($amount * 100);
 

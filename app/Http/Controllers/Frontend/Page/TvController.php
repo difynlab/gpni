@@ -26,12 +26,12 @@ class TvController extends Controller
 
         $recent_webinars = Webinar::where('language', $request->middleware_language_name)->where('type', 'Recent')->where('status', '1')->get();
         if($recent_webinars->isEmpty() && $request->middleware_language_name != 'English') {
-            $recent_webinars = Webinar::where('language', 'English')->where('status', '1')->get();
+            $recent_webinars = Webinar::where('language', 'English')->where('type', 'Recent')->where('status', '1')->get();
         }
 
         $previous_webinars = Webinar::where('language', $request->middleware_language_name)->where('type', 'Previous')->where('status', '1')->get();
         if($previous_webinars->isEmpty() && $request->middleware_language_name != 'English') {
-            $previous_webinars = Webinar::where('language', 'English')->where('status', '1')->get();
+            $previous_webinars = Webinar::where('language', 'English')->where('type', 'Previous')->where('status', '1')->get();
         }
 
         $settings = Setting::find(1);

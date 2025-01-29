@@ -244,8 +244,23 @@
     border: 1px solid #b4a006;
     transition: all 0.3s;
 }
-
-
+.pages .user-course-image {
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 2%;
+}
+.pages .user-course-image {
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 2%;
+}
+.pages .user-course-name {
+    color: black;
+}
 
 
 /* Responsive */

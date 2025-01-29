@@ -23,6 +23,11 @@
                     </div>
 
                     <div class="col-4 mb-4">
+                        <label for="header_second_tab_third_{{ $short_code }}" class="form-label">Second Tab Third Link</label>
+                        <input type="text" class="form-control" id="header_second_tab_third_{{ $short_code }}" name="header_second_tab_third_{{ $short_code }}" value="{{ $contents->{'header_second_tab_third_' . $short_code} ?? '' }}" placeholder="Second Tab Third Link">
+                    </div>
+
+                    <div class="col-4 mb-4">
                         <label for="header_third_tab_{{ $short_code }}" class="form-label">Third Tab</label>
                         <input type="text" class="form-control" id="header_third_tab_{{ $short_code }}" name="header_third_tab_{{ $short_code }}" value="{{ $contents->{'header_third_tab_' . $short_code} ?? '' }}" placeholder="Third Tab">
                     </div>

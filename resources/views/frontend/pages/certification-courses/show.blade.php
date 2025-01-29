@@ -299,66 +299,21 @@
 
         <div class="learn-section container py-5">
         <div class="header text-center mb-5">
-            <h1 class="title mb-4">What you will learn</h1>
-            <p class="subtitle">Explore the learning objectives to gain valuable insights and skills that empower your journey</p>
+            <h1 class="title mb-4">{{ $course->certification_section_9_title }}</h1>
+            <p class="subtitle">{{ $course->certification_section_9_description }}</p>
         </div>
         
         <div class="learning-points row g-4">
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>Nutrient timing incorporates the use of methodical planning and eating of whole foods, fortified foods, and dietary supplements.</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>Traffic light systems on supplementation (products) that are proven to work and backed by science according to ISSN? literature.</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>Best natural nutritional supplements and whole foods to boost physical performance.</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>Optimal dosages of key nutritional ingredients for maximum efficacy, safety and longevity.</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>The right sports nutrition plan for the right athlete and athletic performance.</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>In-depth understanding of the ISSN? Position Stands.</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>The timing of energy intake and the ratio of certain ingested macronutrients may enhance recovery and tissue repair, augment muscle protein synthesis(MPS) and improve mood states following high-volume or intense exercise.</p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="point-item">
-                    <img src="assets/charm_circle-tick.svg" alt="checkmark" class="check-icon">
-                    <p>Ethics and best standards of practice for performance nutrition.</p>
-                </div>
-            </div>
+            @if($course->certification_section_9_points)
+                @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
+                    <div class="col-md-6">
+                        <div class="learn-list d-flex fs-20 py-3">
+                            <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
+                            {{ $certification_section_9_point }}
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 

@@ -44,6 +44,48 @@
                                     </div>
                                 @endforeach
                             </div>
+
+                            @if($loop->last)
+                                <div class="container mt-5">
+                                    <div class="row">
+                                        @if($contents->cec_images_en)
+                                            @foreach(json_decode($contents->{'cec_images_' . $middleware_language} ?? $contents->cec_images_en) as $cec_image)
+                                                <div class="col-md-4 text-center">
+                                                    <img src="{{ asset('storage/backend/pages/' . $cec_image) }}" alt="Image" class="img-fluid">
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+
+                                    <div class="mt-5">
+                                        <p>{{ $contents->{'cec_images_description_' . $middleware_language} ?? $contents->cec_images_description_en }}</p>
+
+                                        <h5>{{ $contents->{'cec_title_' . $middleware_language} ?? $contents->cec_title_en }}</h5>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>{{ $contents->{'cec_first_column_title_' . $middleware_language} ?? $contents->cec_first_column_title_en }}</th>
+                                                    <th>{{ $contents->{'cec_second_column_title_' . $middleware_language} ?? $contents->cec_second_column_title_en }}</th>
+                                                    <th>{{ $contents->{'cec_third_column_title_' . $middleware_language} ?? $contents->cec_third_column_title_en }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if($contents->cec_points_en)
+                                                    @foreach(json_decode($contents->{'cec_points_' . $middleware_language} ?? $contents->cec_points_en) as $cec_point)
+                                                        <tr>
+                                                            <td>{{ $cec_point->type }}</td>
+                                                            <td>{{ $cec_point->description }}</td>
+                                                            <td>{{ $cec_point->points }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+
+                                        <p>{!! $contents->{'cec_points_description_' . $middleware_language} ?? $contents->cec_points_description_en !!}</p>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>

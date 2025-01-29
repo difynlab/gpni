@@ -7,8 +7,13 @@
     <x-backend.breadcrumb page_name="Courses"></x-backend.breadcrumb>
 
     <div class="pages">
-        <div class="row mb-4">
-            <div class="col-12 text-end">
+        <div class="row align-items-center mb-4">
+            <div class="col-6">
+                <a href="{{ route('backend.persons.users.edit', $user->id) }}">
+                    <img src="{{ asset('storage/backend/persons/users/' . $user->image) }}" alt="Image" class="user-course-image"><span class="user-course-name">{{ $user->first_name }} {{ $user->last_name }}</span>
+                </a>
+            </div>
+            <div class="col-6 text-end">
                 <a href="{{ route('backend.persons.users.courses.create', $user) }}" class="add-button">
                     <i class="bi bi-plus-lg"></i>
                     Add Course
