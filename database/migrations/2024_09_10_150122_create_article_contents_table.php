@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->text('section_1_title_en')->nullable();
+            $table->text('section_1_video_en')->nullable();
             $table->text('section_1_social_title_en')->nullable();
             $table->text('section_1_newsletter_title_en')->nullable();
             $table->text('section_1_newsletter_description_en')->nullable();
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->text('section_2_description_en')->nullable();
 
             $table->text('section_1_title_zh')->nullable();
+            $table->text('section_1_video_zh')->nullable();
             $table->text('section_1_social_title_zh')->nullable();
             $table->text('section_1_newsletter_title_zh')->nullable();
             $table->text('section_1_newsletter_description_zh')->nullable();
@@ -33,6 +35,7 @@ return new class extends Migration
             $table->text('section_2_description_zh')->nullable();
 
             $table->text('section_1_title_ja')->nullable();
+            $table->text('section_1_video_ja')->nullable();
             $table->text('section_1_social_title_ja')->nullable();
             $table->text('section_1_newsletter_title_ja')->nullable();
             $table->text('section_1_newsletter_description_ja')->nullable();
