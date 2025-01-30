@@ -250,7 +250,7 @@
     @endif
 
     @if($contents->section_2_title_en)
-        <div class="instagram-section container-fluid px-3 px-md-4 py-5">
+        <div class="instagram-section container-fluid px-3 px-md-4 my-4">
             <h2 class="fs-49 mb-3 mb-md-4">{{ $contents->{'section_2_title_' . $middleware_language} ??
                 $contents->section_2_title_en }}</h2>
 

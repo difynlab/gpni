@@ -135,6 +135,8 @@
 
     .dropdown-submenu .dropdown-menu.show {
         display: block;
+        border:none;
+        width:80%;
     }
 
     .dropdown-submenu .dropdown-toggle {
@@ -183,6 +185,21 @@
         position: fixed;
         width: 100%;
         background: #fff !important;
+    }
+
+    /* Language dropdown specific styles */
+    .nav-item.dropdown .dropdown-menu[aria-labelledby="languageDropdown"] {
+        right: 0 !important;
+        left: auto !important;
+        transform-origin: top right;
+    }
+
+    /* Ensure language dropdown has the same animation */
+    .nav-item.dropdown:hover > .dropdown-menu[aria-labelledby="languageDropdown"] {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 }
 
@@ -255,5 +272,62 @@
 @media (max-width: 767.98px) {
     .nav-item a {
         text-align: start !important;
+    }
+}
+
+/* Desktop/Laptop Hover & Click Functionality */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    /* First level dropdown */
+    .dropdown:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Second level dropdown (submenu) */
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        transform: translateX(10px);
+    }
+
+    
+    .dropdown-menu.show {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 991.98px) {
+    .dropdown-menu {
+        display: none;
+        transition: none;
+    }
+    
+    .dropdown-menu.show {
+        display: block;
     }
 }

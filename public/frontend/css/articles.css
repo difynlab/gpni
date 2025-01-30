@@ -202,7 +202,7 @@ body {
   }
   
   .find-us-on {
-    margin-top: 10px;
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -284,7 +284,6 @@ body {
   .instagram-section {
     width: 100%;
     max-width: 1225px;
-    margin: 50px auto;
     text-align: center;
   }
   
@@ -489,12 +488,12 @@ body {
 .video-placeholder {
     width: 100%;
     background-color: black;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 
 .video-section + .row {
-    margin-top: 10%;
+    margin-top: 8%;
     padding-left: 1.2%; /* Added to move content right */
 
 }

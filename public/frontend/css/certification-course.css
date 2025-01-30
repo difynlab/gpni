@@ -5,7 +5,7 @@ body {
 }
 .header-section {
     margin: 0 auto;
-    padding: 60px 100px;
+    padding: 60px 80px;
     background-color: #e8ecf1;
     background: url('../../../storage/frontend/certification-course-background.png') no-repeat center center;
     background-size: cover;
@@ -67,12 +67,6 @@ a.btn-primary {
 
 @media (max-width: 426px) {
     .form-wrapper {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .header-section {
         padding: 20px;
     }
 }

@@ -89,6 +89,8 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 476px;
+    position: relative;
+    padding-top: 45px; /* Add space at top for qualified badge */
 }
 .coach-card .image {
     width: 43%;
@@ -111,6 +113,20 @@
     border-radius: 2px;
     /* margin-right: 10px; */
     text-decoration: none;
+}
+
+.qualified-coach {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Add placeholder for when qualified badge is hidden */
+.qualified-coach.d-none {
+    visibility: hidden;
+    display: block !important;
+    height: 28px; /* Match height of badge */
 }
 
 .contact-now {
