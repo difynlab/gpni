@@ -1,12 +1,7 @@
-.membership-section {
-    text-align: center;
-    /* padding-left: 108.5px; /* Add space on the left */
-    /* padding-right: 108.5px; Add space on the right */ 
-}
-
 .membership-section h2 {
     color: #0E0E0E;
     line-height: 120%;
+    text-align: center;
 }
 
 .membership-section p {
@@ -74,7 +69,6 @@
 }
 
 .benefits-section {
-    text-align: center;
     padding: 40px 0;
 }
 
@@ -84,16 +78,6 @@
     font-weight: 500;
     line-height: 120%;
     margin-bottom: 20px;
-}
-
-.benefits-section p {
-    color: #0e0e0e;
-    font-size: 1.562rem; /* 25px */
-    font-weight: 400;
-    line-height: 140%;
-    max-width: 800px;
-    margin: 0 auto;
-    margin-bottom: 0; /* Remove bottom margin */
 }
 
 .accordion {

@@ -104,7 +104,7 @@ body {
     width: auto; /* Adjust width to fit content */
     padding: 15px;
     line-height: 130%;
-    white-space: nowrap;
+    white-space: pre-line;
 }
 
 .event-info-title {
@@ -116,6 +116,8 @@ body {
     width: auto;
     min-width: fit-content;
     flex: 0 0 auto;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .event-info-value {
