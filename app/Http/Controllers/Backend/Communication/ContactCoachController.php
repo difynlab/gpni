@@ -57,7 +57,11 @@ class ContactCoachController extends Controller
         $contact_coaches = ContactCoach::where('status', '1')->orderBy('id', 'desc');
 
         if($name != null) {
-            $user_ids = $users->where('name', 'like', '%' . $name . '%')->pluck('id')->toArray();
+            $user_ids = $users->where(function ($query) use ($name) {
+                $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%' . $name . '%'])
+                      ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $name . '%']);
+            })->get()->pluck('id')->toArray();
+
             $contact_coaches->whereIn('user', $user_ids);
         }
 

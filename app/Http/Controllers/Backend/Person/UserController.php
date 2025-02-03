@@ -720,10 +720,10 @@ class UserController extends Controller
 
         $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc');
 
-        if($name != null) {
+        if($name) {
             $users->where(function ($query) use ($name) {
-                $query->where('first_name', 'like', '%' . $name . '%')
-                      ->orWhere('last_name', 'like', '%' . $name . '%');
+                $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%' . $name . '%'])
+                      ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $name . '%']);
             });
         }
 
