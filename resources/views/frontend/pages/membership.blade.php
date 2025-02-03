@@ -10,12 +10,12 @@
 
 @section('content')
 
-    <div class="membership-section py-5">
+    <div class="membership-section pt-5">
         <x-frontend.notification></x-frontend.notification>
 
         @if($contents->section_1_title_en)
             <h2 class="ff-poppins-medium fs-49">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
-            <div class="px-4 ff-poppins-regular fs-25 pt-2 mx-5">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
+            <div class="px-4 ff-poppins-regular fs-25 pt-2 mx-5 text-center">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
             </div>
         @endif
 
@@ -58,7 +58,7 @@
                 <div class="benefits-section py-5 mx-md-5 mx-1">
                     <h2 class="text-center mb-4 pt-3 fs-49 ff-poppins-medium">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h2>
                     <div class="text-center mb-5 fs-25 ff-poppins-regular">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
-
+                    <div class="d-flex justify-content-center align-items-center flex-wrap g-2">
                     @if(auth()->check())
                         @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name))
                             @if(hasUserPurchasedMembership(auth()->user()->id))
@@ -68,7 +68,7 @@
                                     @csrf
                                     <button type="submit" class="btn-pay-now" name="type" value="Lifetime">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }}</button>
 
-                                    <button type="submit" class="btn-pay-now" name="type" value="Annual">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }}</button>
+                                    <button type="submit" class="btn-pay-now ms-3" name="type" value="Annual">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }}</button>
                                 </form>
                             @endif
                         @else
@@ -77,6 +77,7 @@
                     @else
                         <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-pay-now text-decoration-none">{{ $contents->{'section_3_login_for_purchase_' . $middleware_language} ?? $contents->section_3_login_for_purchase_en }}</a>
                     @endif
+                    </div>
 
                     @if($contents->section_3_labels_contents_en)
                         <div class="accordion px-5" id="benefitsAccordion">
