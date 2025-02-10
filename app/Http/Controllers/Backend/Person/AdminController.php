@@ -681,8 +681,8 @@ class AdminController extends Controller
 
         if($name != null) {
             $admins->where(function ($query) use ($name) {
-                $query->where('first_name', 'like', '%' . $name . '%')
-                      ->orWhere('last_name', 'like', '%' . $name . '%');
+                $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%' . $name . '%'])
+                      ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $name . '%']);
             });
         }
 
