@@ -230,19 +230,19 @@
 
                                 <ul class="dropdown-menu" aria-labelledby="partnersDropdown">
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('frontend.dashboard.index') }}">{{ $contents->{'header_user_dashboard_' . $middleware_language} ?? $contents->header_user_dashboard_en }}</a>
+                                        <a class="dropdown-item fs-18" href="{{ route('frontend.dashboard.index') }}">{{ $contents->{'header_user_dashboard_' . $middleware_language} ?? $contents->header_user_dashboard_en }}</a>
                                     </li>
                                     <li>
                                         @if(auth()->user()->member == 'Yes')
-                                            <a class="dropdown-item" href="{{ route('frontend.member-corner') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
+                                            <a class="dropdown-item fs-18" href="{{ route('frontend.member-corner') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
                                         @else
-                                            <a class="dropdown-item" href="{{ route('frontend.membership') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
+                                            <a class="dropdown-item fs-18" href="{{ route('frontend.membership') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
                                         @endif
                                     </li>
                                     <li>
                                         <form method="POST" action="{{ route('frontend.logout') }}">
                                             @csrf
-                                            <a href="{{ route('frontend.logout') }}" class="dropdown-item"
+                                            <a href="{{ route('frontend.logout') }}" class="dropdown-item fs-18"
                                                 onclick="event.preventDefault(); this.closest('form').submit();">{{ $contents->{'header_user_logout_' . $middleware_language} ?? $contents->header_user_logout_en }}</a>
                                         </form>
                                     </li>

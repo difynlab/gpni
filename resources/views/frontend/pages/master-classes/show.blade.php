@@ -340,7 +340,7 @@
                         @foreach($testimonials as $index => $testimonial)
                             @if($index === 0)
                                 <div class="quote-container">
-                                    <div class="quote mb-3 fs-31" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
+                                    <div class="quote mb-3 fs-20" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
                                     <div class="student-name mb-2 fs-20">{{ $testimonial->name }}</div>
                                     <div class="stars">
                                         @for($i = 0; $i < $testimonial->rate; $i++)
@@ -376,7 +376,7 @@
                                     <div class="testimonial-slide">
                                         <div class="card p-4 rounded shadow-sm testimonial-card">
                                             <div class="card-title fs-20 text-primary mb-2">{{ $testimonial->name }}</div>
-                                            <div class="card-text fs-20 mb-3">{{ $testimonial->content }}</div>
+                                            <div class="card-text fs-16 mb-3">{{ $testimonial->content }}</div>
                                             <div class="d-flex justify-content-between">
                                                 <div>
                                                     <span class="font-weight-bold d-block mb-1 fs-20">

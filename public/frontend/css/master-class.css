@@ -436,8 +436,9 @@ h1.display-4 {
 }
 
 .testimonial-content {
+    font-size: 19px;
     font-weight: 400;
-    line-height: 180%;
+    line-height: 140%;
     color: #3e3e3e;
 }
 
@@ -1009,7 +1010,7 @@ h1.display-4 {
 .quote {
     font-weight: 500;
     color: #0040c3;
-    line-height: 1.5;
+    line-height: 48px;
     margin-bottom: 20px;
 }
 
@@ -1507,8 +1508,7 @@ h1.display-4 {
     margin-bottom: 50px;
 }
 .testimonial-body {
-    font-size: 1.5rem;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 400;
     line-height: 140%;
     max-width: 800px;

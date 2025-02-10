@@ -72,6 +72,11 @@
     background-color: transparent; /* Optional: to remove background color on hover/focus/active */
 }
 
+/* Add this before the @media queries */
+.fs-18 {
+    font-size: 18px !important;
+}
+
 @media (max-width: 991.98px) {
 
 

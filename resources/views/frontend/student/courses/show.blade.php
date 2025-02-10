@@ -16,6 +16,10 @@
 
             <div class="col-12 col-lg-8 main-content ps-lg-5">
                 <div class="module-container">
+                    <a href="{{ route('frontend.courses.index') }}" class="return-link">
+                        <img src="{{ asset('storage/frontend/left-chevron-icon.svg') }}" alt="Arrow Left" width="20" height="20">
+                        {{ $student_dashboard_contents->courses_return }}
+                    </a>
                     <h1 class="module-title">{{ $course->title }}</h1>
 
                     @if($course_modules->isNotEmpty())
@@ -153,11 +157,6 @@
                     @else
                         <p class="no-data">{{ $student_dashboard_contents->courses_no_modules }}</p>
                     @endif
-
-                    <a href="{{ route('frontend.courses.index') }}" class="return-link">
-                        <img src="{{ asset('storage/frontend/left-chevron-icon.svg') }}" alt="Arrow Left" width="20" height="20">
-                        {{ $student_dashboard_contents->courses_return }}
-                    </a>
                 </div>
             </div>
         </div>
