@@ -22,12 +22,9 @@
         align-items: center;
     }
     .guest-page .image {
-        /* height: 85vh; */
-        height: 100vh;
-        width: 100%;
         border-radius: 20px;
-        object-fit: fill;
-        /* filter: brightness(60%); */
+        width: 100%;
+        object-fit: cover;
     }
     .guest-page .form {
         padding: 0 0 0 10%;
