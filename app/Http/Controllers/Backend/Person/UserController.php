@@ -43,10 +43,21 @@ class UserController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
+        if(auth()->user()->admin_language) {
+            $users = User::where('role', 'student')->where('language', auth()->user()->admin_language)->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
+        }
+        else {
+            $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
+        }
+        
         $users = $this->processUsers($users);
 
-        User::where('role', 'student')->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
+        if(auth()->user()->admin_language) {
+            User::where('role', 'student')->where('language', auth()->user()->admin_language)->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
+        }
+        else {
+            User::where('role', 'student')->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
+        }
 
         return view('backend.persons.users.index', [
             'users' => $users,
@@ -718,7 +729,12 @@ class UserController extends Controller
         $email = $request->email;
         $language = $request->language;
 
-        $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc');
+        if(auth()->user()->admin_language) {
+            $users = User::where('role', 'student')->where('language', auth()->user()->admin_language)->where('status', '!=', '0')->orderBy('id', 'desc');
+        }
+        else {
+            $users = User::where('role', 'student')->where('status', '!=', '0')->orderBy('id', 'desc');
+        }
 
         if($name) {
             $users->where(function ($query) use ($name) {

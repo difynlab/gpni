@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->nullable()->unique();
             $table->string('country')->nullable();
-            $table->enum('language', ['English', 'Chinese', 'Japanese']);
+            $table->enum('language', ['English', 'Chinese', 'Japanese'])->nullable();
+            $table->enum('admin_language', ['English', 'Chinese', 'Japanese'])->nullable();
             $table->string('image')->nullable();
             $table->enum('role', ['admin', 'student']);
             $table->enum('member', ['Yes', 'No'])->default('No');

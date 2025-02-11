@@ -29,11 +29,11 @@
                         </div>
 
                         <div class="col-3">
-                            <select class="form-control form-select" name="language">
+                            <select class="form-control form-select" name="admin_language">
                                 <option value="All" selected>All languages</option>
-                                <option value="English" {{ isset($language) && $language == 'English' ? "selected" : "" }}>English</option>
-                                <option value="Chinese" {{ isset($language) && $language == 'Chinese' ? "selected" : "" }}>Chinese</option>
-                                <option value="Japanese" {{ isset($language) && $language == 'Japanese' ? "selected" : "" }}>Japanese</option>
+                                <option value="English" {{ isset($admin_language) && $admin_language == 'English' ? "selected" : "" }}>English</option>
+                                <option value="Chinese" {{ isset($admin_language) && $admin_language == 'Chinese' ? "selected" : "" }}>Chinese</option>
+                                <option value="Japanese" {{ isset($admin_language) && $admin_language == 'Japanese' ? "selected" : "" }}>Japanese</option>
                             </select>
                         </div>
 
@@ -73,7 +73,7 @@
                                     <td>#{{ $admin->id }}</td>
                                     <td>{!! $admin->image !!}</td>
                                     <td>{{ $admin->first_name }} {{ $admin->last_name }}</td>
-                                    <td>{{ $admin->language }}</td>
+                                    <td>{{ $admin->admin_language }}</td>
                                     <td>{{ $admin->email }}</td>
                                     <td>{{ $admin->phone ?? '-' }}</td>
                                     <td>{!! $admin->status !!}</td>

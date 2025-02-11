@@ -37,12 +37,12 @@
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
-                        <select class="form-control form-select" id="language" name="language" required>
-                            <option value="">Select language</option>
-                            <option value="English" {{ old('language') == 'English' ? 'selected' : '' }}>English</option>
-                            <option value="Chinese" {{ old('language') == 'Chinese' ? 'selected' : '' }}>Chinese</option>
-                            <option value="Japanese" {{ old('language') == 'Japanese' ? 'selected' : '' }}>Japanese</option>
+                        <label for="admin_language" class="form-label">Admin Language</label>
+                        <select class="form-control form-select" id="admin_language" name="admin_language">
+                            <option value="">Select</option>
+                            <option value="English" {{ old('admin_language') == 'English' ? 'selected' : '' }}>English</option>
+                            <option value="Chinese" {{ old('admin_language') == 'Chinese' ? 'selected' : '' }}>Chinese</option>
+                            <option value="Japanese" {{ old('admin_language') == 'Japanese' ? 'selected' : '' }}>Japanese</option>
                         </select>
                     </div>
 

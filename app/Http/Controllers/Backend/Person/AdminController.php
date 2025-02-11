@@ -675,7 +675,7 @@ class AdminController extends Controller
 
         $name = $request->name;
         $email = $request->email;
-        $language = $request->language;
+        $admin_language = $request->admin_language;
 
         $admins = User::where('role', 'admin')->where('id', '!=', Auth::user()->id)->where('status', '!=', '0')->orderBy('id', 'desc');
 
@@ -690,8 +690,8 @@ class AdminController extends Controller
             $admins->where('email', 'like', '%' . $email . '%');
         }
 
-        if($language != 'All') {
-            $admins->where('language', $language);
+        if($admin_language != 'All') {
+            $admins->where('admin_language', $admin_language);
         }
 
         $items = $request->items ?? 10;
@@ -703,7 +703,7 @@ class AdminController extends Controller
             'items' => $items,
             'name' => $name,
             'email' => $email,
-            'language' => $language
+            'admin_language' => $admin_language
         ]);
     }
 }

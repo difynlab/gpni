@@ -70,7 +70,15 @@ class CoursePurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        if(auth()->user()->admin_language) {
+            $user_ids = User::where('role', 'student')->where('language', auth()->user()->admin_language)->where('status', '1')->pluck('id')->toArray();
+
+            $course_purchases = CoursePurchase::whereIn('user_id', $user_ids)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        }
+        else {
+            $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        }
+
         $course_purchases = $this->processCoursePurchases($course_purchases);
 
         return view('backend.purchases.course-purchases.index', [
@@ -111,7 +119,14 @@ class CoursePurchaseController extends Controller
         $course_name = $request->course_name;
         $date = $request->date;
 
-        $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc');
+        if(auth()->user()->admin_language) {
+            $user_ids = User::where('role', 'student')->where('language', auth()->user()->admin_language)->where('status', '1')->pluck('id')->toArray();
+
+            $course_purchases = CoursePurchase::whereIn('user_id', $user_ids)->where('status', '1')->orderBy('id', 'desc');
+        }
+        else {
+            $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc');
+        }
 
         if($transaction_id) {
             $course_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');

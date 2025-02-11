@@ -38,8 +38,8 @@
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
-                        <select class="form-control form-select" id="language" name="language" required>
+                        <label for="admin_language" class="form-label">Admin Language</label>
+                        <select class="form-control form-select" id="admin_language" name="admin_language">
                             <option value="">Select language</option>
                             <option value="English" {{ old('language', $admin->language) == 'English' ? 'selected' : '' }}>English</option>
                             <option value="Chinese" {{ old('language', $admin->language) == 'Chinese' ? 'selected' : '' }}>Chinese</option>
