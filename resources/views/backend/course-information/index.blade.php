@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div class="section">
+                <!-- <div class="section">
                     <p class="inner-page-title">Section 3</p>
 
                     <div class="row form-input">
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="section">
                     <p class="inner-page-title">Section 5</p>
@@ -329,7 +329,7 @@
                         </div>
                     </div>
 
-                    <div class="row form-input">
+                    <!-- <div class="row form-input">
                         <div class="col-3">
                             <label class="form-label">Button Label</label>
 
@@ -341,7 +341,7 @@
 
                             <input class="form-control" type="text" name="certification_section_10_button_link" value="{{ json_decode($course->certification_section_10_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-input">
                         <div class="row align-items-center mb-2">
@@ -391,7 +391,7 @@
                         </div>
                     </div>
 
-                    <div class="row form-input">
+                    <!-- <div class="row form-input">
                         <div class="col-3">
                             <label class="form-label">Button Label</label>
 
@@ -403,10 +403,10 @@
 
                             <input class="form-control" type="text" name="certification_section_11_button_link" value="{{ json_decode($course->certification_section_11_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="section">
+                <!-- <div class="section">
                     <p class="inner-page-title">Section 12</p>
 
                     <div class="row form-input">
@@ -431,7 +431,7 @@
                             <input class="form-control" type="text" name="certification_section_12_button_link" value="{{ json_decode($course->certification_section_12_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="section">
                     <p class="inner-page-title">Section 13</p>

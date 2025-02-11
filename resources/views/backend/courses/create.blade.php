@@ -69,6 +69,15 @@
                         </div>
                     </div>
                     <div class="col-6 right-column">
+                        <div class="mb-4">
+                            <label for="media_type" class="form-label">Media Type<span class="asterisk">*</span></label>
+                            <select class="form-control form-select" id="media_type" name="media_type" required>
+                                <option value="">Select</option>
+                                <option value="Image" {{ old('type') == 'Image' ? 'selected' : '' }}>Image</option>
+                                <option value="Video" {{ old('type') == 'Video' ? 'selected' : '' }}>Video</option>
+                            </select>
+                        </div>
+
                         <x-backend.upload-image old_name="old_image" old_value="{{ old('image') }}" new_name="new_image" path="courses/course-images" class="side-box-uploader"></x-backend.upload-image>
                         <x-backend.input-error field="new_image"></x-backend.input-error>
                     </div>

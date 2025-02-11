@@ -25,6 +25,7 @@ return new class extends Migration
                 $table->decimal('price', 10, 2);
                 $table->string('image')->nullable();
                 $table->string('video')->nullable();
+                $table->enum('media_type', ['Image', 'Video'])->nullable();
                 $table->text('short_description')->nullable();
                 $table->string('instructor_name')->nullable();
                 $table->string('instructor_designation')->nullable();
