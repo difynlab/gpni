@@ -129,12 +129,13 @@
 
 /* Sub sub menu */
     .wrapper .sidebar .sub-sub-menu {
-        position: absolute;
+        /* position: absolute; */
         background-color: #F7BF2E;
-        height: auto;
-        width: 220px;
-        top: 0;
-        left: 100%;
+        /* height: auto; */
+        /* width: 220px; */
+        /* top: 0;
+        left: 100%; */
+        margin-top: 5%;
         padding: 0;
         list-style-type: none;
         display: none;
@@ -152,14 +153,14 @@
         font-size: 14px;
     }
     .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover {
-        background-color: #0040C3;
+        background-color: #8aa5db;
     }
-    .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover > a {
+    /* .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover > a {
         color: white!important;
     }
     .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link:hover > a img {
         filter: invert(1) brightness(10);
-    }
+    } */
 /* Sub sub menu */
 
 
