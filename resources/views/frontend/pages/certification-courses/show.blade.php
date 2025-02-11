@@ -131,7 +131,7 @@
         @endif
 
         @if($course->certification_section_3_title)
-            <div class="container certification-section py-md-5 py-2">
+            {{-- <div class="container certification-section py-md-5 py-2">
                 <h1 class="text-center fs-39 my-4">{{ $course->certification_section_3_title }}</h1>
 
                 @if($course->certification_section_3_points)
@@ -146,11 +146,11 @@
                         @endforeach
                     </div>
                 @endif
-            </div>
+            </div> --}}
         @endif
 
         @if($course->certification_section_4_video)
-            <div class="container py-md-5 py-2">
+            {{-- <div class="container py-md-5 py-2">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="video-section section-4-video-container">
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         @endif
 
         @if($course->certification_section_5_title)
@@ -341,7 +341,7 @@
                     <div class="col-lg-6">
                         <div>{!! $course->certification_section_10_content !!}</div>
 
-                        <a href="{{ json_decode($course->certification_section_10_label_link)->link }}" class="btn-custom btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_10_label_link)->label }}</a>
+                        {{-- <a href="{{ json_decode($course->certification_section_10_label_link)->link }}" class="btn-custom btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_10_label_link)->label }}</a> --}}
                     </div>
 
                     <div class="col-lg-6">
@@ -387,14 +387,14 @@
                         {!!  $course->certification_section_11_content !!}
 
                         <div class="text-center text-md-start pt-4">
-                            <a href="{{ json_decode($course->certification_section_11_label_link)->link }}" class="gpni-btn fs-20">{{ json_decode($course->certification_section_11_label_link)->label }}</a>
+                            {{-- <a href="{{ json_decode($course->certification_section_11_label_link)->link }}" class="gpni-btn fs-20">{{ json_decode($course->certification_section_11_label_link)->label }}</a> --}}
                         </div>                   
                     </div>
                 </div>
             </section>
         @endif
 
-        @if($course->certification_section_12_title)
+        {{-- @if($course->certification_section_12_title)
             <section class="advisory-board-section container py-md-5 py-2">
                 <h2 class="advisory-board-title fs-39">{{ $course->certification_section_12_title }}</h2>
 
@@ -419,7 +419,7 @@
                     <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Icon">
                 </a>
             </section>
-        @endif
+        @endif --}}
 
         @if($course->certification_section_13_title)
             <section class="payment-options-section container py-md-5 py-2">

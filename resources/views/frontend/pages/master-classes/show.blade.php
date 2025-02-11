@@ -76,6 +76,7 @@
                 <video class="video-player" controls>
                     <source src="{{ asset('storage/backend/courses/course-videos/' . $course->video) }}" type="video/mp4">
                 </video>
+                <img src="{{ asset('storage/backend/courses/course-thumbnails/' . $course->thumbnail) }}" alt="Course Thumbnail" class="img-fluid mt-2">
             </div>
         </div>
         
