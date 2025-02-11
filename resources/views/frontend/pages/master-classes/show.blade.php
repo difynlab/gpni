@@ -73,9 +73,13 @@
             </div>
 
             <div class="col-md-7">
-                <video class="video-player" controls>
-                    <source src="{{ asset('storage/backend/courses/course-videos/' . $course->video) }}" type="video/mp4">
-                </video>
+                @if($course->media_type == 'Video')
+                    <video class="video-player" controls>
+                        <source src="{{ asset('storage/backend/courses/course-videos/' . $course->video) }}" type="video/mp4">
+                    </video>
+                @else
+                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Course Thumbnail" class="course-image">
+                @endif
             </div>
         </div>
         

@@ -130,7 +130,7 @@
             </section>
         @endif
 
-        @if($course->certification_section_3_title)
+        <!-- @if($course->certification_section_3_title)
             <div class="container certification-section py-md-5 py-2">
                 <h1 class="text-center fs-39 my-4">{{ $course->certification_section_3_title }}</h1>
 
@@ -147,9 +147,9 @@
                     </div>
                 @endif
             </div>
-        @endif
+        @endif -->
 
-        @if($course->certification_section_4_video)
+        <!-- @if($course->certification_section_4_video)
             <div class="container py-md-5 py-2">
                 <div class="row justify-content-center">
                     <div class="col-12">
@@ -163,7 +163,7 @@
                     </div>
                 </div>
             </div>
-        @endif
+        @endif -->
 
         @if($course->certification_section_5_title)
             <section class="container py-md-5 py-2">
@@ -298,24 +298,24 @@
         </div>
 
         <div class="learn-section container py-5">
-        <div class="header text-center mb-5">
-            <h1 class="title mb-4">{{ $course->certification_section_9_title }}</h1>
-            <p class="subtitle">{{ $course->certification_section_9_description }}</p>
-        </div>
-        
-        <div class="learning-points row g-4">
-            @if($course->certification_section_9_points)
-                @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
-                    <div class="col-md-6">
-                        <div class="learn-list d-flex fs-20 py-3">
-                            <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
-                            {{ $certification_section_9_point }}
+            <div class="header text-center mb-5">
+                <h1 class="title mb-4">{{ $course->certification_section_9_title }}</h1>
+                <p class="subtitle">{{ $course->certification_section_9_description }}</p>
+            </div>
+            
+            <div class="learning-points row g-4">
+                @if($course->certification_section_9_points)
+                    @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
+                        <div class="col-md-6">
+                            <div class="learn-list d-flex fs-20 py-3">
+                                <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
+                                {{ $certification_section_9_point }}
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-            @endif
+                    @endforeach
+                @endif
+            </div>
         </div>
-    </div>
 
         @if($course->certification_section_9_content)
             <section class="requirements-section container py-md-5 py-2">
@@ -341,7 +341,7 @@
                     <div class="col-lg-6">
                         <div>{!! $course->certification_section_10_content !!}</div>
 
-                        <a href="{{ json_decode($course->certification_section_10_label_link)->link }}" class="btn-custom btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_10_label_link)->label }}</a>
+                        <!-- <a href="{{ json_decode($course->certification_section_10_label_link)->link }}" class="btn-custom btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_10_label_link)->label }}</a> -->
                     </div>
 
                     <div class="col-lg-6">
@@ -386,15 +386,15 @@
                     <div class="col-lg-6">
                         {!!  $course->certification_section_11_content !!}
 
-                        <div class="text-center text-md-start pt-4">
+                        <!-- <div class="text-center text-md-start pt-4">
                             <a href="{{ json_decode($course->certification_section_11_label_link)->link }}" class="gpni-btn fs-20">{{ json_decode($course->certification_section_11_label_link)->label }}</a>
-                        </div>                   
+                        </div> -->
                     </div>
                 </div>
             </section>
         @endif
 
-        @if($course->certification_section_12_title)
+        <!-- @if($course->certification_section_12_title)
             <section class="advisory-board-section container py-md-5 py-2">
                 <h2 class="advisory-board-title fs-39">{{ $course->certification_section_12_title }}</h2>
 
@@ -419,7 +419,7 @@
                     <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Icon">
                 </a>
             </section>
-        @endif
+        @endif -->
 
         @if($course->certification_section_13_title)
             <section class="payment-options-section container py-md-5 py-2">
