@@ -301,8 +301,9 @@
                         _token: csrfToken
                     },
                     success: function(data) {
+                        console.log(data);
                         if(data.success) {
-                            location.reload();
+                            window.location.href = data.redirect_url;
                         }
                     },
                     error: function() {

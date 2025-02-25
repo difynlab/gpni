@@ -12,6 +12,9 @@ class LanguageController extends Controller
         $language = $request->input('language');
         session(['language' => $language]);
 
-        return response()->json(['success' => true]);
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('frontend.homepage')
+        ]);
     }
 }
