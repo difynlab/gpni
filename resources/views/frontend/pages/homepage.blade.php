@@ -15,6 +15,8 @@
             <div class="container-xxl position-relative p-0">
                 <div class="container-xxl hero-header">
                     <div class="container py-5">
+                        <x-frontend.notification></x-frontend.notification>
+
                         <div class="row align-items-center g-5">
                             <div class="col-md-12 col-lg-6 text-center text-lg-start ">
                                 <h1 class="display-3 text-black ff-poppins-semibold fs-61 mb-4">

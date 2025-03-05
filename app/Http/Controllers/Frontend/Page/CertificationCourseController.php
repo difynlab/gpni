@@ -59,9 +59,21 @@ class CertificationCourseController extends Controller
 
         if($course->price >= $wallet_balance) {
             $total_amount = $course->price - $wallet_balance;
+            $total_amount = sprintf('%.2f', $total_amount);
         }
         else {
             $total_amount = '0.00';
+        }
+
+        $course_discount = '0.00';
+
+        if($request->middleware_language == 'ja') {
+            $course->instalment_price = number_format($course->instalment_price, 0, '.', ',');
+            $course->price = number_format($course->price, 0, '.', ',');
+            $course->material_logistic_price = number_format($course->material_logistic_price, 0, '.', ',');
+            $wallet_balance = number_format($wallet_balance, 0, '.', ',');
+            $total_amount = number_format($total_amount, 0, '.', ','); 
+            $course_discount = number_format($course_discount, 0, '.', ','); 
         }
 
         $contents = CertificationCourseContent::find(1);
@@ -71,7 +83,8 @@ class CertificationCourseController extends Controller
             'course' => $course,
             'currency_symbol' => $currency_symbol,
             'wallet_balance' => $wallet_balance,
-            'total_amount' => $total_amount
+            'total_amount' => $total_amount,
+            'course_discount' => $course_discount
         ]);
     }
 
@@ -100,7 +113,7 @@ class CertificationCourseController extends Controller
 
         if($request->payment_mode == 'payment') {
 
-            $total_order_amount_in_cents = $currency === 'jpy' ? (int)$request->price : (int)($request->price * 100);
+            $total_order_amount_in_cents = $currency === 'jpy' ? str_replace(',', '', $request->price) : (int)($request->price * 100);
 
             $session = \Stripe\Checkout\Session::create([
                 'line_items' => [
