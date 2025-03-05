@@ -1514,9 +1514,14 @@ course-content {
 }
 
 /* Section 10 Video */
-.section-10-video {
+/* .section-10-video {
     width: 100%;
     height: 330px;
+} */
+.section-10-image {
+    width: 100%;
+    height: 330px;
+    margin-bottom: 5px;
 }
 
 /* Section 15 Video */

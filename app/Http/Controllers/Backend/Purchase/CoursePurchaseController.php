@@ -186,37 +186,84 @@ class CoursePurchaseController extends Controller
         ]);
     }
 
+    private function deleteOldRemovedFiles($course_certificate, $field, $name, $path)
+    {
+        $existing_files = collect(json_decode($course_certificate->$field, true));
+        $existing_files = collect($existing_files->pluck('file')->all());
+        $old_files = collect($name);
+        $missing_files = $existing_files->diff($old_files);
+
+        if($missing_files->isNotEmpty()) {
+            foreach($missing_files as $key => $missing_file) {
+                Storage::delete('public/backend/courses/' . $path . $missing_file);
+            }
+        }
+    }
+
     public function certificateUpdate(Request $request, CourseCertificate $course_certificate)
     {
         $validator = Validator::make($request->all(), [
-            'new_certificate' => 'nullable|max:30720',
-            'certificate_issued_time' => ['required', 'regex:/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/']
+            'certificate_files.*' => 'max:30720',
+            'certificate_times.*' => ['nullable', 'regex:/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/']
         ], [
-            'new_certificate.max' => 'The file must not be greater than 30 MB',
-            'certificate_issued_time.regex' => 'The time format must be HH:MM'
+            'certificate_files.*.max' => 'Each certificate must not be greater than 30 MB',
+            'certificate_times.*.regex' => 'The time format must be HH:MM'
         ]);
         
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
 
-        if($request->file('new_certificate') != null) {
-            if($request->old_certificate) {
-                Storage::delete('public/backend/courses/course-certificates/' . $request->old_certificate);
+        // Course certificates store function
+        $certificates = [];
+
+        $this->deleteOldRemovedFiles($course_certificate, 'certificates', $request->old_certificate_files, 'course-certificates/');
+
+        if($request->old_certificate_dates) {
+            foreach($request->old_certificate_dates as $key => $old_certificate_date) {
+                array_push($certificates, [
+                    'date' => $old_certificate_date,
+                    'time' => $request->old_certificate_times[$key],
+                    'file' => $request->old_certificate_files[$key]
+                ]);
             }
-
-            $new_certificate = $request->file('new_certificate');
-            $new_certificate_name = Str::random(40) . '.' . $new_certificate->getClientOriginalExtension();
-            $new_certificate->storeAs('public/backend/courses/course-certificates', $new_certificate_name);
-        }
-        else {
-            $new_certificate_name = $request->old_certificate;
         }
 
-        $data = $request->except('old_certificate', 'new_certificate');
-        $data['certificate'] = $new_certificate_name;
-        $data['certificate_issued_date'] = $request->certificate_issued_date ?? Carbon::now()->toDateString();
-        $data['certificate_issued_time'] = $request->certificate_issued_time ?? Carbon::now()->toTimeString();
+        if($request->certificate_dates) {
+            foreach($request->certificate_dates as $key => $certificate_date) {
+                if($request->certificate_files && $request->certificate_files[$key]) {
+                    $certificate = $request->certificate_files[$key];
+                    $certificate_name = Str::random(40) . '.' . $certificate->getClientOriginalExtension();
+                    $certificate->storeAs('public/backend/courses/course-certificates', $certificate_name);
+                }
+
+                array_push($certificates, [
+                    'date' => $certificate_date,
+                    'time' => $request->certificate_times[$key] ?? Carbon::now()->toTimeString(),
+                    'file' => $certificate_name
+                ]);
+            }
+        }
+        $final_certificates = $certificates ? json_encode($certificates) : null;
+    // Course certificates store function
+
+        // if($request->file('new_certificate') != null) {
+        //     if($request->old_certificate) {
+        //         Storage::delete('public/backend/courses/course-certificates/' . $request->old_certificate);
+        //     }
+
+        //     $new_certificate = $request->file('new_certificate');
+        //     $new_certificate_name = Str::random(40) . '.' . $new_certificate->getClientOriginalExtension();
+        //     $new_certificate->storeAs('public/backend/courses/course-certificates', $new_certificate_name);
+        // }
+        // else {
+        //     $new_certificate_name = $request->old_certificate;
+        // }
+
+        $data = $request->except('old_certificate_dates', 'old_certificate_times', 'old_certificate_files', 'certificate_dates', 'certificate_times', 'certificate_files');
+        $data['certificates'] = $final_certificates;
+        // $data['certificate_issued_date'] = $request->certificate_issued_date ?? Carbon::now()->toDateString();
+        // $data['certificate_issued_time'] = $request->certificate_issued_time ?? Carbon::now()->toTimeString();
         $course_certificate->fill($data)->save();
         
         return redirect()->route('backend.purchases.course-purchases.certificates.index', $course_certificate->course_purchase_id)->with('success', "Successfully updated!");

@@ -42,7 +42,7 @@
                     <table class="table table-striped w-100">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">ID </th>
                             <th scope="col">User</th>
                             <th scope="col">Subject</th>
                             <th scope="col">Initial Message</th>
@@ -56,7 +56,19 @@
                         @if(count($ask_questions) > 0)
                             @foreach($ask_questions as $ask_question)
                                 <tr>
-                                    <td>#{{ $ask_question->id }}</td>
+                                    @php
+                                        $new_replied_questions = App\Models\AskQuestionReply::where('status', '1')
+                                            ->where('admin_viewed', '0')
+                                            ->where('ask_question_id', $ask_question->id)
+                                            ->get();
+                                    @endphp
+
+                                    @if($ask_question->admin_viewed == '0' || $new_replied_questions->isNotEmpty())
+                                        <td class="position-relative">#{{ $ask_question->id }} <i class="bi bi-circle-fill new-icon"></i></td>
+                                    @else
+                                        <td>#{{ $ask_question->id }}</td>
+                                    @endif
+                                    
                                     <td>{{ $ask_question->user }}</td>
                                     <td>{{ $ask_question->subject }}</td>
                                     <td>{{ $ask_question->initial_message }}</td>

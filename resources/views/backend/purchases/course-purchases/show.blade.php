@@ -7,6 +7,14 @@
     <x-backend.breadcrumb page_name="Show Purchase"></x-backend.breadcrumb>
 
     <div class="static-pages">
+        <div class="row mb-4">
+            <div class="col-12 text-end">
+                <a href="{{ route('backend.purchases.course-purchases.index') }}" class="back-button">
+                    Back
+                </a>
+            </div>
+        </div>
+
         <form>
             <div class="section">
                 <p class="inner-page-title">Purchase Details</p>

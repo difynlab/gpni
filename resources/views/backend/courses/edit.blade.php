@@ -7,6 +7,14 @@
     <x-backend.breadcrumb page_name="Edit Course"></x-backend.breadcrumb>
 
     <div class="static-pages">
+        <div class="row mb-4">
+            <div class="col-12 text-end">
+                <a href="{{ route('backend.courses.index') }}" class="back-button">
+                    Back
+                </a>
+            </div>
+        </div>
+
         <form action="{{ route('backend.courses.update', $course) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')

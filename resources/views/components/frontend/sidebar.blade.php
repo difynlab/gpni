@@ -117,9 +117,25 @@
     @endif
 
     <a href="{{ route('frontend.ask-questions.index') }}" class="sidebar-link">
-        <div class="sidebar-item {{ Request::segment(1) == 'ask-questions' ? 'active' : '' }}">
+        <div class="sidebar-item position-relative {{ Request::segment(1) == 'ask-questions' ? 'active' : '' }}">
             <img src="{{ asset('storage/frontend/ask-question-icon.svg') }}" alt="Ask the Experts icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_ask_the_experts }}</span>
+
+            @php
+                $new_replied_questions = App\Models\AskQuestionReply::where('status', '1')
+                    ->where('user_viewed', '0')
+                    ->groupBy('ask_question_id')
+                    ->selectRaw('count(*) as count')
+                    ->get()
+                    ->count();
+
+                $total_count = $new_replied_questions;
+
+            @endphp
+
+            @if($total_count > 0)
+                <p class="new-count-badge">{{ $total_count }}</p>
+            @endif
         </div>
     </a>
 

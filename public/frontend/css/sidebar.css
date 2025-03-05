@@ -103,6 +103,17 @@
   filter: invert(1);
 }
 
+.new-count-badge {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    font-size: 13px !important;
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    margin-bottom: 0;
+}
+
 /* Add media queries */
 @media (max-width: 991px) {
     .sidebar-toggle {

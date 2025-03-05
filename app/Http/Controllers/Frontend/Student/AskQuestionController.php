@@ -28,7 +28,7 @@ class AskQuestionController extends Controller
         $ask_question->initial_message = $request->initial_message;
         $ask_question->date = Carbon::now()->toDateString();
         $ask_question->time = Carbon::now()->toTimeString();
-        $ask_question->is_viewed = '0';
+        $ask_question->admin_viewed = '0';
         $ask_question->status = '1';
         $ask_question->save();
 
@@ -41,7 +41,17 @@ class AskQuestionController extends Controller
         $ask_questions = AskQuestion::where('user_id', $student->id)->where('status', '1')->orderBy('id', 'desc')->get();
 
         foreach($ask_questions as $ask_question) {
-            $ask_question->replied = AskQuestionReply::where('ask_question_id', $ask_question->id)->where('status', '1')->first();
+            $last_reply = AskQuestionReply::where('ask_question_id', $ask_question->id)
+                ->where('status', '1')
+                ->orderBy('id', 'desc')
+                ->first();
+
+            if ($last_reply && $last_reply->replied_by != auth()->user()->id) {
+                $ask_question->replied = $last_reply;
+            }
+            else {
+                $ask_question->replied = null;
+            }
         }
 
         return view('frontend.student.ask-questions.histories', [
@@ -55,19 +65,16 @@ class AskQuestionController extends Controller
         $student = Auth::user();
 
         $ask_question_replies = AskQuestionReply::where('ask_question_id', $ask_question->id)->where('status', '1')->get();
-        $admin_ask_question_replies = AskQuestionReply::where('ask_question_id', $ask_question->id)->where('replied_by', '!=', $student->id)->where('is_viewed', '0')->where('status', '1')->get();
-
-        foreach($admin_ask_question_replies as $admin_ask_question_reply) {
-            $admin_ask_question_reply->is_viewed = '1';
-            $admin_ask_question_reply->save();
-        }
 
         $date_time_string = $ask_question->date . ' ' . $ask_question->time;
         $parsed_date_time = Carbon::parse($date_time_string);
         $time_ago = $parsed_date_time->diffForHumans();
         $ask_question->time_difference = $time_ago;
 
-        foreach($ask_question_replies as $key => $ask_question_reply) {
+        foreach($ask_question_replies as $ask_question_reply) {
+            $ask_question_reply->user_viewed = '1';
+            $ask_question_reply->save();
+
             $date_time_string = $ask_question_reply->date . ' ' . $ask_question_reply->time;
             $parsed_date_time = Carbon::parse($date_time_string);
             $time_ago = $parsed_date_time->diffForHumans();
@@ -89,7 +96,8 @@ class AskQuestionController extends Controller
         $ask_question_reply->message = $request->message;
         $ask_question_reply->date = Carbon::now()->toDateString();
         $ask_question_reply->time = Carbon::now()->toTimeString();
-        $ask_question_reply->is_viewed = '0';
+        $ask_question_reply->admin_viewed = '0';
+        $ask_question_reply->user_viewed = '1';
         $ask_question_reply->status = '1';
         $ask_question_reply->save();
 

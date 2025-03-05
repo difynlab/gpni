@@ -61,16 +61,16 @@ return new class extends Migration
                 $table->text('certification_section_7_title')->nullable();
                 $table->text('certification_section_7_description')->nullable();
                 $table->text('certification_section_7_video')->nullable();
-                $table->text('certification_section_7_labels_links')->nullable();
+                $table->text('certification_section_7_label_link')->nullable();
                 $table->text('certification_section_9_title')->nullable();
                 $table->text('certification_section_9_description')->nullable();
                 $table->text('certification_section_9_points')->nullable();
                 $table->text('certification_section_10_content')->nullable();
-                $table->text('certification_section_10_video')->nullable();
+                $table->text('certification_section_10_image')->nullable();
                 $table->text('certification_section_10_label_link')->nullable();
                 $table->text('certification_section_10_points')->nullable();
                 $table->text('certification_section_11_content')->nullable();
-                $table->text('certification_section_11_video')->nullable();
+                $table->text('certification_section_11_image')->nullable();
                 $table->text('certification_section_11_label_link')->nullable();
                 $table->text('certification_section_12_title')->nullable();
                 $table->text('certification_section_12_label_link')->nullable();
@@ -80,7 +80,7 @@ return new class extends Migration
                 $table->text('certification_section_13_second_column')->nullable();
                 $table->text('certification_section_13_third_column')->nullable();
                 $table->text('certification_section_13_table_points')->nullable();
-                $table->text('certification_section_13_labels_links')->nullable();
+                $table->text('certification_section_13_label_link')->nullable();
                 $table->text('certification_section_14_title')->nullable();
                 $table->text('certification_section_14_video')->nullable();
                 $table->text('certification_section_15_title')->nullable();
@@ -90,7 +90,7 @@ return new class extends Migration
                 $table->text('certification_section_15_points')->nullable();
                 $table->text('certification_section_16_title')->nullable();
                 $table->text('certification_section_16_content')->nullable();
-                $table->text('certification_section_16_labels_links')->nullable();
+                $table->text('certification_section_16_label_link')->nullable();
             // Certification course fields
 
             // Master course fields
@@ -99,10 +99,9 @@ return new class extends Migration
                 $table->text('master_section_2_points')->nullable();
                 $table->text('master_section_3_title')->nullable();
                 $table->text('master_section_3_description')->nullable();
-                $table->text('master_section_3_label_link')->nullable();
+                $table->text('master_section_3_label')->nullable();
                 $table->text('master_section_4_image')->nullable();
                 $table->text('master_section_4_content')->nullable();
-                $table->text('master_section_4_label_link')->nullable();
                 $table->text('master_section_5_title')->nullable();
                 $table->text('master_section_5_label_link')->nullable();
                 $table->text('master_section_6_title')->nullable();

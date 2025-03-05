@@ -89,3 +89,15 @@
     </div>
 
 @endsection
+
+@push('after-scripts')
+    <script>
+        $(document).ready(function () {
+            var chatBox = $(".chat-box");
+
+            if(chatBox[0].scrollHeight > chatBox[0].clientHeight) {
+                chatBox.scrollTop(chatBox[0].scrollHeight);
+            }
+        });
+    </script>
+@endpush

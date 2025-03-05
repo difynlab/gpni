@@ -722,8 +722,18 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="courses_return" class="form-label">Return</label>
-                        <input type="text" class="form-control" id="courses_return" name="courses_return" value="{{ $contents->courses_return ?? '' }}" placeholder="Return">
+                        <label for="courses_return" class="form-label">Courses Return</label>
+                        <input type="text" class="form-control" id="courses_return" name="courses_return" value="{{ $contents->courses_return ?? '' }}" placeholder="Courses Return">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="gpni_tv_return" class="form-label">GPNi Tv Return</label>
+                        <input type="text" class="form-control" id="gpni_tv_return" name="gpni_tv_return" value="{{ $contents->gpni_tv_return ?? '' }}" placeholder="GPNi Tv Return">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="member_corner_return" class="form-label">Member Corner Return</label>
+                        <input type="text" class="form-control" id="member_corner_return" name="member_corner_return" value="{{ $contents->member_corner_return ?? '' }}" placeholder="Member Corner Return">
                     </div>
 
                     <div class="col-4 mb-3">
@@ -936,12 +946,12 @@
                         <input type="text" class="form-control" id="courses_exam_result_correct_answer" name="courses_exam_result_correct_answer" value="{{ $contents->courses_exam_result_correct_answer ?? '' }}" placeholder="Correct Answer">
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-6 mb-3">
                         <label for="courses_exam_result_incorrect_answer" class="form-label">Incorrect Answer</label>
                         <input type="text" class="form-control" id="courses_exam_result_incorrect_answer" name="courses_exam_result_incorrect_answer" value="{{ $contents->courses_exam_result_incorrect_answer ?? '' }}" placeholder="Incorrect Answer">
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-6 mb-3">
                         <label for="courses_exam_result_un_attempted" class="form-label">Unattempted</label>
                         <input type="text" class="form-control" id="courses_exam_result_un_attempted" name="courses_exam_result_un_attempted" value="{{ $contents->courses_exam_result_un_attempted ?? '' }}" placeholder="Unattempted">
                     </div>

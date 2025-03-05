@@ -7,6 +7,14 @@
     <x-backend.breadcrumb page_name="Course Information"></x-backend.breadcrumb>
 
     <div class="static-pages">
+        <div class="row mb-4">
+            <div class="col-12 text-end">
+                <a href="{{ route('backend.courses.index') }}" class="back-button">
+                    Back
+                </a>
+            </div>
+        </div>
+
         <form action="{{ route('backend.courses.information.update', $course) }}" method="POST" enctype="multipart/form-data">
             @csrf
             
@@ -125,8 +133,9 @@
                     </div>
                 </div> -->
 
+                <!-- We have commented on two sections, and updating the remaining variable names would take too much time. Therefore, we have only changed the section name to avoid confusion for the client. -->
                 <div class="section">
-                    <p class="inner-page-title">Section 5</p>
+                    <p class="inner-page-title">Section 3</p>
 
                     <div class="row form-input">
                         <div class="col-12">
@@ -171,7 +180,7 @@
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 6</p>
+                    <p class="inner-page-title">Section 4</p>
 
                     <div class="row form-input">
                         <div class="col-12">
@@ -226,7 +235,7 @@
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 7</p>
+                    <p class="inner-page-title">Section 5</p>
 
                     <div class="row form-input">
                         <div class="col-6 left-column">
@@ -250,23 +259,19 @@
                         <div class="col-3">
                             <label class="form-label">Button Label</label>
 
-                            <input type="text" class="form-control mb-3" name="certification_section_7_button_labels[]" placeholder="Label" value="{{ json_decode($course->certification_section_7_labels_links)[0]->label ?? '' }}">
-
-                            <input type="text" class="form-control" name="certification_section_7_button_labels[]" placeholder="Label" value="{{ json_decode($course->certification_section_7_labels_links)[1]->label ?? '' }}">
+                            <input class="form-control" type="text" name="certification_section_7_button_label" value="{{ json_decode($course->certification_section_7_label_link)->label ?? '' }}" placeholder="Label">
                         </div>
 
                         <div class="col-9">
                             <label class="form-label">Link</label>
 
-                            <input type="url" class="form-control mb-3" name="certification_section_7_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_7_labels_links)[0]->link ?? '' }}">
-
-                            <input type="url" class="form-control" name="certification_section_7_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_7_labels_links)[1]->link ?? '' }}">
+                            <input class="form-control" type="text" name="certification_section_7_button_link" value="{{ json_decode($course->certification_section_7_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 9</p>
+                    <p class="inner-page-title">Section 6</p>
 
                     <div class="row form-input">
                         <div class="col-12">
@@ -313,7 +318,7 @@
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 10</p>
+                    <p class="inner-page-title">Section 7</p>
 
                     <div class="row form-input">
                         <div class="col-6 right-column">
@@ -324,8 +329,8 @@
                         </div>
 
                         <div class="col-6 left-column">
-                            <x-backend.upload-video old_name="old_certification_section_10_video" old_value="{{ $course->certification_section_10_video ?? '' }}" new_name="new_certification_section_10_video" path="courses/course-videos" class="side-box-uploader"></x-backend.upload-video>
-                            <x-backend.input-error field="new_certification_section_10_video"></x-backend.input-error>
+                            <x-backend.upload-image old_name="old_certification_section_10_image" old_value="{{ $course->certification_section_10_image ?? '' }}" new_name="new_certification_section_10_image" path="courses/course-images" class="side-box-uploader"></x-backend.upload-image>
+                            <x-backend.input-error field="new_certification_section_10_image"></x-backend.input-error>
                         </div>
                     </div>
 
@@ -375,7 +380,7 @@
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 11</p>
+                    <p class="inner-page-title">Section 8</p>
 
                     <div class="row form-input">
                         <div class="col-6 right-column">
@@ -386,8 +391,8 @@
                         </div>
 
                         <div class="col-6 left-column">
-                            <x-backend.upload-video old_name="old_certification_section_11_video" old_value="{{ $course->certification_section_11_video ?? '' }}" new_name="new_certification_section_11_video" path="courses/course-videos" class="side-box-uploader"></x-backend.upload-video>
-                            <x-backend.input-error field="new_certification_section_11_video"></x-backend.input-error>
+                            <x-backend.upload-image old_name="old_certification_section_11_image" old_value="{{ $course->certification_section_11_image ?? '' }}" new_name="new_certification_section_11_image" path="courses/course-images" class="side-box-uploader"></x-backend.upload-image>
+                            <x-backend.input-error field="new_certification_section_11_image"></x-backend.input-error>
                         </div>
                     </div>
 
@@ -434,7 +439,7 @@
                 </div> -->
 
                 <div class="section">
-                    <p class="inner-page-title">Section 13</p>
+                    <p class="inner-page-title">Section 9</p>
 
                     <div class="row form-input">
                         <div class="col-12 mb-4">
@@ -502,23 +507,19 @@
                         <div class="col-3">
                             <label class="form-label">Button Label</label>
 
-                            <input type="text" class="form-control mb-3" name="certification_section_13_button_labels[]" placeholder="Label" value="{{ json_decode($course->certification_section_13_labels_links)[0]->label ?? '' }}">
-
-                            <input type="text" class="form-control" name="certification_section_13_button_labels[]" placeholder="Label" value="{{ json_decode($course->certification_section_13_labels_links)[1]->label ?? '' }}">
+                            <input class="form-control" type="text" name="certification_section_13_button_label" value="{{ json_decode($course->certification_section_13_label_link)->label ?? '' }}" placeholder="Label">
                         </div>
 
                         <div class="col-9">
                             <label class="form-label">Link</label>
 
-                            <input type="url" class="form-control mb-3" name="certification_section_13_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_13_labels_links)[0]->link ?? '' }}">
-
-                            <input type="url" class="form-control" name="certification_section_13_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_13_labels_links)[1]->link ?? '' }}">
+                            <input class="form-control" type="text" name="certification_section_13_button_link" value="{{ json_decode($course->certification_section_13_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 14</p>
+                    <p class="inner-page-title">Section 10</p>
 
                     <div class="row form-input">
                         <div class="col-12 mb-4">
@@ -533,8 +534,8 @@
                     </div>
                 </div>
 
-                <div class="section">
-                    <p class="inner-page-title">Section 15</p>
+                <!-- <div class="section">
+                    <p class="inner-page-title">Section 11</p>
 
                     <div class="row form-input">
                         <div class="col-6 right-column">
@@ -598,10 +599,11 @@
                             @endforeach
                         @endif
                     </div>
-                </div>
+                </div> -->
 
+                <!-- We have commented on two sections, and updating the remaining variable names would take too much time. Therefore, we have only changed the section name to avoid confusion for the client. -->
                 <div class="section">
-                    <p class="inner-page-title">Section 16</p>
+                    <p class="inner-page-title">Section 11</p>
 
                     <div class="row form-input">
                         <div class="col-12">
@@ -621,17 +623,13 @@
                         <div class="col-3">
                             <label class="form-label">Button Label</label>
 
-                            <input type="text" class="form-control mb-3" name="certification_section_16_button_labels[]" placeholder="Label" value="{{ json_decode($course->certification_section_16_labels_links)[0]->label ?? '' }}">
-
-                            <input type="text" class="form-control" name="certification_section_16_button_labels[]" placeholder="Label" value="{{ json_decode($course->certification_section_16_labels_links)[1]->label ?? '' }}">
+                            <input class="form-control" type="text" name="certification_section_16_button_label" value="{{ json_decode($course->certification_section_16_label_link)->label ?? '' }}" placeholder="Label">
                         </div>
 
                         <div class="col-9">
                             <label class="form-label">Link</label>
 
-                            <input type="url" class="form-control mb-3" name="certification_section_16_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_16_labels_links)[0]->link ?? '' }}">
-
-                            <input type="url" class="form-control" name="certification_section_16_button_links[]" placeholder="Link" value="{{ json_decode($course->certification_section_16_labels_links)[1]->link ?? '' }}">
+                            <input class="form-control" type="text" name="certification_section_16_button_link" value="{{ json_decode($course->certification_section_16_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
                 </div>
@@ -701,16 +699,9 @@
                     </div>
 
                     <div class="row form-input">
-                        <div class="col-3">
-                            <label class="form-label">Button Label</label>
-
-                            <input class="form-control" type="text" name="master_section_3_button_label" value="{{ json_decode($course->master_section_3_label_link)->label ?? '' }}" placeholder="Label">
-                        </div>
-
-                        <div class="col-9">
-                            <label class="form-label">Link</label>
-
-                            <input class="form-control" type="text" name="master_section_3_button_link" value="{{ json_decode($course->master_section_3_label_link)->link ?? '' }}" placeholder="Link">
+                        <div class="col-12">
+                            <label for="master_section_3_label" class="form-label">Label</label>
+                            <input type="text" class="form-control" id="master_section_3_label" name="master_section_3_label" value="{{ $course->master_section_3_label ?? '' }}" placeholder="Label">
                         </div>
                     </div>
                 </div>
@@ -729,20 +720,6 @@
                                 <label for="master_section_4_content" class="form-label">Content</label>
                                 <textarea class="editor" id="master_section_4_content" name="master_section_4_content" value="{{ $course->master_section_4_content ?? '' }}">{{ $course->master_section_4_content ?? '' }}</textarea>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row form-input">
-                        <div class="col-3">
-                            <label class="form-label">Button Label</label>
-
-                            <input class="form-control" type="text" name="master_section_4_button_label" value="{{ json_decode($course->master_section_4_label_link)->label ?? '' }}" placeholder="Label">
-                        </div>
-
-                        <div class="col-9">
-                            <label class="form-label">Link</label>
-
-                            <input class="form-control" type="text" name="master_section_4_button_link" value="{{ json_decode($course->master_section_4_label_link)->link ?? '' }}" placeholder="Link">
                         </div>
                     </div>
                 </div>
@@ -797,8 +774,9 @@
                     </div>
                 </div> -->
 
+                <!-- We have commented on two sections, and updating the remaining variable names would take too much time. Therefore, we have only changed the section name to avoid confusion for the client. -->
                 <div class="section">
-                    <p class="inner-page-title">Section 7</p>
+                    <p class="inner-page-title">Section 5</p>
 
                     <div class="row form-input">
                         <div class="col-12 mb-4">

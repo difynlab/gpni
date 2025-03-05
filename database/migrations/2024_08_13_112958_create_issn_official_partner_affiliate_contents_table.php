@@ -22,7 +22,8 @@ return new class extends Migration
             $table->text('section_2_image_en')->nullable();
             $table->text('section_3_title_en')->nullable();
             $table->text('section_3_description_en')->nullable();
-            $table->text('section_3_labels_links_en')->nullable();
+            $table->text('section_3_label_en')->nullable();
+            $table->text('section_3_label_link_en')->nullable();
 
             $table->text('section_1_title_zh')->nullable();
             $table->text('section_1_sub_title_zh')->nullable();
@@ -32,7 +33,8 @@ return new class extends Migration
             $table->text('section_2_image_zh')->nullable();
             $table->text('section_3_title_zh')->nullable();
             $table->text('section_3_description_zh')->nullable();
-            $table->text('section_3_labels_links_zh')->nullable();
+            $table->text('section_3_label_zh')->nullable();
+            $table->text('section_3_label_link_zh')->nullable();
 
             $table->text('section_1_title_ja')->nullable();
             $table->text('section_1_sub_title_ja')->nullable();
@@ -42,7 +44,8 @@ return new class extends Migration
             $table->text('section_2_image_ja')->nullable();
             $table->text('section_3_title_ja')->nullable();
             $table->text('section_3_description_ja')->nullable();
-            $table->text('section_3_labels_links_ja')->nullable();
+            $table->text('section_3_label_ja')->nullable();
+            $table->text('section_3_label_link_ja')->nullable();
 
             $table->timestamps();
         });

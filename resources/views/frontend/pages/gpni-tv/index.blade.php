@@ -217,12 +217,15 @@
             <div class="container">
                 <h1 class="fs-49">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</h1>
                 
-                <div class="fs-25 section-8-content">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>                
-                <div class="pt-3">
-                    <a href="{{ json_decode($contents->{'section_8_label_link_' . $middleware_language})->link ?? json_decode($contents->section_8_label_link_en)->link }}" class="btn-sign-up">
-                        {{ json_decode($contents->{'section_8_label_link_' . $middleware_language})->label ?? json_decode($contents->section_8_label_link_en)->label }}
-                    </a>
-                </div>
+                <div class="fs-25 section-8-content">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
+
+                @guest
+                    <div class="pt-3">
+                        <a href="{{ route('frontend.register') }}" class="btn-sign-up">
+                            {{ $contents->{'section_8_label_' . $middleware_language} ?? $contents->section_8_label_link_en }}
+                        </a>
+                    </div>
+                @endguest
             </div>
         </section>
     @endif

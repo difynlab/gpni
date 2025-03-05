@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('initial_message');
             $table->date('date');
             $table->time('time');
-            $table->enum('is_viewed', [0, 1]);
-            $table->enum('is_new', [0, 1])->default('1');
+            $table->enum('admin_viewed', [0, 1]);
             $table->enum('status', [0, 1])->index();
 
             $table->timestamps();

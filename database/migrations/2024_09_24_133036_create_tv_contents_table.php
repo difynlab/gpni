@@ -36,7 +36,7 @@ return new class extends Migration
             $table->text('section_7_video_en')->nullable();
             $table->text('section_8_title_en')->nullable();
             $table->text('section_8_content_en')->nullable();
-            $table->text('section_8_label_link_en')->nullable();
+            $table->text('section_8_label_en')->nullable();
             $table->text('section_9_title_en')->nullable();
             $table->text('section_9_content_en')->nullable();
             $table->text('section_10_image_en')->nullable();
@@ -69,7 +69,7 @@ return new class extends Migration
             $table->text('section_7_video_zh')->nullable();
             $table->text('section_8_title_zh')->nullable();
             $table->text('section_8_content_zh')->nullable();
-            $table->text('section_8_label_link_zh')->nullable();
+            $table->text('section_8_label_zh')->nullable();
             $table->text('section_9_title_zh')->nullable();
             $table->text('section_9_content_zh')->nullable();
             $table->text('section_10_image_zh')->nullable();
@@ -102,7 +102,7 @@ return new class extends Migration
             $table->text('section_7_video_ja')->nullable();
             $table->text('section_8_title_ja')->nullable();
             $table->text('section_8_content_ja')->nullable();
-            $table->text('section_8_label_link_ja')->nullable();
+            $table->text('section_8_label_ja')->nullable();
             $table->text('section_9_title_ja')->nullable();
             $table->text('section_9_content_ja')->nullable();
             $table->text('section_10_image_ja')->nullable();

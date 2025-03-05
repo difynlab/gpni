@@ -221,10 +221,25 @@
                         <h1 class="program-title fs-36">{{ $course->certification_section_7_title }}</h1>
                         <div class="program-description fs-20">{!! $course->certification_section_7_description !!}</div>
                         <div class="pt-3 d-flex align-items-center flex-wrap justify-content-lg-start justify-content-center mb-3">
-                            <a href="{{ json_decode($course->certification_section_7_labels_links)[0]->link }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_7_labels_links)[0]->label }}</a>
-                            <a href="{{ json_decode($course->certification_section_7_labels_links)[1]->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_7_labels_links)[1]->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow" class="ms-2"></a>
+
+                            @if(auth()->check())
+                                @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
+                                    @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                        <a class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                                    @else
+                                        <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                    @endif
+                                @else
+                                    <a class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
+                                @endif
+                            @else
+                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
+                            @endif
+
+                            <a href="{{ json_decode($course->certification_section_7_label_link)->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_7_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow" class="ms-2"></a>
                         </div>
                     </div>
+
                     <div class="col-12 col-lg-6 d-flex justify-content-center">
                         <video controls class="section-7-video">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_7_video) }}" type="video/mp4">
@@ -345,9 +360,11 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <video controls class="section-10-video">
+                        <!-- <video controls class="section-10-video">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_10_video) }}" type="video/mp4">
-                        </video>
+                        </video> -->
+
+                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_10_image) }}" class="section-10-image" alt="Image">
                         
                         @if($course->certification_section_10_points)
                             <div class="accordion" id="accordionExample">
@@ -377,11 +394,12 @@
             <section class="gpni-section container py-md-5 py-2">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="video-section">
+                        <!-- <div class="video-section">
                             <video controls class="w-100">
                                 <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_11_video) }}" type="video/mp4">
                             </video>
-                        </div>
+                        </div> -->
+                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_11_image) }}" class="section-10-image" alt="Image">
                     </div>
                     <div class="col-lg-6">
                         {!!  $course->certification_section_11_content !!}
@@ -451,9 +469,21 @@
                 @endif
 
                 <div class="pt-3 d-flex align-items-center flex-wrap justify-content-center mb-3">
-                    <a href="{{ json_decode($course->certification_section_13_labels_links)[0]->link }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l">{{ json_decode($course->certification_section_13_labels_links)[0]->label }}</a>
+                    @if(auth()->check())
+                        @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
+                            @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                <a class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                            @else
+                                <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                            @endif
+                        @else
+                            <a class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
+                        @endif
+                    @else
+                        <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
+                    @endif
 
-                    <a href="{{ json_decode($course->certification_section_13_labels_links)[1]->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_13_labels_links)[1]->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow"></a>
+                    <a href="{{ json_decode($course->certification_section_13_label_link)->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_13_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow"></a>
                 </div>
             </section>
         @endif
@@ -527,7 +557,7 @@
             @endif
         @endif
 
-        @if($course->certification_section_15_title)
+        <!-- @if($course->certification_section_15_title)
             <section class="advanced-certification-section container py-md-5 py-2">
                 <h2 class="advanced-certification-title fs-39">{{ $course->certification_section_15_title }}</h2>
                 <div class="row mx-5 mb-4">
@@ -572,7 +602,7 @@
                     <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Icon">
                 </a>
             </section>
-        @endif
+        @endif -->
     </div>
 
     @if($course->certification_section_16_title)
@@ -585,9 +615,22 @@
                     <div class="fs-32">{!! $course->certification_section_16_content !!}</div>
                     
                     <div class="btn-group">
-                        <a href="{{ json_decode($course->certification_section_16_labels_links)[0]->link }}" class="btn-custom">{{ json_decode($course->certification_section_16_labels_links)[0]->label }}</a>
 
-                        <a href="{{ json_decode($course->certification_section_16_labels_links)[1]->link }}" class="btn-custom secondary border-0">{{ json_decode($course->certification_section_16_labels_links)[1]->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow"></a>
+                        @if(auth()->check())
+                            @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
+                                @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                    <a class="btn-custom">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                                @else
+                                    <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn-custom">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                @endif
+                            @else
+                                <a class="btn-custom">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
+                            @endif
+                        @else
+                            <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-custom">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
+                        @endif
+
+                        <a href="{{ json_decode($course->certification_section_16_label_link)->link }}" class="btn-custom secondary border-0">{{ json_decode($course->certification_section_16_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow"></a>
                     </div>
                 </div>
             </section>

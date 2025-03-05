@@ -152,9 +152,11 @@
                     <h2 class="journey-title pb-2 fs-49">{{ $course->master_section_3_title }}</h2>
                     <p class="journey-subtitle fs-25">{{ $course->master_section_3_description }}</p>
 
-                    <div class="text-center mt-3">
-                        <a href="{{ json_decode($course->master_section_3_label_link)->link }}" class="btn btn-light journey-button mt-4 fs-20">{{ json_decode($course->master_section_3_label_link)->label }}</a>
-                    </div>
+                    @guest
+                        <div class="text-center mt-3">
+                            <a href="{{ route('frontend.register') }}" class="btn btn-light journey-button mt-4 fs-20">{{ $course->master_section_3_label }}</a>
+                        </div>
+                    @endguest
                 </div>
             </div>
         </div>
@@ -243,10 +245,25 @@
                 </div>
                 <div class="col-lg-6 col-md-12 px-4">
                     <div class="fs-49 text-lg-start text-center">{!! $course->master_section_4_content !!}</div>
+
                     <div class="d-flex justify-content-lg-start justify-content-center">
-                        <a href="{{ json_decode($course->master_section_4_label_link)->link }}" class="btn btn-light mt-4">
-                            {{ json_decode($course->master_section_4_label_link)->label }}
-                        </a>
+                        @if(auth()->check())
+                            @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                <button type="submit" class="btn btn-light mt-4">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                            @else
+                                <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="course_name" value="{{ $course->title }}">
+                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                    <input type="hidden" name="payment_mode" value="payment">
+                                    <input type="hidden" name="price" value="{{ $course->price }}">
+
+                                    <button type="submit" class="btn btn-light mt-4">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
+                                </form>
+                            @endif
+                        @else
+                            <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light mt-4">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
+                        @endif
                     </div>
                 </div>
             </div>

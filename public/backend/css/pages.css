@@ -261,6 +261,13 @@
 .pages .user-course-name {
     color: black;
 }
+.pages .table .new-icon {
+    color: #088813;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    font-size: 10px;
+}
 
 
 /* Responsive */

@@ -311,12 +311,30 @@
                         <a href="{{ route('backend.communications.ask-questions.index') }}">
                             <img src="{{ asset('storage/backend/sidebar/communication.png') }}" alt="Icon">
                             <span>Ask Questions</span>
+
                             @php
-                                $new_count = App\Models\AskQuestion::where('status', '1')->where('is_new', '1')->count();
+
+                                $new_initial_question_ids = App\Models\AskQuestion::where('status', '1')
+                                    ->where('admin_viewed', '0')
+                                    ->pluck('id')
+                                    ->toArray();
+
+                                $new_initial_questions = count($new_initial_question_ids);
+
+                                $new_replied_questions = App\Models\AskQuestionReply::where('status', '1')
+                                    ->where('admin_viewed', '0')
+                                    ->whereNotIn('ask_question_id', $new_initial_question_ids)
+                                    ->groupBy('ask_question_id')
+                                    ->selectRaw('count(*) as count')
+                                    ->get()
+                                    ->count();
+
+                                $total_count = $new_initial_questions + $new_replied_questions;
+
                             @endphp
 
-                            @if($new_count > 0)
-                                <p class="new-count-badge">{{ $new_count }}</p>
+                            @if($total_count > 0)
+                                <p class="new-count-badge">{{ $total_count }}</p>
                             @endif
                         </a>
                     </li>

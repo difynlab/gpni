@@ -157,6 +157,8 @@ return new class extends Migration
                 'courses_final_exam_locked_tooltip',
                 'courses_no_modules',
                 'courses_return',
+                'gpni_tv_return',
+                'member_corner_return',
                 'courses_about',
                 'courses_content',
                 'courses_guides',

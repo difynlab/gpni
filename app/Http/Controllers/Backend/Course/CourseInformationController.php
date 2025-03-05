@@ -41,8 +41,8 @@ class CourseInformationController extends Controller
             'certification_section_6_team_files.*' => 'nullable|max:30720',
             'new_certification_section_7_video' => 'nullable|max:102400',
             'new_certification_section_9_image' => 'nullable|max:30720',
-            'new_certification_section_10_video' => 'nullable|max:102400',
-            'new_certification_section_11_video' => 'nullable|max:102400',
+            'new_certification_section_10_image' => 'nullable|max:30720',
+            'new_certification_section_11_image' => 'nullable|max:30720',
             'new_certification_section_14_video' => 'nullable|max:102400',
             'new_certification_section_15_video' => 'nullable|max:102400',
 
@@ -56,8 +56,8 @@ class CourseInformationController extends Controller
             'certification_section_6_team_files.*.max' => 'Each image must not be greater than 30 MB',
             'new_certification_section_7_video.max' => 'Video must not be greater than 100 MB',
             'new_certification_section_9_image.max' => 'Image must not be greater than 30 MB',
-            'new_certification_section_10_video.max' => 'Video must not be greater than 100 MB',
-            'new_certification_section_11_video.max' => 'Video must not be greater than 100 MB',
+            'new_certification_section_10_image.max' => 'Image must not be greater than 30 MB',
+            'new_certification_section_10_image.max' => 'Image must not be greater than 30 MB',
             'new_certification_section_14_video.max' => 'Video must not be greater than 100 MB',
             'new_certification_section_15_video.max' => 'Video must not be greater than 100 MB',
 
@@ -205,42 +205,32 @@ class CourseInformationController extends Controller
         // Section 7 video
 
         // Section 7 labels & links
-            $certification_section_7_labels_links = [];
-            if($request->certification_section_7_button_labels) {
-                foreach($request->certification_section_7_button_labels as $key => $certification_section_7_button_label) {
-                    array_push($certification_section_7_labels_links, [
-                        'label' => $certification_section_7_button_label,
-                        'link' => $request->certification_section_7_button_links[$key]
-                    ]);
-                }
-
-                $certification_section_7_labels_links = json_encode($certification_section_7_labels_links);
-            }
-            else {
-                $certification_section_7_labels_links = null;
-            }
+            $certification_section_7_label_link = [
+                'label' => $request->certification_section_7_button_label,
+                'link' => $request->certification_section_7_button_link
+            ];
         // Section 7 labels & links
 
         // Section 9 points
             $certification_section_9_points = $request->certification_section_9_points ? json_encode($request->certification_section_9_points) : null;
         // Section 9 points
 
-        // Section 10 video
-            if($request->file('new_certification_section_10_video')) {
-                if($request->old_certification_section_10_video) {
-                    Storage::delete('public/backend/courses/course-videos/' . $request->old_certification_section_10_video);
+        // Section 10 image
+            if($request->file('new_certification_section_10_image')) {
+                if($request->old_certification_section_10_image) {
+                    Storage::delete('public/backend/courses/course-images/' . $request->old_certification_section_10_image);
                 }
 
-                $new_certification_section_10_video = $request->file('new_certification_section_10_video');
-                $certification_section_10_video_name = Str::random(40) . '.' . $new_certification_section_10_video->getClientOriginalExtension();
-                $new_certification_section_10_video->storeAs('public/backend/courses/course-videos', $certification_section_10_video_name);
+                $new_certification_section_10_image = $request->file('new_certification_section_10_image');
+                $certification_section_10_image_name = Str::random(40) . '.' . $new_certification_section_10_image->getClientOriginalExtension();
+                $new_certification_section_10_image->storeAs('public/backend/courses/course-images', $certification_section_10_image_name);
             }
             else {
-                if($course->certification_section_10_video) {
-                    $certification_section_10_video_name = $request->old_certification_section_10_video;
+                if($course->certification_section_10_image) {
+                    $certification_section_10_image_name = $request->old_certification_section_10_image;
                 }
                 else {
-                    $certification_section_10_video_name = null;
+                    $certification_section_10_image_name = null;
                 }
             }
         // Section 10 video
@@ -271,21 +261,21 @@ class CourseInformationController extends Controller
         // Section 10 points
 
         // Section 11 video
-            if($request->file('new_certification_section_11_video')) {
-                if($request->old_certification_section_11_video) {
-                    Storage::delete('public/backend/courses/course-videos/' . $request->old_certification_section_11_video);
+            if($request->file('new_certification_section_11_image')) {
+                if($request->old_certification_section_11_image) {
+                    Storage::delete('public/backend/courses/course-images/' . $request->old_certification_section_11_image);
                 }
 
-                $new_certification_section_11_video = $request->file('new_certification_section_11_video');
-                $certification_section_11_video_name = Str::random(40) . '.' . $new_certification_section_11_video->getClientOriginalExtension();
-                $new_certification_section_11_video->storeAs('public/backend/courses/course-videos', $certification_section_11_video_name);
+                $new_certification_section_11_image = $request->file('new_certification_section_11_image');
+                $certification_section_11_image_name = Str::random(40) . '.' . $new_certification_section_11_image->getClientOriginalExtension();
+                $new_certification_section_11_image->storeAs('public/backend/courses/course-images', $certification_section_11_image_name);
             }
             else {
-                if($course->certification_section_11_video) {
-                    $certification_section_11_video_name = $request->old_certification_section_11_video;
+                if($course->certification_section_11_image) {
+                    $certification_section_11_image_name = $request->old_certification_section_11_image;
                 }
                 else {
-                    $certification_section_11_video_name = null;
+                    $certification_section_11_image_name = null;
                 }
             }
         // Section 11 video
@@ -324,20 +314,10 @@ class CourseInformationController extends Controller
         // Section 13 points
 
         // Section 13 labels & links
-            $certification_section_13_labels_links = [];
-            if($request->certification_section_13_button_labels) {
-                foreach($request->certification_section_13_button_labels as $key => $certification_section_13_button_label) {
-                    array_push($certification_section_13_labels_links, [
-                        'label' => $certification_section_13_button_label,
-                        'link' => $request->certification_section_13_button_links[$key]
-                    ]);
-                }
-
-                $certification_section_13_labels_links = json_encode($certification_section_13_labels_links);
-            }
-            else {
-                $certification_section_13_labels_links = null;
-            }
+            $certification_section_13_label_link = [
+                'label' => $request->certification_section_13_button_label,
+                'link' => $request->certification_section_13_button_link
+            ];
         // Section 13 labels & links
 
         // Section 14 video
@@ -405,32 +385,15 @@ class CourseInformationController extends Controller
         // Section 15 points
 
         // Section 16 labels & links
-            $certification_section_16_labels_links = [];
-            if($request->certification_section_16_button_labels) {
-                foreach($request->certification_section_16_button_labels as $key => $certification_section_16_button_label) {
-                    array_push($certification_section_16_labels_links, [
-                        'label' => $certification_section_16_button_label,
-                        'link' => $request->certification_section_16_button_links[$key]
-                    ]);
-                }
-
-                $certification_section_16_labels_links = json_encode($certification_section_16_labels_links);
-            }
-            else {
-                $certification_section_16_labels_links = null;
-            }
+            $certification_section_16_label_link = [
+                'label' => $request->certification_section_16_button_label,
+                'link' => $request->certification_section_16_button_link
+            ];
         // Section 16 labels & links
 
         // Master section 2 points
             $master_section_2_points = $request->master_section_2_points ? json_encode($request->master_section_2_points) : null;
         // Master section 2 points
-
-        // Master section 3 label & link
-            $master_section_3_label_link = [
-                'label' => $request->master_section_3_button_label,
-                'link' => $request->master_section_3_button_link
-            ];
-        // Master section 3 label & link
 
         // Master section 4 image
             if($request->file('new_master_section_4_image')) {
@@ -451,13 +414,6 @@ class CourseInformationController extends Controller
                 }
             }
         // Master section 4 image
-
-        // Master section 4 label & link
-            $master_section_4_label_link = [
-                'label' => $request->master_section_4_button_label,
-                'link' => $request->master_section_4_button_link
-            ];
-        // Master section 4 label & link
 
         // Master section 5 label & link
             $master_section_5_label_link = [
@@ -534,18 +490,18 @@ class CourseInformationController extends Controller
             'old_certification_section_6_team_files',
             'old_certification_section_7_video',
             'new_certification_section_7_video',
-            'certification_section_7_button_labels',
-            'certification_section_7_button_links',
+            'certification_section_7_button_label',
+            'certification_section_7_button_link',
             'old_certification_section_9_image',
             'new_certification_section_9_image',
-            'old_certification_section_10_video',
-            'new_certification_section_10_video',
+            'old_certification_section_10_image',
+            'new_certification_section_10_image',
             'certification_section_10_point_titles',
             'certification_section_10_point_descriptions',
             'certification_section_10_button_label',
             'certification_section_10_button_link',
-            'old_certification_section_11_video',
-            'new_certification_section_11_video',
+            'old_certification_section_11_image',
+            'new_certification_section_11_image',
             'certification_section_11_button_label',
             'certification_section_11_button_link',
             'certification_section_12_button_label',
@@ -553,8 +509,8 @@ class CourseInformationController extends Controller
             'certification_section_13_table_first_points',
             'certification_section_13_table_second_points',
             'certification_section_13_table_third_points',
-            'certification_section_13_button_labels',
-            'certification_section_13_button_links',
+            'certification_section_13_button_label',
+            'certification_section_13_button_link',
             'old_certification_section_14_video',
             'new_certification_section_14_video',
             'old_certification_section_15_video',
@@ -563,15 +519,11 @@ class CourseInformationController extends Controller
             'certification_section_15_button_link',
             'certification_section_15_point_titles',
             'certification_section_15_point_descriptions',
-            'certification_section_16_button_labels',
-            'certification_section_16_button_links',
+            'certification_section_16_button_label',
+            'certification_section_16_button_link',
 
-            'master_section_3_button_label',
-            'master_section_3_button_link',
             'old_master_section_4_image',
             'new_master_section_4_image',
-            'master_section_4_button_label',
-            'master_section_4_button_link',
             'master_section_5_button_label',
             'master_section_5_button_link',
             'old_master_section_7_video',
@@ -585,27 +537,25 @@ class CourseInformationController extends Controller
         $data['certification_section_3_points'] = $final_certification_section_3_points;
         $data['certification_section_4_video'] = $certification_section_4_video_name;
         $data['certification_section_6_teams'] = $final_certification_section_6_teams;
-        $data['certification_section_7_labels_links'] = $certification_section_7_labels_links;
+        $data['certification_section_7_label_link'] = $certification_section_7_label_link;
         $data['certification_section_7_video'] = $certification_section_7_video_name;
         $data['certification_section_9_points'] = $certification_section_9_points;
-        $data['certification_section_10_video'] = $certification_section_10_video_name;
+        $data['certification_section_10_image'] = $certification_section_10_image_name;
         $data['certification_section_10_label_link'] = json_encode($certification_section_10_label_link);
         $data['certification_section_10_points'] = $certification_section_10_points;
-        $data['certification_section_11_video'] = $certification_section_11_video_name;
+        $data['certification_section_11_image'] = $certification_section_11_image_name;
         $data['certification_section_11_label_link'] = json_encode($certification_section_11_label_link);
         $data['certification_section_12_label_link'] = json_encode($certification_section_12_label_link);
         $data['certification_section_13_table_points'] = $certification_section_13_table_points;
-        $data['certification_section_13_labels_links'] = $certification_section_13_labels_links;
+        $data['certification_section_13_label_link'] = $certification_section_13_label_link;
         $data['certification_section_14_video'] = $certification_section_14_video_name;
         $data['certification_section_15_video'] = $certification_section_15_video_name;
         $data['certification_section_15_label_link'] = json_encode($certification_section_15_label_link);
         $data['certification_section_15_points'] = $certification_section_15_points;
-        $data['certification_section_16_labels_links'] = $certification_section_16_labels_links;
+        $data['certification_section_16_label_link'] = $certification_section_16_label_link;
 
         $data['master_section_2_points'] = $master_section_2_points;
-        $data['master_section_3_label_link'] = json_encode($master_section_3_label_link);
         $data['master_section_4_image'] = $master_section_4_image_name;
-        $data['master_section_4_label_link'] = json_encode($master_section_4_label_link);
         $data['master_section_5_label_link'] = json_encode($master_section_5_label_link);
         $data['master_section_7_video'] = $master_section_7_video_name;
         $data['master_section_8_videos'] = $final_master_section_8_video_files;

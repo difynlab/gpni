@@ -197,11 +197,11 @@
                                         <label for="age">{{ $student_dashboard_contents->student_profile_member_age }}</label>
                                         <select class="form-control" id="age" name="age">
                                             <option value="">{{ $student_dashboard_contents->student_profile_member_select_age }}</option>
-                                            <option value="29 or younger">{{ $student_dashboard_contents->student_profile_member_first_age }}</option>
-                                            <option value="30-39">{{ $student_dashboard_contents->student_profile_member_second_age }}</option>
-                                            <option value="40-49">{{ $student_dashboard_contents->student_profile_member_third_age }}</option>
-                                            <option value="50-59">{{ $student_dashboard_contents->student_profile_member_fourth_age }}</option>
-                                            <option value="60 plus">{{ $student_dashboard_contents->student_profile_member_fifth_age }}</option>
+                                            <option value="29 or younger" {{ old('age', $student->age) == '29 or younger' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_first_age }}</option>
+                                            <option value="30-39" {{ old('age', $student->age) == '30-39' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_second_age }}</option>
+                                            <option value="40-49" {{ old('age', $student->age) == '40-49' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_third_age }}</option>
+                                            <option value="50-59" {{ old('age', $student->age) == '50-59' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fourth_age }}</option>
+                                            <option value="60 plus" {{ old('age', $student->age) == '60 plus' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fifth_age }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -210,12 +210,12 @@
                                         <label for="area_of_interest">{{ $student_dashboard_contents->student_profile_member_area }}</label>
                                         <select class="form-control" id="area_of_interest" name="area_of_interest">
                                             <option value="">{{ $student_dashboard_contents->student_profile_member_select_area }}</option>
-                                            <option value="Basic and Applied Sciences">{{ $student_dashboard_contents->student_profile_member_first_area }}</option>
-                                            <option value="Medicine">{{ $student_dashboard_contents->student_profile_member_second_area }}</option>
-                                            <option value="Dietetics">{{ $student_dashboard_contents->student_profile_member_third_area }}</option>
-                                            <option value="Research and Development">{{ $student_dashboard_contents->student_profile_member_fourth_area }}</option>
-                                            <option value="Health/ Fitness">{{ $student_dashboard_contents->student_profile_member_fifth_area }}</option>
-                                            <option value="Other">{{ $student_dashboard_contents->student_profile_member_sixth_area }}</option>
+                                            <option value="Basic and Applied Sciences" {{ old('area_of_interest', $student->area_of_interest) == 'Basic and Applied Sciences' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_first_area }}</option>
+                                            <option value="Medicine" {{ old('area_of_interest', $student->area_of_interest) == 'Medicine' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_second_area }}</option>
+                                            <option value="Dietetics" {{ old('area_of_interest', $student->area_of_interest) == 'Dietetics' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_third_area }}</option>
+                                            <option value="Research and Development" {{ old('area_of_interest', $student->area_of_interest) == 'Research and Development' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fourth_area }}</option>
+                                            <option value="Health/ Fitness" {{ old('area_of_interest', $student->area_of_interest) == 'Health/ Fitness' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fifth_area }}</option>
+                                            <option value="Other" {{ old('area_of_interest', $student->area_of_interest) == 'Other' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_sixth_area }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -227,12 +227,12 @@
                                         <label for="occupation">{{ $student_dashboard_contents->student_profile_member_occupation }}</label>
                                         <select class="form-control" id="occupation" name="occupation">
                                             <option value="">{{ $student_dashboard_contents->student_profile_member_select_occupation }}</option>
-                                            <option value="Registered Dietitian/ Sport Dietitian">{{ $student_dashboard_contents->student_profile_member_first_occupation }}</option>
-                                            <option value="Academic Professor/ Researcher">{{ $student_dashboard_contents->student_profile_member_second_occupation }}</option>
-                                            <option value="Industry Product Development/ Sales">{{ $student_dashboard_contents->student_profile_member_third_occupation }}</option>
-                                            <option value="Personal Trainer/ Nutritionist">{{ $student_dashboard_contents->student_profile_member_fourth_occupation }}</option>
-                                            <option value="Private Researcher">{{ $student_dashboard_contents->student_profile_member_fifth_occupation }}</option>
-                                            <option value="Other">{{ $student_dashboard_contents->student_profile_member_sixth_occupation }}</option>
+                                            <option value="Registered Dietitian/ Sport Dietitian" {{ old('occupation', $student->occupation) == 'Registered Dietitian/ Sport Dietitian' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_first_occupation }}</option>
+                                            <option value="Academic Professor/ Researcher" {{ old('occupation', $student->occupation) == 'Academic Professor/ Researcher' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_second_occupation }}</option>
+                                            <option value="Industry Product Development/ Sales" {{ old('occupation', $student->occupation) == 'Industry Product Development/ Sales' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_third_occupation }}</option>
+                                            <option value="Personal Trainer/ Nutritionist" {{ old('occupation', $student->occupation) == 'Personal Trainer/ Nutritionist' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fourth_occupation }}</option>
+                                            <option value="Private Researcher" {{ old('occupation', $student->occupation) == 'Private Researcher' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fifth_occupation }}</option>
+                                            <option value="Other" {{ old('occupation', $student->occupation) == 'Other' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_sixth_occupation }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -241,9 +241,9 @@
                                         <label for="messenger_app">{{ $student_dashboard_contents->student_profile_member_messenger }}</label>
                                         <select class="form-control" id="messenger_app" name="messenger_app">
                                             <option value="">{{ $student_dashboard_contents->student_profile_member_select_messenger }}</option>
-                                            <option value="Skype">{{ $student_dashboard_contents->student_profile_member_first_messenger }}</option>
-                                            <option value="WeChat">{{ $student_dashboard_contents->student_profile_member_second_messenger }}</option>
-                                            <option value="WhatsApp">{{ $student_dashboard_contents->student_profile_member_third_messenger }}</option>
+                                            <option value="Skype" {{ old('messenger_app', $student->messenger_app) == 'Skype' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_first_messenger }}</option>
+                                            <option value="WeChat" {{ old('messenger_app', $student->messenger_app) == 'WeChat' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_second_messenger }}</option>
+                                            <option value="WhatsApp" {{ old('messenger_app', $student->messenger_app) == 'WhatsApp' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_third_messenger }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -259,10 +259,10 @@
                                         <label for="ad_platform">{{ $student_dashboard_contents->student_profile_member_hear }}</label>
                                         <select class="form-control" id="ad_platform" name="ad_platform">
                                             <option value="">{{ $student_dashboard_contents->student_profile_member_select_hear }}</option>
-                                            <option value="Google">{{ $student_dashboard_contents->student_profile_member_first_hear }}</option>
-                                            <option value="Friend">{{ $student_dashboard_contents->student_profile_member_second_hear }}</option>
-                                            <option value="Social Media">{{ $student_dashboard_contents->student_profile_member_third_hear }}</option>
-                                            <option value="Other">{{ $student_dashboard_contents->student_profile_member_fourth_hear }}</option>
+                                            <option value="Google" {{ old('ad_platform', $student->ad_platform) == 'Google' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_first_hear }}</option>
+                                            <option value="Friend" {{ old('ad_platform', $student->ad_platform) == 'Friend' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_second_hear }}</option>
+                                            <option value="Social Media" {{ old('ad_platform', $student->ad_platform) == 'Social Media' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_third_hear }}</option>
+                                            <option value="Other" {{ old('ad_platform', $student->ad_platform) == 'Other' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fourth_hear }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -275,10 +275,9 @@
                             <div class="col-md-12 mb-4">
                                 <h5 class="profile-title mb-3">{{ $student_dashboard_contents->student_profile_self }}</h5>
 
-                                <textarea class="form-control" rows="5" name="self_introduction" placeholder="{{ $student_dashboard_contents->student_profile_self_placeholder }}" style="height: initial;"></textarea>
+                                <textarea class="form-control" rows="5" name="self_introduction" placeholder="{{ $student_dashboard_contents->student_profile_self_placeholder }}" style="height: initial;" value="{{ old('self_introduction') ?? $student->self_introduction }}">{{ old('self_introduction') ?? $student->self_introduction }}</textarea>
                             </div>
                             
-
                             <div class="col-md-12">
                                 <div class="form-group image-upload-container">
                                     <div class="upload-section">

@@ -411,18 +411,20 @@
 
                             <p><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></p>
 
-                            <p><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></p>
+                            <p><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong><span class="membership-credential-status"></span></p>
 
-                            <div>
-                                <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}</strong>
-                                <div class="mt-2 d-flex flex-wrap area-of-interest">
-                                </div>
-                            </div>
+                            <p>
+                                <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
+                                <!-- <div class="mt-2 d-flex flex-wrap area-of-interest">
+                                </div> -->
+                                <span class="area-of-interest"></span>
+                            </p>
 
-                            <div class="mt-3">
-                                <strong>{{ $contents->{'self_introduction_' . $middleware_language} ?? $contents->self_introduction_en }}</strong>
-                                <p class="mt-2 intro-paragraph"></p>
-                            </div>
+                            <p>
+                                <strong>{{ $contents->{'self_introduction_' . $middleware_language} ?? $contents->self_introduction_en }}:</strong>
+                                
+                            </p>
+                            <p class="intro-paragraph"></p>
 
                             <div class="bottom-section">
                                 <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
@@ -456,7 +458,6 @@
                     url: url,
                     type: "GET",
                     success: function(response) {
-                        console.log(response);
                         if(response.nutritionist['image']) {
                             $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
                         }
@@ -474,14 +475,16 @@
                         $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
                         $('#view-modal .credentials').text(response.credentials);
 
-                        let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
-                        let areaOfInterestContainer = $('#view-modal .area-of-interest');
-                        areaOfInterestContainer.empty();
-                        if(areaOfInterests) {
-                            areaOfInterests.forEach(function(interest) {
-                                areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
-                            });
-                        }
+                        $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
+
+                        // let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
+                        // let areaOfInterestContainer = $('#view-modal .area-of-interest');
+                        // areaOfInterestContainer.empty();
+                        // if(areaOfInterests) {
+                        //     areaOfInterests.forEach(function(interest) {
+                        //         areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
+                        //     });
+                        // }
 
                         if(response.nutritionist['is_qualified'] == '1') {
                             $('.qualified-coach').addClass('d-none');
@@ -535,14 +538,7 @@
                     $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
                     $('#view-modal .credentials').text(response.credentials);
 
-                    let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
-                    let areaOfInterestContainer = $('#view-modal .area-of-interest');
-                    areaOfInterestContainer.empty();
-                    if(areaOfInterests) {
-                        areaOfInterests.forEach(function(interest) {
-                            areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
-                        });
-                    }
+                    $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
                     if(response.nutritionist['is_qualified'] == '1') {
                         $('.qualified-coach').addClass('d-none');

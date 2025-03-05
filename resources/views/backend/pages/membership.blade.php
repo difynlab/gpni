@@ -88,15 +88,15 @@
                             <input class="form-control" type="text" id="section_3_lifetime_proceed_{{ $short_code }}" name="section_3_lifetime_proceed_{{ $short_code }}" value="{{ $contents->{'section_3_lifetime_proceed_' . $short_code} ?? '' }}" placeholder="Lifetime Proceed Button">
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <label class="form-label">Already Purchased Button</label>
                             <input class="form-control" type="text" id="section_3_already_purchased_{{ $short_code }}" name="section_3_already_purchased_{{ $short_code }}" value="{{ $contents->{'section_3_already_purchased_' . $short_code} ?? '' }}" placeholder="Already Purchased Button">
                         </div>
 
-                        <!-- <div>
-                            <label class="form-label">Membership Disabled Button</label>
-                            <input class="form-control" type="text" id="section_3_membership_disabled_{{ $short_code }}" name="section_3_membership_disabled_{{ $short_code }}" value="{{ $contents->{'section_3_membership_disabled_' . $short_code} ?? '' }}" placeholder="Membership Disabled Button">
-                        </div> -->
+                        <div>
+                            <label class="form-label">Login for Purchase Button</label>
+                            <input class="form-control" type="text" id="section_3_login_for_purchase_{{ $short_code }}" name="section_3_login_for_purchase_{{ $short_code }}" value="{{ $contents->{'section_3_login_for_purchase_' . $short_code} ?? '' }}" placeholder="Login for Purchase Button">
+                        </div>
                     </div>
 
                     <div class="col-6">
@@ -105,15 +105,15 @@
                             <input class="form-control" type="text" id="section_3_annual_proceed_{{ $short_code }}" name="section_3_annual_proceed_{{ $short_code }}" value="{{ $contents->{'section_3_annual_proceed_' . $short_code} ?? '' }}" placeholder="Annual Proceed Button">
                         </div>
 
-                        <div class="mb-4">
+                        <div>
                             <label class="form-label">Change Language Button</label>
                             <input class="form-control" type="text" id="section_3_change_language_{{ $short_code }}" name="section_3_change_language_{{ $short_code }}" value="{{ $contents->{'section_3_change_language_' . $short_code} ?? '' }}" placeholder="Change Language Button">
                         </div>
 
-                        <div class="mb-4">
-                            <label class="form-label">Login for Purchase Button</label>
-                            <input class="form-control" type="text" id="section_3_login_for_purchase_{{ $short_code }}" name="section_3_login_for_purchase_{{ $short_code }}" value="{{ $contents->{'section_3_login_for_purchase_' . $short_code} ?? '' }}" placeholder="Login for Purchase Button">
-                        </div>
+                        <!-- <div>
+                            <label class="form-label">Membership Disabled Button</label>
+                            <input class="form-control" type="text" id="section_3_membership_disabled_{{ $short_code }}" name="section_3_membership_disabled_{{ $short_code }}" value="{{ $contents->{'section_3_membership_disabled_' . $short_code} ?? '' }}" placeholder="Membership Disabled Button">
+                        </div> -->
                     </div>
                 </div>
 
@@ -178,20 +178,23 @@
                 </div>
 
                 <div class="row form-input">
+                    <div class="col-12">
+                        <label for="section_4_label_{{ $short_code }}" class="form-label">Label</label>
+                        <input type="text" class="form-control" id="section_4_label_{{ $short_code }}" name="section_4_label_{{ $short_code }}" value="{{ $contents->{'section_4_label_' . $short_code} ?? '' }}" placeholder="Label">
+                    </div>
+                </div>
+
+                <div class="row form-input">
                     <div class="col-3">
                         <label class="form-label">Button Label</label>
 
-                        <input type="text" class="form-control mb-3" name="section_4_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_4_labels_links_' . $short_code})[0]->label ?? '' }}">
-
-                        <input type="text" class="form-control" name="section_4_button_labels[]" placeholder="Label" value="{{ json_decode($contents->{'section_4_labels_links_' . $short_code})[1]->label ?? '' }}">
+                        <input class="form-control" type="text" name="section_4_button_label" value="{{ json_decode($contents->{'section_4_label_link_' . $short_code})->label ?? '' }}" placeholder="Label">
                     </div>
 
                     <div class="col-9">
                         <label class="form-label">Link</label>
 
-                        <input type="url" class="form-control mb-3" name="section_4_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_4_labels_links_' . $short_code})[0]->link ?? '' }}">
-
-                        <input type="url" class="form-control" name="section_4_button_links[]" placeholder="Link" value="{{ json_decode($contents->{'section_4_labels_links_' . $short_code})[1]->link ?? '' }}">
+                        <input class="form-control" type="text" name="section_4_button_link" value="{{ json_decode($contents->{'section_4_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
                     </div>
                 </div>
             </div>

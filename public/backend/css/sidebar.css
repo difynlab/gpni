@@ -56,7 +56,7 @@
       height: 25px;
   }
   .wrapper .sidebar .main-menu .main-menu-link:hover > .sub-menu {
-      display: block;
+      width: 280px;
   }
 /* Main menu */
 
@@ -65,28 +65,24 @@
     .wrapper .sidebar .sub-menu {
         position: absolute;
         background-color: #F7BF2E;
-        width: 280px;
+        width: 0;
         top: 0;
         left: 100%;
         padding: 0;
         list-style-type: none;
-        display: none;
-        transition: opacity 0.3s, visibility 0.3s;
-        overflow-y: hidden;
+        transition: width 0.3s;
+        height: 300px;
+        overflow-y: scroll;
         overflow-x: hidden;
     }
-    .wrapper .sidebar .sub-menu.scrollable {
-        /* max-height: calc(100vh - 500px); */
-        overflow-y: auto;
-    }
-    .wrapper .sidebar .sub-menu.scrollable::-webkit-scrollbar {
+    .wrapper .sidebar .sub-menu::-webkit-scrollbar {
         width: 8px;
     }
-    .wrapper .sidebar .sub-menu.scrollable::-webkit-scrollbar-track {
+    .wrapper .sidebar .sub-menu::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         border-radius: 4px;
     }
-    .wrapper .sidebar .sub-menu.scrollable::-webkit-scrollbar-thumb {
+    .wrapper .sidebar .sub-menu::-webkit-scrollbar-thumb {
         background-color: #1F9254;
         border-radius: 4px;
     }
@@ -113,7 +109,10 @@
         background-color: #0040C3;
     }
     .wrapper .sidebar .sub-menu .sub-menu-link:hover > .sub-sub-menu {
-        display: block;
+        width: 220px;
+        height: initial;
+        visibility: visible;
+        margin-top: 10px;
     }
     .wrapper .sidebar .sub-menu .sub-menu-link:hover > a {
         color: white;
@@ -129,17 +128,16 @@
 
 /* Sub sub menu */
     .wrapper .sidebar .sub-sub-menu {
-        /* position: absolute; */
+        position: relative;
         background-color: #F7BF2E;
-        /* height: auto; */
-        /* width: 220px; */
-        /* top: 0;
-        left: 100%; */
-        margin-top: 5%;
+        width: 0;
+        height: 0;
+        left: 0%;
         padding: 0;
         list-style-type: none;
-        display: none;
-        transition: opacity 0.3s, visibility 0.3s;
+        visibility: hidden;
+        transition: width 0.3s, height 0.3s;
+        margin-top: 0;
     }
     .wrapper .sidebar .sub-sub-menu .sub-sub-menu-link {
         padding: 15px 20px;

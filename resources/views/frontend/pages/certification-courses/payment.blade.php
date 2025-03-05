@@ -156,8 +156,6 @@
                     let subTotal = parseFloat(initialCoursePrice + initialMaterialPrice).toFixed(2);
                     $('#sub-total span').text(subTotal);
 
-                    console.log(initialGiftPrice, initialCoursePrice, initialMaterialPrice);
-
                     if(initialGiftPrice < (initialCoursePrice + initialMaterialPrice)) {
                         let totalPrice = parseFloat(initialTotalPrice + initialMaterialPrice).toFixed(2);
                         $('#total-amount span').text(totalPrice);

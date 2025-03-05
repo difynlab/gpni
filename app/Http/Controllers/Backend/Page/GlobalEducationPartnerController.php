@@ -80,13 +80,6 @@ class GlobalEducationPartnerController extends Controller
             }
         // Section 2 points
 
-        // Section 4 labels & links
-            $section_4_label_link = [
-                'label' => $request->section_4_button_label,
-                'link' => $request->section_4_button_link
-            ];
-        // Section 4 labels & links
-
         // Section 5 images
             $section_5_point_images = $request->section_5_old_point_images ?? [];
 
@@ -143,8 +136,6 @@ class GlobalEducationPartnerController extends Controller
             'section_2_points_course_name',
             'section_2_points',
             'section_3_languages',
-            'section_4_button_label',
-            'section_4_button_link',
             'section_5_old_point_images',
             'section_5_point_images',
             'section_5_point_contents'
@@ -152,7 +143,6 @@ class GlobalEducationPartnerController extends Controller
 
         $data['section_2_points_' . '' . $short_code] = $section_2_points;
         $data['section_3_languages_' . '' . $short_code] = $request->section_3_languages ? json_encode($request->section_3_languages) : null;
-        $data['section_4_label_link_' . '' . $short_code] = json_encode($section_4_label_link);
         $data['section_5_points_' . '' . $short_code] = $section_5_points;
 
         $contents->fill($data)->save();

@@ -16,9 +16,26 @@
 
             <div class="col-12 col-lg-8 main-content ps-lg-5">
                 <div class="module-container">
+                    @php
+                        use Illuminate\Support\Str;
+
+                        $previous_url = url()->previous();
+                        $last_segment = Str::afterLast($previous_url, '/');
+
+                        if($last_segment === 'courses') {
+                            $return_text = $student_dashboard_contents->courses_return;
+                        }
+                        elseif($last_segment === 'member-corner') {
+                            $return_text = $student_dashboard_contents->member_corner_return;
+                        }
+                        else {
+                            $return_text = $student_dashboard_contents->gpni_tv_return;
+                        }
+                    @endphp
+
                     <a href="{{ route('frontend.courses.index') }}" class="return-link">
                         <img src="{{ asset('storage/frontend/left-chevron-icon.svg') }}" alt="Arrow Left" width="20" height="20">
-                        {{ $student_dashboard_contents->courses_return }}
+                        {{ $return_text }}
                     </a>
                     <h1 class="module-title">{{ $course->title }}</h1>
 

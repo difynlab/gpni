@@ -192,16 +192,9 @@
                 </div>
 
                 <div class="row form-input">
-                    <div class="col-3">
-                        <label class="form-label">Button Label</label>
-
-                        <input class="form-control mb-3" type="text" name="section_4_button_label" value="{{ json_decode($contents->{'section_4_label_link_' . $short_code})->label ?? '' }}" placeholder="Label">
-                    </div>
-
-                    <div class="col-9">
-                        <label class="form-label">Link</label>
-
-                        <input class="form-control mb-3" type="text" name="section_4_button_link" value="{{ json_decode($contents->{'section_4_label_link_' . $short_code})->link ?? '' }}" placeholder="Link">
+                    <div class="col-12">
+                        <label for="section_4_label_{{ $short_code }}" class="form-label">Label</label>
+                        <input type="text" class="form-control" id="section_4_label_{{ $short_code }}" name="section_4_label_{{ $short_code }}" value="{{ $contents->{'section_4_label_' . $short_code} ?? '' }}" placeholder="Label">
                     </div>
                 </div>
             </div>

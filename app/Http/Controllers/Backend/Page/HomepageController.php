@@ -93,13 +93,10 @@ class HomepageController extends Controller
         // Section 1 image
 
         // Section 1 labels & links
-            $section_1_labels_links = [];
-            foreach($request->section_1_button_labels as $key => $section_1_button_label) {
-                array_push($section_1_labels_links, [
-                    'label' => $section_1_button_label,
-                    'link' => $request->section_1_button_links[$key]
-                ]);
-            }
+            $section_1_label_link = [
+                'label' => $request->section_1_button_label,
+                'link' => $request->section_1_button_link
+            ];
         // Section 1 labels & links
 
         // Section 2 video
@@ -121,13 +118,6 @@ class HomepageController extends Controller
                 }
             }
         // Section 2 video
-
-        // Section 3 labels & links
-            $section_3_label_link = [
-                'label' => $request->section_3_button_label,
-                'link' => $request->section_3_button_link
-            ];
-        // Section 3 labels & links
 
         // Section 4 video
             if($request->file('new_section_4_video')) {
@@ -180,13 +170,10 @@ class HomepageController extends Controller
         // Section 5 images
 
         // Section 6 labels & links
-            $section_6_labels_links = [];
-            foreach($request->section_6_button_labels as $key => $section_6_button_label) {
-                array_push($section_6_labels_links, [
-                    'label' => $section_6_button_label,
-                    'link' => $request->section_6_button_links[$key]
-                ]);
-            }
+            $section_6_label_link = [
+                'label' => $request->section_6_button_label,
+                'link' => $request->section_6_button_link
+            ];
         // Section 6 labels & links
 
         // Section 7 labels & links
@@ -209,18 +196,16 @@ class HomepageController extends Controller
         $data = $request->except(
             'old_section_1_image',
             'new_section_1_image',
-            'section_1_button_labels',
-            'section_1_button_links',
+            'section_1_button_label',
+            'section_1_button_link',
             'old_section_2_video',
             'new_section_2_video',
-            'section_3_button_label',
-            'section_3_button_link',
             'old_section_4_video',
             'new_section_4_video',
             'old_section_5_images',
             'new_section_5_images',
-            'section_6_button_labels',
-            'section_6_button_links',
+            'section_6_button_label',
+            'section_6_button_link',
             'section_7_button_label',
             'section_7_button_link',
             'section_8_button_labels',
@@ -228,13 +213,12 @@ class HomepageController extends Controller
         );
 
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
-        $data['section_1_labels_links_' . '' . $short_code] = json_encode($section_1_labels_links);
+        $data['section_1_label_link_' . '' . $short_code] = json_encode($section_1_label_link);
         $data['section_2_video_' . '' . $short_code] = $section_2_video_name;
         $data['section_2_points_' . '' . $short_code] = json_encode($data['section_2_points_' . '' . $short_code]);
-        $data['section_3_label_link_' . '' . $short_code] = json_encode($section_3_label_link);
         $data['section_4_video_' . '' . $short_code] = $section_4_video_name;
         $data['section_5_images_' . '' . $short_code] = $section_5_images;
-        $data['section_6_labels_links_' . '' . $short_code] = json_encode($section_6_labels_links);
+        $data['section_6_label_link_' . '' . $short_code] = json_encode($section_6_label_link);
         $data['section_7_label_link_' . '' . $short_code] = json_encode($section_7_label_link);
         $data['section_8_labels_links_' . '' . $short_code] = json_encode($section_8_labels_links);
 

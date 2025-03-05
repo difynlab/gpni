@@ -38,18 +38,15 @@ class PodcastController extends Controller
         $contents = PodcastContent::find(1);
 
         // Section 3 labels & links
-            $section_3_labels_links = [];
-            foreach($request->section_3_button_labels as $key => $section_3_button_label) {
-                array_push($section_3_labels_links, [
-                    'label' => $section_3_button_label,
-                    'link' => $request->section_3_button_links[$key]
-                ]);
-            }
+            $section_3_label_link = [
+                'label' => $request->section_3_button_label,
+                'link' => $request->section_3_button_link
+            ];
         // Section 3 labels & links
 
         $data = $request->except(
-            'section_3_button_labels',
-            'section_3_button_links'
+            'section_3_button_label',
+            'section_3_button_link'
         );
         
         switch($language){
@@ -67,7 +64,7 @@ class PodcastController extends Controller
                 break;
         }
 
-        $data['section_3_labels_links_' . '' . $short_code] = json_encode($section_3_labels_links);
+        $data['section_3_label_link_' . '' . $short_code] = json_encode($section_3_label_link);
 
         $contents->fill($data)->save();
 

@@ -109,9 +109,11 @@
                 <h2 class="section-title fs-49">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h2>
                 <p class="section-subtitle fs-25">{{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}</p>
 
-                <div class="text-center mt-3">
-                    <a href="{{ json_decode($contents->{'section_4_label_link_' . $middleware_language})->link ?? json_decode($contents->section_4_label_link_en)->link }}" class="btn signup-btn">{{ json_decode($contents->{'section_4_label_link_' . $middleware_language})->label ?? json_decode($contents->section_4_label_link_en)->label }}</a>
-                </div>
+                @guest
+                    <div class="text-center mt-3">
+                        <a href="{{ route('frontend.register') }}" class="btn signup-btn">{{ $contents->{'section_4_label_' . $middleware_language} ?? $contents->section_4_label_link_en }}</a>
+                    </div>
+                @endguest
             </div>
         </section>
     @endif
