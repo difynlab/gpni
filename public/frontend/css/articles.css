@@ -483,14 +483,47 @@ body {
 
 .video-section {
     margin-bottom: 30px;
+    max-width: 1380px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .video-placeholder {
     width: 100%;
+    height: 480px;
     background-color: black;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
+.video-placeholder video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Update media queries to handle responsive behavior */
+@media screen and (max-width: 1400px) {
+    .video-section {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .video-placeholder {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .video-placeholder {
+        height: 240px;
+    }
+}
 
 .video-section + .row {
     margin-top: 8%;

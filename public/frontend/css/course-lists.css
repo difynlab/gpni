@@ -35,13 +35,13 @@
     flex-grow: 1;
 }
 .course-info h2 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: #000;
     margin-bottom: 5px;
 }
 .course-info p {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     color: #898989;
     margin: 0;
@@ -53,7 +53,7 @@
 }
 .course-actions a {
     color: #0040c3;
-    font-size: 12.25px;
+    font-size: 12.50px;
     font-weight: 400;
     text-decoration: none;
     display: flex;
