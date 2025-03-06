@@ -364,7 +364,11 @@
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_10_video) }}" type="video/mp4">
                         </video> -->
 
-                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_10_image) }}" class="section-10-image" alt="Image">
+                        @if($course->certification_section_10_image)
+                            <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_10_image) }}" alt="Image" class="section-10-image">
+                        @else
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="section-10-image">
+                        @endif
                         
                         @if($course->certification_section_10_points)
                             <div class="accordion" id="accordionExample">
@@ -399,7 +403,12 @@
                                 <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_11_video) }}" type="video/mp4">
                             </video>
                         </div> -->
-                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_11_image) }}" class="section-10-image" alt="Image">
+
+                        @if($course->certification_section_11_image)
+                            <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_11_image) }}" alt="Image" class="section-10-image">
+                        @else
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="section-10-image">
+                        @endif
                     </div>
                     <div class="col-lg-6">
                         {!!  $course->certification_section_11_content !!}
