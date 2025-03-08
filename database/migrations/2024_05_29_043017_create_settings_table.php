@@ -15,19 +15,39 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('email')->nullable();
-            $table->string('whatsapp')->nullable();
+            $table->string('email_en')->nullable();
+            $table->string('whatsapp_en')->nullable();
+            $table->string('email_zh')->nullable();
+            $table->string('whatsapp_zh')->nullable();
+            $table->string('email_ja')->nullable();
+            $table->string('whatsapp_ja')->nullable();
             $table->string('logo');
             $table->string('footer_logo');
             $table->string('favicon');
 
-            $table->string('fb')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('weibo')->nullable();
-            $table->string('weixin')->nullable();
-            $table->string('youtube')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('twitter')->nullable();
+            $table->string('fb_en')->nullable();
+            $table->string('instagram_en')->nullable();
+            $table->string('weibo_en')->nullable();
+            $table->string('weixin_en')->nullable();
+            $table->string('youtube_en')->nullable();
+            $table->string('linkedin_en')->nullable();
+            $table->string('twitter_en')->nullable();
+
+            $table->string('fb_zh')->nullable();
+            $table->string('instagram_zh')->nullable();
+            $table->string('weibo_zh')->nullable();
+            $table->string('weixin_zh')->nullable();
+            $table->string('youtube_zh')->nullable();
+            $table->string('linkedin_zh')->nullable();
+            $table->string('twitter_zh')->nullable();
+
+            $table->string('fb_ja')->nullable();
+            $table->string('instagram_ja')->nullable();
+            $table->string('weibo_ja')->nullable();
+            $table->string('weixin_ja')->nullable();
+            $table->string('youtube_ja')->nullable();
+            $table->string('linkedin_ja')->nullable();
+            $table->string('twitter_ja')->nullable();
 
             $table->string('guest_image');
             $table->string('no_image');

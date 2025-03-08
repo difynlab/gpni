@@ -17,32 +17,32 @@
 
                 <div class="row">
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->instagram }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'instagram_' . $middleware_language} ?? App\Models\Setting::find(1)->instagram_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/instagram.svg') }}" alt="Instagram" width="12" height="13">
                             {{ $contents->{'footer_instagram_' . $middleware_language} ?? $contents->footer_instagram_en }}
                         </a>
                     </div>
 
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->fb }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'fb_' . $middleware_language} ?? App\Models\Setting::find(1)->fb_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/facebook.svg') }}" alt="Facebook" width=" 8" height="15" ;>
                             {{ $contents->{'footer_facebook_' . $middleware_language} ?? $contents->footer_facebook_en }}
                         </a>
                     </div>
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->youtube }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'youtube_' . $middleware_language} ?? App\Models\Setting::find(1)->youtube_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/youtube.svg') }}" alt="YouTube" width="15" height="10">
                             {{ $contents->{'footer_youtube_' . $middleware_language} ?? $contents->footer_youtube_en }}
                         </a>
                     </div>
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->twitter }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'twitter_' . $middleware_language} ?? App\Models\Setting::find(1)->twitter_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/twitter.svg') }}" alt="Twitter" width="12" height="12">
                             {{ $contents->{'footer_twitter_' . $middleware_language} ?? $contents->footer_twitter_en }}
                         </a>
                     </div>
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->linkedin }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'linkedin_' . $middleware_language} ?? App\Models\Setting::find(1)->linkedin_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/linkedin.svg') }}" alt="LinkedIn" width="13" height="12">
                             {{ $contents->{'footer_linkedin_' . $middleware_language} ?? $contents->footer_linkedin_en }}
                         </a>
