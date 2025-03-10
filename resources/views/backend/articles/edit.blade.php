@@ -22,6 +22,11 @@
                         </div>
 
                         <div class="mb-4">
+                            <label for="short_description" class="form-label">Short Description</label>
+                            <input type="short_description" class="form-control" id="short_description" name="short_description" value="{{ old('short_description', $article->short_description) }}" placeholder="Short Description">
+                        </div>
+
+                        <div class="mb-4">
                             <label for="article_category_id" class="form-label">Article Category<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="article_category_id" name="article_category_id" required>
                                 <option value="">Select article category</option>
@@ -31,7 +36,7 @@
                             </select>
                         </div>
 
-                        <div class="mb-4">
+                        <div>
                             <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="language" name="language" required>
                                 <option value="English" {{ old('language', $article->language) == 'English' ? 'selected' : '' }}>English</option>
@@ -39,17 +44,18 @@
                                 <option value="Japanese" {{ old('language', $article->language) == 'Japanese' ? 'selected' : '' }}>Japanese</option>
                             </select>
                         </div>
-                        
-                        <div>
-                            <label for="content" class="form-label">Content</label>
-                            <textarea class="editor" id="content" name="content" value="{{ old('content', $article->content) }}">{{ old('content', $article->content) }}</textarea>
-                        </div>
                     </div>
+
                     <div class="col-5 full-height">
                         <x-backend.upload-image old_name="old_thumbnail" old_value="{{ $article->thumbnail ?? old('thumbnail') }}" new_name="new_thumbnail" path="articles/articles" class="side-box-uploader"></x-backend.upload-image>
                         <x-backend.input-error field="new_thumbnail"></x-backend.input-error>
                     </div>
                 </div>
+            </div>
+
+            <div class="section">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="editor" id="content" name="content" value="{{ old('content', $article->content) }}">{{ old('content', $article->content) }}</textarea>
             </div>
 
             <!-- <div class="section">

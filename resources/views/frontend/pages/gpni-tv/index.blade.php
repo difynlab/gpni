@@ -54,7 +54,7 @@
                 @foreach($small_courses as $small_course)
                     <div class="col-md-4 col-sm-6 col-12 mb-4">
                         <div class="card h-100 mx-1">
-                            <a href="{{ route('frontend.gpni-tv.show', [$small_course, Str::slug($small_course->title)]) }}">
+                            <a href="{{ route('frontend.gpni-tv.show', [$small_course, \Overtrue\Pinyin\Pinyin::permalink($small_course->title)]) }}">
                                 @if($small_course->image)
                                     <img src="{{ asset('storage/backend/courses/course-images/' . $small_course->image) }}" class="card-img-top" alt="Card Image">
                                 @else

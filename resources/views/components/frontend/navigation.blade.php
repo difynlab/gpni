@@ -100,7 +100,7 @@
                                     @if($certificate_courses->isNotEmpty())
                                         @foreach($certificate_courses as $certificate_course)
                                             <li>
-                                                <a class="dropdown-item fs-20" href="{{ route('frontend.certification-courses.show', [$certificate_course, Str::slug($certificate_course->title)]) }}">{{ $certificate_course->title }}</a>
+                                                <a class="dropdown-item fs-20" href="{{ route('frontend.certification-courses.show', [$certificate_course, \Overtrue\Pinyin\Pinyin::permalink($certificate_course->title)]) }}">{{ $certificate_course->title }}</a>
                                             </li>
                                         @endforeach
                                     @endif
