@@ -31,14 +31,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="firstName" class="form-label">{{ $contents->{'register_page_first_name_' . $middleware_language} ?? $contents->register_page_first_name_en }}</label>
-                                    <input type="text" class="form-control" id="firstName" name="first_name"value="{{ old('first_name') }}" required>
+                                    <input type="text" class="form-control" id="firstName" name="first_name" value="{{ old('first_name') }}" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lastName" class="form-label">{{ $contents->{'register_page_last_name_' . $middleware_language} ?? $contents->register_page_last_name_en }}</label>
-                                    <input type="text" class="form-control" id="lastName" name="last_name"
-                                        placeholder="Enter your last name" value="{{ old('last_name') }}" required>
+                                    <input type="text" class="form-control" id="lastName" name="last_name" value="{{ old('last_name') }}" required>
                                 </div>
                             </div>
                         </div>
