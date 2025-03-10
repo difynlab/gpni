@@ -20,9 +20,23 @@
                 <div class="container">
                     <div class="video-placeholder">
                         @if($contents->{'section_1_video_' . $middleware_language})
-                            <video src="{{ asset('storage/backend/pages/' . $contents->{'section_1_video_' . $middleware_language} ?? '') }}" controls class="w-100"></video>
+                            <video src="{{ asset('storage/backend/pages/' . $contents->{'section_1_video_' . $middleware_language} ?? '') }}" 
+                                autoplay 
+                                muted 
+                                loop 
+                                playsinline 
+                                controls 
+                                class="w-100">
+                            </video>
                         @elseif($contents->section_1_video_en)
-                            <video src="{{ asset('storage/backend/pages/' . $contents->section_1_video_en ?? '') }}" controls class="w-100"></video>
+                            <video src="{{ asset('storage/backend/pages/' . $contents->section_1_video_en ?? '') }}" 
+                                autoplay 
+                                muted 
+                                loop 
+                                playsinline 
+                                controls 
+                                class="w-100">
+                            </video>
                         @else
                             <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid w-100" alt="Header Image">
                         @endif

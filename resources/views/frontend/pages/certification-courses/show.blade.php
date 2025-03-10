@@ -351,14 +351,11 @@
 
 
         @if($course->certification_section_10_content)
-            <section class="cissn-section container py-md-5 py-2">
-                <div class="row align-items-start">
+            <section class="cissn-section bg-blue container py-md-5 py-2">
+                <div class="row align-items-start text-white">  <!-- Added text-white class -->
                     <div class="col-lg-6">
-                        <div>{!! $course->certification_section_10_content !!}</div>
-
-                        <!-- <a href="{{ json_decode($course->certification_section_10_label_link)->link }}" class="btn-custom btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ json_decode($course->certification_section_10_label_link)->label }}</a> -->
+                        <div class="text-white">{!! $course->certification_section_10_content !!}</div>
                     </div>
-
                     <div class="col-lg-6">
                         <!-- <video controls class="section-10-video">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_10_video) }}" type="video/mp4">
@@ -373,16 +370,16 @@
                         @if($course->certification_section_10_points)
                             <div class="accordion" id="accordionExample">
                                 @foreach(json_decode($course->certification_section_10_points) as $key => $certification_section_10_point)
-                                    <div class="accordion-item">
+                                    <div class="accordion-item bg-transparent"> <!-- Added bg-transparent -->
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapse{{ $key }}" aria-expanded="false" aria-controls="collapse{{ $key }}">
-                                                <span class="cissn-collapse-title">{{ $certification_section_10_point->title }}</span>
+                                                <span class="cissn-collapse-title text-white">{{ $certification_section_10_point->title }}</span>
                                             </button>
                                         </h2>
                                         <div id="collapse{{ $key }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p class="cissn-collapse-content">{{ $certification_section_10_point->description }}</p>
+                                                <p class="cissn-collapse-content text-white">{{ $certification_section_10_point->description }}</p>
                                             </div>
                                         </div>
                                     </div>
