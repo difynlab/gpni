@@ -13,16 +13,12 @@ class CoursePurchaseMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
-    public $course;
-
     /**
      * Create a new message instance.
      */
-    public function __construct($user, $course)
+    public function __construct(public $mail_data)
     {
-        $this->user = $user;
-        $this->course = $course;
+        //
     }
 
     /**
@@ -41,7 +37,7 @@ class CoursePurchaseMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.course_purchase',
+            view: 'mail.course-purchase',
         );
     }
 }
