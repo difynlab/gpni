@@ -12,6 +12,9 @@ use App\Models\Testimonial;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CoursePurchaseMail;
+
 
 class CertificationCourseController extends Controller
 {
@@ -229,7 +232,8 @@ class CertificationCourseController extends Controller
                 $wallet->save();
             }
         }
-
+        $user = Auth::user();
+        Mail::to($user->email)->send(new CoursePurchaseMail($user, $course));
         return redirect()->route('frontend.homepage')->with('success', 'Course purchased successfully');
     }
 }

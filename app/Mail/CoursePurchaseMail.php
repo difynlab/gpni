@@ -13,12 +13,16 @@ class CoursePurchaseMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
+    public $course;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($user, $course)
     {
-        //
+        $this->user = $user;
+        $this->course = $course;
     }
 
     /**
@@ -27,7 +31,7 @@ class CoursePurchaseMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Course Purchase Mail',
+            subject: 'Course Purchase Confirmation',
         );
     }
 
@@ -37,17 +41,7 @@ class CoursePurchaseMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.course_purchase',
         );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
     }
 }
