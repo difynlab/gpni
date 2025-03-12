@@ -140,6 +140,7 @@ class HomepageController extends Controller
         // Section 4 video
 
         // Section 5 images
+            
             if($request->file('new_section_5_images') != null) {
                 if($request->old_section_5_images) {
                     $encoded_string = htmlspecialchars_decode($request->old_section_5_images);
@@ -160,7 +161,7 @@ class HomepageController extends Controller
                 $section_5_images = json_encode($section_5_images);
             }
             else {
-                if($contents->{'section_5_image_' . $short_code}) {
+                if($contents->{'section_5_images_' . $short_code}) {
                     $section_5_images = htmlspecialchars_decode($request->old_section_5_images);
                 }
                 else {

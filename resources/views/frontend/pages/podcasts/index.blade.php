@@ -55,7 +55,7 @@
                             <div class="podcast-main-title fs-25 line-clamp-2">{{ $podcast->title }}</div>
                             <div class="podcast-description fs-20 line-clamp-4">{!! $podcast->content !!}</div>
                             <div class="podcast-link d-flex align-items-center gap-2 pt-1 pb-1">
-                                <a href="{{ route('frontend.podcasts.show', [$podcast, Str::slug($podcast->title)]) }}" class="text-decoration-none">
+                                <a href="{{ route('frontend.podcasts.show', [$podcast, \Overtrue\Pinyin\Pinyin::permalink($podcast->title)]) }}" class="text-decoration-none">
                                     <span class="fs-20">{{ $contents->{'section_2_watch_' . $middleware_language} ?? $contents->section_2_watch_en }}</span>
                                     <img src="{{ asset('storage/frontend/medium-arrow-right.svg') }}" alt="Watch Icon">
                                 </a>

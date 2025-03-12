@@ -51,13 +51,33 @@
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="email" class="form-label">Email<span class="asterisk">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $settings->email) }}" placeholder="Email" required>
+                        <label for="email_en" class="form-label">Email (English)<span class="asterisk">*</span></label>
+                        <input type="email" class="form-control" id="email_en" name="email_en" value="{{ old('email_en', $settings->email_en) }}" placeholder="Email" required>
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="whatsapp" class="form-label">Whatsapp</label>
-                        <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ old('whatsapp', $settings->whatsapp) }}" placeholder="Whatsapp">
+                        <label for="whatsapp_en" class="form-label">Whatsapp (English)</label>
+                        <input type="text" class="form-control" id="whatsapp_en" name="whatsapp_en" value="{{ old('whatsapp_en', $settings->whatsapp_en) }}" placeholder="Whatsapp">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="email_zh" class="form-label">Email (Chinese)</label>
+                        <input type="email" class="form-control" id="email_zh" name="email_zh" value="{{ old('email_zh', $settings->email_zh) }}" placeholder="Email">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="whatsapp_zh" class="form-label">Whatsapp (Chinese)</label>
+                        <input type="text" class="form-control" id="whatsapp_zh" name="whatsapp_zh" value="{{ old('whatsapp_zh', $settings->whatsapp_zh) }}" placeholder="Whatsapp">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="email_ja" class="form-label">Email (Japanese)</label>
+                        <input type="email" class="form-control" id="email_ja" name="email_ja" value="{{ old('email_ja', $settings->email_ja) }}" placeholder="Email">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="whatsapp_ja" class="form-label">Whatsapp (Japanese)</label>
+                        <input type="text" class="form-control" id="whatsapp_ja" name="whatsapp_ja" value="{{ old('whatsapp_ja', $settings->whatsapp_ja) }}" placeholder="Whatsapp">
                     </div>
 
                     <div class="col-6">
@@ -77,38 +97,116 @@
 
                 <div class="row form-input">
                     <div class="col-6 mb-4">
-                        <label for="fb" class="form-label">FB</label>
-                        <input type="url" class="form-control" id="fb" name="fb" value="{{ old('fb', $settings->fb) }}" placeholder="FB">
+                        <label for="fb_en" class="form-label">FB (English)</label>
+                        <input type="url" class="form-control" id="fb_en" name="fb_en" value="{{ old('fb_en', $settings->fb_en) }}" placeholder="FB">
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="instagram" class="form-label">Instagram</label>
-                        <input type="url" class="form-control" id="instagram" name="instagram" value="{{ old('instagram', $settings->instagram) }}" placeholder="Instagram">
+                        <label for="instagram_en" class="form-label">Instagram (English)</label>
+                        <input type="url" class="form-control" id="instagram_en" name="instagram_en" value="{{ old('instagram_en', $settings->instagram_en) }}" placeholder="Instagram">
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="weibo" class="form-label">Weibo</label>
-                        <input type="url" class="form-control" id="weibo" name="weibo" value="{{ old('weibo', $settings->weibo) }}" placeholder="Weibo">
+                        <label for="weibo_en" class="form-label">Weibo (English)</label>
+                        <input type="url" class="form-control" id="weibo_en" name="weibo_en" value="{{ old('weibo_en', $settings->weibo_en) }}" placeholder="Weibo">
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="weixin" class="form-label">Weixin</label>
-                        <input type="url" class="form-control" id="weixin" name="weixin" value="{{ old('weixin', $settings->weixin) }}" placeholder="Weixin">
+                        <label for="weixin_en" class="form-label">Weixin (English)</label>
+                        <input type="url" class="form-control" id="weixin_en" name="weixin_en" value="{{ old('weixin_en', $settings->weixin_en) }}" placeholder="Weixin">
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="youtube" class="form-label">Youtube</label>
-                        <input type="url" class="form-control" id="youtube" name="youtube" value="{{ old('youtube', $settings->youtube) }}" placeholder="Youtube">
+                        <label for="youtube_en" class="form-label">Youtube (English)</label>
+                        <input type="url" class="form-control" id="youtube_en" name="youtube_en" value="{{ old('youtube_en', $settings->youtube_en) }}" placeholder="Youtube">
                     </div>
 
                     <div class="col-6 mb-4">
-                        <label for="linkedin" class="form-label">Linkedin</label>
-                        <input type="url" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin', $settings->linkedin) }}" placeholder="Linkedin">
+                        <label for="linkedin_en" class="form-label">Linkedin (English)</label>
+                        <input type="url" class="form-control" id="linkedin_en" name="linkedin_en" value="{{ old('linkedin_en', $settings->linkedin_en) }}" placeholder="Linkedin">
                     </div>
 
                     <div class="col-6">
-                        <label for="twitter" class="form-label">Twitter</label>
-                        <input type="url" class="form-control" id="twitter" name="twitter" value="{{ old('twitter', $settings->twitter) }}" placeholder="Twitter">
+                        <label for="twitter_en" class="form-label">Twitter (English)</label>
+                        <input type="url" class="form-control" id="twitter_en" name="twitter_en" value="{{ old('twitter_en', $settings->twitter_en) }}" placeholder="Twitter">
+                    </div>
+                </div>
+
+                <hr style="border: 1px solid rgb(195 195 195); margin-top: 0; margin-bottom: 1.5%;">
+
+                <div class="row form-input">
+                    <div class="col-6 mb-4">
+                        <label for="fb_zh" class="form-label">FB (Chinese)</label>
+                        <input type="url" class="form-control" id="fb_zh" name="fb_zh" value="{{ old('fb_zh', $settings->fb_zh) }}" placeholder="FB">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="instagram_zh" class="form-label">Instagram (Chinese)</label>
+                        <input type="url" class="form-control" id="instagram_zh" name="instagram_zh" value="{{ old('instagram_zh', $settings->instagram_zh) }}" placeholder="Instagram">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="weibo_zh" class="form-label">Weibo (Chinese)</label>
+                        <input type="url" class="form-control" id="weibo_zh" name="weibo_zh" value="{{ old('weibo_zh', $settings->weibo_zh) }}" placeholder="Weibo">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="weixin_zh" class="form-label">Weixin (Chinese)</label>
+                        <input type="url" class="form-control" id="weixin_zh" name="weixin_zh" value="{{ old('weixin_zh', $settings->weixin_zh) }}" placeholder="Weixin">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="youtube_zh" class="form-label">Youtube (Chinese)</label>
+                        <input type="url" class="form-control" id="youtube_zh" name="youtube_zh" value="{{ old('youtube_zh', $settings->youtube_zh) }}" placeholder="Youtube">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="linkedin_zh" class="form-label">Linkedin (Chinese)</label>
+                        <input type="url" class="form-control" id="linkedin_zh" name="linkedin_zh" value="{{ old('linkedin_zh', $settings->linkedin_zh) }}" placeholder="Linkedin">
+                    </div>
+
+                    <div class="col-6">
+                        <label for="twitter_zh" class="form-label">Twitter (Chinese)</label>
+                        <input type="url" class="form-control" id="twitter_zh" name="twitter_zh" value="{{ old('twitter_zh', $settings->twitter_zh) }}" placeholder="Twitter">
+                    </div>
+                </div>
+
+                <hr style="border: 1px solid rgb(195 195 195); margin-top: 0; margin-bottom: 1.5%;">
+
+                <div class="row form-input">
+                    <div class="col-6 mb-4">
+                        <label for="fb_ja" class="form-label">FB (Japanese)</label>
+                        <input type="url" class="form-control" id="fb_ja" name="fb_ja" value="{{ old('fb_ja', $settings->fb_ja) }}" placeholder="FB">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="instagram_ja" class="form-label">Instagram (Japanese)</label>
+                        <input type="url" class="form-control" id="instagram_ja" name="instagram_ja" value="{{ old('instagram_ja', $settings->instagram_ja) }}" placeholder="Instagram">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="weibo_ja" class="form-label">Weibo (Japanese)</label>
+                        <input type="url" class="form-control" id="weibo_ja" name="weibo_ja" value="{{ old('weibo_ja', $settings->weibo_ja) }}" placeholder="Weibo">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="weixin_ja" class="form-label">Weixin (Japanese)</label>
+                        <input type="url" class="form-control" id="weixin_ja" name="weixin_ja" value="{{ old('weixin_ja', $settings->weixin_ja) }}" placeholder="Weixin">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="youtube_ja" class="form-label">Youtube (Japanese)</label>
+                        <input type="url" class="form-control" id="youtube_ja" name="youtube_ja" value="{{ old('youtube_ja', $settings->youtube_ja) }}" placeholder="Youtube">
+                    </div>
+
+                    <div class="col-6 mb-4">
+                        <label for="linkedin_ja" class="form-label">Linkedin (Japanese)</label>
+                        <input type="url" class="form-control" id="linkedin_ja" name="linkedin_ja" value="{{ old('linkedin_ja', $settings->linkedin_ja) }}" placeholder="Linkedin">
+                    </div>
+
+                    <div class="col-6">
+                        <label for="twitter_ja" class="form-label">Twitter (Japanese)</label>
+                        <input type="url" class="form-control" id="twitter_ja" name="twitter_ja" value="{{ old('twitter_ja', $settings->twitter_ja) }}" placeholder="Twitter">
                     </div>
                 </div>
             </div>

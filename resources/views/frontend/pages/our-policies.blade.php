@@ -18,7 +18,7 @@
                 <ul class="nav nav-tabs justify-content-center pt-5" id="policiesTabs" role="tablist">
                     @foreach($policy_categories as $key => $policy_category)
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="{{ $policy_category->id }}-tab" data-bs-toggle="tab" href="#{{ $policy_category->id }}" role="tab" aria-controls="{{ Str::slug($policy_category->name) }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
+                            <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="{{ $policy_category->id }}-tab" data-bs-toggle="tab" href="#{{ $policy_category->id }}" role="tab" aria-controls="{{ \Overtrue\Pinyin\Pinyin::permalink($policy_category->name) }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
                                 {{ $policy_category->name }}
                             </a>
                         </li>

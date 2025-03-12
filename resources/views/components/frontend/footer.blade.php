@@ -17,32 +17,32 @@
 
                 <div class="row">
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->instagram }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'instagram_' . $middleware_language} ?? App\Models\Setting::find(1)->instagram_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/instagram.svg') }}" alt="Instagram" width="12" height="13">
                             {{ $contents->{'footer_instagram_' . $middleware_language} ?? $contents->footer_instagram_en }}
                         </a>
                     </div>
 
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->fb }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'fb_' . $middleware_language} ?? App\Models\Setting::find(1)->fb_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/facebook.svg') }}" alt="Facebook" width=" 8" height="15" ;>
                             {{ $contents->{'footer_facebook_' . $middleware_language} ?? $contents->footer_facebook_en }}
                         </a>
                     </div>
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->youtube }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'youtube_' . $middleware_language} ?? App\Models\Setting::find(1)->youtube_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/youtube.svg') }}" alt="YouTube" width="15" height="10">
                             {{ $contents->{'footer_youtube_' . $middleware_language} ?? $contents->footer_youtube_en }}
                         </a>
                     </div>
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->twitter }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'twitter_' . $middleware_language} ?? App\Models\Setting::find(1)->twitter_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/twitter.svg') }}" alt="Twitter" width="12" height="12">
                             {{ $contents->{'footer_twitter_' . $middleware_language} ?? $contents->footer_twitter_en }}
                         </a>
                     </div>
                     <div class="col-lg-4 col-6">
-                        <a href="{{ App\Models\Setting::find(1)->linkedin }}" class="social-icon" target="blank">
+                        <a href="{{ App\Models\Setting::find(1)->{'linkedin_' . $middleware_language} ?? App\Models\Setting::find(1)->linkedin_en }}" class="social-icon" target="blank">
                             <img src="{{ asset('storage/frontend/linkedin.svg') }}" alt="LinkedIn" width="13" height="12">
                             {{ $contents->{'footer_linkedin_' . $middleware_language} ?? $contents->footer_linkedin_en }}
                         </a>
@@ -130,31 +130,31 @@
                         @if($middleware_language == 'en')
                             @if(App\Models\Course::find(6))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [6, Str::slug(App\Models\Course::find(6)->title)]) }}">PNE Level-1 + SNS</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [6, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(6)->title)]) }}">{{ App\Models\Course::find(6)->title }}</a>
                                 </li>
                             @endif
 
                             @if(App\Models\Course::find(7))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [7, Str::slug(App\Models\Course::find(7)->title)]) }}">PNE Level-2 Masters + CISSN</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [7, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(7)->title)]) }}">{{ App\Models\Course::find(7)->title }}</a>
                                 </li>
                             @endif
                         @elseif($middleware_language == 'zh')
                             @if(App\Models\Course::find(25))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [25, Str::slug(App\Models\Course::find(25)->title)]) }}">PNE L1 + ISSN-SNS 中文版</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [25, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(25)->title)]) }}">{{ App\Models\Course::find(25)->title }}</a>
                                 </li>
                             @endif
 
                             @if(App\Models\Course::find(23))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [23, Str::slug(App\Models\Course::find(23)->title)]) }}">PNE LEVEL-2 MASTERS + CISSN 中文</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [23, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(23)->title)]) }}">{{ App\Models\Course::find(23)->title }}</a>
                                 </li>
                             @endif
                         @else
                             @if(App\Models\Course::find(24))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [24, Str::slug(App\Models\Course::find(24)->title)]) }}">スポーツ栄養スペシャリスト（PNE L1 + ISSN-SNS）資格認定講座</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [24, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(24)->title)]) }}">{{ App\Models\Course::find(24)->title }}</a>
                                 </li>
                             @endif
                         @endif

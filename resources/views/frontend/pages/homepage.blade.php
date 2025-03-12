@@ -15,6 +15,8 @@
             <div class="container-xxl position-relative p-0">
                 <div class="container-xxl hero-header">
                     <div class="container py-5">
+                        <x-frontend.notification></x-frontend.notification>
+
                         <div class="row align-items-center g-5">
                             <div class="col-md-12 col-lg-6 text-center text-lg-start ">
                                 <h1 class="display-3 text-black ff-poppins-semibold fs-61 mb-4">
@@ -141,9 +143,9 @@
                                     <div class="scrollable-container">
                                         @foreach($courses as $course)
                                             @if($course->type == "Certification")
-                                                <a href="{{ route('frontend.certification-courses.show', [$course, Str::slug($course->title)]) }}">
+                                                <a href="{{ route('frontend.certification-courses.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
                                             @else
-                                                <a href="{{ route('frontend.master-classes.show', [$course, Str::slug($course->title)]) }}">
+                                                <a href="{{ route('frontend.master-classes.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
                                             @endif
                                                 <div class="card course-card">
                                                     <div class="overlay-logo p-3">
@@ -171,7 +173,7 @@
                                     <div class="scrollable-container">
                                         @foreach($courses as $course)
                                             @if($course->type == "Certification")
-                                                <a href="{{ route('frontend.certification-courses.show', [$course, Str::slug($course->title)]) }}">
+                                                <a href="{{ route('frontend.certification-courses.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
                                                     <div class="card">
                                                         <div class="overlay-logo p-3">
                                                             <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
@@ -200,7 +202,7 @@
                                     <div class="scrollable-container">
                                         @foreach($courses as $course)
                                             @if($course->type == "Master")
-                                                <a href="{{ route('frontend.master-classes.show', [$course, Str::slug($course->title)]) }}">
+                                                <a href="{{ route('frontend.master-classes.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
                                                     <div class="card">
                                                         <div class="overlay-logo p-3">
                                                             <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">

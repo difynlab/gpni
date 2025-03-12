@@ -138,16 +138,16 @@
                         @foreach($all_courses as $all_course)
                             <div class="col-md-4 col-sm-6 col-12 mb-4">
                                 <div class="card h-100 d-flex flex-column mx-1">
-                                    <a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}">
+                                    <a href="{{ route('frontend.master-classes.show', [$all_course, \Overtrue\Pinyin\Pinyin::permalink($all_course->title)]) }}">
                                         <img src="{{ asset('storage/backend/courses/course-images/' . $all_course->image) }}" class="card-img-top" alt="Card Image">
                                     </a>
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title fs-25">{{ $all_course->title }}</h5>
 
-                                        <p class="card-text fs-16">{{ \Illuminate\Support\Str::words($all_course->short_description, 6, '...') }}<a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}" class="learn-more">{{ $contents->{'section_2_learn_' . $middleware_language} ?? $contents->section_2_learn_en }}</a></p>
+                                        <p class="card-text fs-16">{{ \Illuminate\Support\Str::words($all_course->short_description, 6, '...') }}<a href="{{ route('frontend.master-classes.show', [$all_course, \Overtrue\Pinyin\Pinyin::permalink($all_course->title)]) }}" class="learn-more">{{ $contents->{'section_2_learn_' . $middleware_language} ?? $contents->section_2_learn_en }}</a></p>
 
                                         <div class="card-footer pt-2">
-                                            <a href="{{ route('frontend.master-classes.show', [$all_course, Str::slug($all_course->title)]) }}" class="enroll-button">
+                                            <a href="{{ route('frontend.master-classes.show', [$all_course, \Overtrue\Pinyin\Pinyin::permalink($all_course->title)]) }}" class="enroll-button">
                                                 <span class="pe-2">{{ $contents->{'section_2_enroll_' . $middleware_language} ?? $contents->section_2_enroll_en }}</span>
                                                 <img src="{{ asset('storage/frontend/small-arrow-right.svg') }}" alt="Arrow Icon" width="15" height="15">
                                             </a>

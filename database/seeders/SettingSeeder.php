@@ -17,16 +17,19 @@ class SettingSeeder extends Seeder
     {
         DB::table('settings')->insert([
             'name' => 'GPNi®',
-            'email' => 'edu@thegpni.com',
+            'email_en' => 'edu@thegpni.com',
             'logo' => 'logo.png',
             'footer_logo' => 'footer-logo.png',
             'favicon' => 'favicon.png',
 
-            'fb' => 'https://www.facebook.com/thegpni',
-            'instagram' => 'https://www.instagram.com/thegpni',
-            'weibo' => 'https://weibo.com/issnasia',
-            'weixin' => 'https://mp.weixin.qq.com/s/87S5aiHRccNawo_-MsIhbQ',
-            'youtube' => 'https://www.youtube.com/@GPNiFIT',
+            'fb_en' => 'https://www.facebook.com/thegpni',
+            'instagram_en' => 'https://www.instagram.com/thegpni',
+            'weibo_en' => 'https://weibo.com/issnasia',
+            'weixin_en' => 'https://mp.weixin.qq.com/s/87S5aiHRccNawo_-MsIhbQ',
+            'youtube_en' => 'https://www.youtube.com/@GPNiFIT',
+
+            'fb_ja' => 'https://www.facebook.com/jp.gpni',
+            'instagram_ja' => 'https://www.instagram.com/jp.gpni',
 
             'guest_image' => 'guest-image.jpeg',
             'no_image' => 'no-image.jpg',
