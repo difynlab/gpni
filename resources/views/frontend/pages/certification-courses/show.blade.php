@@ -291,23 +291,35 @@
                 <div class="tab-pane fade" id="review">
                     @if($course_reviews->isNotEmpty())
                         <section class="testimonial-section">
-                            @foreach($course_reviews as $course_review)
-                                <div class="single-course-review">
-                                    <div class="testimonial-header">
-                                        <img src="{{ asset('storage/backend/courses/course-reviews/' . $course_review->image) }}" alt="{{ $course_review->name }}">
-                                        <div>
-                                            <div class="testimonial-name">{{ $course_review->name }}</div>
-                                            <div class="testimonial-stars">
-                                                @for($i = 0; $i < $course_review->rating; $i++)
-                                                    <i class="bi bi-star-fill star"></i>
-                                                @endfor
+                            <div class="slider-container">
+                                <div class="testimonial-slider">
+                                    @foreach($course_reviews as $course_review)
+                                    <div class="slide">
+                                        <div class="single-course-review">
+                                            <div class="testimonial-header">
+                                                <img src="{{ asset('storage/backend/courses/course-reviews/' . $course_review->image) }}" alt="{{ $course_review->name }}" class="rounded-circle">
+                                                <div>
+                                                    <div class="testimonial-name fs-20">{{ $course_review->name }}</div>
+                                                    <div class="testimonial-stars">
+                                                        @for($i = 0; $i < $course_review->rating; $i++)
+                                                            <i class="bi bi-star-fill star"></i>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-content fs-20">
+                                                {{ $course_review->content }}
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="testimonial-content">{{ $course_review->content }}</div>
+                                    @endforeach
                                 </div>
-                            @endforeach
+                                <div class="slider-controls">
+                                    <button class="prev-btn"><i class="bi bi-chevron-left"></i> Prev</button>
+                                    <button class="next-btn">Next <i class="bi bi-chevron-right"></i></button>
+                                </div>
+                                <div class="slider-dots"></div>
+                            </div>
                         </section>
                     @endif
                 </div>
@@ -652,3 +664,115 @@
     @endif
 
 @endsection
+
+@push('after-scripts')
+    <script>
+        const slider = document.querySelector('.testimonial-slider');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dotsContainer = document.querySelector('.slider-dots');
+        let currentSlide = 0;
+
+        // Create dots dynamically
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            const translateX = -100 * currentSlide;
+            slider.style.transform = `translateX(${translateX}%)`;
+            updateDots();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Initialize the slider to show the first slide
+        goToSlide(0);
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderTrack = document.querySelector('.slider-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevButton = document.querySelector('.prev-arrow');
+            const nextButton = document.querySelector('.next-arrow');
+            
+            let currentPosition = 0;
+            let slidesToShow = 3;
+            let slidesToScroll = 1;
+
+            function updateSlidesToShow() {
+                if (window.innerWidth <= 768) {
+                    slidesToShow = 1;
+                } else if (window.innerWidth <= 992) {
+                    slidesToShow = 2;
+                } else {
+                    slidesToShow = 3;
+                }
+            }
+
+            function updateSliderPosition() {
+                const slideWidth = 100 / slidesToShow;
+                sliderTrack.style.transform = `translateX(-${currentPosition * slideWidth}%)`;
+            }
+
+            function checkButtons() {
+                prevButton.disabled = currentPosition === 0;
+                nextButton.disabled = currentPosition >= slides.length - slidesToShow;
+                prevButton.style.opacity = prevButton.disabled ? '0.5' : '1';
+                nextButton.style.opacity = nextButton.disabled ? '0.5' : '1';
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentPosition > 0) {
+                    currentPosition--;
+                    updateSliderPosition();
+                    checkButtons();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentPosition < slides.length - slidesToShow) {
+                    currentPosition++;
+                    updateSliderPosition();
+                    checkButtons();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                updateSlidesToShow();
+                currentPosition = 0;
+                updateSliderPosition();
+                checkButtons();
+            });
+
+            updateSlidesToShow();
+            updateSliderPosition();
+            checkButtons();
+        });
+    </script>
+@endpush
