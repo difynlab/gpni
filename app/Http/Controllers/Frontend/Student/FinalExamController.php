@@ -9,8 +9,11 @@ use App\Models\CourseFinalExamAnswer;
 use App\Models\CourseFinalExamQuestion;
 use App\Models\CoursePurchase;
 use Carbon\Carbon;
+use App\Mail\ExamResultMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class FinalExamController extends Controller
 {
@@ -113,5 +116,20 @@ class FinalExamController extends Controller
             'course_final_exam' => $course_final_exam,
             'questions_answers' => $questions_answers
         ]);
+
+        {
+            $student = Auth::user(); 
+            $result = [
+                'Course1' => 85,
+                'Course2' => 90,
+                'Course3' => 78,
+                'total' => 253,
+                'status' => 'Pass'
+            ];
+        
+            
+            Mail::to($student->mail)->send(new ExamResultMail($student, $result));
+
+
     }
 }

@@ -14,6 +14,8 @@ use App\Models\Testimonial;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CoursePurchaseMail;
 
 class MasterClassController extends Controller
 {
@@ -183,6 +185,15 @@ class MasterClassController extends Controller
                 $wallet->save();
             }
         }
+
+        $user = Auth::user();
+
+        $mail_data = [
+            'name' => $user->first_name . ' ' . $user->last_name,
+            'course' => $course->title
+        ];
+
+        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data));
 
         return redirect()->route('frontend.master-classes.index')->with('success', 'Course purchased successfully');
     }
