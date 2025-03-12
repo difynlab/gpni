@@ -195,7 +195,8 @@
         @endif
 
         @if($course->certification_section_6_title)
-            <section class="container team-section py-md-5 py-2">
+            <section class="container-fluid team-section py-md-5 py-2">
+                <div class="container">
                 <div class="row">
                     <div class="col-12 mb-4">
                         <h1 class="title fs-39">{{ $course->certification_section_6_title }}</h1>
@@ -210,6 +211,7 @@
                             </div>
                         @endforeach
                     @endif
+                </div>
                 </div>
             </section>
         @endif
@@ -351,7 +353,8 @@
 
 
         @if($course->certification_section_10_content)
-            <section class="cissn-section bg-blue container py-md-5 py-2">
+            <section class="cissn-section bg-blue container-fluid py-md-5 py-2">
+                <div class="container">
                 <div class="row align-items-start text-white">  <!-- Added text-white class -->
                     <div class="col-lg-6">
                         <div class="text-white">{!! $course->certification_section_10_content !!}</div>
@@ -380,11 +383,13 @@
                         @endif
                     </div>
                 </div>
+                </div>
             </section>
         @endif
 
         @if($course->certification_section_11_content)
-            <section class="gpni-section container py-md-5 py-2">
+            <section class="gpni-section container-fluid py-md-5 py-2">
+                <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <!-- <div class="video-section">
@@ -401,6 +406,7 @@
                             <a href="{{ json_decode($course->certification_section_11_label_link)->link }}" class="gpni-btn fs-20">{{ json_decode($course->certification_section_11_label_link)->label }}</a>
                         </div> -->
                     </div>
+                </div>
                 </div>
             </section>
         @endif
