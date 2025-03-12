@@ -506,13 +506,13 @@
                     <div class="student-testimonial-text">
                         <div class="student-testimonial-header">
                             <img src="{{ asset('storage/frontend/dash.svg') }}" alt="Line">
-                            <div class="header-text fs-20">{{ $course->certification_section_14_title }}</div>
+                            <div class="text-muted font-weight-light fs-20">{{ $course->certification_section_14_title }}</div>
                         </div>
 
                         @if($testimonials->isNotEmpty())
                             @foreach($testimonials as $index => $testimonial)
                                 @if($index === 0)
-                                    <div class="student-testimonial-quote fs-32">"{{ $testimonial->content }}"</div>
+                                    <div class="student-testimonial-quote fs-20">"{{ $testimonial->content }}"</div>
                                     <div class="student-testimonial-author fs-16">{{ $testimonial->name }}</div>
 
                                     @for($i = 0; $i < $testimonial->rate; $i++)
@@ -525,10 +525,12 @@
                         @endif
                     </div>
 
-                    <div class="video-section">
-                        <video controls class="w-100" style="border-radius: 35px;">
+                    <div class="col-md-6 d-flex justify-content-center">
+                       <div class="video-section">
+                        <video controls class="responsive-video-2 w-100" style="border-radius: 35px;">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_14_video) }}" type="video/mp4">
                         </video>
+                        </div>
                     </div>
                 </div>
             </section>
