@@ -526,6 +526,11 @@
                     </div>
 
                     <div class="col-4 mb-3">
+                        <label for="student_profile_member_fourth_messenger" class="form-label">Fourth Messenger</label>
+                        <input type="text" class="form-control" id="student_profile_member_fourth_messenger" name="student_profile_member_fourth_messenger" value="{{ $contents->student_profile_member_fourth_messenger ?? '' }}" placeholder="Fourth Messenger">
+                    </div>
+
+                    <div class="col-4 mb-3">
                         <label for="student_profile_member_messenger_app" class="form-label">Messenger App</label>
                         <input type="text" class="form-control" id="student_profile_member_messenger_app" name="student_profile_member_messenger_app" value="{{ $contents->student_profile_member_messenger_app ?? '' }}" placeholder="Messenger App">
                     </div>
@@ -565,7 +570,7 @@
                         <input type="text" class="form-control" id="student_profile_self" name="student_profile_self" value="{{ $contents->student_profile_self ?? '' }}" placeholder="Self">
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-4">
                         <label for="student_profile_self_placeholder" class="form-label">Self Placeholder</label>
                         <input type="text" class="form-control" id="student_profile_self_placeholder" name="student_profile_self_placeholder" value="{{ $contents->student_profile_self_placeholder ?? '' }}" placeholder="Self Placeholder">
                     </div>

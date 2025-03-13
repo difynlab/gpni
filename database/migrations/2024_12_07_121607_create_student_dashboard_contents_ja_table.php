@@ -117,6 +117,7 @@ return new class extends Migration
                 'student_profile_member_first_messenger',
                 'student_profile_member_second_messenger',
                 'student_profile_member_third_messenger',
+                'student_profile_member_fourth_messenger',
                 'student_profile_member_messenger_app',
                 'student_profile_member_hear',
                 'student_profile_member_select_hear',
