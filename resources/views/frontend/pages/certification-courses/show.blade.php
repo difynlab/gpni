@@ -92,37 +92,63 @@
 
         @if($course->certification_section_2_title)
             <section class="plans-payment position-relative">
-                <div class="container">
+                <div class="container my-5">
                     <div class="row">
-                        <div class="col-12 col-lg-7 mb-4 mb-md-0 d-flex align-items-center justify-content-center d-none d-lg-flex">
-                            <div class="image-section">
-                                @if($course->certification_section_2_image)
-                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="Certificate" class="img-fluid">
-                                @else
-                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
-                                @endif
+                        <!-- Image section - Order changes based on screen size -->
+                        <div class="col-md-5 mb-4 mb-md-0 order-md-1 order-2">
+                            <div class="img-container d-flex justify-content-center align-items-center">
+                                <img src="/storage/frontend/Woman-smiling-sunlight.jpg" alt="Woman on video call" class="profile-image img-fluid" />
                             </div>
                         </div>
-            
-                        <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
-                            <div class="text-section">
-                                <h1 class="fs-39 text-md-start text-center">{{ $course->certification_section_2_title }}</h1>
-                                <p class="description fs-20 text-md-start text-center">{{ $course->certification_section_2_description }}</p>
-        
-                                @if($course->certification_section_2_points)
-                                    @foreach(json_decode($course->certification_section_2_points) as $certification_section_2_point)
-                                        <label class="plan plan-normal d-block">
-                                            <div class="plan-description fs-16">
-                                                <div class="check-container mb-2">
-                                                    <img src="{{ asset('storage/frontend/check-lightning.svg') }}" alt="Check" class="img-fluid">
-                                                </div>
-                                                <div class="description-content">
-                                                    {!! $certification_section_2_point !!}
-                                                </div>
-                                            </div>
-                                        </label>
-                                    @endforeach
-                                @endif
+
+                        <!-- Text section - Order changes based on screen size -->
+                        <div class="col-md-7 order-md-2 order-1">
+                            <h1 class="font-weight-bold mb-3 fs-39">
+                                Upgrade Your Life in
+                                <span class="d-block d-md-inline">Fitness & Sports Nutrition</span>
+                            </h1>
+                            <p class="mb-4 fs-20">Get Started Now & Enroll - Easy Steps!</p>
+
+                            <!-- Steps container -->
+                            <div>
+                                <!-- Step 1 -->
+                                <div class="step-container p-3 p-md-4 d-flex align-items-center">
+                                    <div class="step-number flex-shrink-0 me-3 me-md-4">1</div>
+                                    <div class="step-content">
+                                        <h4 class="font-weight-bold mb-2 fs-20">
+                                            15-Hour Recorded Video
+                                        </h4>
+                                        <p class="mb-0 fs-16">
+                                            Access recorded videos, complement them with electronic lecture notes, and engage fully with the course content to enhance your learning experience.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2 -->
+                                <div class="step-container p-3 p-md-4 d-flex align-items-center">
+                                    <div class="step-number flex-shrink-0 me-3 me-md-4">2</div>
+                                    <div class="step-content">
+                                        <h4 class="font-weight-bold mb-2 fs-20">
+                                            200 Module Test Questions
+                                        </h4>
+                                        <p class="mb-0 fs-16">
+                                            Engage in the online assessment of course module test questions to evaluate your understanding and knowledge of fitness and nutrition concepts.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3 -->
+                                <div class="step-container p-3 p-md-4 d-flex align-items-center">
+                                    <div class="step-number flex-shrink-0 me-3 me-md-4">3</div>
+                                    <div class="step-content">
+                                        <h4 class="font-weight-bold mb-2 fs-20">
+                                            Complete the Exam
+                                        </h4>
+                                        <p class="mb-0 fs-16">
+                                            Once you have finished all the learning materials, proceed to take the online exam to receive your certification.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -4,12 +4,12 @@
     border: 1px solid #e0eaff;
     border-radius: 15px;
 }
-.header {
-    font-size: 1.938rem; /* fs-31 */
+/* .header {
+    font-size: 1.938rem;
     font-weight: 500;
     color: #0e0e0e;
     margin-bottom: 20px;
-}
+} */
 .add-new-button {
     font-weight: 500;
     font-size: 0.812rem; /* fs-13 */
@@ -95,13 +95,13 @@
     width: 720px;
     position: relative;
 }
-.header {
-    font-size: 1.562rem; /* fs-25 */
+/* .header {
+    font-size: 1.562rem; 
     font-weight: 500;
     color: #0e0e0e;
     text-align: center;
     margin-bottom: 20px;
-}
+} */
 .upload-section {
     background-color: #f7f7f7;
     border: 1px dashed #0040c3;
@@ -146,12 +146,12 @@
     font-weight: 400;
     color: #898989;
 }
-.header {
-    font-size: 1.938rem; /* fs-31 */
+/* .header {
+    font-size: 1.938rem; 
     font-weight: 500;
     color: #0e0e0e;
     margin-bottom: 10px;
-}
+} */
 .subtext {
     font-size: 1rem; /* fs-16 */
     font-weight: 400;
@@ -223,6 +223,38 @@
     background: #0040c3!important;
     color: white!important;
     border: 1px solid #0040c3;
+}
+
+.social-groups {
+    padding: 20px;
+    background-color: #F7F6FB;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.social-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-item {
+    text-align: center;
+    flex: 1;
+}
+
+.social-item img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.social-groups-header {
+    font-size: 24px; /* fs-24 */
+    font-weight: 500;
+    color: #0e0e0e;
+    text-align: left;
 }
 
 /* Responsive adjustments */

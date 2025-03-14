@@ -178,6 +178,26 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="container-main mt-4">
+                        <div class="header social-groups-header mb-3">Social Groups</div>
+                        <div class="social-groups">
+                            <div class="social-items d-flex justify-content-between align-items-center">
+                                <div class="social-item text-left">
+                                    <img src="/asset/facebook.svg" alt="Facebook Icon" class="social-icon">
+                                    <p>Facebook</p>
+                                </div>
+                                <div class="social-item text-center">
+                                    <img src="/asset/skype.svg" alt="Skype Icon" class="social-icon">
+                                    <p>Skype</p>
+                                </div>
+                                <div class="social-item text-right">
+                                    <img src="/storage/frontend/QR-io-QR-Code-Generator-Create-QR-Codes-03-14-2025_07_08_PM.png" alt="Dummy QR Code" class="social-icon">
+                                    <p>WeChat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endif
             </div>
         </div>
