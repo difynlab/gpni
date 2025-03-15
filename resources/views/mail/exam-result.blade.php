@@ -1,4 +1,4 @@
-<p>Dear {{ $name }},</p>
+<p>Dear {{ $mail_data['name'] }},</p>
 
 <p>We are pleased to inform you that your final exam results are available.</p>
 

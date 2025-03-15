@@ -119,6 +119,11 @@ class FinalExamController extends Controller
 
         {
             $student = Auth::user(); 
+
+            $mail_data = [
+                'name' => $user->first_name . ' ' . $user->last_name,
+            ];
+
             $result = [
                 'Course1' => 85,
                 'Course2' => 90,

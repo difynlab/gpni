@@ -108,5 +108,29 @@ class ModuleExamController extends Controller
             'course_module_exam' => $course_module_exam,
             'questions_answers' => $questions_answers
         ]);
+
+
+        {
+            $student = Auth::user(); 
+
+            $mail_data = [
+                'name' => $user->first_name . ' ' . $user->last_name,
+            ];
+
+            $result = [
+                'Course1' => 85,
+                'Course2' => 90,
+                'Course3' => 78,
+                'total' => 253,
+                'status' => 'Pass'
+            ];
+        
+            
+            Mail::to($student->mail)->send(new ExamResultMail($student, $result));
+
+
     }
+
+    }
+
 }
