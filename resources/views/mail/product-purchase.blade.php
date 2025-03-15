@@ -1,12 +1,14 @@
 <p>Dear {{ $mail_data['name'] }},</p>
 
-<p>Thank you for your purchase. Your order has been confirmed.
-    <ul>
-        @foreach($mail_data['products'] as $product)
-            <li>{{ $product->name }} - {{ $product->price }} {{ $product->currency }}</li>
-        @endforeach
-    </ul>
-<p>You can start your learning journey now.</p>
+<p>Thank you for your purchase. Your order has been confirmed.</p>
+
+<ul>
+    @foreach($mail_data['products'] as $product)
+        <li>{{ $product->name }}: {{ $mail_data['symbol'] }} {{ $product->price }}</li>
+    @endforeach
+</ul>
+
+<p>We will ship your order as soon as possible.</p>
 
 <p>Happy exploring!</p>
 

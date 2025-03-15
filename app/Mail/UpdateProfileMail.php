@@ -9,15 +9,13 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ProfileUpdatedMail extends Mailable
+class UpdateProfileMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $student;
-
-    public function __construct($student)
+    public function __construct(public $mail_data)
     {
-        $this->student = $student;
+        //
     }
 
     public function envelope(): Envelope
@@ -30,12 +28,7 @@ class ProfileUpdatedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.profile-updated',
-            with: [
-                'mail_data' => [
-                    'name' => $this->student->name ?? 'Student' // Default name if null
-                ]
-            ]
+            view: 'mail.update-profile'
         );
     }
 }
