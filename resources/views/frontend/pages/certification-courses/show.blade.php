@@ -90,6 +90,46 @@
             </div>
         </section>
 
+        <!-- @if($course->certification_section_2_title)
+            <section class="plans-payment position-relative">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 mb-4 mb-md-0 d-flex align-items-center justify-content-center d-none d-lg-flex">
+                            <div class="image-section">
+                                @if($course->certification_section_2_image)
+                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="Certificate" class="img-fluid">
+                                @else
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
+                                @endif
+                            </div>
+                        </div>
+            
+                        <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center">
+                            <div class="text-section">
+                                <h1 class="fs-39 text-md-start text-center">{{ $course->certification_section_2_title }}</h1>
+                                <p class="description fs-20 text-md-start text-center">{{ $course->certification_section_2_description }}</p>
+        
+                                @if($course->certification_section_2_points)
+                                    @foreach(json_decode($course->certification_section_2_points) as $certification_section_2_point)
+                                        <label class="plan plan-normal d-block">
+                                            <div class="plan-description fs-16">
+                                                <div class="check-container mb-2">
+                                                    <img src="{{ asset('storage/frontend/check-lightning.svg') }}" alt="Check" class="img-fluid">
+                                                </div>
+                                                <div class="description-content">
+                                                    {!! $certification_section_2_point !!}
+                                                </div>
+                                            </div>
+                                        </label>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif -->
+
         @if($course->certification_section_2_title)
             <section class="plans-payment position-relative">
                 <div class="container my-5">
@@ -97,7 +137,11 @@
                         <!-- Image section - Order changes based on screen size -->
                         <div class="col-md-5 mb-4 mb-md-0 order-md-1 order-2">
                             <div class="img-container d-flex justify-content-center align-items-center">
-                                <img src="/storage/frontend/Woman-smiling-sunlight.jpg" alt="Woman on video call" class="profile-image img-fluid" />
+                                @if($course->certification_section_2_image)
+                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="Section 2 Image" class="profile-image img-fluid" />
+                                @else
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="profile-image img-fluid">
+                                @endif
                             </div>
                         </div>
 

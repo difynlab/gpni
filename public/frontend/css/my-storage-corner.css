@@ -243,6 +243,9 @@
     flex: 1;
 }
 
+.social-item .icon {
+    font-size: 35px;
+}
 .social-item img {
     width: 50px;
     height: 50px;
@@ -251,7 +254,7 @@
 }
 
 .social-groups-header {
-    font-size: 24px; /* fs-24 */
+    font-size: 24px;
     font-weight: 500;
     color: #0e0e0e;
     text-align: left;

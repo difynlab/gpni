@@ -10,12 +10,34 @@
 
 @section('content')
 
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="confirmation-icon" style="background-color: #0040c3;">
+                        <span>&#10003;</span>
+                    </div>
+                    <h1>Awesome!</h1>
+                    <p>Course success</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @if($contents->section_1_title_en)
         <div class="container-xxl bg-white p-0">
             <div class="container-xxl position-relative p-0">
                 <div class="container-xxl hero-header">
                     <div class="container py-5">
                         <x-frontend.notification></x-frontend.notification>
+                        <x-frontend.notification-popup></x-frontend.notification-popup>
 
                         <div class="row align-items-center g-5">
                             <div class="col-md-12 col-lg-6 text-center text-lg-start ">

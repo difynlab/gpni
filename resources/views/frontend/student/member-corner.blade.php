@@ -184,11 +184,11 @@
                         <div class="social-groups">
                             <div class="social-items d-flex justify-content-between align-items-center">
                                 <div class="social-item text-left">
-                                    <img src="/asset/facebook.svg" alt="Facebook Icon" class="social-icon">
+                                    <i class="bi bi-facebook icon"></i>
                                     <p>Facebook</p>
                                 </div>
                                 <div class="social-item text-center">
-                                    <img src="/asset/skype.svg" alt="Skype Icon" class="social-icon">
+                                    <img src="/asset/skype.svg" alt="Skype Icon" class="icon">
                                     <p>Skype</p>
                                 </div>
                                 <div class="social-item text-right">
