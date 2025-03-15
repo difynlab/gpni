@@ -10,26 +10,51 @@
 
 @section('content')
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-    </button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notificationModal">
+    Launch demo modal</button>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#failedNotificationModal">
+        Launch Failed Notification Modal
+    </button> <!-- Button to trigger the failedNotificationModal -->
+
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content text-center">
                 <div class="modal-body">
-                    <div class="confirmation-icon" style="background-color: #0040c3;">
+                    <div class="confirmation-icon mx-auto" style="background-color: #0040c3;">
                         <span>&#10003;</span>
                     </div>
-                    <h1>Awesome!</h1>
-                    <p>Course success</p>
+                    <h1 class="fs-49 ff-poppins-medium text-dark mt-4">Awesome!</h1>
+                    <p class="fs-20 ff-poppins-regular text-muted mt-3">
+                        Course success
+                    </p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary fs-20 ff-poppins-medium px-4 py-2" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="failedNotificationModal" tabindex="-1" aria-labelledby="failedNotificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-body">
+                    <div class="failed-notification-icon mx-auto">
+                        <i class="fas fa-times" style="color: white;"></i> <!-- Changed to a white font-awesome icon -->
+                    </div>
+                    <h1 class="fs-49 ff-poppins-medium text-dark mt-4">Oops!</h1>
+                    <p class="fs-20 ff-poppins-regular text-muted mt-3">
+                        Something went wrong. Please try again
+                    </p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-danger fs-20 ff-poppins-medium px-4 py-2" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+
 
     @if($contents->section_1_title_en)
         <div class="container-xxl bg-white p-0">

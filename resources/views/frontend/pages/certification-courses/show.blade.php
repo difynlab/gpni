@@ -65,23 +65,23 @@
                         <div class="label fs-20">{{ $contents->{'single_page_no_of_modules_' . $middleware_language} ?? $contents->single_page_no_of_modules_en }}</div>
                         <div class="value">{{ $course->no_of_modules }}</div>
                     </div>
-                    <div class="vertical-line d-none d-md-block"></div>
+                    <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_type_' . $middleware_language} ?? $contents->single_page_course_type_en }}</div>
                         <div class="value fs-20">{{ $course->type }}</div>
                     </div>
-                    <div class="vertical-line d-none d-md-block"></div>
+                    <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_duration_' . $middleware_language} ?? $contents->single_page_course_duration_en }}</div>
                         <div class="value fs-20">{{ $course->duration }}</div>
                     </div>
-                    <div class="vertical-line d-none d-md-block"></div>
+                    <div class="vertical-line"></div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_language_' . $middleware_language} ?? $contents->single_page_course_language_en }}</div>
                         <div class="value fs-20">{{ $course->language }}</div>
@@ -134,66 +134,39 @@
             <section class="plans-payment position-relative">
                 <div class="container my-5">
                     <div class="row">
-                        <!-- Image section - Order changes based on screen size -->
+                        
                         <div class="col-md-5 mb-4 mb-md-0 order-md-1 order-2">
-                            <div class="img-container d-flex justify-content-center align-items-center">
+                            <div class="img-container d-flex justify-content-md-start justify-content-center align-items-center">
                                 @if($course->certification_section_2_image)
-                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="Section 2 Image" class="profile-image img-fluid" />
+                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="{{ $course->certification_section_2_title }}" class="profile-image img-fluid" />
                                 @else
                                     <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="profile-image img-fluid">
                                 @endif
                             </div>
                         </div>
 
-                        <!-- Text section - Order changes based on screen size -->
+                        
                         <div class="col-md-7 order-md-2 order-1">
                             <h1 class="font-weight-bold mb-3 fs-39">
-                                Upgrade Your Life in
-                                <span class="d-block d-md-inline">Fitness & Sports Nutrition</span>
+                                {{ $course->certification_section_2_title }}
                             </h1>
-                            <p class="mb-4 fs-20">Get Started Now & Enroll - Easy Steps!</p>
+                            <p class="mb-4 fs-20">{{ $course->certification_section_2_description }}</p>
 
-                            <!-- Steps container -->
-                            <div>
-                                <!-- Step 1 -->
-                                <div class="step-container p-3 p-md-4 d-flex align-items-center">
-                                    <div class="step-number flex-shrink-0 me-3 me-md-4">1</div>
-                                    <div class="step-content">
-                                        <h4 class="font-weight-bold mb-2 fs-20">
-                                            15-Hour Recorded Video
-                                        </h4>
-                                        <p class="mb-0 fs-16">
-                                            Access recorded videos, complement them with electronic lecture notes, and engage fully with the course content to enhance your learning experience.
-                                        </p>
-                                    </div>
+                            
+                            @if($course->certification_section_2_points)
+                                <div>
+                                    @foreach(json_decode($course->certification_section_2_points) as $certification_section_2_point)
+                                        <div class="step-container p-3 p-md-4 d-flex align-items-center">
+                                            <div class="step-number flex-shrink-0 me-3 me-md-4">{{ $loop->iteration }}</div>
+                                            <div class="step-content">
+                                                <p class="mb-0 fs-16">
+                                                    {!! $certification_section_2_point !!}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-
-                                <!-- Step 2 -->
-                                <div class="step-container p-3 p-md-4 d-flex align-items-center">
-                                    <div class="step-number flex-shrink-0 me-3 me-md-4">2</div>
-                                    <div class="step-content">
-                                        <h4 class="font-weight-bold mb-2 fs-20">
-                                            200 Module Test Questions
-                                        </h4>
-                                        <p class="mb-0 fs-16">
-                                            Engage in the online assessment of course module test questions to evaluate your understanding and knowledge of fitness and nutrition concepts.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Step 3 -->
-                                <div class="step-container p-3 p-md-4 d-flex align-items-center">
-                                    <div class="step-number flex-shrink-0 me-3 me-md-4">3</div>
-                                    <div class="step-content">
-                                        <h4 class="font-weight-bold mb-2 fs-20">
-                                            Complete the Exam
-                                        </h4>
-                                        <p class="mb-0 fs-16">
-                                            Once you have finished all the learning materials, proceed to take the online exam to receive your certification.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

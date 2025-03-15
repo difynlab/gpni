@@ -188,7 +188,7 @@
                                     <p>Facebook</p>
                                 </div>
                                 <div class="social-item text-center">
-                                    <img src="/asset/skype.svg" alt="Skype Icon" class="icon">
+                                    <i class="bi bi-skype icon"></i>
                                     <p>Skype</p>
                                 </div>
                                 <div class="social-item text-right">

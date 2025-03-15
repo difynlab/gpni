@@ -72,7 +72,7 @@ a.btn-primary {
 }
 
 .course-details {
-    background-color: #0040c3;
+    background-color: #363f55;
     padding: 20px;
     text-align: center;
 }
@@ -92,16 +92,6 @@ a.btn-primary {
     line-height: 140%;
     color: #FFFFFF;
     margin-top: 8px;
-}
-
-.vertical-line {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 50%;
-    background-color: #d3d3d3;
 }
 
 @media (max-width: 768px) {
@@ -1571,20 +1561,13 @@ course-content {
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 50%;
-    background-color: #FFFFFF;
+    height:200%; /* Adjusted height */
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
 }
 
 @media (max-width: 768px) {
-
-    .btn-custom {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-
-    .btn-group {
-        flex-direction: column;
-        gap: 10px;
+    .vertical-line {
+        display: none;
     }
 }
 
@@ -1825,16 +1808,17 @@ course-content {
 .img-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%; /* Ensure the container maintains height */
+    width:100%;
 }
 
 .profile-image {
     border-radius: 50%;
     border: 12px solid #f8f9fa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 550px; /* Default width for laptops */
-    height: 550px; /* Default height for laptops */
+    width: 450px; /* Default width for laptops */
+    height: 450px; /* Default height for laptops */
     object-fit: cover;
 }
 
