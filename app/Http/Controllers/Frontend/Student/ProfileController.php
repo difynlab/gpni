@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Mail\UpdateProfileMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
@@ -310,6 +311,12 @@ class ProfileController extends Controller
         $data['image'] = $image_name;
 
         $student->fill($data)->save();
+
+        $mail_data = [
+            'name' => $student->first_name . ' ' . $student->last_name
+        ];
+
+        Mail::to($student->email)->send(new UpdateProfileMail($mail_data));
 
         return redirect()->back()->with('success', 'Update success');
     }

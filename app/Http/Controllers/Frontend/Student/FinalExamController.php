@@ -9,8 +9,11 @@ use App\Models\CourseFinalExamAnswer;
 use App\Models\CourseFinalExamQuestion;
 use App\Models\CoursePurchase;
 use Carbon\Carbon;
+use App\Mail\ExamResultMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class FinalExamController extends Controller
 {

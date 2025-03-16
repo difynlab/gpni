@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MaterialPurchaseMail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 use App\Models\MaterialPurchase;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BuyStudyMaterialController extends Controller
 {
@@ -122,6 +124,15 @@ class BuyStudyMaterialController extends Controller
                 $wallet->save();
             }
         }
+
+        $user = Auth::user();
+
+        $mail_data = [
+            'name' => $user->first_name . ' ' . $user->last_name,
+            'course' => $course->title
+        ];
+
+        Mail::to($user->email)->send(new MaterialPurchaseMail($mail_data));
 
         return redirect()->route('frontend.buy-study-materials')->with('complete', 'Material purchase has been successfully completed');
     }

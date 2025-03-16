@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ExamResultMail;
 use App\Models\Course;
 use App\Models\CourseModule;
 use App\Models\CourseModuleExam;
@@ -10,6 +11,7 @@ use App\Models\CourseModuleExamAnswer;
 use App\Models\CourseModuleExamQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ModuleExamController extends Controller
 {
@@ -73,6 +75,17 @@ class ModuleExamController extends Controller
         $course_module_exam->result = $result;
         $course_module_exam->save();
 
+        $mail_data = [
+            'name' => $student->first_name . ' ' . $student->last_name,
+            'type' => 'module',
+            'total_questions' => $total_questions,
+            'total_correct_answers' => $total_correct_answers,
+            'marks' => $marks,
+            'result' => $result
+        ];
+    
+        Mail::to($student->email)->send(new ExamResultMail($mail_data));
+
         return redirect()->back()->with([
             'success' => 'Submission success',
             'course_module_exam_id' => $course_module_exam->id
@@ -109,4 +122,5 @@ class ModuleExamController extends Controller
             'questions_answers' => $questions_answers
         ]);
     }
+
 }

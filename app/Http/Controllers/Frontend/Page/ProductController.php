@@ -12,6 +12,8 @@ use App\Models\ProductOrderDetail;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ProductPurchaseMail;
 
 class ProductController extends Controller
 {
@@ -138,10 +140,12 @@ class ProductController extends Controller
 
         $ordered_product_ids = ProductOrderDetail::where('product_order_id', $product_order_id)->pluck('product_id')->toArray();
 
+        $ordered_products = Product::whereIn('id', $ordered_product_ids)->get();
+ 
         Cart::whereIn('product_id', $ordered_product_ids)->where('status', 'Active')->update(['status' => 'Purchased']);
-
+        
         $wallet = Wallet::where('user_id', $product_order->user_id)->where('status', '1')->first();
-
+        
         if($wallet) {
             if($wallet->balance >= $total_order_amount) {
                 $wallet->balance = $wallet->balance - $total_order_amount;
@@ -152,7 +156,24 @@ class ProductController extends Controller
                 $wallet->save();
             }
         }
+        
+        $user = Auth::user();
 
+        if($product_order->currency == 'usd') {
+            $symbol = '$';
+        }
+        else {
+            $symbol = '¥';
+        }
+        
+        $mail_data = [
+            'name' => $user->first_name . ' ' . $user->last_name,
+            'symbol' => $symbol,
+            'products' => $ordered_products
+        ];
+        
+        Mail::to($user->email)->send(new ProductPurchaseMail($mail_data));
+        
         return redirect()->route('frontend.products.index')->with('complete', 'Product/s purchase has been successfully completed');
     }
 }

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\RegisterMail;
 use App\Models\AuthenticationContent;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -297,8 +299,14 @@ class RegisterController extends Controller
         $data = $request->except('confirm_password', 'middleware_language_name', 'middleware_language');
         $data['role'] = 'student';
         $data['status'] = '1';
-
         $student = User::create($data);
+
+        $mail_data = [
+            'name' => $request->first_name . ' ' . $request->last_name
+        ];
+
+        Mail::to([$request->email])->send(new RegisterMail($mail_data));
+
         Auth::login($student);
         $request->session()->regenerate();
 
