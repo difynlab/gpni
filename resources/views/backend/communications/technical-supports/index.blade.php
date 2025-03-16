@@ -12,7 +12,7 @@
                 <form action="{{ route('backend.communications.technical-supports.filter') }}" method="GET" class="filter-form">
                     <div class="row align-items-center">
                         <div class="col-8 col-xl-10">
-                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="User Name">
+                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Name">
                         </div>
 
                         <div class="col-4 col-xl-2 d-flex justify-content-between">

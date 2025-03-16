@@ -72,7 +72,7 @@ a.btn-primary {
 }
 
 .course-details {
-    background-color: #fafcffff;
+    background-color: #363f55;
     padding: 20px;
     text-align: center;
 }
@@ -84,24 +84,14 @@ a.btn-primary {
 .course-item .label {
     font-weight: 400;
     line-height: 140%;
-    color: #505050;
+    color: #FFFFFF;
 }
 
 .course-item .value {
     font-weight: 400;
     line-height: 140%;
-    color: #9a9a9a;
+    color: #FFFFFF;
     margin-top: 8px;
-}
-
-.vertical-line {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 50%;
-    background-color: #d3d3d3;
 }
 
 @media (max-width: 768px) {
@@ -119,8 +109,11 @@ a.btn-primary {
     align-items: center;
     justify-content: center;
     padding: 40px;
-    background: url('../../../storage/frontend/payment-plans-background.svg') no-repeat center center;
+    background: url('../../../storage/frontend/blur-white-background-from-office_36051-720.avif') no-repeat center center;
     background-size: cover;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .image-section {
@@ -138,6 +131,7 @@ a.btn-primary {
     line-height: 120%;
     color: #0e0e0e;
     margin-bottom: 30px;
+    font-size: 2.438rem; /* Default font size (fs-39) */
 }
 
 .text-section .description {
@@ -145,6 +139,17 @@ a.btn-primary {
     line-height: 140%;
     color: #505050;
     margin-bottom: 24px;
+    font-size: 1.250rem; /* Default font size (fs-20) */
+}
+
+@media (max-width: 768px) {
+    .text-section h1 {
+        font-size: 1.875rem; /* Adjusted for smaller screens (fs-36) */
+    }
+
+    .text-section .description {
+        font-size: 1rem; /* Adjusted for smaller screens (fs-16) */
+    }
 }
 
 .plan {
@@ -396,11 +401,7 @@ a.btn-primary {
 }
 
 .team-section {
-    margin-left: -15px;
-    margin-right: -15px;
     width: auto;
-    padding-left: 15px;
-    padding-right: 15px;
     background-color: #0040c3;
     text-align: center;
 }
@@ -726,6 +727,21 @@ course-content {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slider {
+    display: flex; /* Use flexbox to enable sliding */
+    transition: transform 0.5s ease-in-out; /* Add a smooth transition effect */
+}
+
+.slide {
+    min-width: 100%; /* Each slide takes full width */
+    box-sizing: border-box;
+}
+
 .testimonial-header {
     display: flex;
     align-items: center;
@@ -734,44 +750,143 @@ course-content {
 
 .testimonial-header img {
     width: 64px;
-    height: 65px;
+    height: 64px;
     margin-right: 16px;
+    object-fit: cover; /* Maintain aspect ratio */
 }
 
 .testimonial-name {
     font-weight: 500;
-    font-size: 20px;
     color: #505050;
     margin-bottom: 5px;
 }
 
-.testimonial-stars img {
-    width: 100px;
-    height: auto;
+.testimonial-stars {
+    color: #FFC107; /* Set the star color */
+}
+
+.testimonial-stars i {
+    font-size: 18px;
 }
 
 .testimonial-content {
+    font-size: 19px;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 180%;
+    line-height: 140%;
     color: #3e3e3e;
 }
 
-@media (max-width: 768px) {
-    .testimonial-section {
-        padding: 15px;
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-controls button {
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.slider-controls button:hover {
+    background: #f5f5f5;
+}
+
+/* Slider Dots */
+.slider-dots {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.slider-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc; /* Adjust as needed */
+    cursor: pointer;
+}
+
+.slider-dots .dot.active {
+    background-color: #666; /* Active dot color */
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .slider-controls {
+        top: auto;
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
     }
 
-    .testimonial-name {
-        font-size: 18px;
-    }
-
-    .testimonial-content {
-        font-size: 14px;
-        line-height: 160%;
+    .slider-controls button {
+        padding: 6px 12px;
+        font-size: 13px;
     }
 }
 
+@media (max-width: 767.98px) {
+    .slider-controls {
+        position: relative;
+        top: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .slider-controls button {
+        padding: 8px 15px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 90px;
+        background: transparent;
+        border-radius: 5px;
+    }
+
+    .testimonial-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-container {
+        width: 100%;
+    }
+
+    .testimonial-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .testimonial-header img {
+        margin-bottom: 10px;
+    }
+
+    .testimonial-stars i {
+        font-size: 16px;
+    }
+}
 
 .requirements-title {
     font-weight: 500;
@@ -1180,7 +1295,7 @@ course-content {
 
 .student-testimonial-quote {
     font-weight: 500;
-    line-height: 48px;
+    line-height: 40px;
     color: #0040c3;
     margin-bottom: 40px;
 }
@@ -1443,23 +1558,14 @@ course-content {
 .vertical-line {
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     width: 1px;
-    height: 50%;
-    background-color: #d3d3d3;
+    height: 125%;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
-
-    .btn-custom {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-
-    .btn-group {
-        flex-direction: column;
-        gap: 10px;
+    .vertical-line {
+        display: none;
     }
 }
 
@@ -1534,9 +1640,14 @@ course-content {
 }
 
 /* Section 10 Video */
-.section-10-video {
+/* .section-10-video {
     width: 100%;
     height: 330px;
+} */
+.section-10-image {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
 }
 
 /* Section 15 Video */
@@ -1655,20 +1766,14 @@ course-content {
     color: #505050 !important;  /* Black text color for accordion content */
 }
 
-.cissn-section {
-    margin-left: -15px;  /* Remove container padding */
-    margin-right: -15px;  /* Remove container padding */
+.cissn-section {  
     width: auto;  /* Allow section to expand full width */
     padding-left: 15px;  /* Add padding back inside */
     padding-right: 15px;  /* Add padding back inside */
 }
 
 .gpni-section {
-    margin-left: -15px;
-    margin-right: -15px;
     width: auto;
-    padding-left: 15px;
-    padding-right: 15px;
     background-color: #0040c3;
     color: #ffffff;
 }
@@ -1681,4 +1786,107 @@ course-content {
 .gpni-section h5,
 .gpni-section h6 {
     color: #ffffff !important;
+}
+.responsive-video-2 {
+    width: 100%;
+    border-radius: 35px;
+    height: auto;
+    min-height: 50px;
+    max-height: 450px;
+    object-fit: cover;
+}
+.video-section {
+    width: 100%;
+    height: 100%;
+    display: flex
+;
+    align-items: center;
+}
+
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%; /* Ensure the container maintains height */
+    width:100%;
+}
+
+.section-2-image {
+    border-radius: 50%;
+    border: 12px solid #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media (max-width: 991.98px) {
+    .section-2-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-2-image {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.step-container {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.step-number {
+    background-color: #1a56db;
+    color: #ffffff;
+    font-weight: bold;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-right: 20px;
+}
+.step-content div {
+    font-weight: 400;
+    color: #505050;
+}
+.step-content p {
+    margin-bottom: 0;
+    font-size: 17px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .text-section h1 {
+        font-size: 28px;
+    }
+
+    .text-section p {
+        font-size: 16px;
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    /* .step-content h4 {
+        font-size: 18px;
+    } */
+    .step-content p {
+        font-size: 14px;
+    }
 }

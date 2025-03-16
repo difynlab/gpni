@@ -59,29 +59,29 @@
 
     <div class="container-fluid mx-0 px-0">
         <section class="course-details container-fluid">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_no_of_modules_' . $middleware_language} ?? $contents->single_page_no_of_modules_en }}</div>
-                        <div class="value">{{ $course->no_of_modules }}</div>
+                        <div class="value fs-20">{{ $course->no_of_modules }}</div>
                     </div>
-                    <div class="vertical-line d-none d-md-block"></div>
+                    <div class="vertical-line"></div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_type_' . $middleware_language} ?? $contents->single_page_course_type_en }}</div>
                         <div class="value fs-20">{{ $course->type }}</div>
                     </div>
-                    <div class="vertical-line d-none d-md-block"></div>
+                    <div class="vertical-line"></div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_duration_' . $middleware_language} ?? $contents->single_page_course_duration_en }}</div>
                         <div class="value fs-20">{{ $course->duration }}</div>
                     </div>
-                    <div class="vertical-line d-none d-md-block"></div>
+                    <div class="vertical-line"></div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_language_' . $middleware_language} ?? $contents->single_page_course_language_en }}</div>
                         <div class="value fs-20">{{ $course->language }}</div>
@@ -90,7 +90,7 @@
             </div>
         </section>
 
-        @if($course->certification_section_2_title)
+        <!-- @if($course->certification_section_2_title)
             <section class="plans-payment position-relative">
                 <div class="container">
                     <div class="row">
@@ -124,6 +124,47 @@
                                     @endforeach
                                 @endif
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif -->
+
+        @if($course->certification_section_2_title)
+            <section class="plans-payment position-relative">
+                <div class="container my-5">
+                    <div class="row">
+                        
+                        <div class="col-md-5 mb-4 mb-md-0 order-md-1 order-2">
+                            <div class="img-container d-flex justify-content-md-start justify-content-center align-items-center">
+                                @if($course->certification_section_2_image)
+                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="{{ $course->certification_section_2_title }}" class="section-2-image img-fluid" />
+                                @else
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="section-2-image img-fluid">
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-7 order-md-2 order-1">
+                            <h1 class="font-weight-bold mb-3 fs-39">
+                                {{ $course->certification_section_2_title }}
+                            </h1>
+                            <p class="mb-4 fs-20">{{ $course->certification_section_2_description }}</p>
+                            
+                            @if($course->certification_section_2_points)
+                                <div>
+                                    @foreach(json_decode($course->certification_section_2_points) as $certification_section_2_point)
+                                        <div class="step-container p-3 p-md-4 d-flex align-items-center">
+                                            <div class="step-number flex-shrink-0 me-3 me-md-4">{{ $loop->iteration }}</div>
+                                            <div class="step-content">
+                                                <div class="mb-0 fs-16">
+                                                    {!! $certification_section_2_point !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -195,7 +236,8 @@
         @endif
 
         @if($course->certification_section_6_title)
-            <section class="container team-section py-md-5 py-2">
+            <section class="container-fluid team-section py-md-5 py-2">
+                <div class="container">
                 <div class="row">
                     <div class="col-12 mb-4">
                         <h1 class="title fs-39">{{ $course->certification_section_6_title }}</h1>
@@ -210,6 +252,7 @@
                             </div>
                         @endforeach
                     @endif
+                </div>
                 </div>
             </section>
         @endif
@@ -289,23 +332,35 @@
                 <div class="tab-pane fade" id="review">
                     @if($course_reviews->isNotEmpty())
                         <section class="testimonial-section">
-                            @foreach($course_reviews as $course_review)
-                                <div class="single-course-review">
-                                    <div class="testimonial-header">
-                                        <img src="{{ asset('storage/backend/courses/course-reviews/' . $course_review->image) }}" alt="{{ $course_review->name }}">
-                                        <div>
-                                            <div class="testimonial-name">{{ $course_review->name }}</div>
-                                            <div class="testimonial-stars">
-                                                @for($i = 0; $i < $course_review->rating; $i++)
-                                                    <i class="bi bi-star-fill star"></i>
-                                                @endfor
+                            <div class="slider-container">
+                                <div class="testimonial-slider">
+                                    @foreach($course_reviews as $course_review)
+                                    <div class="slide">
+                                        <div class="single-course-review">
+                                            <div class="testimonial-header">
+                                                <img src="{{ asset('storage/backend/courses/course-reviews/' . $course_review->image) }}" alt="{{ $course_review->name }}" class="rounded-circle">
+                                                <div>
+                                                    <div class="testimonial-name fs-20">{{ $course_review->name }}</div>
+                                                    <div class="testimonial-stars">
+                                                        @for($i = 0; $i < $course_review->rating; $i++)
+                                                            <i class="bi bi-star-fill star"></i>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-content fs-20">
+                                                {{ $course_review->content }}
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="testimonial-content">{{ $course_review->content }}</div>
+                                    @endforeach
                                 </div>
-                            @endforeach
+                                <div class="slider-controls">
+                                    <button class="prev-btn"><i class="bi bi-chevron-left"></i> Prev</button>
+                                    <button class="next-btn">Next <i class="bi bi-chevron-right"></i></button>
+                                </div>
+                                <div class="slider-dots"></div>
+                            </div>
                         </section>
                     @endif
                 </div>
@@ -351,7 +406,8 @@
 
 
         @if($course->certification_section_10_content)
-            <section class="cissn-section bg-blue container py-md-5 py-2">
+            <section class="cissn-section bg-blue container-fluid py-md-5 py-2">
+                <div class="container">
                 <div class="row align-items-start text-white">  <!-- Added text-white class -->
                     <div class="col-lg-6">
                         <div class="text-white">{!! $course->certification_section_10_content !!}</div>
@@ -388,11 +444,13 @@
                         @endif
                     </div>
                 </div>
+                </div>
             </section>
         @endif
 
         @if($course->certification_section_11_content)
-            <section class="gpni-section container py-md-5 py-2">
+            <section class="gpni-section container-fluid py-md-5 py-2">
+                <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <!-- <div class="video-section">
@@ -414,6 +472,7 @@
                             <a href="{{ json_decode($course->certification_section_11_label_link)->link }}" class="gpni-btn fs-20">{{ json_decode($course->certification_section_11_label_link)->label }}</a>
                         </div> -->
                     </div>
+                </div>
                 </div>
             </section>
         @endif
@@ -500,13 +559,13 @@
                     <div class="student-testimonial-text">
                         <div class="student-testimonial-header">
                             <img src="{{ asset('storage/frontend/dash.svg') }}" alt="Line">
-                            <div class="header-text fs-20">{{ $course->certification_section_14_title }}</div>
+                            <div class="text-muted font-weight-light fs-20">{{ $course->certification_section_14_title }}</div>
                         </div>
 
                         @if($testimonials->isNotEmpty())
                             @foreach($testimonials as $index => $testimonial)
                                 @if($index === 0)
-                                    <div class="student-testimonial-quote fs-32">"{{ $testimonial->content }}"</div>
+                                    <div class="student-testimonial-quote fs-20">"{{ $testimonial->content }}"</div>
                                     <div class="student-testimonial-author fs-16">{{ $testimonial->name }}</div>
 
                                     @for($i = 0; $i < $testimonial->rate; $i++)
@@ -519,10 +578,12 @@
                         @endif
                     </div>
 
-                    <div class="video-section">
-                        <video controls class="w-100" style="border-radius: 35px;">
+                    <div class="col-md-6 d-flex justify-content-center">
+                       <div class="video-section">
+                        <video controls class="responsive-video-2 w-100" style="border-radius: 35px;">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_14_video) }}" type="video/mp4">
                         </video>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -644,3 +705,115 @@
     @endif
 
 @endsection
+
+@push('after-scripts')
+    <script>
+        const slider = document.querySelector('.testimonial-slider');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dotsContainer = document.querySelector('.slider-dots');
+        let currentSlide = 0;
+
+        // Create dots dynamically
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            const translateX = -100 * currentSlide;
+            slider.style.transform = `translateX(${translateX}%)`;
+            updateDots();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Initialize the slider to show the first slide
+        goToSlide(0);
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderTrack = document.querySelector('.slider-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevButton = document.querySelector('.prev-arrow');
+            const nextButton = document.querySelector('.next-arrow');
+            
+            let currentPosition = 0;
+            let slidesToShow = 3;
+            let slidesToScroll = 1;
+
+            function updateSlidesToShow() {
+                if (window.innerWidth <= 768) {
+                    slidesToShow = 1;
+                } else if (window.innerWidth <= 992) {
+                    slidesToShow = 2;
+                } else {
+                    slidesToShow = 3;
+                }
+            }
+
+            function updateSliderPosition() {
+                const slideWidth = 100 / slidesToShow;
+                sliderTrack.style.transform = `translateX(-${currentPosition * slideWidth}%)`;
+            }
+
+            function checkButtons() {
+                prevButton.disabled = currentPosition === 0;
+                nextButton.disabled = currentPosition >= slides.length - slidesToShow;
+                prevButton.style.opacity = prevButton.disabled ? '0.5' : '1';
+                nextButton.style.opacity = nextButton.disabled ? '0.5' : '1';
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentPosition > 0) {
+                    currentPosition--;
+                    updateSliderPosition();
+                    checkButtons();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentPosition < slides.length - slidesToShow) {
+                    currentPosition++;
+                    updateSliderPosition();
+                    checkButtons();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                updateSlidesToShow();
+                currentPosition = 0;
+                updateSliderPosition();
+                checkButtons();
+            });
+
+            updateSlidesToShow();
+            updateSliderPosition();
+            checkButtons();
+        });
+    </script>
+@endpush

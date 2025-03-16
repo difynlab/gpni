@@ -1,4 +1,4 @@
-<p>Dear {{ $mail_data['name'] ?? 'Student' }},</p>
+<p>Dear {{ $mail_data['name'] }},</p>
 
 <p>Your profile has been successfully updated.</p>
 

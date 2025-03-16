@@ -147,15 +147,22 @@
                                         <input type="text" class="form-control" id="zip_postal" name="zip_postal" value="{{ old('zip_postal') ?? $student->zip_postal }}">
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fax">{{ $student_dashboard_contents->student_profile_primary_fax }}</label>
+                                        <input type="text" class="form-control" id="fax" name="fax" value="{{ old('fax') ?? $student->fax }}">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="contact_number">{{ $student_dashboard_contents->student_profile_primary_contact_number }}</label>
                                         <input type="text" class="form-control" id="contact_number" name="contact_number" value="{{ old('contact_number') ?? $student->contact_number }}">
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
-                            <div class="row mb-4">
+                            <!-- <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="fax">{{ $student_dashboard_contents->student_profile_primary_fax }}</label>
@@ -168,15 +175,15 @@
                                         <input type="email" class="form-control" id="business_email" name="business_email" value="{{ old('business_email') ?? $student->business_email }}">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="row">
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="business_secondary_email">{{ $student_dashboard_contents->student_profile_primary_secondary_email }}</label>
                                         <input type="email" class="form-control" id="business_secondary_email" name="business_secondary_email" value="{{ old('business_secondary_email') ?? $student->business_secondary_email }}">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="website">{{ $student_dashboard_contents->student_profile_primary_website }}</label>
@@ -241,9 +248,10 @@
                                         <label for="messenger_app">{{ $student_dashboard_contents->student_profile_member_messenger }}</label>
                                         <select class="form-control" id="messenger_app" name="messenger_app">
                                             <option value="">{{ $student_dashboard_contents->student_profile_member_select_messenger }}</option>
-                                            <option value="Skype" {{ old('messenger_app', $student->messenger_app) == 'Skype' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_first_messenger }}</option>
-                                            <option value="WeChat" {{ old('messenger_app', $student->messenger_app) == 'WeChat' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_second_messenger }}</option>
-                                            <option value="WhatsApp" {{ old('messenger_app', $student->messenger_app) == 'WhatsApp' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_third_messenger }}</option>
+                                            <option value="Line" {{ old('messenger_app', $student->messenger_app) == 'Line' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_first_messenger }}</option>
+                                            <option value="Skype" {{ old('messenger_app', $student->messenger_app) == 'Skype' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_second_messenger }}</option>
+                                            <option value="WeChat" {{ old('messenger_app', $student->messenger_app) == 'WeChat' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_third_messenger }}</option>
+                                            <option value="WhatsApp" {{ old('messenger_app', $student->messenger_app) == 'WhatsApp' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_member_fourth_messenger }}</option>
                                         </select>
                                     </div>
                                 </div>

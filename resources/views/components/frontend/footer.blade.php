@@ -130,31 +130,31 @@
                         @if($middleware_language == 'en')
                             @if(App\Models\Course::find(6))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [6, Str::slug(App\Models\Course::find(6)->title)]) }}">PNE Level-1 + SNS</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [6, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(6)->title)]) }}">{{ App\Models\Course::find(6)->title }}</a>
                                 </li>
                             @endif
 
                             @if(App\Models\Course::find(7))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [7, Str::slug(App\Models\Course::find(7)->title)]) }}">PNE Level-2 Masters + CISSN</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [7, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(7)->title)]) }}">{{ App\Models\Course::find(7)->title }}</a>
                                 </li>
                             @endif
                         @elseif($middleware_language == 'zh')
                             @if(App\Models\Course::find(25))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [25, Str::slug(App\Models\Course::find(25)->title)]) }}">PNE L1 + ISSN-SNS 中文版</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [25, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(25)->title)]) }}">{{ App\Models\Course::find(25)->title }}</a>
                                 </li>
                             @endif
 
                             @if(App\Models\Course::find(23))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [23, Str::slug(App\Models\Course::find(23)->title)]) }}">PNE LEVEL-2 MASTERS + CISSN 中文</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [23, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(23)->title)]) }}">{{ App\Models\Course::find(23)->title }}</a>
                                 </li>
                             @endif
                         @else
                             @if(App\Models\Course::find(24))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [24, Str::slug(App\Models\Course::find(24)->title)]) }}">スポーツ栄養スペシャリスト（PNE L1 + ISSN-SNS）資格認定講座</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [24, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(24)->title)]) }}">{{ App\Models\Course::find(24)->title }}</a>
                                 </li>
                             @endif
                         @endif

@@ -68,7 +68,7 @@
                                         <div class="col-md-6 col-sm-12 my-3 card-wrapper">
                                             <div class="card shadow-none border-0">
                                                 <div class="position-relative">
-                                                    <a href="{{ route('frontend.articles.show', [$article, Str::slug($article->title)]) }}">
+                                                    <a href="{{ route('frontend.articles.show', [$article, \Overtrue\Pinyin\Pinyin::permalink($article->title)]) }}">
                                                         @if($article->thumbnail)
                                                             <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}"
                                                                 alt="Main Image" class="img-fluid article-image">
@@ -91,10 +91,10 @@
                                                         <div class="divider">|</div>
                                                         <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</span>
                                                     </div>
-                                                    <a href="{{ route('frontend.articles.show', [$article, Str::slug($article->title)]) }}" class="text-decoration-none">
+                                                    <a href="{{ route('frontend.articles.show', [$article, \Overtrue\Pinyin\Pinyin::permalink($article->title)]) }}" class="text-decoration-none">
                                                         <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $article->title }}</h5>
                                                     </a>
-                                                    <div class="fs-16 card-text mb-4 line-clamp-3">{!! $article->content !!}</div>
+                                                    <div class="fs-16 card-text mb-4 line-clamp-3">{{ $article->short_description }}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,66 +109,43 @@
                             tabindex="0">
                             <div class="row">
                                 @if($recommended_articles->isNotEmpty())
-                                @foreach($recommended_articles as $recommended_article)
-                                <div class="col-md-6 col-sm-12 my-3 card-wrapper">
-                                    <div class="card shadow-none border-0">
-                                        <div class="position-relative">
-                                            @if($recommended_article->thumbnail)
-                                            <img src="{{ asset('storage/backend/articles/articles/'. $recommended_article->thumbnail) }}"
-                                                alt="Main Image" class="img-fluid w-100">
-                                            @else
-                                            <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
-                                                alt="Main Image" class="img-fluid w-100">
-                                            @endif
-                                            <div class="share-icon position-absolute">
-                                                <button class="btn btn-light" onclick="shareContent('{{ $recommended_article->title }}', '{{ asset('storage/backend/articles/articles/'. $recommended_article->thumbnail) }}')">
-                                                    <img src="{{ asset('storage/frontend/share-icon.svg') }}" alt="Share Icon">
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <div class="header-metadata mb-2 fs-13 pt-3">
-                                                <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon"
-                                                    class="icon mr-2">
-                                                <span class="custom-text-muted date-meta fs-13">{{
-                                                    $article->created_at->format('d M,Y') }}</span>
-                                                <div class="divider">|</div>
-                                                <span class="custom-text-muted fs-13">{{
-                                                    App\Models\ArticleCategory::find($recommended_article->article_category_id)->name
-                                                    }}</span>
-                                            </div>
-                                            <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $recommended_article->title
-                                                }}</h5>
-
-                                            <div class="fs-16 card-text mb-4 line-clamp-4">{!! $recommended_article->content !!}
-                                            </div>
-                                            <svg height="1" width="100%" class="mb-3">
-                                                <line x1="0" y1="0" x2="100%" y2="0"
-                                                    style="stroke-width: 0.5px; stroke: #747474;"></line>
-                                            </svg>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    @if($recommended_article->author_image)
-                                                    <img src="{{ asset('storage/backend/articles/author-images/'.$recommended_article->author_image) }}"
-                                                        alt="User" class="rounded-circle" style="width:40px; height:40px;">
-                                                    @else
-                                                    <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
-                                                        alt="Main Image" class="rounded-circle"
-                                                        style="width:40px; height:40px;">
-                                                    @endif
-                                                    <span class="username fs-13">{{ $recommended_article->author_name }}</span>
+                                    @foreach($recommended_articles as $recommended_article)
+                                        <div class="col-md-6 col-sm-12 my-3 card-wrapper">
+                                            <div class="card shadow-none border-0">
+                                                <div class="position-relative">
+                                                    <a href="{{ route('frontend.articles.show', [$recommended_article, \Overtrue\Pinyin\Pinyin::permalink($recommended_article->title)]) }}">
+                                                        @if($recommended_article->thumbnail)
+                                                        <img src="{{ asset('storage/backend/articles/articles/'. $recommended_article->thumbnail) }}"
+                                                            alt="Main Image" class="img-fluid w-100">
+                                                        @else
+                                                        <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
+                                                            alt="Main Image" class="img-fluid w-100">
+                                                        @endif
+                                                    </a>
+                                                    <div class="share-icon position-absolute">
+                                                        <button class="btn btn-light" onclick="shareContent('{{ $recommended_article->title }}', '{{ asset('storage/backend/articles/articles/'. $recommended_article->thumbnail) }}')">
+                                                            <img src="{{ asset('storage/frontend/share-icon.svg') }}" alt="Share Icon">
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <a href="{{ route('frontend.articles.show', [$recommended_article, Str::slug($recommended_article->title)]) }}"
-                                                    class="fs-13 text-primary read-more-button">
-                                                    <span>{{ $contents->{'section_1_read_' . $middleware_language} ?? $contents->section_1_read_en }}</span>
-                                                    <i class="fas fa-arrow-circle-right ms-2"></i>
-                                                </a>
+
+                                                <div>
+                                                    <div class="header-metadata mb-2 fs-13 pt-3">
+                                                        <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon" class="icon mr-2">
+                                                        <span class="custom-text-muted date-meta fs-13">{{ $recommended_article->created_at->format('d M,Y') }}</span>
+                                                        <div class="divider">|</div>
+                                                        <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($recommended_article->article_category_id)->name }}</span>
+                                                    </div>
+
+                                                    <a href="{{ route('frontend.articles.show', [$recommended_article, \Overtrue\Pinyin\Pinyin::permalink($recommended_article->title)]) }}" class="text-decoration-none">
+                                                        <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $recommended_article->title }}</h5>
+                                                    </a>
+
+                                                    <div class="fs-16 card-text mb-4 line-clamp-3">{{ $recommended_article->short_description }}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                @endforeach
+                                    @endforeach
                                 @endif
                             </div>
 
@@ -183,7 +160,7 @@
 
                         @if($trending_articles->isNotEmpty())
                             @foreach($trending_articles as $trending_article)
-                                <a href="{{ route('frontend.articles.show', [$trending_article, Str::slug($trending_article->title)]) }}" class="text-decoration-none">
+                                <a href="{{ route('frontend.articles.show', [$trending_article, \Overtrue\Pinyin\Pinyin::permalink($trending_article->title)]) }}" class="text-decoration-none">
                                     <div class="trending-article">
                                         <div class="row g-3 w-100">
                                             <div class="col-4 col-lg-6">
@@ -198,7 +175,7 @@
                                                     <h6 class="trending-content-title title-clamp fs-13">{{ $trending_article->title }}
                                                     </h6>
 
-                                                    <div class="line-clamp-2">{!! strip_tags($trending_article->content) !!}</div>
+                                                    <div class="line-clamp-2">{{ $trending_article->short_description }}</div>
 
                                                     <div
                                                         class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-md-3">

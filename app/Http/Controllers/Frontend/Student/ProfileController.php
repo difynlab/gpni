@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Mail\ProfileUpdatedMail;
+use App\Mail\UpdateProfileMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -312,10 +312,11 @@ class ProfileController extends Controller
 
         $student->fill($data)->save();
 
-        
+        $mail_data = [
+            'name' => $student->first_name . ' ' . $student->last_name
+        ];
 
-        Mail::to($student->email)->send(new ProfileUpdatedMail($student));
-        
+        Mail::to($student->email)->send(new UpdateProfileMail($mail_data));
 
         return redirect()->back()->with('success', 'Update success');
     }

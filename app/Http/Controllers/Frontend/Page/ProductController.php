@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\ProductCategory;
 use App\Models\Product;
-use App\Models\ProductPurchase;
 use App\Models\ProductContent;
 use App\Models\ProductOrder;
 use App\Models\ProductOrderDetail;
@@ -129,7 +128,7 @@ class ProductController extends Controller
 
         $product_order = ProductOrder::find($product_order_id);
 
-        if ($product_order) {
+        if($product_order) {
             $product_order->date = now()->toDateString();
             $product_order->time = now()->toTimeString();
             $product_order->mode = $session->mode;
@@ -137,6 +136,7 @@ class ProductController extends Controller
             $product_order->amount_paid = $session->currency == 'jpy' ? $session->amount_total : $session->amount_total / 100;
             $product_order->payment_status = 'Completed';
             $product_order->save();
+<<<<<<< HEAD
         
             // ordered product IDs
             
@@ -149,26 +149,46 @@ class ProductController extends Controller
             $ordered_products = Product::whereIn('id', $ordered_product_ids)->get();
         } else {
             return redirect()->route('frontend.products.index')->with('error', 'Order not found');
+=======
+>>>>>>> 6f0fcd8b15b5a796b32f7c8dfeca72b898e1ae56
         }
+
+        $ordered_product_ids = ProductOrderDetail::where('product_order_id', $product_order_id)->pluck('product_id')->toArray();
+
+        $ordered_products = Product::whereIn('id', $ordered_product_ids)->get();
+ 
+        Cart::whereIn('product_id', $ordered_product_ids)->where('status', 'Active')->update(['status' => 'Purchased']);
         
         $wallet = Wallet::where('user_id', $product_order->user_id)->where('status', '1')->first();
         
-        if ($wallet) {
-            $wallet->balance = max(0, $wallet->balance - $total_order_amount);
-            $wallet->save();
+        if($wallet) {
+            if($wallet->balance >= $total_order_amount) {
+                $wallet->balance = $wallet->balance - $total_order_amount;
+                $wallet->save();
+            }
+            else {
+                $wallet->balance = '0.00';
+                $wallet->save();
+            }
         }
         
         $user = Auth::user();
+
+        if($product_order->currency == 'usd') {
+            $symbol = '$';
+        }
+        else {
+            $symbol = '¥';
+        }
         
         $mail_data = [
             'name' => $user->first_name . ' ' . $user->last_name,
+            'symbol' => $symbol,
             'products' => $ordered_products
         ];
         
         Mail::to($user->email)->send(new ProductPurchaseMail($mail_data));
         
-        return redirect()->route('frontend.products.index')->with('success', 'Product/s purchased successfully');
-        
+        return redirect()->route('frontend.products.index')->with('complete', 'Product/s purchase has been successfully completed');
     }
-
 }

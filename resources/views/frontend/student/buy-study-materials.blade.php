@@ -17,6 +17,7 @@
             <div class="col-12 col-lg-8 main-content ps-lg-5">
                 <div class="container-main">
                     <x-frontend.notification></x-frontend.notification>
+                    <x-frontend.notification-popup></x-frontend.notification-popup>
 
                     <div class="header-section">
                         <h1>{{ $student_dashboard_contents->buy_study_material_title }}</h1>

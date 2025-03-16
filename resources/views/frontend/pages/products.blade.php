@@ -12,6 +12,7 @@
 
     <div class="container py-5">
         <x-frontend.notification></x-frontend.notification>
+        <x-frontend.notification-popup></x-frontend.notification-popup>
 
         <h2 class="product-heading pb-2">{{ $contents->{'page_title_' . $middleware_language} ?? $contents->page_title_en }}</h2>
 

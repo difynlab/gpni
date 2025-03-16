@@ -1,33 +1,14 @@
 <p>Dear {{ $mail_data['name'] }},</p>
 
-<p>We are pleased to inform you that your final exam results are available.</p>
+<p>This is your {{ $mail_data['type'] }} exam result.</p>
 
-<table border="1" cellspacing="0" cellpadding="5">
-    <tr>
-        <th>Course</th>
-        <th>Marks</th>
-    </tr>
-    <tr>
-        <td>Course 1</td>
-        <td>{{ $result['course1'] }}</td>
-    </tr>
-    <tr>
-        <td>Course 2</td>
-        <td>{{ $result['course2'] }}</td>
-    </tr>
-    <tr>
-        <td>Course 3</td>
-        <td>{{ $result['course3'] }}</td>
-    </tr>
-    <tr>
-        <th>Total</th>
-        <th>{{ $result['total'] }}</th>
-    </tr>
-    <tr>
-        <th>Status</th>
-        <th>{{ $result['status'] }}</th>
-    </tr>
-</table>
+<p>Total Questions: {{ $mail_data['total_questions'] }}</p>
+
+<p>Total Correct Answers: {{ $mail_data['total_correct_answers'] }}</p>
+
+<p>Marks: {{ $mail_data['marks'] }}</p>
+
+<p>Result: {{ $mail_data['result'] }}</p>
 
 <p>Thank you for your hard work and dedication.</p>
 

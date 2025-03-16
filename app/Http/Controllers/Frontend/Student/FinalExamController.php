@@ -82,10 +82,22 @@ class FinalExamController extends Controller
         $course_final_exam->result = $result;
         $course_final_exam->save();
 
+        $mail_data = [
+            'name' => $student->first_name . ' ' . $student->last_name,
+            'type' => 'module',
+            'total_questions' => $total_questions,
+            'total_correct_answers' => $total_correct_answers,
+            'marks' => $marks,
+            'result' => $result
+        ];
+
+        Mail::to($student->email)->send(new ExamResultMail($mail_data));
+
         return redirect()->back()->with([
             'success' => 'Submission success',
             'course_final_exam_id' => $course_final_exam->id
         ]);
+
     }
 
     public function results(Course $course, CourseFinalExam $course_final_exam)
@@ -116,25 +128,5 @@ class FinalExamController extends Controller
             'course_final_exam' => $course_final_exam,
             'questions_answers' => $questions_answers
         ]);
-
-        {
-            $student = Auth::user(); 
-
-            $mail_data = [
-                'name' => $user->first_name . ' ' . $user->last_name,
-            ];
-
-            $result = [
-                'Course1' => 85,
-                'Course2' => 90,
-                'Course3' => 78,
-                'total' => 253,
-                'status' => 'Pass'
-            ];
-        
-            
-            Mail::to($student->mail)->send(new ExamResultMail($student, $result));
-
-
     }
 }

@@ -103,7 +103,7 @@
 
                     <div class="container-main">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div class="header">{{ $student_dashboard_contents->member_corner_bottom_title }}</div>
+                            <div class="header">{{ $student_dashboard_contents->member_corner_third_title }}</div>
                         </div>
                         
                         <ul class="nav nav-pills justify-content-evenly mb-4" id="pills-tab" role="tablist">
@@ -175,6 +175,35 @@
                                 </table>
 
                                 {{ $medias->appends(['type' => $type])->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-main mt-4">
+                        <div class="header social-groups-header mb-3">{{ $student_dashboard_contents->member_corner_fourth_title }}</div>
+                        <div class="social-groups">
+                            <div class="social-items d-flex justify-content-between align-items-center">
+                                <div class="social-item text-left">
+                                    <a href="{{ $student_dashboard_contents->member_corner_fb_link }}">
+                                        <i class="bi bi-facebook icon"></i>
+                                        <p>{{ $student_dashboard_contents->member_corner_fb }}</p>
+                                    </a>
+                                </div>
+                                <div class="social-item text-center">
+                                    <a href="{{ $student_dashboard_contents->member_corner_skype_link }}">
+                                        <i class="bi bi-skype icon"></i>
+                                        <p>{{ $student_dashboard_contents->member_corner_skype }}</p>
+                                    </a>
+                                </div>
+                                <div class="social-item text-right">
+                                    @if($student_dashboard_contents->member_corner_we_chat_qr)
+                                        <img src="{{ asset('storage/backend/pages/' . $student_dashboard_contents->member_corner_we_chat_qr) }}" alt="QR Image">
+                                    @else
+                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image">
+                                    @endif
+
+                                    <p>{{ $student_dashboard_contents->member_corner_we_chat }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

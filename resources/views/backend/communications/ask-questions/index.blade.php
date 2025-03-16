@@ -13,7 +13,7 @@
 
                     <div class="row align-items-center">
                         <div class="col">
-                            <input type="text" class="form-control" name="user_name" value="{{ $user_name ?? '' }}" placeholder="User Name">
+                            <input type="text" class="form-control" name="name" value="{{ $name ?? '' }}" placeholder="Name">
                         </div>
 
                         <div class="col">

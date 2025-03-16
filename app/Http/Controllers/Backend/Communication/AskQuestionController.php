@@ -109,15 +109,19 @@ class AskQuestionController extends Controller
             return redirect()->route('backend.communications.ask-questions.index');
         }
 
-        $user = $request->user;
+        $name = $request->name;
         $subject = $request->subject;
         $date = $request->date;
 
         $users = User::where('status', '1');
         $ask_questions = AskQuestion::where('status', '1')->orderBy('id', 'desc');
 
-        if($user != null) {
-            $user_ids = $users->where('name', 'like', '%' . $user . '%')->pluck('id')->toArray();
+        if($name != null) {
+            $user_ids = $users->where(function ($query) use ($name) {
+                $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%' . $name . '%'])
+                      ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $name . '%']);
+            })->get()->pluck('id')->toArray();
+
             $ask_questions->whereIn('user_id', $user_ids);
         }
 
@@ -136,7 +140,7 @@ class AskQuestionController extends Controller
         return view('backend.communications.ask-questions.index', [
             'ask_questions' => $ask_questions,
             'items' => $items,
-            'user' => $user,
+            'name' => $name,
             'subject' => $subject,
             'date' => $date
         ]);

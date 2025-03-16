@@ -54,16 +54,14 @@ class TechnicalSupportController extends Controller
 
         $name = $request->name;
 
-        $users = User::where('role', 'student')->where('status', '1');
+        $users = User::where('status', '1');
         $technical_supports = TechnicalSupport::where('status', '1')->orderBy('id', 'desc');
 
-        if($name) {
+        if($name != null) {
             $user_ids = $users->where(function ($query) use ($name) {
-                $query->where('first_name', 'like', '%' . $name . '%')
-                    ->orWhere('last_name', 'like', '%' . $name . '%');
-            })
-            ->pluck('id')
-            ->toArray();
+                $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%' . $name . '%'])
+                      ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $name . '%']);
+            })->get()->pluck('id')->toArray();
 
             $technical_supports->whereIn('user_id', $user_ids);
         }
