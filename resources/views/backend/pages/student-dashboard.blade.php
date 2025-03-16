@@ -10,7 +10,7 @@
         
         <p class="page-language">{{ ucfirst($language) }} Language</p>
 
-        <form action="{{ route('backend.pages.student-dashboard.update', $language) }}" method="POST">
+        <form action="{{ route('backend.pages.student-dashboard.update', $language) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="section">
                 <p class="inner-page-title">Sidebar</p>
@@ -1094,8 +1094,8 @@
                     </div>
 
                     <div class="col-4 mb-4">
-                        <label for="member_corner_bottom_title" class="form-label">Member Corner Bottom Title</label>
-                        <input type="text" class="form-control" id="member_corner_bottom_title" name="member_corner_bottom_title" value="{{ $contents->member_corner_bottom_title ?? '' }}" placeholder="Member Corner Bottom Title">
+                        <label for="member_corner_third_title" class="form-label">Member Corner Third Title</label>
+                        <input type="text" class="form-control" id="member_corner_third_title" name="member_corner_third_title" value="{{ $contents->member_corner_third_title ?? '' }}" placeholder="Member Corner Third Title">
                     </div>
 
                     <div class="col-4 mb-3">
@@ -1153,19 +1153,54 @@
                         <input type="text" class="form-control" id="my_storage_corner_second_column" name="my_storage_corner_second_column" value="{{ $contents->my_storage_corner_second_column ?? '' }}" placeholder="Second Column">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="my_storage_corner_third_column" class="form-label">Third Column</label>
                         <input type="text" class="form-control" id="my_storage_corner_third_column" name="my_storage_corner_third_column" value="{{ $contents->my_storage_corner_third_column ?? '' }}" placeholder="Third Column">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="my_storage_corner_play_now" class="form-label">Play Now</label>
                         <input type="text" class="form-control" id="my_storage_corner_play_now" name="my_storage_corner_play_now" value="{{ $contents->my_storage_corner_play_now ?? '' }}" placeholder="Play Now">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="my_storage_corner_download" class="form-label">Download</label>
                         <input type="text" class="form-control" id="my_storage_corner_download" name="my_storage_corner_download" value="{{ $contents->my_storage_corner_download ?? '' }}" placeholder="Download">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="member_corner_fourth_title" class="form-label">Member Corner Fourth Title</label>
+                        <input type="text" class="form-control" id="member_corner_fourth_title" name="member_corner_fourth_title" value="{{ $contents->member_corner_fourth_title ?? '' }}" placeholder="Member Corner Fourth Title">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="member_corner_fb" class="form-label">Member Corner Facebook</label>
+                        <input type="text" class="form-control" id="member_corner_fb" name="member_corner_fb" value="{{ $contents->member_corner_fb ?? '' }}" placeholder="Member Corner Facebook">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="member_corner_fb_link" class="form-label">Member Corner Facebook Link</label>
+                        <input type="url" class="form-control" id="member_corner_fb_link" name="member_corner_fb_link" value="{{ $contents->member_corner_fb_link ?? '' }}" placeholder="Member Corner Facebook Link">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="member_corner_skype" class="form-label">Member Corner Skype</label>
+                        <input type="text" class="form-control" id="member_corner_skype" name="member_corner_skype" value="{{ $contents->member_corner_skype ?? '' }}" placeholder="Member Corner Skype">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="member_corner_skype_link" class="form-label">Member Corner Skype Link</label>
+                        <input type="url" class="form-control" id="member_corner_skype_link" name="member_corner_skype_link" value="{{ $contents->member_corner_skype_link ?? '' }}" placeholder="Member Corner Skype Link">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="member_corner_we_chat" class="form-label">Member Corner WeChat</label>
+                        <input type="text" class="form-control" id="member_corner_we_chat" name="member_corner_we_chat" value="{{ $contents->member_corner_we_chat ?? '' }}" placeholder="Member Corner WeChat">
+                    </div>
+
+                    <div class="col-8">
+                        <x-backend.upload-image old_name="old_member_corner_we_chat_qr" old_value="{{ $contents->member_corner_we_chat_qr ?? '' }}" new_name="new_member_corner_we_chat_qr" path="pages" label="WeChat QR"></x-backend.upload-image>
+                        <x-backend.input-error field="new_member_corner_we_chat_qr"></x-backend.input-error>
                     </div>
                 </div>
             </div>
@@ -1363,3 +1398,7 @@
     </div>
 
 @endsection
+
+@push('after-scripts')
+    <script src="{{ asset('backend/js/drag-drop-image.js') }}"></script>
+@endpush

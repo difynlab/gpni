@@ -123,6 +123,6 @@ class BuyStudyMaterialController extends Controller
             }
         }
 
-        return redirect()->route('frontend.buy-study-materials')->with('success', 'Material purchased successfully');
+        return redirect()->route('frontend.buy-study-materials')->with('complete', 'Material purchase has been successfully completed');
     }
 }

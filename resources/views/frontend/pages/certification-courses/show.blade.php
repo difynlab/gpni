@@ -59,29 +59,29 @@
 
     <div class="container-fluid mx-0 px-0">
         <section class="course-details container-fluid">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_no_of_modules_' . $middleware_language} ?? $contents->single_page_no_of_modules_en }}</div>
-                        <div class="value">{{ $course->no_of_modules }}</div>
+                        <div class="value fs-20">{{ $course->no_of_modules }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_type_' . $middleware_language} ?? $contents->single_page_course_type_en }}</div>
                         <div class="value fs-20">{{ $course->type }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center position-relative">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_duration_' . $middleware_language} ?? $contents->single_page_course_duration_en }}</div>
                         <div class="value fs-20">{{ $course->duration }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3 d-flex align-items-center justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label fs-20">{{ $contents->{'single_page_course_language_' . $middleware_language} ?? $contents->single_page_course_language_en }}</div>
                         <div class="value fs-20">{{ $course->language }}</div>
@@ -138,20 +138,18 @@
                         <div class="col-md-5 mb-4 mb-md-0 order-md-1 order-2">
                             <div class="img-container d-flex justify-content-md-start justify-content-center align-items-center">
                                 @if($course->certification_section_2_image)
-                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="{{ $course->certification_section_2_title }}" class="profile-image img-fluid" />
+                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_2_image) }}" alt="{{ $course->certification_section_2_title }}" class="section-2-image img-fluid" />
                                 @else
-                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="profile-image img-fluid">
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="No Image" class="section-2-image img-fluid">
                                 @endif
                             </div>
                         </div>
-
                         
                         <div class="col-md-7 order-md-2 order-1">
                             <h1 class="font-weight-bold mb-3 fs-39">
                                 {{ $course->certification_section_2_title }}
                             </h1>
                             <p class="mb-4 fs-20">{{ $course->certification_section_2_description }}</p>
-
                             
                             @if($course->certification_section_2_points)
                                 <div>
@@ -159,9 +157,9 @@
                                         <div class="step-container p-3 p-md-4 d-flex align-items-center">
                                             <div class="step-number flex-shrink-0 me-3 me-md-4">{{ $loop->iteration }}</div>
                                             <div class="step-content">
-                                                <p class="mb-0 fs-16">
+                                                <div class="mb-0 fs-16">
                                                     {!! $certification_section_2_point !!}
-                                                </p>
+                                                </div>
                                             </div>
                                         </div>
                                     @endforeach

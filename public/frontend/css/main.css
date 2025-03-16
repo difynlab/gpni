@@ -142,6 +142,85 @@ body {
     font-size: 3.812rem;
 }
 
+/* Purchase notification popup */
+    .confirmation-box {
+        background-color: white;
+        border-radius: 10px;
+        padding: 40px 20px 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        margin-top: 30px;
+    }
+    .confirmation-icon {
+        width: 80px; /* Increased width */
+        height: 80px; /* Increased height */
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -40px; /* Adjusted position for larger size */
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 40px; /* Increased font size for better visibility */
+        font-weight: bold;
+        color: white; /* Ensure icon color is white */
+    }
+    .confirmation-icon span {
+        color: white; /* Ensure the icon inside the span is white */
+    }
+    .failed-notification-icon {
+        width: 80px; /* Icon container width */
+        height: 80px; /* Icon container height */
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #dc3545; /* Red background for failed notification */
+        color: white !important; /* Force white color */
+        font-size: 40px; /* Icon font size */
+        font-weight: bold;
+        position: absolute;
+        top: -40px; /* Adjusted position */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .failed-notification-icon span {
+        color: white !important; /* Force white color for the icon */
+    }
+    .failed-notification-icon i {
+        font-size: 40px; /* Adjust font-awesome icon size */
+    }
+    .confirmation-box h1 {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        margin: 40px 0 10px;
+        color: #333;
+    }
+    .confirmation-box p {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        margin: 0 0 20px;
+        color: #555;
+    }
+    .confirmation-box button {
+        background-color: #7ed321;
+        color: white !important;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
+    .confirmation-box button:hover {
+        background-color: #6dbb1f;
+    }
+/* Purchase notification popup */
+
+
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {
     .fs-61 {

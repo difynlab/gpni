@@ -230,6 +230,6 @@ class CertificationCourseController extends Controller
             }
         }
 
-        return redirect()->route('frontend.homepage')->with('complete', 'Course purchased successfully');
+        return redirect()->route('frontend.homepage')->with('complete', 'Course purchase has been successfully completed');
     }
 }

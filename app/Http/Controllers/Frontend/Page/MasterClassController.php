@@ -184,6 +184,6 @@ class MasterClassController extends Controller
             }
         }
 
-        return redirect()->route('frontend.master-classes.index')->with('success', 'Course purchased successfully');
+        return redirect()->route('frontend.master-classes.index')->with('complete', 'Course purchase has been successfully completed');
     }
 }

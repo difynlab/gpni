@@ -153,6 +153,6 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->route('frontend.products.index')->with('success', 'Product/s purchased successfully');
+        return redirect()->route('frontend.products.index')->with('complete', 'Product/s purchase has been successfully completed');
     }
 }

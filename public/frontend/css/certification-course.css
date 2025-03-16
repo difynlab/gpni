@@ -1558,11 +1558,9 @@ course-content {
 .vertical-line {
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     width: 1px;
-    height:200%; /* Adjusted height */
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    height: 125%;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -1813,26 +1811,27 @@ course-content {
     width:100%;
 }
 
-.profile-image {
+.section-2-image {
     border-radius: 50%;
     border: 12px solid #f8f9fa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 450px; /* Default width for laptops */
-    height: 450px; /* Default height for laptops */
+    width: 450px;
+    height: 450px;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 @media (max-width: 991.98px) {
-    .profile-image {
-        width: 300px; /* Adjusted for tablets */
-        height: 300px; /* Adjusted for tablets */
+    .section-2-image {
+        width: 300px;
+        height: 300px;
     }
 }
 
 @media (max-width: 767.98px) {
-    .profile-image {
-        width: 200px; /* Adjusted for mobile devices */
-        height: 200px; /* Adjusted for mobile devices */
+    .section-2-image {
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -1859,19 +1858,13 @@ course-content {
     font-size: 24px;
     margin-right: 20px;
 }
-
-.step-content h4 {
-    font-weight: 500;
-    font-size: 20px;
-    color: #0e0e0e;
-    margin-bottom: 10px;
-}
-
-.step-content p {
+.step-content div {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 1.6;
     color: #505050;
+}
+.step-content p {
+    margin-bottom: 0;
+    font-size: 17px;
 }
 
 /* Responsive styles */
@@ -1890,10 +1883,9 @@ course-content {
         font-size: 20px;
     }
 
-    .step-content h4 {
+    /* .step-content h4 {
         font-size: 18px;
-    }
-
+    } */
     .step-content p {
         font-size: 14px;
     }

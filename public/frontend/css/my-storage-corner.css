@@ -243,14 +243,20 @@
     flex: 1;
 }
 
+.social-item a {
+    color: black;
+    text-decoration: none;
+}
 .social-item .icon {
-    font-size: 35px;
+    font-size: 40px;
+    margin-bottom: 5px;
 }
 .social-item img {
     width: 50px;
     height: 50px;
-    display: block;
-    margin: 0 auto;
+    object-fit: cover;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .social-groups-header {

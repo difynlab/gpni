@@ -15,6 +15,7 @@
         @if($contents->section_1_title_en)
             <section class="heading-section container text-center">
                 <x-frontend.notification></x-frontend.notification>
+                <x-frontend.notification-popup></x-frontend.notification-popup>
 
                 <h1 class="title fs-61">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h1>
             </section>

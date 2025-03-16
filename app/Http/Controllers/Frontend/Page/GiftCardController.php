@@ -151,6 +151,6 @@ class GiftCardController extends Controller
             $wallet->save();
         }
 
-        return redirect()->route('frontend.gift-cards.index')->with('success', 'Gift card purchase has been successfully completed');
+        return redirect()->route('frontend.gift-cards.index')->with('complete', 'Gift card purchase has been successfully completed');
     }
 }

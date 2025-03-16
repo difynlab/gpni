@@ -15,6 +15,7 @@
             <h2 class="header-title text-center">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
             <div class="pt-5">
                 <x-frontend.notification></x-frontend.notification>
+                <x-frontend.notification-popup></x-frontend.notification-popup>
             </div>
             <p class="description fs-20 text-center">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
 
