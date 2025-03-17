@@ -84,7 +84,7 @@ class FinalExamController extends Controller
 
         $mail_data = [
             'name' => $student->first_name . ' ' . $student->last_name,
-            'type' => 'module',
+            'type' => 'final',
             'total_questions' => $total_questions,
             'total_correct_answers' => $total_correct_answers,
             'marks' => $marks,

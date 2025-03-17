@@ -242,15 +242,6 @@ class CertificationCourseController extends Controller
 
         Mail::to($user->email)->send(new CoursePurchaseMail($mail_data));
 
-        $user = Auth::user();
-
-        $mail_data = [
-            'name' => $user->first_name . ' ' . $user->last_name,
-            'course' => $course->title
-        ];
-
-        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data));
-
         return redirect()->route('frontend.homepage')->with('complete', 'Course purchase has been successfully completed');
     }
 }

@@ -11,7 +11,7 @@
 @section('content')
 <div class="modal fade final-start-exam-modal" id="start-exam-modal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
     data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-body text-center">
                 <p class="title">{{ $student_dashboard_contents->courses_exam_start_modal_title }}</p>

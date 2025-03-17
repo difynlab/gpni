@@ -136,21 +136,6 @@ class ProductController extends Controller
             $product_order->amount_paid = $session->currency == 'jpy' ? $session->amount_total : $session->amount_total / 100;
             $product_order->payment_status = 'Completed';
             $product_order->save();
-<<<<<<< HEAD
-        
-            // ordered product IDs
-            
-            $ordered_product_ids = ProductOrderDetail::where('product_order_id', $product_order_id)
-                ->pluck('product_id') 
-                ->toArray(); 
-        
-            // product details
-            
-            $ordered_products = Product::whereIn('id', $ordered_product_ids)->get();
-        } else {
-            return redirect()->route('frontend.products.index')->with('error', 'Order not found');
-=======
->>>>>>> 6f0fcd8b15b5a796b32f7c8dfeca72b898e1ae56
         }
 
         $ordered_product_ids = ProductOrderDetail::where('product_order_id', $product_order_id)->pluck('product_id')->toArray();
