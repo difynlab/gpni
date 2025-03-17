@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <div class="container-fluid dashboard">
+    <div class="container-fluid dashboard-members">
         <div class="row p-lg-5 p-3">
             <x-frontend.sidebar :student="$student"></x-frontend.sidebar>
 
