@@ -108,14 +108,18 @@
         padding-top: 3px;
     }
     .chat-box::-webkit-scrollbar {
-        width: 6px;
+        width: 10px;
+    }
+    .chat-box::-webkit-scrollbar-track {
+        background: #dedede;
+        border-radius: 5px;
     }
     .chat-box::-webkit-scrollbar-thumb {
-        background-color: #68a3ae;
-        border-radius: 10px;
-        width: 15px;
+        background-color: #0040C3;
+        border-radius: 5px;
     }
     .chat-box::-webkit-scrollbar-thumb:hover {
-        background-color: #125d6a;
+        background-color: #083287;
+        cursor: pointer;
     }
 /* Chat box styles */

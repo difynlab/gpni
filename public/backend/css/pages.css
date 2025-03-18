@@ -76,7 +76,11 @@
     white-space: nowrap;
 }
 .pages .table-container::-webkit-scrollbar {
-    height: 5px;
+    height: 10px;
+}
+.pages .table-container::-webkit-scrollbar-track {
+    background: #dedede;
+    border-radius: 5px;
 }
 .pages .table-container::-webkit-scrollbar-thumb {
     background-color: #0040C3;
@@ -84,6 +88,7 @@
 }
 .pages .table-container::-webkit-scrollbar-thumb:hover {
     background-color: #083287;
+    cursor: pointer;
 }
 .pages .table th {
     font-size: 15px;
