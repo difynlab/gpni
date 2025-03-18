@@ -102,6 +102,9 @@
     text-align: center;
     margin-bottom: 20px;
 } */
+.dashboard-members {
+    padding: 0px;
+}
 .upload-section {
     background-color: #f7f7f7;
     border: 1px dashed #0040c3;
