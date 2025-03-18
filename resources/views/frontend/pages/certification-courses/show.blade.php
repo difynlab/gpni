@@ -455,7 +455,7 @@
                         @if($course->certification_section_10_points)
                             <div class="accordion" id="accordionExample">
                                 @foreach(json_decode($course->certification_section_10_points) as $key => $certification_section_10_point)
-                                    <div class="accordion-item bg-transparent"> <!-- Added bg-transparent -->
+                                    <div class="accordion-item"> <!-- Added bg-transparent -->
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapse{{ $key }}" aria-expanded="false" aria-controls="collapse{{ $key }}">
@@ -464,7 +464,7 @@
                                         </h2>
                                         <div id="collapse{{ $key }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p class="mcissn-collapse-content text-white">{{ $certification_section_10_point->description }}</p>
+                                                <p class="mcissn-collapse-content .accordion-item .accordion-collapse.show .mcissn-collapse-content">{{ $certification_section_10_point->description }}</p>
                                             </div>
                                         </div>
                                     </div>
