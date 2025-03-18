@@ -1466,7 +1466,7 @@ course-content {
 }
 
 .accordion {
-    background: #ffffff7d;
+    background: #f0f0f0;
 }
 
 .accordion .accordion-button {
@@ -1481,7 +1481,7 @@ course-content {
 }
 
 .accordion .accordion-body {
-    padding: 10px 20px;
+    padding: 20px 20px;
 }
 
 
@@ -1727,7 +1727,7 @@ course-content {
 .bg-blue .cissn-collapse-title,
 .bg-blue .accordion-button,
 .bg-blue .cissn-collapse-content {
-    color: #ffffff !important;
+    color: #505050 !important;
 }
 
 .bg-blue .accordion-item {
@@ -1889,4 +1889,30 @@ course-content {
     .step-content p {
         font-size: 14px;
     }
+}
+
+.merchandise2-container {
+    background-color: #0040c3;
+}
+
+.merchandise2-container .merchandise2-title {
+    font-size: 49px;
+    color: #ffffff;
+}
+
+.merchandise2-container .merchandise2-btn {
+    background-color: #ffffff;
+    color: #0040c3;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.merchandise2-container .merchandise2-btn:hover {
+    background-color: #f8f9fa;
+    color: #002d8a;
 }

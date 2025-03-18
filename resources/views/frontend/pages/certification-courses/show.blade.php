@@ -367,6 +367,35 @@
             </div>
         </div>
 
+        <div class="container-fluid p-5 my-5" style="background-color: #0040c3;">
+            <div class="row justify-content-center text-white p-md-5 p-2">
+                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->master_section_4_image) }}" alt="Merchandise Image" class="img-fluid">
+                </div>
+                <div class="col-lg-6 col-md-12 px-4">
+                    <div class="fs-49 text-lg-start text-center">{!! $course->master_section_4_content !!}</div>
+                    <div class="d-flex justify-content-lg-start justify-content-center">
+                        @if(auth()->check())
+                            @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                <button type="submit" class="btn btn-light mt-4">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                            @else
+                                <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="course_name" value="{{ $course->title }}">
+                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                    <input type="hidden" name="payment_mode" value="payment">
+                                    <input type="hidden" name="price" value="{{ $course->price }}">
+                                    <button type="submit" class="btn btn-light mt-4">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
+                                </form>
+                            @endif
+                        @else
+                            <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light mt-4">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="learn-section container py-5">
             <div class="header text-center mb-5">
                 <h1 class="title mb-4">{{ $course->certification_section_9_title }}</h1>
@@ -435,7 +464,7 @@
                                         </h2>
                                         <div id="collapse{{ $key }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p class="cissn-collapse-content text-white">{{ $certification_section_10_point->description }}</p>
+                                                <p class="mcissn-collapse-content text-white">{{ $certification_section_10_point->description }}</p>
                                             </div>
                                         </div>
                                     </div>
