@@ -5,7 +5,7 @@
 <div class="footer">
     <div class="container py-4 py-lg-5 px-3 px-md-0">
         <div class="row gy-4 mb-5">
-            <div class="col-12 col-md-4 list-of-items">
+            <div class="col-12 col-md-4">
                 <a href="{{ route('frontend.homepage') }}" class="d-inline-block mb-3">
                     <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->footer_logo) }}" alt="GPNi" style="width: 286px; margin-bottom: 20px;"  class="img-fluid gpni-logo">
                     <p class="mt-3 mb-0">{{ $contents->{'footer_powered_' . $middleware_language} ?? $contents->footer_powered_en }} <img src="{{ asset('storage/frontend/powered-by-white.svg') }}" alt="Power Logo" style="width: 20px;"></p>

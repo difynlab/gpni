@@ -24,16 +24,19 @@
 
                         if($last_segment === 'courses') {
                             $return_text = $student_dashboard_contents->courses_return;
+                            $link = route('frontend.courses.index');
                         }
                         elseif($last_segment === 'member-corner') {
                             $return_text = $student_dashboard_contents->member_corner_return;
+                            $link = route('frontend.member-corner');
                         }
                         else {
                             $return_text = $student_dashboard_contents->gpni_tv_return;
+                            $link = route('frontend.courses.gpni-tv');
                         }
                     @endphp
 
-                    <a href="{{ route('frontend.courses.index') }}" class="return-link">
+                    <a href="{{ $link }}" class="return-link">
                         <img src="{{ asset('storage/frontend/left-chevron-icon.svg') }}" alt="Arrow Left" width="20" height="20">
                         {{ $return_text }}
                     </a>
