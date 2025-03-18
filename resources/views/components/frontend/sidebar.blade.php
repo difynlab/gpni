@@ -122,8 +122,12 @@
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_ask_the_experts }}</span>
 
             @php
+                $user = auth()->user()->id;
+                $ask_question_ids = App\Models\AskQuestion::where('user_id', $user)->where('status', '1')->pluck('id')->toArray();
+
                 $new_replied_questions = App\Models\AskQuestionReply::where('status', '1')
                     ->where('user_viewed', '0')
+                    ->whereIn('ask_question_id', $ask_question_ids)
                     ->groupBy('ask_question_id')
                     ->selectRaw('count(*) as count')
                     ->get()
