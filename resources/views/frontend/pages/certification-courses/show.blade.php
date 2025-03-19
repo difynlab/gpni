@@ -292,7 +292,7 @@
             </section>
         @endif
 
-        <section class="tab-container container py-md-5 py-2">
+        <div class="tab-container container py-md-5 py-2">
             <nav class="nav content-header d-flex justify-content-center">
                 <ul class="nav nav-tabs flex-column flex-md-row">
                     <li class="nav-item">
@@ -367,25 +367,55 @@
             </div>
         </div>
 
-        <div class="learn-section container py-5">
-            <div class="header text-center mb-5">
-                <h1 class="title mb-4">{{ $course->certification_section_9_title }}</h1>
-                <p class="subtitle">{{ $course->certification_section_9_description }}</p>
-            </div>
-            
-            <div class="learning-points row g-4">
-                @if($course->certification_section_9_points)
-                    @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
-                        <div class="col-md-6">
-                            <div class="learn-list d-flex fs-20 py-3">
-                                <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
-                                {{ $certification_section_9_point }}
-                            </div>
+        @if($course->certification_section_8_content)
+            <div class="container-fluid p-5 my-5" style="background-color: #0040c3;">
+                <div class="row justify-content-center text-white p-md-5 p-2">
+                    <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_8_image) }}" alt="Merchandise Image" class="img-fluid">
+                    </div>
+                    <div class="col-lg-6 col-md-12 px-4">
+                        <div class="fs-49 text-lg-start text-center">{!! $course->certification_section_8_content !!}</div>
+                        <div class="d-flex justify-content-lg-start justify-content-center">
+                            @if(auth()->check())
+                                @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
+                                    @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                        <a class="btn btn-light mt-4">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                                    @else
+                                        <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn btn-light mt-4">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                    @endif
+                                @else
+                                    <a class="btn btn-light mt-4">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
+                                @endif
+                            @else
+                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light mt-4">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
+                            @endif
                         </div>
-                    @endforeach
-                @endif
+                    </div>
+                </div>
             </div>
-        </div>
+        @endif
+
+        @if($course->certification_section_9_title)
+            <div class="learn-section container py-5">
+                <div class="header text-center mb-5">
+                    <h1 class="title mb-4">{{ $course->certification_section_9_title }}</h1>
+                    <p class="subtitle">{{ $course->certification_section_9_description }}</p>
+                </div>
+                
+                <div class="learning-points row g-4">
+                    @if($course->certification_section_9_points)
+                        @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
+                            <div class="col-md-6">
+                                <div class="learn-list d-flex fs-20 py-3">
+                                    <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
+                                    {{ $certification_section_9_point }}
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+        @endif
 
         @if($course->certification_section_9_content)
             <section class="requirements-section container py-md-5 py-2">
@@ -403,7 +433,6 @@
                 </div>
             </section>
         @endif
-
 
         @if($course->certification_section_10_content)
             <section class="cissn-section bg-blue container-fluid py-md-5 py-2">
@@ -426,7 +455,7 @@
                         @if($course->certification_section_10_points)
                             <div class="accordion" id="accordionExample">
                                 @foreach(json_decode($course->certification_section_10_points) as $key => $certification_section_10_point)
-                                    <div class="accordion-item bg-transparent"> <!-- Added bg-transparent -->
+                                    <div class="accordion-item"> <!-- Added bg-transparent -->
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapse{{ $key }}" aria-expanded="false" aria-controls="collapse{{ $key }}">
@@ -435,7 +464,7 @@
                                         </h2>
                                         <div id="collapse{{ $key }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p class="cissn-collapse-content text-white">{{ $certification_section_10_point->description }}</p>
+                                                <p class="mcissn-collapse-content .accordion-item .accordion-collapse.show .mcissn-collapse-content">{{ $certification_section_10_point->description }}</p>
                                             </div>
                                         </div>
                                     </div>
