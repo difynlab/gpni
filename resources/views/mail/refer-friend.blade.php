@@ -4,7 +4,7 @@
 
 <p style="margin-bottom: 35px;">You can register your account by clicking this button. Please feel free to try out platform.</p>
 
-<a href="{{ route('frontend.register') }}" style="background-color: #136fc9; color: white; padding: 10px 20px; font-size: 16px; text-decoration: none;">Join Here!</a>
+<a href="{{ route('frontend.register', $mail_data['code']) }}" style="background-color: #136fc9; color: white; padding: 10px 20px; font-size: 16px; text-decoration: none;">Join Here!</a>
 
 <p style="margin-top: 35px; margin-bottom: 3px;">Best regards,</p>
 

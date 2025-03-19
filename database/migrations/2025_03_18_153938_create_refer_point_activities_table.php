@@ -11,15 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('refer_friends', function (Blueprint $table) {
+        Schema::create('refer_point_activities', function (Blueprint $table) {
             $table->id();
-
-            $table->string('user_id');
-            $table->string('email');
-            $table->string('code')->unique();
-            $table->enum('is_new', [0, 1])->default('1');
-            $table->enum('status', [0, 1])->index();
-
             $table->timestamps();
         });
     }
@@ -29,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('refer_friends');
+        Schema::dropIfExists('refer_point_activities');
     }
 };

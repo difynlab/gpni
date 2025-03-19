@@ -48,6 +48,7 @@ return new class extends Migration
             $table->string('messenger_app_id')->nullable();
             $table->enum('ad_platform', ['Google', 'Friend', 'Social Media', 'Other'])->nullable();
             $table->text('self_introduction')->nullable();
+            $table->string('referred_by')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

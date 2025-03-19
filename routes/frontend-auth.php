@@ -11,7 +11,7 @@ Route::middleware(['set_language'])->group(function () {
     Route::get('login', [AuthenticationController::class, 'login'])->name('login');
     Route::post('login', [AuthenticationController::class, 'store'])->name('login.store');
 
-    Route::get('register', [RegisterController::class, 'register'])->name('register');
+    Route::get('register/{code?}', [RegisterController::class, 'register'])->name('register');
     Route::post('register', [RegisterController::class, 'store'])->name('register.store');
 
     Route::get('forgot-password', [ForgotPasswordController::class, 'index'])->name('password.request');

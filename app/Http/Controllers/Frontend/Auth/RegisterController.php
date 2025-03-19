@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\RegisterMail;
 use App\Models\AuthenticationContent;
+use App\Models\ReferFriend;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +14,21 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    public function register()
+    public function register($code=null)
     {
+        if($code) {
+            $invite = ReferFriend::where('code', $code)->where('status', '1')->orderBy('created_at', 'desc')->first();
+
+            if(!$invite || $invite->code !== $code) {
+                abort(404);
+            }
+
+            $referred_by = $invite->user_id;
+        }
+        else {
+            $referred_by = null;
+        }
+
         $countries = [
             "Afghanistan",
             "Aland Islands",
@@ -274,7 +288,8 @@ class RegisterController extends Controller
 
         return view('frontend.auth.register', [
             'countries' => $countries,
-            'contents' => $contents
+            'contents' => $contents,
+            'referred_by' => $referred_by
         ]);
     }
 
@@ -298,6 +313,7 @@ class RegisterController extends Controller
 
         $data = $request->except('confirm_password', 'middleware_language_name', 'middleware_language');
         $data['role'] = 'student';
+        $data['referred_by'] = $request->referred_by;
         $data['status'] = '1';
         $student = User::create($data);
 
