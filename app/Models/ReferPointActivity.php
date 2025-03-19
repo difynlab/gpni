@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ReferPointActivity extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }

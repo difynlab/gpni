@@ -39,6 +39,8 @@ return new class extends Migration
                 $table->text('course_content')->nullable();
                 $table->text('course_chapter')->nullable();
                 $table->text('certificate_images')->nullable();
+
+                $table->decimal('referral_point_percentage', 4, 1)->nullable();
             // Common fields
 
             // Certification course fields

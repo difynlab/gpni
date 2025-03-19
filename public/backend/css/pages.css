@@ -126,6 +126,15 @@
     padding: 5px 15px;
     border-radius: 20px;
 }
+.pages .table .points-box {
+    font-size: 12px;
+    color: var(--white);
+    background: #0040C3;
+    padding: 5px 10px;
+}
+.pages .table .points-box:hover {
+    background: #083287;
+}
 .pages .table .exam-questions-button, .pages .table .information-button, .pages .table .review-button, .pages .table .edit-button, .pages .table .delete-button, .pages .table .send-button, .pages .table .courses-button {
     font-size: 20px;
     -webkit-text-stroke: 0.5px;

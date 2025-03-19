@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <input type="hidden" name="referred_by" value="{{ $referred_by }}">
+                            <input type="hidden" name="code" value="{{ $code }}">
                             <button type="submit" class="btn btn-primary btn-block submit-button" style="background-color: #0040c3; color: #fff; border: none; border-radius: 10px; height: 46px;" disabled>{{ $contents->{'register_page_button_' . $middleware_language} ?? $contents->register_page_button_en }}</button>
                         </div>
                     </form>

@@ -60,6 +60,10 @@ return new class extends Migration
             $table->decimal('annual_membership_price_en', 10, 2);
             $table->decimal('annual_membership_price_zh', 10, 2);
             $table->decimal('annual_membership_price_ja', 10, 2);
+
+            $table->decimal('referral_point_percentage_en', 4, 1);
+            $table->decimal('referral_point_percentage_zh', 4, 1);
+            $table->decimal('referral_point_percentage_ja', 4, 1);
             
             $table->timestamps();
         });

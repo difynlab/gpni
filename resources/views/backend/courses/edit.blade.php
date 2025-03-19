@@ -100,9 +100,14 @@
                             <input type="text" class="form-control" id="instructor_designation" name="instructor_designation" value="{{ old('instructor_designation', $course->instructor_designation) }}" placeholder="Instructor Designation">
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <x-backend.upload-image old_name="old_instructor_profile_image" old_value="{{ old('instructor_profile_image', $course->instructor_profile_image) }}" new_name="new_instructor_profile_image" label="Instructor Profile" path="courses/course-instructors"></x-backend.upload-image>
                             <x-backend.input-error field="new_instructor_profile_image"></x-backend.input-error>
+                        </div>
+
+                        <div>
+                            <label for="referral_point_percentage" class="form-label">Referral Point Percentage (%)</label>
+                            <input type="text" class="form-control" id="referral_point_percentage" name="referral_point_percentage" value="{{ old('referral_point_percentage', $course->referral_point_percentage) }}" placeholder="Referral Point Percentage (%)">
                         </div>
                     </div>
                     <div class="col-6 right-column">

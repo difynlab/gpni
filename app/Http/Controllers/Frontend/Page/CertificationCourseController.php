@@ -14,7 +14,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CoursePurchaseMail;
-
+use App\Models\ReferFriend;
+use App\Models\ReferPointActivity;
+use App\Models\Setting;
+use Carbon\Carbon;
 
 class CertificationCourseController extends Controller
 {
@@ -234,6 +237,43 @@ class CertificationCourseController extends Controller
         }
 
         $user = Auth::user();
+
+        if($user->referred_by) {
+            $invite = ReferFriend::where('user_id', $user->referred_by)->where('email', $user->email)->where('status', '1')->orderBy('created_at', 'desc')->first();
+
+            if($course->referral_point_percentage) {
+                $points = $course->referral_point_percentage;
+            }
+            else {
+                $setting = Setting::find(1);
+
+                if($course->language == 'English') {
+                    $points = $setting->referral_point_percentage_en;
+                }
+                else if($course->language == 'Chinese') {
+                    $points = $setting->referral_point_percentage_zh;
+                }
+                else {
+                    $points = $setting->referral_point_percentage_ja;
+                }
+            }
+
+            $calculated_points = ($points / 100) * $course->price;
+            $last_refer_point_activity = ReferPointActivity::where('refer_id', $invite->id)->where('status', '1')->orderBy('id', 'desc')->first();
+
+            ReferPointActivity::create([
+                'refer_id' => $invite->id,
+                'user_id' => $user->id,
+                'referred_by_id' => $invite->user_id,
+                'activity' => 'Referral account course purchased: ' . $user->first_name . ' ' . $user->last_name . ' | ' . $course->title,
+                'date' => Carbon::now()->toDateString(),
+                'time' => Carbon::now()->toTimeString(),
+                'points' => $calculated_points,
+                'balance' => $last_refer_point_activity->balance + $calculated_points,
+                'type' => 'Addition',
+                'status' => '1'
+            ]);
+        }
 
         $mail_data = [
             'name' => $user->first_name . ' ' . $user->last_name,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Person;
 
 use App\Http\Controllers\Controller;
+use App\Models\ReferPointActivity;
 use App\Models\Setting;
 use App\Models\User;
 use App\Models\Wallet;
@@ -32,6 +33,10 @@ class UserController extends Controller
             else {
                 $user->wallet =  $currency_symbol . '0.00';
             }
+
+            $latest_activity = ReferPointActivity::where('referred_by_id', $user->id)->where('status', '1')->orderBy('id', 'desc')->first();
+
+            $user->points = $latest_activity ? $latest_activity->balance : '0.0';
 
             $user->status = ($user->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }
@@ -761,6 +766,19 @@ class UserController extends Controller
             'name' => $name,
             'email' => $email,
             'language' => $language
+        ]);
+    }
+
+    public function points(Request $request, User $user)
+    {
+        $items = $request->items ?? 10;
+
+        $activities = ReferPointActivity::where('referred_by_id', $user->id)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+
+        return view('backend.persons.users.points', [
+            'user' => $user,
+            'activities' => $activities,
+            'items' => $items
         ]);
     }
 }

@@ -273,7 +273,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
                 Route::prefix('users')->name('users.')->group(function() {
                     Route::prefix('{user}/courses')->name('courses.')->group(function() {
-                        // Users courses routes
+                        // User courses routes
                             Route::get('/', [UserCourseController::class, 'index'])->name('index');
                             Route::get('create', [UserCourseController::class, 'create'])->name('create');
                             Route::post('/', [UserCourseController::class, 'store'])->name('store');
@@ -282,6 +282,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                             Route::post('{course_purchase}', [UserCourseController::class, 'update'])->name('update');
                             Route::delete('{course_purchase}', [UserCourseController::class, 'destroy'])->name('destroy');
                         // User courses routes
+                    });
+                });
+
+                Route::prefix('users')->name('users.')->group(function() {
+                    Route::prefix('{user}/points')->name('points.')->group(function() {
+                        // User points routes
+                            Route::get('/', [UserController::class, 'points'])->name('index');
+                        // User points routes
                     });
                 });
             // Users routes

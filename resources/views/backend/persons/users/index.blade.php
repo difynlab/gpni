@@ -62,6 +62,8 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Wallet</th>
+                                <th scope="col">CEC Points</th>
+                                <th scope="col">Points</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -78,13 +80,15 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone ?? '-' }}</td>
                                         <td>{{ $user->wallet }}</td>
+                                        <td>-</td>
+                                        <td><a href="{{ route('backend.persons.users.points.index', $user) }}" class="points-box">{{ $user->points }}</a></td>
                                         <td>{!! $user->status !!}</td>
                                         <td>{!! $user->action !!}</td>
                                     </tr>
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="9" style="text-align: center;">No data available in table</td>
+                                    <td colspan="11" style="text-align: center;">No data available in table</td>
                                 </tr>
                             @endif
                         </tbody>
