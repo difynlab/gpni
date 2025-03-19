@@ -62,6 +62,8 @@ return new class extends Migration
                 $table->text('certification_section_7_description')->nullable();
                 $table->text('certification_section_7_video')->nullable();
                 $table->text('certification_section_7_label_link')->nullable();
+                $table->text('certification_section_8_image')->nullable();
+                $table->text('certification_section_8_content')->nullable();
                 $table->text('certification_section_9_title')->nullable();
                 $table->text('certification_section_9_description')->nullable();
                 $table->text('certification_section_9_points')->nullable();

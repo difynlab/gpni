@@ -17,7 +17,6 @@
 
         <form action="{{ route('backend.courses.information.update', $course) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            
             @if($course->type == 'Certification')
                 <div class="section">
                     <p class="inner-page-title">Section 2</p>
@@ -274,6 +273,24 @@
                     <p class="inner-page-title">Section 6</p>
 
                     <div class="row form-input">
+                        <div class="col-6 left-column">
+                            <x-backend.upload-image old_name="old_certification_section_8_image" old_value="{{ $course->certification_section_8_image ?? '' }}" new_name="new_certification_section_8_image" path="courses/course-images" class="side-box-uploader"></x-backend.upload-image>
+                            <x-backend.input-error field="new_certification_section_8_image"></x-backend.input-error>
+                        </div>
+
+                        <div class="col-6 right-column">
+                            <div>
+                                <label for="certification_section_8_content" class="form-label">Content</label>
+                                <textarea class="editor" id="certification_section_8_content" name="certification_section_8_content" value="{{ $course->certification_section_8_content ?? '' }}">{{ $course->certification_section_8_content ?? '' }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <p class="inner-page-title">Section 7</p>
+
+                    <div class="row form-input">
                         <div class="col-12">
                             <div class="mb-4">
                                 <label for="certification_section_9_title" class="form-label">Title</label>
@@ -318,7 +335,7 @@
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 7</p>
+                    <p class="inner-page-title">Section 8</p>
 
                     <div class="row form-input">
                         <div class="col-6 right-column">
@@ -380,7 +397,7 @@
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 8</p>
+                    <p class="inner-page-title">Section 9</p>
 
                     <div class="row form-input">
                         <div class="col-6 right-column">
@@ -439,7 +456,7 @@
                 </div> -->
 
                 <div class="section">
-                    <p class="inner-page-title">Section 9</p>
+                    <p class="inner-page-title">Section 10</p>
 
                     <div class="row form-input">
                         <div class="col-12 mb-4">
@@ -519,7 +536,7 @@
                 </div>
 
                 <div class="section">
-                    <p class="inner-page-title">Section 10</p>
+                    <p class="inner-page-title">Section 11</p>
 
                     <div class="row form-input">
                         <div class="col-12 mb-4">
@@ -603,7 +620,7 @@
 
                 <!-- We have commented on two sections, and updating the remaining variable names would take too much time. Therefore, we have only changed the section name to avoid confusion for the client. -->
                 <div class="section">
-                    <p class="inner-page-title">Section 11</p>
+                    <p class="inner-page-title">Section 12</p>
 
                     <div class="row form-input">
                         <div class="col-12">
