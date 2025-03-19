@@ -9,7 +9,7 @@
     <div class="pages">
         <div class="row mb-4">
             <div class="col-12 text-end">
-                <button class="add-button">Total Points: {{ $activities[0]->balance }}</button>
+                <button class="add-button">Total Points: {{ $activities[0]->balance ?? '0.00' }}</button>
             </div>
         </div>
 
