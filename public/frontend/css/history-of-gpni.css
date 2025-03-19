@@ -770,3 +770,37 @@
         padding-top: 0; /* Reduce the gap */
     }
 }
+
+@media (min-width: 992px) and (max-width: 1023.98px) {
+    .section {
+        padding-top: 5%; /* Adjust top padding for this range */
+    }
+
+    .text-container {
+        top: auto; /* Reset top position */
+        position: relative; /* Ensure text is not in front of the image */
+        transform: none;
+        width: 100%;
+        padding: 0 15px;
+        margin-bottom: 20px; /* Add spacing between text and image */
+    }
+
+    .image-container {
+        position: relative;
+        padding-top: 0; /* Ensure no overlap */
+    }
+
+    .since {
+        font-size: 8vw; /* Adjust font size for "since" */
+    }
+
+    .history {
+        font-size: 3.5vw; /* Adjust font size for "our history" */
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+    .section {
+        padding-top: 5%; /* Adjust top padding for this range */
+    }
+}
