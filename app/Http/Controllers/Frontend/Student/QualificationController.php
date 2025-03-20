@@ -44,8 +44,7 @@ class QualificationController extends Controller
 
                 return [
                     'course_title' => $course->title,
-                    'certificate_url' => $certificate->certificate,
-                    'issued_date_time' => $certificate->certificate_issued_date . ' | ' . $certificate->certificate_issued_time,
+                    'certificates' => json_decode($certificate->certificates)
                 ];
             }
         })->filter();

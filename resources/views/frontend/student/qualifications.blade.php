@@ -30,17 +30,17 @@
                     <div class="certificate-list">
                         @if(count($obtained_certificates) > 0)
                             @foreach($obtained_certificates as $obtained_certificate)
-                                @if($obtained_certificate)
+                                @foreach($obtained_certificate['certificates'] as $single_certificate)
                                     <div class="certificate-card">
                                         <div class="certificate-header">
                                             <div class="title">{{ $obtained_certificate['course_title'] }}</div>
 
-                                            <a href="{{ asset('storage/backend/courses/course-certificates/' . $obtained_certificate['certificate_url']) }}" class="download-button" download>{{ $student_dashboard_contents->qualifications_download }}<i class="bi bi-download"></i></a>
+                                            <a href="{{ asset('storage/backend/courses/course-certificates/' . $single_certificate->file) }}" class="download-button" download>{{ $student_dashboard_contents->qualifications_download }}<i class="bi bi-download"></i></a>
                                         </div>
 
-                                        <p class="certificate-issued">{{ $student_dashboard_contents->qualifications_issued }}: <span>{{ $obtained_certificate['issued_date_time'] }}</span></p>
+                                        <p class="certificate-issued">{{ $student_dashboard_contents->qualifications_issued }}: <span>{{ $single_certificate->date }} | {{ $single_certificate->time }}</span></p>
                                     </div>
-                                @endif
+                                @endforeach
                             @endforeach
                         @else
                             <p class="no-data">{{ $student_dashboard_contents->qualifications_no_certificates }}</p>

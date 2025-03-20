@@ -13,6 +13,10 @@
     font-size: 16px;
     font-weight: 400;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 .form-label {
     font-size: 16px;
@@ -44,6 +48,11 @@
     padding: 10px 0;
     border: none;
 }
-.icon-history {
-    margin-right: 5px;
+.count-badge {
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: black;
+    color: white;
+    padding: 5px 13px;
 }
