@@ -291,6 +291,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                             Route::get('/', [UserController::class, 'points'])->name('index');
                         // User points routes
                     });
+
+                    Route::prefix('{user}/cec-points')->name('cec-points.')->group(function() {
+                        // User CEC points routes
+                            Route::get('/', [UserController::class, 'cecPoints'])->name('index');
+                            Route::post('/', [UserController::class, 'cecPointsStore'])->name('store');
+                            Route::post('{cec_point_activity}', [UserController::class, 'cecPointsUpdate'])->name('update');
+                        // User CEC points routes
+                    });
                 });
             // Users routes
 

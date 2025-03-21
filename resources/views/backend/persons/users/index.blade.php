@@ -80,7 +80,7 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone ?? '-' }}</td>
                                         <td>{{ $user->wallet }}</td>
-                                        <td>-</td>
+                                        <td><a href="{{ route('backend.persons.users.cec-points.index', $user) }}" class="points-box">{{ $user->cec_balance }}</a></td>
                                         <td><a href="{{ route('backend.persons.users.points.index', $user) }}" class="points-box">{{ $user->points }}</a></td>
                                         <td>{!! $user->status !!}</td>
                                         <td>{!! $user->action !!}</td>

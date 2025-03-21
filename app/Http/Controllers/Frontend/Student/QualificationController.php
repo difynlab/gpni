@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\CECPointActivity;
 use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CourseCertificate;
 use App\Models\CourseFinalExam;
 use App\Models\CoursePurchase;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class QualificationController extends Controller
@@ -49,10 +51,35 @@ class QualificationController extends Controller
             }
         })->filter();
 
+        $cec_point_activities = CECPointActivity::where('user_id', $student->id)->where('status', '!=', '0')->orderBy('id', 'desc')->get();
+        
+        $course_ids = $purchases->pluck('course_id')->toArray();
+
+        $cec_courses = Course::whereIn('id', $course_ids)->where('status', '1')->get();
+
         return view('frontend.student.qualifications', [
             'student' => $student,
             'obtained_certificates' => $obtained_certificates,
-            'qualification' => $request->qualification
+            'qualification' => $request->qualification,
+            'cec_point_activities' => $cec_point_activities,
+            'cec_courses' => $cec_courses
         ]);
+    }
+
+    public function cecStore(Request $request) {
+        $student = Auth::user();
+
+        CECPointActivity::create([
+            'user_id' => $student->id,
+            'course_id' => $request->course_id,
+            'type' => 'Addition',
+            'date' => Carbon::now()->toDateString(),
+            'time' => Carbon::now()->toTimeString(),
+            'points' => $request->points,
+            'user_comment' => $request->user_comment,
+            'status' => '2'
+        ]);
+
+        return redirect()->route('frontend.qualifications')->with('success', 'Request successfully completed');
     }
 }

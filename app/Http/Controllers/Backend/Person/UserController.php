@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Backend\Person;
 
 use App\Http\Controllers\Controller;
+use App\Models\CECPointActivity;
+use App\Models\Course;
+use App\Models\CoursePurchase;
 use App\Models\ReferPointActivity;
 use App\Models\Setting;
 use App\Models\User;
 use App\Models\Wallet;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -780,5 +784,89 @@ class UserController extends Controller
             'activities' => $activities,
             'items' => $items
         ]);
+    }
+
+    public function cecPoints(Request $request, User $user)
+    {
+        $items = $request->items ?? 10;
+
+        $activities = CECPointActivity::where('user_id', $user->id)->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
+        
+        $purchases = CoursePurchase::
+        where('user_id', $user->id)
+        ->where(function ($query) {
+            $query->where('payment_status', 'Completed')
+                ->orWhereNull('payment_status');
+        })
+        ->where('course_access_status', 'Active')
+        ->where(function ($query) {
+            $query->where('refund_status', 'Not Refunded')
+                ->orWhereNull('refund_status');
+        })
+        ->where('status', '1')
+        ->get();
+        
+        $course_ids = $purchases->pluck('course_id')->toArray();
+
+        $cec_courses = Course::whereIn('id', $course_ids)->where('status', '1')->get();
+
+        return view('backend.persons.users.cec-points', [
+            'user' => $user,
+            'activities' => $activities,
+            'items' => $items,
+            'cec_courses' => $cec_courses
+        ]);
+    }
+
+    public function cecPointsStore(Request $request, User $user)
+    {
+        CECPointActivity::create([
+            'user_id' => $user->id,
+            'course_id' => $request->course_id,
+            'type' => $request->type,
+            'date' => Carbon::now()->toDateString(),
+            'time' => Carbon::now()->toTimeString(),
+            'points' => $request->points,
+            'admin_comment' => $request->admin_comment,
+            'status' => '1'
+        ]);
+
+        if($request->type == 'Addition') {
+            $user->cec_balance += $request->points;
+        }
+        else {
+            $user->cec_balance -= $request->points;
+        }
+       
+        $user->save();
+
+        return redirect()->back()->with('success', 'Request successfully completed');
+    }
+
+    public function cecPointsUpdate(Request $request, User $user, CECPointActivity $cec_point_activity)
+    {
+        $cec_point_activity->status = $request->status;
+        $cec_point_activity->save();
+
+        if($request->status == '1') {
+            if($cec_point_activity->type == 'Addition') {
+                $user->cec_balance += $cec_point_activity->points;
+            }
+            else {
+                $user->cec_balance -= $cec_point_activity->points;
+            }
+        }
+        else {
+            if($cec_point_activity->type == 'Addition') {
+                $user->cec_balance -= $cec_point_activity->points;
+            }
+            else {
+                $user->cec_balance += $cec_point_activity->points;
+            }
+        }
+       
+        $user->save();
+
+        return response($cec_point_activity);
     }
 }
