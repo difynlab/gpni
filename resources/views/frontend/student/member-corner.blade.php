@@ -178,36 +178,36 @@
                             </div>
                         </div>
                     </div>
+                @endif
 
-                    <div class="container-main mt-4">
-                        <div class="header social-groups-header mb-3">{{ $student_dashboard_contents->member_corner_fourth_title }}</div>
-                        <div class="social-groups">
-                            <div class="social-items d-flex justify-content-between align-items-center">
-                                <div class="social-item text-left">
-                                    <a href="{{ $student_dashboard_contents->member_corner_fb_link }}">
-                                        <i class="bi bi-facebook icon"></i>
-                                        <p>{{ $student_dashboard_contents->member_corner_fb }}</p>
-                                    </a>
-                                </div>
-                                <div class="social-item text-center">
-                                    <a href="{{ $student_dashboard_contents->member_corner_skype_link }}">
-                                        <i class="bi bi-skype icon"></i>
-                                        <p>{{ $student_dashboard_contents->member_corner_skype }}</p>
-                                    </a>
-                                </div>
-                                <div class="social-item text-right">
-                                    @if($student_dashboard_contents->member_corner_we_chat_qr)
-                                        <img src="{{ asset('storage/backend/pages/' . $student_dashboard_contents->member_corner_we_chat_qr) }}" alt="QR Image">
-                                    @else
-                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image">
-                                    @endif
+                <div class="container-main mt-4">
+                    <div class="header social-groups-header mb-3">{{ $student_dashboard_contents->member_corner_fourth_title }}</div>
+                    <div class="social-groups">
+                        <div class="social-items d-flex justify-content-between align-items-center">
+                            <div class="social-item text-left">
+                                <a href="{{ $student_dashboard_contents->member_corner_fb_link }}">
+                                    <i class="bi bi-facebook icon"></i>
+                                    <p>{{ $student_dashboard_contents->member_corner_fb }}</p>
+                                </a>
+                            </div>
+                            <div class="social-item text-center">
+                                <a href="{{ $student_dashboard_contents->member_corner_skype_link }}">
+                                    <i class="bi bi-skype icon"></i>
+                                    <p>{{ $student_dashboard_contents->member_corner_skype }}</p>
+                                </a>
+                            </div>
+                            <div class="social-item text-right">
+                                @if($student_dashboard_contents->member_corner_we_chat_qr)
+                                    <img src="{{ asset('storage/backend/pages/' . $student_dashboard_contents->member_corner_we_chat_qr) }}" alt="QR Image">
+                                @else
+                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image">
+                                @endif
 
-                                    <p>{{ $student_dashboard_contents->member_corner_we_chat }}</p>
-                                </div>
+                                <p>{{ $student_dashboard_contents->member_corner_we_chat }}</p>
                             </div>
                         </div>
                     </div>
-                @endif
+                </div>
             </div>
         </div>
     </div>

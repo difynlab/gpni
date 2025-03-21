@@ -23,7 +23,7 @@
                             <button class="nav-link active" id="pills-qualifications-tab" data-bs-toggle="pill" data-bs-target="#pills-qualifications" type="button" role="tab" aria-controls="pills-qualifications" aria-selected="true">{{ $student_dashboard_contents->qualifications_title }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-cec-tab" data-bs-toggle="pill" data-bs-target="#pills-cec" type="button" role="tab" aria-controls="pills-cec" aria-selected="false">CEC</button>
+                            <button class="nav-link" id="pills-cec-tab" data-bs-toggle="pill" data-bs-target="#pills-cec" type="button" role="tab" aria-controls="pills-cec" aria-selected="false">{{ $student_dashboard_contents->qualifications_cec_title }}</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
@@ -59,11 +59,11 @@
                         <div class="tab-pane fade" id="pills-cec" role="tabpanel" aria-labelledby="pills-cec-tab" tabindex="0">
                             <div class="row align-items-center mb-4">
                                 <div class="col-6">
-                                    <button class="cec-points">CEC Points: {{ $student->cec_balance }}</button>
+                                    <button class="cec-points">{{ $student_dashboard_contents->qualifications_cec_points }}: {{ $student->cec_balance }}</button>
                                 </div>
 
                                 <div class="col-6 text-end">
-                                    <button type="button" class="cec-point-request" data-bs-toggle="modal" data-bs-target="#exampleModal">CEC Point Request</button>
+                                    <button type="button" class="cec-point-request" data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $student_dashboard_contents->qualifications_cec_point_request }}</button>
                                 </div>
                             </div>
 
@@ -74,12 +74,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Course</th>
-                                                    <th>Type</th>
-                                                    <th>Admin Comment</th>
-                                                    <th>User Comment</th>
-                                                    <th>Points</th>
-                                                    <th>Status</th>
+                                                    <th>{{ $student_dashboard_contents->qualifications_cec_first_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->qualifications_cec_second_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->qualifications_cec_third_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->qualifications_cec_fourth_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->qualifications_cec_fifth_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->qualifications_cec_sixth_column }}</th>
                                                 </tr>
                                             </thead>
 
@@ -93,12 +93,18 @@
                                                             <td>{{ $cec_point_activity->admin_comment ?? '-' }}</td>
                                                             <td>{{ $cec_point_activity->user_comment ?? '-' }}</td>
                                                             <td>{{ $cec_point_activity->points }}</td>
-                                                            <td>{!! $cec_point_activity->status == '1' ? '<span class="text-success">Approved</span>' : '<span class="text-warning">Pending</span>' !!}</td>
+                                                            <td>
+                                                                @if($cec_point_activity->status == '1')
+                                                                    <span class="text-success">{{ $student_dashboard_contents->qualifications_cec_sixth_approved }}</span>
+                                                                @else
+                                                                    <span class="text-warning">{{ $student_dashboard_contents->qualifications_cec_sixth_pending }}</span>
+                                                                @endif
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 @else
                                                     <tr>
-                                                        <td colspan="8" style="text-align: center;">No data available in table</td>
+                                                        <td colspan="7" style="text-align: center;">No data available in table</td>
                                                     </tr>
                                                 @endif
                                             </tbody>

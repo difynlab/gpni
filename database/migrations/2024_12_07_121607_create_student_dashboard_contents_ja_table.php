@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -213,6 +212,18 @@ return new class extends Migration
                 'qualifications_download',
                 'qualifications_issued',
                 'qualifications_no_certificates',
+                'qualifications_cec_title',
+                'qualifications_cec_points',
+                'qualifications_cec_point_request',
+                'qualifications_cec_first_column',
+                'qualifications_cec_second_column',
+                'qualifications_cec_third_column',
+                'qualifications_cec_fourth_column',
+                'qualifications_cec_fifth_column',
+                'qualifications_cec_sixth_column',
+                'qualifications_cec_sixth_approved',
+                'qualifications_cec_sixth_pending',
+                'qualifications_no_cec',
 
                 'my_storage_title',
                 'member_corner_title',
