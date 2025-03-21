@@ -192,6 +192,7 @@ Route::middleware(['set_language'])->group(function () {
             });
 
             Route::get('qualifications', [QualificationController::class, 'index'])->name('qualifications');
+            Route::post('cec', [QualificationController::class, 'cecStore'])->name('cec.store');
 
             Route::prefix('technical-supports')->name('technical-supports.')->group(function() {
                 Route::get('/', [TechnicalSupportController::class, 'index'])->name('index');

@@ -33,15 +33,15 @@
 
                         <tbody>
                             @if(count($activities) > 0)
-                                @foreach($activities as $user)
+                                @foreach($activities as $activity)
                                     <tr>
-                                        <td>#{{ $user->id }}</td>
-                                        <td>{{ $user->activity }}</td>
-                                        <td>{{ $user->type }}</td>
-                                        <td>{{ $user->date }}</td>
-                                        <td>{{ $user->time }}</td>
-                                        <td>{{ $user->points }}</td>
-                                        <td>{{ $user->balance }}</td>
+                                        <td>#{{ $activity->id }}</td>
+                                        <td>{{ $activity->activity }}</td>
+                                        <td>{{ $activity->type }}</td>
+                                        <td>{{ $activity->date }}</td>
+                                        <td>{{ $activity->time }}</td>
+                                        <td>{{ $activity->points }}</td>
+                                        <td>{{ $activity->balance }}</td>
                                     </tr>
                                 @endforeach
                             @else

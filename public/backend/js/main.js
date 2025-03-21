@@ -29,3 +29,35 @@
         });
     });
 // Prevent too many clicks
+
+
+// Status update
+    function updateStatusToggle(routeTemplate, csrfToken, user) {
+        $('.status-toggle').on('change', function() {
+            let isChecked = $(this).prop('checked');
+            let status = isChecked ? '1' : '2';
+            let id = $(this).attr('id');
+            let url = routeTemplate.replace(':user', user).replace(':id', id);
+
+            let spinner = $(this).next('.spinner');
+            spinner.show();
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    id: id,
+                    status: status,
+                    _token: csrfToken
+                },
+                success: function(response) {
+                    spinner.hide();
+                    location.reload();
+                },
+                error: function(xhr) {
+                    console.log('An error occurred:', xhr.responseText);
+                }
+            });
+        });
+    }
+// Status update
