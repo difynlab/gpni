@@ -104,7 +104,7 @@
                                                     @endforeach
                                                 @else
                                                     <tr>
-                                                        <td colspan="7" style="text-align: center;">No data available in table</td>
+                                                        <td colspan="7" style="text-align: center;">{{ $student_dashboard_contents->qualifications_no_cec }}</td>
                                                     </tr>
                                                 @endif
                                             </tbody>
@@ -119,21 +119,21 @@
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">CEC Point Request</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">{{ $student_dashboard_contents->qualifications_cec_point_request }}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row form-input">
                                                     <div class="col-12">
                                                         <div class="mb-4">
-                                                            <label for="points" class="form-label">Number of CEC Points<span class="asterisk">*</span></label>
-                                                            <input type="text" class="form-control" id="points" name="points" value="{{ old('points') }}" placeholder="Number of CEC Points" required>
+                                                            <label for="points" class="form-label">{{ $student_dashboard_contents->	qualifications_cec_no_of_points }}<span class="asterisk">*</span></label>
+                                                            <input type="text" class="form-control" id="points" name="points" value="{{ old('points') }}" placeholder="{{ $student_dashboard_contents->	qualifications_cec_no_of_points }}" required>
                                                         </div>
 
                                                         <div class="mb-4">
-                                                            <label for="course_id" class="form-label">Course<span class="asterisk">*</span></label>
+                                                            <label for="course_id" class="form-label">{{ $student_dashboard_contents->	qualifications_cec_course }}<span class="asterisk">*</span></label>
                                                             <select class="form-control form-select" id="course_id" name="course_id" required>
-                                                                <option value="">Select course</option>
+                                                                <option value="">{{ $student_dashboard_contents->qualifications_cec_select_course }}</option>
                                                                 @foreach($cec_courses as $cec_course)
                                                                     <option value="{{ $cec_course->id }}" {{ old('cec_course') == $cec_course->id ? 'selected' : '' }}>{{ $cec_course->title }}</option>
                                                                 @endforeach
@@ -141,15 +141,15 @@
                                                         </div>
 
                                                         <div>
-                                                            <label for="user_comment" class="form-label">Comment</label>
-                                                            <textarea name="user_comment" class="form-control textarea" id="user_comment" value="{{ old('user_comment') }}" placeholder="Comment" rows="5">{{ old('user_comment') }}</textarea>
+                                                            <label for="user_comment" class="form-label">{{ $student_dashboard_contents->qualifications_cec_comment }}</label>
+                                                            <textarea name="user_comment" class="form-control textarea" id="user_comment" value="{{ old('user_comment') }}" placeholder="{{ $student_dashboard_contents->qualifications_cec_comment }}" rows="5">{{ old('user_comment') }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary rounded-0">Submit</button>
+                                                <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">{{ $student_dashboard_contents->qualifications_cec_close }}</button>
+                                                <button type="submit" class="btn btn-primary rounded-0">{{ $student_dashboard_contents->qualifications_cec_submit }}</button>
                                             </div>
                                         </div>
                                     </div>

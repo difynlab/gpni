@@ -1057,14 +1057,44 @@
                         <input type="text" class="form-control" id="qualifications_cec_sixth_approved" name="qualifications_cec_sixth_approved" value="{{ $contents->qualifications_cec_sixth_approved ?? '' }}" placeholder="CEC Sixth Column Approved">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="qualifications_cec_sixth_pending" class="form-label">CEC Sixth Column Pending</label>
                         <input type="text" class="form-control" id="qualifications_cec_sixth_pending" name="qualifications_cec_sixth_pending" value="{{ $contents->qualifications_cec_sixth_pending ?? '' }}" placeholder="CEC Sixth Column Pending">
                     </div>
 
+                    <div class="col-4 mb-3">
+                        <label for="qualifications_no_cec" class="form-label">CEC No Records</label>
+                        <input type="text" class="form-control" id="qualifications_no_cec" name="qualifications_no_cec" value="{{ $contents->qualifications_no_cec ?? '' }}" placeholder="CEC No Records">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="qualifications_cec_no_of_points" class="form-label">CEC No of Points</label>
+                        <input type="text" class="form-control" id="qualifications_cec_no_of_points" name="qualifications_cec_no_of_points" value="{{ $contents->qualifications_cec_no_of_points ?? '' }}" placeholder="CEC No of Points">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="qualifications_cec_course" class="form-label">CEC Course</label>
+                        <input type="text" class="form-control" id="qualifications_cec_course" name="qualifications_cec_course" value="{{ $contents->qualifications_cec_course ?? '' }}" placeholder="CEC Course">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="qualifications_cec_select_course" class="form-label">CEC Select Course</label>
+                        <input type="text" class="form-control" id="qualifications_cec_select_course" name="qualifications_cec_select_course" value="{{ $contents->qualifications_cec_select_course ?? '' }}" placeholder="CEC Select Course">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="qualifications_cec_comment" class="form-label">CEC Comment</label>
+                        <input type="text" class="form-control" id="qualifications_cec_comment" name="qualifications_cec_comment" value="{{ $contents->qualifications_cec_comment ?? '' }}" placeholder="CEC Comment">
+                    </div>
+
                     <div class="col-4">
-                        <label for="qualifications_no_cec" class="form-label">CEC No Certificates</label>
-                        <input type="text" class="form-control" id="qualifications_no_cec" name="qualifications_no_cec" value="{{ $contents->qualifications_no_cec ?? '' }}" placeholder="CEC No Certificates">
+                        <label for="qualifications_cec_close" class="form-label">CEC Close</label>
+                        <input type="text" class="form-control" id="qualifications_cec_close" name="qualifications_cec_close" value="{{ $contents->qualifications_cec_close ?? '' }}" placeholder="CEC Close">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="qualifications_cec_submit" class="form-label">CEC Submit</label>
+                        <input type="text" class="form-control" id="qualifications_cec_submit" name="qualifications_cec_submit" value="{{ $contents->qualifications_cec_submit ?? '' }}" placeholder="CEC Submit">
                     </div>
                 </div>
             </div>

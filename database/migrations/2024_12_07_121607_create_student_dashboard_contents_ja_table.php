@@ -224,6 +224,12 @@ return new class extends Migration
                 'qualifications_cec_sixth_approved',
                 'qualifications_cec_sixth_pending',
                 'qualifications_no_cec',
+                'qualifications_cec_no_of_points',
+                'qualifications_cec_course',
+                'qualifications_cec_select_course',
+                'qualifications_cec_comment',
+                'qualifications_cec_close',
+                'qualifications_cec_submit',
 
                 'my_storage_title',
                 'member_corner_title',
