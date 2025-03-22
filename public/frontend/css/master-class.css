@@ -1658,3 +1658,151 @@ h1.display-4 {
 .card-img-top:hover {
     opacity: 0.9;
 }
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 767.98px) {
+    .author-card {
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .author-card img {
+        margin-bottom: 10px;
+    }
+
+    .by-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 0.75rem;
+    }
+
+    /* List item improvements */
+    .learn-list {
+        margin-bottom: 1rem;
+    }
+    
+    .learn-list li {
+        margin-bottom: 0.75rem;
+    }
+
+    /* Content spacing */
+    .content-header {
+        padding: 10px 5px;
+        overflow-x: auto;
+    }
+
+    .content-box {
+        padding: 15px 10px;
+        margin-top: 15px;
+    }
+    
+    /* Tab improvements */
+    .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .nav-tabs::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .nav-tabs::-webkit-scrollbar-thumb {
+        background: #ddd;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+
+    /* Spacing adjustments */
+    /* .row {
+        margin-bottom: 1rem;
+    } */
+    
+    /* .container > .row:not(:last-child) {
+        margin-bottom: 2rem;
+    } */
+    
+    /* Button adjustments */
+    .btn {
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+
+    /* Course details list */
+    .list-group-item {
+        padding: 12px 15px;
+        margin-bottom: 8px;
+    }
+    
+    .list-group-item .common-style,
+    .list-group-item .common-text-style {
+        font-size: 0.875rem; 
+    }
+    
+    .img-size {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Testimonials */
+    .testimonial-section {
+        padding: 15px;
+    }
+    
+    .slider-controls {
+        gap: 8px;
+    }
+    
+    /* Journey section */
+    .journey-container {
+        padding: 2rem 1rem;
+    }
+    
+    /* Video player */
+    .video-player, .course-image {
+        height: 220px;
+    }
+}
+
+/* Further enhancements for very small mobile devices */
+@media (max-width: 575.98px) {
+    h1.display-4 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+    }
+    
+    .list-group-item {
+        padding: 10px;
+    }
+    
+    .img-size {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .video-player, .course-image {
+        height: 180px;
+    }
+    
+    .by-badge {
+        width: 36px;
+        height: 36px;
+        font-size: 0.7rem;
+    }
+}
