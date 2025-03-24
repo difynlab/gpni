@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\RegisterMail;
+use App\Mail\ReferralConfirmationMail;
 use App\Models\AuthenticationContent;
 use App\Models\ReferFriend;
 use App\Models\ReferPointActivity;
@@ -336,6 +337,12 @@ class RegisterController extends Controller
                 'type' => 'Addition',
                 'status' => '1'
             ]);
+
+            $referrer = User::find($referred_by);
+            if ($referrer) {
+                Mail::to($referrer->email)->send(new ReferralConfirmationMail($student));
+            }
+
         }
 
         $mail_data = [
