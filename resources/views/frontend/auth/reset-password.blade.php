@@ -1,6 +1,8 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Reset Password')
+@section('title', $contents->{'reset_page_name_' . $middleware_language} !== '' 
+    ? $contents->{'reset_page_name_' . $middleware_language} 
+    : $contents->reset_page_name_en)
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('frontend/css/reset-password.css') }}">

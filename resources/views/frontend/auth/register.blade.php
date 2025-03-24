@@ -1,8 +1,8 @@
 @extends('frontend.layouts.app')
 
-@section('title', $contents->{'page_name_' . $middleware_language} !== '' 
-    ? $contents->{'login_page_name_' . $middleware_language} 
-    : $contents->login_page_name_en)
+@section('title', $contents->{'register_page_name_' . $middleware_language} !== '' 
+    ? $contents->{'register_page_name_' . $middleware_language} 
+    : $contents->register_page_name_en)
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('frontend/css/register.css') }}">

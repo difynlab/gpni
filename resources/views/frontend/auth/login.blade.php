@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', $contents->{'page_name_' . $middleware_language} !== '' 
+@section('title', $contents->{'login_page_name_' . $middleware_language} !== '' 
     ? $contents->{'login_page_name_' . $middleware_language} 
     : $contents->login_page_name_en)
 

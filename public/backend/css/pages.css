@@ -287,6 +287,9 @@
     width: 20px;
     display: none;
 }
+.pages .table .form-switch {
+    margin-bottom: 0;
+}
 
 
 /* Responsive */
