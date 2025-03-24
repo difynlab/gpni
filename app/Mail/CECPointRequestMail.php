@@ -27,7 +27,7 @@ class CECPointRequestMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'C E C Point Request Mail',
+            subject: 'CEC Point Request',
         );
     }
 

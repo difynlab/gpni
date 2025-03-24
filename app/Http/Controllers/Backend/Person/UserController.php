@@ -855,6 +855,8 @@ class UserController extends Controller
             else {
                 $user->cec_balance -= $cec_point_activity->points;
             }
+
+            // success
         }
         else {
             if($cec_point_activity->type == 'Addition') {
@@ -863,6 +865,8 @@ class UserController extends Controller
             else {
                 $user->cec_balance += $cec_point_activity->points;
             }
+
+            // error
         }
        
         $user->save();

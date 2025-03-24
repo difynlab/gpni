@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Mail\CECPointRequestMail;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CECPointUserMail;
+use App\Models\User;
 
 class QualificationController extends Controller
 {
@@ -87,13 +88,14 @@ class QualificationController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name,
             'email' => $student->email,
             'points' => $request->points,
-            'user_comment' => $request->user_comment,
+            'user_comment' => $request->user_comment
         ];
 
-        $adminEmail = 'dearwine.mail@gmail.com';
-            Mail::to($adminEmail)->send(new CECPointRequestMail($mail_data));
+        $admin = User::find(1);
 
-            Mail::to($student->email)->send(new CECPointUserMail($mail_data));
+        Mail::to($admin->email)->send(new CECPointRequestMail($mail_data));
+
+        Mail::to($student->email)->send(new CECPointUserMail($mail_data));
 
         return redirect()->route('frontend.qualifications')->with('success', 'Request successfully completed');
     }
