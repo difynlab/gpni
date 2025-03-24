@@ -14,9 +14,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CoursePurchaseMail;
+use App\Mail\ReferFriendCoursePurchaseMail;
 use App\Models\ReferFriend;
 use App\Models\ReferPointActivity;
 use App\Models\Setting;
+use App\Models\User;
 use Carbon\Carbon;
 
 class CertificationCourseController extends Controller
@@ -273,6 +275,18 @@ class CertificationCourseController extends Controller
                 'type' => 'Addition',
                 'status' => '1'
             ]);
+
+            $referrer = User::where('status', '1')->find($user->referred_by);
+
+            $mail_data = [
+                'name' => $referrer->first_name . ' ' . $referrer->last_name,
+                'friend_name' => $user->first_name . ' ' . $user->last_name,
+                'friend_email' => $user->email,
+                'course' => $course->title,
+                'points' => $calculated_points
+            ];
+
+            Mail::to($referrer->email)->send(new ReferFriendCoursePurchaseMail($mail_data));
         }
 
         $mail_data = [

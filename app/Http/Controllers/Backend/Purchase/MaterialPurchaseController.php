@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend\Purchase;
 
 use App\Http\Controllers\Controller;
-use App\Mail\SendMaterialMail;
+use App\Mail\MaterialMail;
 use App\Models\Course;
 use App\Models\MaterialPurchase;
 use App\Models\User;
@@ -74,7 +74,7 @@ class MaterialPurchaseController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name
         ];
 
-        Mail::to([$student->email])->send(new SendMaterialMail($mail_data, $file_path, $file_name));
+        Mail::to([$student->email])->send(new MaterialMail($mail_data, $file_path, $file_name));
 
         return redirect()->route('backend.purchases.material-purchases.index')->with('success', 'Material sent successfully');
     }
