@@ -11,6 +11,9 @@ use App\Models\CourseFinalExam;
 use App\Models\CoursePurchase;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Mail\CECPointRequestMail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CECPointUserMail;
 
 class QualificationController extends Controller
 {
@@ -79,6 +82,18 @@ class QualificationController extends Controller
             'user_comment' => $request->user_comment,
             'status' => '2'
         ]);
+
+        $mail_data = [
+            'name' => $student->first_name . ' ' . $student->last_name,
+            'email' => $student->email,
+            'points' => $request->points,
+            'user_comment' => $request->user_comment,
+        ];
+
+        $adminEmail = 'dearwine.mail@gmail.com';
+            Mail::to($adminEmail)->send(new CECPointRequestMail($mail_data));
+
+            Mail::to($student->email)->send(new CECPointUserMail($mail_data));
 
         return redirect()->route('frontend.qualifications')->with('success', 'Request successfully completed');
     }
