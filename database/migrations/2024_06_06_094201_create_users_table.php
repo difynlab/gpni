@@ -41,7 +41,7 @@ return new class extends Migration
             $table->string('business_secondary_email')->nullable();
             $table->string('website')->nullable();
 
-            $table->decimal('cec_balance', 10, 2);
+            $table->decimal('cec_balance', 10, 2)->default(0.00);
 
             $table->enum('age', ['29 or younger', '30-39', '40-49', '50-59', '60 plus'])->nullable();
             $table->enum('area_of_interest', ['Basic and Applied Sciences', 'Medicine', 'Dietetics', 'Research and Development', 'Health/ Fitness', 'Other'])->nullable();
