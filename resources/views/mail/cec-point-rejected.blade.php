@@ -1,6 +1,6 @@
 <p>Dear {{ $mail_data['name'] }},</p>
 
-<p>We regret to inform you that your request for {{ $mail_data['points'] }} CEC points has been rejected.</p>
+<p>We regret to inform you that your {{ $mail_data['points'] }} CEC point request for COURSE NAME has been rejected.</p>
 
 <p>If you have any questions, feel free to contact our support team.</p>
 

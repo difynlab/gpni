@@ -13,14 +13,12 @@ class CECPointApprovedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $mail_data;
-
     /**
      * Create a new message instance.
      */
-    public function __construct($mail_data)
+    public function __construct(public $mail_data)
     {
-        $this->mail_data = $mail_data;
+        //
     }
 
     /**
@@ -29,7 +27,7 @@ class CECPointApprovedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'CEC Point Approved Mail',
+            subject: 'CEC Point Request Approved',
         );
     }
 

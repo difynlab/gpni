@@ -13,15 +13,12 @@ class CECPointRejectedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $mail_data;
-
     /**
      * Create a new message instance.
      */
-    public function __construct($mail_data;
-    )
+    public function __construct(public $mail_data)
     {
-        $this->mail_data = $mail_data;
+        //
     }
 
     /**

@@ -856,6 +856,7 @@ class UserController extends Controller
             'email' => $user->email,
             'points' => $cec_point_activity->points,
         ];
+
         if($request->status == '1') {
             if($cec_point_activity->type == 'Addition') {
                 $user->cec_balance += $cec_point_activity->points;
@@ -864,7 +865,6 @@ class UserController extends Controller
                 $user->cec_balance -= $cec_point_activity->points;
             }
 
-            // success mail code here
             Mail::to($user->email)->send(new CECPointApprovedMail($mail_data));
         }
         else {
@@ -875,7 +875,6 @@ class UserController extends Controller
                 $user->cec_balance += $cec_point_activity->points;
             }
 
-            // error mail code here
             Mail::to($user->email)->send(new CECPointRejectedMail($mail_data));
         }
        
