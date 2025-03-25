@@ -15,6 +15,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Mail\CECPointApprovedMail;
+use App\Mail\CECPointRejectedMail;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -848,6 +851,11 @@ class UserController extends Controller
         $cec_point_activity->status = $request->status;
         $cec_point_activity->save();
 
+        $mail_data = [
+            'name' => $user->first_name . ' ' . $user->last_name,
+            'email' => $user->email,
+            'points' => $cec_point_activity->points,
+        ];
         if($request->status == '1') {
             if($cec_point_activity->type == 'Addition') {
                 $user->cec_balance += $cec_point_activity->points;
@@ -856,7 +864,8 @@ class UserController extends Controller
                 $user->cec_balance -= $cec_point_activity->points;
             }
 
-            // success
+            // success mail code here
+            Mail::to($user->email)->send(new CECPointApprovedMail($mail_data));
         }
         else {
             if($cec_point_activity->type == 'Addition') {
@@ -866,7 +875,8 @@ class UserController extends Controller
                 $user->cec_balance += $cec_point_activity->points;
             }
 
-            // error
+            // error mail code here
+            Mail::to($user->email)->send(new CECPointRejectedMail($mail_data));
         }
        
         $user->save();
