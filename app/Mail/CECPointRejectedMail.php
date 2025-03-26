@@ -27,7 +27,7 @@ class CECPointRejectedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'CEC Point Rejected Mail',
+            subject: 'CEC Points Request Rejected',
         );
     }
 

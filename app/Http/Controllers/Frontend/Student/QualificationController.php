@@ -89,7 +89,7 @@ class QualificationController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name,
             'email' => $student->email,
             'points' => $request->points,
-            'course' => $course ? $course->title : 'Unknown Course',
+            'course' => $course->title,
             'user_comment' => $request->user_comment
         ];
 
