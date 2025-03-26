@@ -79,7 +79,7 @@
         <div class="container-fluid summary-section py-5">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="main-heading fs-49">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
+                    <h2 class="main-heading fs-49 mb-3">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
                     <p class="sub-heading pb-3 fs-25">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</p>
                 </div>
 
@@ -213,7 +213,7 @@
     @endif
 
     @if($contents->section_8_title_en)
-        <section class="watch-anytime-anywhere">
+        <section class="watch-anytime-anywhere py-5">
             <div class="container">
                 <h1 class="fs-49">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</h1>
                 
@@ -231,7 +231,7 @@
     @endif
 
     @if($contents->section_9_title_en)
-        <section class="previous-experts-seminars">
+        <section class="previous-experts-seminars py-5">
             <div class="container">
                 <h1 class="fs-49">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</h1>
 

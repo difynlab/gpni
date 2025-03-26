@@ -515,7 +515,7 @@ form .error-message {
 h1, .h1 {
     font-size: 3.812rem; /* Using fs-61 size */
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 h2, .h2 {
@@ -528,7 +528,7 @@ h2, .h2 {
 h3, .h3 {
     font-size: 2.438rem; /* Using fs-39 size */
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 h4, .h4 {

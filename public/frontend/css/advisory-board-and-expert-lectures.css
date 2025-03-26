@@ -32,7 +32,7 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
-.gpni-logo {
+.gpni-logo-advisory {
     width: auto;
     height: 30px;
     position: absolute;
@@ -96,7 +96,7 @@ body {
         text-align: left; /* Align text to the left for tablets */
     }
 
-    .gpni-logo {
+    .gpni-logo-advisory {
         position: absolute;
         width: auto;
         height: 25px;
@@ -175,7 +175,7 @@ body {
         text-align: left; /* Align text to the left for laptops */
     }
 
-    .gpni-logo {
+    .gpni-logo-advisory {
         position: absolute;
         width: auto;
         height: 30px;
@@ -256,7 +256,7 @@ body {
         text-align: left; /* Align text to the left for large laptops and desktops */
     }
 
-    .gpni-logo {
+    .gpni-logo-advisory {
         position: absolute;
         width: auto;
         height: 35px;
@@ -427,7 +427,7 @@ body {
         text-overflow: ellipsis;
     }
 
-    .gpni-logo {
+    .gpni-logo-advisory {
         position: relative; /* Change to relative positioning for mobile */
         width: 100px; /* Adjust width for mobile devices */
         height: auto; /* Maintain aspect ratio */
@@ -489,7 +489,7 @@ body {
         font-size: 0.875rem; /* Adjust font size for medium mobile devices */
     }
 
-    .gpni-logo {
+    .gpni-logo-advisory {
         width: 80px; /* Smaller for very small devices */
         margin: 15px auto 5px;
     }

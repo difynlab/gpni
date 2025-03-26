@@ -401,7 +401,7 @@
         @if($course->certification_section_9_title)
             <div class="learn-section container py-5">
                 <div class="header text-center mb-3">
-                    <h1 class="title mb-3">{{ $course->certification_section_9_title }}</h1>
+                    <h1 class="title fs-49 mb-3">{{ $course->certification_section_9_title }}</h1>
                     <p class="subtitle">{{ $course->certification_section_9_description }}</p>
                 </div>
                 

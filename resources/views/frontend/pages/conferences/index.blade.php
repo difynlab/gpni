@@ -12,14 +12,14 @@
 
     @if($contents->title_en)
         <div class="container my-5">
-            <h1 class="heading ">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
+            <h1 class="heading fs-49">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
             <div class="row card-container">
                 @if($conferences->isNotEmpty())
                     @foreach($conferences as $conference)
                         <div class="col-12 col-md-6 mb-4">
                             <div class="conference-card">
                                 <div class="text-section ">
-                                    <div class="title fs-20 text-truncate">{{ $conference->title }}</div>
+                                    <div class="title fs-25 text-truncate">{{ $conference->title }}</div>
                                     <div class="item">
                                         <div class="label fs-16">{{ $contents->{'date_' . $middleware_language} ?? $contents->date_en }}:</div>
                                         <div class="value fs-16">{{ $conference->date }}</div>
