@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container py-5">
+    <div class="container py-5 conference-container">
         <div class="main-container">
             <x-frontend.notification></x-frontend.notification>
 
@@ -18,9 +18,9 @@
                 </a>
 
                 <div class="event-title-wrapper text-center">
-                    <div class="title-container">
-                        <div class="event-title-container">
-                            <h1 class="event-title fs-61">
+                    <div class="title-container mobile-full-width">
+                        <div class="event-title-container mobile-full-width">
+                            <h1 class="event-title fs-61 mobile-title">
                                 <span>{{ $conference->title }}</span>
                             </h1>
                         </div>

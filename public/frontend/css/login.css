@@ -1,8 +1,8 @@
 
 
-.custom-container{
+/* .custom-container{
     padding-top: 7rem;
-}
+} */
 
 .white-section {
     padding: 20px;
@@ -309,8 +309,8 @@
 
 @media (min-width: 1024px) and (max-width: 1440px) {
 
-    .custom-container {
+    /* .custom-container {
         padding-top: 5rem;
-    }
+    } */
 
 }

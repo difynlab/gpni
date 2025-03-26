@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <div class="container py-5">
+        <div class="container pt-5">
             <x-frontend.notification></x-frontend.notification>
 
             <h2 class="all-articles-heading">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
@@ -156,9 +156,10 @@
 
                 <div class="col-lg-4 ps-md-4 px-3">
                     <div class="trending-articles-section">
-                        <h5 class="fs-16 trending-article-title py-2">{{ $contents->{'section_1_trend_' . $middleware_language} ?? $contents->section_1_trend_en }}</h5>
+                        <h5 class="fs-20 trending-article-title py-2">{{ $contents->{'section_1_trend_' . $middleware_language} ?? $contents->section_1_trend_en }}</h5>
 
-                        @if($trending_articles->isNotEmpty())
+                        @if($trending_articles->isNotEmpty())'
+                        '
                             @foreach($trending_articles as $trending_article)
                                 <a href="{{ route('frontend.articles.show', [$trending_article, \Overtrue\Pinyin\Pinyin::permalink($trending_article->title)]) }}" class="text-decoration-none">
                                     <div class="trending-article">
@@ -242,7 +243,7 @@
     @endif
 
     @if($contents->section_2_title_en)
-        <div class="instagram-section container-fluid px-3 px-md-4 my-4">
+        <div class="instagram-section container-fluid px-3 px-md-4 py-5">
             <h2 class="fs-49 mb-3 mb-md-4">{{ $contents->{'section_2_title_' . $middleware_language} ??
                 $contents->section_2_title_en }}</h2>
 

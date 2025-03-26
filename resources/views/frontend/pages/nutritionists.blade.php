@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->title_en)
-        <div class="container my-5">
+        <div class="container py-5">
             <section class="learn-best-section">
 
                 <x-frontend.notification></x-frontend.notification>
@@ -57,13 +57,13 @@
 
                     @if($contents->search_labels_links_en)
                         <div class="d-flex justify-content-center flex-wrap mt-3">
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->search_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->search_labels_links_en)[0]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->search_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->search_labels_links_en)[0]->label }}</a>
 
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->search_labels_links_en)[1]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->search_labels_links_en)[1]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->search_labels_links_en)[1]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->search_labels_links_en)[1]->label }}</a>
 
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->link ?? json_decode($contents->search_labels_links_en)[2]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->label ?? json_decode($contents->search_labels_links_en)[2]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->link ?? json_decode($contents->search_labels_links_en)[2]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->label ?? json_decode($contents->search_labels_links_en)[2]->label }}</a>
 
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->link ?? json_decode($contents->search_labels_links_en)[3]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->label ?? json_decode($contents->search_labels_links_en)[3]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->link ?? json_decode($contents->search_labels_links_en)[3]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->label ?? json_decode($contents->search_labels_links_en)[3]->label }}</a>
                         </div>
                     @endif
                 </div>

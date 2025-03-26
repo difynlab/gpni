@@ -20,7 +20,7 @@
     font-weight: 400;
     line-height: 200%;
     /* 35px */
-    /* margin-bottom: 40px; */
+    margin-bottom: 0px;
 }
 
 .policies-section .last-updated {
@@ -162,9 +162,9 @@
 
 /* Responsive adjustments */
 @media (max-width: 1440px) {
-    .policies-section {
-        padding: 20px 20px; /* Adjust padding for 1440px */
-    }
+    /* .policies-section {
+        padding: 20px 20px; 
+    } */
 
     .policies-section .description {
         display: flex;
@@ -176,9 +176,9 @@
         white-space: nowrap; /* Ensure text stays in one line */
     }
 
-    .nav-tabs .nav-link {
-        font-size: 1.25rem; /* Same font size for 1440px */
-    }
+    /* .nav-tabs .nav-link {
+        font-size: 1.25rem; /* Same font size for 1440px 
+    } */
 }
 
 @media (max-width: 1199.98px) {

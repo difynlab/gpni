@@ -49,11 +49,11 @@
     @endif
 
     @if($contents->section_3_title_en)
-        <div class="our-story">
+        <div class="our-story py-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h2 class="pb-3 fs-49 ff-poppins-medium">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h2>
+                        <h2 class="mb-3 fs-49 ff-poppins-medium mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h2>
                         <div class="fs-25 ff-poppins-regular">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
                     </div>
                     <div class="col-md-6">
@@ -71,9 +71,9 @@
     @endif
 
     @if($contents->section_4_title_en)
-        <div class="our-founders">
+        <div class="our-founders py-5">
             <div class="container">
-                <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h2>
+                <h2 class="fs-49 ff-poppins-medium mb-3">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h2>
 
                 @if($our_founders->isNotEmpty())
                     @foreach($our_founders as $key => $our_founder)
@@ -105,7 +105,7 @@
     @endif
     
     @if($contents->section_5_title_en)
-        <div class="our-partners" style="background-color: #0040C3;">
+        <div class="our-partners py-5" style="background-color: #0040C3;">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -127,7 +127,7 @@
     @endif
 
     @if($contents->section_6_title_en)
-        <div class="gold-standard py-4">
+        <div class="gold-standard py-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">

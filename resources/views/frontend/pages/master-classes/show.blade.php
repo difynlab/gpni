@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container pt-3">
+    <div class="container py-5">
         <div class="row mb-4">
             <div class="col">
                 <h1 class="display-4 fs-49">{{ $course->title }}</h1>
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <p class="pt-2 pt-md-3 text-muted line-clamp-3 fs-20 fs-md-16 mb-3">{{ $course->short_description }}</p>
+                <p class="pt-2 pt-md-3 text-muted line-clamp-3 fs-25 fs-md-16 mb-3">{{ $course->short_description }}</p>
 
                 @if(auth()->check())
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
@@ -140,15 +140,15 @@
     </div>
 
     @if($course->master_section_3_title)
-        <div class="container-fluid journey-container py-4 py-md-5 my-4 my-md-5">
-            <div class="row justify-content-center text-center text-white py-3 py-md-5">
+        <div class="container-fluid journey-container py-5">
+            <div class="row justify-content-center text-center text-white">
                 <div class="col-md-8">
                     <h2 class="journey-title pb-2 fs-49">{{ $course->master_section_3_title }}</h2>
                     <p class="journey-subtitle px-3 px-md-0 fs-25">{{ $course->master_section_3_description }}</p>
 
                     @guest
-                        <div class="text-center mt-3">
-                            <a href="{{ route('frontend.register') }}" class="btn btn-light journey-button mt-3 mt-md-4 fs-20">{{ $course->master_section_3_label }}</a>
+                        <div class="text-center fs-20 mt-3">
+                            <a href="{{ route('frontend.register') }}" class="btn btn-light journey-button fs-20 mt-3 mt-md-4 fs-20">{{ $course->master_section_3_label }}</a>
                         </div>
                     @endguest
                 </div>
@@ -156,7 +156,7 @@
         </div>
     @endif
 
-    <div class="tab-container container">
+    <div class="tab-container container mt-3">
         <nav class="nav content-header d-flex justify-content-center overflow-auto">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start justify-content-md-center align-items-center w-100">
                 <li class="nav-item fs-20 text-center">
@@ -232,13 +232,13 @@
     </div>
 
     @if($course->master_section_4_content)
-        <div class="container-fluid p-3 p-md-5 my-4 my-md-5" style="background-color: #0040c3;">
-            <div class="row justify-content-center text-white p-2 p-md-5">
+        <div class="container-fluid p-3 p-md-4 my-4 my-md-5" style="background-color: #0040c3;">
+            <div class="row justify-content-center text-white p-2 p-md-4">
                 <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
                     <img src="{{ asset('storage/backend/courses/course-images/' . $course->master_section_4_image) }}" alt="Merchandise Image" class="img-fluid rounded">
                 </div>
                 <div class="col-lg-6 col-md-12 px-3 px-md-4">
-                    <div class="fs-39 fs-md-49 text-center text-lg-start">{!! $course->master_section_4_content !!}</div>
+                    <div class="fs-49 fs-md-49 text-center text-lg-start">{!! $course->master_section_4_content !!}</div>
 
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         @if(auth()->check())
@@ -355,7 +355,7 @@
                         @foreach($testimonials as $index => $testimonial)
                             @if($index === 0)
                                 <div class="quote-container">
-                                    <div class="quote mb-3 fs-20" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
+                                    <div class="quote mb-3 fs-25" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
                                     <div class="student-name mb-2 fs-20">{{ $testimonial->name }}</div>
                                     <div class="stars">
                                         @for($i = 0; $i < $testimonial->rate; $i++)
@@ -391,7 +391,7 @@
                                     <div class="testimonial-slide">
                                         <div class="card p-4 rounded shadow-sm testimonial-card">
                                             <div class="card-title fs-20 text-primary mb-2">{{ $testimonial->name }}</div>
-                                            <div class="card-text fs-16 mb-3">{{ $testimonial->content }}</div>
+                                            <div class="card-text fs-18 mb-3">{{ $testimonial->content }}</div>
                                             <div class="d-flex justify-content-between">
                                                 <div>
                                                     <span class="font-weight-bold d-block mb-1 fs-20">

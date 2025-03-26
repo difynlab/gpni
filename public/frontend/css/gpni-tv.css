@@ -582,7 +582,7 @@ body {
 .previous-experts-seminars {
     background-color: #ffffff;
     color: #0e0e0e;
-    padding: 50px 0;
+    padding: 40px 0;
 }
 
 .previous-experts-seminars h1 {
@@ -600,7 +600,7 @@ body {
     line-height: 140%;
     text-align: center;
     color: #505050;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .section-9-content {
@@ -652,7 +652,6 @@ body {
 .special-offer-members p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 20px;
     line-height: 140%;
 }
 

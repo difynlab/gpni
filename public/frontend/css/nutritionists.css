@@ -13,14 +13,11 @@
 
 .learn-best-section h2 {
     font-weight: 600;
-    font-size: 3.812rem; /* 60px */
     line-height: 100%;
     color: #0e0e0e;
-    margin-bottom: 20px;
 }
 
 .learn-best-section p {
-    font-size: 19px;
     color: #0e0e0e;
     margin-bottom: 40px;
 }
@@ -73,9 +70,9 @@
     color: #0040c3;
 }
 
-.coaches-section {
+/* .coaches-section {
     padding: 50px 0;
-}
+} */
 
 .coach-card {
     background: #ffffff;

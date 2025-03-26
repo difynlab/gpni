@@ -6,13 +6,12 @@
 
 .membership-section p {
     color: rgba(14, 14, 14, 0.90);
-    line-height: 140%; /* 35px */
+    line-height: 120%; /* 35px */
 }
 
 .btn-pay-now {
     background-color: #0040c3;
     color: white;
-    font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
     border: none;
@@ -20,10 +19,25 @@
     display: inline-block;
     margin-bottom: 60px;
     transition: all 0.3s;
+    width: 380px; /* Set fixed width for desktop */
+    text-align: center;
 }
 .btn-pay-now:hover {
     background-color: #04215c;
     transition: all 0.3s;
+}
+
+/* Membership buttons container for better alignment */
+.membership-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+form .btn-pay-now {
+    margin-right: 20px; /* Add space between buttons in laptop view */
+    margin-left: 20px; /* Add space between buttons in laptop view */
 }
 
 .feature {
@@ -53,7 +67,7 @@
 .feature p {
     color: #505050;
     font-family: "Poppins";
-    font-size: 20px;
+    /* font-size: 20px; */
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
@@ -68,16 +82,14 @@
     align-self: center; /* Center the icon vertically */
 }
 
-.benefits-section {
+/* .benefits-section {
     padding: 40px 0;
-}
+} */
 
 .benefits-section h2 {
     color: #0e0e0e;
-    font-size: 3.812rem; /* 61px */
     font-weight: 500;
     line-height: 120%;
-    margin-bottom: 20px;
 }
 
 .accordion {
@@ -129,6 +141,10 @@
     color: #0e0e0e;
     font-weight: 500;
     line-height: 120%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-right: 3rem; /* Ensure consistent space for the icon */
 }
 
 .accordion-button::after {
@@ -137,6 +153,9 @@
     height: 1.25rem;
     background-size: 1.25rem;
     transition: transform .2s ease-in-out;
+    position: absolute;
+    right: 1.5rem;
+    margin-left: 0; /* Remove default margin */
     /* Content icon URL */
 }
 
@@ -161,11 +180,11 @@
     text-align: center;
     color: #ffffff;
     background: #0040C3;
-    padding: 80px;
+    padding: 40px;
 }
 
 .journey-section h2 {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     color: #FFF;
     text-align: center;
     line-height: 120%;
@@ -209,7 +228,6 @@
     background-color: #fff !important;
     padding: auto;
     text-align: center;
-    font-size: 1.250rem;
     font-style: normal;
     font-weight: 500 !important;
 }
@@ -217,15 +235,11 @@
 .explore-lesson {
     font-family: "Poppins" !important;
     color: #fff !important;
-    font-size: 1.250rem;
 }
 
 
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {
-    .feature .sub-head {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
-    }
 
     .feature .sub-description {
         font-size: 18px; /* Reduced from 20px */
@@ -266,6 +280,11 @@
 
     .accordion-body {
         font-size: 1rem; /* Reduced from 1.25rem */
+    }
+
+    .btn-pay-now {
+        width: 240px; /* Slightly smaller for large screens */
+        padding: 20px 30px;
     }
 }
 
@@ -327,6 +346,12 @@
         background-size: 1rem;
         min-width: 1rem;
     }
+
+    .btn-pay-now {
+        width: 220px; /* Even smaller for tablets */
+        padding: 15px 25px;
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -373,72 +398,262 @@
     }
 
     .accordion-button {
-        font-size: 0.875rem; /* Further reduced */
-        padding: 8px 16px; /* Adjust padding */
+        padding: 12px 15px;
+        font-size: 1rem !important; /* Use the fs-16 equivalent */
+        line-height: 1.3;
+        border-radius: 10px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 2.5rem; /* Ensure space for the icon */
+        position: relative;
     }
-
-    .accordion-body {
-        font-size: 0.75rem; /* Further reduced */
-    }
-}
-
-@media (max-width: 575.98px) {
-
-    .feature .sub-head {
-        font-size: 0.75rem; /* Further reduced */
-    }
-
-    .feature .sub-description {
-        font-size: 12px; /* Further reduced */
-    }
-
-    .feature p {
-        font-size: 12px; /* Further reduced */
-        margin-bottom: 0; /* Remove bottom margin */
-    }
-
-    .feature-icon {
-        width: 16px; /* Further reduced */
-        height: 16px; /* Further reduced */
-    }
-
-    .welcome-text {
-        font-size: 0.5rem; /* Further reduce font size for extra small devices */
-        white-space: nowrap;
-    }
-
-    /* Reduce space between break barriers and borders */
-    .feature {
-        margin-bottom: 0; /* Remove space for extra small devices */
-    }
-
-    .benefits-section {
-        padding-left: 10px; /* Adjust left padding for extra small devices */
-        padding-right: 10px; /* Adjust right padding for extra small devices */
-    }
-
-    .benefits-section h2 {
-        font-size: 1.25rem; /* Further reduced */
-    }
-
-    .benefits-section p {
-        font-size: 0.75rem; /* Further reduced */
-    }
-
-    .accordion-button {
-        font-size: 0.75rem; /* Further reduced */
-        padding: 6px 12px; /* Adjust padding */
-    }
-
-    .accordion-body {
-        font-size: 0.625rem; /* Further reduced */
-    }
-
+    
     .accordion-button::after {
         width: 0.875rem;
         height: 0.875rem;
         background-size: 0.875rem;
         min-width: 0.875rem;
+        margin-left: 0;
+        position: absolute;
+        right: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .accordion-button.collapsed::after {
+        transform: translateY(-50%);
+    }
+    
+    .accordion-button:not(.collapsed)::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+    .accordion-body {
+        font-size: 0.75rem; /* Further reduced */
+    }
+
+    .btn-pay-now {
+        width: 100%; /* Full width on mobile */
+        max-width: 280px;
+        padding: 15px 20px;
+        margin-bottom: 30px;
+        font-size: 16px;
+    }
+    
+    .membership-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form .btn-pay-now {
+        margin-right: 0; /* Reset margins on mobile */
+        margin-left: 0; /* Reset margins on mobile */
+    }
+
+    /* Improved accordion mobile styling */
+    .accordion {
+        margin: 0 5px;
+    }
+    
+    .accordion-item {
+        margin-bottom: 10px !important;
+        border-radius: 10px !important;
+    }
+    
+    .accordion-item:first-of-type,
+    .accordion-item:last-of-type {
+        border-radius: 10px !important;
+    }
+    
+    .accordion-button {
+        padding: 12px 15px;
+        font-size: 1rem !important; /* Use the fs-16 equivalent */
+        line-height: 1.3;
+        border-radius: 10px !important;
+        display: flex;
+        align-items: center;
+    }
+    
+    .accordion-button::after {
+        width: 0.875rem;
+        height: 0.875rem;
+        background-size: 0.875rem;
+        min-width: 0.875rem;
+        margin-left: 10px;
+        position: absolute;
+        right: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .accordion-body {
+        padding: 10px 15px;
+        font-size: 0.875rem !important; /* Use the fs-14 equivalent */
+        line-height: 1.4;
+    }
+    
+    .accordion-body ul {
+        padding-left: 20px;
+    }
+    
+    .accordion-body ul li {
+        margin-bottom: 0.25rem;
+    }
+    
+    /* Apply main.css font classes for better consistency */
+    .accordion-button .fs-25 {
+        font-size: 1rem !important;
+    }
+    
+    .accordion-body .fs-20 {
+        font-size: 0.875rem !important;
+    }
+
+    .membership-section h2 {
+        font-size: 1.75rem !important;
+        margin-bottom: 1rem;
+    }
+
+    .membership-section p {
+        font-size: 0.875rem !important;
+        line-height: 1.4;
+    }
+    
+    .benefits-section {
+        padding: 20px 10px;
+    }
+    
+    .benefits-section h2 {
+        font-size: 1.75rem !important;
+        margin-bottom: 0.75rem;
+    }
+    
+    .journey-section {
+        padding: 40px 20px;
+    }
+    
+    .journey-section h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    .btn-pay-now {
+        max-width: 260px;
+        padding: 15px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    /* Improve card layout on mobile */
+    .feature {
+        margin-bottom: 15px;
+        padding: 5px;
+    }
+    
+    .feature-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+    
+    /* Better accordion readability on mobile */
+    .accordion-button {
+        padding: 12px 15px 12px 15px;
+        font-size: 1rem !important;
+    }
+    
+    .accordion-body {
+        padding: 12px 15px;
+        font-size: 0.875rem !important;
+    }
+    
+    /* Action buttons for mobile */
+    .register-button, 
+    .explore-lesson {
+        width: 100%;
+        max-width: 260px;
+        margin-bottom: 15px;
+        padding: 10px 15px !important;
+        font-size: 1rem !important;
+        text-align: center;
+    }
+    
+    /* Fix spacing issues in mobile layout */
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .membership-section h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .membership-section p {
+        font-size: 0.75rem !important;
+    }
+    
+    .benefits-section h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .journey-section h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .btn-pay-now {
+        max-width: 240px;
+        padding: 12px;
+        font-size: 0.875rem;
+    }
+    
+    /* Further reduce spacing on very small screens */
+    .feature {
+        margin-bottom: 10px;
+    }
+    
+    .feature-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
+    
+    /* Even more compact accordion for small screens */
+    .accordion-item {
+        margin-bottom: 8px !important;
+    }
+    
+    .accordion-button {
+        padding: 10px 12px 10px 12px;
+        font-size: 0.875rem !important;
+    }
+    
+    .accordion-body {
+        padding: 10px 12px;
+        font-size: 0.75rem !important;
+    }
+    
+    .accordion-body ul {
+        padding-left: 18px;
+    }
+    
+    /* Smaller action buttons */
+    .register-button, 
+    .explore-lesson {
+        max-width: 220px;
+        padding: 8px 12px !important;
+        font-size: 0.875rem !important;
+    }
+    
+    /* Better image handling */
+    .img-fluid {
+        margin-bottom: 1rem;
     }
 }
 
@@ -464,6 +679,11 @@
         padding: 20px 40px;
         border-radius: 20px;
         font-size: 1.562rem;
+        padding-right: 5rem; /* Ensure space for the icon */
+    }
+    
+    .accordion-button::after {
+        right: 2.5rem;
     }
 }
 
@@ -473,6 +693,11 @@
         padding: 15px 30px;
         border-radius: 15px;
         font-size: 1.25rem;
+        padding-right: 4rem; /* Ensure space for the icon */
+    }
+    
+    .accordion-button::after {
+        right: 2rem;
     }
 }
 

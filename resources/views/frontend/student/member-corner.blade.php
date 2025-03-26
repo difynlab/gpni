@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="container-fluid dashboard-members">
-        <div class="row p-lg-5 p-3">
+        <div class="row p-lg-5 p-3 m-0">
             <x-frontend.sidebar :student="$student"></x-frontend.sidebar>
 
             <div class="col-12 col-lg-8 main-content ps-lg-5">

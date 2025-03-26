@@ -38,7 +38,7 @@
         <div class="container-fluid section approve-section approve-section-background">
             <div class="container py-5">
                 <div class="row align-items-center">
-                    <div class="col-md-7 content-text-white fs-25">
+                    <div class="col-md-7 content-text-white">
                         {!! $contents->{'section_2_content_' . $middleware_language} ?? $contents->section_2_content_en !!}
                     </div>
                     <div class="col-md-5 text-center">
@@ -59,7 +59,7 @@
     @endif
 
     @if($contents->section_3_content_en)
-        <div class="container bg-white section my-5">
+        <div class="container bg-white section py-5">
             <div class="content-text fs-25 px-md-0 px-4">
                 {!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}
             </div>
@@ -82,13 +82,13 @@
                                 alt="Importance of insurance" class="img-fluid img-fluid-custom">
                         @endif
                     </div>
-                    <div class="col-md-6 content-text-white insurance-text fs-25">
+                    <div class="col-md-6 content-text-white insurance-text fs-25 responsive-text">
                         {!! $contents->{'section_4_content_' . $middleware_language} ?? $contents->section_4_content_en !!}
                     </div>
                 </div>
 
                 <div class="highlight-box mt-4">
-                    <div>
+                    <div class="responsive-text">
                         {!! $contents->{'section_4_sub_content_' . $middleware_language} ?? $contents->section_4_sub_content_en !!}
                     </div>
                 </div>
@@ -97,8 +97,8 @@
     @endif
 
     @if($contents->section_5_content_en)
-        <div class="container bg-white section my-5">
-            <div class="content-text px-4 px-md-0 fs-25">
+        <div class="container bg-white section py-5">
+            <div class="content-text px-4 px-md-0 fs-25 responsive-content">
                 {!! $contents->{'section_5_content_' . $middleware_language} ?? $contents->section_5_content_en !!}
             </div>
         </div>

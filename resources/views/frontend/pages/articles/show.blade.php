@@ -19,7 +19,7 @@
                         <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M,Y') }}</span>
                     </div>
 
-                    <h1 class="fs-36 pt-2">{{ $article->title }}</h1>
+                    <h1 class="fs-49 pt-2">{{ $article->title }}</h1>
 
                     <div class="content-section fs-16">
                         <div>{!! $article->content !!}</div>
@@ -53,7 +53,7 @@
                         <img src="{{ asset('storage/frontend/banner.svg') }}" alt="Banner" class="img-fluid mb-4 banner-section w-100">
                     </a>
 
-                    <h5 class="fs-16 latest-article-title py-2">{{ $contents->{'section_1_first_tab_' . $middleware_language} ?? $contents->section_1_first_tab_en }}</h5>
+                    <h5 class="fs-20 latest-article-title py-2">{{ $contents->{'section_1_first_tab_' . $middleware_language} ?? $contents->section_1_first_tab_en }}</h5>
                     <div class="latest-articles-section">
                         @if($latest_articles->isNotEmpty())
                             @foreach($latest_articles as $latest_article)

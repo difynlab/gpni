@@ -19,11 +19,11 @@ body {
     background-repeat: no-repeat;
     position: relative;
     text-align: center;
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
 .partners-section h2 {
-    font-size: 49px;
+    font-size: 33px;
     font-weight: 500;
     color: #0e0e0e;
     line-height: 120%;
@@ -36,14 +36,15 @@ body {
     margin-bottom: 30px; /* Add margin to increase gap between images */
 }
 
-.custom-row-gap {
+/* .custom-row-gap {
     margin-bottom: 2rem;
-}
+} */
 
 .affiliates-section {
     background-color: #0040c3;
     color: #fff;
-    padding: 50px 0;
+    /* padding: 50px 0; */
+    margin-bottom: 0 !important;
 }
 
 .affiliates-section h2 {
@@ -88,7 +89,7 @@ body {
 .description-content ol,
 .description-content li {
     /* font-size: inherit; */
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     line-height: 140%;
 }
 
@@ -183,3 +184,92 @@ body {
         margin: 0.5rem 0;
     }
 }
+
+/* Laptop screens - specific override for sections 2 and 3 */
+@media (min-width: 992px) and (max-width: 1440px) {
+    .affiliates-section {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* section.text-center.py-4.py-md-5 {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    } */
+    
+    /* More specific selectors to ensure higher specificity */
+    .affiliates-section.d-flex.align-items-center.py-md-5 {
+        padding-top: 50px !important;
+        padding-bottom: 0 !important;
+    }
+    
+    section.text-center.py-4.py-md-5 .container {
+        padding-bottom: 0 !important;
+    }
+    
+    /* Force removal of padding-bottom with more specific selectors */
+    body .affiliates-section.d-flex.align-items-center {
+        padding-bottom: 0 !important;
+    }
+    
+    /* body section.text-center.py-4 {
+        padding-bottom: 0 !important;
+    } */
+}
+
+/* Specific overrides for 1024px resolution */
+@media (width: 1024px) {
+    /* Ensure these styles match the ones at 1440px */
+    .affiliates-section {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* section.text-center.py-4.py-md-5 {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    } */
+    
+    /* Extra high specificity for 1024px screens */
+    html body .affiliates-section.d-flex.align-items-center {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* html body section.text-center.py-4.py-md-5 {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    } */
+}
+
+/* Mobile-only overrides - remove gap-3 and pt-3 */
+@media (max-width: 575.98px) {
+    /* Target the specific element that has gap-3 class in section 3 */
+    section.text-center.py-4.py-md-5 .flex-column.flex-md-row.gap-3 {
+        gap: 0 !important;
+        padding-top: 0 !important;
+    }
+    
+    /* Alternative approach using !important to override Bootstrap classes */
+    .flex-column.flex-md-row.justify-content-center.align-items-center.gap-3.pt-3.pt-md-5 {
+        gap: 0 !important;
+        padding-top: 0 !important;
+    }
+    
+    /* Extra specificity to ensure override */
+    body section.text-center.py-4.py-md-5 .container .pt-3 {
+        padding-top: 0 !important;
+    }
+}
+
+/* Additional padding for section_1 */
+.container.py-5:first-of-type {
+    padding-top: 3rem !important;
+    padding-bottom: 0 !important;
+}
+
+/* Ensure section_1 has proper padding */
+/* section:first-of-type .partners-section {
+    padding-top: 3rem !important;
+    padding-bottom: 0;
+} */

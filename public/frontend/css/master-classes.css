@@ -19,9 +19,9 @@ body {
 }
 
 @media (max-width: 1440px) and (min-width: 1024px) {
-    .title {
+    /* .title {
         font-size: 61px;
-    }
+    } */
 }
 
 @media (max-width: 1199.98px) {
@@ -80,7 +80,7 @@ body {
     font-weight: 500;
     line-height: 120%;
     color: #0e0e0e;
-    padding-top: 46px;
+    padding-top: 20px;
 }
 
 .header-section p {
@@ -552,8 +552,7 @@ body {
 
 
 .testimonial-body {
-    font-size: 1.5rem;
-    font-size: 20px;
+    /* font-size: 1.5rem; */
     font-weight: 400;
     line-height: 140%;
     max-width: 800px;

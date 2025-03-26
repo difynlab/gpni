@@ -14,7 +14,7 @@
         <div class="container-xxl bg-white p-0">
             <div class="container-xxl position-relative p-0">
                 <div class="container-xxl hero-header">
-                    <div class="container py-5">
+                    <div class="container">
                         <x-frontend.notification></x-frontend.notification>
                         <x-frontend.notification-popup></x-frontend.notification-popup>
 
@@ -106,31 +106,31 @@
 
     @if($contents->section_3_title_en)
         <div class="py-5">
-            <div class="container pt-4 mt-4">
+            <div class="container">
                 <div class="text-center">
-                    <h1 class="mb-3 ff-poppins-medium fs-49 fs-md-36">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
-                    <p class="mb-1 professional-body ff-poppins-regular fs-25 fs-md-20">{{ $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en }}</p>
+                    <h1 class="mb-3 ff-poppins-medium fs-49">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
+                    <p class="mb-1 professional-body ff-poppins-regular fs-25">{{ $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en }}</p>
                 </div>
 
-                <div class="tab-class pt-5 text-center">
+                <div class="tab-class pt-3 text-center">
                     <ul class="nav nav-pills d-flex justify-content-center mb-5 flex-md-row flex-column w-100">
                         <li class="nav-item mx-5">
-                            <a class="d-flex align-items-center ms-0 pb-md-3 pb-0 active pill-link w-100" data-bs-toggle="pill" href="#tab-1">
-                                <div class="tab-text mt-n1 mb-0">
+                            <a class="d-flex align-items-center ms-0 pb-md-0 pb-0 active pill-link w-100" data-bs-toggle="pill" href="#tab-1">
+                                <div class="tab-text fs-25 mt-1 mb-0">
                                     {{ $contents->{'section_3_first_tab_' . $middleware_language} ?? $contents->section_3_first_tab_en }}
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item mx-5">
-                            <a class="d-flex align-items-center pb-md-3 pb-0 pill-link" data-bs-toggle="pill" href="#tab-2">
-                                <div class="tab-text mt-1 mb-0">
+                            <a class="d-flex align-items-center pb-md-0 pb-0 pill-link" data-bs-toggle="pill" href="#tab-2">
+                                <div class="tab-text fs-25 mt-1 mb-0">
                                     {{ $contents->{'section_3_second_tab_' . $middleware_language} ?? $contents->section_3_second_tab_en }}
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item mx-5">
-                            <a class="d-flex align-items-center me-0 pb-md-3 pb-0 pill-link" data-bs-toggle="pill" href="#tab-3">
-                                <div class="tab-text mt-1 mb-0">
+                            <a class="d-flex align-items-center me-0 pb-md-0 pb-0 pill-link" data-bs-toggle="pill" href="#tab-3">
+                                <div class="tab-text fs-25 mt-1 mb-0">
                                     {{ $contents->{'section_3_third_tab_' . $middleware_language} ?? $contents->section_3_third_tab_en }}
                                 </div>
                             </a>
@@ -154,9 +154,9 @@
                                                     </div>
                                                     <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
                                                     <div class="card-body course-card-body ps-4">
-                                                        <h5 class="card-title d-flex justify-content-start text-start">{{ $course->title }}</h5>
+                                                        <div class="card-title fs-25 d-flex justify-content-start text-start">{{ $course->title }}</div>
                                                         <div class="apply-now-container d-flex justify-content-between align-items-center w-100">
-                                                            <div class="apply-now-text">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                            <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
                                                             <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
                                                         </div>
                                                     </div>
@@ -181,10 +181,10 @@
                                                         </div>
                                                         <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
                                                         <div class="card-body ps-4">
-                                                            <h5 class="card-title d-flex justify-content-start text-start">{{ $course->title }}</h5>
+                                                            <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
                                                             <div
                                                                 class="apply-now-container d-flex justify-content-between align-items-center w-100">
-                                                                <div class="apply-now-text">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                                <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
                                                                 <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
                                                             </div>
                                                         </div>
@@ -210,10 +210,10 @@
                                                         </div>
                                                         <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
                                                         <div class="card-body ps-4">
-                                                            <h5 class="card-title d-flex justify-content-start text-start">{{ $course->title }}</h5>
+                                                            <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
                                                             <div
                                                                 class="apply-now-container d-flex justify-content-between align-items-center w-100">
-                                                                <div class="apply-now-text">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                                <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
                                                                 <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
                                                             </div>
                                                         </div>
@@ -229,8 +229,8 @@
                 </div>
 
                 @guest
-                    <div class="text-center mt-5 pt-5">
-                        <a href="{{ route('frontend.register') }}" class="py-sm-4 px-sm-5 ff-poppins-medium fs-20 explore-course-text">
+                    <div class="text-center pt-5">
+                        <a href="{{ route('frontend.register') }}" class="ff-poppins-medium fs-25 explore-course-text">
                             {{ $contents->{'section_3_label_' . $middleware_language} ?? $contents->section_3_label_link_en }}
                             <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                         </a>
@@ -244,10 +244,10 @@
         <div class="testimonial-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 testimonial-heading fs-49 fs-md-36 fs-25">
+                    <div class="mb-3 testimonial-heading fs-49">
                         {{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}
                     </div>
-                    <b class="mb-1 testimonial-body">
+                    <b class="mb-3 testimonial-body fs-25">
                         {{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}
                     </b>
                 </div>
@@ -275,7 +275,7 @@
                                 
                                 <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
 
-                                <p>{{ $testimonial->content }}</p>
+                                <p class="fs-20">{{ $testimonial->content }}</p>
 
                                 <div class="author">
                                     @if($testimonial->image)
@@ -285,8 +285,8 @@
                                     @endif
                                     
                                     <div>
-                                        <p>{{ $testimonial->name }}</p>
-                                        <p>{{ $testimonial->designation }}</p>
+                                        <p class="fs-16 mb-1">{{ $testimonial->name }}</p>
+                                        <p class="fs-13 mb-1">{{ $testimonial->designation }}</p>
                                     </div>
                                 </div>
 
@@ -299,11 +299,11 @@
     @endif
 
     @if($contents->section_5_title_en)
-        <div class="partners-container">
+        <div class="partners-container py-5 py-md-0">
             <div class="container">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 ff-poppins-medium fs-49 partners-heading mt-0 mt-md-5 pt-5 px-5">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
-                    <p class="mb-1 partners-body fw-normal fs-25">{{ $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en }}</p>
+                    <div class="mb-3 ff-poppins-medium fs-49 partners-heading mt-md-5 px-5">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
+                    <p class="mb-3 partners-body fw-normal fs-25">{{ $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en }}</p>
                 </div>
         
                 @if($contents->section_5_images_en)
@@ -337,15 +337,15 @@
         <div class="journey-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 journey-heading fs-49 fs-md-36 fw-poppins-medium">{{ $contents->{'section_6_title_' . $middleware_language} ?? $contents->section_6_title_en }}</div>
-                    <p class="mb-4 journey-body fs-20 fs-md-16 fw-poppins-regular">{{ $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en }}</p>
+                    <div class="mb-3 journey-heading fs-49 fw-poppins-medium">{{ $contents->{'section_6_title_' . $middleware_language} ?? $contents->section_6_title_en }}</div>
+                    <p class="mb-3 journey-body fs-25 fw-poppins-regular">{{ $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en }}</p>
                 </div>
                 <div class="pt-3 d-flex justify-content-center align-items-center flex-wrap">
                     @guest
-                        <a href="{{ route('frontend.register') }}" class="btn btn-secondary signup-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ $contents->{'section_6_label_' . $middleware_language} ?? $contents->section_6_label_link_en }}</a>
+                        <a href="{{ route('frontend.register') }}" class="btn btn-secondary signup-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-25">{{ $contents->{'section_6_label_' . $middleware_language} ?? $contents->section_6_label_link_en }}</a>
                     @endguest
     
-                    <a href="{{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->link ?? json_decode($contents->section_6_label_link_en)->link }}" class="btn explore-lesson btn-responsive fs-20 fs-md-16 py-3 px-4">
+                    <a href="{{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->link ?? json_decode($contents->section_6_label_link_en)->link }}" class="btn explore-lesson btn-responsive fs-25 fs-md-16 py-3 px-4">
                         {{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->label ?? json_decode($contents->section_6_label_link_en)->label }}
                         <img src="{{ asset('storage/frontend/arrow-icon-white.svg') }}" class="arrow-right-icon"/>
                     </a>
@@ -356,11 +356,11 @@
 
     @if($contents->section_7_title_en)
         <div class="expert-container">
-            <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
+            <div class="container py-5">
                 <div class="text-center">
                     <div class="mb-3 expert-heading fs-49 ff-poppins-medium">{{ $contents->{'section_7_title_' . $middleware_language} ?? $contents->section_7_title_en }}
                     </div>
-                    <p class="mb-4 expert-body fs-25 ff-poppins-regular">{{ $contents->{'section_7_description_' . $middleware_language} ?? $contents->section_7_description_en }}</p>
+                    <p class="mb-3 expert-body fs-25 ff-poppins-regular">{{ $contents->{'section_7_description_' . $middleware_language} ?? $contents->section_7_description_en }}</p>
                 </div>
 
                 
@@ -439,8 +439,8 @@
                     </div>
                 @endif
 
-                <div class="text-center mt-5 pt-5 explore-course-text">
-                    <a href="{{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->link ?? json_decode($contents->section_7_label_link_en)->link }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-20">
+                <div class="text-center mt-5 explore-course-text">
+                    <a href="{{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->link ?? json_decode($contents->section_7_label_link_en)->link }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-25">
                         {{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->label ?? json_decode($contents->section_7_label_link_en)->label }}
                         <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                     </a>
@@ -453,8 +453,8 @@
         <div class="nutritionist-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 nutritionist-heading ff-poppins-medium fs-49 fs-md-36">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</div>
-                    <b class="mb-1 nutritionist-body ff-poppins-regular fs-25 fs-md-20">{{ $contents->{'section_8_description_' . $middleware_language} ?? $contents->section_8_description_en }}</b>
+                    <div class="mb-3 nutritionist-heading ff-poppins-medium fs-49">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</div>
+                    <b class="mb-1 nutritionist-body ff-poppins-regular fs-25">{{ $contents->{'section_8_description_' . $middleware_language} ?? $contents->section_8_description_en }}</b>
                 </div>
                 
                 <div class="row g-4">
@@ -480,7 +480,7 @@
                 </div>
 
                 <div class="text-center pt-5">
-                    <div class="mb-3 mb-md-5 list-heading fs-25 fs-md-20">{{ $contents->{'section_8_sub_description_' . $middleware_language} ?? $contents->section_8_sub_description_en }}</div>
+                    <div class="mb-3 list-heading fs-25">{{ $contents->{'section_8_sub_description_' . $middleware_language} ?? $contents->section_8_sub_description_en }}</div>
 
                     <div class="d-flex justify-content-center flex-wrap">
                         <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->section_8_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->section_8_labels_links_en)[0]->label }}</a>
@@ -500,8 +500,8 @@
         <div class="faq-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 faq-heading h1 fs-49">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</div>
-                    <p class="mb-4 faq-body fs-25 fs-md-20">{{ $contents->{'section_9_description_' . $middleware_language} ?? $contents->section_9_description_en }}</p>
+                    <div class="mb-3 faq-heading fs-49">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</div>
+                    <p class="mb-3 faq-body fs-25">{{ $contents->{'section_9_description_' . $middleware_language} ?? $contents->section_9_description_en }}</p>
                 </div>
                 <div class="my-3">
                     <div class="accordion" id="accordionFAQ">
@@ -521,8 +521,8 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="text-center mt-5 pt-5 explore-course-text">
-                        <a href="{{ route('frontend.faqs') }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-20">
+                    <div class="text-center explore-course-text pt-4">
+                        <a href="{{ route('frontend.faqs') }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-25">
                             {{ $contents->{'section_9_button_' . $middleware_language} ?? $contents->section_9_button_en }}
                             <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                         </a>

@@ -42,7 +42,6 @@ body {
 }
 .header-section .description {
     font-weight: 400;
-    line-height: 160%;
     color: #505050;
 }
 a.btn-primary {
@@ -53,13 +52,13 @@ a.btn-primary {
     padding: 10px;
     border-radius: 5px;
     width: 100%;
-    margin-top: 16px;
+    /* margin-top: 16px; */
 }
 
 @media (max-width: 768px) {
-    .certification-section .certificates-container {
+    /* .certification-section .certificates-container {
         flex-direction: column;
-    }
+    } */
     .certification-section {
         padding: 20px 10px;
     }
@@ -330,7 +329,7 @@ a.btn-primary {
 .text-content h1 {
     font-weight: 500;
     color: #0040c3;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .text-content p {
@@ -338,6 +337,7 @@ a.btn-primary {
     line-height: 24px;
     color: #505050;
     margin-bottom: 0;
+    line-height: 160%;
 }
 
 .testimonial-content {
@@ -349,7 +349,6 @@ a.btn-primary {
 }
 
 .testimonial-text {
-    font-size: 16px;
     line-height: 160%;
     color: #505050;
     margin-top: 20px;
@@ -361,7 +360,7 @@ a.btn-primary {
 
 .testimonial-author .name {
     font-weight: 500;
-    font-size: 15px;
+    font-size: 20px;
     color: #0040c3;
 }
 
@@ -963,6 +962,9 @@ course-content {
         font-size: 16px;
         line-height: 24px;
     }
+    .section-7-video {
+        height:auto !important;
+    }
 }
 
 .cissn-title {
@@ -1151,14 +1153,13 @@ course-content {
     font-weight: 500;
     line-height: 1.2;
     color: #0e0e0e;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .payment-options-description {
     font-weight: 400;
-    line-height: 30px;
     color: #505050;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .table-container {
@@ -1528,7 +1529,6 @@ course-content {
 .masters-pack-title {
     font-weight: 600;
     line-height: 54px;
-    margin-bottom: 20px;
 }
 
 .masters-pack-subtitle {
@@ -1577,9 +1577,59 @@ course-content {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 991.98px) {
+    .masters-pack-section {
+        padding: 50px 15px;
+    }
+    
+    .btn-group {
+        gap: 15px;
+    }
+    
+    .btn-custom {
+        padding: 12px 25px;
+    }
+}
+
 @media (max-width: 768px) {
     .vertical-line {
         display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .masters-pack-section {
+        padding: 40px 10px;
+    }
+    
+    .masters-pack-content {
+        max-width: 100%;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .btn-custom {
+        width: 90%;
+        max-width: 300px;
+        padding: 10px 20px;
+    }
+    
+    .btn-custom.secondary {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 479.98px) {
+    .masters-pack-section {
+        padding: 30px 10px;
+    }
+    
+    .btn-custom {
+        width: 100%;
     }
 }
 
@@ -1644,7 +1694,7 @@ course-content {
 /* Section 7 Video */
 .section-7-video {
     width: 100%;
-    height: 425px;
+    height: 455px;
 }
 
 /* Section 9 Image */
@@ -1672,12 +1722,10 @@ course-content {
 
 .learn-section {
     font-family: 'Poppins', sans-serif;
-    max-width: 1190px;
     margin: 0 auto;
 }
 
 .title {
-    font-size: 49px;
     font-weight: 500;
     line-height: 120%;
     color: #0e0e0e;
@@ -1715,9 +1763,6 @@ course-content {
 }
 
 @media (max-width: 768px) {
-    .title {
-        font-size: 36px;
-    }
     
     .subtitle {
         font-size: 20px;
@@ -1878,7 +1923,7 @@ course-content {
 }
 .step-content p {
     margin-bottom: 0;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 /* Responsive styles */
@@ -1929,4 +1974,50 @@ course-content {
 .merchandise2-container .merchandise2-btn:hover {
     background-color: #f8f9fa;
     color: #002d8a;
+}
+
+/* Additional responsive styles for header-section */
+@media (max-width: 991.98px) {
+    
+    .certification-section .certificate-image {
+        margin-bottom: 15px;
+        max-width: 100%;
+    }
+    
+    .certification-section .title {
+        margin-bottom: 20px;
+    }
+    
+    .btn.btn-primary {
+        width: auto;
+        min-width: 200px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    
+    /* .certification-section .certificates-container {
+        margin-bottom: 15px;
+    } */
+    
+    .btn.btn-primary {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    
+    .certification-section .title {
+        margin-bottom: 15px;
+    }
+    
+    .certification-section .rating {
+        font-size: 14px;
+    }
+    
+    .certificate-image {
+        border-radius: 5px;
+    }
 }

@@ -35,7 +35,9 @@ body {
 .gpni-logo {
     width: auto;
     height: 30px;
-    margin-right: 4rem;
+    position: absolute;
+    bottom: 20px;
+    right: 20px; /* Default position for laptops/desktops */
 }
 
 /* Styles for tablets and small laptops */
@@ -95,8 +97,11 @@ body {
     }
 
     .gpni-logo {
-        width: 80px; /* Adjust width for tablets */
-        height: 30px; /* Adjust height for tablets */
+        position: absolute;
+        width: auto;
+        height: 25px;
+        bottom: 15px;
+        right: 15px;
     }
 }
 
@@ -146,6 +151,8 @@ body {
     .modal-body {
         flex-direction: row; /* Arrange content in a row */
         align-items: flex-start; /* Align items to the top */
+        padding: 10px 10px 0 10px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 
     .popup-image {
@@ -166,6 +173,14 @@ body {
 
     .popup-info {
         text-align: left; /* Align text to the left for laptops */
+    }
+
+    .gpni-logo {
+        position: absolute;
+        width: auto;
+        height: 30px;
+        bottom: 20px;
+        right: 20px;
     }
 }
 
@@ -217,6 +232,8 @@ body {
     .modal-body {
         flex-direction: row; /* Arrange content in a row */
         align-items: flex-start; /* Align items to the top */
+        padding: 20px 20px 0 20px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 
     .popup-image {
@@ -237,6 +254,14 @@ body {
 
     .popup-info {
         text-align: left; /* Align text to the left for large laptops and desktops */
+    }
+
+    .gpni-logo {
+        position: absolute;
+        width: auto;
+        height: 35px;
+        bottom: 25px;
+        right: 25px;
     }
 }
 
@@ -313,7 +338,8 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 0 20px; /* Keep top padding, remove bottom padding */
+    margin-bottom: 0; /* Ensure no bottom margin */
 }
 
 .popup-image {
@@ -322,7 +348,7 @@ body {
     max-width: 451px;
     max-height: 608px;
     object-fit: cover;
-    border-radius: 24px 0 0 24px;
+    border-radius: 12px 12px 12px 12px;
     margin-bottom: 20px; /* Add margin for spacing */
 }
 
@@ -402,8 +428,18 @@ body {
     }
 
     .gpni-logo {
+        position: relative; /* Change to relative positioning for mobile */
         width: 100px; /* Adjust width for mobile devices */
-        height: 30px; /* Adjust height for mobile devices */
+        height: auto; /* Maintain aspect ratio */
+        bottom: auto;
+        right: auto;
+        margin: 20px auto 10px; /* Center with margin */
+        display: block; /* Make it a block element for centering */
+    }
+
+    .modal-body {
+        padding: 15px 15px 0 15px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 }
 
@@ -428,7 +464,8 @@ body {
     }
 
     .modal-body {
-        padding: 5px;
+        padding: 5px 5px 0 5px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 
     .popup-content {
@@ -450,6 +487,11 @@ body {
 
     .popup-description {
         font-size: 0.875rem; /* Adjust font size for medium mobile devices */
+    }
+
+    .gpni-logo {
+        width: 80px; /* Smaller for very small devices */
+        margin: 15px auto 5px;
     }
 }
 
@@ -473,6 +515,8 @@ body {
     .modal-body {
         flex-direction: row; /* Arrange content in a row */
         align-items: flex-start; /* Align items to the top */
+        padding: 10px 10px 0 10px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 
     .popup-image {
@@ -522,6 +566,8 @@ body {
     .modal-body {
         flex-direction: row; /* Arrange content in a row */
         align-items: flex-start; /* Align items to the top */
+        padding: 10px 10px 0 10px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 
     .popup-image {
@@ -572,6 +618,8 @@ body {
     .modal-body {
         flex-direction: row; /* Arrange content in a row */
         align-items: flex-start; /* Align items to the top */
+        padding: 20px 20px 0 20px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 
     .popup-image {
@@ -668,7 +716,8 @@ body {
     }
 
     .modal-body {
-        padding: 10px;
+        padding: 10px 10px 0 10px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
     }
 
     .popup-content {
@@ -725,7 +774,7 @@ body {
 
     .description-text {
         line-height: 140%; /* Ensure correct line height for large laptops and desktops */
-        max-width: 800px; /* Limit the width to ensure it fits in 2 lines */
+        max-width: 900px; /* Limit the width to ensure it fits in 2 lines */
         margin: 0 auto; /* Center the text */
     }
 
