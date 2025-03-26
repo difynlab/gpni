@@ -850,11 +850,13 @@ class UserController extends Controller
     {
         $cec_point_activity->status = $request->status;
         $cec_point_activity->save();
+        $course = Course::find($request->course_id ?? $cec_point_activity->course_id);
 
         $mail_data = [
             'name' => $user->first_name . ' ' . $user->last_name,
             'email' => $user->email,
             'points' => $cec_point_activity->points,
+            'course' => $course ? $course->title : 'Unknown Course',
         ];
 
         if($request->status == '1') {

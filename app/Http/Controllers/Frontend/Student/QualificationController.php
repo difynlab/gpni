@@ -72,6 +72,7 @@ class QualificationController extends Controller
 
     public function cecStore(Request $request) {
         $student = Auth::user();
+        $course = Course::find($request->course_id);
 
         CECPointActivity::create([
             'user_id' => $student->id,
@@ -88,6 +89,7 @@ class QualificationController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name,
             'email' => $student->email,
             'points' => $request->points,
+            'course' => $course ? $course->title : 'Unknown Course',
             'user_comment' => $request->user_comment
         ];
 

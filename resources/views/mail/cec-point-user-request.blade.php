@@ -3,6 +3,7 @@
 <p>Your request for CEC points has been successfully submitted. We have received the following details:</p>
 
 <p><strong>Points Requested:</strong> {{ $mail_data['points'] }}</p>
+<p><strong>Requested Course:</strong>{{ $mail_data['course'] }}</p>
 <p><strong>Your Comment:</strong> {{ $mail_data['user_comment'] }}</p>
 
 <p>We will notify you once your request is processed.</p>
