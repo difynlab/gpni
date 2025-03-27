@@ -46,7 +46,7 @@ return new class extends Migration
             $table->enum('age', ['29 or younger', '30-39', '40-49', '50-59', '60 plus'])->nullable();
             $table->enum('area_of_interest', ['Basic and Applied Sciences', 'Medicine', 'Dietetics', 'Research and Development', 'Health/ Fitness', 'Other'])->nullable();
             $table->enum('occupation', ['Registered Dietitian/ Sport Dietitian', 'Academic Professor/ Researcher', 'Industry Product Development/ Sales', 'Personal Trainer/ Nutritionist', 'Private Researcher', 'Other'])->nullable();
-            $table->enum('messenger_app', ['Skype', 'WeChat', 'WhatsApp'])->nullable();
+            $table->enum('messenger_app', ['Line', 'Skype', 'WeChat', 'WhatsApp'])->nullable();
             $table->string('messenger_app_id')->nullable();
             $table->enum('ad_platform', ['Google', 'Friend', 'Social Media', 'Other'])->nullable();
             $table->text('self_introduction')->nullable();

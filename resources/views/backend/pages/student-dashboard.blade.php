@@ -1083,11 +1083,21 @@
                     </div>
 
                     <div class="col-4 mb-3">
+                        <label for="qualifications_cec_non_of_these" class="form-label">CEC Non of These</label>
+                        <input type="text" class="form-control" id="qualifications_cec_non_of_these" name="qualifications_cec_non_of_these" value="{{ $contents->qualifications_cec_non_of_these ?? '' }}" placeholder="CEC Non of These">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="qualifications_cec_activity_name" class="form-label">CEC Activity Name</label>
+                        <input type="text" class="form-control" id="qualifications_cec_activity_name" name="qualifications_cec_activity_name" value="{{ $contents->qualifications_cec_activity_name ?? '' }}" placeholder="CEC Activity Name">
+                    </div>
+
+                    <div class="col-4 mb-3">
                         <label for="qualifications_cec_comment" class="form-label">CEC Comment</label>
                         <input type="text" class="form-control" id="qualifications_cec_comment" name="qualifications_cec_comment" value="{{ $contents->qualifications_cec_comment ?? '' }}" placeholder="CEC Comment">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="qualifications_cec_close" class="form-label">CEC Close</label>
                         <input type="text" class="form-control" id="qualifications_cec_close" name="qualifications_cec_close" value="{{ $contents->qualifications_cec_close ?? '' }}" placeholder="CEC Close">
                     </div>

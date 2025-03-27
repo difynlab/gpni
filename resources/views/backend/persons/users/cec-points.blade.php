@@ -26,7 +26,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Course</th>
+                                <th scope="col">Course/ Activity</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
@@ -42,7 +42,7 @@
                                 @foreach($activities as $activity)
                                     <tr>
                                         <td>#{{ $activity->id }}</td>
-                                        <td>{{ App\Models\Course::find($activity->course_id)->title }}</td>
+                                        <td>{{ $activity->course_id != 'Non of These' ? App\Models\Course::find($activity->course_id)->title : $activity->activity_name }}</td>
                                         <td>{{ $activity->type }}</td>
                                         <td>{{ $activity->date }}</td>
                                         <td>{{ $activity->time }}</td>

@@ -227,6 +227,8 @@ return new class extends Migration
                 'qualifications_cec_no_of_points',
                 'qualifications_cec_course',
                 'qualifications_cec_select_course',
+                'qualifications_cec_non_of_these',
+                'qualifications_cec_activity_name',
                 'qualifications_cec_comment',
                 'qualifications_cec_close',
                 'qualifications_cec_submit',

@@ -187,7 +187,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="website">{{ $student_dashboard_contents->student_profile_primary_website }}</label>
-                                        <input type="url" class="form-control" id="website" name="website" value="{{ old('website') ??  $student->website }}">
+                                        <input type="text" class="form-control" id="website" name="website" value="{{ old('website') ??  $student->website }}">
                                     </div>
                                 </div>
                             </div>

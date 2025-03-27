@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('course_id');
+            $table->string('activity_name')->nullable();
             $table->enum('type', ['Addition', 'Deduction']);
             $table->date('date');
             $table->time('time');

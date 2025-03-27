@@ -1,6 +1,6 @@
 <p>Dear Admin,</p>
 
-<p>{{ $mail_data['name'] }} ({{ $mail_data['email'] }}) has requested {{ $mail_data['points'] }} CEC points for {{ $mail_data['course'] }} course</strong>.</p>
+<p>{{ $mail_data['name'] }} ({{ $mail_data['email'] }}) has requested {{ $mail_data['points'] }} CEC points for {{ $mail_data['course'] ?? $mail_data['activity_name'] }}</strong>.</p>
 
 <p>Comment: {{ $mail_data['user_comment'] }}</p>
 

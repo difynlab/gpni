@@ -77,6 +77,7 @@ class QualificationController extends Controller
         CECPointActivity::create([
             'user_id' => $student->id,
             'course_id' => $request->course_id,
+            'activity_name' => $request->activity_name,
             'type' => 'Addition',
             'date' => Carbon::now()->toDateString(),
             'time' => Carbon::now()->toTimeString(),
@@ -89,7 +90,8 @@ class QualificationController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name,
             'email' => $student->email,
             'points' => $request->points,
-            'course' => $course->title,
+            'course' => $course->title ?? null,
+            'activity_name' => $request->activity_name ?? null,
             'user_comment' => $request->user_comment
         ];
 

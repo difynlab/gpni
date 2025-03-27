@@ -856,7 +856,8 @@ class UserController extends Controller
             'name' => $user->first_name . ' ' . $user->last_name,
             'email' => $user->email,
             'points' => $cec_point_activity->points,
-            'course' => $course->title
+            'course' => $course->title ?? null,
+            'activity_name' => $cec_point_activity->activity_name ?? null
         ];
 
         if($request->status == '1') {

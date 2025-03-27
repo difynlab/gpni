@@ -4,7 +4,11 @@
 
 <p>Points: {{ $mail_data['points'] }}</p>
 
-<p>Course: {{ $mail_data['course'] }}</p>
+@if($mail_data['course'])
+    <p>Course: {{ $mail_data['course'] }}</p>
+@else
+    <p>Activity: {{ $mail_data['activity_name'] }}</p>
+@endif
 
 <p>Comment: {{ $mail_data['user_comment'] }}</p>
 

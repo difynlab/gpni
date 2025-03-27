@@ -88,7 +88,7 @@
                                                     @foreach($cec_point_activities as $cec_point_activity)
                                                         <tr>
                                                             <td>{{ $cec_point_activity->id }}</td>
-                                                            <td>{{ App\Models\Course::find($cec_point_activity->course_id)->title }}</td> 
+                                                            <td>{{ $cec_point_activity->course_id != 'Non of These' ? App\Models\Course::find($cec_point_activity->course_id)->title : $cec_point_activity->activity_name }}</td> 
                                                             <td>{{ $cec_point_activity->type }}</td>
                                                             <td>{{ $cec_point_activity->admin_comment ?? '-' }}</td>
                                                             <td>{{ $cec_point_activity->user_comment ?? '-' }}</td>
@@ -134,10 +134,18 @@
                                                             <label for="course_id" class="form-label">{{ $student_dashboard_contents->	qualifications_cec_course }}<span class="asterisk">*</span></label>
                                                             <select class="form-control form-select" id="course_id" name="course_id" required>
                                                                 <option value="">{{ $student_dashboard_contents->qualifications_cec_select_course }}</option>
+                                                                
                                                                 @foreach($cec_courses as $cec_course)
                                                                     <option value="{{ $cec_course->id }}" {{ old('cec_course') == $cec_course->id ? 'selected' : '' }}>{{ $cec_course->title }}</option>
                                                                 @endforeach
+
+                                                                <option value="Non of These">{{ $student_dashboard_contents->qualifications_cec_non_of_these }}</option>
                                                             </select>
+                                                        </div>
+
+                                                        <div class="mb-4 activity-div d-none">
+                                                            <label for="activity_name" class="form-label">{{ $student_dashboard_contents->qualifications_cec_activity_name }}<span class="asterisk">*</span></label>
+                                                            <input type="text" class="form-control" id="activity_name" name="activity_name" value="{{ old('activity_name') }}" placeholder="{{ $student_dashboard_contents->qualifications_cec_activity_name }}">
                                                         </div>
 
                                                         <div>
@@ -163,3 +171,20 @@
     </div>
 
 @endsection
+
+@push('after-scripts')
+    <script>
+        $('#course_id').on('change', function() {
+            let value = $(this).val();
+            
+            if(value == 'Non of These') {
+                $('.activity-div').removeClass('d-none');
+                $('.activity-div input').attr('required', true);
+            }
+            else {
+                $('.activity-div').addClass('d-none');
+                $('.activity-div input').attr('required', false);
+            }
+        });
+    </script>
+@endpush
