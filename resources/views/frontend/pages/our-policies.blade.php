@@ -37,9 +37,7 @@
                                             </button>
                                         </h2>
                                         <div id="collapse{{ $policy->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $policy->id }}" data-bs-parent="#{{ $policy_category->id }}Accordion">
-                                            <div class="accordion-body">
-                                                {!! $policy->content !!}
-                                            </div>
+                                            <div class="accordion-body">{!! $policy->content !!}</div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -57,7 +55,7 @@
                                         @endif
                                     </div>
 
-                                    <div class="mt-5 policies-section">
+                                    <div class="policies-section">
                                         <p>{{ $contents->{'cec_images_description_' . $middleware_language} ?? $contents->cec_images_description_en }}</p>
 
                                         <h5>{{ $contents->{'cec_title_' . $middleware_language} ?? $contents->cec_title_en }}</h5>

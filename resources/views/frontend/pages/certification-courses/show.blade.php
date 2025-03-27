@@ -25,7 +25,7 @@
                             </div>
                         @endif
 
-                        <div class="rating pt-4 d-flex justify-content-md-start justify-content-center">
+                        <div class="rating pt-0 d-flex justify-content-md-start justify-content-center">
                             <span>{{ $average_rating }}.0</span>
                             @for($i = 0; $i < $average_rating; $i++)
                                 <i class="bi bi-star-fill star"></i>
@@ -371,27 +371,31 @@
         </div>
 
         @if($course->certification_section_8_content)
-            <div class="container-fluid p-5" style="background-color: #0040c3;">
-                <div class="row justify-content-center text-white">
-                    <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
-                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_8_image) }}" alt="Merchandise Image" class="img-fluid">
-                    </div>
-                    <div class="col-lg-6 col-md-12 px-4">
-                        <div class="fs-49 text-lg-start text-center">{!! $course->certification_section_8_content !!}</div>
-                        <div class="d-flex justify-content-lg-start justify-content-center">
-                            @if(auth()->check())
-                                @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
-                                    @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                                        <a class="btn btn-light fs-20 mt-3">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+            <div class="certification-section-8 py-5" style="background-color: #0040c3;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-1 order-1 text-center mb-4 mb-lg-0 pe-lg-5">
+                            <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_8_image) }}" alt="Course Image" class="img-fluid rounded section-8-image">
+                        </div>
+                        <div class="col-lg-6 order-lg-2 order-2 mb-4 mb-lg-0 ps-lg-5">
+                            <div class="text-white">
+                                <div class="fs-49 mb-4 text-lg-start text-center">{!! $course->certification_section_8_content !!}</div>
+                                <div class="d-flex justify-content-lg-start justify-content-center">
+                                    @if(auth()->check())
+                                        @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
+                                            @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                                <a class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                                            @else
+                                                <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                            @endif
+                                        @else
+                                            <a class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
+                                        @endif
                                     @else
-                                        <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="fs-20 btn btn-light mt-4">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                        <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
                                     @endif
-                                @else
-                                    <a class="btn btn-light fs-20 mt-3">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
-                                @endif
-                            @else
-                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="fs-20 btn btn-light mt-4">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
-                            @endif
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -588,69 +592,79 @@
         @if($course->certification_section_14_title)
             <section class="student-testimonial-section container">
                 <div class="student-testimonial-content">
-                    <div class="student-testimonial-text">
-                        <div class="student-testimonial-header">
-                            <img src="{{ asset('storage/frontend/dash.svg') }}" alt="Line">
-                            <div class="text-muted font-weight-light fs-20">{{ $course->certification_section_14_title }}</div>
-                        </div>
-
-                        @if($testimonials->isNotEmpty())
-                            @foreach($testimonials as $index => $testimonial)
-                                @if($index === 0)
-                                    <div class="student-testimonial-quote fs-25">"{{ $testimonial->content }}"</div>
-                                    <div class="student-testimonial-author fs-20">{{ $testimonial->name }}</div>
-
-                                    @for($i = 0; $i < $testimonial->rate; $i++)
-                                        <i class="bi bi-star-fill star"></i>
-                                    @endfor
-
-                                    @break
+                    <div class="row d-flex align-items-center justify-content-center mx-md-3 mx-0">
+                        <div class="col-md-6">
+                            <div class="student-testimonial-text">
+                                <div class="student-testimonial-header mb-3 d-flex align-items-center">
+                                    <img src="{{ asset('storage/frontend/dash.svg') }}" alt="Line" class="me-3">
+                                    <div class="text-muted font-weight-light fs-20">{{ $course->certification_section_14_title }}</div>
+                                </div>
+                                @if($testimonials->isNotEmpty())
+                                    @foreach($testimonials as $index => $testimonial)
+                                        @if($index === 0)
+                                            <div class="quote-container">
+                                                <div class="student-testimonial-quote mb-3 fs-25">"{{ $testimonial->content }}"</div>
+                                                <div class="student-testimonial-author mb-2 fs-20">{{ $testimonial->name }}</div>
+                                                <div class="stars">
+                                                    @for($i = 0; $i < $testimonial->rate; $i++)
+                                                        <i class="bi bi-star-fill star"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                            @break
+                                        @endif
+                                    @endforeach
                                 @endif
-                            @endforeach
-                        @endif
-                    </div>
-
-                    <div class="col-md-6 d-flex justify-content-center">
-                       <div class="video-section">
-                        <video controls class="responsive-video-2 w-100" style="border-radius: 35px;">
-                            <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_14_video) }}" type="video/mp4">
-                        </video>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <div class="video-container">
+                                <video controls class="responsive-video-2" style="border-radius: 35px; width: 100%;">
+                                    <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_14_video) }}" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-
             @if(count($testimonials) > 1)
-                <section class="student-reviews-section container py-md-5 py-2">
-                    <div class="row g-4">
-                        @foreach($testimonials as $index => $testimonial)
-                            @if($index !== 0)
-                                <div class="col-lg-4">
-                                    <div class="student-review-card p-3">
-                                        <h5 class="student-review-name fs-20">{{ $testimonial->name }}</h5>
-                                        <p class="student-review-text fs-18">{{ $testimonial->content }}</p>
-                                        <div class="student-review-footer">
-                                            <div class="student-review-rating">
-                                                <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
-                                                
-                                                <span>
-                                                    @for($i = 0; $i < $testimonial->rate; $i++)
-                                                        <i class="bi bi-star-fill star"></i>
-                                                    @endfor
-                                                </span>
+                <section class="student-reviews-section container pt-0 mb-3">
+                    <div class="testimonial-slider-container mt-5">
+                        <div class="testimonial-slider">
+                            <button class="slider-arrow prev-arrow">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            
+                            <div class="slider-wrapper">
+                                <div class="slider-track">
+                                    @foreach($testimonials as $index => $testimonial)
+                                        @if($index !== 0)
+                                            <div class="testimonial-slide">
+                                                <div class="student-review-card p-3">
+                                                    <h5 class="student-review-name fs-20">{{ $testimonial->name }}</h5>
+                                                    <p class="student-review-text fs-18">{{ $testimonial->content }}</p>
+                                                    <div class="student-review-footer">
+                                                        <div class="student-review-rating">
+                                                            <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
+                                                            
+                                                            <span>
+                                                                @for($i = 0; $i < $testimonial->rate; $i++)
+                                                                    <i class="bi bi-star-fill star"></i>
+                                                                @endfor
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!-- <div>
-                                                <p class="student-review-verified">Verified Student</p>
-                                                <p class="student-review-batch">
-                                                    <img src="{{ asset('storage/frontend/check-blue-icon.svg') }}" alt="check" width="10px" height="10px">
-                                                    2022 Batch
-                                                </p>
-                                            </div> -->
-                                        </div>
-                                    </div>
+                                        @endif
+                                    @endforeach
                                 </div>
-                            @endif
-                        @endforeach
+                            </div>
+                    
+                            <button class="slider-arrow next-arrow">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </section>
             @endif
@@ -706,7 +720,7 @@
 
     @if($course->certification_section_16_title)
         <div class="container-fluid p-0">
-            <section class="masters-pack-section">
+            <section class="masters-pack-section py-5">
                 <div class="masters-pack-overlay"></div>
                 <div class="masters-pack-content">
                     <h2 class="masters-pack-title fs-49 mb-3">{{ $course->certification_section_16_title }}</h2>

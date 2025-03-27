@@ -388,6 +388,7 @@
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
+                    <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -415,8 +416,6 @@
 
                             <p>
                                 <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
-                                <!-- <div class="mt-2 d-flex flex-wrap area-of-interest">
-                                </div> -->
                                 <span class="area-of-interest"></span>
                             </p>
 
@@ -427,8 +426,6 @@
                             <p class="intro-paragraph"></p>
 
                             <div class="bottom-section">
-                                <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
-
                                 <div class="coach-location-model-item coach-contact-link">
                                     <a class="contact-now" data-bs-toggle="modal" data-bs-target="#contact-modal">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</a>
                                 </div>
@@ -476,15 +473,6 @@
                         $('#view-modal .credentials').text(response.credentials);
 
                         $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
-
-                        // let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
-                        // let areaOfInterestContainer = $('#view-modal .area-of-interest');
-                        // areaOfInterestContainer.empty();
-                        // if(areaOfInterests) {
-                        //     areaOfInterests.forEach(function(interest) {
-                        //         areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
-                        //     });
-                        // }
 
                         if(response.nutritionist['is_qualified'] == '1') {
                             $('.qualified-coach').addClass('d-none');
@@ -540,6 +528,18 @@
 
                     $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
+                    if(response.nutritionist['is_qualified'] == '1') {
+                        $('.qualified-coach').addClass('d-none');
+                    }
+                    else {
+                        $('.qualified-coach').removeClass('d-none');
+                    }
+
+                    $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
+                    $('#coach-id').val(id);
+                    $('.view-modal').modal('show');
+                },
+                error: function(xhr) {
                     if(response.nutritionist['is_qualified'] == '1') {
                         $('.qualified-coach').addClass('d-none');
                     }

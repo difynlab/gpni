@@ -1001,6 +1001,218 @@ h1.display-4 {
     }
 }
 
+/* Custom Testimonial Section - Updated to match certification course style */
+.custom-testimonial-section {
+    padding: 30px 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.testimonial-header img {
+    margin-right: 10px;
+}
+
+.line {
+    width: 23px;
+    height: 2px;
+    background-color: #0e0e0e;
+}
+
+.student-testimonial-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.student-testimonial-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 100%;
+}
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 200px; /* Set minimum height for the quote container */
+}
+
+.quote {
+    font-weight: 500;
+    color: #0040c3;
+    line-height: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    min-height: 80px; /* Ensures consistent height even with short text */
+}
+
+.student-name {
+    font-weight: 500;
+    color: #505050;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.stars {
+    color: gold;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.video-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.responsive-video, .responsive-video-2 {
+    width: 100%;
+    border-radius: 35px;
+    height: auto;
+    min-height: 300px;
+    max-height: 450px;
+    object-fit: cover;
+}
+
+/* Testimonial Slider */
+.testimonial-slider-container {
+    position: relative;
+    padding: 10px 0;
+}
+
+.testimonial-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-slide {
+    flex: 0 0 calc(33.333% - 14px);
+    max-width: calc(33.333% - 14px);
+    height: 100%;
+}
+
+.testimonial-card {
+    border-radius: 5px;
+    border: 1px solid #CFDEFF;
+    background: #FDFDFD;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.card-title {
+    color: #0040C3;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #505050;
+    line-height: 24px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.slider-arrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-arrow {
+    left: 0;
+}
+
+.next-arrow {
+    right: 0;
+}
+
+@media (max-width: 992px) {
+    .testimonial-slide {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-slide {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .student-testimonial-content {
+        flex-direction: column;
+    }
+    
+    .student-testimonial-text {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .quote-container {
+        min-height: 150px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    
+    .quote {
+        min-height: auto;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .video-container {
+        min-height: 200px;
+    }
+    
+    .responsive-video, .responsive-video-2 {
+        min-height: 200px;
+    }
+    
+    .slider-arrow {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .testimonial-header {
+        justify-content: center;
+    }
+}
+
 .custom-testimonial-section {
     padding: 30px 15px;
     border-radius: 10px;
@@ -1012,53 +1224,73 @@ h1.display-4 {
     color: #0040c3;
     line-height: 40px;
     margin-bottom: 20px;
+    font-size: 1.5rem;
+    min-height: 80px; /* Ensures consistent height even with short text */
 }
 
 .quote-container {
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-height: 200px; /* Set minimum height for the quote container */
 }
-
 
 .video-container {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    min-height: 300px; /* Minimum height of video container to maintain spacing */
 }
 
 .responsive-video {
     width: 100%;
     border-radius: 35px;
     height: auto;
-    min-height: 50px;
+    min-height: 300px;
     max-height: 450px;
     object-fit: cover;
 }
 
-/* Quote length based video sizing */
-.quote[data-length="0"] ~ .video-container video {
-    height: 250px;
-}
-
-.quote[data-length^="1"] ~ .video-container video,
-.quote[data-length^="2"] ~ .video-container video {
-    height: 300px;
-}
-
-.quote[data-length^="3"] ~ .video-container video {
-    height: 350px;
-}
-
-.quote[data-length^="4"] ~ .video-container video {
-    height: 400px;
-}
-
 @media (max-width: 768px) {
+    .custom-testimonial-section .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .custom-testimonial-section .col-md-6 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .quote-container {
+        min-height: 150px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    
+    .quote {
+        min-height: auto;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .video-container {
+        min-height: 200px;
+    }
+    
     .responsive-video {
         min-height: 200px;
         max-height: 350px;
+    }
+
+    .stars {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
     }
 }
 
@@ -1067,8 +1299,8 @@ h1.display-4 {
         min-height: 180px;
         max-height: 300px;
     }
-    
 }
+
 .stars {
     color: gold;
     display: flex;
@@ -1805,4 +2037,55 @@ h1.display-4 {
         height: 36px;
         font-size: 0.7rem;
     }
+}
+
+.student-review-card-2 {
+    border-radius: 5px;
+    border: 1px solid #CFDEFF;
+    background: #FDFDFD;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 280px; /* Set fixed height */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+.student-review-text {
+    font-weight: 400;
+    line-height: 24px;
+    color: #505050;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    overflow-y: auto; /* Add scrolling if content is too long */
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Limit to 5 lines of text */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.student-review-name {
+    font-weight: 500;
+    line-height: 30px;
+    color: #0040c3;
+    margin-bottom: 10px;
+}
+
+.student-review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Push to bottom */
+}
+
+.student-review-rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.student-review-rating span {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19.5px;
+    color: #505050;
 }

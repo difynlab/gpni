@@ -181,32 +181,12 @@ hr {
 
 @media screen and (min-width: 768px) {
     .student-profile-container {
-        height: 700px;
-        overflow-y: auto;
+        height: auto;
+        overflow-y: visible;
         padding: 30px;
         background-color: #F7F6FB;
         border: 1px solid #e0eaff;
         border-radius: 15px;
-        scrollbar-width: thin;
-    }
-
-    /* Webkit scrollbar styling */
-    .student-profile-container::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .student-profile-container::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-
-    .student-profile-container::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-
-    .student-profile-container::-webkit-scrollbar-thumb:hover {
-        background: #555;
     }
 }
 

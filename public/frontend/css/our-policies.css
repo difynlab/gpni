@@ -18,7 +18,7 @@
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
-    line-height: 200%;
+    /* line-height: 200%; */
     /* 35px */
     margin-bottom: 0px;
 }
@@ -286,7 +286,7 @@
 .table th, .table td {
     vertical-align: middle;
     font-size: 20px; /* Ensure font size is 20px */
-    line-height: 200%;
+    /* line-height: 200%; */
 }
 
 .badge-warning {
@@ -299,6 +299,7 @@
 .img-fluid {
     max-width: 100%;
     height: auto;
+    max-height: 300px; /* Add this line to limit image height */
 }
 
 @media (max-width: 768px) {

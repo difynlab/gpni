@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <div class="container mt-5 pt-5 gpni-container">
+        <div class="container gpni-container">
             <x-frontend.notification></x-frontend.notification>
 
             <div class="row d-flex align-items-center">
@@ -146,7 +146,7 @@
 
     @if($contents->section_5_content_en)
         <div class="container-fluid Webinar-Seminar-Key-Takeaways-section py-5 ">
-            <div class="container">
+            <div class="container py-5">
                 <div class="row g-5 d-flex">
                     <div class="col-md-6 section-5">
                         {!! $contents->{'section_5_content_' . $middleware_language} ?? $contents->section_5_content_en !!}
@@ -167,7 +167,7 @@
     @endif
 
     @if($contents->section_6_content_en)
-        <section class="learn-more-earn-more my-5">
+        <section class="learn-more-earn-more py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -188,10 +188,10 @@
     @endif
 
     @if($contents->section_7_content_en)
-        <section class="learn-grow-career-business my-5">
+        <section class="learn-grow-career-business py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 mb-4 d-flex flex-column justify-content-center section-7">
+                    <div class="col-md-6 mb-0 d-flex flex-column justify-content-center section-7">
                         {!! $contents->{'section_7_content_' . $middleware_language} ?? $contents->section_7_content_en !!}
                     </div>
                     <div class="col-md-6 d-flex justify-content-center ">
@@ -254,7 +254,7 @@
     @endif
 
     @if($contents->section_10_content_en)
-        <section class="special-offer-members">
+        <section class="special-offer-members py-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
@@ -275,7 +275,7 @@
     @endif
 
     @if($contents->section_11_title_en)
-        <section class="contact-us">
+        <section class="contact-us py-5">
             <div class="container">
                 <h1 class="fs-49">{{ $contents->{'section_11_title_' . $middleware_language} ?? $contents->section_11_title_en }}</h1>
                 <p class="fs-25">{{ $contents->{'section_11_sub_title_' . $middleware_language} ?? $contents->section_11_sub_title_en }}</p>

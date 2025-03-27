@@ -11,7 +11,7 @@
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col">
-                <h1 class="display-4 fs-49">{{ $course->title }}</h1>
+                <h1 class="display-4 fs-49 mb-3">{{ $course->title }}</h1>
                 <div class="d-flex align-items-center mt-3">
                     <span class="me-2 fs-16" style="font-weight: 500; color: #898989;">{{ $average_rating }}.0</span>
                     @for($i = 0; $i < $average_rating; $i++)
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="row mb-4">
+        <div class="row mb-0">
             <div class="col-md-5 mb-4 mb-md-3">
                 <div class="list-group">
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
@@ -94,11 +94,11 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <p class="pt-2 pt-md-3 text-muted line-clamp-3 fs-25 fs-md-16 mb-3">{{ $course->short_description }}</p>
+                <p class="text-muted line-clamp-3 fs-25 fs-md-16 mb-0">{{ $course->short_description }}</p>
 
                 @if(auth()->check())
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16 mt-2 mt-md-3">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
                     @else
                         <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
                             @csrf
@@ -107,7 +107,7 @@
                             <input type="hidden" name="payment_mode" value="payment">
                             <input type="hidden" name="price" value="{{ $course->price }}">
 
-                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16 mt-2 mt-md-3">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
+                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16 mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
                         </form>
                     @endif
                 @else
@@ -156,7 +156,7 @@
         </div>
     @endif
 
-    <div class="tab-container container mt-3">
+    <div class="tab-container container py-5">
         <nav class="nav content-header d-flex justify-content-center overflow-auto">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start justify-content-md-center align-items-center w-100">
                 <li class="nav-item fs-20 text-center">
@@ -232,119 +232,42 @@
     </div>
 
     @if($course->master_section_4_content)
-        <div class="container-fluid p-3 p-md-4 my-4 my-md-5" style="background-color: #0040c3;">
-            <div class="row justify-content-center text-white p-2 p-md-4">
-                <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
-                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->master_section_4_image) }}" alt="Merchandise Image" class="img-fluid rounded">
-                </div>
-                <div class="col-lg-6 col-md-12 px-3 px-md-4">
-                    <div class="fs-49 fs-md-49 text-center text-lg-start">{!! $course->master_section_4_content !!}</div>
+        <div class="our-story py-5" style="background-color: #0040c3; color: white;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->master_section_4_image) }}" alt="Course Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 ps-md-5"> 
+                        <h2 class="mb-3 fs-49 ff-poppins-medium mb-3 text-white">{!! $course->master_section_4_content !!}</h2>
+                        <div class="fs-25 ff-poppins-regular">
+                            @if(auth()->check())
+                                @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                    <button type="submit" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                                @else
+                                    <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="course_name" value="{{ $course->title }}">
+                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                        <input type="hidden" name="payment_mode" value="payment">
+                                        <input type="hidden" name="price" value="{{ $course->price }}">
 
-                    <div class="d-flex justify-content-center justify-content-lg-start">
-                        @if(auth()->check())
-                            @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                                <button type="submit" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                                        <button type="submit" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
+                                    </form>
+                                @endif
                             @else
-                                <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="course_name" value="{{ $course->title }}">
-                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                    <input type="hidden" name="payment_mode" value="payment">
-                                    <input type="hidden" name="price" value="{{ $course->price }}">
-
-                                    <button type="submit" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
-                                </form>
+                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
                             @endif
-                        @else
-                            <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
-                        @endif
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     @endif
 
-    <!-- @if($course->master_section_5_title)
-        <div class="container py-3 py-md-5">
-            <div class="text-center mb-3 mb-md-4">
-                <h2 class="advisory-title fs-4 fs-md-49 mb-0">{{ $course->master_section_5_title }}</h2>
-            </div>
-    
-            @if($advisory_boards->isNotEmpty())
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="board-images">
-                            <div class="row text-center g-4 pt-4 d-flex justify-content-center px-3">
-                                @foreach($advisory_boards as $index => $advisory_board)
-                                    @if($index % 5 == 0 && $index != 0)
-                                        </div><div class="row text-center g-4 pt-4 d-flex justify-content-center px-3">
-                                    @endif
-                                    <div class="col-6 col-md-2">
-                                        <div class="rounded-circle-wrapper">
-                                            <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}" 
-                                                 alt="Member" 
-                                                 class="rounded-circle img-fluid shadow"
-                                                 loading="lazy">
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="text-center mt-3 mt-md-4">
-                    <a href="{{ json_decode($course->master_section_5_label_link)->link }}" 
-                       class="learn-more d-inline-flex align-items-center">
-                        <span class="me-2">{{ json_decode($course->master_section_5_label_link)->label }}</span>
-                        <img src="{{ asset('storage/frontend/small-arrow-right.svg') }}" 
-                             alt="Arrow" 
-                             class="ms-1"
-                             width="18"
-                             height="18">
-                    </a>
-                </div>
-            @endif
-        </div>
-    @endif -->
-
-    <!-- @if($course->master_section_6_title)
-        <div class="regions-languages-section">
-            <div class="container">
-                <h2 class="fs-49">{{ $course->master_section_6_title }}</h2>
-                <p class="pt-3 fs-25">{{ $course->master_section_6_description }}</p>
-
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-8">
-                        <div class="map-background d-flex align-items-center justify-content-center">
-                            <img src="{{ asset('storage/frontend/world-map.svg') }}" alt="World Map" class="img-fluid">
-
-                            <div class="regions-text">
-                                <div class="text-container fs-20">
-                                    {!! $course->master_section_6_content !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="languages-box">
-                            <div class="language-heading text-start fs-25">Languages</div>
-                            <ul class="languages-list">
-                                <li class="fs-20">{{ $contents->{'first_language_' . $middleware_language} ?? $contents->first_language_en }}</li>
-                                <li class="fs-20">{{ $contents->{'second_language_' . $middleware_language} ?? $contents->second_language_en }}</li>
-                                <li class="fs-20">{{ $contents->{'third_language_' . $middleware_language} ?? $contents->third_language_en }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif -->
-
     @if($course->master_section_7_title)
         <div class="container mt-5 custom-testimonial-section">
-            <div class="row d-flex align-items-center justify-content-center mx-md-0 mx-2">
+            <div class="row d-flex align-items-center justify-content-center mx-md-3 mx-0">
                 <div class="col-md-6">
                     <div class="testimonial-header mb-3 d-flex align-items-center">
                         <div class="line me-3"></div>
@@ -369,7 +292,7 @@
                     @endif
                 </div>
                 
-                <div class="col-md-6 d-flex justify-content-center">
+                <div class="col-md-6">
                     <div class="video-container">
                         <video controls class="responsive-video">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->master_section_7_video) }}" type="video/mp4">
@@ -377,8 +300,9 @@
                     </div>
                 </div>
             </div>
+            
             @if(count($testimonials) > 1)
-            <div class="testimonial-slider-container mt-4">
+            <div class="testimonial-slider-container mt-5">
                 <div class="testimonial-slider">
                     <button class="slider-arrow prev-arrow">
                         <i class="bi bi-chevron-left"></i>
@@ -386,31 +310,24 @@
                     
                     <div class="slider-wrapper">
                         <div class="slider-track">
-                            @foreach($testimonials as $index => $testimonial)
-                                @if($index !== 0)
-                                    <div class="testimonial-slide">
-                                        <div class="card p-4 rounded shadow-sm testimonial-card">
-                                            <div class="card-title fs-20 text-primary mb-2">{{ $testimonial->name }}</div>
-                                            <div class="card-text fs-18 mb-3">{{ $testimonial->content }}</div>
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <span class="font-weight-bold d-block mb-1 fs-20">
-                                                        {{ $contents->{'rated_' . $middleware_language} ?? $contents->rated_en }} 
-                                                        {{ $testimonial->rate }}/5 
-                                                        {{ $contents->{'stars_' . $middleware_language} ?? $contents->stars_en }}
-                                                    </span>
-                                                    <div class="stars text-warning">
-                                                        <span>
-                                                            @for($i = 0; $i < $testimonial->rate; $i++)
-                                                                <i class="bi bi-star-fill star"></i>
-                                                            @endfor
-                                                        </span>
-                                                    </div>
-                                                </div>
+                            @foreach($testimonials as $testimonial)
+                                <div class="testimonial-slide">
+                                    <div class="student-review-card-2 p-3">
+                                        <h5 class="student-review-name fs-20">{{ $testimonial->name }}</h5>
+                                        <p class="student-review-text fs-18">{{ $testimonial->content }}</p>
+                                        <div class="student-review-footer">
+                                            <div class="student-review-rating">
+                                                <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
+                                                
+                                                <span>
+                                                    @for($i = 0; $i < $testimonial->rate; $i++)
+                                                        <i class="bi bi-star-fill star"></i>
+                                                    @endfor
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                @endif
+                                </div>
                             @endforeach
                         </div>
                     </div>

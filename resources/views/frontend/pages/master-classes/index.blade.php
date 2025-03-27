@@ -171,7 +171,7 @@
         </section>
 
         @if($contents->section_3_title_en)
-            <div class="container-fluid certification-section">
+            <div class="container certification-section">
                 <h1 class="text-center fs-49 my-4">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
 
                 <div class="row gy-4 mx-0">
