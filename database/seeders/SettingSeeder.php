@@ -43,6 +43,10 @@ class SettingSeeder extends Seeder
             'annual_membership_price_zh' => '700.00',
             'annual_membership_price_ja' => '15500.00',
 
+            'referral_point_percentage_en' => '0.00',
+            'referral_point_percentage_zh' => '0.00',
+            'referral_point_percentage_ja' => '0.00',
+
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
