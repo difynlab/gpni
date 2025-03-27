@@ -139,7 +139,7 @@
                                                                     <option value="{{ $cec_course->id }}" {{ old('cec_course') == $cec_course->id ? 'selected' : '' }}>{{ $cec_course->title }}</option>
                                                                 @endforeach
 
-                                                                <option value="Non of These">{{ $student_dashboard_contents->qualifications_cec_non_of_these }}</option>
+                                                                <option value="Non of These">{{ $student_dashboard_contents->qualifications_cec_none_of_these }}</option>
                                                             </select>
                                                         </div>
 

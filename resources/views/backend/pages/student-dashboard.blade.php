@@ -1083,8 +1083,8 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="qualifications_cec_non_of_these" class="form-label">CEC Non of These</label>
-                        <input type="text" class="form-control" id="qualifications_cec_non_of_these" name="qualifications_cec_non_of_these" value="{{ $contents->qualifications_cec_non_of_these ?? '' }}" placeholder="CEC Non of These">
+                        <label for="qualifications_cec_none_of_these" class="form-label">CEC Non of These</label>
+                        <input type="text" class="form-control" id="qualifications_cec_none_of_these" name="qualifications_cec_none_of_these" value="{{ $contents->qualifications_cec_none_of_these ?? '' }}" placeholder="CEC Non of These">
                     </div>
 
                     <div class="col-4 mb-3">
