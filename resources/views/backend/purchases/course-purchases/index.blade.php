@@ -48,6 +48,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Student</th>
                             <th scope="col">Course</th>
+                            <th scope="col">Material</th>
                             <th scope="col">Date & Time</th>
                             <th scope="col">Amount Paid</th>
                             <th scope="col">Payment Status</th>
@@ -64,6 +65,7 @@
                                     <td>#{{ $course_purchase->id }}</td>
                                     <td>{{ $course_purchase->user }}</td>
                                     <td>{{ $course_purchase->course }}</td>
+                                    <td>{!! $course_purchase->material_logistic !!}</td>
                                     <td>{{ $course_purchase->date_time }}</td>
                                     <td>{{ $course_purchase->currency === 'usd' ? '$' : '¥' }}{{ $course_purchase->amount_paid }}</td>
                                     <td>{!! $course_purchase->payment_status !!}</td>
@@ -74,7 +76,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;">No data available in table</td>
+                                <td colspan="10" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
