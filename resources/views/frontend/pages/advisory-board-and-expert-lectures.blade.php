@@ -31,7 +31,7 @@
 
                             <div class="card-body bg-light">
                                 <h5 class="card-title text-primary">{{ $advisory_board->name }}</h5>
-                                <h6 class="card-subtitle mb-2 text-info">{{ $advisory_board->designations }}</h6>
+                                <h6 class="card-subtitle mb-2">{{ $advisory_board->designations }}</h6>
                                 <div class="card-text text-muted">{!! $advisory_board->description !!}</div>
                             </div>
                         </div>

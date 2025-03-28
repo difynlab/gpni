@@ -152,6 +152,9 @@
 .contact-now {
     background-color: #0040c3;
     color: #FFFFFF;
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 5px;
 }
 
 .contact-now:hover {
