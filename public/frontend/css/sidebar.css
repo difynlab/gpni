@@ -4,7 +4,10 @@
     padding: 20px;
     border-radius: 15px;
     /* margin-top: 5rem; */
-    transition: transform 0.3s ease-in-out;
+    /* transition: transform 0.3s ease-in-out;
+    height: fit-content;
+    position: sticky;
+    top: 20px; */
 }
 .sidebar-link {
     text-decoration: none;
