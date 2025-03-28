@@ -412,7 +412,7 @@
 
                             <p><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></p>
 
-                            <p><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong><span class="membership-credential-status"></span></p>
+                            <p><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></p>
 
                             <p>
                                 <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
@@ -475,10 +475,10 @@
                         $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
                         if(response.nutritionist['is_qualified'] == '1') {
-                            $('.qualified-coach').addClass('d-none');
+                            $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                         }
                         else {
-                            $('.qualified-coach').removeClass('d-none');
+                            $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                         }
 
                         $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
@@ -529,10 +529,10 @@
                     $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
                     if(response.nutritionist['is_qualified'] == '1') {
-                        $('.qualified-coach').addClass('d-none');
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                     }
                     else {
-                        $('.qualified-coach').removeClass('d-none');
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                     }
 
                     $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
@@ -541,10 +541,10 @@
                 },
                 error: function(xhr) {
                     if(response.nutritionist['is_qualified'] == '1') {
-                        $('.qualified-coach').addClass('d-none');
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                     }
                     else {
-                        $('.qualified-coach').removeClass('d-none');
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                     }
 
                     $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
