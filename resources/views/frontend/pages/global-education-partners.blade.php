@@ -14,7 +14,7 @@
         <section class="global-education-partners container pt-5 pb-3">
             <div class="container text-center">
                 <h2 class="section-title-global text-center mx-auto">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
-                <h5 class="section-title-partners text-center mx-auto mb-4 fs-25">{{ $contents->{'section_1_sub_title_' . $middleware_language} ?? $contents->section_1_sub_title_en }}</h5>
+                <h5 class="section-title-partners text-center mx-auto fs-31">{{ $contents->{'section_1_sub_title_' . $middleware_language} ?? $contents->section_1_sub_title_en }}</h5>
             </div>
         </section>
 
@@ -91,7 +91,7 @@
                     @foreach(json_decode($contents->{'section_3_languages_' . $middleware_language} ?? $contents->section_3_languages_en) as $section_3_language)
                         <div class="col-12 col-sm-6 col-md-3 mx-2 my-2 my-md-0">
                             <div class="language-card h-100">
-                                <p class="fs-13 fs-md-16 mb-2">
+                                <p class="fs-18 fs-md-16 mb-2">
                                     {{ $contents->{'section_3_language_title_' . $middleware_language} ?? $contents->section_3_language_title_en }}
                                 </p>
                                 <h3 class="fs-20 fs-md-25 mb-0">{{ $section_3_language }}</h3>
@@ -107,11 +107,11 @@
         <section class="journey-start py-5">
             <div class="container">
                 <h2 class="section-title fs-49">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h2>
-                <p class="section-subtitle fs-25">{{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}</p>
+                <p class="section-subtitle fs-25 mb-3">{{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}</p>
 
                 @guest
                     <div class="text-center mt-3">
-                        <a href="{{ route('frontend.register') }}" class="btn signup-btn">{{ $contents->{'section_4_label_' . $middleware_language} ?? $contents->section_4_label_link_en }}</a>
+                        <a href="{{ route('frontend.register') }}" class="btn signup-btn fs-25">{{ $contents->{'section_4_label_' . $middleware_language} ?? $contents->section_4_label_link_en }}</a>
                     </div>
                 @endguest
             </div>
@@ -121,7 +121,7 @@
     @if($contents->{'section_5_title_en'})
         <section class="other-education-partners py-3 py-md-5">
             <div class="container text-center px-2 px-md-3">
-                <h2 class="section-title fs-49 mb-3 mb-md-4">
+                <h2 class="section-title fs-49 mb-3 mb-md-3">
                     {{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->{'section_5_title_en'} }}
                 </h2>
                 <div class="section-subtitle fs-20 mb-4 mb-md-5">
@@ -139,7 +139,7 @@
                                 {!! $section_5_point->content !!}
                             </div>
                         </div>
-                        <hr class="hr-divider my-4 my-md-5"/>
+                        <hr class="hr-divider my-4 my-md-2"/>
                     @endforeach
                 @endif
             </div>

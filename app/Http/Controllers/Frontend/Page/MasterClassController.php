@@ -38,9 +38,17 @@ class MasterClassController extends Controller
 
         // $upcoming_courses = $request->master_class ? Course::where('title', 'like', '%' . $request->master_class . '%')->where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6) : Course::where('language', $request->middleware_language_name)->where('type', 'Upcoming')->where('status', '1')->paginate(6);
 
-        $testimonials = Testimonial::where('language', $request->middleware_language_name)->where('type', 'Master Class')->where('status', '1')->get();
+        $testimonials = Testimonial::where('language', $request->middleware_language_name)
+            ->where('type', 'Master Class')
+            ->where('status', '1')
+            ->orderBy('id', 'desc')  // This ensures the newest testimonial is first
+            ->get();
         if($testimonials->isEmpty() && $request->middleware_language_name != 'English') {
-            $testimonials = Testimonial::where('language', 'English')->where('type', 'Master Class')->where('status', '1')->get();
+            $testimonials = Testimonial::where('language', 'English')
+                ->where('type', 'Master Class')
+                ->where('status', '1')
+                ->orderBy('id', 'desc')  // This ensures the newest testimonial is first
+                ->get();
         }
 
         return view('frontend.pages.master-classes.index', [
@@ -68,9 +76,17 @@ class MasterClassController extends Controller
             $faqs = FAQ::where('language', 'English')->where('type', 'Master Class')->where('status', '1')->get();
         }
 
-        $testimonials = Testimonial::where('language', $request->middleware_language_name)->where('type', 'Master Class')->where('status', '1')->get();
+        $testimonials = Testimonial::where('language', $request->middleware_language_name)
+            ->where('type', 'Master Class')
+            ->where('status', '1')
+            ->orderBy('id', 'desc')  // This ensures the newest testimonial is first
+            ->get();
         if($testimonials->isEmpty() && $request->middleware_language_name != 'English') {
-            $testimonials = Testimonial::where('language', 'English')->where('type', 'Master Class')->where('status', '1')->get();
+            $testimonials = Testimonial::where('language', 'English')
+                ->where('type', 'Master Class')
+                ->where('status', '1')
+                ->orderBy('id', 'desc')  // This ensures the newest testimonial is first
+                ->get();
         }
 
         $course_reviews = CourseReview::where('course_id', $course->id)->where('status', '1')->get();

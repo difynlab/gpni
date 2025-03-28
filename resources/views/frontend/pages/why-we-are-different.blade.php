@@ -10,9 +10,9 @@
 @section('content')
 
     @if ($contents->section_1_title_en)
-        <div class="different-section fs-61 px-4 py-5">
+        <div class="different-section px-4 py-5">
             <div class="container">
-                <h2>{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
+                <h2 class="fs-49 mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
                 <div class="image-placeholder">
                     @if ($contents->{'section_1_video_' . $middleware_language})
                         <video
@@ -26,7 +26,7 @@
                             class="w-100" alt="Header Image">
                     @endif
                 </div>
-                <div>{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}</div>
+                <div class="fs-25">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}</div>
             </div>
         </div>
     @endif
@@ -35,14 +35,14 @@
         <div class="regions-languages-section"
             style="background-image: url({{ asset('storage/backend/pages/' . ($contents->{'section_2_image_' . $middleware_language} ?? $contents->section_2_image_en)) }}); background-size: cover;">
             <div class="container">
-                <h2>{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
+                <h2 class="fs-49">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
 
-                <div>{!! $contents->{'section_2_top_description_' . $middleware_language} ?? $contents->section_2_top_description_en !!}</div>
+                <div class="fs-25">{!! $contents->{'section_2_top_description_' . $middleware_language} ?? $contents->section_2_top_description_en !!}</div>
             </div>
         </div>
 
-        <div class="language-offerings-section">
-            <div class="container pt-3">{!! $contents->{'section_2_bottom_description_' . $middleware_language} ??
+        <div class="language-offerings-section py-5">
+            <div class="container pt-3 fs-25">{!! $contents->{'section_2_bottom_description_' . $middleware_language} ??
                 $contents->section_2_bottom_description_en !!}</div>
         </div>
     @endif

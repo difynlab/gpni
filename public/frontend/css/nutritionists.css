@@ -13,14 +13,11 @@
 
 .learn-best-section h2 {
     font-weight: 600;
-    font-size: 3.812rem; /* 60px */
     line-height: 100%;
     color: #0e0e0e;
-    margin-bottom: 20px;
 }
 
 .learn-best-section p {
-    font-size: 19px;
     color: #0e0e0e;
     margin-bottom: 40px;
 }
@@ -73,9 +70,9 @@
     color: #0040c3;
 }
 
-.coaches-section {
+/* .coaches-section {
     padding: 50px 0;
-}
+} */
 
 .coach-card {
     background: #ffffff;
@@ -122,6 +119,29 @@
     transform: translateX(-50%);
 }
 
+/* Qualified coach badge in modal header */
+.modal-header .qualified-coach {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+}
+
+.modal-header .btn-close {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
 /* Add placeholder for when qualified badge is hidden */
 .qualified-coach.d-none {
     visibility: hidden;
@@ -130,12 +150,14 @@
 }
 
 .contact-now {
-    background-color: transparent;
-    color: #0040c3;
+    background-color: #0040c3;
+    color: #FFFFFF;
 }
 
 .contact-now:hover {
-    text-decoration: underline;
+    background-color: #003399;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .coach-name {

@@ -176,7 +176,7 @@
 .our-story {
     background-color: #0040C3;
     color: white;
-    padding: 60px 15px;
+    /* padding: 60px 15px; */
 }
 
 .our-story h2 {
@@ -248,14 +248,11 @@
 .our-partners {
     background-color: #0040C3;
     color: white;
-    padding: 60px 15px;
 }
 
 .our-partners h2 {
-    margin-bottom: 20px;
     color: white;
     font-family: 'Poppins', sans-serif;
-    font-size: 49px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 58.8px */
@@ -360,7 +357,7 @@
 }
 
 .our-founders {
-    padding: 60px 15px;
+    /* padding: 60px 15px; */
     background-color: white;
 }
 
@@ -374,9 +371,9 @@
     line-height: 120%; /* 58.8px */
 }
 
-.founder {
+/* .founder {
     margin-bottom: 40px;
-}
+} */
 
 .founder img {
     max-width: 200px;
@@ -493,10 +490,6 @@
     color: white; /* Adjust the color as needed */
 }
 
-.gold-standard {
-    padding: 60px 15px;
-}
-
 .gold-standard h2 {
     color: #505050;
     font-family: 'Poppins', sans-serif;
@@ -511,7 +504,6 @@
 .gold-standard p {
     color: #505050;
     font-family: 'Poppins', sans-serif;
-    font-size: 25px; /* Default font size */
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 35px */
@@ -526,13 +518,9 @@
 /* Responsive adjustments for section_6 */
 @media (max-width: 1440px) {
     .gold-standard h2 {
-        font-size: 39px; /* Adjust font size for laptops with width 1440px */
         white-space: nowrap; /* Ensure the text stays in one line */
     }
 
-    .gold-standard p {
-        font-size: 20px; /* Adjust font size for laptops with width 1440px */
-    }
 }
 
 @media (max-width: 1024px) {

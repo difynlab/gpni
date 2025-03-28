@@ -17,7 +17,7 @@
                 <x-frontend.notification></x-frontend.notification>
                 <x-frontend.notification-popup></x-frontend.notification-popup>
 
-                <h1 class="title fs-61">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h1>
+                <h1 class="title fs-49">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h1>
             </section>
 
             <form action="{{ route('frontend.master-classes.index') }}" method="GET">
@@ -29,7 +29,7 @@
 
             <header class="header-section text-center display-flex flex-column justify-content-center align-items-center">
                 <div>
-                    <h1 class="fs-49 py-5">{{ $contents->{'section_1_sub_title_' . $middleware_language} ?? $contents->section_1_sub_title_en }}</h1>
+                    <h1 class="fs-49 mb-3 mt-3">{{ $contents->{'section_1_sub_title_' . $middleware_language} ?? $contents->section_1_sub_title_en }}</h1>
                 </div>
                 <div class="d-flex justify-content-center align-items-center w-100">
                     <div class="fs-25 w-75 text-center mx-auto description">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}</div>
@@ -133,7 +133,7 @@
         </section> -->
 
         <section>
-            <div class="container py-5">
+            <div class="container mb-3 mt-3">
                 <div class="row g-3 mb-3 m-0">
                     @if($all_courses->isNotEmpty())
                         @foreach($all_courses as $all_course)
@@ -171,8 +171,8 @@
         </section>
 
         @if($contents->section_3_title_en)
-            <div class="container-fluid certification-section">
-                <h1 class="text-center fs-39 my-4">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
+            <div class="container certification-section">
+                <h1 class="text-center fs-49 my-4">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
 
                 <div class="row gy-4 mx-0">
                     @if($contents->section_3_points_en)
@@ -180,7 +180,7 @@
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="certification-card">
                                     <img src="{{ asset('storage/backend/courses/course-images/' . $point->image) }}" alt="Certification Icon">
-                                    <p class="fs-16">{{ $point->description }}</p>
+                                    <p class="fs-25">{{ $point->description }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -193,10 +193,10 @@
             <div class="testimonial-container m-0">
                 <div class="container py-5">
                     <div class="text-center">
-                        <div class="mb-3 mb-md-5 testimonial-heading fs-49 fs-md-36 fs-25">
+                        <div class="mb-3 testimonial-heading fs-49 fs-md-36">
                             {{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}
                         </div>
-                        <b class="mb-1 testimonial-body">
+                        <b class="mb-3 testimonial-body fs-25">
                             {{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}
                         </b>
                     </div>
@@ -224,7 +224,7 @@
                                     
                                     <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
 
-                                    <p>{{ $testimonial->content }}</p>
+                                    <p class="fs-20">{{ $testimonial->content }}</p>
 
                                     <div class="author">
                                         @if($testimonial->image)
@@ -234,8 +234,8 @@
                                         @endif
                                         
                                         <div>
-                                            <p>{{ $testimonial->name }}</p>
-                                            <p>{{ $testimonial->designation }}</p>
+                                            <p class="fs-16 mb-1">{{ $testimonial->name }}</p>
+                                            <p class="fs-13 mb-1">{{ $testimonial->designation }}</p>
                                         </div>
                                     </div>
 

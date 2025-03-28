@@ -12,9 +12,9 @@
 
     <div class="container py-5 faq-container">
         @if($contents->title_en)
-            <div class="faq-title fs-61">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
+            <div class="faq-title fs-49">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
 
-            <div class="accordion pt-5" id="faqAccordion">
+            <div class="accordion pt-3" id="faqAccordion">
                 @if($faqs->isNotEmpty())
                     @foreach($faqs as $faq)
                         <div class="accordion-item">

@@ -40,13 +40,12 @@ body {
 .section-1 ul li {
     position: relative;
     padding-left: 2.5rem; /* Adjust based on the icon size */
-    margin-bottom: 30px; 
+    margin-bottom: 15px; 
     color: #505050;
     font-family: Poppins;
-    font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 130%; /* 26px */
+    /* line-height: 130%; */
 }
 
 .section-1 ul li::before {
@@ -288,7 +287,6 @@ body {
 }
 
 .Famous-Global-Speakers-Experts-section {
-    padding-top: 5rem !important;
     color: #FFF;
     background-color: #0040C3;
 }
@@ -480,7 +478,6 @@ body {
 .learn-grow-career-business p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 20px;
     line-height: 140%;
     color: #505050;
 }
@@ -503,13 +500,13 @@ body {
 .watch-anytime-anywhere {
     background-color: #0040c3;
     color: #ffffff;
-    padding: 80px 0;
     text-align: center;
 }
 
 .learn-grow-video{
     width: 609px;
-    height: 609px;
+    height:fit-content;
+    object-fit: cover;
 
 }
 
@@ -529,11 +526,10 @@ body {
 .section-7 ul li{
     position: relative;
     padding-left: 2.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     color: #505050;
-    font-size: 20px;
     font-weight: 400;
-    line-height: 130%;
+    /* line-height: 130%; */
 }
 
 .section-7 ul li::before{
@@ -582,7 +578,7 @@ body {
 .previous-experts-seminars {
     background-color: #ffffff;
     color: #0e0e0e;
-    padding: 50px 0;
+    padding: 40px 0;
 }
 
 .previous-experts-seminars h1 {
@@ -600,7 +596,7 @@ body {
     line-height: 140%;
     text-align: center;
     color: #505050;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .section-9-content {
@@ -652,7 +648,6 @@ body {
 .special-offer-members p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 20px;
     line-height: 140%;
 }
 
@@ -1046,9 +1041,6 @@ body {
         font-size: 24px;
     }
 
-    .section-1 p {
-        font-size: 20px;
-    }
 
     .section-1 ul li {
         padding-left: 40px;

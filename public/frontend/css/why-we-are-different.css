@@ -19,7 +19,6 @@
 .different-section p {
     color: #505050;
     font-family: Poppins;
-    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
@@ -32,7 +31,6 @@
     margin-bottom: 30px;
 }
 
-
 .regions-languages-section {
     background-color: #0040C3;
     color: white;
@@ -43,7 +41,6 @@
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 49px;
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
@@ -54,12 +51,12 @@
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
     /* 35px */
 }
+
 .map-background {
     position: relative;
     display: flex;
@@ -75,24 +72,25 @@
     text-align: center; /* Center the text within the container */
 }
 
-.language-heading{
+.language-heading {
     color: #FFF;
     font-family: Poppins;
-    font-size: 25px;
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 30px */
 }
+
 .regions-list,
 .languages-list,
 .population-list {
-    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     list-style: none;
     padding: 0;
     margin: 20px 0;
-}.regions-list li::before,
+}
+
+.regions-list li::before,
 .languages-list li::before,
 .population-list li::before {
     content: url('/storage/frontend/charm-circle-tick-3.svg');
@@ -162,14 +160,12 @@
 .language-offerings-section {
     background-color: #f8f9fa;
     color: #505050;
-    padding: 60px 15px;
     text-align: center;
 }
 
-.language-offerings-section p{
+.language-offerings-section p {
     color: #505050;
     font-family: Poppins;
-    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
@@ -179,7 +175,6 @@
     color: #505050;
     text-align: center;
     font-family: Poppins;
-    font-size: 25px;
     font-style: normal;
     font-weight: 500;
     line-height: 140%;
@@ -189,14 +184,12 @@
     color: #0040C3;
     text-align: center;
     font-family: Poppins;
-    font-size: 25px;
     font-style: normal;
     font-weight: 500;
     line-height: 140%; /* 35px */
 }
 
 .languages-list {
-    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     list-style: none;
@@ -234,7 +227,6 @@ a {
     margin-right: 20px;
     color: #505050;
     font-family: Poppins;
-    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%; /* 24px */

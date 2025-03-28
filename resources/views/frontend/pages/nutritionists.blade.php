@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->title_en)
-        <div class="container my-5">
+        <div class="container py-5">
             <section class="learn-best-section">
 
                 <x-frontend.notification></x-frontend.notification>
@@ -57,13 +57,13 @@
 
                     @if($contents->search_labels_links_en)
                         <div class="d-flex justify-content-center flex-wrap mt-3">
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->search_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->search_labels_links_en)[0]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->search_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->search_labels_links_en)[0]->label }}</a>
 
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->search_labels_links_en)[1]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->search_labels_links_en)[1]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->search_labels_links_en)[1]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->search_labels_links_en)[1]->label }}</a>
 
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->link ?? json_decode($contents->search_labels_links_en)[2]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->label ?? json_decode($contents->search_labels_links_en)[2]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->link ?? json_decode($contents->search_labels_links_en)[2]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[2]->label ?? json_decode($contents->search_labels_links_en)[2]->label }}</a>
 
-                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->link ?? json_decode($contents->search_labels_links_en)[3]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->label ?? json_decode($contents->search_labels_links_en)[3]->label }}</a>
+                            <a href="{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->link ?? json_decode($contents->search_labels_links_en)[3]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive fs-20 mx-2 my-1">{{ json_decode($contents->{'search_labels_links_' . $middleware_language})[3]->label ?? json_decode($contents->search_labels_links_en)[3]->label }}</a>
                         </div>
                     @endif
                 </div>
@@ -388,6 +388,7 @@
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
+                    <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -411,12 +412,10 @@
 
                             <p><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></p>
 
-                            <p><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong><span class="membership-credential-status"></span></p>
+                            <p><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></p>
 
                             <p>
                                 <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
-                                <!-- <div class="mt-2 d-flex flex-wrap area-of-interest">
-                                </div> -->
                                 <span class="area-of-interest"></span>
                             </p>
 
@@ -427,8 +426,6 @@
                             <p class="intro-paragraph"></p>
 
                             <div class="bottom-section">
-                                <span class="qualified-coach">{{ $contents->{'qualified_coach_' . $middleware_language} ?? $contents->qualified_coach_en }}</span>
-
                                 <div class="coach-location-model-item coach-contact-link">
                                     <a class="contact-now" data-bs-toggle="modal" data-bs-target="#contact-modal">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</a>
                                 </div>
@@ -477,20 +474,11 @@
 
                         $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
-                        // let areaOfInterests = JSON.parse(response.nutritionist['area_of_interest']);
-                        // let areaOfInterestContainer = $('#view-modal .area-of-interest');
-                        // areaOfInterestContainer.empty();
-                        // if(areaOfInterests) {
-                        //     areaOfInterests.forEach(function(interest) {
-                        //         areaOfInterestContainer.append('<span class="interest-btn">' + interest + '</span>');
-                        //     });
-                        // }
-
                         if(response.nutritionist['is_qualified'] == '1') {
-                            $('.qualified-coach').addClass('d-none');
+                            $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                         }
                         else {
-                            $('.qualified-coach').removeClass('d-none');
+                            $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                         }
 
                         $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
@@ -541,10 +529,22 @@
                     $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
                     if(response.nutritionist['is_qualified'] == '1') {
-                        $('.qualified-coach').addClass('d-none');
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                     }
                     else {
-                        $('.qualified-coach').removeClass('d-none');
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                    }
+
+                    $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
+                    $('#coach-id').val(id);
+                    $('.view-modal').modal('show');
+                },
+                error: function(xhr) {
+                    if(response.nutritionist['is_qualified'] == '1') {
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                    }
+                    else {
+                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
                     }
 
                     $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);

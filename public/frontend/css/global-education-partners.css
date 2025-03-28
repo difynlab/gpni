@@ -44,7 +44,7 @@ body {
 }
 
 .partner-logos .row {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .partner-logos img {
@@ -82,7 +82,7 @@ body {
 
 .education-table table {
     width: 100%;
-    margin: 40px 0;
+    /* margin: 40px 0; */
 }
 
 .education-table th,
@@ -106,7 +106,10 @@ body {
 .education-table td {
     font-weight:lighter !important;
 }
+.education-table td p{
+    margin-bottom: 0px !important;
 
+}
 .education-table .points-column {
     white-space: nowrap;
 }
@@ -162,7 +165,7 @@ body {
     margin-left: auto;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1025px) {
   
     .gx-4{
         --bs-gutter-x: -364px;
@@ -246,6 +249,10 @@ body {
     text-align: left;
 }
 
+.other-education-partners .partner-card:last-of-type {
+    margin-bottom: 0px !important;
+}
+
 .partner-card img {
     flex-shrink: 0;
     width: 150px;
@@ -279,6 +286,12 @@ body {
 .hr-divider {
     margin: 60px 0;
     border-top: 1px solid #e3e3e3;
+}
+
+/* Add this new rule to target the last hr-divider */
+.other-education-partners .partner-card:last-of-type + .hr-divider {
+    /* margin-bottom: 5px !important; */
+    display: none;
 }
 
 .education-table .custom-table {

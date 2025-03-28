@@ -218,8 +218,6 @@
     }
 }
 
-
-
 .footer .list-of-items:not(:last-child)::after {
     content: "";
     position: absolute;
@@ -303,5 +301,25 @@
     .footer-bottom-content p,
     .footer-bottom-content a {
         text-align: center;
+    }
+}
+
+/* Add responsive sizing for the footer logo */
+.gpni-logo {
+    width: 286px !important; /* Original desktop size - !important to override inline style */
+    margin-bottom: 20px;
+}
+
+/* Tablet-specific sizing */
+@media (min-width: 576px) and (max-width: 991px) {
+    .gpni-logo {
+        width: 220px !important; /* Reduced size for tablets */
+    }
+}
+
+/* Mobile-specific sizing */
+@media (max-width: 575px) {
+    .gpni-logo {
+        width: 180px !important; /* Smaller size for mobile devices */
     }
 }

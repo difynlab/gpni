@@ -33,7 +33,6 @@
 
 .conference-card .text-section .title {
     font-weight: 500;
-    font-size: 20px;
     line-height: 24px;
     color: #0e0e0e;
 }
@@ -78,8 +77,6 @@
     /* Set the text color */
     font-family: 'Poppins', sans-serif;
     /* Set the font family */
-    font-size: 61px;
-    /* Set the font size */
     font-style: normal;
     /* Set the font style */
     font-weight: 500;
