@@ -475,10 +475,10 @@
                         $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
                         if(response.nutritionist['is_qualified'] == '1') {
-                            $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                            $('#view-modal .qualified-coach').removeClass('d-none');
                         }
                         else {
-                            $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                            $('#view-modal .qualified-coach').addClass('d-none');
                         }
 
                         $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
@@ -508,6 +508,7 @@
                 url: url,
                 type: "GET",
                 success: function(response) {
+                    console.log(response);
                     if(response.nutritionist['image']) {
                         $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
                     }
@@ -529,10 +530,10 @@
                     $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
 
                     if(response.nutritionist['is_qualified'] == '1') {
-                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                        $('#view-modal .qualified-coach').removeClass('d-none');
                     }
                     else {
-                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                        $('#view-modal .qualified-coach').addClass('d-none');
                     }
 
                     $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
@@ -541,10 +542,10 @@
                 },
                 error: function(xhr) {
                     if(response.nutritionist['is_qualified'] == '1') {
-                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                        $('#view-modal .qualified-coach').removeClass('d-none');
                     }
                     else {
-                        $(this).siblings('.flex-grow').children('.qualified-coach').addClass('d-none')
+                        $('#view-modal .qualified-coach').addClass('d-none');
                     }
 
                     $('#view-modal .coach-contact-link').attr('id', response.nutritionist['id']);
