@@ -17,16 +17,20 @@
             <div class="col-12 col-lg-8 main-content ps-lg-5">
                 <div class="module-container">
                     @php
-                        use Illuminate\Support\Str;
-
                         $previous_url = url()->previous();
-                        $last_segment = Str::afterLast($previous_url, '/');
+                        $last_segment = \Illuminate\Support\Str::afterLast($previous_url, '/');
 
-                        if($last_segment === 'courses') {
+                        if(in_array($last_segment, ['member-corner', 'gpni-tv', 'courses'])) {
+                            session([
+                                'prev_url' => $last_segment
+                            ]);
+                        }
+
+                        if(session('prev_url') === 'courses') {
                             $return_text = $student_dashboard_contents->courses_return;
                             $link = route('frontend.courses.index');
                         }
-                        elseif($last_segment === 'member-corner') {
+                        elseif(session('prev_url') === 'member-corner') {
                             $return_text = $student_dashboard_contents->member_corner_return;
                             $link = route('frontend.member-corner');
                         }
@@ -40,6 +44,7 @@
                         <img src="{{ asset('storage/frontend/left-chevron-icon.svg') }}" alt="Arrow Left" width="20" height="20">
                         {{ $return_text }}
                     </a>
+                    
                     <h1 class="module-title">{{ $course->title }}</h1>
 
                     @if($course_modules->isNotEmpty())

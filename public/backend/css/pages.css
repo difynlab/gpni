@@ -290,7 +290,13 @@
 .pages .table .form-switch {
     margin-bottom: 0;
 }
-
+.pages .table .count-badge {
+    color: #0040C3;
+    font-size: 15px;
+    position: absolute;
+    top: -10%;
+    right: 30%;
+}
 
 /* Responsive */
     @media screen and (max-width: 1921px) {

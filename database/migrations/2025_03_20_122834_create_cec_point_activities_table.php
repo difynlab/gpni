@@ -22,6 +22,7 @@ return new class extends Migration
             $table->decimal('points', 10, 2);
             $table->text('admin_comment')->nullable();
             $table->text('user_comment')->nullable();
+            $table->enum('is_new', [0, 1])->default('1');
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });

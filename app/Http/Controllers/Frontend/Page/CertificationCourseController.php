@@ -222,9 +222,15 @@ class CertificationCourseController extends Controller
 
         if($material_logistic == 'Yes') {
             $material_logistic_price = $course->material_logistic_price;
+
+            $file_name = $course->material_logistic;
+            $file_path = storage_path('app/public/backend/courses/material-and-logistics/' . $file_name);
         }
         else {
             $material_logistic_price = 0;
+
+            $file_name = null;
+            $file_path = null;
         }
 
         if($wallet) {
@@ -291,10 +297,11 @@ class CertificationCourseController extends Controller
 
         $mail_data = [
             'name' => $user->first_name . ' ' . $user->last_name,
-            'course' => $course->title
+            'course' => $course->title,
+            'material_logistic' => $material_logistic
         ];
 
-        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data));
+        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name));
 
         return redirect()->route('frontend.homepage')->with('complete', 'Course purchase has been successfully completed');
     }

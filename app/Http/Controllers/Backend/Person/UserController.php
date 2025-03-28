@@ -71,9 +71,12 @@ class UserController extends Controller
             User::where('role', 'student')->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
         }
 
+        $cec_point_count = CECPointActivity::where('status', '!=', '0')->where('is_new', '1')->count();
+
         return view('backend.persons.users.index', [
             'users' => $users,
-            'items' => $items
+            'items' => $items,
+            'cec_point_count' => $cec_point_count
         ]);
     }
 
@@ -812,6 +815,8 @@ class UserController extends Controller
         $course_ids = $purchases->pluck('course_id')->toArray();
 
         $cec_courses = Course::whereIn('id', $course_ids)->where('status', '1')->get();
+
+        CECPointActivity::where('user_id', $user->id)->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
 
         return view('backend.persons.users.cec-points', [
             'user' => $user,
