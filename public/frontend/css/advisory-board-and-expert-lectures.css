@@ -69,7 +69,7 @@ body {
 /* Ensure images maintain aspect ratio but don't cause different card heights */
 .card-img-top {
     object-fit: cover;
-    height: 200px; /* Set a consistent height for all card images */
+    height: 300px; /* Set a consistent height for all card images */
 }
 
 /* Styles for tablets and small laptops */
