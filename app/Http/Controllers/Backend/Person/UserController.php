@@ -831,6 +831,7 @@ class UserController extends Controller
         CECPointActivity::create([
             'user_id' => $user->id,
             'course_id' => $request->course_id,
+            'activity_name' => $request->activity_name,
             'type' => $request->type,
             'date' => Carbon::now()->toDateString(),
             'time' => Carbon::now()->toTimeString(),

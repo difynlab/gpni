@@ -58,9 +58,9 @@
                                     <div class="form-group">
                                         <label for="primaryLanguage">{{ $student_dashboard_contents->student_profile_personal_language }}</label>
                                         <select class="form-control" name="language" disabled readonly>
-                                            <option value="English">{{ $student_dashboard_contents->student_profile_personal_first_language }}</option>
-                                            <option value="Chinese">{{ $student_dashboard_contents->student_profile_personal_second_language }}</option>
-                                            <option value="Japanese">{{ $student_dashboard_contents->student_profile_personal_third_language }}</option>
+                                            <option value="English" {{ $student->language == 'English' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_personal_first_language }}</option>
+                                            <option value="Chinese" {{ $student->language == 'Chinese' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_personal_second_language }}</option>
+                                            <option value="Japanese" {{ $student->language == 'Japanese' ? 'selected' : '' }}>{{ $student_dashboard_contents->student_profile_personal_third_language }}</option>
                                         </select>
                                     </div>
                                 </div>

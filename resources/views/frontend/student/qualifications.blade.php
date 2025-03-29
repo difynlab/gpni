@@ -88,7 +88,7 @@
                                                     @foreach($cec_point_activities as $cec_point_activity)
                                                         <tr>
                                                             <td>{{ $cec_point_activity->id }}</td>
-                                                            <td>{{ $cec_point_activity->course_id != 'Non of These' ? App\Models\Course::find($cec_point_activity->course_id)->title : $cec_point_activity->activity_name }}</td> 
+                                                            <td>{{ $cec_point_activity->course_id != 'None of These' ? App\Models\Course::find($cec_point_activity->course_id)->title : $cec_point_activity->activity_name }}</td> 
                                                             <td>{{ $cec_point_activity->type }}</td>
                                                             <td>{{ $cec_point_activity->admin_comment ?? '-' }}</td>
                                                             <td>{{ $cec_point_activity->user_comment ?? '-' }}</td>
@@ -139,7 +139,7 @@
                                                                     <option value="{{ $cec_course->id }}" {{ old('cec_course') == $cec_course->id ? 'selected' : '' }}>{{ $cec_course->title }}</option>
                                                                 @endforeach
 
-                                                                <option value="Non of These">{{ $student_dashboard_contents->qualifications_cec_none_of_these }}</option>
+                                                                <option value="None of These">{{ $student_dashboard_contents->qualifications_cec_none_of_these }}</option>
                                                             </select>
                                                         </div>
 
@@ -177,7 +177,7 @@
         $('#course_id').on('change', function() {
             let value = $(this).val();
             
-            if(value == 'Non of These') {
+            if(value == 'None of These') {
                 $('.activity-div').removeClass('d-none');
                 $('.activity-div input').attr('required', true);
             }

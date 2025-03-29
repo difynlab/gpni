@@ -42,7 +42,7 @@
                                 @foreach($activities as $activity)
                                     <tr>
                                         <td>#{{ $activity->id }}</td>
-                                        <td>{{ $activity->course_id != 'Non of These' ? App\Models\Course::find($activity->course_id)->title : $activity->activity_name }}</td>
+                                        <td>{{ $activity->course_id != 'None of These' ? App\Models\Course::find($activity->course_id)->title : $activity->activity_name }}</td>
                                         <td>{{ $activity->type }}</td>
                                         <td>{{ $activity->date }}</td>
                                         <td>{{ $activity->time }}</td>
@@ -108,7 +108,14 @@
                                             @foreach($cec_courses as $cec_course)
                                                 <option value="{{ $cec_course->id }}" {{ old('cec_course') == $cec_course->id ? 'selected' : '' }}>{{ $cec_course->title }}</option>
                                             @endforeach
+
+                                            <option value="None of These">None of These</option>
                                         </select>
+                                    </div>
+
+                                    <div class="mb-4 activity-div d-none">
+                                        <label for="activity_name" class="form-label">Activity Name<span class="asterisk">*</span></label>
+                                        <input type="text" class="form-control" id="activity_name" name="activity_name" value="{{ old('activity_name') }}" placeholder="Activity Name">
                                     </div>
 
                                     <div>
@@ -143,6 +150,19 @@
             let csrfToken = '{{ csrf_token() }}';
 
             updateStatusToggle(routeTemplate, csrfToken, user);
+        });
+
+        $('#course_id').on('change', function() {
+            let value = $(this).val();
+            
+            if(value == 'None of These') {
+                $('.activity-div').removeClass('d-none');
+                $('.activity-div input').attr('required', true);
+            }
+            else {
+                $('.activity-div').addClass('d-none');
+                $('.activity-div input').attr('required', false);
+            }
         });
     </script>
 @endpush
