@@ -151,6 +151,6 @@ class TvController extends Controller
             }
         }
 
-        return redirect()->route('frontend.gpni-tv.index')->with('success', 'Course purchased successfully');
+        return redirect()->route('frontend.homepage')->with('complete', 'Course purchase has been successfully completed');
     }
 }

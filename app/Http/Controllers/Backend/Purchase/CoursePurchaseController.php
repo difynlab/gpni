@@ -39,6 +39,11 @@ class CoursePurchaseController extends Controller
                     ? '<span class="pending-status">Failed</span>' 
                     : '<span class="active-status">Directly Added</span>'));
 
+            $course_purchase->material_logistic = 
+                ($course_purchase->material_logistic == 'Yes') 
+                ? '<span class="active-status">Yes</span>' 
+                : '<span class="pending-status">No</span>';
+
             $course = Course::find($course_purchase->course_id);
             if($course->final_exam == 'Yes') {
                 if(hasStudentCompletedFinalExam($course_purchase->user_id, $course_purchase->course_id)) {

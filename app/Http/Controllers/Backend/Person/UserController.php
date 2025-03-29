@@ -71,9 +71,12 @@ class UserController extends Controller
             User::where('role', 'student')->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
         }
 
+        $cec_point_count = CECPointActivity::where('status', '!=', '0')->where('is_new', '1')->count();
+
         return view('backend.persons.users.index', [
             'users' => $users,
-            'items' => $items
+            'items' => $items,
+            'cec_point_count' => $cec_point_count
         ]);
     }
 
@@ -813,6 +816,8 @@ class UserController extends Controller
 
         $cec_courses = Course::whereIn('id', $course_ids)->where('status', '1')->get();
 
+        CECPointActivity::where('user_id', $user->id)->where('status', '!=', '0')->where('is_new', '1')->update(['is_new' => '0']);
+
         return view('backend.persons.users.cec-points', [
             'user' => $user,
             'activities' => $activities,
@@ -826,6 +831,7 @@ class UserController extends Controller
         CECPointActivity::create([
             'user_id' => $user->id,
             'course_id' => $request->course_id,
+            'activity_name' => $request->activity_name,
             'type' => $request->type,
             'date' => Carbon::now()->toDateString(),
             'time' => Carbon::now()->toTimeString(),

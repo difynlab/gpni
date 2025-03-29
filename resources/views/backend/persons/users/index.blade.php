@@ -62,7 +62,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Wallet</th>
-                                <th scope="col">CEC Points</th>
+                                <th scope="col" class="position-relative">CEC Points <span class="count-badge">{{ $cec_point_count != 0 ? $cec_point_count : '' }}</span></th>
                                 <th scope="col">Points</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -80,8 +80,12 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone ?? '-' }}</td>
                                         <td>{{ $user->wallet }}</td>
-                                        <td><a href="{{ route('backend.persons.users.cec-points.index', $user) }}" class="points-box">{{ $user->cec_balance }}</a></td>
-                                        <td><a href="{{ route('backend.persons.users.points.index', $user) }}" class="points-box">{{ $user->points }}</a></td>
+                                        <td>
+                                            <a href="{{ route('backend.persons.users.cec-points.index', $user) }}" class="points-box">{{ $user->cec_balance }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('backend.persons.users.points.index', $user) }}" class="points-box">{{ $user->points }}</a>
+                                        </td>
                                         <td>{!! $user->status !!}</td>
                                         <td>{!! $user->action !!}</td>
                                     </tr>

@@ -16,7 +16,7 @@ class CoursePurchaseMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public $mail_data)
+    public function __construct(public $mail_data, public $file_path, public $file_name)
     {
         //
     }
@@ -39,5 +39,24 @@ class CoursePurchaseMail extends Mailable
         return new Content(
             view: 'mail.course-purchase',
         );
+    }
+
+    /**
+     * Get the attachments for the message.
+     *
+     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     */
+    public function attachments(): array
+    {
+        if($this->mail_data['material_logistic'] == 'Yes') {
+            return 
+            [
+                \Illuminate\Mail\Mailables\Attachment::fromPath($this->file_path)
+                ->as($this->file_name)
+                ->withMime('application/pdf')
+            ];
+        }
+
+        return [];
     }
 }
