@@ -990,6 +990,64 @@ course-content {
     }
 }
 
+/* Section 2 Image */
+.section-2-image {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 12px solid #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    aspect-ratio: 1/1;
+}
+
+@media (max-width: 1199.98px) {
+    .section-2-image {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .section-2-image {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-2-image {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .section-2-image {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Section 4 Video */
+.section-4-video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-4-video {
+    width: 100%;
+    height: 720px;
+}
+
+/* Section 7 Video */
+.section-7-video {
+    width: 100%;
+    height: 455px;
+}
+
 .cissn-title {
     font-weight: 500;
     font-size: 39px;
@@ -1752,30 +1810,6 @@ course-content {
     }
 }
 
-/* Section 2 Image */
-.section-2-image {
-    width: 653px;
-    height: 798px;
-}
-
-/* Section 4 Video */
-.section-4-video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.section-4-video {
-    width: 100%;
-    height: 720px;
-}
-
-/* Section 7 Video */
-.section-7-video {
-    width: 100%;
-    height: 455px;
-}
-
 /* Section 9 Image */
 .section-9-image {
     width: 100%;
@@ -1949,7 +1983,7 @@ course-content {
     width:100%;
 }
 
-.section-2-image {
+/* .section-2-image {
     border-radius: 50%;
     border: 12px solid #f8f9fa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1957,9 +1991,9 @@ course-content {
     height: 450px;
     object-fit: cover;
     border-radius: 50%;
-}
+} */
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
     .section-2-image {
         width: 300px;
         height: 300px;
@@ -1971,7 +2005,7 @@ course-content {
         width: 200px;
         height: 200px;
     }
-}
+} */
 
 .step-container {
     display: flex;
