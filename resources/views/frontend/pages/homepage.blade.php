@@ -383,7 +383,7 @@
                                                     <div class="col-md-2 col-4">
                                                         <img class="expert-image-15 rounded-circle" alt="" src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}"/>
                                                     </div>
-                                                    <div class="col-md-8 col-12 d-flex align-items-center flex-column">
+                                                    <div class="col-md-8 col-12 d-flex align-items-center flex-column fs-25">
                                                         <div class="text-center">
                                                             <div class="expert-name">{{ $advisory_board->name }}</div>
                                                             <div class="qualification">{{ $advisory_board->designations }}</div>
@@ -460,7 +460,7 @@
                 <div class="row g-4">
                     <div class="col-12">
                         <div class="d-flex justify-content-center">
-                            <div class="w-100 w-md-50">
+                            <div class="w-75 w-md-50">
                                 <div class="custom-search-bar">
                                     <form action="{{ route('frontend.nutritionists.index') }}" method="GET">
                                         <div class="input-group mb-3 mt-5 d-flex justify-content-center align-items-center">
