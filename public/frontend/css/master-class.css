@@ -114,10 +114,11 @@ h1.display-4 {
     text-align: center;
     font-weight: 400;
     line-height: 140%; 
+    max-width: 924px;
 }
 .learn-list {
     list-style: none;
-    padding-left: 0;
+    /* padding-left: 0; */
     color: #898989;
 }
 
@@ -125,10 +126,10 @@ h1.display-4 {
     font-size: 16px;
 }
 
-.learn-list img {
+/* .learn-list img {
     width: 25px;
     height: 25px;
-}
+} */
 
 .journey-title {
     font-weight: 500;

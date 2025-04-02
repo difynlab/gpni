@@ -127,9 +127,9 @@
             <div class="row">
                 @if($course->master_section_2_points)
                     @foreach(json_decode($course->master_section_2_points) as $master_section_2_point)
-                        <div class="col-md-6 mb-2">
-                            <div class="learn-list d-flex fs-20 py-2 py-md-3">
-                                <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-2 me-md-3" style="width: 20px; height: 20px;">
+                        <div class="col-md-6">
+                            <div class="learn-list d-flex fs-25 py-2 py-md-3">
+                                <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-2 me-md-3">
                                 <span>{{ $master_section_2_point }}</span>
                             </div>
                         </div>

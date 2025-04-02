@@ -11,53 +11,50 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <div class="container-xxl bg-white p-0">
-            <div class="container-xxl position-relative p-0">
-                <div class="container-xxl hero-header">
-                    <div class="container">
-                        <x-frontend.notification></x-frontend.notification>
-                        <x-frontend.notification-popup></x-frontend.notification-popup>
+        <!-- Hero Section -->
+        <section class="bg-white">
+            <div class="container py-5">
+                <x-frontend.notification></x-frontend.notification>
+                <x-frontend.notification-popup></x-frontend.notification-popup>
 
-                        <div class="row align-items-center g-5">
-                            <div class="col-md-12 col-lg-6 text-center text-lg-start ">
-                                <h1 class="display-3 text-black ff-poppins-semibold fs-61 mb-4">
-                                    {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
-                                </h1>
+                <div class="row align-items-center g-5">
+                    <div class="col-md-12 col-lg-6 text-center text-lg-start">
+                        <h1 class="display-3 text-black ff-poppins-semibold fs-61 mb-4">
+                            {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
+                        </h1>
 
-                                <div class="mb-4 mt-5 ff-poppins-medium fs-25 international-society-of-sport">
-                                    {!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
-                                </div>
-
-                                <div class="pt-md-5 pt-2">
-                                    @guest
-                                        <a href="{{ route('frontend.register') }}"
-                                        class="fs-20 btn btn-primary py-sm-2 px-sm-4 me-3 btn-responsive">
-                                            {{ $contents->{'section_1_label_' . $middleware_language} ?? $contents->section_1_label_link_en }}
-                                        </a>
-                                    @endguest
-
-                                    <a href="{{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->link ?? json_decode($contents->section_1_label_link_en)->link }}"
-                                    class="py-sm-3 px-sm-2 fs-20 fw-semi-bold learn-more btn-responsive">
-                                        {{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->label ?? json_decode($contents->section_1_label_link_en)->label }}
-                                        <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Right" class="arrow-right-icon"/>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-lg-6 text-center text-lg-end overflow-hidden image-header">
-                                @if($contents->{'section_1_image_' . $middleware_language})
-                                    <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_' . $middleware_language}) }}" alt="Header Image" class="img-fluid">
-                                @elseif($contents->section_1_image_en)
-                                    <img src="{{ asset('storage/backend/pages/' . $contents->section_1_image_en) }}" alt="Header Image" class="img-fluid">
-                                @else
-                                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
-                                @endif
-                            </div>
+                        <div class="mb-4 mt-5 ff-poppins-medium fs-25 international-society-of-sport">
+                            {!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
                         </div>
+
+                        <div class="pt-md-5 pt-2">
+                            @guest
+                                <a href="{{ route('frontend.register') }}"
+                                class="fs-20 btn btn-primary py-sm-2 px-sm-4 me-3 btn-responsive">
+                                    {{ $contents->{'section_1_label_' . $middleware_language} ?? $contents->section_1_label_link_en }}
+                                </a>
+                            @endguest
+
+                            <a href="{{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->link ?? json_decode($contents->section_1_label_link_en)->link }}"
+                            class="py-sm-3 px-sm-2 fs-20 fw-semi-bold learn-more btn-responsive">
+                                {{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->label ?? json_decode($contents->section_1_label_link_en)->label }}
+                                <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Right" class="arrow-right-icon"/>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-6 text-center text-lg-end overflow-hidden image-header">
+                        @if($contents->{'section_1_image_' . $middleware_language})
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_' . $middleware_language}) }}" alt="Header Image" class="img-fluid">
+                        @elseif($contents->section_1_image_en)
+                            <img src="{{ asset('storage/backend/pages/' . $contents->section_1_image_en) }}" alt="Header Image" class="img-fluid">
+                        @else
+                            <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="img-fluid">
+                        @endif
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     @endif
 
     @if($contents->section_2_title_en)

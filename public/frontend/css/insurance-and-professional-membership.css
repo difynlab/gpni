@@ -120,7 +120,7 @@ body {
 .highlight-box {
     border-radius: 10px;
     border: 1px solid rgba(233, 233, 233, 0.69);
-    padding: 30px 38px;
+    padding: 30px 30px;
     margin-top: 20px;
     color: #FFF;
     background-color: #0040c3;
@@ -170,10 +170,10 @@ ul li {
     font-size: 1.938rem; /* fs-31 size for subheadings */
 }
 
-.responsive-text p, 
+/* .responsive-text p, 
 .responsive-text ul li {
-    font-size: 1.25rem; /* fs-20 size for paragraph text */
-}
+    font-size: 1.25rem; 
+} */
 
 /* Define a media query for mobile devices */
 @media screen and (max-width: 480px) {

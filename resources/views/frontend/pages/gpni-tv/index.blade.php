@@ -30,7 +30,7 @@
                         @endif
                     </div>
                 
-                    <h1 class="fs-49">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h1>
+                    <h1 class="fs-49 mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h1>
                 
                     <div class="section-1">{!! $contents->{'section_1_content_' . $middleware_language} ?? $contents->section_1_content_en !!}</div>
                 </div>
@@ -80,11 +80,11 @@
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="main-heading fs-49 mb-3">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
-                    <p class="sub-heading pb-3 fs-25">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</p>
+                    <p class="sub-heading fs-25 mb-3">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</p>
                 </div>
 
                 @if($recent_webinars->isNotEmpty())
-                    @foreach($recent_webinars as $recent_webinar)
+                    @foreach($recent_webinars as $index => $recent_webinar)
                         <div class="row align-items-center mb-5">
                             <div class="col-md-5 text-center">
                                 <video controls class="img-fluid video-container">
@@ -97,7 +97,9 @@
                             </div>
                         </div>
 
-                        <div class="divider"></div>
+                        @if(!$loop->last)
+                            <div class="divider"></div>
+                        @endif
                     @endforeach
                 @endif
             </div>
@@ -108,7 +110,7 @@
         <div class="container-fluid webinars-section py-5">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h1 class="main-heading fs-49">{!! $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en !!}</h1>
+                    <h1 class="main-heading fs-49 mb-3">{!! $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en !!}</h1>
                     <div class="sub-heading fs-25">
                     {!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}
                     </div>
@@ -135,7 +137,7 @@
     @if($contents->section_4_title_en)
         <div class="container-fluid Famous-Global-Speakers-Experts-section py-5">
             <div class="container">
-                <h1 class="main-heading fs-49">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h1>
+                <h1 class="main-heading fs-49 mb-3">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h1>
 
                 <div class="row justify-content-center section-4">
                     {!! $contents->{'section_4_content_' . $middleware_language} ?? $contents->section_4_content_en !!}
@@ -215,12 +217,12 @@
     @if($contents->section_8_title_en)
         <section class="watch-anytime-anywhere py-5">
             <div class="container">
-                <h1 class="fs-49">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</h1>
+                <h1 class="fs-49 mb-3">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</h1>
                 
-                <div class="fs-25 section-8-content">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
+                <div class="fs-25 section-8-content mb-3">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
 
                 @guest
-                    <div class="pt-3">
+                    <div class="py-3">
                         <a href="{{ route('frontend.register') }}" class="btn-sign-up">
                             {{ $contents->{'section_8_label_' . $middleware_language} ?? $contents->section_8_label_link_en }}
                         </a>
@@ -233,7 +235,7 @@
     @if($contents->section_9_title_en)
         <section class="previous-experts-seminars py-5">
             <div class="container">
-                <h1 class="fs-49">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</h1>
+                <h1 class="fs-49 mb-3">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</h1>
 
                 <div class="fs-25 section-9-content">{!! $contents->{'section_9_content_' . $middleware_language} ?? $contents->section_9_content_en !!}</div>                
                 @if($previous_webinars->isNotEmpty())
