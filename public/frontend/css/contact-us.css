@@ -14,7 +14,6 @@ body {
 .header-title {
     color: #0E0E0E;
     text-align: center;
-    font-size: 3.812rem; /* 61px */
     font-weight: 500;
     line-height: 120%;
     margin-bottom: 30px;
@@ -22,7 +21,6 @@ body {
 
 .description {
     text-align: center;
-    font-size: 1.562rem; /* 25px */
     font-weight: 400;
     line-height: 140%;
     color: #505050;
@@ -41,7 +39,7 @@ body {
 
 .form-group label {
     color: #0E0E0E;
-    font-size: 1.062rem; /* 17px */
+    font-size: 1.250rem; /* 20px */
     font-weight: 500;
     margin-bottom: 5px;
 }
