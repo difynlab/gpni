@@ -16,7 +16,6 @@ body {
     text-align: center;
     font-weight: 500;
     line-height: 120%;
-    margin-bottom: 30px;
 }
 
 .description {
@@ -24,7 +23,6 @@ body {
     font-weight: 400;
     line-height: 140%;
     color: #505050;
-    margin-bottom: 40px;
 }
 
 .form-container {
@@ -317,7 +315,7 @@ textarea.form-textarea {
 
 @media (min-width: 1024px) {
     .form-container {
-        margin-top: 60px; /* Add top space for laptop screens */
+        margin-top: 40px; /* Add top space for laptop screens */
     }
 
     .contact-info {

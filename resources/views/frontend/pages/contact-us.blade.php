@@ -16,7 +16,7 @@
 
             <x-frontend.notification></x-frontend.notification>
 
-            <h1 class="header-title fs-49">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
+            <h1 class="header-title fs-49 mb-3">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
 
             <p class="description fs-25">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
 
