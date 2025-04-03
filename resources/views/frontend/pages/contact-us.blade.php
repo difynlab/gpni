@@ -23,7 +23,7 @@
             <div class="form-container">
                 <form action="{{ route('frontend.contact-us.store') }}" method="POST">
                     @csrf
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-6">
                             <label for="first-name" class="required">{{ $contents->{'first_name_' . $middleware_language} ?? $contents->first_name_en }}</label>
                             <input type="text" class="form-control" id="first-name" name="first_name" required>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-6">
                             <label for="email" class="required">{{ $contents->{'email_' . $middleware_language} ?? $contents->email_en }}</label>
                             <input type="email" class="form-control" id="email" name="email" required>
@@ -45,14 +45,14 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-12 reason-group">
                             <label for="question" class="required">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
                             <input type="text" class="form-control" id="question" name="question" required>
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-12 comments-group">
                             <label for="comments" class="required">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
                             <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" required></textarea>
