@@ -743,7 +743,7 @@
                             <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-custom">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
                         @endif
 
-                        <a href="{{ json_decode($course->certification_section_16_label_link)->link }}" class="btn-custom secondary border-0">{{ json_decode($course->certification_section_16_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow"></a>
+                        <a href="{{ json_decode($course->certification_section_16_label_link)->link }}" class="btn-custom secondary border-0">{{ json_decode($course->certification_section_16_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-icon-white.svg') }}" alt="Arrow"></a>
                     </div>
                 </div>
             </section>
