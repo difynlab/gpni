@@ -165,16 +165,14 @@ body {
     font-family: Poppins;
     font-style: normal;
     font-weight: 300;
-    line-height: 140%;
-    font-size: 20px;    
+    line-height: 140%;   
 }
 .speaker-text p{
     color: #FFF;
     font-family: Poppins;
     font-style: normal;
     font-weight: 300;
-    line-height: 140%;
-    font-size: 20px;    
+    line-height: 140%;  
 }
 
 .divider {
@@ -204,7 +202,7 @@ body {
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 140%;
     /* 35px */
 }
@@ -316,7 +314,6 @@ body {
     font-size: 25px;
     text-align: center;
     font-weight: 400;
-    margin-bottom: 2rem;
 }
 
 
@@ -411,9 +408,9 @@ body {
 .section-5 ul li{
     position: relative;
     padding-left: 2.5rem;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     color: #505050;
-    font-size: 20px;
+    /* font-size: 20px; */
     font-weight: 400;
     line-height: 130%;
 }
@@ -447,7 +444,6 @@ body {
 .learn-more-earn-more p {
     color: #FFF;
     font-family: "Poppins";
-    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: 140%; 
@@ -490,7 +486,7 @@ body {
     font-size: 16px;
     line-height: 130%;
     color: #505050;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .learn-grow-career-business .feature img {
@@ -552,7 +548,7 @@ body {
     font-weight: 400;
     line-height: 120%;
     text-align: center;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
 }
 
 
@@ -596,7 +592,7 @@ body {
     line-height: 140%;
     text-align: center;
     color: #505050;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .section-9-content {

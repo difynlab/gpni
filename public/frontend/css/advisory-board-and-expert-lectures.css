@@ -1,18 +1,3 @@
-.card {
-    background-color: #f8f8f8ff !important;
-    width: 100%; /* Adjust base width */
-    height: 100%; /* Make all cards the same height */
-    display: flex;
-    flex-direction: column;
-}
-
-.card-body {
-    flex: 1 1 auto; /* Make card-body grow to fill available space */
-    padding: 1.25rem; /* Add consistent padding */
-    display: flex;
-    flex-direction: column;
-}
-
 .card-title {
     font-size: 1.25rem; /* Default font size */
     font-weight: 500;
@@ -27,8 +12,14 @@
     font-weight: 500;
     margin-bottom: 16px;
     text-align: left; /* Align the card subtitle to the left */
-    display: block; /* Ensure the elements are displayed */
+    /* display: block; */
     visibility: visible; /* Ensure visibility */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-text {
@@ -55,23 +46,6 @@ body {
     right: 20px; /* Default position for laptops/desktops */
 }
 
-/* Make sure parent column elements have the same height in a row */
-.row.gap-32 {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.row.gap-32 > .col-md-3 {
-    display: flex;
-    margin-bottom: 32px; /* Match the row gap */
-}
-
-/* Ensure images maintain aspect ratio but don't cause different card heights */
-.card-img-top {
-    object-fit: cover;
-    height: 300px; /* Set a consistent height for all card images */
-}
-
 /* Styles for tablets and small laptops */
 @media (min-width: 768px) and (max-width: 1023.98px) {
     .section-heading {
@@ -87,7 +61,6 @@ body {
 
     .card {
         margin-top: 20px; /* Add space between subheading and card */
-        height: auto; /* Auto height instead of fixed */
     }
 
     .card-title {
@@ -153,8 +126,8 @@ body {
 
 
     .card {
-        width: 100%; /* Reduce width for laptops */
-        height: auto; /* Auto height instead of fixed 425px */
+        width: 250px; /* Reduce width for laptops */
+        height: 556px; /* Set height for laptops */
         margin: 20px auto; /* Center the card and add top and bottom margin */
     }
 
@@ -234,8 +207,8 @@ body {
 
 
     .card {
-        width: 100%; /* Set width for large laptops and desktops */
-        height: auto; /* Auto height instead of fixed 525px */
+        width: 392px; /* Set width for large laptops and desktops */
+        /* height: 556px;  */
         margin: 20px auto; /* Center the card and add top and bottom margin */
     }
 
@@ -298,6 +271,131 @@ body {
     }
 }
 
+.card {
+    background-color: #f8f8f8ff !important;
+    width: 100%; /* Adjust base width */
+    /* height: 556px;  */
+}
+
+.section-heading {
+    font-size: 2.5rem; /* Adjust as needed */
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40px; /* Add top padding */
+    visibility: visible; /* Ensure visibility */
+}
+
+.section-subheading {
+    font-size: 1.25rem; /* Adjust as needed */
+    margin-top: 20px; /* Adjust as needed */
+    margin-bottom: 40px; /* Adjust as needed */
+}
+
+.text-primary {
+    color: #19191bff !important;
+}
+
+.text-info {
+    color: #0040c3ff !important;
+}
+
+.text-muted {
+    color: #898989ff !important;
+}
+
+.gap-32 {
+    margin-bottom: 32px;
+}
+
+.modal-dialog {
+    max-width: 1194px;
+    margin: 30px auto;
+}
+
+.modal-content {
+    border-radius: 24px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+}
+
+.close {
+    padding: 0;
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.close img {
+    width: 28px;
+    height: 28px;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 20px 0 20px; /* Keep top padding, remove bottom padding */
+    margin-bottom: 0; /* Ensure no bottom margin */
+}
+
+.popup-image {
+    width: 100%;
+    height: auto;
+    max-width: 451px;
+    max-height: 608px;
+    object-fit: cover;
+    border-radius: 12px 12px 12px 12px;
+    margin-bottom: 20px; /* Add margin for spacing */
+}
+
+.popup-content {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.popup-info {
+    margin-bottom: 20px;
+}
+
+.popup-description {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 16px;
+    height: 16px;
+    margin-right: 16px;
+}
+
+/* .gpni-logo-2 {
+    width: 146px;
+    height: 43px;
+    flex-shrink: 0;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+} */
+
 /* Responsive adjustments */
 @media (max-width: 767.98px) {
     .section-heading {
@@ -353,7 +451,7 @@ body {
 
 @media (max-width: 575.98px) {
     .card {
-        height: auto !important; /* Auto height for medium mobile devices */
+        height: auto; /* Auto height for medium mobile devices */
     }
 
     .card-title, .card-subtitle, .card-text {
@@ -403,6 +501,153 @@ body {
     }
 }
 
+/* Styles for tablets and small laptops */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .section-heading {
+        font-size: 2.2rem; /* Adjust as needed */
+        margin-top: 30px; /* Adjust as needed */
+    }
+
+    .section-subheading {
+        font-size: 1.1rem; /* Adjust as needed */
+        margin-top: 15px; /* Adjust as needed */
+        margin-bottom: 30px; /* Adjust as needed */
+    }
+
+    .card {
+        margin-top: 20px; /* Add space between subheading and card */
+    }
+
+    .modal-body {
+        flex-direction: row; /* Arrange content in a row */
+        align-items: flex-start; /* Align items to the top */
+        padding: 10px 10px 0 10px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
+    }
+
+    .popup-image {
+        width: 50%; /* Adjust width for tablets */
+        height: 100%; /* Ensure the image covers the entire height */
+        max-width: none; /* Remove max-width */
+        max-height: none; /* Remove max-height */
+        margin-bottom: 0; /* Remove bottom margin */
+        margin-right: 20px; /* Add right margin for spacing */
+        border-radius: 0; /* Remove border-radius for tablets */
+        object-fit: cover; /* Ensure the image covers the entire area */
+    }
+
+    .popup-content {
+        width: 50%; /* Adjust width for tablets */
+        padding: 20px;
+    }
+
+    .popup-info {
+        text-align: left; /* Align text to the left for tablets */
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+    .section-heading {
+        font-size: 2.5rem; /* Adjust as needed */
+        margin-top: 40px; /* Adjust as needed */
+    }
+
+    .section-subheading {
+        font-size: 1.25rem; /* Adjust as needed */
+        margin-top: 20px; /* Adjust as needed */
+        margin-bottom: 40px; /* Adjust as needed */
+    }
+
+
+    .card {
+        width: 100%; /* Reduce width for laptops */
+        height: 425px; /* Set height for laptops */
+        margin: 20px auto; /* Center the card and add top and bottom margin */
+    }
+
+    .card + .card {
+        margin-top: 20px; /* Add space between each card */
+    }
+
+    .modal-body {
+        flex-direction: row; /* Arrange content in a row */
+        align-items: flex-start; /* Align items to the top */
+        padding: 10px 10px 0 10px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
+    }
+
+    .popup-image {
+        width: 40%; /* Adjust width for laptops */
+        height: 100%; /* Ensure the image covers the entire height */
+        max-width: none; /* Remove max-width */
+        max-height: none; /* Remove max-height */
+        margin-bottom: 0; /* Remove bottom margin */
+        margin-right: 20px; /* Add right margin for spacing */
+        border-radius: 0; /* Remove border-radius for laptops */
+    }
+
+    .popup-content {
+        width: 60%; /* Adjust width for laptops */
+        padding: 20px;
+    }
+
+    .popup-info {
+        text-align: left; /* Align text to the left for laptops */
+    }
+}
+
+@media (min-width: 1440px) {
+    .section-heading {
+        font-size: 3rem; /* Adjust as needed */
+        margin-top: 0; /* Remove top padding */
+        visibility: visible; /* Ensure visibility */
+    }
+
+    .section-subheading {
+        font-size: 1.5rem; /* Adjust as needed */
+        margin-top: 0; /* Remove top padding */
+        margin-bottom: 50px; /* Adjust as needed */
+        visibility: visible; /* Ensure visibility */
+    }
+
+
+    .card {
+        width: 100%; /* Set width for large laptops and desktops */
+        /* height: 525px;  */
+        margin: 20px auto; /* Center the card and add top and bottom margin */
+    }
+
+    .card + .card {
+        margin-top: 20px; /* Add space between each card */
+    }
+
+    .modal-body {
+        flex-direction: row; /* Arrange content in a row */
+        align-items: flex-start; /* Align items to the top */
+        padding: 20px 20px 0 20px; /* Keep top padding, remove bottom padding */
+        margin-bottom: 0;
+    }
+
+    .popup-image {
+        width: 40%; /* Adjust width for large laptops and desktops */
+        height: 100%; /* Ensure the image covers the entire height */
+        max-width: none; /* Remove max-width */
+        max-height: none; /* Remove max-height */
+        margin-right: 20px; /* Add right margin for spacing */
+        border-radius: 0; /* Remove border-radius for large laptops and desktops */
+        object-fit: cover; /* Ensure the image covers the entire area */
+    }
+
+    .popup-content {
+        width: 60%; /* Adjust width for large laptops and desktops */
+        padding: 20px;
+    }
+
+    .popup-info {
+        text-align: left; /* Align text to the left for large laptops and desktops */
+    }
+}
+
 /* Style for the description text */
 .description-text {
     color: rgba(14, 14, 14, 0.90);
@@ -422,6 +667,24 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 73.2px */
+}
+
+/* Styles for medium mobile devices */
+@media (max-width: 575.98px) {
+    .card {
+        height: auto !important; /* Auto height for medium mobile devices */
+    }
+
+    .card-title, .card-subtitle, .card-text {
+        white-space: normal; /* Allow text to wrap */
+        overflow: visible; /* Show overflow text */
+        text-overflow: clip; /* Clip overflow text */
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 /* Styles for tablets and small laptops */
@@ -449,7 +712,7 @@ body {
 
     .card {
         width: 100%; /* Full width for tablets and small laptops */
-        height: auto; /* Auto height for tablets and small laptops */
+        height: 380px; /* Auto height for tablets and small laptops */
         margin: 10px 0; /* Add top and bottom margin */
     }
 
@@ -526,6 +789,12 @@ body {
 
     .card-subtitle {
         font-size: 1rem; /* Ensure correct font size for large laptops and desktops */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .card-text {

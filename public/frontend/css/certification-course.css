@@ -233,9 +233,9 @@ a.btn-primary {
     font-size: 20px;
 }
 
-.plans-payment {
+/* .plans-payment {
     padding: 40px 20px;
-}
+} */
 
 .image-section img {
     width: 60%;
@@ -322,11 +322,11 @@ a.btn-primary {
 }
 
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .plans-payment {
         padding: 60px 40px;
     }
-}
+} */
 
 
 .nutrition-section {
@@ -1380,7 +1380,7 @@ course-content {
     line-height: 40px;
     color: #0040c3;
     margin-bottom: 1.5rem !important;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     min-height: 60px;
 }
 
@@ -1845,7 +1845,6 @@ course-content {
 }
 
 .subtitle {
-    font-size: 25px;
     font-weight: 400;
     line-height: 140%;
     color: #505050;
@@ -2259,7 +2258,11 @@ course-content {
     width: 30px;
     margin-right: 1rem;
 }
-
+.learn-list-certificate {
+        list-style: none;
+        /* padding-left: 0; */
+        color: #898989;
+}
 .quote {
     font-size: 1.5rem;
     line-height: 1.5;

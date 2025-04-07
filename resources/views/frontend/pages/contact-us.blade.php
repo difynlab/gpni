@@ -16,14 +16,14 @@
 
             <x-frontend.notification></x-frontend.notification>
 
-            <h1 class="header-title">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
+            <h1 class="header-title fs-49 mb-3">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
 
-            <p class="description">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
+            <p class="description fs-25">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
 
             <div class="form-container">
                 <form action="{{ route('frontend.contact-us.store') }}" method="POST">
                     @csrf
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-6">
                             <label for="first-name" class="required">{{ $contents->{'first_name_' . $middleware_language} ?? $contents->first_name_en }}</label>
                             <input type="text" class="form-control" id="first-name" name="first_name" required>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-6">
                             <label for="email" class="required">{{ $contents->{'email_' . $middleware_language} ?? $contents->email_en }}</label>
                             <input type="email" class="form-control" id="email" name="email" required>
@@ -45,14 +45,14 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-12 reason-group">
                             <label for="question" class="required">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
                             <input type="text" class="form-control" id="question" name="question" required>
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-12 comments-group">
                             <label for="comments" class="required">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
                             <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" required></textarea>

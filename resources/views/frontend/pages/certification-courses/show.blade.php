@@ -377,7 +377,7 @@
                         <div class="col-lg-6 order-lg-1 order-1 text-center mb-4 mb-lg-0 pe-lg-5">
                             <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_8_image) }}" alt="Course Image" class="img-fluid rounded section-8-image">
                         </div>
-                        <div class="col-lg-6 order-lg-2 order-2 mb-4 mb-lg-0 ps-lg-5">
+                        <div class="col-lg-6 order-lg-2 order-2 mb-4 mb-lg-0 ps-lg-3">
                             <div class="text-white">
                                 <div class="fs-49 mb-4 text-lg-start text-center">{!! $course->certification_section_8_content !!}</div>
                                 <div class="d-flex justify-content-lg-start justify-content-center">
@@ -413,7 +413,7 @@
                     @if($course->certification_section_9_points)
                         @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
                             <div class="col-md-6">
-                                <div class="learn-list d-flex fs-20 py-3">
+                                <div class="learn-list-certificate d-flex fs-25 py-3">
                                     <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
                                     {{ $certification_section_9_point }}
                                 </div>

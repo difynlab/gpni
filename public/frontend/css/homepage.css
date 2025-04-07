@@ -44,7 +44,7 @@
     }
 
     .image-header img {
-        max-height: 330px;
+        max-height: 450px;
     }
 }
 /*** Video Container ***/
@@ -375,7 +375,7 @@
     object-fit: cover;
 }
 .expert-name {
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.02em;
 }
 .qualification {
@@ -468,7 +468,11 @@
     }
     .expert-modal .col-md-8 {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start; /* Left align items instead of center */
+    }
+    .expert-name, .qualification {
+        text-align: left;
     }
 }
 
