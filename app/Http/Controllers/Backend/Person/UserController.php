@@ -795,6 +795,25 @@ class UserController extends Controller
         ]);
     }
 
+    public function cecPointsCommon(Request $request, User $user)
+    {
+        $items = $request->items ?? 10;
+
+        $cec_point_users = CECPointActivity::where('status', '!=', '0')->where('is_new', '1')->pluck('user_id')->unique()->values()->toArray();
+
+        $users = User::whereIn('id', $cec_point_users)->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
+
+        $users = $this->processUsers($users);
+
+        $cec_point_count = CECPointActivity::where('status', '!=', '0')->where('is_new', '1')->count();
+
+        return view('backend.persons.users.index', [
+            'users' => $users,
+            'items' => $items,
+            'cec_point_count' => $cec_point_count
+        ]);
+    }
+
     public function cecPoints(Request $request, User $user)
     {
         $items = $request->items ?? 10;
