@@ -4,9 +4,15 @@
 
 <ul>
     @foreach($mail_data['products'] as $product)
-        <li>{{ $product->name }}: {{ $mail_data['symbol'] }} {{ $product->price }}</li>
+        <li>
+            {{ $product->name }} ({{ $product->quantity }} pcs) - 
+            {{ $mail_data['symbol'] }}{{ number_format($product->price, 2) }} x {{ $product->quantity }} = 
+            {{ $mail_data['symbol'] }}{{ number_format($product->total, 2) }}
+        </li>
     @endforeach
 </ul>
+
+<p><strong>Total Amount: {{ $mail_data['symbol'] }}{{ number_format($mail_data['total'], 2) }}</strong></p>
 
 <p>We will ship your order as soon as possible.</p>
 
