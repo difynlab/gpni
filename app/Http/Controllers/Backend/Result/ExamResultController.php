@@ -108,8 +108,8 @@ class ExamResultController extends Controller
 
             if($user) {
                 $user_ids = $users->where(function ($query) use ($user) {
-                                $query->where('first_name', 'like', '%' . $user . '%')
-                                    ->orWhere('last_name', 'like', '%' . $user . '%');
+                                $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%' . $user . '%'])
+                                ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $user . '%']);
                             })
                             ->pluck('id')
                             ->toArray();
@@ -228,8 +228,8 @@ class ExamResultController extends Controller
 
             if($user) {
                 $user_ids = $users->where(function ($query) use ($user) {
-                                $query->where('first_name', 'like', '%' . $user . '%')
-                                    ->orWhere('last_name', 'like', '%' . $user . '%');
+                                $query->whereRaw("CONCAT(first_name, ' ', last_name) LIKE ?", ['%' . $user . '%'])
+                                ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ['%' . $user . '%']);
                             })
                             ->pluck('id')
                             ->toArray();

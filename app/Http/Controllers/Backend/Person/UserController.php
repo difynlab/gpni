@@ -770,12 +770,15 @@ class UserController extends Controller
         $users = $users->paginate($items);
         $users = $this->processUsers($users);
 
+        $cec_point_count = CECPointActivity::where('status', '!=', '0')->where('is_new', '1')->count();
+
         return view('backend.persons.users.index', [
             'users' => $users,
             'items' => $items,
             'name' => $name,
             'email' => $email,
-            'language' => $language
+            'language' => $language,
+            'cec_point_count' => $cec_point_count
         ]);
     }
 
