@@ -5,9 +5,7 @@
 <ul>
     @foreach($mail_data['products'] as $product)
         <li>
-            {{ $product->name }} ({{ $product->quantity }} pcs) - 
-            {{ $mail_data['symbol'] }}{{ number_format($product->price, 2) }} x {{ $product->quantity }} = 
-            {{ $mail_data['symbol'] }}{{ number_format($product->total, 2) }}
+            {{ $product->name }} ({{ $product->quantity }} pcs): {{ $mail_data['symbol'] }}{{ $product->price }} x {{ $product->quantity }} = {{ $mail_data['symbol'] }}{{ $product->total_cost }}
         </li>
     @endforeach
 </ul>

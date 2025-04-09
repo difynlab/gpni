@@ -116,7 +116,7 @@ class ProductController extends Controller
         return redirect()->away($session->url);
     }
 
-        public function success(Request $request)
+    public function success(Request $request)
     {
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
@@ -128,7 +128,7 @@ class ProductController extends Controller
 
         $product_order = ProductOrder::find($product_order_id);
 
-        if ($product_order) {
+        if($product_order) {
             $product_order->date = now()->toDateString();
             $product_order->time = now()->toTimeString();
             $product_order->mode = $session->mode;
@@ -138,45 +138,48 @@ class ProductController extends Controller
             $product_order->save();
         }
 
-        $ordered_details = ProductOrderDetail::where('product_order_id', $product_order_id)->get();
-
-        Cart::whereIn('product_id', $ordered_details->pluck('product_id'))->where('status', 'Active')->update(['status' => 'Purchased']);
+        $ordered_products = ProductOrderDetail::where('product_order_id', $product_order_id)->get();
+        $ordered_product_ids = $ordered_products->pluck('product_id')->toArray();
+  
+        Cart::whereIn('product_id', $ordered_product_ids)->where('status', 'Active')->update(['status' => 'Purchased']);
 
         $wallet = Wallet::where('user_id', $product_order->user_id)->where('status', '1')->first();
 
-        if ($wallet) {
-            if ($wallet->balance >= $total_order_amount) {
-                $wallet->balance -= $total_order_amount;
-            } else {
-                $wallet->balance = 0.00;
-                }
-            $wallet->save();
+        if($wallet) {
+            if($wallet->balance >= $total_order_amount) {
+                $wallet->balance = $wallet->balance - $total_order_amount;
+                $wallet->save();
+            }
+            else {
+                $wallet->balance = '0.00';
+                $wallet->save();
+            }
         }
 
         $user = Auth::user();
 
-        $symbol = $product_order->currency == 'usd' ? '$' : '¥';
+        if($product_order->currency == 'usd') {
+            $symbol = '$';
+        }
+        else {
+            $symbol = '¥';
+        }
 
-        $products_info = $ordered_details->map(function ($detail) {
-            $product = Product::find($detail->product_id);
-            return (object)[
-                'name' => $product->name,
-                'quantity' => $detail->quantity,
-                'price' => $detail->price,
-                'total' => ($detail->price * $detail->quantity) + $detail->shipping_cost
-            ];
-        });
+        foreach($ordered_products as $key => $ordered_product) {
+            $product = Product::find($ordered_product->product_id);
+
+            $ordered_product->name = $product->name;
+        }
 
         $mail_data = [
             'name' => $user->first_name . ' ' . $user->last_name,
             'symbol' => $symbol,
-            'products' => $products_info,
-            'total' => $product_order->amount_paid,
+            'products' => $ordered_products,
+            'total' => $product_order->amount_paid
         ];
 
         Mail::to($user->email)->send(new ProductPurchaseMail($mail_data));
 
         return redirect()->route('frontend.products.index')->with('complete', 'Product/s purchase has been successfully completed');
     }
-
-        }
+}
