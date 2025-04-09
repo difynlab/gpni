@@ -1342,14 +1342,6 @@ course-content {
     }
 }
 
-
-.student-testimonial-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 1rem;
-}
-
 .student-testimonial-text {
     height: 100%;
     display: flex;
@@ -2233,13 +2225,6 @@ course-content {
     }
 }
 
-.student-testimonial-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
 .student-testimonial-text {
     flex: 1;
     min-width: 300px;
@@ -2425,13 +2410,13 @@ course-content {
 }
 
 
-.student-testimonial-content {
+/* .student-testimonial-content {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
-}
+} */
 
 .student-testimonial-text {
     flex: 1;
