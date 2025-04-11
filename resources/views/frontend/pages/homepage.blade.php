@@ -19,9 +19,9 @@
 
                 <div class="row align-items-center">
                     <div class="col-md-12 col-lg-6 text-center text-lg-start">
-                        <h1 class="display-3 text-black ff-poppins-semibold fs-61 mb-4">
+                        <div class="display-3 text-black ff-poppins-semibold fs-61 mb-4">
                             {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
-                        </h1>
+                        </div>
 
                         <div class="mb-4 mt-5 ff-poppins-medium fs-25 international-society-of-sport">
                             {!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
@@ -61,7 +61,7 @@
         <div class="container-xxl">
             <div class="container">
                 <div class="text-center">
-                    <h1 class="mb-3 mb-md-5 mx-md-5 mx-0 ff-poppins-medium fs-49">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h1>
+                    <div class="mb-3 mb-md-5 mx-md-5 mx-0 ff-poppins-medium fs-49">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
                 </div>
 
                 <div class="row g-4">
@@ -105,7 +105,7 @@
         <div class="py-5">
             <div class="container">
                 <div class="text-center">
-                    <h1 class="mb-3 ff-poppins-medium fs-49">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h1>
+                    <div class="mb-3 ff-poppins-medium fs-49">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
                     <p class="mb-1 professional-body ff-poppins-regular fs-25">{{ $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en }}</p>
                 </div>
 
@@ -382,15 +382,15 @@
                                                     </div>
                                                     <div class="col-md-8 col-12 d-flex align-items-center flex-column fs-25">
                                                         <div class="text-center">
-                                                            <div class="expert-name">{{ $advisory_board->name }}</div>
-                                                            <div class="qualification">{{ $advisory_board->designations }}</div>
+                                                            <div class="expert-name fs-20">{{ $advisory_board->name }}</div>
+                                                            <div class="qualification fs-16">{{ $advisory_board->designations }}</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1 col-4 text-right">
                                                         <button type="button" class="btn-close position-absolute btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                 </div>
-                                                <div class="mt-4 expert-content text-left">
+                                                <div class="mt-md-4 expert-content text-left">
                                                     {!! $advisory_board->description !!}
                                                 </div>
                                             </div>
@@ -416,8 +416,8 @@
                                                     </div>
                                                     <div class="col-md-8 col-12 d-flex align-items-center flex-column">
                                                         <div class="text-center">
-                                                            <div class="expert-name">{{ $advisory_board->name }}</div>
-                                                            <div class="qualification">{{ $advisory_board->designations }}</div>
+                                                            <div class="expert-name fs-20">{{ $advisory_board->name }}</div>
+                                                            <div class="qualification fs-16">{{ $advisory_board->designations }}</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1 col-4 text-right">

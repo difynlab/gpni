@@ -357,11 +357,11 @@
     object-fit: cover;
 }
 .expert-name {
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.02em;
 }
 .qualification {
-    font-size: 1rem;
+    /* font-size: ; */
     font-weight: 500;
 }
 
@@ -387,6 +387,10 @@
 /* Ensure modal content is left-aligned */
 .expert-content {
     text-align: left;
+}
+
+.expert-content  p {
+    font-size: 20px;
 }
 
 /* Expert modal adjustments */
