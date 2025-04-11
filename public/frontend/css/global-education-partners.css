@@ -26,7 +26,7 @@ body {
 
 .section-subtitle {
     font-weight: 300;
-    color: #505050;
+    color: #000;
     line-height: 1.4;
     text-align: center;
 }
@@ -39,7 +39,7 @@ body {
 .language-partners p,
 .partner-info p {
     font-weight: 400;
-    color: #505050;
+    color: #000;
     line-height: 1.4;
 }
 
@@ -279,7 +279,7 @@ body {
 
 .partner-info p {
     font-weight: 400;
-    color: #505050;
+    color: #000;
     line-height: 1.4;
 }
 

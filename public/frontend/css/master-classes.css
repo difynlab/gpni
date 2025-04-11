@@ -9,7 +9,7 @@ body {
 }
 
 .description {
-    color: #505050;
+    color: #000;
 }
 
 .title {
@@ -744,4 +744,19 @@ body {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.master-class-card{
+    .card-img-top{
+        height: 212px;
+    }
+}
+
+@media  (max-width:769.98px) {
+    .master-class-card{
+        .card-img-top{
+            height: 150px;
+        }
+    }
+    
 }

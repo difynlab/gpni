@@ -44,7 +44,7 @@ body {
   }
   
   .custom-text-muted {
-    color: #838589;
+    color: #000;
     font-family: Poppins;
     font-style: normal;
     font-weight: 400;
@@ -231,7 +231,7 @@ body {
   
   .subscribe h5 {
     margin-bottom: 20px;
-    color: #0B0B0B;
+    color: #000;
     font-family: Poppins;
     font-style: normal;
     font-weight: 400;
@@ -239,7 +239,7 @@ body {
   }
   
   .subscribe p {
-    color: #838589;
+    color: #000;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

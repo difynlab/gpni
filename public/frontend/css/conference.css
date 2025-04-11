@@ -121,7 +121,7 @@ body {
 }
 
 .event-info-value {
-    color: #505050;
+    color: #000;
     overflow: hidden;
     text-overflow: ellipsis;
     flex: 1;

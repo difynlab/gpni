@@ -81,7 +81,7 @@
 }
 
 .who-we-are h3 {
-    color: #0040C3;
+    color: #000;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-size: 31px; /* Adjust font size for larger laptops */
@@ -362,7 +362,7 @@
 }
 
 .our-founders h2 {
-    color: #505050;
+    color: #000;
     text-align: right;
     font-family: 'Poppins', sans-serif;
     font-size: 49px; /* Adjust font size for larger laptops */
@@ -392,7 +392,7 @@
 }
 
 .founder p {
-    color: #505050;
+    color: #000;
     /* line-height: 0.5; */
     font-family: 'Poppins', sans-serif;
     /* font-size: 25px; */
@@ -491,7 +491,7 @@
 }
 
 .gold-standard h2 {
-    color: #505050;
+    color: #000;
     font-family: 'Poppins', sans-serif;
     font-size: 49px; /* Default font size */
     font-style: normal;
@@ -502,7 +502,7 @@
 }
 
 .gold-standard p {
-    color: #505050;
+    color: #000;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;

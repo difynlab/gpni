@@ -14,30 +14,30 @@
         @if ($contents->title_en)
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="heading-text mb-3">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
-                    <div class="description-text py-2 fs-25">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
+                    <div class="heading-text mb-3 fs-49">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
+                    <div class="description-text fs-25">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
                 </div>
             </div>
         @endif
 
-        <div class="row gap-32">
+        <div class="row">
             @if ($advisory_boards->isNotEmpty())
                 @foreach ($advisory_boards as $advisory_board)
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3 mt-2">
                         <div class="card" role="button" data-bs-toggle="modal"
                             data-bs-target="#my-modal-{{ $advisory_board->id }}">
                             <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}"
                                 class="card-img-top" alt="{{ $advisory_board->name }}">
 
-                            <div class="card-body bg-light">
-                                <h5 class="card-title text-primary">{{ $advisory_board->name }}</h5>
-                                <h6 class="card-subtitle mb-2">{{ $advisory_board->designations }}</h6>
-                                <div class="card-text text-muted">{!! $advisory_board->description !!}</div>
+                            <div class="card-body">
+                                <div class="card-title text-primary">{{ $advisory_board->name }}</div>
+                                <div class="card-subtitle mb-1">{{ $advisory_board->designations }}</div>
+                                <div class="card-text text-muted fs-20"> {!! $advisory_board->description !!}</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal fade" id="my-modal-{{ $advisory_board->id }}">
+                    <div class="modal fade" id="my-modal-{{ $advisory_board->id }}" style="padding-left: none;">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <button type="button" class="close" data-bs-dismiss="modal">
@@ -50,8 +50,8 @@
 
                                     <div class="popup-content">
                                         <div class="popup-info">
-                                            <h3>{{ $advisory_board->name }}</h3>
-                                            <h4>{{ $advisory_board->designations }}</h4>
+                                            <div class="popup-title">{{ $advisory_board->name }}</div>
+                                            <div class="popup-designation">{{ $advisory_board->designations }}</div>
                                         </div>
 
                                         <div class="popup-description">{!! $advisory_board->description !!}</div>
@@ -69,6 +69,9 @@
                                                         alt="LinkedIn"></a>
                                             @endif
                                         </div>
+                                        
+                                        <!-- Added spacing div -->
+                                        <div class="spacing-div"></div>
 
                                     </div>
 

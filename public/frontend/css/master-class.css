@@ -12,26 +12,26 @@ body {
 h1.display-4 {
     color: #0E0E0E;
     font-weight: 600;
-    line-height: 120%;
+    
 }
 
 .common-style {
     color: #505050;
     font-weight: 500;
-    line-height: 140%;
+   
 }
 
 .common-text-style {
-    color: #898989;
+    color: #000;
     text-align: right;
     font-weight: 500;
-    line-height: 140%;
+   
 }
 
 .note {
     color: #0040C3;
     font-size: 16px;
-    line-height: 140%;
+   
     background: rgba(0, 64, 195, 0.04);
     border-radius: 5px;
     margin-top: 8px;
@@ -110,16 +110,16 @@ h1.display-4 {
 
 
 .learn-subtitle {
-    color: #505050;
+    color: #000;
     text-align: center;
     font-weight: 400;
-    line-height: 140%; 
+    
     max-width: 924px;
 }
 .learn-list {
     list-style: none;
     /* padding-left: 0; */
-    color: #898989;
+    color: #000;
 }
 
 .learn-list li {
@@ -133,19 +133,19 @@ h1.display-4 {
 
 .journey-title {
     font-weight: 500;
-    line-height: 120%;
+    
     color: #FFFFFF;
 }
 
 .journey-subtitle {
     font-weight: 400;
-    line-height: 120%;
+    
     color: #FFFFFF;
 }
 
 .journey-button {
     font-weight: 500;
-    line-height: 30px;
+    
     border-radius: 5px;
     padding: 10px 20px;
     color: #0040C3;
@@ -163,7 +163,7 @@ h1.display-4 {
 .content-header .nav-link {
     font-weight: 500;
     color: #898989;
-    line-height: 140%;
+   
     margin-right: 20px;
 }
 
@@ -181,14 +181,14 @@ h1.display-4 {
 .content-box .content-title {
     font-weight: 500;
     font-size: 16px;
-    line-height: 200%;
+    
     color: #505050;
     margin-bottom: 20px;
 }
 
 .content-box .content-description {
     font-size: 16px;
-    line-height: 140%;
+   
     color: #505050;
     margin-bottom: 30px;
 }
@@ -208,7 +208,7 @@ h1.display-4 {
 .content-box .info-note .text-warning,
 .content-box .info-note .text-primary {
     font-size: 16px;
-    line-height: 24px;
+    
 }
 
 .content-box .info-note .text-warning {
@@ -244,12 +244,12 @@ h1.display-4 {
     .content-box .info-note .text-warning,
     .content-box .info-note .text-primary {
         font-size: 14px;
-        line-height: 20px;
+        
     }
 
     .content-box .content-description {
         font-size: 14px;
-        line-height: 20px;
+        
     }
 
     .content-box .info-note {
@@ -263,7 +263,7 @@ h1.display-4 {
 
 .nav-tabs .nav-link {
     font-weight: 500;
-    color: #898989;
+    color: #6f6d6d;
     border: none;
     background-color: transparent;
     padding: 0.5rem 1rem;
@@ -288,7 +288,7 @@ h1.display-4 {
 .course-content .content-title {
     font-weight: 500;
     font-size: 25px;
-    line-height: 200%;
+    
     color: #505050;
     margin-bottom: 20px;
 }
@@ -296,7 +296,7 @@ h1.display-4 {
 .course-content .content-description {
     font-weight: 400;
     font-size: 16px;
-    line-height: 160%;
+    
     color: #505050;
     margin-bottom: 30px;
 }
@@ -306,7 +306,7 @@ h1.display-4 {
     align-items: center;
     font-weight: 500;
     font-size: 15.31px;
-    line-height: 22.97px;
+    
     color: #0040c3;
     text-decoration: none;
     margin-top: 30px;
@@ -337,11 +337,11 @@ h1.display-4 {
 
     .course-content .content-title,
     .course-content .learn-more-link {
-        line-height: 120%;
+        
     }
 
     .course-content .content-description {
-        line-height: 20px;
+        
     }
 }
 
@@ -355,7 +355,7 @@ h1.display-4 {
 .modules-title {
     font-weight: 500;
     font-size: 16px;
-    line-height: 200%;
+    
     color: #505050;
     margin-bottom: 20px;
 }
@@ -363,7 +363,7 @@ h1.display-4 {
 .module-item {
     font-weight: 400;
     font-size: 16px;
-    line-height: 140%;
+   
     color: #505050;
     padding: 8px 0;
     border-bottom: 1px solid #ddd;
@@ -381,7 +381,7 @@ h1.display-4 {
     .modules-title,
     .module-item {
         font-size: 14px;
-        line-height: 20px;
+        
     }
 }
 
@@ -439,7 +439,7 @@ h1.display-4 {
 .testimonial-content {
     font-size: 19px;
     font-weight: 400;
-    line-height: 140%;
+   
     color: #3e3e3e;
 }
 
@@ -566,7 +566,7 @@ h1.display-4 {
     }
 
     .testimonial-content {
-        line-height: 160%;
+        
     }
 
     .slider-controls button {
@@ -592,7 +592,7 @@ h1.display-4 {
 .merchandise-title {
     font-weight: 500;
     font-size: 49px;
-    line-height: 120%;
+    
     color: #FFFFFF;
     margin-top: 20px;
 }
@@ -601,7 +601,7 @@ h1.display-4 {
 .merchandise-note {
     font-weight: 400;
     font-size: 22px;
-    line-height: 140%;
+   
     color: #FFFFFF;
 }
 
@@ -611,7 +611,7 @@ h1.display-4 {
 
 .btn-light {
     font-weight: 500;
-    line-height: 30px;
+    
     padding: 10px 20px;
     color: #0040c3;
 }
@@ -630,7 +630,7 @@ h1.display-4 {
 
 .advisory-title {
     font-weight: 500;
-    line-height: 1.2;
+    
     color: #0e0e0e;
     transition: font-size 0.3s ease;
 }
@@ -818,7 +818,7 @@ h1.display-4 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
-    line-height: 120%;
+    
     /* 58.8px */
 }
 
@@ -828,7 +828,7 @@ h1.display-4 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
+   
     /* 35px */
 }
 .map-background {
@@ -877,14 +877,13 @@ h1.display-4 {
     font-size: 25px;
     font-style: normal;
     font-weight: 500;
-    line-height: 120%; /* 30px */
+     /* 30px */
 }
 .text-container ul, .regions-list,
 .languages-list,
 .population-list {
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.5;
     list-style: none;
     padding: 0;
     margin: 10px 0;
@@ -1049,7 +1048,6 @@ h1.display-4 {
 .quote {
     font-weight: 500;
     color: #0040c3;
-    line-height: 40px;
     margin-bottom: 20px;
     font-size: 1.5rem;
     min-height: 80px; /* Ensures consistent height even with short text */
@@ -1135,7 +1133,7 @@ h1.display-4 {
 
 .card-text {
     color: #505050;
-    line-height: 24px;
+    
     margin-bottom: 15px;
     flex-grow: 1;
 }
@@ -1221,9 +1219,8 @@ h1.display-4 {
 }
 
 .quote {
-    font-weight: 500;
-    color: #0040c3;
-    line-height: 40px;
+    font-weight: 400;
+    color: #000;
     margin-bottom: 20px;
     font-size: 1.5rem;
     min-height: 80px; /* Ensures consistent height even with short text */
@@ -1318,7 +1315,7 @@ h1.display-4 {
 
 .card-text {
     color: #505050;
-    line-height: 24px;
+    
 }
 
 .font-weight-bold {
@@ -1343,14 +1340,14 @@ h1.display-4 {
 .experts-title {
     font-weight: 500;
     color: #0e0e0e;
-    line-height: 120%;
+    
     margin-bottom: 20px;
 }
 
 .experts-description {
     font-weight: 400;
     color: #505050;
-    line-height: 140%;
+   
     margin: auto;
     margin-bottom: 40px;
 }
@@ -1362,7 +1359,7 @@ h1.display-4 {
 .bg-dark p {
     font-size: 20px;
     font-weight: 400;
-    line-height: 30px;
+    
     margin: 0;
 }
 
@@ -1405,7 +1402,7 @@ h1.display-4 {
 .contact-us h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    line-height: 140%;
+   
 }
 
 .line-clamp-3 {
@@ -1417,14 +1414,29 @@ h1.display-4 {
 
 .video-player, .course-image {
     width: 100%;
-    height: 365px;
+    height: 405px;
     object-fit: cover;
+
 }
+
+@media (min-width: 768px) and (max-width: 1025px) {
+    .video-player, .course-image {
+        height: 399px;
+    }
+
+}
+@media  (max-width: 768px) {
+    .video-player, .course-image {
+        height: 381px;
+    }
+    
+}
+
 
 .contact-us p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    line-height: 140%;
+   
     color: #fff;
     margin-bottom: 20px;
 }
@@ -1459,7 +1471,7 @@ h1.display-4 {
 .faq-subtitle {
     font-size: 25px;
     font-weight: 400;
-    line-height: 140%;
+   
     margin: 0 auto 40px;
     color: #0e0e0e;
 }
@@ -1659,14 +1671,11 @@ h1.display-4 {
 .card-title {
     color: #0040C3;
     font-family: Poppins;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
 }
 
 .card-text {
     color: #505050;
-    line-height: 1.5;
     text-align: left;
     display: -webkit-box;
     -webkit-line-clamp: 7;
@@ -1743,7 +1752,7 @@ h1.display-4 {
 .testimonial-body {
     font-size: 19px;
     font-weight: 400;
-    line-height: 140%;
+   
     max-width: 800px;
     margin: 0 auto;
 }
@@ -2011,7 +2020,7 @@ h1.display-4 {
 @media (max-width: 575.98px) {
     h1.display-4 {
         font-size: 1.75rem;
-        line-height: 1.2;
+        
         margin-bottom: 0.75rem;
     }
     
@@ -2053,7 +2062,7 @@ h1.display-4 {
 
 .student-review-text {
     font-weight: 400;
-    line-height: 24px;
+    
     color: #505050;
     margin-bottom: 20px;
     flex-grow: 1;
@@ -2066,8 +2075,8 @@ h1.display-4 {
 
 .student-review-name {
     font-weight: 500;
-    line-height: 30px;
-    color: #0040c3;
+    
+    color: #000;
     margin-bottom: 10px;
 }
 
@@ -2087,6 +2096,5 @@ h1.display-4 {
 .student-review-rating span {
     font-weight: 400;
     font-size: 13px;
-    line-height: 19.5px;
     color: #505050;
 }

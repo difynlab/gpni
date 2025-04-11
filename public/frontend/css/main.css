@@ -9,15 +9,11 @@
     --dark: #0F172B;
 }
 
-html {
-    font-size: 16px; /* Default is 16px, but you can change it */
-}
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
-    color: #0E0E0E;
-     padding-top: 6rem; 
+    color: #000;
+    padding-top: 6rem; 
 }
 
 @media (max-width: 1199.98px) {
@@ -99,64 +95,64 @@ body {
 }
 /* define font size*/
 .fs-10 {
-    font-size: 0.625rem;
+    font-size: 10px; /* was 0.625rem */
 }
 
 .fs-12{
-    font-size: 0.75rem;
+    font-size: 12px; /* was 0.75rem */
 }
 
 .fs-13 {
-    font-size: 0.812rem;
+    font-size: 13px; /* was 0.812rem */
 }
 
 .fs-16 {
-    font-size: 1.000rem;
+    font-size: 16px; /* was 1.000rem */
 }
 
 .fs-20 {
-    font-size: 1.250rem;
+    font-size: 20px; /* was 1.250rem */
 }
 
 .fs-25 {
-    font-size: 1.5rem;
+    font-size: 24px; /* was 1.5rem */
 }
 
 .fs-31 {
-    font-size: 1.938rem;
+    font-size: 31px; /* was 1.938rem */
 }
 .fs-36{
-    font-size: 2.250rem;
+    font-size: 36px; /* was 2.250rem */
 }
 
 .fs-39 {
-    font-size: 2.438rem;
+    font-size: 39px; /* was 2.438rem */
 }
 
 .fs-49 {
-    font-size: 3.062rem;
-    /* font-size: 3.812rem; */
+    font-size: 49px; /* was 3.062rem */
+    /* font-size: 61px; */ /* was 3.812rem */
 }
 
 .fs-61 {
-    font-size: 3.812rem;
+    font-size: 61px; /* was 3.812rem */
 }
 
 /* Additional responsive font size classes */
 .fs-sm-12 {
-    font-size: 0.75rem;
+    font-size: 12px; /* was 0.75rem */
 }
 
 .fs-sm-14 {
-    font-size: 0.875rem;
+    font-size: 14px; /* was 0.875rem */
 }
 
 .fs-sm-16 {
-    font-size: 1rem;
+    font-size: 16px; /* was 1rem */
 }
 
 .fs-md-18 {
-    font-size: 1.125rem;
+    font-size: 18px; /* was 1.125rem */
 }
 
 /* Purchase notification popup */
@@ -217,7 +213,7 @@ body {
     }
     .confirmation-box p {
         font-family: Arial, sans-serif;
-        font-size: 16px;
+        font-size: 16px; /* already in px */
         margin: 0 0 20px;
         color: #555;
     }
@@ -227,7 +223,7 @@ body {
         border: none;
         border-radius: 10px;
         padding: 10px 20px;
-        font-size: 16px;
+        font-size: 16px; /* already in px */
         cursor: pointer;
         display: block;
         margin: 0 auto;
@@ -241,199 +237,177 @@ body {
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {
     .fs-61 {
-        font-size: 2.8rem; /* Reduced from 3.812rem */
+        font-size: 45px; /* was 2.8rem */
     }
 
     .fs-49 {
-        font-size: 2.5rem; /* Reduced from 3.062rem */
+        font-size: 40px; /* was 2.5rem */
     }
 
     .fs-39 {
-        font-size: 2rem; /* Reduced from 2.438rem */
+        font-size: 32px; /* was 2rem */
     }
 
     .fs-36{
-        font-size: 1.875rem; /* Reduced from 2.250rem */
+        font-size: 30px; /* was 1.875rem */
     }
 
     .fs-31 {
-        font-size: 1.5rem; /* Reduced from 1.938rem */
+        font-size: 24px; /* was 1.5rem */
     }
 
     .fs-25 {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
+        font-size: 20px; /* was 1.25rem */
     }
 
     .fs-20 {
-        font-size: 1rem; /* Reduced from 1.25rem */
+        font-size: 16px; /* was 1rem */
     }
 
     .fs-16 {
-        font-size: 0.875rem; /* Reduced from 1rem */
+        font-size: 14px; /* was 0.875rem */
     }
 
     .fs-13 {
-        font-size: 0.75rem; /* Reduced from 0.812rem */
+        font-size: 12px; /* was 0.75rem */
     }
 
     .fs-12{
-        font-size: 0.625rem; /* Remains the same */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-10 {
-        font-size: 0.5rem; /* Reduced from 0.625rem */
+        font-size: 8px; /* was 0.5rem */
     }
 }
 
 @media (max-width: 991.98px) {
     .fs-61 {
-        font-size: 2.5rem; /* Further reduced */
+        font-size: 40px; /* was 2.5rem */
     }
 
     .fs-49 {
-        font-size: 1.5rem; /* Further reduced */
+        font-size: 24px; /* was 1.5rem */
     }
 
     .fs-39 {
-        font-size: 1.25rem; /* Further reduced */
+        font-size: 20px; /* was 1.25rem */
     }
 
     .fs-36{
-        font-size: 1.125rem; /* Further reduced */
+        font-size: 18px; /* was 1.125rem */
     }
 
     .fs-31 {
-        font-size: 1rem; /* Further reduced */
+        font-size: 16px; /* was 1rem */
     }
 
     .fs-25 {
-        font-size: 1rem; /* Further reduced */
+        font-size: 16px; /* was 1rem */
     }
 
     .fs-20 {
-        font-size: 0.875rem; /* Further reduced */
+        font-size: 14px; /* was 0.875rem */
     }
 
     .fs-16 {
-        font-size: 0.75rem; /* Further reduced */
+        font-size: 12px; /* was 0.75rem */
     }
 
     .fs-13 {
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-12{
-
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-10 {
-        font-size: 0.5rem; /* Further reduced */
+        font-size: 8px; /* was 0.5rem */
     }
 }
 
 @media (max-width: 767.98px) {
     .fs-61 {
-        font-size: 2rem; /* Further reduced */
+        font-size: 32px; /* was 2rem */
     }
 
     .fs-49 {
-        font-size: 1.2rem; /* Further reduced */
+        font-size: 19px; /* was 1.2rem */
     }
 
     .fs-39 {
-        font-size: 1.5rem; /* Further reduced */
+        font-size: 24px; /* was 1.5rem */
     }
 
     .fs-36{
-        font-size: 1.375rem; /* Further reduced */
+        font-size: 22px; /* was 1.375rem */
     }
 
     .fs-31 {
-        font-size: 1.25rem; /* Further reduced */
+        font-size: 20px; /* was 1.25rem */
     }
 
     .fs-25 {
-        font-size: 1rem; /* Further reduced */
+        font-size: 16px; /* was 1rem */
     }
 
     .fs-20 {
-        font-size: 0.875rem; /* Further reduced */
+        font-size: 14px; /* was 0.875rem */
     }
 
     .fs-16 {
-        font-size: 0.5rem; /* Further reduced */
+        font-size: 8px; /* was 0.5rem */
     }
     
 
     .fs-13 {
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-12{
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-10 {
-        font-size: 0.5rem; /* Further reduced */
+        font-size: 8px; /* was 0.5rem */
     }
 
     .fs-sm-12 {
-        font-size: 0.75rem !important;
+        font-size: 12px !important; /* was 0.75rem */
     }
     
     .fs-sm-14 {
-        font-size: 0.875rem !important;
+        font-size: 14px !important; /* was 0.875rem */
     }
     
     .fs-sm-16 {
-        font-size: 1rem !important;
+        font-size: 16px !important; /* was 1rem */
     }
     
     .fs-md-18 {
-        font-size: 1rem !important;
-    }
-    
-    li {
-        font-size: 1rem !important;
-        line-height: 1.5;
-    }
-
-    p, .p, ul, ol, li { 
-        font-size: 1rem !important;
-        line-height: 1.5;
-    }
-
-    .modal-dialog {
-        margin: 0 auto;
-        max-width: 70%;
-        top: 10%;
-        transform: translateY(-50%);
+        font-size: 16px !important; /* was 1rem */
     }
 }
 
 @media (max-width: 575.98px) {
     .fs-sm-12 {
-        font-size: 0.625rem !important;
+        font-size: 10px !important; /* was 0.625rem */
     }
     
     .fs-sm-14 {
-        font-size: 0.75rem !important;
+        font-size: 12px !important; /* was 0.75rem */
     }
     
     .fs-sm-16 {
-        font-size: 0.875rem !important;
+        font-size: 14px !important; /* was 0.875rem */
     }
     
     .fs-md-18 {
-        font-size: 0.875rem !important;
-    }
-    
-    li {
-        font-size: 0.75rem !important;
-        line-height: 1.4;
+        font-size: 14px !important; /* was 0.875rem */
     }
 }
+
 /* Responsive Button Sizes */
 .btn-responsive {
     padding: 0.5rem 1rem; /* Default padding */
@@ -448,7 +422,7 @@ body {
 @media (max-width: 767.98px) {
     .btn-responsive {
         padding: 0.3rem 0.6rem; /* Further reduced for mobile */
-        font-size: 0.875rem;
+        font-size: 14px; /* was 0.875rem */
     }
 }
 
@@ -507,83 +481,93 @@ body {
 
 form .error-message {
     color: #dd0909;
-    font-size: 14px;
+    font-size: 14px; /* already in px */
     margin-top: 5px;
 }
 
 /* Base Typography Mapping */
 h1, .h1 {
-    font-size: 3.812rem; /* Using fs-61 size */
+    font-size: 61px; /* was 3.812rem */
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
 h2, .h2 {
-    font-size: 3.062rem; /* Using fs-49 size */
+    font-size: 49px; /* was 3.062rem */
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     margin-bottom: 1rem;
 }
 
 h3, .h3 {
-    font-size: 2.438rem; /* Using fs-39 size */
+    font-size: 39px; /* was 2.438rem */
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
 h4, .h4 {
-    font-size: 1.938rem; /* Using fs-31 size */
+    font-size: 31px; /* was 1.938rem */
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
 h5, .h5 {
-    font-size: 1.562rem; /* Using fs-25 size */
+    font-size: 25px; /* was 1.562rem */
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
 p, .p {
-    font-size: 1.5rem; /* Using fs-25 size */
+    font-size: 24px; /* Match fs-25 */
     font-family: 'Poppins', sans-serif;
-    /* line-height: 1.6; */
 }
 
 ul, ol {
-    font-size: 1.5rem; /* Using fs-25 size */
-    padding-left: 1.25rem;
+    font-size: 24px; /* Match fs-25 */
+    padding-left: 20px; /* was 1.25rem */
 }
 
 li {
-    font-size: 1.5rem; /* Using font-size: 1.25rem size */
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
+    font-size: 24px; /* Match fs-25 */
+    margin-bottom: 8px; /* was 0.5rem */
 }
 
 /* Responsive Typography */
 @media (max-width: 1199.98px) {
-    h1, .h1 { font-size: 2.8rem; }
-    h2, .h2 { font-size: 2.5rem; }
-    h3, .h3 { font-size: 2rem; }
-    h4, .h4 { font-size: 1.5rem; }
-    h5, .h5 { font-size: 1.25rem; }
-    p, .p, ul, ol { font-size:1.25rem; }
+    h1, .h1 { font-size: 45px; } /* was 2.8rem */
+    h2, .h2 { font-size: 40px; } /* was 2.5rem */
+    h3, .h3 { font-size: 32px; } /* was 2rem */
+    h4, .h4 { font-size: 24px; } /* was 1.5rem */
+    h5, .h5 { font-size: 20px; } /* was 1.25rem */
+    p, .p, ul, ol, li { 
+        font-size: 20px !important; /* Match fs-25 at this breakpoint */
+    }
 }
 
 @media (max-width: 991.98px) {
-    h1, .h1 { font-size: 2.5rem; }
-    h2, .h2 { font-size: 2rem; }
-    h3, .h3 { font-size: 1.75rem; }
-    h4, .h4 { font-size: 1.25rem; }
-    h5, .h5 { font-size: 1rem; }
-    p, .p, ul, ol { font-size: 1rem; }
+    h1, .h1 { font-size: 40px; } /* was 2.5rem */
+    h2, .h2 { font-size: 32px; } /* was 2rem */
+    h3, .h3 { font-size: 28px; } /* was 1.75rem */
+    h4, .h4 { font-size: 20px; } /* was 1.25rem */
+    h5, .h5 { font-size: 16px; } /* was 1rem */
+    p, .p, ul, ol, li { 
+        font-size: 16px !important; /* Match fs-25 at this breakpoint */
+    }
 }
 
 @media (max-width: 767.98px) {
-    h1, .h1 { font-size: 2rem; }
-    h2, .h2 { font-size: 1.75rem; }
-    h3, .h3 { font-size: 1.5rem; }
-    h4, .h4 { font-size: 1.25rem; }
-    h5, .h5 { font-size: 2rem; }
-    p, .p, ul, ol { font-size: 1rem; }
+    h1, .h1 { font-size: 32px; } /* was 2rem */
+    h2, .h2 { font-size: 28px; } /* was 1.75rem */
+    h3, .h3 { font-size: 24px; } /* was 1.5rem */
+    h4, .h4 { font-size: 20px; } /* was 1.25rem */
+    h5, .h5 { font-size: 32px; } /* was 2rem */
+    p, .p, ul, ol, li { 
+        font-size: 16px !important; /* Match fs-25 at this breakpoint */
+    }
+}
+
+@media (max-width: 575.98px) {
+    p, .p, ul, ol, li { 
+        font-size: 14px !important; /* Match fs-25 at this breakpoint */
+    }
 }

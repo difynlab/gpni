@@ -106,7 +106,7 @@
 }
 /*** Professional Education Container ***/
 .professional-body {
-    color: #505050;
+    color: #000;
 }
 
 .pill-link {
@@ -162,23 +162,11 @@
     margin-bottom: 50px;
 }
 
-@media (max-width: 1199.98px) {
-    .testimonial-heading {
-        font-size: 2.25rem; /* fs-36 */
-    }
-}
-
-@media (max-width: 991.98px) {
-    .testimonial-heading {
-        font-size: 1.562rem; /* fs-25 */
-    }
-}
 
 .testimonial-body {
     /* font-size: 1.5rem; */
     font-weight: 400;
-    line-height: 140%;
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
 }
 
@@ -283,11 +271,10 @@
 
 .partners-heading {
     color: #000000;
-    line-height: 1.2;
 }
 
 .partners-body {
-    color: #505050;
+    color: #000;
 }
 
 .event-image {
@@ -326,14 +313,12 @@
 }
 .journey-heading {
     color: #fff;
-    line-height: 120%;
 }
 .journey-body {
     color: #FFF;
     text-align: center;
 }
 .signup-button {
-    line-height: normal;
     color: #0040c3 !important;
     background-color: #fff !important;
     padding: auto;
@@ -350,7 +335,6 @@
 @media (max-width: 768px) {
     .btn-responsive {
         padding: 0.3rem 0.6rem; /* Further reduced for mobile */
-        font-size: 0.875rem;
     }
 }
 /* Expert Container */
@@ -362,11 +346,9 @@
 }
 .expert-heading{
     color: #000;
-    line-height: 120%;
-   /* 58.8px */
 }
 .expert-body{
-    color: #505050;
+    color: #000;
 }
 /* Expert 1 */
 .expert-image-15 {
@@ -382,12 +364,7 @@
     font-size: 1rem;
     font-weight: 500;
 }
-.spacing-for-line {
-    font-size: 1rem;
-    letter-spacing: 0.02em;
-    display: flex;
-    justify-content: start;
-}
+
 .expert-modal{
     max-width: 70%;
 }
@@ -490,7 +467,6 @@
 .nutritionist-body {
     color: #fff;
     text-align: center;
-    line-height: 140%;
 }
 .custom-search-bar .input-group {
     background-color: #fff;
@@ -781,7 +757,7 @@
     border-bottom-right-radius: 20px; /* Adjust as needed */
 }
 .faq-container .accordion-button:not(.collapsed)::after {
-    background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23e59114\'%3e%3cpath stroke=\'%23e59114\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e');
+    /* background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23e59114\'%3e%3cpath stroke=\'%23e59114\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e'); */
     transform: rotate(-180deg);
 }
 .faq-container .accordion-button::after {

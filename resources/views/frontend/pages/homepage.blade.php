@@ -17,7 +17,7 @@
                 <x-frontend.notification></x-frontend.notification>
                 <x-frontend.notification-popup></x-frontend.notification-popup>
 
-                <div class="row align-items-center g-5">
+                <div class="row align-items-center">
                     <div class="col-md-12 col-lg-6 text-center text-lg-start">
                         <h1 class="display-3 text-black ff-poppins-semibold fs-61 mb-4">
                             {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
@@ -244,9 +244,9 @@
                     <div class="mb-3 testimonial-heading fs-49">
                         {{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}
                     </div>
-                    <b class="mb-3 testimonial-body fs-25">
+                    <p class="mb-3 testimonial-body fs-25">
                         {{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}
-                    </b>
+                    </p>
                 </div>
 
                 <div class="row g-4 pt-5">
@@ -342,7 +342,7 @@
                         <a href="{{ route('frontend.register') }}" class="btn btn-secondary signup-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-25">{{ $contents->{'section_6_label_' . $middleware_language} ?? $contents->section_6_label_link_en }}</a>
                     @endguest
     
-                    <a href="{{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->link ?? json_decode($contents->section_6_label_link_en)->link }}" class="btn explore-lesson btn-responsive fs-25 fs-md-16 py-3 px-4">
+                    <a href="{{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->link ?? json_decode($contents->section_6_label_link_en)->link }}" class="btn explore-lesson btn-responsive fs-25 fs-md-16 px-4">
                         {{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->label ?? json_decode($contents->section_6_label_link_en)->label }}
                         <img src="{{ asset('storage/frontend/arrow-icon-white.svg') }}" class="arrow-right-icon"/>
                     </a>

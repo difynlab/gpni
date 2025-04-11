@@ -28,41 +28,41 @@
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-duration.svg') }}" alt="Course Duration" class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'course_duration_' . $middleware_language} ?? $contents->course_duration_en }}</div>
+                            <div class="common-style fs-25">{{ $contents->{'course_duration_' . $middleware_language} ?? $contents->course_duration_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->duration }}</div>
+                        <div class="common-text-style fs-25">{{ $course->duration }}</div>
                     </div>
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-language.svg') }}" alt="Language" class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'language_' . $middleware_language} ?? $contents->language_en }}</div>
+                            <div class="common-style fs-25">{{ $contents->{'language_' . $middleware_language} ?? $contents->language_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->language }}</div>
+                        <div class="common-text-style fs-25">{{ $course->language }}</div>
                     </div>
                     <div class="list-group-item bg-light">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('storage/frontend/course-type.svg') }}" alt="Course Type"
                                     class="me-3 img-size">
-                                <div class="common-style fs-25 fs-md-20">{{ $contents->{'course_type_' . $middleware_language} ?? $contents->course_type_en }}</div>
+                                <div class="common-style fs-25">{{ $contents->{'course_type_' . $middleware_language} ?? $contents->course_type_en }}</div>
                             </div>
-                            <div class="common-text-style fs-20 fs-md-16">{{ $course->type }}</div>
+                            <div class="common-text-style fs-25 ">{{ $course->type }}</div>
                         </div>
                     </div>
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-modules.svg') }}" alt="No. of Modules"
                                 class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'no_of_modules_' . $middleware_language} ?? $contents->no_of_modules_en }}</div>
+                            <div class="common-style fs-25 ">{{ $contents->{'no_of_modules_' . $middleware_language} ?? $contents->no_of_modules_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->no_of_modules }}</div>
+                        <div class="common-text-style fs-25 ">{{ $course->no_of_modules }}</div>
                     </div>
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-students.svg') }}" alt="No. Of Student Enrolled" class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'no_of_students_enrolled_' . $middleware_language} ?? $contents->no_of_students_enrolled_en }}</div>
+                            <div class="common-style fs-25">{{ $contents->{'no_of_students_enrolled_' . $middleware_language} ?? $contents->no_of_students_enrolled_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->no_of_students_enrolled }}</div>
+                        <div class="common-text-style fs-25">{{ $course->no_of_students_enrolled }}</div>
                     </div>
                 </div>
             </div>
@@ -82,23 +82,23 @@
             <div class="col-md-5 mb-4 mb-md-0">
                 <div class="author-card bg-warning rounded d-flex align-items-center p-3 position-relative mb-3">
                     <div class="by-badge text-center">
-                        <span class="fs-20 fs-md-16">{{ $contents->{'by_' . $middleware_language} ?? $contents->by_en }}</span>
+                        <span class="fs-20 ">{{ $contents->{'by_' . $middleware_language} ?? $contents->by_en }}</span>
                     </div>
 
                     <img src="{{ asset('storage/backend/courses/course-instructors/' . $course->instructor_profile_image) }}" alt="Instructor Profile Image" class="rounded-circle ms-2 ms-md-3" style="width: 80px; height: 80px; object-fit: cover;">
 
                     <div class="ms-3 text-white">
-                        <div class="fs-25 fs-md-20" style="font-weight: 500; line-height: 120%;">{{ $course->instructor_name }}</div>
+                        <div class="fs-25" style="font-weight: 500; line-height: 120%;">{{ $course->instructor_name }}</div>
                         <small class="fs-16">{{ $course->instructor_designation }}</small>
                     </div>
                 </div>
             </div>
             <div class="col-md-7">
-                <p class="text-muted line-clamp-3 fs-25 fs-md-16 mb-0">{{ $course->short_description }}</p>
+                <p class="text-muted line-clamp-3 fs-25  mb-0">{{ $course->short_description }}</p>
 
                 @if(auth()->check())
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 ">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
                     @else
                         <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
                             @csrf
@@ -107,11 +107,11 @@
                             <input type="hidden" name="payment_mode" value="payment">
                             <input type="hidden" name="price" value="{{ $course->price }}">
 
-                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16 mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
+                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20  mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
                         </form>
                     @endif
                 @else
-                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16 mt-2 mt-md-3">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
+                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20  mt-2 mt-md-3">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
                 @endif
             </div>
         </div>
