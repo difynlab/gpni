@@ -138,14 +138,13 @@ class ProductController extends Controller
             $product_order->save();
         }
 
-        $ordered_product_ids = ProductOrderDetail::where('product_order_id', $product_order_id)->pluck('product_id')->toArray();
-
-        $ordered_products = Product::whereIn('id', $ordered_product_ids)->get();
- 
+        $ordered_products = ProductOrderDetail::where('product_order_id', $product_order_id)->get();
+        $ordered_product_ids = $ordered_products->pluck('product_id')->toArray();
+  
         Cart::whereIn('product_id', $ordered_product_ids)->where('status', 'Active')->update(['status' => 'Purchased']);
-        
+
         $wallet = Wallet::where('user_id', $product_order->user_id)->where('status', '1')->first();
-        
+
         if($wallet) {
             if($wallet->balance >= $total_order_amount) {
                 $wallet->balance = $wallet->balance - $total_order_amount;
@@ -156,7 +155,7 @@ class ProductController extends Controller
                 $wallet->save();
             }
         }
-        
+
         $user = Auth::user();
 
         if($product_order->currency == 'usd') {
@@ -165,15 +164,22 @@ class ProductController extends Controller
         else {
             $symbol = '¥';
         }
-        
+
+        foreach($ordered_products as $key => $ordered_product) {
+            $product = Product::find($ordered_product->product_id);
+
+            $ordered_product->name = $product->name;
+        }
+
         $mail_data = [
             'name' => $user->first_name . ' ' . $user->last_name,
             'symbol' => $symbol,
-            'products' => $ordered_products
+            'products' => $ordered_products,
+            'total' => $product_order->amount_paid
         ];
-        
+
         Mail::to($user->email)->send(new ProductPurchaseMail($mail_data));
-        
+
         return redirect()->route('frontend.products.index')->with('complete', 'Product/s purchase has been successfully completed');
     }
 }

@@ -291,11 +291,21 @@
     margin-bottom: 0;
 }
 .pages .table .count-badge {
-    color: #0040C3;
+    /* color: #0040C3;
     font-size: 15px;
     position: absolute;
-    top: -10%;
-    right: 30%;
+    top: -5%;
+    right: 20%; */
+    color: white;
+    font-size: 10px;
+    margin-left: 10px;
+    background-color: red;
+    padding: 5px 10px;
+    transition: all 0.3s;
+}
+.pages .table .count-badge:hover {
+    background-color: rgb(180, 5, 5);
+    transition: all 0.3s;
 }
 
 /* Responsive */

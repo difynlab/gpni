@@ -62,7 +62,13 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Wallet</th>
-                                <th scope="col" class="position-relative">CEC Points <span class="count-badge">{{ $cec_point_count != 0 ? $cec_point_count : '' }}</span></th>
+                                <th scope="col" class="position-relative">
+                                    CEC Points
+                                    {!! $cec_point_count != 0 
+                                        ? '<a href="' . route('backend.persons.users.cec-points.common') . '" class="count-badge">' . $cec_point_count . '</a>' 
+                                        : ''
+                                    !!}
+                                </th>
                                 <th scope="col">Points</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
