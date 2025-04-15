@@ -11,24 +11,26 @@
         
         @stack('before-styles')
             <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+            <link rel="stylesheet" href="{{ asset('frontend/css/swiper.css') }}">
             <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
-            <link rel="stylesheet" href="{{ asset('frontend/css/navbar.css') }}">
-            <link rel="stylesheet" href="{{ asset('frontend/css/footer.css') }}">
         @stack('after-styles')
     </head>
 
     <body>
         <x-frontend.navigation></x-frontend.navigation>
-        @yield('content')
+
+        <div class="page">
+            @yield('content')
+        </div>
+        
         <x-frontend.footer></x-frontend.footer>
 
         @stack('before-scripts')
             <script src="{{ asset('frontend/js/jquery.js') }}"></script>
             <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
+            <script src="{{ asset('frontend/js/swiper.js') }}"></script>
             <script src="{{ asset('frontend/js/main.js') }}"></script>
-            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         @stack('after-scripts')
     </body>
     

@@ -1,7 +1,7 @@
-<div class="col-lg-4 blue-section">
-    <img src="{{ asset('storage/frontend/login-image.png') }}" alt="GPNi Logo" class="img-fluid mx-auto d-block logo">
+<div class="col-4 blue-section">
+    <img src="{{ asset('storage/frontend/login-image.png') }}" alt="GPNi Logo" class="image">
 
-    <h2 class="align-left">Gateway to 360°<br>Nutrition Education</h2>
+    <h3 class="title">Gateway to 360°<br>Nutrition Education</h3>
 
     <div class="feature-section">
         <ul class="feature-list">
@@ -25,13 +25,34 @@
     </div>
 
     <div class="partners">
-        <div class="partners-inner">
-            <div class="partner-logo">
-                <img src="{{ asset('storage/frontend/login-1.png') }}" alt="ISSN Logo">
-                <img src="{{ asset('storage/frontend/login-2.png') }}" alt="IDEA Logo">
-                <img src="{{ asset('storage/frontend/login-3.png') }}" alt="FIBO Logo">
-                <img src="{{ asset('storage/frontend/login-4.png') }}" alt="Nike Sparq Training Logo">
+        <div class="swiper logos">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="{{ asset('storage/frontend/login-1.png') }}" alt="ISSN Logo">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{{ asset('storage/frontend/login-2.png') }}" alt="IDEA Logo">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{{ asset('storage/frontend/login-3.png') }}" alt="FIBO Logo">
+                </div>
+                <div class="swiper-slide">
+                    <img src="{{ asset('storage/frontend/login-4.png') }}" alt="Nike Sparq Training Logo">
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@push('after-scripts')
+    <script>
+        const logosSwiper = new Swiper(".logos", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000
+            },
+        });
+    </script>
+@endpush

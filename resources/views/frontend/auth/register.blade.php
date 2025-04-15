@@ -12,15 +12,16 @@
 
 @section('content')
 
-    <div class="container custom-container my-lg-5 mb-4 my-0">
-        <div class="row flex-grow-1 d-flex align-items-center">
+    <div class="container">
+        <div class="row align-items-center section-margin-bottom">
 
             <x-frontend.auth></x-frontend.auth>
 
-            <div class="col-lg-8 white-section d-flex justify-content-center">
+            <div class="col-8 white-section">
                 <div class="form-container">
-                    <h1 class="fs-39 text-center pt-4">{{ $contents->{'register_page_title_' . $middleware_language} ?? $contents->register_page_title_en }}</h1>
-                    <p class="subheading fs-16 text-center">{{ $contents->{'register_page_sub_title_' . $middleware_language} ?? $contents->register_page_sub_title_en }}
+                    <h3 class="heading">{{ $contents->{'register_page_title_' . $middleware_language} ?? $contents->register_page_title_en }}</h3>
+
+                    <p class="text-content">{{ $contents->{'register_page_sub_title_' . $middleware_language} ?? $contents->register_page_sub_title_en }}
                         <a href="{{ route('frontend.login') }}" class="text-primary">{{ $contents->{'register_page_login_' . $middleware_language} ?? $contents->register_page_login_en }}</a>
                     </p>
 

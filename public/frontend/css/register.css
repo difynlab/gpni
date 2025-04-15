@@ -1,38 +1,11 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    color: #282828;
-    padding: 0;
-    margin: 0 auto;
-}
-
-
-.custom-container{
-    padding-top: 7rem;
-}
-
-.white-section {
-    padding: 20px;
-    position: relative;
-    flex: 1; 
-}
-
-.form-container {
+.white-section .form-container {
+    padding-left: 7%;
     width: 100%;
-    max-width: 702px;
-    background-color: #fff;
 }
-
-.form-container h1 {
-    font-weight: 500;
+.white-section .form-container .heading {
     text-align: center;
-    color: #0e0e0e;
 }
-
-.form-container .subheading {
-    font-size: 16px;
-    font-weight: 400;
-    color: #505050;
+.white-section .form-container .text-content {
     text-align: center;
     margin-bottom: 40px;
 }
@@ -132,84 +105,4 @@ body {
 
 #username, #password {
     background-color: #ffffff !important; 
-}
-
-
-
-/* Mobile devices (max-width: 767.98px) */
-@media (max-width: 767.98px) {
-    .white-section {
-        padding: 20px;
-    }
-
-    .custom-container{
-        padding-top: 1rem;
-    }
-
-    .form-container {
-        width: 100%;
-        max-width: 100%;
-        padding: 10px !important; 
-    }
-
-    .social-login-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .form-container h1 {
-        font-size: 24px;
-    }
-
-    .form-container .subheading {
-        font-size: 14px;
-    }
-
-    .form-group .form-control {
-        height: 40px;
-        font-size: 12px;
-    }
-
-    .submit-button {
-        width: 140px;
-        height: 36px;
-        font-size: 12px;
-    }
-
-    
-}
-
-@media (max-width:1024px) {
-    .form-container {
-        padding: 20px;
-    }
-    
-}
-
-@media (min-width: 768px) and (max-width: 1023.98px) {
-    .custom-container {
-        padding-top: 1rem;
-    }
-
-    .white-section {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0;
-    }
-
-    .form-container{
-        padding: 0 20px !important;
-    }
-
-    
-}
-
-@media (min-width: 1024px) and (max-width: 1440px) {
-
-    .custom-container {
-        padding-top: 5rem;
-    }
-
 }

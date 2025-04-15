@@ -1,589 +1,136 @@
-/* Import Poppins and Open Sans fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;600&family=Poppins:wght@400;500;600;700&display=swap');
 
+@import url("../../frontend/css/navbar.css");
+@import url("../../frontend/css/footer.css");
 
-/********** Template CSS **********/
-:root {
-    --primary: #0040c3;
-    --light: #FFFFFF;
-    --dark: #0F172B;
-}
 
-html {
-    font-size: 16px; /* Default is 16px, but you can change it */
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #fff;
-    color: #0E0E0E;
-     padding-top: 6rem; 
-}
-
-@media (max-width: 1199.98px) {
-    body {
-        padding-top: 6rem; /* Padding for tablets and small desktops */
+/* Common styles */
+    * {
+        font-family: "Poppins", sans-serif;
     }
-}
-
-@media (max-width: 991.98px) {
-    body {
-        padding-top: 4.6rem; /* Padding for tablets */
+    :root {
+        --primary: #0040c3;
+        --white: white;
+        --black: black;
+        --hover: #07399b;
+        --hover_white: #e6e6e6;
     }
-}
-
-@media (max-width: 767.98px) {
-    body {
-        padding-top: 4.6rem; /* Padding for mobile devices */
+    h1, h2, h3, h4, h5, h6, p {
+        margin-bottom: 0;
     }
-}
-
-/* FONT FAMILIES */
-
-/* Define font weights for Poppins */
-.ff-poppins-regular {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-}
-
-.ff-poppins-medium {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-}
-
-.ff-poppins-semibold {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-.ff-poppins-bold {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-}
-
-/* Define font weights for Open Sans */
-.ff-open-sans-regular {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-}
-
-.ff-open-sans-semibold {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-
-/* Utility classes for font weights */
-.fw-light {
-    font-weight: 300 !important;
-}
-
-.fw-normal {
-    font-weight: 400 !important;
-}
-
-.fw-medium {
-    font-weight: 500 !important;
-}
-
-.fw-semi-bold {
-    font-weight: 600 !important;
-}
-
-.fw-bold {
-    font-weight: 700 !important;
-}
-
-.fw-extra-bold {
-    font-weight: 800 !important;
-}
-/* define font size*/
-.fs-10 {
-    font-size: 0.625rem;
-}
-
-.fs-12{
-    font-size: 0.75rem;
-}
-
-.fs-13 {
-    font-size: 0.812rem;
-}
-
-.fs-16 {
-    font-size: 1.000rem;
-}
-
-.fs-20 {
-    font-size: 1.250rem;
-}
-
-.fs-25 {
-    font-size: 1.5rem;
-}
-
-.fs-31 {
-    font-size: 1.938rem;
-}
-.fs-36{
-    font-size: 2.250rem;
-}
-
-.fs-39 {
-    font-size: 2.438rem;
-}
-
-.fs-49 {
-    font-size: 3.062rem;
-    /* font-size: 3.812rem; */
-}
-
-.fs-61 {
-    font-size: 3.812rem;
-}
-
-/* Additional responsive font size classes */
-.fs-sm-12 {
-    font-size: 0.75rem;
-}
-
-.fs-sm-14 {
-    font-size: 0.875rem;
-}
-
-.fs-sm-16 {
-    font-size: 1rem;
-}
-
-.fs-md-18 {
-    font-size: 1.125rem;
-}
-
-/* Purchase notification popup */
-    .confirmation-box {
-        background-color: white;
-        border-radius: 10px;
-        padding: 40px 20px 20px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        position: relative;
-        margin-top: 30px;
+    a, a:hover {
+        text-decoration: none;
     }
-    .confirmation-icon {
-        width: 80px; /* Increased width */
-        height: 80px; /* Increased height */
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .swiper-pagination-bullet-active {
+        background-color: var(--primary);
+    }
+    .btn-close-custom {
         position: absolute;
-        top: -40px; /* Adjusted position for larger size */
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 40px; /* Increased font size for better visibility */
-        font-weight: bold;
-        color: white; /* Ensure icon color is white */
+        top: 16px;
+        right: 16px;
     }
-    .confirmation-icon span {
-        color: white; /* Ensure the icon inside the span is white */
-    }
-    .failed-notification-icon {
-        width: 80px; /* Icon container width */
-        height: 80px; /* Icon container height */
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #dc3545; /* Red background for failed notification */
-        color: white !important; /* Force white color */
-        font-size: 40px; /* Icon font size */
-        font-weight: bold;
-        position: absolute;
-        top: -40px; /* Adjusted position */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .failed-notification-icon span {
-        color: white !important; /* Force white color for the icon */
-    }
-    .failed-notification-icon i {
-        font-size: 40px; /* Adjust font-awesome icon size */
-    }
-    .confirmation-box h1 {
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-        margin: 40px 0 10px;
-        color: #333;
-    }
-    .confirmation-box p {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        margin: 0 0 20px;
-        color: #555;
-    }
-    .confirmation-box button {
-        background-color: #7ed321;
-        color: white !important;
-        border: none;
-        border-radius: 10px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        display: block;
-        margin: 0 auto;
-    }
-    .confirmation-box button:hover {
-        background-color: #6dbb1f;
-    }
-/* Purchase notification popup */
+/* Common styles */
 
 
-/* Responsive Font Sizes */
-@media (max-width: 1199.98px) {
-    .fs-61 {
-        font-size: 2.8rem; /* Reduced from 3.812rem */
-    }
-
-    .fs-49 {
-        font-size: 2.5rem; /* Reduced from 3.062rem */
-    }
-
-    .fs-39 {
-        font-size: 2rem; /* Reduced from 2.438rem */
-    }
-
-    .fs-36{
-        font-size: 1.875rem; /* Reduced from 2.250rem */
-    }
-
-    .fs-31 {
-        font-size: 1.5rem; /* Reduced from 1.938rem */
-    }
-
-    .fs-25 {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
-    }
-
-    .fs-20 {
-        font-size: 1rem; /* Reduced from 1.25rem */
-    }
-
-    .fs-16 {
-        font-size: 0.875rem; /* Reduced from 1rem */
-    }
-
-    .fs-13 {
-        font-size: 0.75rem; /* Reduced from 0.812rem */
-    }
-
-    .fs-12{
-        font-size: 0.625rem; /* Remains the same */
-    }
-
-    .fs-10 {
-        font-size: 0.5rem; /* Reduced from 0.625rem */
-    }
+.page {
+    padding-top: 9%;
 }
-
-@media (max-width: 991.98px) {
-    .fs-61 {
-        font-size: 2.5rem; /* Further reduced */
-    }
-
-    .fs-49 {
-        font-size: 1.5rem; /* Further reduced */
-    }
-
-    .fs-39 {
-        font-size: 1.25rem; /* Further reduced */
-    }
-
-    .fs-36{
-        font-size: 1.125rem; /* Further reduced */
-    }
-
-    .fs-31 {
-        font-size: 1rem; /* Further reduced */
-    }
-
-    .fs-25 {
-        font-size: 1rem; /* Further reduced */
-    }
-
-    .fs-20 {
-        font-size: 0.875rem; /* Further reduced */
-    }
-
-    .fs-16 {
-        font-size: 0.75rem; /* Further reduced */
-    }
-
-    .fs-13 {
-        font-size: 0.625rem; /* Further reduced */
-    }
-
-    .fs-12{
-
-        font-size: 0.625rem; /* Further reduced */
-    }
-
-    .fs-10 {
-        font-size: 0.5rem; /* Further reduced */
-    }
-}
-
-@media (max-width: 767.98px) {
-    .fs-61 {
-        font-size: 2rem; /* Further reduced */
-    }
-
-    .fs-49 {
-        font-size: 1.2rem; /* Further reduced */
-    }
-
-    .fs-39 {
-        font-size: 1.5rem; /* Further reduced */
-    }
-
-    .fs-36{
-        font-size: 1.375rem; /* Further reduced */
-    }
-
-    .fs-31 {
-        font-size: 1.25rem; /* Further reduced */
-    }
-
-    .fs-25 {
-        font-size: 1rem; /* Further reduced */
-    }
-
-    .fs-20 {
-        font-size: 0.875rem; /* Further reduced */
-    }
-
-    .fs-16 {
-        font-size: 0.5rem; /* Further reduced */
-    }
-    
-
-    .fs-13 {
-        font-size: 0.625rem; /* Further reduced */
-    }
-
-    .fs-12{
-        font-size: 0.625rem; /* Further reduced */
-    }
-
-    .fs-10 {
-        font-size: 0.5rem; /* Further reduced */
-    }
-
-    .fs-sm-12 {
-        font-size: 0.75rem !important;
-    }
-    
-    .fs-sm-14 {
-        font-size: 0.875rem !important;
-    }
-    
-    .fs-sm-16 {
-        font-size: 1rem !important;
-    }
-    
-    .fs-md-18 {
-        font-size: 1rem !important;
-    }
-    
-    li {
-        font-size: 1rem !important;
-        line-height: 1.5;
-    }
-
-    p, .p, ul, ol, li { 
-        font-size: 1rem !important;
-        line-height: 1.5;
-    }
-
-    .modal-dialog {
-        margin: 0 auto;
-        max-width: 70%;
-        top: 10%;
-        transform: translateY(-50%);
-    }
-}
-
-@media (max-width: 575.98px) {
-    .fs-sm-12 {
-        font-size: 0.625rem !important;
-    }
-    
-    .fs-sm-14 {
-        font-size: 0.75rem !important;
-    }
-    
-    .fs-sm-16 {
-        font-size: 0.875rem !important;
-    }
-    
-    .fs-md-18 {
-        font-size: 0.875rem !important;
-    }
-    
-    li {
-        font-size: 0.75rem !important;
-        line-height: 1.4;
-    }
-}
-/* Responsive Button Sizes */
-.btn-responsive {
-    padding: 0.5rem 1rem; /* Default padding */
-}
-
-@media (max-width: 991.98px) {
-    .btn-responsive {
-        padding: 0.4rem 0.8rem; /* Reduced padding for tablets */
-    }
-}
-
-@media (max-width: 767.98px) {
-    .btn-responsive {
-        padding: 0.3rem 0.6rem; /* Further reduced for mobile */
-        font-size: 0.875rem;
-    }
-}
-
-
-.back-to-top {
-    position: fixed;
-    display: none;
-    right: 45px;
-    bottom: 45px;
-    z-index: 99;
-}
-
-
-/*** Button ***/
-.btn {
-    font-family: 'Poppins', sans-serif;
+.heading {
+    font-size: 42px;
     font-weight: 500;
-    transition: .5s;
+    color: var(--black);
+    margin-bottom: 16px;
 }
-
-.btn.btn-primary{
-    background-color: #0040c3;
-    color: #FFFFFF;
-    border-radius:5px;
+.sub-heading {
+    font-size: 22px;
+    color: var(--black);
+    margin-bottom: 16px;
 }
-.btn.btn-secondary {
-    color: #FFFFFF;
-    border-radius:5px;
+.text-heading {
+    margin-bottom: 16px;
 }
-
-.btn-square {
-    width: 38px;
-    height: 38px;
+.text-heading, .text-heading p, .text-heading ul, .text-heading li, .text-heading a {
+    font-size: 20px;
+    color: var(--black);
 }
-
-.btn-sm-square {
-    width: 32px;
-    height: 32px;
+.text-heading a {
+    text-decoration: underline;
 }
-
-.btn-lg-square {
-    width: 48px;
-    height: 48px;
+.text-content {
+    margin-bottom: 16px;
 }
-
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
-    border-radius: 2px;
+.text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+    font-size: 18px;
+    color: var(--black);
 }
-
-form .error-message {
-    color: #dd0909;
-    font-size: 14px;
-    margin-top: 5px;
+.text-content a {
+    text-decoration: underline;
 }
-
-/* Base Typography Mapping */
-h1, .h1 {
-    font-size: 3.812rem; /* Using fs-61 size */
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+.blue-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: none;
+    transition: all 0.3s;
 }
-
-h2, .h2 {
-    font-size: 3.062rem; /* Using fs-49 size */
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    margin-bottom: 1rem;
+.blue-button:hover {
+    background-color: var(--hover);
+    transition: all 0.3s;
 }
-
-h3, .h3 {
-    font-size: 2.438rem; /* Using fs-39 size */
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+.other-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+    transition: all 0.3s;
 }
-
-h4, .h4 {
-    font-size: 1.938rem; /* Using fs-31 size */
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+.other-button:hover {
+    color: var(--hover);
+    transition: all 0.3s;
 }
-
-h5, .h5 {
-    font-size: 1.562rem; /* Using fs-25 size */
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+.other-button .icon {
+    width: 22px;
+    transition: all 0.3s;
 }
-
-p, .p {
-    font-size: 1.5rem; /* Using fs-25 size */
-    font-family: 'Poppins', sans-serif;
-    /* line-height: 1.6; */
+.other-button:hover > .icon {
+    transform: translateX(5px);
+    transition: all 0.3s;
 }
-
-ul, ol {
-    font-size: 1.5rem; /* Using fs-25 size */
-    padding-left: 1.25rem;
+.white-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: none;
+    transition: all 0.3s;
 }
-
-li {
-    font-size: 1.5rem; /* Using font-size: 1.25rem size */
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
+.white-button:hover {
+    background-color: var(--hover_white);
+    color: var(--black);
+    transition: all 0.3s;
 }
-
-/* Responsive Typography */
-@media (max-width: 1199.98px) {
-    h1, .h1 { font-size: 2.8rem; }
-    h2, .h2 { font-size: 2.5rem; }
-    h3, .h3 { font-size: 2rem; }
-    h4, .h4 { font-size: 1.5rem; }
-    h5, .h5 { font-size: 1.25rem; }
-    p, .p, ul, ol { font-size:1.25rem; }
+.other-white-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    transition: all 0.3s;
 }
-
-@media (max-width: 991.98px) {
-    h1, .h1 { font-size: 2.5rem; }
-    h2, .h2 { font-size: 2rem; }
-    h3, .h3 { font-size: 1.75rem; }
-    h4, .h4 { font-size: 1.25rem; }
-    h5, .h5 { font-size: 1rem; }
-    p, .p, ul, ol { font-size: 1rem; }
+.other-white-button:hover {
+    color: var(--hover_white);
+    transition: all 0.3s;
 }
-
-@media (max-width: 767.98px) {
-    h1, .h1 { font-size: 2rem; }
-    h2, .h2 { font-size: 1.75rem; }
-    h3, .h3 { font-size: 1.5rem; }
-    h4, .h4 { font-size: 1.25rem; }
-    h5, .h5 { font-size: 2rem; }
-    p, .p, ul, ol { font-size: 1rem; }
+.other-white-button .icon {
+    width: 22px;
+    transition: all 0.3s;
+}
+.other-white-button:hover > .icon {
+    transform: translateX(5px);
+    transition: all 0.3s;
+}
+.section-margin-bottom {
+    margin-bottom: 60px;
 }

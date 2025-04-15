@@ -26,9 +26,9 @@ class HomepageController extends Controller
             $faqs = FAQ::where('language', 'English')->where('type', 'Common')->where('status', '1')->inRandomOrder()->take(5)->get();
         }
 
-        $advisory_boards = AdvisoryBoard::where('language', $request->middleware_language_name)->where('status', '1')->get();
+        $advisory_boards = AdvisoryBoard::where('language', $request->middleware_language_name)->where('status', '1')->get()->take(15);
         if($advisory_boards->isEmpty() && $request->middleware_language_name != 'English') {
-            $advisory_boards = AdvisoryBoard::where('language', 'English')->where('status', '1')->get();
+            $advisory_boards = AdvisoryBoard::where('language', 'English')->where('status', '1')->get()->take(15);
         }
 
         $testimonials = Testimonial::where('language', $request->middleware_language_name)->where('type', 'Common')->where('status', '1')->get();
