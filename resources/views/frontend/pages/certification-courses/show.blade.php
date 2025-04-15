@@ -13,7 +13,7 @@
             <div class="row d-flex align-items-center">
                 <div class="col-lg-7 col-md-12">
                     <section class="certification-section">
-                        <h1 class="title fs-49 text-md-start text-center">{{ $course->title }}</h1>
+                        <div class="title heading text-md-start text-center">{{ $course->title }}</div>
 
                         @if($course->certificate_images)
                             <div class="row certificates-container">
@@ -36,9 +36,9 @@
                 </div>
 
                 <div class="col-lg-5 col-md-12 mt-4 mt-lg-0">
-                    <p class="description fs-25 text-md-start text-center">
+                    <div class="description sub-heading text-md-start text-center">
                         {{ $course->short_description }}
-                    </p>
+                    </div>
                     
                     <div class="d-flex justify-content-md-start justify-content-center">
                         @if(auth()->check())
@@ -62,32 +62,32 @@
 
     <div class="container-fluid mx-0 px-0">
         <section class="course-details container-fluid">
-            <div class="row align-items-center justify-content-center">
+            <div class="row align-items-center text-heading justify-content-center">
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
-                        <div class="label fs-25">{{ $contents->{'single_page_no_of_modules_' . $middleware_language} ?? $contents->single_page_no_of_modules_en }}</div>
-                        <div class="value fs-25">{{ $course->no_of_modules }}</div>
+                        <div class="label sub-heading">{{ $contents->{'single_page_no_of_modules_' . $middleware_language} ?? $contents->single_page_no_of_modules_en }}</div>
+                        <div class="value sub-heading">{{ $course->no_of_modules }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
-                        <div class="label fs-25">{{ $contents->{'single_page_course_type_' . $middleware_language} ?? $contents->single_page_course_type_en }}</div>
-                        <div class="value fs-25">{{ $course->type }}</div>
+                        <div class="label sub-heading">{{ $contents->{'single_page_course_type_' . $middleware_language} ?? $contents->single_page_course_type_en }}</div>
+                        <div class="value sub-heading">{{ $course->type }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
-                        <div class="label fs-25">{{ $contents->{'single_page_course_duration_' . $middleware_language} ?? $contents->single_page_course_duration_en }}</div>
-                        <div class="value fs-25">{{ $course->duration }}</div>
+                        <div class="label sub-heading">{{ $contents->{'single_page_course_duration_' . $middleware_language} ?? $contents->single_page_course_duration_en }}</div>
+                        <div class="value sub-heading">{{ $course->duration }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
-                        <div class="label fs-25">{{ $contents->{'single_page_course_language_' . $middleware_language} ?? $contents->single_page_course_language_en }}</div>
-                        <div class="value fs-25">{{ $course->language }}</div>
+                        <div class="label sub-heading">{{ $contents->{'single_page_course_language_' . $middleware_language} ?? $contents->single_page_course_language_en }}</div>
+                        <div class="value sub-heading">{{ $course->language }}</div>
                     </div>
                 </div>
             </div>
@@ -149,10 +149,10 @@
                         </div>
                         
                         <div class="col-md-7 order-md-2 order-1">
-                            <h1 class="font-weight-bold mb-3 fs-49">
+                            <div class="font-weight-bold mb-3 heading">
                                 {{ $course->certification_section_2_title }}
-                            </h1>
-                            <p class="mb-3 fs-25">{{ $course->certification_section_2_description }}</p>
+                            </div>
+                            <div class="mb-3 sub-heading">{{ $course->certification_section_2_description }}</div>
                             
                             @if($course->certification_section_2_points)
                                 <div>
@@ -160,7 +160,7 @@
                                         <div class="step-container p-3 p-md-4 d-flex align-items-center">
                                             <div class="step-number flex-shrink-0 me-3 me-md-4 fs-25">{{ $loop->iteration }}</div>
                                             <div class="step-content">
-                                                <div class="mb-0 fs-16">
+                                                <div class="mb-0 text-heading text-content">
                                                     {!! $certification_section_2_point !!}
                                                 </div>
                                             </div>
@@ -216,8 +216,8 @@
                         <div class="card content-wrapper">
                             <div class="row">
                                 <div class="col-12 col-md-6 text-content">
-                                    <h1 class="mb-3 fs-49">{{ $course->certification_section_5_title }}</h1>
-                                    <p class="fs-25">{{ $course->certification_section_5_description }}</p>
+                                    <div class="mb-3 heading">{{ $course->certification_section_5_title }}</div>
+                                    <div class="sub-heading">{{ $course->certification_section_5_description }}</div>
                                 </div>
                                 <div class="col-12 col-md-6 testimonial-content">
                                     <div class="testimonial-stars">
@@ -225,7 +225,7 @@
                                             <i class="bi bi-star-fill star"></i>
                                         @endfor
                                     </div>
-                                    <div class="testimonial-text fs-25">{{ $course->certification_section_5_content }}</div>
+                                    <div class="testimonial-text sub-heading">{{ $course->certification_section_5_content }}</div>
                                     <div class="testimonial-author">
                                         <div class="name fs-20">{{ $course->certification_section_5_name }}</div>
                                         <div class="role fs-16 pt-2">{{ $course->certification_section_5_designation }}</div>
@@ -243,8 +243,8 @@
                 <div class="container">
                 <div class="row">
                     <div class="col-12 mb-4">
-                        <h1 class="title fs-49">{{ $course->certification_section_6_title }}</h1>
-                        <p class="mb-3 description fs-25">{{ $course->certification_section_6_description }}</p>
+                        <div class="title heading">{{ $course->certification_section_6_title }}</div>
+                        <div class="mb-3 description sub-heading">{{ $course->certification_section_6_description }}</div>
                     </div>
                         
                     @if($course->certification_section_6_teams)
@@ -264,8 +264,8 @@
             <section class="enrollment-section container py-3 py-md-5">
                 <div class="row align-items-center">
                     <div class="col-12 col-lg-6">
-                        <h1 class="program-title fs-49 mb-3">{{ $course->certification_section_7_title }}</h1>
-                        <div class="program-description fs-25">{!! $course->certification_section_7_description !!}</div>
+                        <div class="program-title heading mb-3">{{ $course->certification_section_7_title }}</div>
+                        <div class="program-description sub-heading">{!! $course->certification_section_7_description !!}</div>
                         <div class="pt-3 d-flex align-items-center flex-wrap justify-content-lg-start justify-content-center mb-3">
 
                             @if(auth()->check())
@@ -351,7 +351,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="testimonial-content fs-25">
+                                            <div class="testimonial-content sub-heading">
                                                 {{ $course_review->content }}
                                             </div>
                                         </div>
@@ -378,8 +378,7 @@
                             <img src="{{ asset('storage/backend/courses/course-images/' . $course->certification_section_8_image) }}" alt="Course Image" class="img-fluid rounded section-8-image">
                         </div>
                         <div class="col-lg-6 order-lg-2 order-2 mb-4 mb-lg-0 ps-lg-3">
-                            <div class="text-white">
-                                <div class="fs-49 mb-4 text-lg-start text-center">{!! $course->certification_section_8_content !!}</div>
+                                <div class="text-white  mb-4 text-lg-start text-main-heading text-main-content text-center">{!! $course->certification_section_8_content !!}</div>
                                 <div class="d-flex justify-content-lg-start justify-content-center">
                                     @if(auth()->check())
                                         @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
@@ -395,7 +394,6 @@
                                         <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
                                     @endif
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -405,15 +403,15 @@
         @if($course->certification_section_9_title)
             <div class="learn-section container py-5">
                 <div class="header text-center mb-3">
-                    <div class="title fs-49 mb-3">{{ $course->certification_section_9_title }}</div>
-                    <div class="subtitle fs-25">{{ $course->certification_section_9_description }}</div>
+                    <div class="title heading mb-3">{{ $course->certification_section_9_title }}</div>
+                    <div class="subtitle sub-heading">{{ $course->certification_section_9_description }}</div>
                 </div>
                 
                 <div class="learning-points row g-4">
                     @if($course->certification_section_9_points)
                         @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
                             <div class="col-md-6">
-                                <div class="learn-list-certificate d-flex fs-25 py-3">
+                                <div class="learn-list-certificate d-flex sub-heading py-3">
                                     <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
                                     {{ $certification_section_9_point }}
                                 </div>
@@ -444,11 +442,11 @@
         @if($course->certification_section_10_content)
             <section class="cissn-section bg-blue container-fluid py-md-5 py-2">
                 <div class="container">
-                <div class="row align-items-start text-white">  <!-- Added text-white class -->
+                <div class="row align-items-start text-white  ">  <!-- Added text-white class -->
                     <div class="col-lg-6">
-                        <div class="text-white">{!! $course->certification_section_10_content !!}</div>
+                        <div class="text-white text-main-heading text-main-content">{!! $course->certification_section_10_content !!}</div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 ">
                         <!-- <video controls class="section-10-video">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_10_video) }}" type="video/mp4">
                         </video> -->
@@ -471,7 +469,7 @@
                                         </h2>
                                         <div id="collapse{{ $key }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                <p class="mcissn-collapse-content .accordion-item .accordion-collapse.show .mcissn-collapse-content">{{ $certification_section_10_point->description }}</p>
+                                                <div class="mcissn-collapse-content .accordion-item .accordion-collapse.show .mcissn-collapse-content">{{ $certification_section_10_point->description }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -501,14 +499,59 @@
                             <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Header Image" class="section-10-image">
                         @endif
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 text-main-heading text-main-content">
                         {!!  $course->certification_section_11_content !!}
-
-                        <!-- <div class="text-center text-md-start pt-4">
-                            <a href="{{ json_decode($course->certification_section_11_label_link)->link }}" class="gpni-btn fs-20">{{ json_decode($course->certification_section_11_label_link)->label }}</a>
-                        </div> -->
                     </div>
                 </div>
+                </div>
+            </section>
+        @endif
+
+        @if($course->certification_section_13_title)
+            <section class="payment-options-section container py-md-5 py-2">
+                <div class="payment-options-title heading mb-3">{{ $course->certification_section_13_title }}</div>
+                <div class="payment-options-description sub-heading mb-3">{{ $course->certification_section_13_description }}</div>
+
+                @if($course->certification_section_13_table_points)
+                    <div class="table-container">
+                        <table class="payment-table">
+                            <thead>
+                                <tr>
+                                    <th class="text-heading highlight-primary">{{ $course->certification_section_13_first_column }}</th>
+                                    <th class="text-heading highlight-secondary">{{ $course->certification_section_13_second_column }}</th>
+                                    <th class="text-heading highlight-primary">{{ $course->certification_section_13_third_column }}</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach(json_decode($course->certification_section_13_table_points) as $certification_section_13_table_point)
+                                    <tr>
+                                        <td class="text-content">{{ $certification_section_13_table_point->first }}</td>
+                                        <td class="text-content">{{ $certification_section_13_table_point->second }}</td>
+                                        <td class="text-content">{{ $certification_section_13_table_point->third }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endif
+
+                <div class="pt-3 d-flex align-items-center flex-wrap justify-content-center mb-3">
+                    @if(auth()->check())
+                        @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
+                            @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
+                                <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                            @else
+                                <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                            @endif
+                        @else
+                            <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l fs-20">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
+                        @endif
+                    @else
+                        <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l fs-20">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
+                    @endif
+
+                    <a href="{{ json_decode($course->certification_section_13_label_link)->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_13_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow"></a>
                 </div>
             </section>
         @endif
@@ -540,55 +583,6 @@
             </section>
         @endif -->
 
-        @if($course->certification_section_13_title)
-            <section class="payment-options-section container py-md-5 py-2">
-                <h2 class="payment-options-title fs-49 mb-3">{{ $course->certification_section_13_title }}</h2>
-                <p class="payment-options-description fs-25 mb-3">{{ $course->certification_section_13_description }}</p>
-
-                @if($course->certification_section_13_table_points)
-                    <div class="table-container">
-                        <table class="payment-table">
-                            <thead>
-                                <tr>
-                                    <th class="fs-25 highlight-primary">{{ $course->certification_section_13_first_column }}</th>
-                                    <th class="fs-25 highlight-secondary">{{ $course->certification_section_13_second_column }}</th>
-                                    <th class="fs-25 highlight-primary">{{ $course->certification_section_13_third_column }}</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                @foreach(json_decode($course->certification_section_13_table_points) as $certification_section_13_table_point)
-                                    <tr>
-                                        <td class="fs-25">{{ $certification_section_13_table_point->first }}</td>
-                                        <td class="fs-25">{{ $certification_section_13_table_point->second }}</td>
-                                        <td class="fs-25">{{ $certification_section_13_table_point->third }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                @endif
-
-                <div class="pt-3 d-flex align-items-center flex-wrap justify-content-center mb-3">
-                    @if(auth()->check())
-                        @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
-                            @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                                <a class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l fs-20">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
-                            @else
-                                <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
-                            @endif
-                        @else
-                            <a class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l fs-20">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
-                        @endif
-                    @else
-                        <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn enroll-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5l fs-20">{{ $contents->{'single_page_login_for_enroll_' . $middleware_language} ?? $contents->single_page_login_for_enroll_en }}</a>
-                    @endif
-
-                    <a href="{{ json_decode($course->certification_section_13_label_link)->link }}" class="btn contact-us-btn btn-responsive fs-20 fs-md-16 py-3 px-4">{{ json_decode($course->certification_section_13_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow"></a>
-                </div>
-            </section>
-        @endif
-
         @if($course->certification_section_14_title)
             <section class="student-testimonial-section container">
                 <div class="student-testimonial-content">
@@ -603,8 +597,8 @@
                                     @foreach($testimonials as $index => $testimonial)
                                         @if($index === 0)
                                             <div class="quote-container">
-                                                <div class="student-testimonial-quote mb-3 fs-25">"{{ $testimonial->content }}"</div>
-                                                <div class="student-testimonial-author mb-2 fs-20">{{ $testimonial->name }}</div>
+                                                <div class="student-testimonial-quote mb-3 sub-heading">"{{ $testimonial->content }}"</div>
+                                                <div class="student-testimonial-author mb-2 fs-18">{{ $testimonial->name }}</div>
                                                 <div class="stars">
                                                     @for($i = 0; $i < $testimonial->rate; $i++)
                                                         <i class="bi bi-star-fill star"></i>
@@ -641,8 +635,8 @@
                                         @if($index !== 0)
                                             <div class="testimonial-slide">
                                                 <div class="student-review-card p-3">
-                                                    <h5 class="student-review-name fs-20">{{ $testimonial->name }}</h5>
-                                                    <p class="student-review-text fs-18">{{ $testimonial->content }}</p>
+                                                    <h5 class="student-review-name text-heading">{{ $testimonial->name }}</h5>
+                                                    <p class="student-review-text text-content">{{ $testimonial->content }}</p>
                                                     <div class="student-review-footer">
                                                         <div class="student-review-rating">
                                                             <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
@@ -723,9 +717,9 @@
             <section class="masters-pack-section py-5">
                 <div class="masters-pack-overlay"></div>
                 <div class="masters-pack-content">
-                    <h2 class="masters-pack-title fs-49 mb-3">{{ $course->certification_section_16_title }}</h2>
+                    <div class="heading text-white mb-3">{{ $course->certification_section_16_title }}</div>
 
-                    <div class="fs-25">{!! $course->certification_section_16_content !!}</div>
+                    <div class="sub-heading text-white mb-3">{!! $course->certification_section_16_content !!}</div>
                     
                     <div class="btn-group">
 

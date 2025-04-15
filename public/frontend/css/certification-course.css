@@ -1,11 +1,10 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
-    padding-top: 90px;
 }
 .header-section {
     margin: 0 auto;
-    padding: 60px 80px;
+    padding: 60px 10px;
     background-color: #e8ecf1;
     background: url('../../../storage/frontend/certification-course-background.png') no-repeat center center;
     background-size: cover;
@@ -304,23 +303,11 @@ a.btn-primary {
     gap: 32px;
 }
 
-.text-content {
-    flex: 1;
+.certification-section-8 .text-heading, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px !important;
 }
 
-.text-content h1 {
-    font-weight: 500;
-    color: #000;
-    /* margin-bottom: 20px; */
-}
 
-.text-content p {
-    font-weight: 400;
-    
-    color: #000;
-    margin-bottom: 0;
-    
-}
 
 .testimonial-content {
     flex: 1;
@@ -1578,9 +1565,6 @@ course-content {
     margin: auto;
 }
 
-.masters-pack-title {
-    font-weight: 600;
-}
 
 .masters-pack-subtitle {
     font-weight: 400;

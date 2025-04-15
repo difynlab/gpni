@@ -12,7 +12,7 @@
     @if ($contents->section_1_title_en)
         <div class="different-section px-4 py-5">
             <div class="container">
-                <h2 class="fs-49 mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
+                <div class="heading">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</div>
                 <div class="image-placeholder">
                     @if ($contents->{'section_1_video_' . $middleware_language})
                         <video

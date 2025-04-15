@@ -13,30 +13,30 @@
     @if($contents->section_1_title_en)
         <!-- Hero Section -->
         <section class="bg-white">
-            <div class="container py-5">
+            <div class="container homepg">
                 <x-frontend.notification></x-frontend.notification>
                 <x-frontend.notification-popup></x-frontend.notification-popup>
 
-                <div class="row align-items-center">
+                <div class="row align-items-center section-margin-bottom">
                     <div class="col-md-12 col-lg-6 text-center text-lg-start">
-                        <div class="display-3 text-black ff-poppins-semibold fs-61 mb-4">
+                        <div class="display-3 text-black heading fs-61">
                             {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
                         </div>
 
-                        <div class="mb-4 mt-5 ff-poppins-medium fs-25 international-society-of-sport">
+                        <div class="my-4 sub-heading text-content  international-society-of-sport">
                             {!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
                         </div>
 
-                        <div class="pt-md-5 pt-2">
+                        <div class="pt-md-3 pt-2">
                             @guest
                                 <a href="{{ route('frontend.register') }}"
-                                class="fs-20 btn btn-primary py-sm-2 px-sm-4 me-3 btn-responsive">
+                                class="blue-button btn  py-sm-2 px-sm-4 me-3 btn-responsive btn btn-primary py-sm-2 px-sm-4 me-3 btn-responsive">
                                     {{ $contents->{'section_1_label_' . $middleware_language} ?? $contents->section_1_label_link_en }}
                                 </a>
                             @endguest
 
                             <a href="{{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->link ?? json_decode($contents->section_1_label_link_en)->link }}"
-                            class="py-sm-3 px-sm-2 fs-20 fw-semi-bold learn-more btn-responsive">
+                            class="py-sm-3 px-sm-2 other-button fw-semi-bold learn-more btn-responsive">
                                 {{ json_decode($contents->{'section_1_label_link_' . $middleware_language})->label ?? json_decode($contents->section_1_label_link_en)->label }}
                                 <img src="{{ asset('storage/frontend/arrow-right.svg') }}" alt="Arrow Right" class="arrow-right-icon"/>
                             </a>
@@ -61,7 +61,7 @@
         <div class="container-xxl">
             <div class="container">
                 <div class="text-center">
-                    <div class="mb-3 mb-md-5 mx-md-5 mx-0 ff-poppins-medium fs-49">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
+                    <div class="mb-3 mb-md-5 mx-md-5 mx-0 heading">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
                 </div>
 
                 <div class="row g-4">
@@ -105,8 +105,8 @@
         <div class="py-5">
             <div class="container">
                 <div class="text-center">
-                    <div class="mb-3 ff-poppins-medium fs-49">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
-                    <p class="mb-1 professional-body ff-poppins-regular fs-25">{{ $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en }}</p>
+                    <div class="mb-3 heading">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
+                    <div class="mb-1 sub-heading">{{ $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en }}</div>
                 </div>
 
                 <div class="tab-class pt-3 text-center">
@@ -227,7 +227,7 @@
 
                 @guest
                     <div class="text-center pt-5">
-                        <a href="{{ route('frontend.register') }}" class="ff-poppins-medium fs-25 explore-course-text">
+                        <a href="{{ route('frontend.register') }}" class=" sub-heading explore-course-text">
                             {{ $contents->{'section_3_label_' . $middleware_language} ?? $contents->section_3_label_link_en }}
                             <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                         </a>
@@ -238,57 +238,61 @@
     @endif
 
     @if($contents->section_4_title_en)
-        <div class="testimonial-container">
-            <div class="container py-5">
-                <div class="text-center">
-                    <div class="mb-3 testimonial-heading fs-49">
-                        {{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}
-                    </div>
-                    <p class="mb-3 testimonial-body fs-25">
-                        {{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}
-                    </p>
-                </div>
+        <div class="container-fluid p-0">
+            <div class="section-4">
+                <div class="container py-5">
+                    <div class="content">
+                        <div class="text-center">
+                            <h3 class="heading">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h3>
 
-                <div class="row g-4 pt-5">
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                        <div class="student-video">
-                            @if($contents->{'section_4_video_' . $middleware_language})
-                                <video controls class="responsive-video">
-                                    <source src="{{ asset('storage/backend/pages/' . $contents->{'section_4_video_' . $middleware_language}) }}" type="video/mp4">
-                                </video>
-                            @elseif($contents->section_4_video_en)
-                                <video controls class="responsive-video">
-                                    <source src="{{ asset('storage/backend/pages/' . $contents->section_4_video_en) }}" type="video/mp4">
-                                </video>
-                            @else
-                                <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="responsive-video">
-                            @endif
+                            <p class="sub-heading">{{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}</p>
                         </div>
-                    </div>
 
-                    <div class="col-md-6 testimonials-wrapper">
-                        @foreach($testimonials as $index => $testimonial)
-                            <div class="testimonial {{ $index === 0 ? 'clear' : 'blurry' }}">
-                                
-                                <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
-
-                                <p class="fs-20">{{ $testimonial->content }}</p>
-
-                                <div class="author">
-                                    @if($testimonial->image)
-                                        <img src="{{ asset('storage/backend/testimonials/' . $testimonial->image) }}" alt="Author Picture">
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-4 mb-md-0">
+                                <div class="student-video">
+                                    @if($contents->{'section_4_video_' . $middleware_language})
+                                        <video controls class="video w-100">
+                                            <source src="{{ asset('storage/backend/pages/' . $contents->{'section_4_video_' . $middleware_language}) }}" type="video/mp4">
+                                        </video>
+                                    @elseif($contents->section_4_video_en)
+                                        <video controls class="video w-100">
+                                            <source src="{{ asset('storage/backend/pages/' . $contents->section_4_video_en) }}" type="video/mp4">
+                                        </video>
                                     @else
-                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}">
+                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="video w-100">
                                     @endif
-                                    
-                                    <div>
-                                        <p class="fs-16 mb-1">{{ $testimonial->name }}</p>
-                                        <p class="fs-13 mb-1">{{ $testimonial->designation }}</p>
-                                    </div>
                                 </div>
-
                             </div>
-                        @endforeach
+
+                            <div class="col-md-6 col-12">
+                                <div class="swiper testimonials">
+                                    <div class="swiper-wrapper">
+                                        @foreach($testimonials as $testimonial)
+                                            <div class="swiper-slide testimonial">
+                                                <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
+
+                                                <p class="testimonial-content">{{ $testimonial->content }}</p>
+
+                                                <div class="author">
+                                                    @if($testimonial->image)
+                                                        <img src="{{ asset('storage/backend/testimonials/' . $testimonial->image) }}" alt="Author Picture">
+                                                    @else
+                                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}">
+                                                    @endif
+                                                    
+                                                    <div>
+                                                        <p class="name">{{ $testimonial->name }}</p>
+                                                        <p class="designation">{{ $testimonial->designation }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -299,12 +303,12 @@
         <div class="partners-container py-5 py-md-0">
             <div class="container">
                 <div class="text-center">
-                    <div class="mb-3 ff-poppins-medium fs-49 partners-heading mt-md-5 px-5">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
-                    <p class="mb-3 partners-body fw-normal fs-25">{{ $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en }}</p>
+                    <div class="mb-3  heading partners-heading mt-md-5 px-5">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
+                    <div class="mb-3 partners-body fw-normal sub-heading">{{ $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en }}</div>
                 </div>
         
                 @if($contents->section_5_images_en)
-                    <div class="row py-md-5 py-2 gx-1 custom-row-gap">
+                    <div class="row pt-md-3 py-2 gx-1 custom-row-gap">
                         <!-- <div class="row px-5 pb-5 gx-1 custom-row-gap"> -->
                         @if($contents->{'section_5_images_' . $middleware_language})
                             <div class="d-flex flex-wrap justify-content-center align-items-center">
@@ -334,15 +338,15 @@
         <div class="journey-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 journey-heading fs-49 fw-poppins-medium">{{ $contents->{'section_6_title_' . $middleware_language} ?? $contents->section_6_title_en }}</div>
-                    <p class="mb-3 journey-body fs-25 fw-poppins-regular">{{ $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en }}</p>
+                    <div class="mb-3 journey-heading heading fw-poppins-medium">{{ $contents->{'section_6_title_' . $middleware_language} ?? $contents->section_6_title_en }}</div>
+                    <div class="mb-3 journey-body sub-heading fw-poppins-regular">{{ $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en }}</div>
                 </div>
                 <div class="pt-3 d-flex justify-content-center align-items-center flex-wrap">
                     @guest
-                        <a href="{{ route('frontend.register') }}" class="btn btn-secondary signup-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-25">{{ $contents->{'section_6_label_' . $middleware_language} ?? $contents->section_6_label_link_en }}</a>
+                        <a href="{{ route('frontend.register') }}" class="btn white-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5">{{ $contents->{'section_6_label_' . $middleware_language} ?? $contents->section_6_label_link_en }}</a>
                     @endguest
     
-                    <a href="{{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->link ?? json_decode($contents->section_6_label_link_en)->link }}" class="btn explore-lesson btn-responsive fs-25 fs-md-16 px-4">
+                    <a href="{{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->link ?? json_decode($contents->section_6_label_link_en)->link }}" class="btn other-white-button btn-responsive  px-4">
                         {{ json_decode($contents->{'section_6_label_link_' . $middleware_language})->label ?? json_decode($contents->section_6_label_link_en)->label }}
                         <img src="{{ asset('storage/frontend/arrow-icon-white.svg') }}" class="arrow-right-icon"/>
                     </a>
@@ -355,14 +359,14 @@
         <div class="expert-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 expert-heading fs-49 ff-poppins-medium">{{ $contents->{'section_7_title_' . $middleware_language} ?? $contents->section_7_title_en }}
+                    <div class="mb-3 expert-heading heading">{{ $contents->{'section_7_title_' . $middleware_language} ?? $contents->section_7_title_en }}
                     </div>
-                    <p class="mb-3 expert-body fs-25 ff-poppins-regular">{{ $contents->{'section_7_description_' . $middleware_language} ?? $contents->section_7_description_en }}</p>
+                    <div class="mb-3 expert-body sub-heading ">{{ $contents->{'section_7_description_' . $middleware_language} ?? $contents->section_7_description_en }}</div>
                 </div>
 
                 
                 @if(!$advisory_boards->isEmpty())
-                    <div class="container">
+                    <div class="container bottom-content">
                         <div class="row text-center g-4 pt-4 d-flex justify-content-center">
                             @foreach($advisory_boards->take(10) as $index => $advisory_board)
                                 @if($index % 5 == 0 && $index != 0)
@@ -382,7 +386,7 @@
                                                     </div>
                                                     <div class="col-md-8 col-12 d-flex align-items-center flex-column fs-25">
                                                         <div class="text-center">
-                                                            <div class="expert-name fs-20">{{ $advisory_board->name }}</div>
+                                                            <div class="expert-name fs-22">{{ $advisory_board->name }}</div>
                                                             <div class="qualification fs-16">{{ $advisory_board->designations }}</div>
                                                         </div>
                                                     </div>
@@ -390,7 +394,7 @@
                                                         <button type="button" class="btn-close position-absolute btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                 </div>
-                                                <div class="mt-md-4 expert-content text-left">
+                                                <div class="mt-md-4 text-content text-left">
                                                     {!! $advisory_board->description !!}
                                                 </div>
                                             </div>
@@ -424,7 +428,7 @@
                                                         <button type="button" class="btn-close position-absolute btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                 </div>
-                                                <div class="mt-4 expert-content text-left">
+                                                <div class="mt-4 text-content text-left">
                                                     {!! $advisory_board->description !!}
                                                 </div>
                                             </div>
@@ -437,7 +441,7 @@
                 @endif
 
                 <div class="text-center mt-5 explore-course-text">
-                    <a href="{{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->link ?? json_decode($contents->section_7_label_link_en)->link }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-25">
+                    <a href="{{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->link ?? json_decode($contents->section_7_label_link_en)->link }}" class="py-sm-4 px-sm-5 fw-medium other-button">
                         {{ json_decode($contents->{'section_7_label_link_' . $middleware_language})->label ?? json_decode($contents->section_7_label_link_en)->label }}
                         <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                     </a>
@@ -450,8 +454,8 @@
         <div class="nutritionist-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 nutritionist-heading ff-poppins-medium fs-49">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</div>
-                    <b class="mb-1 nutritionist-body ff-poppins-regular fs-25">{{ $contents->{'section_8_description_' . $middleware_language} ?? $contents->section_8_description_en }}</b>
+                    <div class="mb-3 nutritionist-heading heading">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</div>
+                    <div class="mb-1 nutritionist-body  sub-heading">{{ $contents->{'section_8_description_' . $middleware_language} ?? $contents->section_8_description_en }}</div>
                 </div>
                 
                 <div class="row g-4">
@@ -497,21 +501,21 @@
         <div class="faq-container">
             <div class="container py-5">
                 <div class="text-center">
-                    <div class="mb-3 faq-heading fs-49">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</div>
-                    <p class="mb-3 faq-body fs-25">{{ $contents->{'section_9_description_' . $middleware_language} ?? $contents->section_9_description_en }}</p>
+                    <div class="mb-3 faq-heading heading">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</div>
+                    <div class="mb-3 faq-body sub-heading">{{ $contents->{'section_9_description_' . $middleware_language} ?? $contents->section_9_description_en }}</div>
                 </div>
                 <div class="my-3">
                     <div class="accordion" id="accordionFAQ">
                         @foreach($faqs->take(5) as $faq)
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed p-2 p-md-3 fs-25" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
+                                    <button class="accordion-button collapsed p-2 p-md-3 text-heading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
                                         {{ $faq->{'question'} }}
                                     </button>
                                 </h2>
 
                                 <div id="collapse_{{ $faq->id }}" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body text-content">
                                         {!! $faq->{'answer'} !!}
                                     </div>
                                 </div>
@@ -519,7 +523,7 @@
                         @endforeach
                     </div>
                     <div class="text-center explore-course-text pt-4">
-                        <a href="{{ route('frontend.faqs') }}" class="py-sm-4 px-sm-5 fw-medium learn-more fs-25">
+                        <a href="{{ route('frontend.faqs') }}" class="py-sm-4 px-sm-5 fw-medium other-button">
                             {{ $contents->{'section_9_button_' . $middleware_language} ?? $contents->section_9_button_en }}
                             <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
                         </a>
@@ -533,39 +537,21 @@
 
 @push('after-scripts')
     <script>
-        function rotateTestimonials() {
-            const testimonials = document.querySelectorAll('.testimonial');
-            const numberOfTestimonials = testimonials.length;
-            let clearIndex = Array.from(testimonials).findIndex(t => t.classList.contains('clear'));
-
-            if(clearIndex >= 0) {
-                testimonials[clearIndex].classList.remove('clear');
-                testimonials[clearIndex].classList.add('blurry');
-            }
-
-            const nextClearIndex = (clearIndex + 1) % numberOfTestimonials;
-            testimonials[nextClearIndex].classList.add('clear');
-            testimonials[nextClearIndex].classList.remove('blurry');
-
-            testimonials.forEach((t, i) => {
-                const diff = (i - nextClearIndex + numberOfTestimonials) % numberOfTestimonials;
-                if(diff === 0) {
-                    t.style.top = '50%';
-                    t.style.transform = 'translateY(-50%)';
-                }
-                else if (diff === 1) {
-                    t.style.top = '100%';
-                    t.style.transform = 'translateY(-100%)';
-                }
-                else if (diff === 2) {
-                    t.style.top = '0%';
-                    t.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            setInterval(rotateTestimonials, 3000);
+        const testimonialsSwiper = new Swiper(".testimonials", {
+            effect: "cube",
+            grabCursor: true,
+            loop: true,
+            cubeEffect: {
+                shadow: false,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
         });
     </script>
 @endpush
