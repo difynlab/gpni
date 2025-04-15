@@ -129,9 +129,52 @@ body {
     font-size: 39px; /* was 2.438rem */
 }
 
-.fs-49 {
-    font-size: 49px; /* was 3.062rem */
-    /* font-size: 61px; */ /* was 3.812rem */
+.heading {
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.sub-heading {
+    font-size: 22px;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.section-margin-bottom {
+    margin-bottom: 60px;
+}
+
+.text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
+    font-size: 42px;
+    /* color: var(--black); */
+}
+
+/* .text-heading, .text-heading p, .text-heading ul, .text-heading li, .text-heading a {
+    font-size: 20px;
+    color: var(--black);
+} */
+
+.text-heading {
+    margin-bottom: 16px;
+}
+
+.text-heading a {
+    text-decoration: underline;
+}
+
+.text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+    font-size: 18px;
+    /* color: var(--black); */
+}
+
+.text-content {
+    margin-bottom: 16px;
+}
+
+.text-content a {
+    text-decoration: underline;
 }
 
 .fs-61 {
