@@ -411,7 +411,7 @@ a.btn-primary {
     margin-bottom: 20px;
 }
 
-.btn-custom {
+/* .btn-custom {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,7 +421,7 @@ a.btn-primary {
  
     text-align: center;
     text-decoration: none;
-}
+} */
 
 .btn-enroll {
     background-color: #0040c3;
