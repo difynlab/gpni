@@ -77,6 +77,21 @@
     font-size: 18px !important;
 }
 
+/* Center-align dropdown menus */
+.navbar .dropdown-menu {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    min-width: 240px; /* Adjust as needed */
+}
+
+/* Fix submenu positioning */
+.dropdown-submenu .dropdown-menu {
+    left: 100% !important;
+    transform: translateX(0) !important;
+    top: 0;
+}
+
 @media (max-width: 991.98px) {
 
 
@@ -175,6 +190,17 @@
         left: auto !important;
         min-width: 200px;
         margin-top: 5px;
+    }
+
+    .navbar .dropdown-menu {
+        left: 0 !important;
+        transform: none !important;
+        width: 100%;
+        position: static !important;
+    }
+    
+    .dropdown-submenu .dropdown-menu {
+        margin-left: 1rem !important;
     }
 }
 
