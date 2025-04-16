@@ -407,11 +407,11 @@
                     <div class="subtitle sub-heading">{{ $course->certification_section_9_description }}</div>
                 </div>
                 
-                <div class="learning-points row g-4">
+                <div class="learning-points row g-4 text">
                     @if($course->certification_section_9_points)
                         @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
                             <div class="col-md-6">
-                                <div class="learn-list-certificate d-flex sub-heading py-3">
+                                <div class="learn-list-certificate d-flex text-content py-3">
                                     <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
                                     {{ $certification_section_9_point }}
                                 </div>

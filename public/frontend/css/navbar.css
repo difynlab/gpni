@@ -83,7 +83,7 @@
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    min-width: 240px; /* Adjust as needed */
+    /* min-width: 240px;  */
     top:83%;
 }
 
@@ -95,8 +95,6 @@
 }
 
 @media (max-width: 991.98px) {
-
-
     .offcanvas-body .navbar-nav {
         align-items: flex-start;
     }
@@ -219,9 +217,9 @@
 
     /* Language dropdown specific styles */
     .nav-item.dropdown .dropdown-menu[aria-labelledby="languageDropdown"] {
-        right: 0 !important;
-        left: auto !important;
-        transform-origin: top right;
+        /* right: 0 !important; */
+        left: -25% !important;
+        /* transform-origin: top right; */
     }
 
     /* Ensure language dropdown has the same animation */
@@ -231,9 +229,13 @@
         visibility: visible;
         transform: translateY(0);
     }
+} 
+@media (min-width:993px) and (max-width:1024px) {
+.nav-item {
+    margin: 0 8px;
+    list-style: none;
+    }
 }
-
-
 @media (min-width:320px) and (max-width:768px) {
     .sticky-top.navbar-light .navbar-brand img {
         max-height: 26px !important;

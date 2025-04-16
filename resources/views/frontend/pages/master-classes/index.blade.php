@@ -94,7 +94,7 @@
             </div>
         @endif
 
-        @if($contents->section_4_title_en)
+        <!-- @if($contents->section_4_title_en)
             <div class="testimonial-container m-0">
                 <div class="container py-5">
                     <div class="text-center">
@@ -151,46 +151,123 @@
                 </div>
             </div>
         @endif
+    
+    </div> -->
+    @if($contents->section_4_title_en)
+        <div class="container-fluid p-0">
+            <div class="section-4">
+                <div class="container py-5">
+                    <div class="content">
+                        <div class="text-center">
+                            <h3 class="heading">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h3>
 
-    </div>
+                            <p class="sub-heading">{{ $contents->{'section_4_description_' . $middleware_language} ?? $contents->section_4_description_en }}</p>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb-4 mb-md-0">
+                                <div class="student-video">
+                                    @if($contents->{'section_4_video_' . $middleware_language})
+                                        <video controls class="video w-100">
+                                            <source src="{{ asset('storage/backend/pages/' . $contents->{'section_4_video_' . $middleware_language}) }}" type="video/mp4">
+                                        </video>
+                                    @elseif($contents->section_4_video_en)
+                                        <video controls class="video w-100">
+                                            <source src="{{ asset('storage/backend/pages/' . $contents->section_4_video_en) }}" type="video/mp4">
+                                        </video>
+                                    @else
+                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="video w-100">
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12">
+                                <div class="swiper testimonials">
+                                    <div class="swiper-wrapper">
+                                        @foreach($testimonials as $testimonial)
+                                            <div class="swiper-slide testimonial">
+                                                <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
+
+                                                <p class="testimonial-content">{{ $testimonial->content }}</p>
+
+                                                <div class="author">
+                                                    @if($testimonial->image)
+                                                        <img src="{{ asset('storage/backend/testimonials/' . $testimonial->image) }}" alt="Author Picture">
+                                                    @else
+                                                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}">
+                                                    @endif
+                                                    
+                                                    <div>
+                                                        <p class="name">{{ $testimonial->name }}</p>
+                                                        <p class="designation">{{ $testimonial->designation }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
 
 @push('after-scripts')
-    <script>
-        function rotateTestimonials() {
-            const testimonials = document.querySelectorAll('.testimonial');
-            const numberOfTestimonials = testimonials.length;
-            let clearIndex = Array.from(testimonials).findIndex(t => t.classList.contains('clear'));
-
-            if(clearIndex >= 0) {
-                testimonials[clearIndex].classList.remove('clear');
-                testimonials[clearIndex].classList.add('blurry');
-            }
-
-            const nextClearIndex = (clearIndex + 1) % numberOfTestimonials;
-            testimonials[nextClearIndex].classList.add('clear');
-            testimonials[nextClearIndex].classList.remove('blurry');
-
-            testimonials.forEach((t, i) => {
-                const diff = (i - nextClearIndex + numberOfTestimonials) % numberOfTestimonials;
-                if(diff === 0) {
-                    t.style.top = '50%';
-                    t.style.transform = 'translateY(-50%)';
-                }
-                else if (diff === 1) {
-                    t.style.top = '100%';
-                    t.style.transform = 'translateY(-100%)';
-                }
-                else if (diff === 2) {
-                    t.style.top = '0%';
-                    t.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            setInterval(rotateTestimonials, 3000);
+        <script>
+        const testimonialsSwiper = new Swiper(".testimonials", {
+            effect: "cube",
+            grabCursor: true,
+            loop: true,
+            cubeEffect: {
+                shadow: false,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
         });
     </script>
+    <!-- //     function rotateTestimonials() {
+    //         const testimonials = document.querySelectorAll('.testimonial');
+    //         const numberOfTestimonials = testimonials.length;
+    //         let clearIndex = Array.from(testimonials).findIndex(t => t.classList.contains('clear'));
+
+    //         if(clearIndex >= 0) {
+    //             testimonials[clearIndex].classList.remove('clear');
+    //             testimonials[clearIndex].classList.add('blurry');
+    //         }
+
+    //         const nextClearIndex = (clearIndex + 1) % numberOfTestimonials;
+    //         testimonials[nextClearIndex].classList.add('clear');
+    //         testimonials[nextClearIndex].classList.remove('blurry');
+
+    //         testimonials.forEach((t, i) => {
+    //             const diff = (i - nextClearIndex + numberOfTestimonials) % numberOfTestimonials;
+    //             if(diff === 0) {
+    //                 t.style.top = '50%';
+    //                 t.style.transform = 'translateY(-50%)';
+    //             }
+    //             else if (diff === 1) {
+    //                 t.style.top = '100%';
+    //                 t.style.transform = 'translateY(-100%)';
+    //             }
+    //             else if (diff === 2) {
+    //                 t.style.top = '0%';
+    //                 t.style.transform = 'translateY(0)';
+    //             }
+    //         });
+    //     }
+
+    //     window.addEventListener('DOMContentLoaded', () => {
+    //         setInterval(rotateTestimonials, 3000);
+    //     }); -->
+    
 @endpush

@@ -13,7 +13,7 @@
     --hover_white: #e6e6e6;
 }
 h1, h2, h3, h4, h5, h6, p {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 a, a:hover {
     text-decoration: none;

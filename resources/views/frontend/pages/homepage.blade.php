@@ -13,7 +13,7 @@
     @if($contents->section_1_title_en)
         <!-- Hero Section -->
         <section class="bg-white">
-            <div class="container homepg">
+            <div class="container homepg pt-lg-0 pt-5">
                 <x-frontend.notification></x-frontend.notification>
                 <x-frontend.notification-popup></x-frontend.notification-popup>
 
@@ -138,28 +138,33 @@
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="row g-4">
                                 <div class="tab-content" id="tab1Content">
-                                    <div class="scrollable-container">
-                                        @foreach($courses as $course)
-                                            @if($course->type == "Certification")
-                                                <a href="{{ route('frontend.certification-courses.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
-                                            @else
-                                                <a href="{{ route('frontend.master-classes.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
-                                            @endif
-                                                <div class="card course-card">
-                                                    <div class="overlay-logo p-3">
-                                                        <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
-                                                    </div>
-                                                    <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
-                                                    <div class="card-body course-card-body ps-4">
-                                                        <div class="card-title text-heading d-flex justify-content-start text-start">{{ $course->title }}</div>
-                                                        <div class="apply-now-container d-flex justify-content-between align-items-center text=content w-100">
-                                                            <div class="apply-now-text text-content mb-0">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
-                                                            <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
+                                    <div class="swiper courses-swiper">
+                                        <div class="swiper-wrapper">
+                                            @foreach($courses as $course)
+                                                <div class="swiper-slide">
+                                                    @if($course->type == "Certification")
+                                                        <a href="{{ route('frontend.certification-courses.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
+                                                    @else
+                                                        <a href="{{ route('frontend.master-classes.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
+                                                    @endif
+                                                        <div class="card course-card">
+                                                            <div class="overlay-logo p-3">
+                                                                <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
+                                                            </div>
+                                                            <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
+                                                            <div class="card-body course-card-body ps-4">
+                                                                <div class="card-title text-heading d-flex justify-content-start text-start">{{ $course->title }}</div>
+                                                                <div class="apply-now-container d-flex justify-content-between align-items-center text=content w-100">
+                                                                    <div class="apply-now-text text-content mb-0">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                                    <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
-                                            </a>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
+                                        <div class="swiper-pagination"></div>
                                     </div>
                                 </div>
                             </div>
@@ -167,28 +172,33 @@
 
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row g-4">
-                                <div class="tab-content" id="tab1Content">
-                                    <div class="scrollable-container">
-                                        @foreach($courses as $course)
-                                            @if($course->type == "Certification")
-                                                <a href="{{ route('frontend.certification-courses.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
-                                                    <div class="card">
-                                                        <div class="overlay-logo p-3">
-                                                            <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
-                                                        </div>
-                                                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
-                                                        <div class="card-body ps-4">
-                                                            <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
-                                                            <div
-                                                                class="apply-now-container d-flex justify-content-between align-items-center w-100">
-                                                                <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
-                                                                <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
+                                <div class="tab-content" id="tab2Content">
+                                    <div class="swiper courses-swiper">
+                                        <div class="swiper-wrapper">
+                                            @foreach($courses as $course)
+                                                @if($course->type == "Certification")
+                                                    <div class="swiper-slide">
+                                                        <a href="{{ route('frontend.certification-courses.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
+                                                            <div class="card">
+                                                                <div class="overlay-logo p-3">
+                                                                    <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
+                                                                </div>
+                                                                <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
+                                                                <div class="card-body ps-4">
+                                                                    <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
+                                                                    <div
+                                                                        class="apply-now-container d-flex justify-content-between align-items-center w-100">
+                                                                        <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                                        <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                            @endif
-                                        @endforeach
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                        <div class="swiper-pagination"></div>
                                     </div>
                                 </div>
                             </div>
@@ -196,28 +206,33 @@
 
                         <div id="tab-3" class="tab-pane fade show p-0">
                             <div class="row g-4">
-                                <div class="tab-content" id="tab1Content">
-                                    <div class="scrollable-container">
-                                        @foreach($courses as $course)
-                                            @if($course->type == "Master")
-                                                <a href="{{ route('frontend.master-classes.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
-                                                    <div class="card">
-                                                        <div class="overlay-logo p-3">
-                                                            <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
-                                                        </div>
-                                                        <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
-                                                        <div class="card-body ps-4">
-                                                            <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
-                                                            <div
-                                                                class="apply-now-container d-flex justify-content-between align-items-center w-100">
-                                                                <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
-                                                                <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
+                                <div class="tab-content" id="tab3Content">
+                                    <div class="swiper courses-swiper">
+                                        <div class="swiper-wrapper">
+                                            @foreach($courses as $course)
+                                                @if($course->type == "Master")
+                                                    <div class="swiper-slide">
+                                                        <a href="{{ route('frontend.master-classes.show', [$course, \Overtrue\Pinyin\Pinyin::permalink($course->title)]) }}">
+                                                            <div class="card">
+                                                                <div class="overlay-logo p-3">
+                                                                    <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
+                                                                </div>
+                                                                <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
+                                                                <div class="card-body ps-4">
+                                                                    <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
+                                                                    <div
+                                                                        class="apply-now-container d-flex justify-content-between align-items-center w-100">
+                                                                        <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                                        <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                            @endif
-                                        @endforeach
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                        <div class="swiper-pagination"></div>
                                     </div>
                                 </div>
                             </div>
@@ -272,7 +287,7 @@
                                             <div class="swiper-slide testimonial">
                                                 <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
 
-                                                <p class="testimonial-content">{{ $testimonial->content }}</p>
+                                                <div class="testimonial-content text-heading text-content">{{ $testimonial->content }}</div>
 
                                                 <div class="author">
                                                     @if($testimonial->image)
@@ -282,8 +297,8 @@
                                                     @endif
                                                     
                                                     <div>
-                                                        <p class="name">{{ $testimonial->name }}</p>
-                                                        <p class="designation">{{ $testimonial->designation }}</p>
+                                                        <div class="name fs-16">{{ $testimonial->name }}</div>
+                                                        <div class="designation fs-14">{{ $testimonial->designation }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -552,6 +567,55 @@
                 el: ".swiper-pagination",
                 clickable: true,
             },
+        });
+        
+        // Initialize courses swipers
+        const initializeCoursesSwiper = (selector) => {
+            return new Swiper(selector, {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                grabCursor: true,
+                pagination: {
+                    el: `${selector} .swiper-pagination`,
+                    clickable: true,
+                },
+                breakpoints: {
+                    // when window width is >= 576px
+                    576: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    // when window width is >= 992px
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                }
+            });
+        };
+        
+        // Initialize all course swipers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all course swipers
+            const allTabSwipers = document.querySelectorAll('.courses-swiper');
+            allTabSwipers.forEach((swiperElement) => {
+                initializeCoursesSwiper(`.${swiperElement.className.split(' ').join('.')}`);
+            });
+            
+            // Re-initialize the swiper when a tab is shown
+            const tabLinks = document.querySelectorAll('a[data-bs-toggle="pill"]');
+            tabLinks.forEach(tabLink => {
+                tabLink.addEventListener('shown.bs.tab', function(event) {
+                    const target = event.target.getAttribute('href');
+                    const swiper = document.querySelector(`${target} .courses-swiper`);
+                    if (swiper) {
+                        const swiperInstance = swiper.swiper;
+                        if (swiperInstance) {
+                            swiperInstance.update();
+                        }
+                    }
+                });
+            });
         });
     </script>
 @endpush
