@@ -36,7 +36,7 @@
 .card-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 14px; /* Add border radius to image too */
     transition: transform 0.3s ease;
 }
@@ -95,15 +95,6 @@
     color: red;
 }
 
-.btn-submit {
-    text-align: center;
-    border-radius: 6px;
-    background-color: #0040c3;
-    color: white;
-    font-weight: 600;
-    margin-top: 20px; /* Add space above the button */
-}
-
 textarea.form-textarea {
     height: auto;
     min-height: 100px;
@@ -135,172 +126,169 @@ input[type=number] {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1199.98px) {
+/* @media (max-width: 1199.98px) {
     .header-title {
-        line-height: 3rem; /* Adjusted line height */
+        line-height: 3rem; 
     }
 
     .description {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
-        line-height: 1.75rem; /* Adjusted line height */
+        font-size: 1.25rem; 
+        line-height: 1.75rem; 
     }
 
     .btn-submit {
-        font-size: 0.875rem; /* Reduced from 1rem */
+        font-size: 0.875rem; 
     }
 
     .custom-selection {
         display: flex;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
         align-items: flex-start;
     }
 
     .form-group label {
-        font-size: 0.875rem; /* Adjust font size for large devices */
+        font-size: 0.875rem; 
     }
 
     .selected-card .card-image-container {
-        height: 260px; /* Slightly smaller height on large screens */
+        height: 260px; 
         max-width: 90%;
     }
 }
 
 @media (max-width: 991.98px) {
     .header-title {
-        line-height: 2.5rem; /* Adjusted line height */
+        line-height: 2.5rem; 
     }
 
     .description {
-        font-size: 1rem; /* Further reduced */
-        line-height: 1.5rem; /* Adjusted line height */
+        font-size: 1rem; 
+        line-height: 1.5rem; 
     }
 
     .btn-submit {
-        font-size: 0.75rem; /* Further reduced */
+        font-size: 0.75rem; 
     }
 
     .custom-selection {
         display: flex;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
         align-items: flex-start;
     }
 
     .form-group label {
-        font-size: 0.75rem; /* Adjust font size for medium devices */
-    }
+        font-size: 0.75rem; 
 
     .justify-content-between {
-        justify-content: flex-start !important; /* Remove space-between for medium devices */
+        justify-content: flex-start !important; 
     }
 
     .selected-card .card-image-container {
-        height: 240px; /* Smaller height on medium screens */
+        height: 240px; 
         max-width: 85%;
     }
 }
 
 @media (max-width: 767.98px) {
     .header-title {
-        line-height: 2rem; /* Adjusted line height */
+        line-height: 2rem; 
     }
 
     .description {
-        font-size: 0.875rem; /* Further reduced */
-        line-height: 1.25rem; /* Adjusted line height */
-    }
+        font-size: 0.875rem; 
+        line-height: 1.25rem; 
 
     .btn-submit {
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 0.625rem; 
     }
 
     .custom-selection {
         display: flex;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
         align-items: flex-start;
     }
 
     .style-card {
-        width: 48px; /* Reduced width for small devices */
-        height: 31px; /* Reduced height for small devices */
+        width: 48px; 
+        height: 31px; 
     }
 
     .form-group label {
-        font-size: 0.625rem; /* Adjust font size for small devices */
+        font-size: 0.625rem; 
     }
 
     .justify-content-between {
-        justify-content: flex-start !important; /* Remove space-between for small devices */
+        justify-content: flex-start !important; 
     }
 
     .pt-5 {
-        padding-top: 0 !important; /* Remove padding-top for small devices */
+        padding-top: 0 !important; 
     }
 
     .selected-card .card-image-container {
-        height: 220px; /* Smaller height on small screens */
+        height: 220px; 
         max-width: 80%;
-        border-radius: 14px; /* Slightly smaller radius */
+        border-radius: 14px; 
     }
     
     .card-image-container img {
-        border-radius: 12px; /* Adjust image border radius */
+        border-radius: 12px; 
     }
 }
 
 @media (max-width: 575.98px) {
     .header-title {
-        font-size: 1.25rem; /* Further reduced */
-        line-height: 1.75rem; /* Adjusted line height */
+        font-size: 1.25rem; 
+        line-height: 1.75rem; 
     }
 
     .description {
-        font-size: 0.75rem; /* Further reduced */
-        line-height: 1rem; /* Adjusted line height */
+        font-size: 0.75rem; 
+        line-height: 1rem; 
     }
 
     .btn-submit {
-        font-size: 0.5rem; /* Further reduced */
-    }
+        font-size: 0.5rem; 
 
     .custom-selection {
         display: flex;
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; /
         align-items: flex-start;
     }
 
     .style-card {
-        width: 40px; /* Further reduced width for extra small devices */
-        height: 26px; /* Further reduced height for extra small devices */
+        width: 40px; 
+        height: 26px; 
     }
 
     .form-group .d-flex {
-        flex-wrap: nowrap; /* Ensure buttons stay in one line for extra small devices */
+        flex-wrap: nowrap; 
     }
 
     .form-group label {
-        font-size: 0.75rem; /* Adjust font size for extra small devices */
+        font-size: 0.75rem; 
     }
 
     .justify-content-between {
-        justify-content: flex-start !important; /* Remove space-between for extra small devices */
+        justify-content: flex-start !important; 
     }
 
     .btn {
-        padding: 0.25rem 0.5rem; /* Reduce padding for small mobile devices */
-        font-size: 0.75rem; /* Reduce font size for small mobile devices */
+        padding: 0.25rem 0.5rem; 
+        font-size: 0.75rem; 
     }
 
     .pt-5 {
-        padding-top: 0 !important; /* Remove padding-top for extra small devices */
+        padding-top: 0 !important; 
     }
 
     .selected-card .card-image-container {
-        height: 180px; /* Even smaller for mobile phones */
-        max-width: 90%; /* A bit wider on very small screens for better visibility */
-        border-radius: 12px; /* Smaller radius for better proportion */
+        height: 180px; 
+        max-width: 90%; 
+        border-radius: 12px; 
     }
     
     .card-image-container img {
-        border-radius: 10px; /* Adjust image border radius */
-    }
+        border-radius: 10px; /
+    } */
 }

@@ -16,14 +16,11 @@ body {
 .content-text {
     color: #000;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    line-height: 1.4;
 }
 
 .content-text-white {
     color: #FFF;
     font-family: 'Poppins', sans-serif;
-    line-height: 140%;
     font-style:normal;
     font-weight: 300;
 }
@@ -42,7 +39,6 @@ body {
 .content-text-white p {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    line-height: 140%;
 
 }
 
@@ -50,7 +46,6 @@ body {
 .content-text-white ul {
     list-style: none; /* Remove default list style */
     padding-left: 0; /* Remove default padding */
-    line-height: 140%; 
 }
 
 .content-text-white ul li {

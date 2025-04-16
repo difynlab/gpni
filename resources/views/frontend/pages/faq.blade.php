@@ -12,21 +12,21 @@
 
     <div class="container py-5 faq-container">
         @if($contents->title_en)
-            <div class="faq-title fs-49">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
+            <div class="faq-title heading">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
 
             <div class="accordion pt-3" id="faqAccordion">
                 @if($faqs->isNotEmpty())
                     @foreach($faqs as $faq)
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading{{ $faq->id }}">
-                                <button class="accordion-button d-flex justify-content-center align-items-center collapsed fs-25" type="button" data-bs-toggle="collapse"
+                            <div class="accordion-header" id="heading{{ $faq->id }}">
+                                <button class="accordion-button d-flex justify-content-center align-items-center collapsed text-heading" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse{{ $faq->id }}" aria-expanded="false" aria-controls="collapse{{ $faq->id }}">
                                     {{ $faq->question }}
                                 </button>
-                            </h2>
+                            </div>
                             <div id="collapse{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $faq->id }}"
                                 data-bs-parent="#faqAccordion">
-                                <div class="accordion-body fs-25">
+                                <div class="accordion-body text-content">
                                     {!! $faq->answer !!}
                                 </div>
                             </div>

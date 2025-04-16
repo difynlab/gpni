@@ -34,7 +34,7 @@
 .regions-languages-section {
     background-color: #0040C3;
     color: white;
-    padding: 60px 15px;
+    padding: 40px 15px;
 }
 
 .regions-languages-section h2 {
@@ -167,8 +167,6 @@
     color: #000;
     font-family: Poppins;
     font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
 }
 
 .language-offerings-section h4 {

@@ -28,11 +28,10 @@ body {
   }
   
   .card-text {
-    color: #747474;
+    color: #000
     font-family: Poppins;
     font-style: normal;
     font-weight: 400;
-    line-height: 25px;
   }
   
   .username {
@@ -319,14 +318,14 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     color: #000000;
-    margin-bottom: 20px;
+
     text-align: center;
   }
   
   .category {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    color: #B8BAC1;
+    color: #6f6d6d;
     cursor: pointer;
     padding: 0;
     padding-bottom: 5px;
@@ -341,7 +340,7 @@ body {
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     overflow: hidden;
 }
 

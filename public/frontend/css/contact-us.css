@@ -5,11 +5,11 @@ body {
     margin: 0;
 }
 
-.container {
+/* .container {
     max-width: 1440px;
     margin: 0 auto;
     padding: 81.5px 104px; /* Add space on the left and right */
-}
+} */
 
 .header-title {
     color: #0E0E0E;
@@ -184,10 +184,6 @@ textarea.form-textarea {
 }
 
 @media (max-width: 991.98px) {
-    .container {
-        padding: 30px 15px; /* Adjust padding for medium devices */
-    }
-
     .header-title {
         font-size: 2.5rem; /* Further reduced */
     }
@@ -215,10 +211,6 @@ textarea.form-textarea {
 }
 
 @media (max-width: 767.98px) {
-    .container {
-        padding: 20px 10px; /* Adjust padding for small devices */
-    }
-
     .header-title {
         font-size: 2rem; /* Further reduced */
     }
@@ -258,16 +250,11 @@ textarea.form-textarea {
     .form-group.reason-group .form-textarea,
     .form-group.comments-group .form-textarea {
         border-bottom: 1px solid #ced4da;
-        width: 100vw; /* Increase border line length for Reason and Comments */
         max-width: 100%; /* Ensure it doesn't overflow */
     }
 }
 
 @media (max-width: 575.98px) {
-    .container {
-        padding: 10px 5px; /* Adjust padding for extra small devices */
-    }
-
     .header-title {
         font-size: 1.5rem; /* Further reduced */
     }
@@ -307,7 +294,6 @@ textarea.form-textarea {
     .form-group.reason-group .form-textarea,
     .form-group.comments-group .form-textarea {
         border-bottom: 1px solid #ced4da;
-        width: 100vw; /* Increase border line length for Reason and Comments */
         max-width: 100%; /* Ensure it doesn't overflow */
     }
 }

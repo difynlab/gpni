@@ -10,12 +10,12 @@
 @section('content')
 
     @if($contents->title_en)
-        <div class="container py-5 policies-section">
-            <h2>{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
-            <div class="text-center fs-25">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
+        <div class="container py-5 text-center">
+            <div class="heading">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
+            <div class="text-center sub-heading">{!! $contents->{'description_' . $middleware_language} ?? $contents->description_en !!}</div>
 
             @if($policy_categories->isNotEmpty())
-                <ul class="nav nav-tabs justify-content-center pt-5" id="policiesTabs" role="tablist">
+                <ul class="nav nav-tabs justify-content-center pt-3" id="policiesTabs" role="tablist">
                     @foreach($policy_categories as $key => $policy_category)
                         <li class="nav-item" role="presentation">
                             <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="{{ $policy_category->id }}-tab" data-bs-toggle="tab" href="#{{ $policy_category->id }}" role="tab" aria-controls="{{ \Overtrue\Pinyin\Pinyin::permalink($policy_category->name) }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
@@ -31,13 +31,13 @@
                             <div class="accordion pt-5" id="{{ $policy_category->id }}Accordion">
                                 @foreach($policies->where('policy_category_id', $policy_category->id) as $policy)
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="heading{{ $policy->id }}">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $policy->id }}" aria-expanded="false" aria-controls="collapse{{ $policy->id }}">
+                                        <div class="accordion-header" id="heading{{ $policy->id }}">
+                                            <button class="accordion-button collapsed text-heading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $policy->id }}" aria-expanded="false" aria-controls="collapse{{ $policy->id }}">
                                                 {{ $policy->title }}
                                             </button>
-                                        </h2>
+                                        </div>
                                         <div id="collapse{{ $policy->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $policy->id }}" data-bs-parent="#{{ $policy_category->id }}Accordion">
-                                            <div class="accordion-body">{!! $policy->content !!}</div>
+                                            <div class="accordion-body text-content">{!! $policy->content !!}</div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -56,31 +56,31 @@
                                     </div>
 
                                     <div class="policies-section">
-                                        <p>{{ $contents->{'cec_images_description_' . $middleware_language} ?? $contents->cec_images_description_en }}</p>
+                                        <div class="text-content text-start">{{ $contents->{'cec_images_description_' . $middleware_language} ?? $contents->cec_images_description_en }}</div>
 
-                                        <h5>{{ $contents->{'cec_title_' . $middleware_language} ?? $contents->cec_title_en }}</h5>
+                                        <div class="sub-heading text-heading mt-4 mb-3">{{ $contents->{'cec_title_' . $middleware_language} ?? $contents->cec_title_en }}</div>
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>{{ $contents->{'cec_first_column_title_' . $middleware_language} ?? $contents->cec_first_column_title_en }}</th>
-                                                    <th>{{ $contents->{'cec_second_column_title_' . $middleware_language} ?? $contents->cec_second_column_title_en }}</th>
-                                                    <th>{{ $contents->{'cec_third_column_title_' . $middleware_language} ?? $contents->cec_third_column_title_en }}</th>
+                                                    <th class="text-heading">{{ $contents->{'cec_first_column_title_' . $middleware_language} ?? $contents->cec_first_column_title_en }}</th>
+                                                    <th class="text-heading">{{ $contents->{'cec_second_column_title_' . $middleware_language} ?? $contents->cec_second_column_title_en }}</th>
+                                                    <th class="text-heading">{{ $contents->{'cec_third_column_title_' . $middleware_language} ?? $contents->cec_third_column_title_en }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @if($contents->cec_points_en)
                                                     @foreach(json_decode($contents->{'cec_points_' . $middleware_language} ?? $contents->cec_points_en) as $cec_point)
                                                         <tr>
-                                                            <td>{{ $cec_point->type }}</td>
-                                                            <td>{{ $cec_point->description }}</td>
-                                                            <td>{{ $cec_point->points }}</td>
+                                                            <td class="text-content text-start">{{ $cec_point->type }}</td>
+                                                            <td class="text-content text-start">{{ $cec_point->description }}</td>
+                                                            <td class="text-content">{{ $cec_point->points }}</td>
                                                         </tr>
                                                     @endforeach
                                                 @endif
                                             </tbody>
                                         </table>
 
-                                        <p>{!! $contents->{'cec_points_description_' . $middleware_language} ?? $contents->cec_points_description_en !!}</p>
+                                        <div class="text-content">{!! $contents->{'cec_points_description_' . $middleware_language} ?? $contents->cec_points_description_en !!}</div>
                                     </div>
                                 </div>
                             @endif

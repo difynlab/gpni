@@ -30,9 +30,9 @@
                         @endif
                     </div>
                 
-                    <h1 class="fs-49 mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h1>
+                    <div class="heading mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</div>
                 
-                    <div class="section-1">{!! $contents->{'section_1_content_' . $middleware_language} ?? $contents->section_1_content_en !!}</div>
+                    <div class="section-1 text-main-heading text-main-content">{!! $contents->{'section_1_content_' . $middleware_language} ?? $contents->section_1_content_en !!}</div>
                 </div>
 
                 <div class="col-lg-5 text-lg-end">
@@ -79,8 +79,8 @@
         <div class="container-fluid summary-section py-5">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="main-heading fs-49 mb-3">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
-                    <p class="sub-heading fs-25 mb-3">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</p>
+                    <div class="heading text-white mb-3">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
+                    <div class="sub-heading mb-3">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</div>
                 </div>
 
                 @if($recent_webinars->isNotEmpty())
@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-md-7">
                                 <img src="{{ asset('storage/frontend/quote.svg') }}" alt="quote-icon" class="quote-icon mb-3">
-                                <div class="speaker-text fs-20">{!! $recent_webinar->content !!}</div>
+                                <div class="speaker-text text-heading text-content">{!! $recent_webinar->content !!}</div>
                             </div>
                         </div>
 
@@ -110,8 +110,8 @@
         <div class="container-fluid webinars-section py-5">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h1 class="main-heading fs-49 mb-3">{!! $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en !!}</h1>
-                    <div class="sub-heading fs-25">
+                    <div class="heading mb-3">{!! $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en !!}</div>
+                    <div class="sub-heading">
                     {!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                         @endif
                     </div>
                     <div class="col-md-7">
-                        <div class="section-3 px-2">{!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}</div>
+                        <div class="section-3 text-heading text-content px-2 mb-3">{!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}</div>
                     </div>
                 </div>
             </div>
@@ -137,9 +137,9 @@
     @if($contents->section_4_title_en)
         <div class="container-fluid Famous-Global-Speakers-Experts-section py-5">
             <div class="container">
-                <h1 class="main-heading fs-49 mb-3">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h1>
+                <div class="heading mb-3 text-white text-center">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</div>
 
-                <div class="row justify-content-center section-4">
+                <div class="row justify-content-center section-4 text-main-heading text-main-content text-white">
                     {!! $contents->{'section_4_content_' . $middleware_language} ?? $contents->section_4_content_en !!}
                 </div>
             </div>
@@ -150,7 +150,7 @@
         <div class="container-fluid Webinar-Seminar-Key-Takeaways-section py-5 ">
             <div class="container py-5">
                 <div class="row g-5 d-flex">
-                    <div class="col-md-6 section-5">
+                    <div class="col-md-6 section-5 text-main-heading text-main-content mb-3">
                         {!! $contents->{'section_5_content_' . $middleware_language} ?? $contents->section_5_content_en !!}
                     </div>
                     
@@ -172,7 +172,7 @@
         <section class="learn-more-earn-more py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div class="col-md-6 d-flex align-items-center">
                         @if($contents->{'section_6_image_' . $middleware_language})
                             <img src="{{ asset('storage/backend/pages/' . $contents->{'section_6_image_' . $middleware_language}) }}" alt="On-Demand Benefits" class="img-fluid learn-more-image">
                         @elseif($contents->section_6_image_en)
@@ -181,7 +181,7 @@
                             <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="On-Demand Benefits" class="img-fluid learn-more-image">
                         @endif
                     </div>
-                    <div class="col-md-6 d-flex flex-column justify-content-center content-section">
+                    <div class="col-md-6 d-flex flex-column justify-content-center content-section text-main-heading text-main-content">
                         {!! $contents->{'section_6_content_' . $middleware_language} ?? $contents->section_6_content_en !!}
                     </div>
                 </div>
@@ -193,7 +193,7 @@
         <section class="learn-grow-career-business py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 mb-0 d-flex flex-column justify-content-center section-7">
+                    <div class="col-md-6 mb-0 d-flex flex-column justify-content-center section-7 text-main-heading text-main-content">
                         {!! $contents->{'section_7_content_' . $middleware_language} ?? $contents->section_7_content_en !!}
                     </div>
                     <div class="col-md-6 d-flex justify-content-center ">
@@ -217,9 +217,9 @@
     @if($contents->section_8_title_en)
         <section class="watch-anytime-anywhere py-5">
             <div class="container">
-                <h1 class="fs-49 mb-3">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</h1>
+                <div class="heading mb-3 text-white text-center">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</div>
                 
-                <div class="fs-25 section-8-content mb-3">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
+                <div class="section-8-content sub-heading mb-3 text-white">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
 
                 @guest
                     <div class="py-3">
@@ -235,9 +235,9 @@
     @if($contents->section_9_title_en)
         <section class="previous-experts-seminars py-5">
             <div class="container">
-                <h1 class="fs-49 mb-3">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</h1>
+                <div class="heading mb-3 text-center">{{ $contents->{'section_9_title_' . $middleware_language} ?? $contents->section_9_title_en }}</div>
 
-                <div class="fs-25 section-9-content">{!! $contents->{'section_9_content_' . $middleware_language} ?? $contents->section_9_content_en !!}</div>                
+                <div class="section-9-content sub-heading">{!! $contents->{'section_9_content_' . $middleware_language} ?? $contents->section_9_content_en !!}</div>                
                 @if($previous_webinars->isNotEmpty())
                     <div class="container-fluid">
                         <div class="row">
@@ -268,7 +268,7 @@
                             <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Special Offer" class="img-fluid">
                         @endif
                     </div>
-                    <div class="col-md-6 pt-md-0 pt-3">
+                    <div class="col-md-6 pt-md-0 pt-3 text-main-heading text-main-content">
                         {!! $contents->{'section_10_content_' . $middleware_language} ?? $contents->section_10_content_en !!}
                     </div>
                 </div>
@@ -279,8 +279,8 @@
     @if($contents->section_11_title_en)
         <section class="contact-us py-5">
             <div class="container">
-                <h1 class="fs-49">{{ $contents->{'section_11_title_' . $middleware_language} ?? $contents->section_11_title_en }}</h1>
-                <p class="fs-25">{{ $contents->{'section_11_sub_title_' . $middleware_language} ?? $contents->section_11_sub_title_en }}</p>
+                <div class="heading">{{ $contents->{'section_11_title_' . $middleware_language} ?? $contents->section_11_title_en }}</div>
+                <div class="sub-heading">{{ $contents->{'section_11_sub_title_' . $middleware_language} ?? $contents->section_11_sub_title_en }}</div>
 
                 <div class="contact-us-icons">
                     <div class="row d-flex align-items-end">
@@ -288,7 +288,7 @@
                             <div class="icon-item text-center">
                                 <a href="mailto:{{ $settings->email }}" class="text-decoration-none">
                                     <img src="{{ asset('storage/frontend/email-gray.svg') }}" alt="Email Icon" class="img-fluid">
-                                    <p>{{ $settings->email }}</p>
+                                    <div>{{ $settings->email }}</div>
                                 </a>
                             </div>
                         </div>
@@ -297,7 +297,7 @@
                             <div class="icon-item text-center">
                                 <a href="{{ $settings->instagram }}" class="text-decoration-none" target="_blank">
                                     <img src="{{ asset('storage/frontend/instagram-gray.svg') }}" alt="Instagram Icon" class="img-fluid">
-                                    <p>{{ $contents->{'section_11_instagram_' . $middleware_language} ?? $contents->section_11_instagram_en }}</p>
+                                    <div>{{ $contents->{'section_11_instagram_' . $middleware_language} ?? $contents->section_11_instagram_en }}</div>
                                 </a>
                             </div>
                         </div>
@@ -306,7 +306,7 @@
                             <div class="icon-item text-center">
                                 <a href="{{ $settings->twitter }}" class="text-decoration-none" target="_blank">
                                     <img src="{{ asset('storage/frontend/twitter-gray.svg') }}" alt="Twitter Icon" class="img-fluid">
-                                    <p>{{ $contents->{'section_11_twitter_' . $middleware_language} ?? $contents->section_11_twitter_en }}</p>
+                                    <div>{{ $contents->{'section_11_twitter_' . $middleware_language} ?? $contents->section_11_twitter_en }}</div>
                                 </a>
                             </div>
                         </div>
@@ -315,7 +315,7 @@
                             <div class="icon-item text-center">
                                 <a href="{{ $settings->linkedin }}" class="text-decoration-none" target="_blank">
                                     <img src="{{ asset('storage/frontend/linkedin-gray.svg') }}" alt="LinkedIn Icon" class="img-fluid">
-                                    <p>{{ $contents->{'section_11_linkedin_' . $middleware_language} ?? $contents->section_11_linkedin_en }}</p>
+                                    <div>{{ $contents->{'section_11_linkedin_' . $middleware_language} ?? $contents->section_11_linkedin_en }}</div>
                                 </a>
                             </div>
                         </div>
@@ -324,7 +324,7 @@
                             <div class="icon-item text-center">
                                 <a href="{{ $settings->youtube }}" class="text-decoration-none" target="_blank">
                                     <img src="{{ asset('storage/frontend/youtube-gray.svg') }}" alt="Youtube Icon" class="img-fluid">
-                                    <p>{{ $contents->{'section_11_youtube_' . $middleware_language} ?? $contents->section_11_youtube_en }}</p>
+                                    <div>{{ $contents->{'section_11_youtube_' . $middleware_language} ?? $contents->section_11_youtube_en }}</div>
                                 </a>
                             </div>
                         </div>
@@ -333,7 +333,7 @@
                             <div class="icon-item text-center">
                                 <a href="{{ $settings->fb }}" class="text-decoration-none" target="_blank">
                                     <img src="{{ asset('storage/frontend/facebook-gray.svg') }}" alt="Facebook Icon" class="img-fluid">
-                                    <p>{{ $contents->{'section_11_facebook_' . $middleware_language} ?? $contents->section_11_facebook_en }}</p>
+                                    <div>{{ $contents->{'section_11_facebook_' . $middleware_language} ?? $contents->section_11_facebook_en }}</div>
                                 </a>
                             </div>
                         </div>
@@ -341,11 +341,11 @@
                 </div>
 
                 <div class="newsletter mt-4">
-                    <h2 class="mb-3 fs-20" style="color: #0040c3;">{{ $contents->{'section_11_message_' . $middleware_language} ?? $contents->section_11_message_en }}</h2>
+                    <div class="mb-3 fs-20" style="color: #0040c3;">{{ $contents->{'section_11_message_' . $middleware_language} ?? $contents->section_11_message_en }}</div>
                     
                     <form action="{{ route('frontend.subscription') }}" method="POST">
                         @csrf
-                                                <div class="container">
+                        <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <div class="d-flex flex-md-row justify-content-center align-items-center">

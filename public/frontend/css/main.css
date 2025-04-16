@@ -28,7 +28,7 @@ a, a:hover {
 }
 
 .page {
-    padding-top: 7%;
+    padding-top: 100px
 }
 /* Common styles */
 /********** Template CSS **********/
@@ -64,8 +64,8 @@ a, a:hover {
 
 /* FONT FAMILIES */
 
-/* Define font weights for Poppins */
-/* .ff-poppins-regular {
+Define font weights for Poppins */
+.ff-poppins-regular {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
@@ -73,7 +73,7 @@ a, a:hover {
 .ff-poppins-medium {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-}
+} 
 
 .ff-poppins-semibold {
     font-family: 'Poppins', sans-serif;
@@ -85,8 +85,8 @@ a, a:hover {
     font-weight: 700;
 }
 
-/* Define font weights for Open Sans */
-/* .ff-open-sans-regular {
+/*Define font weights for Open Sans */
+.ff-open-sans-regular {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
@@ -94,7 +94,7 @@ a, a:hover {
 .ff-open-sans-semibold {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-} */
+}
 
 
 /* Utility classes for font weights */
@@ -375,10 +375,10 @@ a, a:hover {
         font-size: 8px; /* was 0.5rem */
     }
     .page {
-        padding-top: 9%;
+        padding-top: 95px;
     }
 
-    .text-heading, .text-heading p, .text-heading ul, .text-heading li, .text-heading a {
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4 ,.text-heading h5, .text-heading h6 {
         font-size: 18px;
     }
 
@@ -397,6 +397,14 @@ a, a:hover {
     .other-button .icon,
     .other-white-button .icon {
         width: 20px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 36px;
+    }
+    
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 20px;
     }
 }
 
@@ -432,7 +440,7 @@ a, a:hover {
     }
     
     .page {
-        padding-top: 15%;
+        padding-top: 70px;
     }
     .fs-22 {
         font-size: 16px; /* was 1rem */
@@ -459,7 +467,7 @@ a, a:hover {
         font-size: 8px; /* was 0.5rem */
     }
 
-    .text-heading, .text-heading p, .text-heading ul, .text-heading li, .text-heading a {
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
         font-size: 16px;
     }
 
@@ -478,6 +486,14 @@ a, a:hover {
     .other-button .icon,
     .other-white-button .icon {
         width: 18px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 32px;
+    }
+    
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 18px;
     }
 }
 
@@ -515,7 +531,7 @@ a, a:hover {
         font-size: 16px;
     }
     .page {
-        padding-top: 25%;
+        padding-top: 70px;
     }
 
     .fs-20 {
@@ -555,7 +571,7 @@ a, a:hover {
         font-size: 16px !important; /* was 1rem */
     }
 
-    .text-heading, .text-heading p, .text-heading ul, .text-heading li, .text-heading a {
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
         font-size: 15px;
     }
 
@@ -574,6 +590,14 @@ a, a:hover {
     .other-button .icon,
     .other-white-button .icon {
         width: 16px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 28px;
+    }
+    
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 16px;
     }
 }
 
@@ -602,7 +626,7 @@ a, a:hover {
         font-size: 15px;
     }
 
-    .text-heading, .text-heading p, .text-heading ul, .text-heading li, .text-heading a {
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4 , .text-heading h5, .text-heading h6 {
         font-size: 14px;
     }
 
@@ -621,6 +645,17 @@ a, a:hover {
     .other-button .icon,
     .other-white-button .icon {
         width: 14px;
+    }
+    .page{
+        padding-top: 70px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 24px;
+    }
+    
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 15px;
     }
 }
 

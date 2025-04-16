@@ -113,21 +113,21 @@
                     <ul class="nav nav-pills d-flex justify-content-center mb-5 flex-md-row flex-column w-100">
                         <li class="nav-item mx-5">
                             <a class="d-flex align-items-center ms-0 pb-md-0 pb-0 active pill-link w-100" data-bs-toggle="pill" href="#tab-1">
-                                <div class="tab-text fs-25 mt-1 mb-0">
+                                <div class="tab-text text-heading mt-1 mb-0">
                                     {{ $contents->{'section_3_first_tab_' . $middleware_language} ?? $contents->section_3_first_tab_en }}
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item mx-5">
                             <a class="d-flex align-items-center pb-md-0 pb-0 pill-link" data-bs-toggle="pill" href="#tab-2">
-                                <div class="tab-text fs-25 mt-1 mb-0">
+                                <div class="tab-text text-heading mt-1 mb-0">
                                     {{ $contents->{'section_3_second_tab_' . $middleware_language} ?? $contents->section_3_second_tab_en }}
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item mx-5">
                             <a class="d-flex align-items-center me-0 pb-md-0 pb-0 pill-link" data-bs-toggle="pill" href="#tab-3">
-                                <div class="tab-text fs-25 mt-1 mb-0">
+                                <div class="tab-text text-heading mt-1 mb-0">
                                     {{ $contents->{'section_3_third_tab_' . $middleware_language} ?? $contents->section_3_third_tab_en }}
                                 </div>
                             </a>
@@ -151,9 +151,9 @@
                                                     </div>
                                                     <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
                                                     <div class="card-body course-card-body ps-4">
-                                                        <div class="card-title fs-25 d-flex justify-content-start text-start">{{ $course->title }}</div>
-                                                        <div class="apply-now-container d-flex justify-content-between align-items-center w-100">
-                                                            <div class="apply-now-text fs-25">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                        <div class="card-title text-heading d-flex justify-content-start text-start">{{ $course->title }}</div>
+                                                        <div class="apply-now-container d-flex justify-content-between align-items-center text=content w-100">
+                                                            <div class="apply-now-text text-content mb-0">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
                                                             <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
                                                         </div>
                                                     </div>
@@ -226,7 +226,7 @@
                 </div>
 
                 @guest
-                    <div class="text-center pt-5">
+                    <div class="text-center pt-3">
                         <a href="{{ route('frontend.register') }}" class=" sub-heading explore-course-text">
                             {{ $contents->{'section_3_label_' . $middleware_language} ?? $contents->section_3_label_link_en }}
                             <img src="{{ asset('storage/frontend/arrow-right.svg') }}" class="arrow-right-icon"/>
@@ -373,7 +373,7 @@
                                     </div><div class="row text-center g-4 pt-4 d-flex justify-content-center">
                                 @endif
                                 <div class="col-6 col-md-2">
-                                    <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}" class="img-fluid rounded-circle expert-select" data-bs-toggle="modal" data-bs-target="#expert-modal-{{ $advisory_board->id }}" id="{{ $advisory_board->id }}">
+                                    <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}" class="img-fluid rounded-circle expert-select" data-bs-toggle="modal" data-bs-target="#expert-modal-{{ $advisory_board->id }}" id="{{ $advisory_board->id }}" style="cursor: pointer;">
                                 </div>
 
                                 <div class="modal fade" id="expert-modal-{{ $advisory_board->id }}" tabindex="-1" role="dialog" aria-labelledby="expert-modal-label" aria-hidden="true">
@@ -394,7 +394,7 @@
                                                         <button type="button" class="btn-close position-absolute btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                 </div>
-                                                <div class="mt-md-4 text-content text-left">
+                                                <div class="mt-4 text-content text-start">
                                                     {!! $advisory_board->description !!}
                                                 </div>
                                             </div>
@@ -407,7 +407,7 @@
                         <div class="row text-center g-4 pt-4 d-flex justify-content-center">
                             @foreach($advisory_boards->slice(10, 4) as $advisory_board)
                                 <div class="col-6 col-md-2">
-                                    <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}" class="img-fluid rounded-circle expert-select" data-bs-toggle="modal" data-bs-target="#expert-modal-{{ $advisory_board->id }}" id="{{ $advisory_board->id }}">
+                                    <img src="{{ asset('storage/backend/persons/advisory-boards/' . $advisory_board->image) }}" class="img-fluid rounded-circle expert-select" data-bs-toggle="modal" data-bs-target="#expert-modal-{{ $advisory_board->id }}" id="{{ $advisory_board->id }}" style="cursor: pointer;">
                                 </div>
 
                                 <div class="modal fade" id="expert-modal-{{ $advisory_board->id }}" tabindex="-1" role="dialog" aria-labelledby="expert-modal-label" aria-hidden="true">
@@ -428,7 +428,7 @@
                                                         <button type="button" class="btn-close position-absolute btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                 </div>
-                                                <div class="mt-4 text-content text-left">
+                                                <div class="mt-4 text-content text-start">
                                                     {!! $advisory_board->description !!}
                                                 </div>
                                             </div>
@@ -481,16 +481,16 @@
                 </div>
 
                 <div class="text-center pt-5">
-                    <div class="mb-3 list-heading fs-25">{{ $contents->{'section_8_sub_description_' . $middleware_language} ?? $contents->section_8_sub_description_en }}</div>
+                    <div class="mb-3 list-heading text-heading">{{ $contents->{'section_8_sub_description_' . $middleware_language} ?? $contents->section_8_sub_description_en }}</div>
 
                     <div class="d-flex justify-content-center flex-wrap">
-                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->section_8_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->section_8_labels_links_en)[0]->label }}</a>
+                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[0]->link ?? json_decode($contents->section_8_labels_links_en)[0]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1 text-content">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[0]->label ?? json_decode($contents->section_8_labels_links_en)[0]->label }}</a>
 
-                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->section_8_labels_links_en)[1]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->section_8_labels_links_en)[1]->label }}</a>
+                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[1]->link ?? json_decode($contents->section_8_labels_links_en)[1]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1 text-content">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[1]->label ?? json_decode($contents->section_8_labels_links_en)[1]->label }}</a>
 
-                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[2]->link ?? json_decode($contents->section_8_labels_links_en)[2]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[2]->label ?? json_decode($contents->section_8_labels_links_en)[2]->label }}</a>
+                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[2]->link ?? json_decode($contents->section_8_labels_links_en)[2]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1 text-content">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[2]->label ?? json_decode($contents->section_8_labels_links_en)[2]->label }}</a>
 
-                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[3]->link ?? json_decode($contents->section_8_labels_links_en)[3]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[3]->label ?? json_decode($contents->section_8_labels_links_en)[3]->label }}</a>
+                        <a href="{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[3]->link ?? json_decode($contents->section_8_labels_links_en)[3]->link }}" type="button" class="btn btn-outline-secondary nutritionist-button btn-responsive mx-2 my-1 text-content">{{ json_decode($contents->{'section_8_labels_links_' . $middleware_language})[3]->label ?? json_decode($contents->section_8_labels_links_en)[3]->label }}</a>
                     </div>
                 </div>
             </div>

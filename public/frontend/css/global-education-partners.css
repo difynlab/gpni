@@ -5,7 +5,6 @@ body {
 .section-title-global {
     font-weight: 500;
     color: #0e0e0e;
-    line-height: 1.4;
     text-align: center;
     position: relative;
 }
@@ -14,7 +13,6 @@ body {
     width: 100%;
     font-weight: 500;
     color: #0e0e0e;
-    line-height: 1.4;
     text-align: center;
     position: relative;
 }
@@ -78,11 +76,6 @@ body {
 .education-table .section-title {
     color: var(--white, #FFF);
     font-weight: 500;
-}
-
-.education-table table {
-    width: 100%;
-    /* margin: 40px 0; */
 }
 
 .education-table th,

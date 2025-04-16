@@ -15,10 +15,8 @@ body {
 .section-1 h4 {
     color: #505050;
     font-family: Poppins;
-    font-size: 23px;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; 
     margin-bottom: 20px; 
 
 }
@@ -26,10 +24,9 @@ body {
 .section-1 p {
     color: #000;
     font-family: Poppins;
-    font-size: 23px;
+
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
 }
 
 .section-1 ul {
@@ -73,14 +70,13 @@ body {
 
 .section-heading,
 .coming-soon {
-    font-size: 20px;
     font-weight: 500;
     line-height: 140%;
     color: #505050;
 }
 
 .content-text {
-    font-size: 20px;
+
     font-weight: 400;
     line-height: 140%;
     color: #505050;
@@ -143,7 +139,6 @@ body {
 .speaker-title {
     color: #FFF;
     font-family: Poppins;
-    font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: 140%;
@@ -155,7 +150,6 @@ body {
     font-family: Poppins;
     font-style: normal;
     font-weight: 300;
-    line-height: 140%;
     padding-top: 5px;
     padding-left: 30px;
 }
@@ -203,8 +197,6 @@ body {
     text-align: center;
     font-family: Poppins;
     font-weight: 400;
-    line-height: 140%;
-    /* 35px */
 }
 
 .summary-section .video-container {
@@ -235,7 +227,6 @@ body {
 }
 
 .final-statement {
-    font-size: 25px;
     font-weight: 400;
     line-height: 140%;
     color: #505050;
@@ -246,10 +237,8 @@ body {
 .section-3 p {
     color: #000;
     font-family: Poppins;
-    font-size: 23px;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
 }
 
 .section-3 ul {
@@ -264,7 +253,6 @@ body {
     margin-bottom: 30px; 
     color: #000;
     font-family: Poppins;
-    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 130%; /* 26px */
@@ -311,7 +299,6 @@ body {
 }
 
 .section-4 p{
-    font-size: 25px;
     text-align: center;
     font-weight: 400;
 }
@@ -322,7 +309,6 @@ body {
     -webkit-columns: 2; 
     -moz-columns: 2; 
     column-gap: 229px; 
-    font-size: 20px;
     list-style-type: none;
     padding-left: 0;
     width: 100%; 
@@ -337,7 +323,6 @@ body {
     padding-bottom: 1rem;
     color: #FFF;
     font-family: Poppins;
-    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 130%; /* 26px */
@@ -360,7 +345,6 @@ body {
 
 
 .expert-list {
-    font-size: 20px;
     font-weight: 300;
     line-height: 130%;
 }
@@ -380,23 +364,18 @@ body {
 }
 
 .Webinar-Seminar-Key-Takeaways-section .takeaway-list {
-    font-size: 20px;
     font-weight: 400;
     line-height: 130%;
     color: #505050;
 }
 
 .section-5 h4{
-    font-size: 49px;
     font-weight: 500;
-    line-height: 140%;
     color: #0e0e0e;
 }
 
 .section-5 p{
-    font-size: 24px;
     font-weight: 400;
-    line-height: 140%;
     color: #000;
 }
 
@@ -410,9 +389,7 @@ body {
     padding-left: 2.5rem;
     /* margin-bottom: 30px; */
     color: #505050;
-    /* font-size: 20px; */
     font-weight: 400;
-    line-height: 130%;
 }
 
 .section-5 ul li::before{
@@ -437,8 +414,6 @@ body {
 .learn-more-earn-more h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 49px;
-    line-height: 120%;
 }
 
 .learn-more-earn-more p {
@@ -446,7 +421,6 @@ body {
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; 
 }
 
 .learn-more-earn-more p.italic {
@@ -467,14 +441,12 @@ body {
 .learn-grow-career-business h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 49px;
     line-height: 120%;
 }
 
 .learn-grow-career-business p {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    line-height: 140%;
     color: #000;
 }
 
@@ -483,8 +455,6 @@ body {
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 130%;
     color: #505050;
     /* margin-bottom: 20px; */
 }
@@ -507,7 +477,6 @@ body {
 }
 
 .section-7 h4 {
-    font-size: 49px;
     font-weight: 500;
     line-height: 120%;
     color: #0e0e0e;
@@ -561,7 +530,6 @@ body {
     border: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 20px;
     color: #0040c3;
     padding: 15px 30px;
     border-radius: 5px;
@@ -630,14 +598,12 @@ body {
 .special-offer-members h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 49px;
     line-height: 120%;
 }
 
 .special-offer-members h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 25px;
     line-height: 140%;
 }
 
@@ -679,7 +645,6 @@ body {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 16px;
     color: #9a9a9a;
 }
 
@@ -706,8 +671,6 @@ body {
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 15px;
-    line-height: 22.5px;
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
@@ -716,26 +679,12 @@ body {
 }
 /* Mobile devices (max-width: 767.98px) */
 @media (max-width: 767.98px) {
-    .section-1 h4,
-    .section-3 h4,
-    .section-5 h4,
-    .section-7 h4 {
-        font-size: 18px;
-    }
-
-    .section-1 p,
-    .section-3 p,
-    .section-5 p,
-    .section-7 p {
-        font-size: 14px;
-    }
 
     .section-1 ul li,
     .section-3 ul li,
     .section-5 ul li,
     .section-7 ul li {
         padding-left: 25px;
-        font-size: 14px;
         text-align: start;
     }
 
@@ -752,16 +701,6 @@ body {
 
     .speaker-text {
         padding-left: 0;
-    }
-
-    .speaker-text h4 {
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-    .speaker-text p {
-        font-size: 14px;
-        font-weight: 300;
     }
 
     .section-3 {
@@ -781,13 +720,9 @@ body {
 
     .section-4 ul li {
         padding: 10px 0 6px 30px;
-        font-size: 12px !important;
         white-space: wrap;
     }
 
-    .section-4 p {
-        font-size: 16px !important;
-    }
 
     .section-4 ul li::before {
         width: 15px; /* Adjust based on the icon size */
@@ -805,7 +740,6 @@ body {
     .learn-more-earn-more p {
         color: #FFF;
         font-family: "Poppins";
-        font-size: 14px;
     }
 
     .content-section {
@@ -821,50 +755,14 @@ body {
         width: 300px;
         height: 300px;
     }
-
-    .section-10-content p {
-        font-size: 14px;
-    }
-
-    .section-10-content h1,
-    .section-10-content h2,
-    .section-10-content h3,
-    .section-10-content h4 {
-        font-size: 16px; /* Adjust the size as needed */
-    }
-
-    .special-offer-members p{
-        font-size: 18px;
-    }
 }
 
 /* Tablet devices (min-width: 768px) and (max-width: 1024px) */
 @media (min-width: 768px) and (max-width: 1023px) {
-    .section-1 h4,
-    .section-3 h4,
-    .section-4 h1,
-    .section-4 h2,
-    .section-4 h3,
-    .section-4 h4,
-    .section-5 h1,
-    .section-5 h2,
-    .section-5 h3,
-    .section-5 h4 {
-        font-size: 18px;
-    }
-
-    .section-1 p,
-    .section-3 p,
-    .section-4 p,
-    .section-5 p {
-        font-size: 16px !important;
-    }
-
     .section-1 ul li,
     .section-3 ul li,
     .section-5 ul li {
         padding-left: 25px;
-        font-size: 14px;
         text-align: start;
     }
 
@@ -892,7 +790,6 @@ body {
 
     .section-4 ul li {
         padding: 5px 0 5px 30px;
-        font-size: 12px !important;
         white-space: wrap;
     }
 
@@ -909,13 +806,7 @@ body {
         max-height: 330px;
     }
 
-    .learn-more-earn-more p {
-        font-family: "Poppins";
-        font-size: 14px;
-    }
-
     .learn-grow-career-business p {
-        font-size: 14px;
         color: #505050;
     }
     .learn-grow-video {
@@ -925,7 +816,6 @@ body {
 
     .section-7 ul li {
         padding-left: 25px;
-        font-size: 14px;
         text-align: start;
     }
 
@@ -935,23 +825,6 @@ body {
         background-image: url('/storage/frontend/circle-tick.svg');
         background-size: contain;
         background-repeat: no-repeat;
-    }
-
-    
-    .section-10-content p {
-        font-size: 18px;
-    }
-
-    .section-10-content h1,
-    .section-10-content h2,
-    .section-10-content h3,
-    .section-10-content h4 {
-        font-size: 20px; /* Adjust the size as needed */
-    }
-
-    .special-offer-members p{
-        font-size: 18px;
-
     }
 }
 
@@ -971,33 +844,15 @@ body {
         padding: 2rem;
     }
 
-    .section-4 p {
-        font-size: 20px;
-    }
-
 }
 /* Laptop devices (min-width: 1024px) and (max-width: 1440px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
-    .section-1 h4,
-    .section-3 h4,
-    .section-4 h4,
-    .section-5 h4 {
-        font-size: 20px;
-    }
-
-    .section-1 p,
-    .section-3 p,
-    .section-4 p,
-    .section-5 p {
-        font-size: 20px;
-    }
 
     .section-1 ul li,
     .section-3 ul li,
     .section-4 ul li,
     .section-5 ul li {
         padding-left: 35px;
-        font-size: 20px;
         text-align: start;
     }
 
@@ -1027,16 +882,11 @@ body {
     .learn-more-earn-more p {
         color: #FFF;
         font-family: "Poppins";
-        font-size: 20px;
     }
 }
 
 /* Desktop devices (min-width: 1440px) */
 @media (min-width: 1440px) {
-    .section-1 h4 {
-        font-size: 24px;
-    }
-
 
     .section-1 ul li {
         padding-left: 40px;

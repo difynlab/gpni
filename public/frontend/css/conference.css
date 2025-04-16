@@ -16,7 +16,6 @@ body {
     /* background: #ffffff; */
     padding: 20px;
     border-radius: 8px;
-    margin-bottom: 15px;
 }
 
 .return-link {
@@ -110,6 +109,13 @@ body {
 .event-info-title {
     background: #eaeaea;
     color: #0e0e0e;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Left-align text horizontally */
+}
+
+.text-heading {
+    margin-bottom: 0;
 }
 
 .event-info-title.title-column {
@@ -117,7 +123,8 @@ body {
     min-width: fit-content;
     flex: 0 0 auto;
     display: flex !important;
-    align-items: center !important;
+    align-items: center !important; /* Vertical centering */
+    justify-content: flex-start !important; /* Left-align text horizontally */
 }
 
 .event-info-value {
@@ -184,7 +191,6 @@ body {
     font-weight: 500;
     border: none;
     cursor: pointer;
-    margin: 30px 0;
 }
 
 .contact-info {
@@ -275,11 +281,17 @@ body {
     border-radius: 4px;
 }
 
-.price-table th,
+.price-table th {
+    font-weight: 500;
+    font-size: 20px;
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid #5b5b5b;
+    background-color: #f8f8f8;
+}
 .price-table td {
     font-weight: 400;
-    font-size: 25px;
-    line-height: 140%;
+    font-size: 18px;
     text-align: left;
     padding: 10px 12px;
     border: 1px solid #5b5b5b;

@@ -331,7 +331,7 @@ body {
 .popup-description p {
     text-align: left;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .social-icons {
@@ -711,12 +711,12 @@ body {
 }
 
 .popup-title{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
 }
 
 .popup-designation{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
 }
 

@@ -12,14 +12,14 @@
 
     @if($contents->title_en)
         <div class="container py-5">
-            <h2 class="header-title text-center">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
+            <div class="heading text-center">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
             <div class="pt-0">
                 <x-frontend.notification></x-frontend.notification>
                 <x-frontend.notification-popup></x-frontend.notification-popup>
             </div>
-            <p class="description fs-25 text-center">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
+            <p class="description sub-heading text-center">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
 
-            <p class="description fs-25 text-center">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
+            <p class="description sub-heading text-center">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
 
             <div class="row mt-5">
                 <div class="col-lg-6 col-md-12">
@@ -48,17 +48,17 @@
                     <form action="{{ route('frontend.gift-cards.checkout') }}" method="POST" onsubmit="return validateForm()">
                         @csrf
                         <div class="form-group pb-3">
-                            <label for="receiver-name" class="fs-25 pb-1">{{ $contents->{'receiver_name_' . $middleware_language} ?? $contents->receiver_name_en }}</label>
-                            <input type="text" class="form-control" id="receiver-name" name="receiver_name" required>
+                            <label for="receiver-name" class="text-heading pb-1">{{ $contents->{'receiver_name_' . $middleware_language} ?? $contents->receiver_name_en }}</label>
+                            <input type="text" class="form-control text-content" id="receiver-name" name="receiver_name" required>
                         </div>
 
                         <div class="form-group pb-3">
-                            <label for="receiver-email" class="required fs-25 pb-1">{{ $contents->{'receiver_email_' . $middleware_language} ?? $contents->receiver_email_en }}</label>
+                            <label for="receiver-email" class="required text-heading pb-1">{{ $contents->{'receiver_email_' . $middleware_language} ?? $contents->receiver_email_en }}</label>
                             <input type="email" class="form-control" id="receiver-email" name="receiver_email" required>
                         </div>
 
                         <div class="form-group pb-3">
-                            <label class="required fs-25 pb-1">{{ $contents->{'select_amount_' . $middleware_language} ?? $contents->select_amount_en }}</label>
+                            <label class="required text-heading pb-1">{{ $contents->{'select_amount_' . $middleware_language} ?? $contents->select_amount_en }}</label>
                             <div class="d-flex flex-wrap justify-content-between justify-content-md-start">
                                 @foreach($amounts as $amount)
                                     <button type="button" class="btn btn-outline-primary mx-1 my-2 btn-responsive" onclick="setAmount({{ $amount }})">{{ $currency_symbol }}{{ $amount }}</button>
@@ -73,11 +73,11 @@
                         </div>
 
                         <div class="form-group pb-3">
-                            <label for="message" class="required fs-25 pb-1">{{ $contents->{'message_' . $middleware_language} ?? $contents->message_en }}</label>
+                            <label for="message" class="required text-heading pb-1">{{ $contents->{'message_' . $middleware_language} ?? $contents->message_en }}</label>
                             <textarea class="form-control form-textarea" id="message" rows="3" name="message" required></textarea>
                         </div>
 
-                        <button type="submit" class="fs-20 btn btn-submit btn-responsive">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
+                        <button type="submit" class="blue-button btn-responsive">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
                     </form>
                 </div>
             </div>

@@ -14,7 +14,7 @@
         <div class="container pt-5">
             <x-frontend.notification></x-frontend.notification>
 
-            <h2 class="all-articles-heading">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</h2>
+            <div class="all-articles-heading heading">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</div>
 
             <div class="video-section my-4">
                 <div class="container">
@@ -92,9 +92,9 @@
                                                         <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</span>
                                                     </div>
                                                     <a href="{{ route('frontend.articles.show', [$article, \Overtrue\Pinyin\Pinyin::permalink($article->title)]) }}" class="text-decoration-none">
-                                                        <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $article->title }}</h5>
+                                                        <div class="text-primary-title text-heading mb-2 title-clamp">{{ $article->title }}</div>
                                                     </a>
-                                                    <div class="fs-16 card-text mb-4 line-clamp-3">{{ $article->short_description }}</div>
+                                                    <div class="text-content card-text mb-3 line-clamp-3">{{ $article->short_description }}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                                                     </div>
 
                                                     <a href="{{ route('frontend.articles.show', [$recommended_article, \Overtrue\Pinyin\Pinyin::permalink($recommended_article->title)]) }}" class="text-decoration-none">
-                                                        <h5 class="text-primary-title fs-22 mb-2 title-clamp">{{ $recommended_article->title }}</h5>
+                                                        <div class="text-primary-title fs-22 mb-2 title-clamp">{{ $recommended_article->title }}</div>
                                                     </a>
 
                                                     <div class="fs-16 card-text mb-4 line-clamp-3">{{ $recommended_article->short_description }}</div>
@@ -156,7 +156,7 @@
 
                 <div class="col-lg-4 ps-md-4 px-3">
                     <div class="trending-articles-section">
-                        <h5 class="fs-20 trending-article-title py-2">{{ $contents->{'section_1_trend_' . $middleware_language} ?? $contents->section_1_trend_en }}</h5>
+                        <div class="fs-20 trending-article-title py-2 fw-bold">{{ $contents->{'section_1_trend_' . $middleware_language} ?? $contents->section_1_trend_en }}</div>
 
                         @if($trending_articles->isNotEmpty())'
                         '
@@ -173,8 +173,8 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="trending-content">
-                                                    <h6 class="trending-content-title title-clamp fs-13">{{ $trending_article->title }}
-                                                    </h6>
+                                                    <div class="trending-content-title title-clamp fs-13">{{ $trending_article->title }}
+                                                    </div>
 
                                                     <div class="line-clamp-2">{{ $trending_article->short_description }}</div>
 
@@ -203,7 +203,7 @@
                     </div>
 
                     <div class="find-us-on d-flex flex-column align-items-lg-start align-items-center">
-                        <div class="title fs-16 text-lg-start text-center">
+                        <div class="title fs-16 text-lg-start text-center fw-bold">
                             {{ $contents->{'section_1_social_title_' . $middleware_language} ??
                             $contents->section_1_social_title_en }}
                         </div>
@@ -221,13 +221,13 @@
                     </div>
 
                     <div class="subscribe fs-16 d-flex flex-column align-items-lg-start align-items-center">
-                        <h5 class="fs-16 text-lg-start text-center w-100">
+                        <div class="fs-18 text-lg-start text-center w-100 fw-bold mb-3">
                             {{ $contents->{'section_1_newsletter_title_' . $middleware_language} ??
-                            $contents->section_1_newsletter_title_en }}</h5>
+                            $contents->section_1_newsletter_title_en }}</div>
 
-                        <p class="fs-16 text-lg-start text-center w-100">
+                        <div class="fs-16 text-lg-start text-center w-100 mb-3">
                             {{ $contents->{'section_1_newsletter_description_' . $middleware_language} ??
-                            $contents->section_1_newsletter_description_en }}</p>
+                            $contents->section_1_newsletter_description_en }}</div>
 
                         <form class="subscribe-form-article" action="{{ route('frontend.subscription') }}" method="POST">
                             @csrf
@@ -244,11 +244,11 @@
 
     @if($contents->section_2_title_en)
         <div class="instagram-section container-fluid px-3 px-md-4 py-5">
-            <h2 class="fs-49 mb-3 mb-md-4">{{ $contents->{'section_2_title_' . $middleware_language} ??
-                $contents->section_2_title_en }}</h2>
+            <div class="heading mb-3">{{ $contents->{'section_2_title_' . $middleware_language} ??
+                $contents->section_2_title_en }}</div>
 
-            <p class="fs-25 mb-4 mb-md-5">{{ $contents->{'section_2_description_' . $middleware_language} ??
-                $contents->section_2_description_en }}</p>
+            <div class="sub-heading mb-4 mb-md-5">{{ $contents->{'section_2_description_' . $middleware_language} ??
+                $contents->section_2_description_en }}</div>
 
             <div class="instagram-images row g-3 justify-content-center">
                 <div class="col-6 col-sm-6 col-md-3">

@@ -20,9 +20,9 @@
                 <div class="event-title-wrapper text-center">
                     <div class="title-container mobile-full-width">
                         <div class="event-title-container mobile-full-width">
-                            <h1 class="event-title fs-49 mobile-title">
+                            <div class="event-title heading mobile-title">
                                 <span>{{ $conference->title }}</span>
-                            </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -35,23 +35,23 @@
 
                 <div class="event-info-container">
                     <div class="event-info-row row mx-0">
-                        <div class="event-info-title title-column col-12 col-md-4 fs-25">{{ $contents->{'date_' . $middleware_language} ?? $contents->date_en }}</div>
-                        <div class="event-info-value col-12 col-md-8 fs-25">{{ $conference->date }}</div>
+                        <div class="event-info-title title-column col-12 col-md-4 text-heading">{{ $contents->{'date_' . $middleware_language} ?? $contents->date_en }}</div>
+                        <div class="event-info-value col-12 col-md-8 text-heading">{{ $conference->date }}</div>
                     </div>
                     <div class="event-info-row row mx-0">
-                        <div class="event-info-title title-column col-12 col-md-4 fs-25">{{ $contents->{'where_' . $middleware_language} ?? $contents->where_en }}</div>
-                        <div class="event-info-value col-12 col-md-8 fs-25">{{ $conference->where }}</div>
+                        <div class="event-info-title title-column col-12 col-md-4 text-heading">{{ $contents->{'where_' . $middleware_language} ?? $contents->where_en }}</div>
+                        <div class="event-info-value col-12 col-md-8 text-heading">{{ $conference->where }}</div>
                     </div>
                     <div class="event-info-row row mx-0">
-                        <div class="event-info-title event-info-warning-title title-column col-12 col-md-4 fs-25">{{ $contents->{'early_registration_deadline_' . $middleware_language} ?? $contents->early_registration_deadline_en }}</div>
+                        <div class="event-info-title event-info-warning-title title-column col-12 col-md-4 text-heading">{{ $contents->{'early_registration_deadline_' . $middleware_language} ?? $contents->early_registration_deadline_en }}</div>
                         <div class="event-info-value event-info-warning-value col-12 col-md-8 fs-20">{{ $conference->early_registration_deadline }}</div>
                     </div>
 
                     @if($conference->more_details)
                         @foreach(json_decode($conference->more_details) as $more_detail)
                             <div class="event-info-row row mx-0">
-                                <div class="event-info-title title-column col-12 col-md-4 fs-25">{{ $more_detail->title }}</div>
-                                <div class="event-info-value col-12 col-md-8 fs-25">{{ $more_detail->value }}</div>
+                                <div class="event-info-title title-column col-12 col-md-4 text-heading">{{ $more_detail->title }}</div>
+                                <div class="event-info-value col-12 col-md-8 text-heading">{{ $more_detail->value }}</div>
                             </div>
                         @endforeach
                     @endif
@@ -61,10 +61,10 @@
             @if($conference->price_details)
                 <section class="container-shadow">
                     <div class="price-details">
-                        <h2 class="mb-4 fs-49">{{ $contents->{'price_details_' . $middleware_language} ?? $contents->price_details_en }}</h2>
+                        <div class="mb-4 heading">{{ $contents->{'price_details_' . $middleware_language} ?? $contents->price_details_en }}</div>
 
                         <div class="table-responsive">
-                            <table class="price-table table">
+                            <table class="price-table table text-heading text-content">
                                 <thead>
                                     <tr>
                                         <th>{{ $contents->{'member_type_' . $middleware_language} ?? $contents->member_type_en }}</th>
@@ -88,49 +88,49 @@
             @endif
 
             <section class="container-shadow">
-                <h1 class="get-in-touch-header fs-49">{{ $contents->{'get_in_touch_' . $middleware_language} ?? $contents->get_in_touch_en }}</h1>
+                <div class="get-in-touch-header heading">{{ $contents->{'get_in_touch_' . $middleware_language} ?? $contents->get_in_touch_en }}</div>
 
                 <div class="form-container">
                     <form action="{{ route('frontend.contact-us.store') }}" method="POST">
                         @csrf
                         <div class="form-row row">
                             <div class="form-group col-md-6">
-                                <label for="first-name" class="required fs-25">{{ $contents->{'first_name_' . $middleware_language} ?? $contents->first_name_en }}</label>
+                                <label for="first-name" class="required text-heading">{{ $contents->{'first_name_' . $middleware_language} ?? $contents->first_name_en }}</label>
                                 <input type="text" class="form-control" id="first-name" name="first_name" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="last-name" class="required fs-25">{{ $contents->{'last_name_' . $middleware_language} ?? $contents->last_name_en }}</label>
+                                <label for="last-name" class="required text-heading">{{ $contents->{'last_name_' . $middleware_language} ?? $contents->last_name_en }}</label>
                                 <input type="text" class="form-control" id="last-name" name="last_name" required>
                             </div>
                         </div>
 
                         <div class="form-row row">
                             <div class="form-group col-md-6">
-                                <label for="email" class="required fs-25">{{ $contents->{'email_' . $middleware_language} ?? $contents->email_en }}</label>
+                                <label for="email" class="required text-heading">{{ $contents->{'email_' . $middleware_language} ?? $contents->email_en }}</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="phone" class="required fs-25">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
+                                <label for="phone" class="required text-heading">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
                                 <input type="tel" class="form-control" id="phone" name="phone" required>
                             </div>
                         </div>
 
                         <div class="form-row row">
                             <div class="form-group col-md-12 reason-group">
-                                <label for="question" class="required fs-25">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
+                                <label for="question" class="required text-heading">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
                                 <input type="text" class="form-control" id="question" name="question" required>
                             </div>
                         </div>
 
                         <div class="form-row row">
                             <div class="form-group col-md-12 comments-group">
-                                <label for="comments" class="required fs-25">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
+                                <label for="comments" class="required text-heading">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
                                 <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" required></textarea>
                             </div>
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-submit btn-responsive fs-20">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
+                            <button type="submit" class="btn btn-primary btn-submit btn-responsive fs-18">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
                         </div>
                     </form>
                 </div>
@@ -142,8 +142,8 @@
                                 <img src="{{ asset('storage/frontend/email.svg') }}" alt="Email Icon">
                             </div>
                             <div class="info-item-content text-truncate">
-                                <p class="title fs-20">{{ $contents->{'contact_email_' . $middleware_language} ?? $contents->contact_email_en }}</p>
-                                <p class="info fs-16">{{ $settings->email }}</p>
+                                <div class="title fs-20">{{ $contents->{'contact_email_' . $middleware_language} ?? $contents->contact_email_en }}</div>
+                                <div class="info fs-16">{{ $settings->email }}</div>
                             </div>
                         </div>
                         <div class="info-item col-md-6">
@@ -151,8 +151,8 @@
                                 <img src="{{ asset('storage/frontend/phone.svg') }}" alt="Phone Icon">
                             </div>
                             <div class="info-item-content text-truncate">
-                                <p class="title fs-20">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}</p>
-                                <p class="info fs-16">{{ $settings->whatsapp }}</p>
+                                <div class="title fs-20">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}</div>
+                                <div class="info fs-16">{{ $settings->whatsapp }}</div>
                             </div>
                         </div>
                     </div>

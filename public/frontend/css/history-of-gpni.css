@@ -65,7 +65,7 @@
 
 /* Section 2 - Who We Are */
 .who-we-are {
-    padding: 60px 15px;
+    padding:40px 15px;
     text-align: center;
     background-color: #ffffff;
 }
@@ -74,7 +74,6 @@
     color: #0E0E0E;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 49px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 58.8px */
@@ -84,7 +83,6 @@
     color: #000;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 31px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 37.2px */
@@ -94,83 +92,12 @@
     color: #505050;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 25px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 35px */
     padding: 0 10%;
 }
 
-@media (max-width: 768px) {
-    .who-we-are p {
-        padding: 0 15px;
-    }
-}
-
-/* Responsive adjustments for section_2 */
-@media (min-width: 1440px) {
-    .who-we-are p {
-        font-size: 25px; /* Ensure font size is consistent */
-        line-height: 140%; /* Ensure line height is consistent */
-    }
-
-    .who-we-are p span {
-        display: block;
-    }
-}
-
-@media (max-width: 1024px) {
-    .who-we-are h2 {
-        font-size: 5vw; /* Adjust font size for tablets */
-    }
-
-    .who-we-are h3 {
-        font-size: 3.5vw; /* Adjust font size for tablets */
-    }
-
-    .who-we-are p {
-        font-size: 2.5vw; /* Adjust font size for tablets */
-        padding: 0 15px;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .who-we-are h2 {
-        font-size: 5vw; /* Adjust font size for smaller devices */
-    }
-
-    .who-we-are h3 {
-        font-size: 4vw; /* Adjust font size for smaller devices */
-    }
-
-    .who-we-are p {
-        font-size: 3vw; /* Adjust font size for smaller devices */
-        padding: 0 15px;
-    }
-
-    .who-we-are h3 span {
-        white-space: nowrap; /* Ensure "Nutrition Key" stays together */
-    }
-}
-
-@media (max-width: 480px) {
-    .who-we-are h2 {
-        font-size: 6vw; /* Adjust font size for smallest devices */
-    }
-
-    .who-we-are h3 {
-        font-size: 5vw; /* Adjust font size for smallest devices */
-    }
-
-    .who-we-are p {
-        font-size: 4vw; /* Adjust font size for smallest devices */
-        padding: 0 15px;
-    }
-
-    .who-we-are h3 span {
-        white-space: nowrap; /* Ensure "Nutrition Key" stays together */
-    }
-}
 
 /* Section 3 - Our Story */
 .our-story {
@@ -179,70 +106,18 @@
     /* padding: 60px 15px; */
 }
 
-.our-story h2 {
-    color: #FFF;
-    font-family: 'Poppins', sans-serif;
-    font-size: 49px; /* Adjust font size for larger laptops */
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%; /* 58.8px */
-}
 
 .our-story p {
     color: #FFF;
     font-family: 'Poppins', sans-serif;
-    font-size: 25px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 35px */
 }
 
 .our-story img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-}
-
-@media (max-width: 1024px) {
-    .our-story h2 {
-        font-size: 5vw; /* Adjust font size for tablets */
-    }
-
-    .our-story p {
-        font-size: 2.5vw; /* Adjust font size for tablets */
-    }
-}
-
-@media (max-width: 767.98px) {
-    .our-story h2 {
-        font-size: 5vw; /* Adjust font size for smaller devices */
-        text-align: center; /* Center align for smaller devices */
-    }
-
-    .our-story p {
-        font-size: 3vw; /* Adjust font size for smaller devices */
-        text-align: center; /* Center align for smaller devices */
-    }
-
-    .our-story .col-md-6 {
-        text-align: center; /* Center align for smaller devices */
-    }
-}
-
-@media (max-width: 480px) {
-    .our-story h2 {
-        font-size: 6vw; /* Adjust font size for smallest devices */
-        text-align: center; /* Center align for smallest devices */
-    }
-
-    .our-story p {
-        font-size: 4vw; /* Adjust font size for smallest devices */
-        text-align: center; /* Center align for smallest devices */
-    }
-
-    .our-story .col-md-6 {
-        text-align: center; /* Center align for smallest devices */
-    }
 }
 
 .our-partners {
@@ -281,7 +156,6 @@
 .our-partners p {
     color: white;
     font-family: 'Poppins', sans-serif;
-    font-size: 25px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 35px */
@@ -291,13 +165,11 @@
 /* Responsive adjustments for section_5 */
 @media (max-width: 1024px) {
     .our-partners h2 {
-        font-size: 4.4vw; /* Adjust font size for tablets */
         white-space: nowrap; /* Ensure "Our Official Partners" stays in one line */
         text-align: left; /* Left align the heading for tablets */
     }
 
     .our-partners p {
-        font-size: 2.5vw; /* Adjust font size for tablets */
         text-align: left; /* Left align the paragraph for tablets */
     }
 
@@ -314,12 +186,10 @@
 
 @media (max-width: 767.98px) {
     .our-partners h2 {
-        font-size: 5vw; /* Adjust font size for smaller devices */
         text-align: center; /* Center align the heading for smaller devices */
     }
 
     .our-partners p {
-        font-size: 3vw; /* Adjust font size for smaller devices */
         text-align: center; /* Center align the paragraph for smaller devices */
     }
 
@@ -332,19 +202,12 @@
         margin-bottom: 10px; /* Reduce space between image and heading */
         max-width: 70%; /* Reduce image size for smaller devices */
     }
+    .founder img {
+        width:40%;
+    }
 }
 
 @media (max-width: 480px) {
-    .our-partners h2 {
-        font-size: 6vw; /* Adjust font size for smallest devices */
-        text-align: center; /* Center align the heading for smallest devices */
-    }
-
-    .our-partners p {
-        font-size: 4vw; /* Adjust font size for smallest devices */
-        text-align: center; /* Center align the paragraph for smallest devices */
-    }
-
     .our-partners img {
         margin-bottom: 10px; /* Reduce space between image and heading */
         max-width: 60%; /* Reduce image size for smallest devices */
@@ -353,6 +216,9 @@
     .our-partners .col-md-6 {
         text-align: center; /* Center align for smallest devices */
         margin-bottom: 10px; /* Reduce space between columns */
+    }
+    .founder img {
+        width:40%;
     }
 }
 
@@ -365,18 +231,13 @@
     color: #000;
     text-align: right;
     font-family: 'Poppins', sans-serif;
-    font-size: 49px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 58.8px */
 }
 
-/* .founder {
-    margin-bottom: 40px;
-} */
-
 .founder img {
-    max-width: 200px;
+    max-width:auto;
     height: auto;
     border-radius: 50%;
     margin-bottom: 20px;
@@ -386,7 +247,6 @@
     color: #505050;
     line-height: 140%;
     font-family: 'Poppins', sans-serif;
-    font-size: 31px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 500;
 }
@@ -395,7 +255,6 @@
     color: #000;
     /* line-height: 0.5; */
     font-family: 'Poppins', sans-serif;
-    /* font-size: 25px; */
     font-style: normal;
     font-weight: 400;
     /* overflow: hidden; */
@@ -408,65 +267,10 @@
     color: #505050;
     line-height: 140%;
     font-family: 'Poppins', sans-serif;
-    font-size: 20px; /* Adjust font size for larger laptops */
     font-style: normal;
     font-weight: 400;
 }
 
-/* Responsive adjustments for section_4 */
-@media (max-width: 1024px) {
-    .our-founders h2 {
-        font-size: 5vw; /* Adjust font size for tablets */
-    }
-
-    .founder h4 {
-        font-size: 4vw; /* Adjust font size for tablets */
-    }
-
-    .founder p {
-        font-size: 3vw; /* Adjust font size for tablets */
-    }
-
-    .founder .title {
-        font-size: 2.5vw; /* Adjust font size for tablets */
-    }
-}
-
-@media (max-width: 767.98px) {
-    .our-founders h2 {
-        font-size: 5vw; /* Adjust font size for smaller devices */
-    }
-
-    .founder h4 {
-        font-size: 4vw; /* Adjust font size for smaller devices */
-    }
-
-    .founder p {
-        font-size: 3vw; /* Adjust font size for smaller devices */
-    }
-
-    .founder .title {
-        font-size: 2.5vw; /* Adjust font size for smaller devices */
-    }
-}
-
-@media (max-width: 480px) {
-    .our-founders h2 {
-        font-size: 6vw; /* Adjust font size for smallest devices */
-    }
-
-    .founder h4 {
-        font-size: 5vw; /* Adjust font size for smallest devices */
-    }
-
-    .founder p {
-        font-size: 4vw; /* Adjust font size for smallest devices */
-    }
-
-    .founder .title {
-        font-size: 3vw; /* Adjust font size for smallest devices */
-    }
-}
 
 .founders img {
     max-width: 100%;
@@ -493,7 +297,6 @@
 .gold-standard h2 {
     color: #000;
     font-family: 'Poppins', sans-serif;
-    font-size: 49px; /* Default font size */
     font-style: normal;
     font-weight: 500;
     line-height: 120%; /* 58.8px */
@@ -525,13 +328,11 @@
 
 @media (max-width: 1024px) {
     .gold-standard h2 {
-        font-size: 31px; /* Adjust font size for tablets and smaller devices */
         white-space: nowrap; /* Ensure the text stays in one line */
         text-align: left; /* Left align the heading for tablets */
     }
 
     .gold-standard p {
-        font-size: 16px; /* Adjust font size for tablets and smaller devices */
         text-align: left; /* Left align the paragraph for tablets */
     }
 
@@ -548,13 +349,11 @@
 
 @media (max-width: 767.98px) {
     .gold-standard h2 {
-        font-size: 25px; /* Adjust font size for mobile devices */
         white-space: nowrap; /* Ensure the text stays in one line */
         text-align: center; /* Center align the heading for mobile devices */
     }
 
     .gold-standard p {
-        font-size: 13px; /* Adjust font size for mobile devices */
         text-align: center; /* Center align the paragraph for mobile devices */
     }
 
@@ -569,22 +368,6 @@
     }
 }
 
-@media (max-width: 480px) {
-    .gold-standard h2 {
-        font-size: 20px; /* Adjust font size for smaller mobile devices */
-        white-space: nowrap; /* Ensure the text stays in one line */
-        text-align: center; /* Center align the heading for smaller mobile devices */
-    }
-
-    .gold-standard p {
-        font-size: 10px; /* Adjust font size for smaller mobile devices */
-        text-align: center; /* Center align the paragraph for smaller mobile devices */
-    }
-}
-
-/* Responsive adjustments for section_1 */
-
-/* For laptops with width 1024px */
 @media (min-width: 1024px) and (max-width: 1199.98px) {
     /* section {
         padding-top: 20%; /* Increase top padding for laptops
