@@ -263,7 +263,7 @@
         @if($course->certification_section_7_title)
             <section class="enrollment-section container py-3 py-md-5">
                 <div class="row align-items-center">
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-7">
                         <div class="program-title heading mb-3">{{ $course->certification_section_7_title }}</div>
                         <div class="program-description sub-heading">{!! $course->certification_section_7_description !!}</div>
                         <div class="pt-3 d-flex align-items-center flex-wrap justify-content-lg-start justify-content-center mb-3">
@@ -286,7 +286,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-6 d-flex justify-content-center">
+                    <div class="col-12 col-lg-5 d-flex justify-content-center">
                         <video controls class="section-7-video">
                             <source src="{{ asset('storage/backend/courses/course-videos/' . $course->certification_section_7_video) }}" type="video/mp4">
                         </video>
@@ -295,7 +295,7 @@
             </section>
         @endif
 
-        <div class="tab-container container py-md-5 py-2">
+        <div class="tab-container container pb-md-5 py-2">
             <nav class="nav content-header d-flex justify-content-center">
                 <ul class="nav nav-tabs flex-column flex-md-row">
                     <li class="nav-item">

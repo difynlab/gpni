@@ -10,11 +10,11 @@
 
 @section('content')
     @if($contents->section_1_title_en)
-        <div class="container bg-white section py-5">
+        <div class="container bg-white section py-md-5 py-4">
             <div class="heading text-center mx-auto">
                 {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
             </div>
-            <div class="row align-items-center g-0 my-5">
+            <div class="row align-items-center g-0 mt-3">
                 <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
                     @if($contents->{'section_1_image_' . $middleware_language})
                         <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_' . $middleware_language}) }}"

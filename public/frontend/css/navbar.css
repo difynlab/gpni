@@ -58,7 +58,8 @@
 }
 
 .nav-link.dropdown-toggle::after {
-    display: none;
+    /* Keeping the default Bootstrap dropdown icon visible */
+    display: inline-block;
 }
 
 .offcanvas-end{
@@ -83,6 +84,7 @@
     right: auto !important;
     transform: translateX(-50%) !important;
     min-width: 240px; /* Adjust as needed */
+    top:83%;
 }
 
 /* Fix submenu positioning */
@@ -124,11 +126,8 @@
     }
 
     .navbar-nav .dropdown-toggle::after {
-        font-size: 0.5rem;
-    }
-
-    .navbar-nav .dropdown-toggle .bi-chevron-down {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
+        margin-left: 8px;
     }
 
     .dropdown-menu {
