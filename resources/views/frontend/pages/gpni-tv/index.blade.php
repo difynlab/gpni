@@ -148,7 +148,7 @@
 
     @if($contents->section_5_content_en)
         <div class="container-fluid Webinar-Seminar-Key-Takeaways-section py-5 ">
-            <div class="container py-5">
+            <div class="container">
                 <div class="row g-5 d-flex">
                     <div class="col-md-6 section-5 text-main-heading text-main-content mb-3">
                         {!! $contents->{'section_5_content_' . $middleware_language} ?? $contents->section_5_content_en !!}
