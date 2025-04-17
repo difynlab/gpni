@@ -23,7 +23,7 @@
                             {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
                         </div>
 
-                        <div class="my-4 sub-heading text-content  international-society-of-sport">
+                        <div class="my-4 text-heading international-society-of-sport">
                             {!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
                         </div>
 

@@ -117,7 +117,7 @@
         </div>
 
         @if($course->master_section_2_title)
-            <div class="row mt-4 mt-md-5">
+            <div class="row mt-1 mt-md-1">
                 <div class="col text-center mb-3 mb-md-4 d-flex flex-column align-items-center justify-content-center">
                     <div class="learn-title my-3 my-md-4 heading">{{ $course->master_section_2_title }}</div>
                     <div class="learn-subtitle sub-heading w-100 w-md-75">{{ $course->master_section_2_description }}</div>
@@ -128,7 +128,7 @@
                 @if($course->master_section_2_points)
                     @foreach(json_decode($course->master_section_2_points) as $master_section_2_point)
                         <div class="col-md-6">
-                            <div class="learn-list d-flex text-content py-2 py-md-3">
+                            <div class="learn-list d-flex text-main-content py-2 py-md-3">
                                 <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-2 me-md-3">
                                 <span>{{ $master_section_2_point }}</span>
                             </div>
@@ -176,13 +176,13 @@
 
         <div class="tab-content mt-3 px-2 px-md-0">
             <div class="tab-pane fade show active" id="introduction">
-                <div class="content-box text-main-heading text-main-content py-3 py-md-4 px-3 px-md-5">
+                <div class="content-box text-heading text-content py-3 py-md-4 px-3 px-md-5">
                     <div class="fs-20">{!! $course->course_introduction !!}</div>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="course-content">
-                <div class="content-box text-main-heading text-main-content py-3 py-md-4 px-3 px-md-5">
+                <div class="content-box text-heading text-content py-3 py-md-4 px-3 px-md-5">
                     <div class="fs-20">{!! $course->course_content !!}</div>
                 </div>
             </div>

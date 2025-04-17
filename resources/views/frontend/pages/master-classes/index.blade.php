@@ -198,8 +198,8 @@
                                                     @endif
                                                     
                                                     <div>
-                                                        <p class="name">{{ $testimonial->name }}</p>
-                                                        <p class="designation">{{ $testimonial->designation }}</p>
+                                                        <p class="name mb-0">{{ $testimonial->name }}</p>
+                                                        <p class="designation mb-0">{{ $testimonial->designation }}</p>
                                                     </div>
                                                 </div>
                                             </div>
