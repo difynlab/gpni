@@ -70,7 +70,8 @@ class QualificationController extends Controller
         ]);
     }
 
-    public function cecStore(Request $request) {
+    public function cecStore(Request $request)
+    {
         $student = Auth::user();
         $course = Course::find($request->course_id);
 

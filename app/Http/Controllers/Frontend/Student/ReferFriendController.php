@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferFriendMail;
 use App\Models\ReferPointActivity;
+use App\Models\Setting;
+use App\Models\Wallet;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
@@ -19,13 +21,20 @@ class ReferFriendController extends Controller
         $student = Auth::user();
 
         $invites = ReferFriend::where('user_id', $student->id)->where('status', '1')->get();
-        // $refer_point_activities = ReferPointActivity::where('referred_by_id', $student->id)->where('status', '1')->get();
+        $refer_point_activities = ReferPointActivity::where('referred_by_id', $student->id)->where('status', '1')->orderBy('id', 'desc')->get();
 
-        // dd($invites, $refer_point_activities);
+        if(count($refer_point_activities) > 0) {
+            $refer_point_balance = $refer_point_activities->first()->balance;
+        }
+        else {
+            $refer_point_balance = '0.00';
+        }
     
         return view('frontend.student.refer-friends', [
             'invites' => $invites,
-            'student' => $student
+            'student' => $student,
+            'refer_point_activities' => $refer_point_activities,
+            'refer_point_balance' => $refer_point_balance
         ]);
     }
 
@@ -71,5 +80,60 @@ class ReferFriendController extends Controller
         Mail::to([$request->email])->send(new ReferFriendMail($mail_data));
 
         return redirect()->back()->with('success', 'Invitation sent successfully!');
+    }
+
+    public function withdraw(Request $request)
+    {
+        $student = Auth::user();
+        
+        $refer_point_activity = ReferPointActivity::where('referred_by_id', $student->id)->where('status', '1')->orderBy('id', 'desc')->first();
+
+        if($refer_point_activity) {
+            if($refer_point_activity->balance < $request->points) {
+                return redirect()->route('frontend.refer-friends.index')->with('error', 'No sufficient points');
+            }
+
+            ReferPointActivity::create([
+                'referred_by_id' => $student->id,
+                'activity' => 'Withdrawal',
+                'date' => Carbon::now()->toDateString(),
+                'time' => Carbon::now()->toTimeString(),
+                'points' => $request->points,
+                'balance' => ($refer_point_activity->balance) - ($request->points),
+                'type' => 'Deduction',
+                'status' => '1'
+            ]);
+
+            $setting = Setting::find(1);
+            $conversion_field = 'referral_point_conversion_' . '' . $request->middleware_language;
+            $amount = $setting->$conversion_field * $request->points;
+
+            $wallet_exist = Wallet::where('user_id', $student->id)->where('status', '1')->first();
+
+            if($wallet_exist) {
+                $wallet_exist->balance = $wallet_exist->balance + $amount;
+                $wallet_exist->save();
+            }
+            else {
+                if($request->middleware_language == 'en') {
+                    $currency = 'usd';
+                }
+                elseif($request->middleware_language == 'zh') {
+                    $currency = 'cny';
+                }
+                else {
+                    $currency = 'jpy';
+                }
+
+                $wallet = new Wallet();
+                $wallet->user_id = $student->id;
+                $wallet->currency = $currency;
+                $wallet->balance = $amount;
+                $wallet->status = '1';
+                $wallet->save();
+            }
+        }
+
+        return redirect()->route('frontend.refer-friends.index')->with('success', 'Withdrawal successfully completed');
     }
 }

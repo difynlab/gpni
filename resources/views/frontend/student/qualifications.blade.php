@@ -26,6 +26,7 @@
                             <button class="nav-link" id="pills-cec-tab" data-bs-toggle="pill" data-bs-target="#pills-cec" type="button" role="tab" aria-controls="pills-cec" aria-selected="false">{{ $student_dashboard_contents->qualifications_cec_title }}</button>
                         </li>
                     </ul>
+
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-qualifications" role="tabpanel" aria-labelledby="pills-qualifications-tab" tabindex="0">
                             <form action="{{ route('frontend.qualifications') }}" method="GET">
@@ -122,6 +123,7 @@
                                                 <h5 class="modal-title" id="exampleModalLabel">{{ $student_dashboard_contents->qualifications_cec_point_request }}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
+
                                             <div class="modal-body">
                                                 <div class="row form-input">
                                                     <div class="col-12">
@@ -155,6 +157,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                             <div class="modal-footer justify-content-center">
                                                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">{{ $student_dashboard_contents->qualifications_cec_close }}</button>
                                                 <button type="submit" class="btn btn-primary rounded-0">{{ $student_dashboard_contents->qualifications_cec_submit }}</button>

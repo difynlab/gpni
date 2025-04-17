@@ -46,7 +46,7 @@ return new class extends Migration
             $table->text('payment_page_material_logistics_en')->nullable();
             $table->text('payment_page_sub_total_en')->nullable();
             $table->text('payment_page_discount_en')->nullable();
-            $table->text('payment_page_gift_amount_en')->nullable();
+            $table->text('payment_page_wallet_amount_en')->nullable();
             $table->text('payment_page_total_en')->nullable();
             $table->text('payment_page_already_purchased_en')->nullable();
             $table->text('payment_page_pay_en')->nullable();
@@ -84,7 +84,7 @@ return new class extends Migration
             $table->text('payment_page_material_logistics_zh')->nullable();
             $table->text('payment_page_sub_total_zh')->nullable();
             $table->text('payment_page_discount_zh')->nullable();
-            $table->text('payment_page_gift_amount_zh')->nullable();
+            $table->text('payment_page_wallet_amount_zh')->nullable();
             $table->text('payment_page_total_zh')->nullable();
             $table->text('payment_page_already_purchased_zh')->nullable();
             $table->text('payment_page_pay_zh')->nullable();
@@ -122,7 +122,7 @@ return new class extends Migration
             $table->text('payment_page_material_logistics_ja')->nullable();
             $table->text('payment_page_sub_total_ja')->nullable();
             $table->text('payment_page_discount_ja')->nullable();
-            $table->text('payment_page_gift_amount_ja')->nullable();
+            $table->text('payment_page_wallet_amount_ja')->nullable();
             $table->text('payment_page_total_ja')->nullable();
             $table->text('payment_page_already_purchased_ja')->nullable();
             $table->text('payment_page_pay_ja')->nullable();

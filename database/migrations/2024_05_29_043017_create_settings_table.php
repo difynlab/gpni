@@ -64,6 +64,10 @@ return new class extends Migration
             $table->decimal('referral_point_percentage_en', 4, 1);
             $table->decimal('referral_point_percentage_zh', 4, 1);
             $table->decimal('referral_point_percentage_ja', 4, 1);
+
+            $table->decimal('referral_point_conversion_en', 10, 2);
+            $table->decimal('referral_point_conversion_zh', 10, 2);
+            $table->decimal('referral_point_conversion_ja', 10, 2);
             
             $table->timestamps();
         });

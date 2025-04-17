@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('refer_point_activities', function (Blueprint $table) {
             $table->id();
-            $table->string('refer_id');
+            $table->string('refer_id')->nullable();
             $table->string('user_id')->nullable();
             $table->string('referred_by_id');
             $table->text('activity');

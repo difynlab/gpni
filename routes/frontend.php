@@ -168,6 +168,7 @@ Route::middleware(['set_language'])->group(function () {
             Route::prefix('refer-friends')->name('refer-friends.')->group(function() {
                 Route::get('/', [ReferFriendController::class, 'index'])->name('index');
                 Route::post('/', [ReferFriendController::class, 'store'])->name('store');
+                Route::post('withdraw', [ReferFriendController::class, 'withdraw'])->name('withdraw');
             });
 
             Route::prefix('profile')->name('profile.')->group(function() {

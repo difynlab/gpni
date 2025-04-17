@@ -65,6 +65,21 @@
                         <input type="text" class="form-control" id="referral_point_percentage_ja" name="referral_point_percentage_ja" value="{{ old('referral_point_percentage_ja', $settings->referral_point_percentage_ja) }}" placeholder="Referral Point Percentage (%) (Japanese)" required>
                     </div>
 
+                    <div class="col-4 mb-4">
+                        <label for="referral_point_conversion_en" class="form-label">Referral Point Conversion (English)<span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" id="referral_point_conversion_en" name="referral_point_conversion_en" value="{{ old('referral_point_conversion_en', $settings->referral_point_conversion_en) }}" placeholder="Referral Point Conversion (English)" required>
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="referral_point_conversion_zh" class="form-label">Referral Point Conversion (Chinese)<span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" id="referral_point_conversion_zh" name="referral_point_conversion_zh" value="{{ old('referral_point_conversion_zh', $settings->referral_point_conversion_zh) }}" placeholder="Referral Point Conversion (Chinese)" required>
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="referral_point_conversion_ja" class="form-label">Referral Point Conversion (Japanese)<span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" id="referral_point_conversion_ja" name="referral_point_conversion_ja" value="{{ old('referral_point_conversion_ja', $settings->referral_point_conversion_ja) }}" placeholder="Referral Point Conversion (Japanese)" required>
+                    </div>
+
                     <div class="col-6 mb-4">
                         <label for="email_en" class="form-label">Email (English)<span class="asterisk">*</span></label>
                         <input type="email" class="form-control" id="email_en" name="email_en" value="{{ old('email_en', $settings->email_en) }}" placeholder="Email" required>

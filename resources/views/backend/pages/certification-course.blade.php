@@ -189,8 +189,8 @@
                     </div>
 
                     <div class="col-4 mb-4">
-                        <label for="payment_page_gift_amount_{{ $short_code }}" class="form-label">Gift Amount</label>
-                        <input type="text" class="form-control" id="payment_page_gift_amount_{{ $short_code }}" name="payment_page_gift_amount_{{ $short_code }}" value="{{ $contents->{'payment_page_gift_amount_' . $short_code} ?? '' }}" placeholder="Gift Amount">
+                        <label for="payment_page_wallet_amount_{{ $short_code }}" class="form-label">Wallet Amount</label>
+                        <input type="text" class="form-control" id="payment_page_wallet_amount_{{ $short_code }}" name="payment_page_wallet_amount_{{ $short_code }}" value="{{ $contents->{'payment_page_wallet_amount_' . $short_code} ?? '' }}" placeholder="Wallet Amount">
                     </div>
 
                     <div class="col-4 mb-4">

@@ -92,9 +92,9 @@
                         </div>
 
                         @if($wallet_balance)
-                            <div class="d-flex justify-content-between my-4 title gift-amount-div">
-                                <div>{{ $contents->{'payment_page_gift_amount_' . $middleware_language} ?? $contents->payment_page_gift_amount_en }}</div>
-                                <div id="course-gift">{{ $currency_symbol }}<span>{{ $wallet_balance }}</span></div>
+                            <div class="d-flex justify-content-between my-4 title wallet-amount-div">
+                                <div>{{ $contents->{'payment_page_wallet_amount_' . $middleware_language} ?? $contents->payment_page_wallet_amount_en }}</div>
+                                <div id="course-wallet">{{ $currency_symbol }}<span>{{ $wallet_balance }}</span></div>
                             </div>
                         @endif
 
@@ -105,7 +105,7 @@
                             <div id="total-amount">{{ $currency_symbol }}<span>{{ $total_amount }}</span></div>
 
                             <input type="hidden" id="dynamic-total-price" value="{{ $total_amount }}">
-                            <input type="hidden" id="dynamic-gift-price" value="{{ $wallet_balance }}">
+                            <input type="hidden" id="dynamic-wallet-price" value="{{ $wallet_balance }}">
                             <input type="hidden" id="dynamic-course-price" value="{{ $course->price }}">
                             <input type="hidden" id="dynamic-material-price" value="{{ $course->material_logistic_price }}">
                             <input type="hidden" id="dynamic-instalment-price" value="{{ $course->instalment_price }}">
@@ -143,12 +143,14 @@
     <script>
         $(document).ready(function() {
             let initialTotalPrice = $('#dynamic-total-price').val();
-            let initialGiftPrice = $('#dynamic-gift-price').val();
+            let initialWalletPrice = $('#dynamic-wallet-price').val();
             let initialCoursePrice = $('#dynamic-course-price').val();
             let initialMaterialPrice = $('#dynamic-material-price').val();
             let initialInstalmentPrice = $('#dynamic-instalment-price').val();
 
             let middlewareLanguage = "<?php echo $middleware_language; ?>";
+
+            console.log(initialTotalPrice);
 
             $('#checkbox').on('change', function() {
                 if($(this).is(':checked')) {
@@ -159,31 +161,17 @@
                         let subTotal = parseFloat(initialCoursePrice) + parseFloat(initialMaterialPrice);
                         $('#sub-total span').text(subTotal.toFixed(2));
 
-                        if(initialGiftPrice < (initialCoursePrice + initialMaterialPrice)) {
-                            let totalPrice = parseFloat(initialTotalPrice) + parseFloat(initialMaterialPrice);
-                            $('#total-amount span').text(totalPrice.toFixed(2));
-                            $('#price').val(totalPrice.toFixed(2));
-                        }
-                        else {
-                            $('#total-amount span').text('0.00');
-                            let totalPrice = '0.00';
-                            $('#price').val(totalPrice);
-                        }
+                        let totalPrice = parseFloat(initialTotalPrice) + parseFloat(initialMaterialPrice);
+                        $('#total-amount span').text(totalPrice.toFixed(2));
+                        $('#price').val(totalPrice.toFixed(2));
                     }
                     else {
                         let subTotal = parseFloat(initialCoursePrice.replace(/,/g, ''), 10) + parseFloat(initialMaterialPrice.replace(/,/g, ''), 10);
                         $('#sub-total span').text(subTotal.toLocaleString());
 
-                        if(initialGiftPrice < (initialCoursePrice + initialMaterialPrice)) {
-                            let totalPrice = parseFloat(initialTotalPrice.replace(/,/g, ''), 10) + parseFloat(initialMaterialPrice.replace(/,/g, ''), 10);
-                            $('#total-amount span').text(totalPrice.toLocaleString());
-                            $('#price').val(totalPrice.toLocaleString());
-                        }
-                        else {
-                            $('#total-amount span').text('0');
-                            let totalPrice = '0';
-                            $('#price').val(totalPrice);
-                        }
+                        let totalPrice = parseFloat(initialTotalPrice.replace(/,/g, ''), 10) + parseFloat(initialMaterialPrice.replace(/,/g, ''), 10);
+                        $('#total-amount span').text(totalPrice.toLocaleString());
+                        $('#price').val(totalPrice.toLocaleString());
                     }
                 }
                 else {
@@ -191,7 +179,7 @@
                     $('#material-logistic').val('No');
 
                     let subTotal = parseFloat(initialCoursePrice.replace(/,/g, ''), 10);
-                    let totalPrice = (subTotal - initialGiftPrice);
+                    let totalPrice = (subTotal - initialWalletPrice);
                     $('#sub-total span').text(middlewareLanguage !== 'ja' ? subTotal.toFixed(2) : subTotal);
                     $('#total-amount span').text(middlewareLanguage !== 'ja' ? totalPrice.toFixed(2) : totalPrice);
                     $('#price').val(middlewareLanguage !== 'ja' ? totalPrice.toFixed(2) : totalPrice);
@@ -206,13 +194,13 @@
                     $('.additional-option').toggleClass('d-none');
                     $('#payment-mode').val('payment');
 
-                    // let totalPrice = (initialTotalPrice).toFixed(2);
                     let totalPrice = initialTotalPrice;
-                    $('#course-price span').text(totalPrice);
-                    $('#sub-total span').text(totalPrice);
+                    let coursePrice = initialCoursePrice;
+                    $('#course-price span').text(coursePrice);
+                    $('#sub-total span').text(coursePrice);
                     $('#total-amount span').text(totalPrice);
 
-                    $('.gift-amount-div').toggleClass('d-none');
+                    $('.wallet-amount-div').toggleClass('d-none');
                 }
                 else {
                     $('.additional-option').toggleClass('d-none');
@@ -226,7 +214,7 @@
                     $('#sub-total span').text(totalPrice);
                     $('#total-amount span').text(totalPrice);
 
-                    $('.gift-amount-div').toggleClass('d-none');
+                    $('.wallet-amount-div').toggleClass('d-none');
                 }
             });
         });

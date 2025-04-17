@@ -1444,47 +1444,112 @@
             </div>
 
             <div class="section">
-                <p class="inner-page-title">Refer Friends</p>
+                <p class="inner-page-title">Refer Friends & Points</p>
 
                 <div class="row form-input">
                     <div class="col-4 mb-3">
-                        <label for="refer_friends_title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="refer_friends_title" name="refer_friends_title" value="{{ $contents->refer_friends_title ?? '' }}" placeholder="Title">
+                        <label for="refer_friends_title" class="form-label">Refer Friends Title</label>
+                        <input type="text" class="form-control" id="refer_friends_title" name="refer_friends_title" value="{{ $contents->refer_friends_title ?? '' }}" placeholder="Refer Friends Title">
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="refer_friends_email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="refer_friends_email" name="refer_friends_email" value="{{ $contents->refer_friends_email ?? '' }}" placeholder="Email">
+                        <label for="refer_friends_email" class="form-label">Refer Friends Email</label>
+                        <input type="text" class="form-control" id="refer_friends_email" name="refer_friends_email" value="{{ $contents->refer_friends_email ?? '' }}" placeholder="Refer Friends Email">
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="refer_friends_email_placeholder" class="form-label">Email Placeholder</label>
-                        <input type="text" class="form-control" id="refer_friends_email_placeholder" name="refer_friends_email_placeholder" value="{{ $contents->refer_friends_email_placeholder ?? '' }}" placeholder="Email Placeholder">
+                        <label for="refer_friends_email_placeholder" class="form-label">Refer Friends Email Placeholder</label>
+                        <input type="text" class="form-control" id="refer_friends_email_placeholder" name="refer_friends_email_placeholder" value="{{ $contents->refer_friends_email_placeholder ?? '' }}" placeholder="Refer Friends Email Placeholder">
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="refer_friends_button" class="form-label">Button</label>
-                        <input type="text" class="form-control" id="refer_friends_button" name="refer_friends_button" value="{{ $contents->refer_friends_button ?? '' }}" placeholder="Button">
+                        <label for="refer_friends_button" class="form-label">Refer Friends Button</label>
+                        <input type="text" class="form-control" id="refer_friends_button" name="refer_friends_button" value="{{ $contents->refer_friends_button ?? '' }}" placeholder="Refer Friends Button">
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="refer_friends_view_history" class="form-label">View History</label>
-                        <input type="text" class="form-control" id="refer_friends_view_history" name="refer_friends_view_history" value="{{ $contents->refer_friends_view_history ?? '' }}" placeholder="View History">
+                        <label for="refer_friends_view_history" class="form-label">Refer Friends View History</label>
+                        <input type="text" class="form-control" id="refer_friends_view_history" name="refer_friends_view_history" value="{{ $contents->refer_friends_view_history ?? '' }}" placeholder="Refer Friends View History">
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="refer_friends_first_column" class="form-label">First Column</label>
-                        <input type="text" class="form-control" id="refer_friends_first_column" name="refer_friends_first_column" value="{{ $contents->refer_friends_first_column ?? '' }}" placeholder="First Column">
+                        <label for="refer_friends_first_column" class="form-label">Refer Friends First Column</label>
+                        <input type="text" class="form-control" id="refer_friends_first_column" name="refer_friends_first_column" value="{{ $contents->refer_friends_first_column ?? '' }}" placeholder="Refer Friends First Column">
                     </div>
 
                     <div class="col-4">
-                        <label for="refer_friends_second_column" class="form-label">Second Column</label>
-                        <input type="text" class="form-control" id="refer_friends_second_column" name="refer_friends_second_column" value="{{ $contents->refer_friends_second_column ?? '' }}" placeholder="Second Column">
+                        <label for="refer_friends_second_column" class="form-label">Refer Friends Second Column</label>
+                        <input type="text" class="form-control" id="refer_friends_second_column" name="refer_friends_second_column" value="{{ $contents->refer_friends_second_column ?? '' }}" placeholder="Refer Friends Second Column">
                     </div>
 
                     <div class="col-4">
-                        <label for="refer_friends_no_data" class="form-label">No Data</label>
-                        <input type="text" class="form-control" id="refer_friends_no_data" name="refer_friends_no_data" value="{{ $contents->refer_friends_no_data ?? '' }}" placeholder="No Data">
+                        <label for="refer_friends_no_data" class="form-label">Refer Friends No Data</label>
+                        <input type="text" class="form-control" id="refer_friends_no_data" name="refer_friends_no_data" value="{{ $contents->refer_friends_no_data ?? '' }}" placeholder="Refer Friends No Data">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_title" class="form-label">Refer Withdraw Title</label>
+                        <input type="text" class="form-control" id="refer_withdraw_title" name="refer_withdraw_title" value="{{ $contents->refer_withdraw_title ?? '' }}" placeholder="Refer Withdraw Title">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_points" class="form-label">Refer Withdraw Points</label>
+                        <input type="text" class="form-control" id="refer_withdraw_points" name="refer_withdraw_points" value="{{ $contents->refer_withdraw_points ?? '' }}" placeholder="Refer Withdraw Points">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_request" class="form-label">Refer Withdraw Point Request</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_request" name="refer_withdraw_point_request" value="{{ $contents->refer_withdraw_point_request ?? '' }}" placeholder="Refer Withdraw Point Request">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_first_column" class="form-label">Refer Withdraw First Column</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_first_column" name="refer_withdraw_point_first_column" value="{{ $contents->refer_withdraw_point_first_column ?? '' }}" placeholder="Refer Withdraw First Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_second_column" class="form-label">Refer Withdraw Second Column</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_second_column" name="refer_withdraw_point_second_column" value="{{ $contents->refer_withdraw_point_second_column ?? '' }}" placeholder="Refer Withdraw Second Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_third_column" class="form-label">Refer Withdraw Third Column</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_third_column" name="refer_withdraw_point_third_column" value="{{ $contents->refer_withdraw_point_third_column ?? '' }}" placeholder="Refer Withdraw Third Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_fourth_column" class="form-label">Refer Withdraw Fourth Column</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_fourth_column" name="refer_withdraw_point_fourth_column" value="{{ $contents->refer_withdraw_point_fourth_column ?? '' }}" placeholder="Refer Withdraw Fourth Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_fifth_column" class="form-label">Refer Withdraw Fifth Column</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_fifth_column" name="refer_withdraw_point_fifth_column" value="{{ $contents->refer_withdraw_point_fifth_column ?? '' }}" placeholder="Refer Withdraw Fifth Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_sixth_column" class="form-label">Refer Withdraw Sixth Column</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_sixth_column" name="refer_withdraw_point_sixth_column" value="{{ $contents->refer_withdraw_point_sixth_column ?? '' }}" placeholder="Refer Withdraw Sixth Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="refer_withdraw_point_no_points" class="form-label">Refer Withdraw No Records</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_no_points" name="refer_withdraw_point_no_points" value="{{ $contents->refer_withdraw_point_no_points ?? '' }}" placeholder="Refer Withdraw No Records">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="refer_withdraw_no_of_points" class="form-label">Refer Withdraw No of Points</label>
+                        <input type="text" class="form-control" id="refer_withdraw_no_of_points" name="refer_withdraw_no_of_points" value="{{ $contents->refer_withdraw_no_of_points ?? '' }}" placeholder="Refer Withdraw No of Points">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="refer_withdraw_point_close" class="form-label">Refer Withdraw Close</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_close" name="refer_withdraw_point_close" value="{{ $contents->refer_withdraw_point_close ?? '' }}" placeholder="Refer Withdraw Close">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="refer_withdraw_point_submit" class="form-label">Refer Withdraw Submit</label>
+                        <input type="text" class="form-control" id="refer_withdraw_point_submit" name="refer_withdraw_point_submit" value="{{ $contents->refer_withdraw_point_submit ?? '' }}" placeholder="Refer Withdraw Submit">
                     </div>
                 </div>
             </div>

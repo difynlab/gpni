@@ -4,21 +4,24 @@
     border: 1px solid #e0eaff;
     border-radius: 15px;
 }
-.header-section {
-    text-align: center;
+.nav-pills {
     margin-bottom: 30px;
 }
-.header-section h1 {
-    font-size: 1.938rem; /* fs-31 */
+.nav-pills .nav-link {
+    font-size: 20px;
     font-weight: 500;
     color: #0e0e0e;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.nav-pills .nav-link.active {
+    background-color: #072d7b;
 }
 .form-label {
-    font-size: 1.250rem; /* fs-20 */
+    font-size: 1.250rem;
     font-weight: 400;
     color: #505050;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 .form-control {
     background-color: transparent;
@@ -74,6 +77,74 @@
     display: inline-block; /* Ensure it is in one line */
     text-align: center;
     line-height: 30px; /* Vertically center the text */
+}
+
+.refer-points {
+    background-color: #d9d202;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    padding: 10px 25px;
+}
+.refer-point-request {
+    text-decoration: none;
+    background-color: #0040C3;
+    color: white;
+    padding: 10px 25px;
+    transition: all 0.3s;
+    border: none;
+}
+.refer-point-request:hover {
+    background-color: #023190;
+    transition: all 0.3s;
+}
+.table-container {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.table-container::-webkit-scrollbar {
+    height: 10px;
+}
+.table-container::-webkit-scrollbar-track {
+    background: #dedede;
+    border-radius: 5px;
+}
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #0040C3;
+    border-radius: 5px;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #083287;
+    cursor: pointer;
+}
+.table th {
+    font-size: 15px;
+    color: #444444;
+    padding: 15px;
+}
+.table td {
+    font-size: 14px;
+    padding: 15px;
+}
+.modal-content {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+.modal .form-control {
+    border-radius: 0;
+    height: 50px;
+    font-size: 13px;
+    color: black;
+}
+.modal .asterisk {
+    color: rgb(221, 5, 5);
+    margin-left: 3px;
+}
+.modal .form-label {
+    color: #2D3748;
+    font-size: 15px;
 }
 
 /* Responsive adjustments */

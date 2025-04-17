@@ -307,6 +307,20 @@ return new class extends Migration
                 'refer_friends_first_column',
                 'refer_friends_second_column',
                 'refer_friends_no_data',
+
+                'refer_withdraw_title',
+                'refer_withdraw_points',
+                'refer_withdraw_point_request',
+                'refer_withdraw_point_first_column',
+                'refer_withdraw_point_second_column',
+                'refer_withdraw_point_third_column',
+                'refer_withdraw_point_fourth_column',
+                'refer_withdraw_point_fifth_column',
+                'refer_withdraw_point_sixth_column',
+                'refer_withdraw_point_no_points',
+                'refer_withdraw_no_of_points',
+                'refer_withdraw_point_close',
+                'refer_withdraw_point_submit'
             ];
 
             foreach($columns as $column) {
