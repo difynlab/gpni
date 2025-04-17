@@ -13,7 +13,7 @@
     @if($contents->section_1_title_en)
         <!-- Hero Section -->
         <section class="bg-white">
-            <div class="container homepg pt-lg-0 pt-5">
+            <div class="container homepg pt-lg-5 pt-5">
                 <x-frontend.notification></x-frontend.notification>
                 <x-frontend.notification-popup></x-frontend.notification-popup>
 

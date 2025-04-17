@@ -17,7 +17,7 @@
             </div>
 
             <div class="partners-section container">
-                <div class="fs-31">
+                <div class="fs-31 mb-3">
                     {{ $contents->{'section_1_sub_title_'. $middleware_language} ?? $contents->section_1_sub_title_en }}
                 </div>
                 <div class="sub-heading px-2 px-md-4 pt-2">
