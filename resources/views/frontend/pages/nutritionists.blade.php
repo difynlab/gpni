@@ -17,8 +17,8 @@
                 <x-frontend.notification></x-frontend.notification>
 
                 <div class="container">
-                    <h2>{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h2>
-                    <p>{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</p>
+                    <div class="heading">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
+                    <div class="sub-heading">{{ $contents->{'sub_title_' . $middleware_language} ?? $contents->sub_title_en }}</div>
 
                     <div class="row align-items-center gy-3">
                         <div class="col-12 col-lg-11">
@@ -122,7 +122,7 @@
                     {{ $nutritionists->links("pagination::bootstrap-5") }}
                 @else
                     <div class="col-12">
-                        <p class="no-data">{{ $contents->{'no_nutritionists_' . $middleware_language} ?? $contents->no_nutritionists_en }}</p>
+                        <div class="no-data">{{ $contents->{'no_nutritionists_' . $middleware_language} ?? $contents->no_nutritionists_en }}</div>
                     </div>
                 @endif
             </div>
@@ -135,7 +135,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</h1>
+                        <div class="modal-title fs-5" id="exampleModalLabel">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -400,30 +400,30 @@
                         <div class="details-content">
                             <img src="" class="qr-code" alt="QR Code">
 
-                            <h5 class="mb-2 name">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</h5>
+                            <div class="mb-2 name">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</div>
                             
-                            <p class="fs-16"><strong>{{ $contents->{'age_' . $middleware_language} ?? $contents->age_en }}:</strong> <span class="age"></span></p>
+                            <div class="fs-16"><strong>{{ $contents->{'age_' . $middleware_language} ?? $contents->age_en }}:</strong> <span class="age"></span></div>
 
-                            <p class="fs-16"><strong>{{ $contents->{'country_' . $middleware_language} ?? $contents->country_en }}:</strong> <span class="country"></span></p>
+                            <div class="fs-16"><strong>{{ $contents->{'country_' . $middleware_language} ?? $contents->country_en }}:</strong> <span class="country"></span></div>
 
-                            <p class="fs-16"><strong>{{ $contents->{'cec_status_' . $middleware_language} ?? $contents->cec_status_en }}:</strong> <span class="highlight cec-status"></span></p>
+                            <div class="fs-16"><strong>{{ $contents->{'cec_status_' . $middleware_language} ?? $contents->cec_status_en }}:</strong> <span class="highlight cec-status"></span></div>
 
-                            <p class="fs-16"><strong>{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}:</strong> <span class="credentials"></span></p>
+                            <div class="fs-16"><strong>{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}:</strong> <span class="credentials"></span></div>
 
-                            <p class="fs-16"><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></p>
+                            <div class="fs-16"><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></div>
 
-                            <p class="fs-16"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></p>
+                            <div class="fs-16"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></div>
 
-                            <p class="fs-16">
+                            <div class="fs-16">
                                 <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
                                 <span class="area-of-interest"></span>
-                            </p>
+                            </div>
 
-                            <p class="fs-16">
+                            <div class="fs-16">
                                 <strong>{{ $contents->{'self_introduction_' . $middleware_language} ?? $contents->self_introduction_en }}:</strong>
                                 
-                            </p>
-                            <p class="intro-paragraph fs-16"></p>
+                            </div>
+                            <div class="intro-paragraph fs-16"></div>
 
                             <div class="bottom-section">
                                 <div class="coach-location-model-item coach-contact-link">

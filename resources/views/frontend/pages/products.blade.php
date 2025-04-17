@@ -14,7 +14,7 @@
         <x-frontend.notification></x-frontend.notification>
         <x-frontend.notification-popup></x-frontend.notification-popup>
 
-        <h2 class="product-heading pb-2">{{ $contents->{'page_title_' . $middleware_language} ?? $contents->page_title_en }}</h2>
+        <div class="product-heading heading pb-2">{{ $contents->{'page_title_' . $middleware_language} ?? $contents->page_title_en }}</div>
 
         @if($products->isNotEmpty())
             <nav class="nav nav-tabs category-tabs" id="myTab" role="tablist">
@@ -37,7 +37,7 @@
                 <div class="tab-pane fade show active" id="products-0-tab" role="tabpanel" aria-labelledby="all-tab">
                     @if($categories->isNotEmpty())
                         @foreach($categories as $category)
-                            <div class="heading-text py-3">{{ $category->name }}</div>
+                            <div class="heading-text sub-heading py-3">{{ $category->name }}</div>
 
                             <div class="row row-horizontal px-0">
                                 @if($products->isNotEmpty())
@@ -53,8 +53,8 @@
                                                                 <img src="{{ asset('storage/frontend/rating.svg') }}" alt="Rating">
                                                             </span>
                                                         </div>
-                                                        <span class="product-name py-2">{{ $product->name }}</span>
-                                                        <div class="product-details">
+                                                        <span class="product-name text-heading">{{ $product->name }}</span>
+                                                        <div class="product-details text-content">
                                                             <span class="price">{{ $currency_symbol }}{{ $product->price }}</span>
                                                         </div>
                                                     </div>
@@ -117,7 +117,7 @@
                                                                             <span class="category">{{ $category->name }}</span>
                                                                         </div>
                                                                         
-                                                                        <h1 class="product-title mb-3">{{ $product->name }}</h1>
+                                                                        <div class="product-title heading mb-3">{{ $product->name }}</div>
                                                                         <div class="price-colors d-flex justify-content-between align-items-center mb-3">
                                                                             <span class="price">{{ $currency_symbol }}{{ $product->price }}</span>
                                                                             @if($product->colors)
@@ -196,7 +196,7 @@
                     @foreach($categories as $category)
                         <div class="tab-pane fade" id="products-{{ $category->id }}-tab" role="tabpanel"
                             aria-labelledby="{{ $category->id }}-products-tab" tabindex="0">
-                            <div class="heading-text py-3">{{ $category->name }}</div>
+                            <div class="heading-text heading py-3">{{ $category->name }}</div>
 
                             <div class="row row-horizontal px-0">
                                 @if($products->isNotEmpty())
@@ -269,7 +269,7 @@
                                                                             <span class="category">{{ $category->name }}</span>
                                                                         </div>
                                                                         
-                                                                        <h1 class="product-title mb-3">{{ $product->name }}</h1>
+                                                                        <div class="product-title heading mb-3">{{ $product->name }}</div>
                                                                         <div class="price-colors d-flex justify-content-between align-items-center mb-3">
                                                                             <span class="price">{{ $currency_symbol }}{{ $product->price }}</span>
                                                                             @if($product->colors)
@@ -345,7 +345,7 @@
                 @endif
             </div>
         @else
-            <p class="no-data">{{ $contents->{'page_no_products_' . $middleware_language} ?? $contents->page_no_products_en }}</p>
+            <div class="no-data">{{ $contents->{'page_no_products_' . $middleware_language} ?? $contents->page_no_products_en }}</div>
         @endif
     </div>
 

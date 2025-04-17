@@ -2,18 +2,8 @@
     padding: 20px 20px; /* Adjust padding to left and right */
 }
 
-.policies-section h2 {
-    color: #0E0E0E;
-    text-align: center;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
-    /* 73.2px */
-}
-
-.policies-section p {
-    color: rgba(14, 14, 14, 0.90);
+.policies-section div {
+    color: #000;
     text-align: left; /* Center align the text */
     font-family: "Poppins";
     font-style: normal;
@@ -33,11 +23,6 @@
     font-weight: 400;
     line-height: 200%;
     color: rgba(14, 14, 14, 0.90);
-}
-
-.policies-section h5 {
-    margin-top: 30px; /* Add margin-top for spacing */
-    margin-bottom: 40px; /* Add margin-bottom for spacing */
 }
 
 .policies-section table {
@@ -70,94 +55,67 @@
     background-color: #0040c3;
 }
 
+/* Complete rewrite of accordion styling */
 .accordion-item {
-    background: #ffffff;
-    margin-bottom: 15px;
-    border: none;
-    color: #505050;
-    font-family: Poppins;
-    font-size: 1.25rem; /* 20px */
-    font-style: normal;
-    font-weight: 600;
-    line-height: 140%;
-    border-radius: 5px;
-    border: 1px solid #C4C4C4;
-    /* 28px */
+    margin-bottom: 10px !important;
+    border: 1px solid #C4C4C4 !important;
+    border-radius: 5px !important;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Bootstrap's default accordion styles */
+.accordion-header {
+    margin: 0;
+    padding: 0;
 }
 
 .accordion-button {
-    font-size: 1.562rem; /* 25px */
     font-weight: 500;
-    line-height: 140%;
     color: #0e0e0e;
     background: #fff;
-    border: none;
-    border-radius: 5px;
-    border: 1px solid #C4C4C4;
-    text-align: left; 
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0; /* Remove any margin */
 }
 
-.accordion-item:first-of-type {
-    border-radius: 5px;
-}
-
-.accordion-item:last-of-type {
-    border-radius: 5px;
-}
-
-/* Apply border-heradius to the first accordion button */
-.accordion-item:first-of-type .accordion-button,
-.accordion-item:first-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
-    border-top-left-radius: 5px;
-    /* Adjust as needed */
-    border-top-right-radius: 5px;
-    /* Adjust as needed */
-}
-
-/* Apply border-radius to the last accordion item when not collapsed */
-.accordion-item:last-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
-    border-bottom-left-radius: 5px;
-    /* Adjust as needed */
-    border-bottom-right-radius: 5px;
-    /* Adjust as needed */
-}
-
-.accordion-item:last-of-type .accordion-button.collapsed {
-    border-radius: 5px;
-}
-
-/* Ensure the last accordion item always has rounded corners at the bottom */
-.accordion-item:last-of-type,
-.accordion-item:last-of-type .accordion-button {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: #C4C4C4;
 }
 
 .accordion-button::after {
     background-image: url("../../../storage/frontend/accordion-down-arrow.svg");
-    font-size: 1rem;
-    color: #0e0e0e;
-    transform: rotate(0deg);
+    background-size: 24px; /* Larger size for laptop/desktop */
+    width: 24px; /* Explicit width */
+    height: 24px; /* Explicit height */
+    position: absolute;
+    right: 15px; /* Keep on right side */
+    top: 60%; /* True center vertically */
+    transform: translateY(-50%); /* Perfect vertical centering */
     transition: transform 0.2s ease;
+    margin-top: 0; /* Remove margin top */
 }
 
 .accordion-button:not(.collapsed)::after {
-    transform: rotate(-180deg);
-}
-.accordion-button:not(.collapsed)::after {
-    transform: rotate(-180deg);
+    transform: translateY(-50%) rotate(-180deg); /* Keep vertically centered when rotated */
 }
 
 .accordion-body {
-    color: #505050;
-    font-family: Poppins;
-    font-size: 1.562rem; /* 25px */
-    font-style: normal;
-    font-weight: 400;
-    line-height: 200%;
-    /* 50px */
-    text-align: left; /* Ensure text is left-aligned */
+    padding: 15px 20px;
+    border-top: 1px solid #e9e9e9;
+    text-align: left;
+    margin-top: 0; /* Remove any top margin */
+}
+
+.accordion-collapse {
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
 }
 
 /* Responsive adjustments */
@@ -188,6 +146,12 @@
 
     .nav-tabs .nav-link {
         font-size: 1rem; /* Reduced from 1.25rem */
+    }
+
+    .accordion-button::after {
+        background-size: 22px;
+        width: 22px;
+        height: 22px;
     }
 }
 
@@ -226,6 +190,12 @@
     .nav-tabs .nav-link {
         font-size: 0.75rem; /* Further reduced */
     }
+
+    .accordion-button::after {
+        background-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -245,7 +215,17 @@
     }
 
     .accordion-button::after {
-        font-size: 0.625rem; /* Reduce icon size for small devices */
+        background-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .policies-section .heading {
+        font-size: 32px; /* Smaller heading for mobile */
+    }
+    
+    .policies-section .sub-heading {
+        font-size: 18px; /* Smaller sub-heading for mobile */
     }
 }
 
@@ -267,7 +247,9 @@
     }
 
     .accordion-button::after {
-        font-size: 0.5rem; /* Further reduce icon size for extra small devices */
+        background-size: 14px;
+        width: 14px;
+        height: 14px;
     }
 }
 .card {
@@ -285,8 +267,6 @@
 
 .table th, .table td {
     vertical-align: middle;
-    font-size: 20px; /* Ensure font size is 20px */
-    /* line-height: 200%; */
 }
 
 .badge-warning {

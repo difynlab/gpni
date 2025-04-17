@@ -1,46 +1,70 @@
 /* Import Poppins and Open Sans fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;600&family=Poppins:wght@400;500;600;700&display=swap');
 
-
-/********** Template CSS **********/
+/* Common styles */
+* {
+    font-family: "Poppins", sans-serif;
+}
 :root {
+    --primary: #0040c3;
+    --white: white;
+    --black: black;
+    --hover: #07399b;
+    --hover_white: #e6e6e6;
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin-bottom: 1rem;
+}
+a, a:hover {
+    text-decoration: none;
+}
+.swiper-pagination-bullet-active {
+    background-color: var(--primary);
+}
+.btn-close-custom {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.page {
+    padding-top: 100px
+}
+/* Common styles */
+/********** Template CSS **********/
+/* :root {
     --primary: #0040c3;
     --light: #FFFFFF;
     --dark: #0F172B;
-}
+} */
 
-html {
-    font-size: 16px; /* Default is 16px, but you can change it */
-}
-
-body {
+/* body {
     font-family: 'Poppins', sans-serif;
     background-color: #fff;
-    color: #0E0E0E;
-     padding-top: 6rem; 
+    color: #000;
+    padding-top: 6rem; 
 }
 
 @media (max-width: 1199.98px) {
     body {
-        padding-top: 6rem; /* Padding for tablets and small desktops */
+        padding-top: 6rem; 
     }
 }
 
 @media (max-width: 991.98px) {
     body {
-        padding-top: 4.6rem; /* Padding for tablets */
+        padding-top: 4.6rem; 
     }
 }
 
 @media (max-width: 767.98px) {
     body {
-        padding-top: 4.6rem; /* Padding for mobile devices */
-    }
-}
+        padding-top: 4.6rem; 
+} */
 
 /* FONT FAMILIES */
 
-/* Define font weights for Poppins */
+Define font weights for Poppins */
 .ff-poppins-regular {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
@@ -49,7 +73,7 @@ body {
 .ff-poppins-medium {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-}
+} 
 
 .ff-poppins-semibold {
     font-family: 'Poppins', sans-serif;
@@ -61,7 +85,7 @@ body {
     font-weight: 700;
 }
 
-/* Define font weights for Open Sans */
+/*Define font weights for Open Sans */
 .ff-open-sans-regular {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
@@ -74,7 +98,7 @@ body {
 
 
 /* Utility classes for font weights */
-.fw-light {
+/* .fw-light {
     font-weight: 300 !important;
 }
 
@@ -96,67 +120,126 @@ body {
 
 .fw-extra-bold {
     font-weight: 800 !important;
-}
+} */ 
 /* define font size*/
 .fs-10 {
-    font-size: 0.625rem;
+    font-size: 10px; /* was 0.625rem */
 }
 
 .fs-12{
-    font-size: 0.75rem;
+    font-size: 12px; /* was 0.75rem */
 }
 
 .fs-13 {
-    font-size: 0.812rem;
+    font-size: 13px; /* was 0.812rem */
 }
 
 .fs-16 {
-    font-size: 1.000rem;
+    font-size: 16px; /* was 1.000rem */
 }
 
 .fs-20 {
-    font-size: 1.250rem;
+    font-size: 20px; /* was 1.250rem */
+}
+
+.fs-22 {
+    font-size: 22px; /* was 1.562rem */
 }
 
 .fs-25 {
-    font-size: 1.5rem;
+    font-size: 24px; /* was 1.5rem */
 }
 
 .fs-31 {
-    font-size: 1.938rem;
+    font-size: 31px; /* was 1.938rem */
 }
 .fs-36{
-    font-size: 2.250rem;
+    font-size: 36px; /* was 2.250rem */
 }
 
 .fs-39 {
-    font-size: 2.438rem;
+    font-size: 39px; /* was 2.438rem */
 }
 
-.fs-49 {
-    font-size: 3.062rem;
-    /* font-size: 3.812rem; */
+.heading {
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.sub-heading {
+    font-size: 22px;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.section-margin-bottom {
+    margin-bottom: 60px;
+}
+
+.text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+    font-size: 42px;
+    /* color: var(--black); */
+}
+
+.text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
+    font-size: 20px;
+    /* color: var(--black); */
+}
+
+/* .text-heading, .text-heading p, .text-heading ul, .text-heading li, .text-heading a {
+    font-size: 20px;
+    color: var(--black);
+} */
+
+.text-heading {
+    margin-bottom: 16px;
+}
+
+.text-heading a {
+    text-decoration: underline;
+}
+
+.text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+    font-size: 22px;
+    /* color: var(--black); */
+}
+.text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+    font-size: 18px;
+    /* color: var(--black); */
+}
+.text-main-content ul, .text-main-content li {
+    margin-bottom: 1rem;
+    /* color: var(--black); */
+}
+.text-content {
+    margin-bottom: 16px;
+}
+
+.text-content a {
+    text-decoration: underline;
 }
 
 .fs-61 {
-    font-size: 3.812rem;
+    font-size: 61px; /* was 3.812rem */
 }
 
 /* Additional responsive font size classes */
 .fs-sm-12 {
-    font-size: 0.75rem;
+    font-size: 12px; /* was 0.75rem */
 }
 
 .fs-sm-14 {
-    font-size: 0.875rem;
+    font-size: 14px; /* was 0.875rem */
 }
 
 .fs-sm-16 {
-    font-size: 1rem;
+    font-size: 16px; /* was 1rem */
 }
 
 .fs-md-18 {
-    font-size: 1.125rem;
+    font-size: 18px; /* was 1.125rem */
 }
 
 /* Purchase notification popup */
@@ -217,7 +300,7 @@ body {
     }
     .confirmation-box p {
         font-family: Arial, sans-serif;
-        font-size: 16px;
+        font-size: 16px; /* already in px */
         margin: 0 0 20px;
         color: #555;
     }
@@ -227,7 +310,7 @@ body {
         border: none;
         border-radius: 10px;
         padding: 10px 20px;
-        font-size: 16px;
+        font-size: 16px; /* already in px */
         cursor: pointer;
         display: block;
         margin: 0 auto;
@@ -241,199 +324,344 @@ body {
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {
     .fs-61 {
-        font-size: 2.8rem; /* Reduced from 3.812rem */
+        font-size: 45px; /* was 2.8rem */
     }
 
     .fs-49 {
-        font-size: 2.5rem; /* Reduced from 3.062rem */
+        font-size: 40px; 
+    }
+
+    .heading {
+        font-size: 36px;
     }
 
     .fs-39 {
-        font-size: 2rem; /* Reduced from 2.438rem */
+        font-size: 32px; /* was 2rem */
     }
 
     .fs-36{
-        font-size: 1.875rem; /* Reduced from 2.250rem */
+        font-size: 30px; /* was 1.875rem */
     }
 
     .fs-31 {
-        font-size: 1.5rem; /* Reduced from 1.938rem */
+        font-size: 24px; /* was 1.5rem */
     }
 
     .fs-25 {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
+        font-size: 20px; /* was 1.25rem */
+    }
+
+    .fs-22 {
+        font-size: 22px; /* was 1.25rem */
+    }
+    .sub-heading {
+        font-size: 20px;
     }
 
     .fs-20 {
-        font-size: 1rem; /* Reduced from 1.25rem */
+        font-size: 16px; /* was 1rem */
     }
 
     .fs-16 {
-        font-size: 0.875rem; /* Reduced from 1rem */
+        font-size: 14px; /* was 0.875rem */
     }
 
     .fs-13 {
-        font-size: 0.75rem; /* Reduced from 0.812rem */
+        font-size: 12px; /* was 0.75rem */
     }
 
     .fs-12{
-        font-size: 0.625rem; /* Remains the same */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-10 {
-        font-size: 0.5rem; /* Reduced from 0.625rem */
+        font-size: 8px; /* was 0.5rem */
+    }
+    .page {
+        padding-top: 95px;
+    }
+
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4 ,.text-heading h5, .text-heading h6 {
+        font-size: 18px;
+    }
+
+    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+        font-size: 16px;
+    }
+
+    .blue-button,
+    .white-button,
+    .other-button,
+    .other-white-button {
+        font-size: 16px !important;
+        padding: 7px 18px;
+    }
+
+    .other-button .icon,
+    .other-white-button .icon {
+        width: 20px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 36px;
+    }
+    
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 20px;
     }
 }
 
 @media (max-width: 991.98px) {
     .fs-61 {
-        font-size: 2.5rem; /* Further reduced */
+        font-size: 40px; /* was 2.5rem */
     }
 
     .fs-49 {
-        font-size: 1.5rem; /* Further reduced */
+        font-size: 24px; /* was 1.5rem */
     }
-
+    
+    .heading {
+        font-size: 32px;
+    }   
     .fs-39 {
-        font-size: 1.25rem; /* Further reduced */
+        font-size: 20px; /* was 1.25rem */
     }
 
     .fs-36{
-        font-size: 1.125rem; /* Further reduced */
+        font-size: 18px; /* was 1.125rem */
     }
 
     .fs-31 {
-        font-size: 1rem; /* Further reduced */
+        font-size: 16px; /* was 1rem */
     }
 
     .fs-25 {
-        font-size: 1rem; /* Further reduced */
+        font-size: 16px; /* was 1rem */
+    }
+    .sub-heading {
+        font-size: 18px;
+    }
+    
+    .page {
+        padding-top: 70px;
+    }
+    .fs-22 {
+        font-size: 16px; /* was 1rem */
     }
 
     .fs-20 {
-        font-size: 0.875rem; /* Further reduced */
+        font-size: 14px; /* was 0.875rem */
     }
 
+
     .fs-16 {
-        font-size: 0.75rem; /* Further reduced */
+        font-size: 12px; /* was 0.75rem */
     }
 
     .fs-13 {
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-12{
-
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-10 {
-        font-size: 0.5rem; /* Further reduced */
+        font-size: 8px; /* was 0.5rem */
+    }
+
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
+        font-size: 16px;
+    }
+
+    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+        font-size: 15px;
+    }
+
+    .blue-button,
+    .white-button,
+    .other-button,
+    .other-white-button {
+        font-size: 15px !important;
+        padding: 6px 16px;
+    }
+
+    .other-button .icon,
+    .other-white-button .icon {
+        width: 18px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 32px;
+    }
+    
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 18px;
     }
 }
 
 @media (max-width: 767.98px) {
     .fs-61 {
-        font-size: 2rem; /* Further reduced */
+        font-size: 32px; /* was 2rem */
     }
 
     .fs-49 {
-        font-size: 1.2rem; /* Further reduced */
+        font-size: 19px; /* was 1.2rem */
+    }
+    .heading {
+        font-size: 28px;
     }
 
     .fs-39 {
-        font-size: 1.5rem; /* Further reduced */
+        font-size: 24px; /* was 1.5rem */
     }
 
     .fs-36{
-        font-size: 1.375rem; /* Further reduced */
+        font-size: 22px; /* was 1.375rem */
     }
 
     .fs-31 {
-        font-size: 1.25rem; /* Further reduced */
+        font-size: 20px; /* was 1.25rem */
     }
 
     .fs-25 {
-        font-size: 1rem; /* Further reduced */
+        font-size: 16px; /* was 1rem */
+    }
+    .fs-22 {
+        font-size: 14px; /* was 1rem */
+    }
+    .sub-heading {
+        font-size: 16px;
+    }
+    .page {
+        padding-top: 70px;
     }
 
     .fs-20 {
-        font-size: 0.875rem; /* Further reduced */
+        font-size: 14px; /* was 0.875rem */
     }
 
     .fs-16 {
-        font-size: 0.5rem; /* Further reduced */
+        font-size: 12px; /* was 0.5rem */
     }
     
 
     .fs-13 {
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-12{
-        font-size: 0.625rem; /* Further reduced */
+        font-size: 10px; /* was 0.625rem */
     }
 
     .fs-10 {
-        font-size: 0.5rem; /* Further reduced */
+        font-size: 8px; /* was 0.5rem */
     }
 
     .fs-sm-12 {
-        font-size: 0.75rem !important;
+        font-size: 12px !important; /* was 0.75rem */
     }
     
     .fs-sm-14 {
-        font-size: 0.875rem !important;
+        font-size: 14px !important; /* was 0.875rem */
     }
     
     .fs-sm-16 {
-        font-size: 1rem !important;
+        font-size: 16px !important; /* was 1rem */
     }
     
     .fs-md-18 {
-        font-size: 1rem !important;
+        font-size: 16px !important; /* was 1rem */
+    }
+
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
+        font-size: 15px;
+    }
+
+    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+        font-size: 14px;
+    }
+
+    .blue-button,
+    .white-button,
+    .other-button,
+    .other-white-button {
+        font-size: 14px !important;
+        padding: 5px 14px;
+    }
+
+    .other-button .icon,
+    .other-white-button .icon {
+        width: 16px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 28px;
     }
     
-    li {
-        font-size: 1rem !important;
-        line-height: 1.5;
-    }
-
-    p, .p, ul, ol, li { 
-        font-size: 1rem !important;
-        line-height: 1.5;
-    }
-
-    .modal-dialog {
-        margin: 0 auto;
-        max-width: 70%;
-        top: 10%;
-        transform: translateY(-50%);
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 16px;
     }
 }
 
 @media (max-width: 575.98px) {
     .fs-sm-12 {
-        font-size: 0.625rem !important;
+        font-size: 10px !important; /* was 0.625rem */
     }
     
     .fs-sm-14 {
-        font-size: 0.75rem !important;
+        font-size: 12px !important; /* was 0.75rem */
     }
     
     .fs-sm-16 {
-        font-size: 0.875rem !important;
+        font-size: 14px !important; /* was 0.875rem */
     }
     
     .fs-md-18 {
-        font-size: 0.875rem !important;
+        font-size: 14px !important; /* was 0.875rem */
+    }
+
+    .heading {
+        font-size: 24px;
+    }
+
+    .sub-heading {
+        font-size: 15px;
+    }
+
+    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4 , .text-heading h5, .text-heading h6 {
+        font-size: 14px;
+    }
+
+    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+        font-size: 13px;
+    }
+
+    .blue-button,
+    .white-button,
+    .other-button,
+    .other-white-button {
+        font-size: 13px !important;
+        padding: 5px 12px;
+    }
+
+    .other-button .icon,
+    .other-white-button .icon {
+        width: 14px;
+    }
+    .page{
+        padding-top: 70px;
+    }
+
+    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+        font-size: 24px;
     }
     
-    li {
-        font-size: 0.75rem !important;
-        line-height: 1.4;
+    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+        font-size: 15px;
     }
 }
+
 /* Responsive Button Sizes */
 .btn-responsive {
     padding: 0.5rem 1rem; /* Default padding */
@@ -448,7 +676,7 @@ body {
 @media (max-width: 767.98px) {
     .btn-responsive {
         padding: 0.3rem 0.6rem; /* Further reduced for mobile */
-        font-size: 0.875rem;
+        font-size: 14px; /* was 0.875rem */
     }
 }
 
@@ -507,83 +735,160 @@ body {
 
 form .error-message {
     color: #dd0909;
-    font-size: 14px;
+    font-size: 14px; /* already in px */
     margin-top: 5px;
 }
 
 /* Base Typography Mapping */
-h1, .h1 {
-    font-size: 3.812rem; /* Using fs-61 size */
+/* h1, .h1 {
+    font-size: 61px; 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
 h2, .h2 {
-    font-size: 3.062rem; /* Using fs-49 size */
+    font-size: 49px; 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     margin-bottom: 1rem;
 }
 
 h3, .h3 {
-    font-size: 2.438rem; /* Using fs-39 size */
+    font-size: 39px; 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
 h4, .h4 {
-    font-size: 1.938rem; /* Using fs-31 size */
+    font-size: 31px; 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
 h5, .h5 {
-    font-size: 1.562rem; /* Using fs-25 size */
+    font-size: 25px; 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-}
+} */
 
-p, .p {
-    font-size: 1.5rem; /* Using fs-25 size */
+/* p, .p {
+    font-size: 24px; 
     font-family: 'Poppins', sans-serif;
-    /* line-height: 1.6; */
-}
+} */
 
-ul, ol {
-    font-size: 1.5rem; /* Using fs-25 size */
-    padding-left: 1.25rem;
+/* ul, ol {
+    font-size: 24px; 
+    padding-left: 20px; 
 }
 
 li {
-    font-size: 1.5rem; /* Using font-size: 1.25rem size */
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
+    font-size: 24px; 
+    margin-bottom: 8px; 
+} */
 
 /* Responsive Typography */
-@media (max-width: 1199.98px) {
-    h1, .h1 { font-size: 2.8rem; }
-    h2, .h2 { font-size: 2.5rem; }
-    h3, .h3 { font-size: 2rem; }
-    h4, .h4 { font-size: 1.5rem; }
-    h5, .h5 { font-size: 1.25rem; }
-    p, .p, ul, ol { font-size:1.25rem; }
+/* @media (max-width: 1199.98px) {
+    h1, .h1 { font-size: 45px; } 
+    h2, .h2 { font-size: 40px; } 
+    h3, .h3 { font-size: 32px; } 
+    h4, .h4 { font-size: 24px; } 
+    h5, .h5 { font-size: 20px; }  */
+    /* p, .p, ul, ol, li { 
+        font-size: 20px !important; 
+    } 
 }
 
-@media (max-width: 991.98px) {
-    h1, .h1 { font-size: 2.5rem; }
-    h2, .h2 { font-size: 2rem; }
-    h3, .h3 { font-size: 1.75rem; }
-    h4, .h4 { font-size: 1.25rem; }
-    h5, .h5 { font-size: 1rem; }
-    p, .p, ul, ol { font-size: 1rem; }
+/* @media (max-width: 991.98px) {
+    h1, .h1 { font-size: 40px; } 
+    h2, .h2 { font-size: 32px; } 
+    h3, .h3 { font-size: 28px; } 
+    h4, .h4 { font-size: 20px; } 
+    h5, .h5 { font-size: 16px; }  */
+    /* p, .p, ul, ol, li { 
+        font-size: 16px !important; 
+    } 
 }
 
-@media (max-width: 767.98px) {
-    h1, .h1 { font-size: 2rem; }
-    h2, .h2 { font-size: 1.75rem; }
-    h3, .h3 { font-size: 1.5rem; }
-    h4, .h4 { font-size: 1.25rem; }
-    h5, .h5 { font-size: 2rem; }
-    p, .p, ul, ol { font-size: 1rem; }
+/* @media (max-width: 767.98px) {
+    h1, .h1 { font-size: 32px; } 
+    h2, .h2 { font-size: 28px; }
+    h3, .h3 { font-size: 24px; } 
+    h4, .h4 { font-size: 20px; } 
+    h5, .h5 { font-size: 32px; }  */
+    /* p, .p, ul, ol, li { 
+        font-size: 16px !important; 
+    } 
+}
+
+/* @media (max-width: 575.98px) {
+    /* p, .p, ul, ol, li { 
+        font-size: 14px !important; 
+    } 
+}
+
+/* Button styles - Consolidate these definitions */
+.blue-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: none;
+    transition: all 0.3s;
+}
+.blue-button:hover {
+    background-color: var(--hover);
+    transition: all 0.3s;
+}
+.other-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+    transition: all 0.3s;
+}
+.other-button:hover {
+    color: var(--hover);
+    transition: all 0.3s;
+}
+.other-button .icon {
+    width: 22px;
+    transition: all 0.3s;
+}
+.other-button:hover > .icon {
+    transform: translateX(5px);
+    transition: all 0.3s;
+}
+.white-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: none;
+    transition: all 0.3s;
+}
+.white-button:hover {
+    background-color: var(--hover_white);
+    color: var(--black);
+    transition: all 0.3s;
+}
+.other-white-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    transition: all 0.3s;
+}
+.other-white-button:hover {
+    color: var(--hover_white);
+    transition: all 0.3s;
+}
+.other-white-button .icon {
+    width: 22px;
+    transition: all 0.3s;
+}
+.other-white-button:hover > .icon {
+    transform: translateX(5px);
+    transition: all 0.3s;
 }

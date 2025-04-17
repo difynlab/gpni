@@ -11,7 +11,7 @@
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col">
-                <h1 class="display-4 fs-49 mb-3">{{ $course->title }}</h1>
+                <div class="display-4 heading mb-3">{{ $course->title }}</div>
                 <div class="d-flex align-items-center mt-3">
                     <span class="me-2 fs-16" style="font-weight: 500; color: #898989;">{{ $average_rating }}.0</span>
                     @for($i = 0; $i < $average_rating; $i++)
@@ -28,41 +28,41 @@
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-duration.svg') }}" alt="Course Duration" class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'course_duration_' . $middleware_language} ?? $contents->course_duration_en }}</div>
+                            <div class="common-style sub-heading">{{ $contents->{'course_duration_' . $middleware_language} ?? $contents->course_duration_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->duration }}</div>
+                        <div class="common-text-style sub-heading">{{ $course->duration }}</div>
                     </div>
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-language.svg') }}" alt="Language" class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'language_' . $middleware_language} ?? $contents->language_en }}</div>
+                            <div class="common-style sub-heading">{{ $contents->{'language_' . $middleware_language} ?? $contents->language_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->language }}</div>
+                        <div class="common-text-style sub-heading">{{ $course->language }}</div>
                     </div>
                     <div class="list-group-item bg-light">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('storage/frontend/course-type.svg') }}" alt="Course Type"
                                     class="me-3 img-size">
-                                <div class="common-style fs-25 fs-md-20">{{ $contents->{'course_type_' . $middleware_language} ?? $contents->course_type_en }}</div>
+                                <div class="common-style sub-heading">{{ $contents->{'course_type_' . $middleware_language} ?? $contents->course_type_en }}</div>
                             </div>
-                            <div class="common-text-style fs-20 fs-md-16">{{ $course->type }}</div>
+                            <div class="common-text-style sub-heading ">{{ $course->type }}</div>
                         </div>
                     </div>
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-modules.svg') }}" alt="No. of Modules"
                                 class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'no_of_modules_' . $middleware_language} ?? $contents->no_of_modules_en }}</div>
+                            <div class="common-style sub-heading ">{{ $contents->{'no_of_modules_' . $middleware_language} ?? $contents->no_of_modules_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->no_of_modules }}</div>
+                        <div class="common-text-style sub-heading ">{{ $course->no_of_modules }}</div>
                     </div>
                     <div class="list-group-item bg-light d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img src="{{ asset('storage/frontend/course-students.svg') }}" alt="No. Of Student Enrolled" class="me-3 img-size">
-                            <div class="common-style fs-25 fs-md-20">{{ $contents->{'no_of_students_enrolled_' . $middleware_language} ?? $contents->no_of_students_enrolled_en }}</div>
+                            <div class="common-style sub-heading">{{ $contents->{'no_of_students_enrolled_' . $middleware_language} ?? $contents->no_of_students_enrolled_en }}</div>
                         </div>
-                        <div class="common-text-style fs-20 fs-md-16">{{ $course->no_of_students_enrolled }}</div>
+                        <div class="common-text-style sub-heading">{{ $course->no_of_students_enrolled }}</div>
                     </div>
                 </div>
             </div>
@@ -82,23 +82,23 @@
             <div class="col-md-5 mb-4 mb-md-0">
                 <div class="author-card bg-warning rounded d-flex align-items-center p-3 position-relative mb-3">
                     <div class="by-badge text-center">
-                        <span class="fs-20 fs-md-16">{{ $contents->{'by_' . $middleware_language} ?? $contents->by_en }}</span>
+                        <span class="fs-20 ">{{ $contents->{'by_' . $middleware_language} ?? $contents->by_en }}</span>
                     </div>
 
                     <img src="{{ asset('storage/backend/courses/course-instructors/' . $course->instructor_profile_image) }}" alt="Instructor Profile Image" class="rounded-circle ms-2 ms-md-3" style="width: 80px; height: 80px; object-fit: cover;">
 
                     <div class="ms-3 text-white">
-                        <div class="fs-25 fs-md-20" style="font-weight: 500; line-height: 120%;">{{ $course->instructor_name }}</div>
+                        <div class="sub-heading" style="font-weight: 500; line-height: 120%;">{{ $course->instructor_name }}</div>
                         <small class="fs-16">{{ $course->instructor_designation }}</small>
                     </div>
                 </div>
             </div>
             <div class="col-md-7">
-                <p class="text-muted line-clamp-3 fs-25 fs-md-16 mb-0">{{ $course->short_description }}</p>
+                <div class="text-muted line-clamp-3 sub-heading mb-0">{{ $course->short_description }}</div>
 
                 @if(auth()->check())
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 ">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
                     @else
                         <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
                             @csrf
@@ -107,11 +107,11 @@
                             <input type="hidden" name="payment_mode" value="payment">
                             <input type="hidden" name="price" value="{{ $course->price }}">
 
-                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16 mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
+                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20  mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
                         </form>
                     @endif
                 @else
-                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 fs-md-16 mt-2 mt-md-3">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
+                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20  mt-2 mt-md-3">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
                 @endif
             </div>
         </div>
@@ -119,8 +119,8 @@
         @if($course->master_section_2_title)
             <div class="row mt-4 mt-md-5">
                 <div class="col text-center mb-3 mb-md-4 d-flex flex-column align-items-center justify-content-center">
-                    <h2 class="learn-title my-3 my-md-4 fs-49">{{ $course->master_section_2_title }}</h2>
-                    <p class="learn-subtitle fs-25 w-100 w-md-75">{{ $course->master_section_2_description }}</p>
+                    <div class="learn-title my-3 my-md-4 heading">{{ $course->master_section_2_title }}</div>
+                    <div class="learn-subtitle sub-heading w-100 w-md-75">{{ $course->master_section_2_description }}</div>
                 </div>
             </div>
 
@@ -128,7 +128,7 @@
                 @if($course->master_section_2_points)
                     @foreach(json_decode($course->master_section_2_points) as $master_section_2_point)
                         <div class="col-md-6">
-                            <div class="learn-list d-flex fs-25 py-2 py-md-3">
+                            <div class="learn-list d-flex text-content py-2 py-md-3">
                                 <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-2 me-md-3">
                                 <span>{{ $master_section_2_point }}</span>
                             </div>
@@ -143,8 +143,8 @@
         <div class="container-fluid journey-container py-5">
             <div class="row justify-content-center text-center text-white">
                 <div class="col-md-8">
-                    <h2 class="journey-title pb-2 fs-49">{{ $course->master_section_3_title }}</h2>
-                    <p class="journey-subtitle px-3 px-md-0 fs-25">{{ $course->master_section_3_description }}</p>
+                    <div class="journey-title pb-2 heading">{{ $course->master_section_3_title }}</div>
+                    <div class="journey-subtitle px-3 px-md-0 sub-heading">{{ $course->master_section_3_description }}</div>
 
                     @guest
                         <div class="text-center fs-20 mt-3">
@@ -176,19 +176,19 @@
 
         <div class="tab-content mt-3 px-2 px-md-0">
             <div class="tab-pane fade show active" id="introduction">
-                <div class="content-box py-3 py-md-4 px-3 px-md-5">
+                <div class="content-box text-main-heading text-main-content py-3 py-md-4 px-3 px-md-5">
                     <div class="fs-20">{!! $course->course_introduction !!}</div>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="course-content">
-                <div class="content-box py-3 py-md-4 px-3 px-md-5">
+                <div class="content-box text-main-heading text-main-content py-3 py-md-4 px-3 px-md-5">
                     <div class="fs-20">{!! $course->course_content !!}</div>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="chapters">
-                <div class="content-box py-3 py-md-4 px-3 px-md-5">
+                <div class="content-box text-main-heading text-main-content py-3 py-md-4 px-3 px-md-5">
                     <div class="fs-20">{!! $course->course_chapter !!}</div>
                 </div>
             </div>
@@ -212,7 +212,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="testimonial-content fs-20 mt-3">
+                                        <div class="testimonial-content text-content mt-3">
                                             {{ $course_review->content }}
                                         </div>
                                     </div>
@@ -239,8 +239,8 @@
                         <img src="{{ asset('storage/backend/courses/course-images/' . $course->master_section_4_image) }}" alt="Course Image" class="img-fluid">
                     </div>
                     <div class="col-md-6 ps-md-5"> 
-                        <h2 class="mb-3 fs-49 ff-poppins-medium mb-3 text-white">{!! $course->master_section_4_content !!}</h2>
-                        <div class="fs-25 ff-poppins-regular">
+                        <div class="mb-3 text-main-heading text-main-content ff-poppins-medium mb-3 text-white">{!! $course->master_section_4_content !!}</div>
+                        <div class="sub-heading ff-poppins-regular">
                             @if(auth()->check())
                                 @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
                                     <button type="submit" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
@@ -278,7 +278,7 @@
                         @foreach($testimonials as $index => $testimonial)
                             @if($index === 0)
                                 <div class="quote-container">
-                                    <div class="quote mb-3 fs-25" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
+                                    <div class="quote mb-3 sub-heading" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
                                     <div class="student-name mb-2 fs-20">{{ $testimonial->name }}</div>
                                     <div class="stars">
                                         @for($i = 0; $i < $testimonial->rate; $i++)
@@ -313,8 +313,8 @@
                             @foreach($testimonials as $testimonial)
                                 <div class="testimonial-slide">
                                     <div class="student-review-card-2 p-3">
-                                        <h5 class="student-review-name fs-20">{{ $testimonial->name }}</h5>
-                                        <p class="student-review-text fs-18">{{ $testimonial->content }}</p>
+                                        <div class="student-review-name text-heading">{{ $testimonial->name }}</div>
+                                        <div class="student-review-text text-content">{{ $testimonial->content }}</div>
                                         <div class="student-review-footer">
                                             <div class="student-review-rating">
                                                 <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
@@ -340,120 +340,6 @@
             @endif
         </div>
     @endif
-
-    <!-- @if($course->master_section_8_title)
-        <div class="container text-center mt-5">
-            <h2 class="experts-title fs-49">{{ $course->master_section_8_title }}</h2>
-            <p class="experts-description fs-25">{{ $course->master_section_8_description }}</p>
-
-            @if($course->master_section_8_videos)
-                <div class="assessment-container my-4">
-                    <div class="row g-3">
-                        @foreach(json_decode($course->master_section_8_videos) as $master_section_8_video)
-                            <div class="col-12 col-sm-6 col-lg-3">
-                                <div class="video-wrapper">
-                                    <video class="assessment-video" controls>
-                                        <source src="{{ asset('storage/backend/courses/course-videos/' . $master_section_8_video) }}" type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
-        </div>
-    @endif
-
-    @if($course->master_section_9_title)
-        <section class="contact-us my-5">
-            <div class="container">
-                <h1 class="fs-49">{{ $course->master_section_9_title }}</h1>
-                <p class="fs-25">{{ $course->master_section_9_description }}</p>
-
-                <div class="contact-us-icons">
-                    <div class="row d-flex align-items-end">
-                        <div class="col-6 col-md-4 col-lg-2 mb-3">
-                            <div class="icon-item text-center">
-                                <a href="mailto: {{ $settings->email }}" class="text-decoration-none">
-                                    <img src="{{ asset('storage/frontend/email-white.svg') }}" alt="Email Icon" class="img-fluid white-fill">
-                                    <p>{{ $settings->email }}</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-3">
-                            <div class="icon-item text-center">
-                                <a href="{{ $settings->instagram }}" class="text-decoration-none" target="_blank">
-                                    <img src="{{ asset('storage/frontend/instagram-white.svg') }}" alt="Instagram Icon" class="img-fluid">
-                                    <p>{{ $contents->{'instagram_' . $middleware_language} ?? $contents->instagram_en }}</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-3">
-                            <div class="icon-item text-center">
-                                <a href="{{ $settings->twitter }}" class="text-decoration-none" target="_blank">
-                                    <img src="{{ asset('storage/frontend/twitter-white.svg') }}" alt="Twitter Icon" class="img-fluid">
-                                    <p>{{ $contents->{'twitter_' . $middleware_language} ?? $contents->twitter_en }}</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-3">
-                            <div class="icon-item text-center">
-                                <a href="{{ $settings->linkedin }}" class="text-decoration-none" target="_blank">
-                                    <img src="{{ asset('storage/frontend/linkedin-white.svg') }}" alt="LinkedIn Icon" class="img-fluid">
-                                    <p>{{ $contents->{'linkedin_' . $middleware_language} ?? $contents->linkedin_en }}</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-3">
-                            <div class="icon-item text-center">
-                                <a href="{{ $settings->youtube }}" class="text-decoration-none" target="_blank">
-                                    <img src="{{ asset('storage/frontend/youtube-white.svg') }}" alt="Youtube Icon" class="img-fluid">
-                                    <p>{{ $contents->{'youtube_' . $middleware_language} ?? $contents->youtube_en }}</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-2 mb-3">
-                            <div class="icon-item text-center">
-                                <a href="{{ $settings->fb }}" class="text-decoration-none" target="_blank">
-                                    <img src="{{ asset('storage/frontend/facebook-white.svg') }}" alt="Facebook Icon" class="img-fluid">
-                                    <p>{{ $contents->{'facebook_' . $middleware_language} ?? $contents->facebook_en }}</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if($course->master_section_10_title)
-        <div class="container my-5">
-            <h2 class="faq-title fs-49 text-center">{{ $course->master_section_10_title }}</h2>
-            <p class="faq-subtitle fs-25 text-center">{{ $course->master_section_10_description }}</p>
-
-            @if($faqs->isNotEmpty())
-                <div class="faq-container mt-5">
-                    <div class="accordion" id="accordionExample">
-                        @foreach($faqs as $faq)
-                            <div class="accordion-item" id="heading{{ $faq->id }}">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button fs-25 collapsed p-2 p-md-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $faq->id }}" aria-expanded="false" aria-controls="collapse{{ $faq->id }}">
-                                        {{ $faq->question }}
-                                    </button>
-                                </h2>
-
-                                <div id="collapse{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $faq->id }}" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        {!! $faq->answer !!}
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
-        </div>
-    @endif -->
 
 @endsection
 

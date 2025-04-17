@@ -1,4 +1,3 @@
-
 @extends('frontend.layouts.app')
 
 @section('title', $contents->{'page_name_' . $middleware_language} !== '' 
@@ -16,9 +15,9 @@
 
             <x-frontend.notification></x-frontend.notification>
 
-            <h1 class="header-title fs-49 mb-3">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</h1>
+            <div class="header-title text-center heading mb-3">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
 
-            <p class="description fs-25">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</p>
+            <div class="description sub-heading">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</div>
 
             <div class="form-container">
                 <form action="{{ route('frontend.contact-us.store') }}" method="POST">
@@ -46,14 +45,14 @@
                     </div>
 
                     <div class="form-row fs-20">
-                        <div class="form-group col-md-12 reason-group">
+                        <div class="form-group col-12 reason-group">
                             <label for="question" class="required">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
                             <input type="text" class="form-control" id="question" name="question" required>
                         </div>
                     </div>
 
                     <div class="form-row fs-20">
-                        <div class="form-group col-md-12 comments-group">
+                        <div class="form-group col-12 comments-group">
                             <label for="comments" class="required">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
                             <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" required></textarea>
                         </div>
@@ -70,8 +69,8 @@
                             <img src="{{ asset('storage/frontend/email.svg') }}" alt="Email Icon">
                         </div>
                         <div class="info-item-content">
-                            <p class="title">{{ $contents->{'contact_email_' . $middleware_language} ?? $contents->contact_email_en }}</p>
-                            <p class="info">{{ $settings->email }}</p>
+                            <div class="title">{{ $contents->{'contact_email_' . $middleware_language} ?? $contents->contact_email_en }}</div>
+                            <div class="info">{{ $settings->email }}</div>
                         </div>
                     </div>
                     <div class="info-item">
@@ -79,8 +78,8 @@
                             <img src="{{ asset('storage/frontend/phone.svg') }}" alt="Phone Icon">
                         </div>
                         <div class="info-item-content">
-                            <p class="title">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}</p>
-                            <p class="info">{{ $settings->whatsapp }}</p>
+                            <div class="title">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}</div>
+                            <div class="info">{{ $settings->whatsapp }}</div>
                         </div>
                     </div>
                 </div>

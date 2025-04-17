@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <div class="section">
+        <div class="section container-fluid p-0">
             <div class="text-container">
                 <div class="since">
                     {{ $contents->{'section_1_large_title_' . $middleware_language} ?? $contents->section_1_large_title_en }}
@@ -37,24 +37,24 @@
     @endif
 
     @if($contents->section_2_title_en)
-        <div class="who-we-are">
+        <div class="who-we-are py-md-5 py-3">
             <div class="container">
-                <h2 class="ff-poppins-medium fs-49">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
+                <div class="heading">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
 
-                <h3 class="fs-31 ff-poppins-medium">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</h3>
+                <div class="ff-poppins-medium fs-31 mb-3">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</div>
 
-                <p class="fs-25 ff-poppins-regular">{{ $contents->{'section_2_description_' . $middleware_language} ?? $contents->section_2_description_en }}</p>
+                <div class="sub-heading ">{{ $contents->{'section_2_description_' . $middleware_language} ?? $contents->section_2_description_en }}</div>
             </div>
         </div>
     @endif
 
     @if($contents->section_3_title_en)
-        <div class="our-story py-5">
+        <div class="our-story py-md-5 py-3">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h2 class="mb-3 fs-49 ff-poppins-medium mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</h2>
-                        <div class="fs-25 ff-poppins-regular">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
+                        <div class="heading text-center text-md-start text-white ff-poppins-medium mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
+                        <div class="sub-heading text-center text-md-start ff-poppins-regular">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
                     </div>
                     <div class="col-md-6">
                         @if($contents->{'section_3_image_' . $middleware_language})
@@ -71,29 +71,29 @@
     @endif
 
     @if($contents->section_4_title_en)
-        <div class="our-founders py-5">
+        <div class="our-founders py-md-5 py-3">
             <div class="container">
-                <h2 class="fs-49 ff-poppins-medium mb-3">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</h2>
+                <div class="heading ff-poppins-medium text-center text-lg-end mb-3">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</div>
 
                 @if($our_founders->isNotEmpty())
                     @foreach($our_founders as $key => $our_founder)
                         <div class="row founder align-items-center">
                             @if($key == 0)
-                                <div class="col-lg-2 text-center text-md-start">
+                                <div class="col-lg-2 text-center">
                                     <img src="{{ asset('storage/backend/persons/our-founders/' . $our_founder->image) }}" alt="{{ $our_founder->name }}" class="img-fluid">
                                 </div>
                                 <div class="col-lg-10 text-center text-md-start">
-                                    <h4 class="p-0 m-0 fs-31 ff-poppins-semibold">{{ $our_founder->name }}</h4>
-                                    <div class="title py-2 fs-20 ff-poppins-regular">{{ $our_founder->designations }}</div>
-                                    <div class="pt-3 fs-25">{!! $our_founder->description !!}</div>
+                                    <div class="p-0 m-0 sub-heading ff-poppins-semibold">{{ $our_founder->name }}</div>
+                                    <div class="title text-heading ff-poppins-regular">{{ $our_founder->designations }}</div>
+                                    <div class="pt-3 text-content text-center text-md-start">{!! $our_founder->description !!}</div>
                                 </div>
                             @else
                                 <div class="col-lg-10 text-center text-md-end order-2 order-md-1">
-                                    <h4 class="p-0 m-0 fs-31 ff-poppins-semibold">{{ $our_founder->name }}</h4>
-                                    <div class="title py-2 fs-20 ff-poppins-regular">{{ $our_founder->designations }}</div>
-                                    <div class="pt-3 fs-25">{!! $our_founder->description !!}</div>
+                                    <div class="p-0 m-0 sub-heading ff-poppins-semibold">{{ $our_founder->name }}</div>
+                                    <div class="title text-heading ff-poppins-regular">{{ $our_founder->designations }}</div>
+                                    <div class="pt-3 text-content text-center text-md-end">{!! $our_founder->description !!}</div>
                                 </div>
-                                <div class="col-lg-2 text-center text-md-start order-1 order-md-2">
+                                <div class="col-lg-2 text-center order-1 order-md-2">
                                     <img src="{{ asset('storage/backend/persons/our-founders/' . $our_founder->image) }}" alt="{{ $our_founder->name }}" class="img-fluid">
                                 </div>
                             @endif
@@ -105,10 +105,10 @@
     @endif
     
     @if($contents->section_5_title_en)
-        <div class="our-partners py-5" style="background-color: #0040C3;">
+        <div class="our-partners py-md-5 py-3" style="background-color: #0040C3;">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6">
+                    <div class="col-md-6 d-flex justify-content-center">
                         @if($contents->{'section_5_image_' . $middleware_language})
                             <img src="{{ asset('storage/backend/pages/' . $contents->{'section_5_image_' . $middleware_language}) }}"  alt="Section 05 Image" class="img-fluid">
                         @elseif($contents->section_5_image_en)
@@ -117,9 +117,9 @@
                             <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Section 05 Image" class="img-fluid">
                         @endif
                     </div>
-                    <div class="col-md-6">
-                        <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</h2>
-                        <div class="fs-25 ff-poppins-regular">{!! $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en !!}</div>
+                    <div class="col-md-6  ">
+                        <div class="heading text-white ff-poppins-medium">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
+                        <div class="sub-heading ff-poppins-regular">{!! $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en !!}</div>
                     </div>
                 </div>
             </div>
@@ -127,12 +127,12 @@
     @endif
 
     @if($contents->section_6_title_en)
-        <div class="gold-standard py-5">
+        <div class="gold-standard py-md-5 py-3">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <h2 class="fs-49 ff-poppins-medium">{{ $contents->{'section_6_title_' . $middleware_language} ?? $contents->section_6_title_en }}</h2>
-                        <div class="fs-25 ff-poppins-regular">{!! $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en !!}</div>
+                        <div class="heading ff-poppins-medium">{{ $contents->{'section_6_title_' . $middleware_language} ?? $contents->section_6_title_en }}</div>
+                        <div class="sub-heading ff-poppins-regular">{!! $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en !!}</div>
                     </div>
                     <div class="col-lg-6">
                         @if($contents->{'section_6_image_' . $middleware_language})

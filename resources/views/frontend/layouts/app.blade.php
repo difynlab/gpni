@@ -16,12 +16,16 @@
             <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
             <link rel="stylesheet" href="{{ asset('frontend/css/navbar.css') }}">
             <link rel="stylesheet" href="{{ asset('frontend/css/footer.css') }}">
+            <link rel="stylesheet" href="{{ asset('frontend/css/swiper.css') }}">
         @stack('after-styles')
     </head>
 
     <body>
         <x-frontend.navigation></x-frontend.navigation>
-        @yield('content')
+        <div class="page">
+            @yield('content')
+        </div>
+        
         <x-frontend.footer></x-frontend.footer>
 
         @stack('before-scripts')
@@ -29,6 +33,7 @@
             <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
             <script src="{{ asset('frontend/js/main.js') }}"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="{{ asset('frontend/js/swiper.js') }}"></script>
         @stack('after-scripts')
     </body>
     

@@ -18,11 +18,11 @@
 
         <div class="d-flex ms-auto d-lg-none align-items-center">
             <li class="nav-item dropdown mx-2 position-relative">
-                <a class="nav-link dropdown-toggle fs-20" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle fs-16" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="flag-icon">
                         <img src="{{ asset('storage/frontend/flags/' . $selected_language . '.svg') }}" alt="{{ $languages[$selected_language] }} Flag" class="img-fluid" style="width: 25px; height: 18px; filter: drop-shadow(0px 1.665px 8.324px #B8BAC1);">
                     </span>
-                    <i class="bi bi-chevron-down" style="font-size: 0.7rem; color: black;"></i>
+                    <i class="dropdown" style="font-size: 0.7rem; color: black;"></i>
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
@@ -68,12 +68,11 @@
                     @php
                         $first_tab = App\Models\HomepageContent::find(1);
                     @endphp
-                    <a href="{{ route('frontend.homepage') }}" class="nav-item nav-link fs-20">{{ $first_tab->{'page_name_' . $middleware_language} !== '' ? $first_tab->{'page_name_' . $middleware_language} : $first_tab->page_name_en }}</a>
+                    <a href="{{ route('frontend.homepage') }}" class="nav-item nav-link fs-18">{{ $first_tab->{'page_name_' . $middleware_language} !== '' ? $first_tab->{'page_name_' . $middleware_language} : $first_tab->page_name_en }}</a>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fs-20 text-start" href="#" id="educationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle fs-18 text-start" href="#" id="educationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ $contents->{'header_second_tab_' . $middleware_language} ?? $contents->header_second_tab_en }}
-                            <i class="bi bi-chevron-down d-inline d-lg-none" style="font-size: 0.5rem; color: black;"></i>
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="educationDropdown">
@@ -81,9 +80,9 @@
                                 @php
                                     $second_first_tab = App\Models\CertificationCourseContent::find(1);
                                 @endphp
-                                <a class="dropdown-item dropdown-toggle fs-20" href="#" id="internationalCoursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="dropdown-item dropdown-toggle fs-16" href="#" id="internationalCoursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ $second_first_tab->{'page_name_' . $middleware_language} !== '' ? $second_first_tab->{'page_name_' . $middleware_language} : $second_first_tab->page_name_en }}
-                                    <i class="bi bi-chevron-right" style="font-size: 0.7rem;"></i>
+                                    <i class="bi bi-caret-right-fill" style="font-size: 0.7rem; margin-left: auto;"></i>
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="internationalCoursesDropdown">
@@ -100,7 +99,7 @@
                                     @if($certificate_courses->isNotEmpty())
                                         @foreach($certificate_courses as $certificate_course)
                                             <li>
-                                                <a class="dropdown-item fs-20" href="{{ route('frontend.certification-courses.show', [$certificate_course, \Overtrue\Pinyin\Pinyin::permalink($certificate_course->title)]) }}">{{ $certificate_course->title }}</a>
+                                                <a class="dropdown-item fs-16" href="{{ route('frontend.certification-courses.show', [$certificate_course, \Overtrue\Pinyin\Pinyin::permalink($certificate_course->title)]) }}">{{ $certificate_course->title }}</a>
                                             </li>
                                         @endforeach
                                     @endif
@@ -111,19 +110,18 @@
                                 @php
                                     $second_second_tab = App\Models\MasterClassContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.master-classes.index') }}">{{ $second_second_tab->{'page_name_' . $middleware_language} !== '' ? $second_second_tab->{'page_name_' . $middleware_language} : $second_second_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.master-classes.index') }}">{{ $second_second_tab->{'page_name_' . $middleware_language} !== '' ? $second_second_tab->{'page_name_' . $middleware_language} : $second_second_tab->page_name_en }}</a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.our-policies') }}">{{ $contents->{'header_second_tab_third_' . $middleware_language} ?? $contents->header_second_tab_third_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.our-policies') }}">{{ $contents->{'header_second_tab_third_' . $middleware_language} ?? $contents->header_second_tab_third_en }}</a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fs-20 text-start" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle fs-18 text-start" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ $contents->{'header_third_tab_' . $middleware_language} ?? $contents->header_third_tab_en }}
-                            <i class="bi bi-chevron-down d-inline d-lg-none" style="font-size: 0.5rem; color: black;"></i>
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -131,45 +129,44 @@
                                 @php
                                     $third_first_tab = App\Models\HistoryOfGpniContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.history-of-gpni') }}">{{ $third_first_tab->{'page_name_' . $middleware_language} !== '' ? $third_first_tab->{'page_name_' . $middleware_language} : $third_first_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.history-of-gpni') }}">{{ $third_first_tab->{'page_name_' . $middleware_language} !== '' ? $third_first_tab->{'page_name_' . $middleware_language} : $third_first_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
                                     $third_second_tab = App\Models\WhyWeAreDifferentContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.why-we-are-different') }}">{{ $third_second_tab->{'page_name_' . $middleware_language} !== '' ? $third_second_tab->{'page_name_' . $middleware_language} : $third_second_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.why-we-are-different') }}">{{ $third_second_tab->{'page_name_' . $middleware_language} !== '' ? $third_second_tab->{'page_name_' . $middleware_language} : $third_second_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
                                     $third_third_tab = App\Models\AdvisoryBoardExpertLectureContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.advisory-board-and-expert-lectures') }}">{{ $third_third_tab->{'page_name_' . $middleware_language} !== '' ? $third_third_tab->{'page_name_' . $middleware_language} : $third_third_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.advisory-board-and-expert-lectures') }}">{{ $third_third_tab->{'page_name_' . $middleware_language} !== '' ? $third_third_tab->{'page_name_' . $middleware_language} : $third_third_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
                                     $third_fourth_tab = App\Models\FAQContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.faqs') }}">{{ $third_fourth_tab->{'page_name_' . $middleware_language} !== '' ? $third_fourth_tab->{'page_name_' . $middleware_language} : $third_fourth_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.faqs') }}">{{ $third_fourth_tab->{'page_name_' . $middleware_language} !== '' ? $third_fourth_tab->{'page_name_' . $middleware_language} : $third_fourth_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
                                     $third_fifth_tab = App\Models\MembershipContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.membership') }}">{{ $third_fifth_tab->{'page_name_' . $middleware_language} !== '' ? $third_fifth_tab->{'page_name_' . $middleware_language} : $third_fifth_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.membership') }}">{{ $third_fifth_tab->{'page_name_' . $middleware_language} !== '' ? $third_fifth_tab->{'page_name_' . $middleware_language} : $third_fifth_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
                                     $third_sixth_tab = App\Models\OurPolicyContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.our-policies') }}">{{ $third_sixth_tab->{'page_name_' . $middleware_language} !== '' ? $third_sixth_tab->{'page_name_' . $middleware_language} : $third_sixth_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.our-policies') }}">{{ $third_sixth_tab->{'page_name_' . $middleware_language} !== '' ? $third_sixth_tab->{'page_name_' . $middleware_language} : $third_sixth_tab->page_name_en }}</a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fs-20 text-start" href="#" id="partnersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle fs-18 text-start" href="#" id="partnersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ $contents->{'header_fourth_tab_' . $middleware_language} ?? $contents->header_fourth_tab_en }}
-                            <i class="bi bi-chevron-down d-inline d-lg-none" style="font-size: 0.5rem; color: black;"></i>
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="partnersDropdown">
@@ -177,19 +174,19 @@
                                 @php
                                     $fourth_first_tab = App\Models\InsuranceProfessionalMembershipContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.insurance-and-professional-membership') }}">{{ $fourth_first_tab->{'page_name_' . $middleware_language} !== '' ? $fourth_first_tab->{'page_name_' . $middleware_language} : $fourth_first_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.insurance-and-professional-membership') }}">{{ $fourth_first_tab->{'page_name_' . $middleware_language} !== '' ? $fourth_first_tab->{'page_name_' . $middleware_language} : $fourth_first_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
                                     $fourth_second_tab = App\Models\GlobalEducationPartnerContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.global-education-partners') }}">{{ $fourth_second_tab->{'page_name_' . $middleware_language} !== '' ? $fourth_second_tab->{'page_name_' . $middleware_language} : $fourth_second_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.global-education-partners') }}">{{ $fourth_second_tab->{'page_name_' . $middleware_language} !== '' ? $fourth_second_tab->{'page_name_' . $middleware_language} : $fourth_second_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
                                     $fourth_third_tab = App\Models\ISSNOfficialPartnerAffiliateContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-20" href="{{ route('frontend.issn-official-partners-and-affiliates') }}">{{ $fourth_third_tab->{'page_name_' . $middleware_language} !== '' ? $fourth_third_tab->{'page_name_' . $middleware_language} : $fourth_third_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.issn-official-partners-and-affiliates') }}">{{ $fourth_third_tab->{'page_name_' . $middleware_language} !== '' ? $fourth_third_tab->{'page_name_' . $middleware_language} : $fourth_third_tab->page_name_en }}</a>
                             </li>
                         </ul>
                     </li>
@@ -197,7 +194,7 @@
                     @php
                         $fifth_tab = App\Models\NutritionistContent::find(1);
                     @endphp
-                    <a href="{{ route('frontend.nutritionists.index') }}" class="nav-item nav-link fs-20">{{ $fifth_tab->{'page_name_' . $middleware_language} !== '' ? $fifth_tab->{'page_name_' . $middleware_language} : $fifth_tab->page_name_en }}</a>
+                    <a href="{{ route('frontend.nutritionists.index') }}" class="nav-item nav-link fs-18">{{ $fifth_tab->{'page_name_' . $middleware_language} !== '' ? $fifth_tab->{'page_name_' . $middleware_language} : $fifth_tab->page_name_en }}</a>
 
                     <!-- <a href="#" class="nav-item nav-link fs-20">
                         <i class="bi bi-search"></i>
@@ -205,13 +202,13 @@
 
                     @if(auth()->check())
                         @if(App\Models\Cart::where('user_id', auth()->user()->id)->where('status', 'Active')->count() > 0)
-                            <a href="{{ route('frontend.carts.index') }}" class="nav-item nav-link fs-20 d-none d-lg-block">
+                            <a href="{{ route('frontend.carts.index') }}" class="nav-item nav-link fs-18 d-none d-lg-block">
                                 <i class="bi bi-cart position-relative">
                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">{{ App\Models\Cart::where('user_id', auth()->user()->id)->where('status', 'Active')->count() }}</span>
                                 </i>
                             </a>
                         @else
-                            <a href="#" class="nav-item nav-link fs-20 d-none d-lg-block">
+                            <a href="#" class="nav-item nav-link fs-18 d-none d-lg-block">
                                 <i class="bi bi-cart position-relative">
                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
                                 </i>
@@ -230,19 +227,19 @@
 
                                 <ul class="dropdown-menu" aria-labelledby="partnersDropdown">
                                     <li>
-                                        <a class="dropdown-item fs-18" href="{{ route('frontend.dashboard.index') }}">{{ $contents->{'header_user_dashboard_' . $middleware_language} ?? $contents->header_user_dashboard_en }}</a>
+                                        <a class="dropdown-item fs-16" href="{{ route('frontend.dashboard.index') }}">{{ $contents->{'header_user_dashboard_' . $middleware_language} ?? $contents->header_user_dashboard_en }}</a>
                                     </li>
                                     <li>
                                         @if(auth()->user()->member == 'Yes')
-                                            <a class="dropdown-item fs-18" href="{{ route('frontend.member-corner') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
+                                            <a class="dropdown-item fs-16" href="{{ route('frontend.member-corner') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
                                         @else
-                                            <a class="dropdown-item fs-18" href="{{ route('frontend.membership') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
+                                            <a class="dropdown-item fs-16" href="{{ route('frontend.membership') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
                                         @endif
                                     </li>
                                     <li>
                                         <form method="POST" action="{{ route('frontend.logout') }}">
                                             @csrf
-                                            <a href="{{ route('frontend.logout') }}" class="dropdown-item fs-18"
+                                            <a href="{{ route('frontend.logout') }}" class="dropdown-item fs-16"
                                                 onclick="event.preventDefault(); this.closest('form').submit();">{{ $contents->{'header_user_logout_' . $middleware_language} ?? $contents->header_user_logout_en }}</a>
                                         </form>
                                     </li>
@@ -264,7 +261,7 @@
                             <span class="flag-icon">
                                 <img src="{{ asset('storage/frontend/flags/' . $selected_language . '.svg') }}" alt="{{ $languages[$selected_language] }} Flag" class="img-fluid" style="width: 25px; height: 18px; filter: drop-shadow(0px 1.665px 8.324px #B8BAC1);">
                             </span>
-                            <i class="bi bi-chevron-down" style="font-size: 0.7rem; color: black;"></i>
+                            <i class="bi bi-chevron-after" style="font-size: 0.7rem; color: black;"></i>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">

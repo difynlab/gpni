@@ -19,13 +19,13 @@
                         <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M,Y') }}</span>
                     </div>
 
-                    <h1 class="fs-49 pt-2">{{ $article->title }}</h1>
+                    <div class="heading pt-2">{{ $article->title }}</div>
 
-                    <div class="content-section fs-16">
+                    <div class="content-section text-content">
                         <div>{!! $article->content !!}</div>
                     </div>
 
-                    <!-- <h6 class="mt-4 fs-16 author-title text-center text-md-start">{{ $contents->{'single_article_author_' . $middleware_language} ?? $contents->single_article_author_en }}</h6>
+                    <!-- <div class="mt-4 fs-16 author-title text-center text-md-start">{{ $contents->{'single_article_author_' . $middleware_language} ?? $contents->single_article_author_en }}</div>
 
                     <div
                         class="d-flex mt-1 flex-column flex-md-row align-items-center align-items-md-start text-center text-md-start">
@@ -39,21 +39,21 @@
                         @endif
 
                         <div class="ps-0 ps-md-3 mt-3 mt-md-0">
-                            <h6 class="username mb-1 fs-16">{{ $article->author_name }}</h6>
-                            <p class="mb-0 fs-13">{{ $article->author_designation }}</p>
-                            <p class="mb-0 fs-12">{{ $article->author_description }}</p>
+                            <div class="username mb-1 fs-16">{{ $article->author_name }}</div>
+                            <div class="mb-0 fs-13">{{ $article->author_designation }}</div>
+                            <div class="mb-0 fs-12">{{ $article->author_description }}</div>
                         </div>
                     </div> -->
                 </div>
             </div>
 
             <div class="col-lg-4">
-                <div class="sidebar mt-5 ps-md-4 px-3">
+                <div class="sidebar mt-5 ps-md-4 px-3 mb-5">
                     <a href="{{ route('frontend.gift-cards.index') }}">
                         <img src="{{ asset('storage/frontend/banner.svg') }}" alt="Banner" class="img-fluid mb-4 banner-section w-100">
                     </a>
 
-                    <h5 class="fs-20 latest-article-title py-2">{{ $contents->{'section_1_first_tab_' . $middleware_language} ?? $contents->section_1_first_tab_en }}</h5>
+                    <div class="fs-20 latest-article-title py-2">{{ $contents->{'section_1_first_tab_' . $middleware_language} ?? $contents->section_1_first_tab_en }}</div>
                     <div class="latest-articles-section">
                         @if($latest_articles->isNotEmpty())
                             @foreach($latest_articles as $latest_article)
@@ -71,7 +71,7 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
-                                                    <h6 class="article-title fs-13 title-clamp">{{ $latest_article->title }}</h6>
+                                                    <div class="article-title fs-13 title-clamp">{{ $latest_article->title }}</div>
                                                     <div class="line-clamp-2 fs-12">
                                                         {!! strip_tags($latest_article->content) !!}
                                                     </div>
@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="find-us-on d-flex flex-column align-items-lg-start align-items-center mt-4">
-                        <div class="title fs-16 text-lg-start text-center">
+                        <div class="title fs-16 text-lg-start text-center fw-bold">
                             {{ $contents->{'section_1_social_title_' . $middleware_language} ??
                             $contents->section_1_social_title_en }}
                         </div>
@@ -114,14 +114,14 @@
                         </div>
                     </div>
 
-                    <div class="subscribe fs-16 d-flex flex-column align-items-lg-start align-items-center">
-                        <h5 class="fs-16 text-lg-start text-center w-100">
+                    <div class="subscribe fs-18 d-flex flex-column align-items-lg-start align-items-center">
+                        <div class="fs-16 text-lg-start text-center w-100 mb-3 fw-bold">
                             {{ $contents->{'section_1_newsletter_title_' . $middleware_language} ??
-                            $contents->section_1_newsletter_title_en }}</h5>
+                            $contents->section_1_newsletter_title_en }}</div>
 
-                        <p class="fs-16 text-lg-start text-center w-100">
+                        <div class="fs-16 text-lg-start text-center w-100 mb-3">
                             {{ $contents->{'section_1_newsletter_description_' . $middleware_language} ??
-                            $contents->section_1_newsletter_description_en }}</p>
+                            $contents->section_1_newsletter_description_en }}</div>
 
                         <form class="subscribe-form-article" action="{{ route('frontend.subscription') }}" method="POST">
                             @csrf
@@ -138,9 +138,9 @@
 
         {{-- @if($contents->section_2_title_en)
             <div class="instagram-section container-fluid px-3 px-md-4 pt-md-5 pt-2">
-                <h2 class="fs-49 mb-3 mb-md-4">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</h2>
+                <div class="heading mb-3 mb-md-4">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
 
-                <p class="fs-25 mb-4 mb-md-5">{{ $contents->{'section_2_description_' . $middleware_language} ?? $contents->section_2_description_en }}</p>
+                <div class="sub-heading mb-4 mb-md-5">{{ $contents->{'section_2_description_' . $middleware_language} ?? $contents->section_2_description_en }}</div>
 
                 <div class="instagram-images row g-3 justify-content-center">
                     <div class="col-6 col-sm-6 col-md-3">

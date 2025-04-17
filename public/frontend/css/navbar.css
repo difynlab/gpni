@@ -58,7 +58,8 @@
 }
 
 .nav-link.dropdown-toggle::after {
-    display: none;
+    /* Keeping the default Bootstrap dropdown icon visible */
+    display: inline-block;
 }
 
 .offcanvas-end{
@@ -77,9 +78,23 @@
     font-size: 18px !important;
 }
 
+/* Center-align dropdown menus */
+.navbar .dropdown-menu {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    /* min-width: 240px;  */
+    top:83%;
+}
+
+/* Fix submenu positioning */
+.dropdown-submenu .dropdown-menu {
+    left: 100% !important;
+    transform: translateX(0) !important;
+    top: 0;
+}
+
 @media (max-width: 991.98px) {
-
-
     .offcanvas-body .navbar-nav {
         align-items: flex-start;
     }
@@ -109,11 +124,8 @@
     }
 
     .navbar-nav .dropdown-toggle::after {
-        font-size: 0.5rem;
-    }
-
-    .navbar-nav .dropdown-toggle .bi-chevron-down {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
+        margin-left: 8px;
     }
 
     .dropdown-menu {
@@ -176,6 +188,17 @@
         min-width: 200px;
         margin-top: 5px;
     }
+
+    .navbar .dropdown-menu {
+        left: 0 !important;
+        transform: none !important;
+        width: 100%;
+        position: static !important;
+    }
+    
+    .dropdown-submenu .dropdown-menu {
+        margin-left: 1rem !important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -194,9 +217,9 @@
 
     /* Language dropdown specific styles */
     .nav-item.dropdown .dropdown-menu[aria-labelledby="languageDropdown"] {
-        right: 0 !important;
-        left: auto !important;
-        transform-origin: top right;
+        /* right: 0 !important; */
+        left: -25% !important;
+        /* transform-origin: top right; */
     }
 
     /* Ensure language dropdown has the same animation */
@@ -206,9 +229,13 @@
         visibility: visible;
         transform: translateY(0);
     }
+} 
+@media (min-width:993px) and (max-width:1024px) {
+.nav-item {
+    margin: 0 8px;
+    list-style: none;
+    }
 }
-
-
 @media (min-width:320px) and (max-width:768px) {
     .sticky-top.navbar-light .navbar-brand img {
         max-height: 26px !important;

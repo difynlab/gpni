@@ -10,11 +10,11 @@
 
 @section('content')
     @if($contents->section_1_title_en)
-        <div class="container bg-white section py-5">
-            <h2 class="title-main text-center mx-auto">
+        <div class="container bg-white section py-md-5 py-4">
+            <div class="heading text-center mx-auto">
                 {{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}
-            </h2>
-            <div class="row align-items-center g-0 my-5">
+            </div>
+            <div class="row align-items-center g-0 mt-3">
                 <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
                     @if($contents->{'section_1_image_' . $middleware_language})
                         <img src="{{ asset('storage/backend/pages/' . $contents->{'section_1_image_' . $middleware_language}) }}"
@@ -27,7 +27,7 @@
                             class="img-fluid img-fluid-custom">
                     @endif
                 </div>
-                <div class="col-md-6 content-text fs-25 px-4">
+                <div class="col-md-6 content-text sub-heading px-4">
                     {!! $contents->{'section_1_content_' . $middleware_language} ?? $contents->section_1_content_en !!}
                 </div>
             </div>
@@ -38,7 +38,7 @@
         <div class="container-fluid section approve-section approve-section-background">
             <div class="container py-5">
                 <div class="row align-items-center">
-                    <div class="col-md-7 content-text-white">
+                    <div class="col-md-7 text-main-heading text-main-content text-white">
                         {!! $contents->{'section_2_content_' . $middleware_language} ?? $contents->section_2_content_en !!}
                     </div>
                     <div class="col-md-5 text-center">
@@ -60,7 +60,7 @@
 
     @if($contents->section_3_content_en)
         <div class="container bg-white section py-5">
-            <div class="content-text fs-25 px-md-0 px-4">
+            <div class="content-text sub-heading px-md-0 px-4">
                 {!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}
             </div>
         </div>
@@ -82,13 +82,13 @@
                                 alt="Importance of insurance" class="img-fluid img-fluid-custom">
                         @endif
                     </div>
-                    <div class="col-md-6 content-text-white insurance-text fs-25 responsive-text">
+                    <div class="col-md-6 text-white text-main-heading text-main-content mb-3">
                         {!! $contents->{'section_4_content_' . $middleware_language} ?? $contents->section_4_content_en !!}
                     </div>
                 </div>
 
                 <div class="highlight-box mt-4">
-                    <div class="responsive-text">
+                    <div class="responsive-text text-main-heading text-main-content">
                         {!! $contents->{'section_4_sub_content_' . $middleware_language} ?? $contents->section_4_sub_content_en !!}
                     </div>
                 </div>
@@ -98,7 +98,7 @@
 
     @if($contents->section_5_content_en)
         <div class="container bg-white section py-5">
-            <div class="content-text px-4 px-md-0 fs-25 responsive-content">
+            <div class="content-text px-4 px-md-0 sub-heading responsive-content">
                 {!! $contents->{'section_5_content_' . $middleware_language} ?? $contents->section_5_content_en !!}
             </div>
         </div>

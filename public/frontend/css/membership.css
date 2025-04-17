@@ -50,27 +50,20 @@ form .btn-pay-now {
 .feature .sub-head  {
     color: #505050;
     font-family: Poppins;
-    font-size: 1.562rem; /* 25px */
     font-style: normal;
-    font-weight: 500;
-    line-height: 120%; /* 30px */
+
 }
 
 .feature .sub-description {
     color: #505050;
-    font-size: 20px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 120%; /* 24px */
+
 }
 
 .feature p {
-    color: #505050;
+    color: #000;
     font-family: "Poppins";
-    /* font-size: 20px; */
     font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
     margin-bottom: 0; /* Remove bottom margin */
 }
 
@@ -163,7 +156,7 @@ form .btn-pay-now {
     font-size: 1.25rem; /* 20px */
     font-weight: 400;
     line-height: 140%;
-    color: #505050;
+    color: #000;
     border-radius: 0 0 20px 20px;
     margin-bottom: 0;
 }
@@ -227,7 +220,6 @@ form .btn-pay-now {
     line-height: normal;
     color: #0040c3 !important;
     background-color: #fff !important;
-    padding: auto;
     text-align: center;
     font-style: normal;
     font-weight: 500 !important;
@@ -241,15 +233,6 @@ form .btn-pay-now {
 
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {
-
-    .feature .sub-description {
-        font-size: 18px; /* Reduced from 20px */
-    }
-
-    .feature p {
-        font-size: 18px; /* Reduced from 20px */
-    }
-
     .feature-icon {
         width: 28px; /* Reduced from 33px */
         height: 28px; /* Reduced from 33px */
@@ -261,47 +244,12 @@ form .btn-pay-now {
     }
 
 
-    .benefits-section {
-        padding-left: 50px; /* Adjust left padding for large devices */
-        padding-right: 50px; /* Adjust right padding for large devices */
-    }
-
-    .benefits-section h2 {
-        font-size: 2.5rem; /* Reduced from 3.812rem */
-    }
-
-    .benefits-section p {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
-    }
-
-    .accordion-button {
-        font-size: 1.25rem; /* Reduced from 1.562rem */
-        padding: 15px 30px; /* Adjust padding */
-    }
-
-    .accordion-body {
-        font-size: 1rem; /* Reduced from 1.25rem */
-    }
-
-    .btn-pay-now {
-        width: 240px; /* Slightly smaller for large screens */
-        padding: 20px 30px;
-    }
-}
+    /* .benefits-section {
+        padding-left: 50px; 
+        padding-right: 50px; 
+    } */
 
 @media (max-width: 991.98px) {
-
-    .feature .sub-head {
-        font-size: 1rem; /* Further reduced */
-    }
-
-    .feature .sub-description {
-        font-size: 16px; /* Further reduced */
-    }
-
-    .feature p {
-        font-size: 16px; /* Further reduced */
-    }
 
     .feature-icon {
         width: 24px; /* Further reduced */
@@ -310,7 +258,6 @@ form .btn-pay-now {
 
     /* Ensure "Welcome to join us" is in one line */
     .welcome-text {
-        font-size: 1.5rem; /* Adjust as needed */
         white-space: nowrap;
     }
 
@@ -319,27 +266,10 @@ form .btn-pay-now {
         margin-bottom: 0; /* Remove space for medium devices */
     }
 
-    .benefits-section {
-        padding-left: 30px; /* Adjust left padding for medium devices */
-        padding-right: 30px; /* Adjust right padding for medium devices */
-    }
-
-    .benefits-section h2 {
-        font-size: 2rem; /* Further reduced */
-    }
-
-    .benefits-section p {
-        font-size: 1rem; /* Further reduced */
-    }
-
-    .accordion-button {
-        font-size: 1rem; /* Further reduced */
-        padding: 10px 20px; /* Adjust padding */
-    }
-
-    .accordion-body {
-        font-size: 0.875rem; /* Further reduced */
-    }
+    /* .benefits-section {
+        padding-left: 30px; 
+        padding-right: 30px; 
+    } */
 
     .accordion-button::after {
         width: 1rem;
@@ -351,32 +281,13 @@ form .btn-pay-now {
     .btn-pay-now {
         width: 220px; /* Even smaller for tablets */
         padding: 15px 25px;
-        font-size: 16px;
     }
 }
 
 @media (max-width: 767.98px) {
 
-    .feature .sub-head {
-        font-size: 0.875rem; /* Further reduced */
-    }
-
-    .feature .sub-description {
-        font-size: 14px; /* Further reduced */
-    }
-
-    .feature p {
-        font-size: 14px; /* Further reduced */
-    }
-
-    .feature-icon {
-        width: 20px; /* Further reduced */
-        height: 20px; /* Further reduced */
-    }
-
     /* Ensure "Welcome to join us" is in one line */
     .welcome-text {
-        font-size: 0.75rem; /* Adjust as needed */
         white-space: nowrap;
     }
 
@@ -390,17 +301,8 @@ form .btn-pay-now {
         padding-right: 20px; /* Adjust right padding for small devices */
     }
 
-    .benefits-section h2 {
-        font-size: 1.5rem; /* Further reduced */
-    }
-
-    .benefits-section p {
-        font-size: 0.875rem; /* Further reduced */
-    }
-
     .accordion-button {
         padding: 12px 15px;
-        font-size: 1rem !important; /* Use the fs-16 equivalent */
         line-height: 1.3;
         border-radius: 10px !important;
         display: flex;
@@ -430,16 +332,11 @@ form .btn-pay-now {
         transform: translateY(-50%) rotate(180deg);
     }
 
-    .accordion-body {
-        font-size: 0.75rem; /* Further reduced */
-    }
-
     .btn-pay-now {
         width: 100%; /* Full width on mobile */
         max-width: 280px;
         padding: 15px 20px;
         margin-bottom: 30px;
-        font-size: 16px;
     }
     
     .membership-buttons {
@@ -469,7 +366,6 @@ form .btn-pay-now {
     
     .accordion-button {
         padding: 12px 15px;
-        font-size: 1rem !important; /* Use the fs-16 equivalent */
         line-height: 1.3;
         border-radius: 10px !important;
         display: flex;
@@ -490,7 +386,6 @@ form .btn-pay-now {
     
     .accordion-body {
         padding: 10px 15px;
-        font-size: 0.875rem !important; /* Use the fs-14 equivalent */
         line-height: 1.4;
     }
     
@@ -503,45 +398,10 @@ form .btn-pay-now {
     }
     
     /* Apply main.css font classes for better consistency */
-    .accordion-button .fs-25 {
-        font-size: 1rem !important;
-    }
-    
-    .accordion-body .fs-20 {
-        font-size: 0.875rem !important;
-    }
-
-    .membership-section h2 {
-        font-size: 1.75rem !important;
-        margin-bottom: 1rem;
-    }
-
-    .membership-section p {
-        font-size: 0.875rem !important;
-        line-height: 1.4;
-    }
-    
-    .benefits-section {
-        padding: 20px 10px;
-    }
-    
-    .benefits-section h2 {
-        font-size: 1.75rem !important;
-        margin-bottom: 0.75rem;
-    }
-    
-    .journey-section {
-        padding: 40px 20px;
-    }
-    
-    .journey-section h2 {
-        font-size: 1.75rem !important;
-    }
     
     .btn-pay-now {
         max-width: 260px;
         padding: 15px;
-        font-size: 1rem;
         margin-bottom: 20px;
     }
     
@@ -560,12 +420,10 @@ form .btn-pay-now {
     /* Better accordion readability on mobile */
     .accordion-button {
         padding: 12px 15px 12px 15px;
-        font-size: 1rem !important;
     }
     
     .accordion-body {
         padding: 12px 15px;
-        font-size: 0.875rem !important;
     }
     
     /* Action buttons for mobile */
@@ -575,7 +433,6 @@ form .btn-pay-now {
         max-width: 260px;
         margin-bottom: 15px;
         padding: 10px 15px !important;
-        font-size: 1rem !important;
         text-align: center;
     }
     
@@ -592,27 +449,6 @@ form .btn-pay-now {
 }
 
 @media (max-width: 575.98px) {
-    .membership-section h2 {
-        font-size: 1.5rem !important;
-    }
-    
-    .membership-section p {
-        font-size: 0.75rem !important;
-    }
-    
-    .benefits-section h2 {
-        font-size: 1.5rem !important;
-    }
-    
-    .journey-section h2 {
-        font-size: 1.5rem !important;
-    }
-    
-    .btn-pay-now {
-        max-width: 240px;
-        padding: 12px;
-        font-size: 0.875rem;
-    }
     
     /* Further reduce spacing on very small screens */
     .feature {
@@ -632,12 +468,10 @@ form .btn-pay-now {
     
     .accordion-button {
         padding: 10px 12px 10px 12px;
-        font-size: 0.875rem !important;
     }
     
     .accordion-body {
         padding: 10px 12px;
-        font-size: 0.75rem !important;
     }
     
     .accordion-body ul {
@@ -649,7 +483,6 @@ form .btn-pay-now {
     .explore-lesson {
         max-width: 220px;
         padding: 8px 12px !important;
-        font-size: 0.875rem !important;
     }
     
     /* Better image handling */
@@ -661,7 +494,6 @@ form .btn-pay-now {
 /* Specific adjustments for laptops and tablets */
 @media (min-width: 1024px) and (max-width: 1440px) {
     .welcome-text {
-        font-size: 1.5rem; /* Adjust as needed */
         white-space: nowrap;
     }
 }
@@ -670,7 +502,6 @@ form .btn-pay-now {
 @media (max-width: 768px) {
     .btn-responsive {
         padding: 0.3rem 0.6rem; /* Further reduced for mobile */
-        font-size: 0.875rem;
     }
 }
 
@@ -679,7 +510,6 @@ form .btn-pay-now {
     .accordion-button {
         padding: 20px 40px;
         border-radius: 20px;
-        font-size: 1.562rem;
         padding-right: 5rem; /* Ensure space for the icon */
     }
     
@@ -703,10 +533,9 @@ form .btn-pay-now {
 }
 
 /* Mobile styles */
-@media (max-width: 767.98px) {
+@media (max-width: 767.98px) {}
     .accordion-button {
         padding: 12px 20px;
         border-radius: 12px;
-        font-size: 1.125rem;
     }
 }
