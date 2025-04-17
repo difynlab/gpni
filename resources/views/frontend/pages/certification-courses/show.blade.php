@@ -66,28 +66,28 @@
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_no_of_modules_' . $middleware_language} ?? $contents->single_page_no_of_modules_en }}</div>
-                        <div class="value sub-heading">{{ $course->no_of_modules }}</div>
+                        <div class="value text-heading">{{ $course->no_of_modules }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_course_type_' . $middleware_language} ?? $contents->single_page_course_type_en }}</div>
-                        <div class="value sub-heading">{{ $course->type }}</div>
+                        <div class="value text-heading">{{ $course->type }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_course_duration_' . $middleware_language} ?? $contents->single_page_course_duration_en }}</div>
-                        <div class="value sub-heading">{{ $course->duration }}</div>
+                        <div class="value text-heading">{{ $course->duration }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_course_language_' . $middleware_language} ?? $contents->single_page_course_language_en }}</div>
-                        <div class="value sub-heading">{{ $course->language }}</div>
+                        <div class="value text-heading">{{ $course->language }}</div>
                     </div>
                 </div>
             </div>
@@ -228,7 +228,7 @@
                                     <div class="testimonial-text sub-heading">{{ $course->certification_section_5_content }}</div>
                                     <div class="testimonial-author">
                                         <div class="name fs-20">{{ $course->certification_section_5_name }}</div>
-                                        <div class="role fs-16 pt-2">{{ $course->certification_section_5_designation }}</div>
+                                        <div class="role fs-18 pt-2">{{ $course->certification_section_5_designation }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -351,7 +351,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="testimonial-content sub-heading">
+                                            <div class="testimonial-content text-content">
                                                 {{ $course_review->content }}
                                             </div>
                                         </div>
