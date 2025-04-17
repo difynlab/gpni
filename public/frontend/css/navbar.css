@@ -85,6 +85,10 @@
     transform: translateX(-50%) !important;
     /* min-width: 240px;  */
     top:83%;
+    border :none;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
 }
 
 /* Fix submenu positioning */
@@ -242,9 +246,9 @@
     }
 }
 
-.dropdown-submenu {
+/* .dropdown-submenu {
     position: relative;
-}
+} */
 
 .dropdown-submenu .dropdown-menu {
     top: 0;

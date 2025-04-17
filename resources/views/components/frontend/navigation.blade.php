@@ -30,7 +30,7 @@
                         <li>
                             <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="{{ $code }}">
                                 <img src="{{ asset('storage/frontend/flags/' . $code . '.svg') }}" alt="{{ $language }} Flag" class="img-fluid me-2" style="width: 25px; height: 18px;">
-                                <span class="fs-20">{{ $language }}</span>
+                                <span class="fs-16">{{ $language }}</span>
                             </a>
                         </li>
                     @endforeach
@@ -46,13 +46,13 @@
             <div class="offcanvas-header">
                 @if(auth()->check())
                     @if(App\Models\Cart::where('user_id', auth()->user()->id)->where('status', 'Active')->count() > 0)
-                        <a href="{{ route('frontend.carts.index') }}" class="nav-item nav-link fs-20 cart-icon">
+                        <a href="{{ route('frontend.carts.index') }}" class="nav-item nav-link fs-18 cart-icon">
                             <i class="bi bi-cart position-relative">
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">{{ App\Models\Cart::where('user_id', auth()->user()->id)->where('status', 'Active')->count() }}</span>
                             </i>
                         </a>
                     @else
-                        <a href="#" class="nav-item nav-link fs-20 cart-icon">
+                        <a href="#" class="nav-item nav-link fs-18 cart-icon">
                             <i class="bi bi-cart position-relative">
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
                             </i>
@@ -245,19 +245,19 @@
                                     </li>
                                 </ul>
                             @else
-                                <a href="{{ route('backend.dashboard.index') }}" class="nav-link fs-20">
+                                <a href="{{ route('backend.dashboard.index') }}" class="nav-link fs-18">
                                     <div class="btn btn-primary btn-responsive">{{ $contents->{'header_user_dashboard_' . $middleware_language} ?? $contents->header_user_dashboard_en }}</div>
                                 </a>
                             @endif
                         @else
-                            <a href="{{ route('frontend.login') }}" class="nav-link fs-20">
-                                <div class="btn btn-primary btn-responsive fs-20 px-4">{{ $contents->{'header_login_' . $middleware_language} ?? $contents->header_login_en }}</div>
+                            <a href="{{ route('frontend.login') }}" class="nav-link fs-18">
+                                <div class="btn btn-primary btn-responsive fs-18 px-4">{{ $contents->{'header_login_' . $middleware_language} ?? $contents->header_login_en }}</div>
                             </a>
                         @endif
                     </div>
 
                     <li class="nav-item dropdown d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle fs-20" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle fs-18" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="flag-icon">
                                 <img src="{{ asset('storage/frontend/flags/' . $selected_language . '.svg') }}" alt="{{ $languages[$selected_language] }} Flag" class="img-fluid" style="width: 25px; height: 18px; filter: drop-shadow(0px 1.665px 8.324px #B8BAC1);">
                             </span>
@@ -269,7 +269,7 @@
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center language-option" href="#" data-lang="{{ $code }}">
                                         <img src="{{ asset('storage/frontend/flags/' . $code . '.svg') }}" alt="{{ $language }} Flag" class="img-fluid me-2" style="width: 25px; height: 18px;">
-                                        <span class="fs-20">{{ $language }}</span>
+                                        <span class="fs-16">{{ $language }}</span>
                                     </a>
                                 </li>
                             @endforeach
