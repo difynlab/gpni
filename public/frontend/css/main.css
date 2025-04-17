@@ -209,7 +209,10 @@ Define font weights for Poppins */
     font-size: 18px;
     /* color: var(--black); */
 }
-
+.text-main-content ul, .text-main-content li {
+    margin-bottom: 1rem;
+    /* color: var(--black); */
+}
 .text-content {
     margin-bottom: 16px;
 }

@@ -4,7 +4,7 @@
 
 <div class="footer">
     <div class="container py-4 py-lg-5 px-3 px-md-0">
-        <div class="row gy-4 mb-5">
+        <div class="row gy-4 mb-3">
             <div class="col-12 col-md-4">
                 <a href="{{ route('frontend.homepage') }}" class="d-inline-block mb-3">
                     <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->footer_logo) }}" alt="GPNi" style="width: 286px; margin-bottom: 20px;"  class="img-fluid gpni-logo">

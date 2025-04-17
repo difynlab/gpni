@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->section_1_title_en)
-        <div class="container gpni-container">
+        <div class="container gpni-container py-md-5 py-3">
             <x-frontend.notification></x-frontend.notification>
 
             <div class="row d-flex align-items-center">
@@ -85,7 +85,7 @@
 
                 @if($recent_webinars->isNotEmpty())
                     @foreach($recent_webinars as $index => $recent_webinar)
-                        <div class="row align-items-center mb-5">
+                        <div class="row align-items-center mb-3">
                             <div class="col-md-5 text-center">
                                 <video controls class="img-fluid video-container">
                                     <source src="{{ asset('storage/backend/webinars/' . $recent_webinar->video) }}" type="video/mp4">
@@ -127,7 +127,7 @@
                         @endif
                     </div>
                     <div class="col-md-7">
-                        <div class="section-3 text-heading text-content px-2 mb-3">{!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}</div>
+                        <div class="section-3 sub-heading text-start px-2 mb-3">{!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}</div>
                     </div>
                 </div>
             </div>

@@ -41,7 +41,7 @@
             <div class="container">
                 <div class="heading">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
 
-                <div class="ff-poppins-medium fs-31">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</div>
+                <div class="ff-poppins-medium fs-31 mb-3">{{ $contents->{'section_2_sub_title_' . $middleware_language} ?? $contents->section_2_sub_title_en }}</div>
 
                 <div class="sub-heading ">{{ $contents->{'section_2_description_' . $middleware_language} ?? $contents->section_2_description_en }}</div>
             </div>
