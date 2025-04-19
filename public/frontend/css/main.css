@@ -12,7 +12,7 @@
     --hover: #07399b;
     --hover_white: #e6e6e6;
 }
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 a, a:hover {
@@ -205,10 +205,26 @@ Define font weights for Poppins */
     font-size: 22px;
     /* color: var(--black); */
 }
+
+/* Add style for last p tag in text-main-content to have no margin-bottom */
+.text-main-content p:last-child {
+    margin-bottom: 0;
+}
+
 .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
     font-size: 18px;
     /* color: var(--black); */
 }
+
+/* Add style for last p tag to have no margin-bottom */
+p:last-child {
+    margin-bottom: 0;
+}
+
+.text-content p:last-child {
+    margin-bottom: 0;
+}
+
 .text-main-content ul, .text-main-content li {
     margin-bottom: 1rem;
     /* color: var(--black); */
