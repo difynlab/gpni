@@ -5,12 +5,6 @@ body {
     margin: 0;
 }
 
-/* .container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 81.5px 104px; /* Add space on the left and right */
-} */
-
 .header-title {
     color: #0E0E0E;
     text-align: center;
@@ -89,14 +83,13 @@ textarea.form-textarea {
 
 .contact-info {
     text-align: center;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .info-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
     padding: 20px;
 }
 
@@ -301,9 +294,5 @@ textarea.form-textarea {
 @media (min-width: 1024px) {
     .form-container {
         margin-top: 40px; /* Add top space for laptop screens */
-    }
-
-    .contact-info {
-        margin-top: 100px; /* Add top space for Connect with us section */
     }
 }

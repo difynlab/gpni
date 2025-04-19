@@ -217,9 +217,9 @@ Define font weights for Poppins */
 }
 
 /* Add style for last p tag to have no margin-bottom */
-p:last-child {
+/* p:last-child {
     margin-bottom: 0;
-}
+} */
 
 .text-content p:last-child {
     margin-bottom: 0;

@@ -71,7 +71,8 @@
             <div class="container py-5">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center">
-                        @if($contents->{'section_4_image_' . $middleware_language})
+                        @if($contents->{'section_4_image_' . $middl'7
+                            eware_language})
                             <img src="{{ asset('storage/backend/pages/' . $contents->{'section_4_image_' . $middleware_language}) }}"
                                 alt="Importance of insurance" class="img-fluid img-fluid-custom">
                         @elseif($contents->section_4_image_en)
