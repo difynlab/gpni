@@ -162,6 +162,12 @@
         font-size: 14px;
         margin-top: 5px;
     }
+    form .form-info {
+        color: #a1a1a1;
+        display: inline-block;
+        font-size: 14px;
+        margin-top: 5px;
+    }
 /* Form styles */
 
 
