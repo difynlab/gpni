@@ -114,6 +114,7 @@
             let html = `<div class="row single-item mt-2">
                             <div class="col-5">
                                 <input type="file" class="form-control" name="certificate_files[]" accept=".pdf" required>
+                                <span class="form-info">Maximum file size is 30 MB</span>
                             </div>
 
                             <div class="col-3">
@@ -121,7 +122,8 @@
                             </div>
 
                             <div class="col-3">
-                                <input type="text" class="form-control" name="certificate_times[]" placeholder="Time">
+                                <input type="text" class="form-control" name="certificate_times[]" placeholder="Time (HH:MM)">
+                                <x-backend.input-error field="certificate_times.*"></x-backend.input-error>
                             </div>
                             
                             <div class="col-1 d-flex align-items-center">

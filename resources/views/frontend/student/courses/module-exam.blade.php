@@ -526,24 +526,21 @@
                     $('#mobile-warning-modal').modal('show');
                     $('#success-modal').modal('hide');
                     $('#timer-modal').modal('hide');
-                } else {
-                    // Only show start exam modal if not mobile and no success message
-                    if (!$('#success-modal').hasClass('show')) {
-                        $('#start-exam-modal').modal('show');
-                    }
                 }
+                // else {
+                //     if (!$('#success-modal').hasClass('show')) {
+                //         $('#start-exam-modal').modal('show');
+                //     }
+                // }
             }
 
             // Call the handler when document is ready
             $(document).ready(function() {
                 handleMobileWarning();
-                
-                // Also check on resize in case of orientation changes
+
                 $(window).on('resize', function() {
                     handleMobileWarning();
                 });
-                
-                // ...rest of your existing document.ready code...
             });
         });
     </script>

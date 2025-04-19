@@ -216,10 +216,9 @@ class CoursePurchaseController extends Controller
         ]);
         
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'There was a problem with your certificate upload!');
         }
 
-        // Course certificates store function
         $certificates = [];
 
         $this->deleteOldRemovedFiles($course_certificate, 'certificates', $request->old_certificate_files, 'course-certificates/');
@@ -250,25 +249,9 @@ class CoursePurchaseController extends Controller
             }
         }
         $final_certificates = $certificates ? json_encode($certificates) : null;
-    // Course certificates store function
-
-        // if($request->file('new_certificate') != null) {
-        //     if($request->old_certificate) {
-        //         Storage::delete('public/backend/courses/course-certificates/' . $request->old_certificate);
-        //     }
-
-        //     $new_certificate = $request->file('new_certificate');
-        //     $new_certificate_name = Str::random(40) . '.' . $new_certificate->getClientOriginalExtension();
-        //     $new_certificate->storeAs('public/backend/courses/course-certificates', $new_certificate_name);
-        // }
-        // else {
-        //     $new_certificate_name = $request->old_certificate;
-        // }
 
         $data = $request->except('old_certificate_dates', 'old_certificate_times', 'old_certificate_files', 'certificate_dates', 'certificate_times', 'certificate_files');
         $data['certificates'] = $final_certificates;
-        // $data['certificate_issued_date'] = $request->certificate_issued_date ?? Carbon::now()->toDateString();
-        // $data['certificate_issued_time'] = $request->certificate_issued_time ?? Carbon::now()->toTimeString();
         $course_certificate->fill($data)->save();
         
         return redirect()->route('backend.purchases.course-purchases.certificates.index', $course_certificate->course_purchase_id)->with('success', "Successfully updated!");

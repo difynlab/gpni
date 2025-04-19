@@ -10,7 +10,11 @@
         <div class="row align-items-center mb-4">
             <div class="col-6">
                 <a href="{{ route('backend.persons.users.edit', $user->id) }}">
-                    <img src="{{ asset('storage/backend/persons/users/' . $user->image) }}" alt="Image" class="user-course-image"><span class="user-course-name">{{ $user->first_name }} {{ $user->last_name }}</span>
+                    @if($user->image)
+                        <img src="{{ asset('storage/backend/persons/users/' . $user->image) }}" alt="Image" class="user-course-image"><span class="user-course-name">{{ $user->first_name }} {{ $user->last_name }}</span>
+                    @else
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_profile_image) }}" alt="Image" class="user-course-image"><span class="user-course-name">{{ $user->first_name }} {{ $user->last_name }}</span>
+                    @endif
                 </a>
             </div>
             <div class="col-6 text-end">
