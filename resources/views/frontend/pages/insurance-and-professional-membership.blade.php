@@ -98,7 +98,7 @@
 
     @if($contents->section_5_content_en)
         <div class="container bg-white section py-5">
-            <div class="content-text px-4 px-md-0 sub-heading responsive-content">
+            <div class="content-text px-4 px-md-0 text-main-content responsive-content">
                 {!! $contents->{'section_5_content_' . $middleware_language} ?? $contents->section_5_content_en !!}
             </div>
         </div>
