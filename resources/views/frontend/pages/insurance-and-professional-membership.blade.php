@@ -60,7 +60,7 @@
 
     @if($contents->section_3_content_en)
         <div class="container bg-white section py-5">
-            <div class="content-text sub-heading px-md-0 px-4">
+            <div class="content-text text-main-content px-md-0 px-4">
                 {!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}
             </div>
         </div>
@@ -71,8 +71,7 @@
             <div class="container py-5">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center">
-                        @if($contents->{'section_4_image_' . $middl'7
-                            eware_language})
+                        @if($contents->{'section_4_image_' . $middleware_language})
                             <img src="{{ asset('storage/backend/pages/' . $contents->{'section_4_image_' . $middleware_language}) }}"
                                 alt="Importance of insurance" class="img-fluid img-fluid-custom">
                         @elseif($contents->section_4_image_en)
