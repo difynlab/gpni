@@ -60,7 +60,7 @@
 
     @if($contents->section_3_content_en)
         <div class="container bg-white section py-5">
-            <div class="content-text sub-heading px-md-0 px-4">
+            <div class="content-text text-main-content px-md-0 px-4">
                 {!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}
             </div>
         </div>

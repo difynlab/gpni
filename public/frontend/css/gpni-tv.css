@@ -132,7 +132,7 @@ body {
 }
 
 .quote-icon {
-    width: 40px;
+    width: 30px;
     height: 39.5px;
 }
 
@@ -677,6 +677,15 @@ body {
     margin-left: -105px;
     /* This accounts for button width offset */
 }
+.quote-heading h1 ,
+.quote-heading h2 ,
+.quote-heading h3 ,
+.quote-heading h4 ,
+.quote-heading h5 ,
+.quote-heading h6 {
+     margin-bottom: 10px;
+}
+
 /* Mobile devices (max-width: 767.98px) */
 @media (max-width: 767.98px) {
 

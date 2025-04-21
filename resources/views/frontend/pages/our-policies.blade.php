@@ -37,7 +37,7 @@
                                             </button>
                                         </div>
                                         <div id="collapse{{ $policy->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $policy->id }}" data-bs-parent="#{{ $policy_category->id }}Accordion">
-                                            <div class="accordion-body text-content">{!! $policy->content !!}</div>
+                                            <div class="accordion-body text-content mb-0">{!! $policy->content !!}</div>
                                         </div>
                                     </div>
                                 @endforeach

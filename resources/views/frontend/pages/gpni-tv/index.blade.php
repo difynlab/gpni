@@ -92,8 +92,8 @@
                                 </video>
                             </div>
                             <div class="col-md-7">
-                                <img src="{{ asset('storage/frontend/quote.svg') }}" alt="quote-icon" class="quote-icon mb-3">
-                                <div class="speaker-text text-heading text-content">{!! $recent_webinar->content !!}</div>
+                                <img src="{{ asset('storage/frontend/quote.svg') }}" alt="quote-icon" class="quote-icon">
+                                <div class="speaker-text quote-heading text-heading text-content">{!! $recent_webinar->content !!}</div>
                             </div>
                         </div>
 
