@@ -26,7 +26,7 @@
                             class="w-100" alt="Header Image">
                     @endif
                 </div>
-                <div class="sub-heading text-start">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}</div>
+                <div class="text-main-content text-start">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}</div>
             </div>
         </div>
     @endif
