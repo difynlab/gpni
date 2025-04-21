@@ -22,7 +22,7 @@
     align-items: center;
 }
 .international-society-of-sport a{
-    color: #6f6d6d;
+    color: #000;
     text-decoration: underline;
 }
 .learn-more{
@@ -688,7 +688,7 @@
    /* Change this to your desired color */
 }
 .tab-text{
-    color: #6f6d6d;
+    color: #000;
 } 
 .nav-item .active .tab-text {
     color: #0040c3 !important;

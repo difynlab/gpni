@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <div class="text-muted line-clamp-3 sub-heading mb-0">{{ $course->short_description }}</div>
+                <div class="line-clamp-3 sub-heading mb-0">{{ $course->short_description }}</div>
 
                 @if(auth()->check())
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))

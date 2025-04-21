@@ -334,7 +334,7 @@ a.btn-primary {
 
 .testimonial-author .role {
     font-weight: 400;
-    color: #505050;
+    color: #000;
 }
 
 @media (max-width: 768px) {
@@ -551,7 +551,7 @@ a.btn-primary {
 
 .nav-tabs .nav-link {
     font-weight: 500;
-    color: #6f6d6d;
+    color: #000;
     border: none;
     background-color: transparent;
 }
@@ -1206,7 +1206,7 @@ course-content {
 }
 
 .payment-table td {
-    color: #505050;
+    color: #000;
     font-weight: 400;
     background-color: #ffffff;
     transition: background-color 0.2s ease;
@@ -1308,8 +1308,7 @@ course-content {
 
 .student-testimonial-author {
     font-weight: 400;
-    
-    color: #505050;
+    color: #000;
     margin-bottom: 0.75rem !important;
 }
 
@@ -1396,8 +1395,7 @@ course-content {
 
 .student-review-text {
     font-weight: 400;
-    
-    color: #505050;
+    color: #000;
     margin-bottom: 15px;
     flex-grow: 1;
 }
@@ -1427,15 +1425,13 @@ course-content {
 .student-review-rating span {
     font-weight: 400;
     font-size: 16px;
-  
-    color: #505050;
+    color: #000;
 }
 
 .student-review-verified {
     font-weight: 400;
     /* font-size: 13px; */
-  
-    color: #505050;
+    color: #000;
     margin-bottom: 0px;
 }
 

@@ -16,7 +16,7 @@ h1.display-4 {
 }
 
 .common-style {
-    color: #505050;
+    color: #000;
     font-weight: 500;
    
 }
@@ -263,7 +263,7 @@ h1.display-4 {
 
 .nav-tabs .nav-link {
     font-weight: 500;
-    color: #6f6d6d;
+    color: #000;
     border: none;
     background-color: transparent;
     padding: 0.5rem 1rem;
@@ -1307,7 +1307,7 @@ h1.display-4 {
 
 .student-name {
     font-weight: 400;
-    color: #505050;
+    color: #000;
     margin-bottom: 20px;
 }
 
@@ -2060,8 +2060,7 @@ h1.display-4 {
 
 .student-review-text {
     font-weight: 400;
-    
-    color: #505050;
+    color: #000;
     margin-bottom: 20px;
     flex-grow: 1;
     overflow-y: auto; /* Add scrolling if content is too long */
@@ -2094,5 +2093,5 @@ h1.display-4 {
 .student-review-rating span {
     font-weight: 400;
     font-size: 13px;
-    color: #505050;
+    color: #000;
 }
