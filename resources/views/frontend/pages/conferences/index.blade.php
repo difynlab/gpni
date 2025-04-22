@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->title_en)
-        <div class="container my-5">
+        <div class="container py-5">
             <div class="heading">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
             <div class="row card-container">
                 @if($conferences->isNotEmpty())

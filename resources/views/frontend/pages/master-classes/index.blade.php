@@ -76,8 +76,8 @@
         </section>
 
         @if($contents->section_3_title_en)
-            <div class="container certification-section">
-                <div class="text-center heading my-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
+            <div class="container certification-section py-5">
+                <div class="text-center heading mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
 
                 <div class="row gy-4 mx-0">
                     @if($contents->section_3_points_en)

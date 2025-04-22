@@ -87,7 +87,7 @@
 
                     <img src="{{ asset('storage/backend/courses/course-instructors/' . $course->instructor_profile_image) }}" alt="Instructor Profile Image" class="rounded-circle ms-2 ms-md-3" style="width: 80px; height: 80px; object-fit: cover;">
 
-                    <div class="ms-3 text-white">
+                    <div class="ms-3 my-3 text-white">
                         <div class="sub-heading" style="font-weight: 500; line-height: 120%;">{{ $course->instructor_name }}</div>
                         <small class="fs-16">{{ $course->instructor_designation }}</small>
                     </div>

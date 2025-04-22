@@ -1043,14 +1043,6 @@ h1.display-4 {
     min-height: 200px; /* Set minimum height for the quote container */
 }
 
-.quote {
-    font-weight: 500;
-    color: #0040c3;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    min-height: 80px; /* Ensures consistent height even with short text */
-}
-
 .student-name {
     font-weight: 500;
     color: #505050;
@@ -1220,7 +1212,6 @@ h1.display-4 {
     font-weight: 400;
     color: #000;
     margin-bottom: 20px;
-    font-size: 1.5rem;
     min-height: 80px; /* Ensures consistent height even with short text */
 }
 

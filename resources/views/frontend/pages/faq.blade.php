@@ -14,7 +14,7 @@
         @if($contents->title_en)
             <div class="faq-title heading">{{ $contents->{'title_' . $middleware_language} ?? $contents->title_en }}</div>
 
-            <div class="accordion pt-3" id="faqAccordion">
+            <div class="accordion" id="faqAccordion">
                 @if($faqs->isNotEmpty())
                     @foreach($faqs as $faq)
                         <div class="accordion-item">

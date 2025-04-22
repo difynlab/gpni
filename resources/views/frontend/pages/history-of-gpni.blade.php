@@ -54,7 +54,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="heading text-center text-md-start text-white ff-poppins-medium mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
-                        <div class="sub-heading text-center text-md-start ff-poppins-regular">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
+                        <div class="text-main-content text-center text-md-start ff-poppins-regular">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
                     </div>
                     <div class="col-md-6">
                         @if($contents->{'section_3_image_' . $middleware_language})
@@ -84,13 +84,13 @@
                                 </div>
                                 <div class="col-lg-10 text-center text-md-start">
                                     <div class="p-0 m-0 sub-heading ff-poppins-semibold">{{ $our_founder->name }}</div>
-                                    <div class="title text-heading ff-poppins-regular">{{ $our_founder->designations }}</div>
+                                    <div class="title text-heading ff-poppins-regular mb-0">{{ $our_founder->designations }}</div>
                                     <div class="pt-3 text-content text-center text-md-start">{!! $our_founder->description !!}</div>
                                 </div>
                             @else
                                 <div class="col-lg-10 text-center text-md-end order-2 order-md-1">
                                     <div class="p-0 m-0 sub-heading ff-poppins-semibold">{{ $our_founder->name }}</div>
-                                    <div class="title text-heading ff-poppins-regular">{{ $our_founder->designations }}</div>
+                                    <div class="title text-heading ff-poppins-regular mb-0">{{ $our_founder->designations }}</div>
                                     <div class="pt-3 text-content text-center text-md-end">{!! $our_founder->description !!}</div>
                                 </div>
                                 <div class="col-lg-2 text-center order-1 order-md-2">
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-md-6  ">
                         <div class="heading text-white ff-poppins-medium">{{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->section_5_title_en }}</div>
-                        <div class="sub-heading ff-poppins-regular">{!! $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en !!}</div>
+                        <div class="text-main-content ff-poppins-regular">{!! $contents->{'section_5_description_' . $middleware_language} ?? $contents->section_5_description_en !!}</div>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="heading ff-poppins-medium">{{ $contents->{'section_6_title_' . $middleware_language} ?? $contents->section_6_title_en }}</div>
-                        <div class="sub-heading ff-poppins-regular">{!! $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en !!}</div>
+                        <div class="text-main-content ff-poppins-regular">{!! $contents->{'section_6_description_' . $middleware_language} ?? $contents->section_6_description_en !!}</div>
                     </div>
                     <div class="col-lg-6">
                         @if($contents->{'section_6_image_' . $middleware_language})

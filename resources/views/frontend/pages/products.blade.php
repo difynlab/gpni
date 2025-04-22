@@ -14,7 +14,7 @@
         <x-frontend.notification></x-frontend.notification>
         <x-frontend.notification-popup></x-frontend.notification-popup>
 
-        <div class="product-heading heading pb-2">{{ $contents->{'page_title_' . $middleware_language} ?? $contents->page_title_en }}</div>
+        <div class="product-heading heading">{{ $contents->{'page_title_' . $middleware_language} ?? $contents->page_title_en }}</div>
 
         @if($products->isNotEmpty())
             <nav class="nav nav-tabs category-tabs" id="myTab" role="tablist">
@@ -95,7 +95,7 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
 
-                                                            <div class="modal-body">
+                                                            <div class="modal-body pb-5">
                                                             <div class="popup container">
                                                                 <div class="row">
                                                                     @if($product->images)
@@ -117,7 +117,7 @@
                                                                             <span class="category">{{ $category->name }}</span>
                                                                         </div>
                                                                         
-                                                                        <div class="product-title heading mb-3">{{ $product->name }}</div>
+                                                                        <div class="product-title text-heading mb-3">{{ $product->name }}</div>
                                                                         <div class="price-colors d-flex justify-content-between align-items-center mb-3">
                                                                             <span class="price">{{ $currency_symbol }}{{ $product->price }}</span>
                                                                             @if($product->colors)
@@ -136,7 +136,7 @@
                                                                             @endif
                                                                         </div>
                                                                         <div class="description-section mb-3">
-                                                                            <div class="description-text">{!! $product->description !!}</div>
+                                                                            <div class="text-content">{!! $product->description !!}</div>
                                                                         </div>
 
                                                                         @if($product->available_sizes)

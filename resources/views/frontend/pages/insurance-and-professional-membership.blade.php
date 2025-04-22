@@ -27,7 +27,7 @@
                             class="img-fluid img-fluid-custom">
                     @endif
                 </div>
-                <div class="col-md-6 content-text sub-heading px-4">
+                <div class="col-md-6 content-text text-main-content px-4">
                     {!! $contents->{'section_1_content_' . $middleware_language} ?? $contents->section_1_content_en !!}
                 </div>
             </div>
@@ -82,7 +82,7 @@
                                 alt="Importance of insurance" class="img-fluid img-fluid-custom">
                         @endif
                     </div>
-                    <div class="col-md-6 text-white text-main-heading text-main-content mb-3">
+                    <div class="col-md-6 text-white text-main-heading text-main-content">
                         {!! $contents->{'section_4_content_' . $middleware_language} ?? $contents->section_4_content_en !!}
                     </div>
                 </div>
