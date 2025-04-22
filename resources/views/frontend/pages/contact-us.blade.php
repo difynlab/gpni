@@ -69,8 +69,7 @@
                             <img src="{{ asset('storage/frontend/email.svg') }}" alt="Email Icon">
                         </div>
                         <div class="info-item-content">
-                            <div class="title">{{ $contents->{'contact_email_' . $middleware_language} ?? $contents->contact_email_en }}</div>
-                            <div class="info">{{ $settings->email }}</div>
+                            <div class="title">{{ $contents->{'contact_email_' . $middleware_language} ?? $contents->contact_email_en }}: {{ $settings->{'email_' . $middleware_language} ?? $settings->email_en }}</div>
                         </div>
                     </div>
                     <div class="info-item">
@@ -78,8 +77,7 @@
                             <img src="{{ asset('storage/frontend/phone.svg') }}" alt="Phone Icon">
                         </div>
                         <div class="info-item-content">
-                            <div class="title">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}</div>
-                            <div class="info">{{ $settings->whatsapp }}</div>
+                            <div class="title">{{ $contents->{'contact_whatsapp_' . $middleware_language} ?? $contents->contact_whatsapp_en }}: {{ $settings->{'whatsapp_' . $middleware_language} ?? $settings->whatsapp_en }}</div>
                         </div>
                     </div>
                 </div>
