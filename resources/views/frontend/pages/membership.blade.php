@@ -99,7 +99,7 @@
         </div>
 
         @if($contents->section_4_title_en)
-            <div class="container-fluid journey-section mx-0">
+            <div class="container-fluid journey-section mx-0 py-5">
 
                 <div class="heading text-white">{{ $contents->{'section_4_title_' . $middleware_language} ?? $contents->section_4_title_en }}</div>
 
