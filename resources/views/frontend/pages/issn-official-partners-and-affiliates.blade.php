@@ -49,7 +49,7 @@
     @if($contents->section_2_title_en)
         <section class="affiliates-section d-flex align-items-center py-md-5">
             <div class="container">
-                <div class="row g-4 image-content-container pb-5">
+                <div class="row g-4 image-content-container">
                     <div class="content col-12 col-lg-6 order-2 order-lg-1">
                         <div class="heading text-white mb-3">
                             {{ $contents->{'section_2_title_'. $middleware_language} ?? $contents->section_2_title_en }}
