@@ -286,16 +286,16 @@
                     <div class="row d-flex align-items-end">
                         <div class="col-6 col-md-4 col-lg-2 mb-3">
                             <div class="icon-item text-center">
-                                <a href="mailto:{{ $settings->email }}" class="text-decoration-none text-black">
+                                <a href="mailto:{{ $settings->{'email_' . $middleware_language} ?? $settings->email_en }}" class="text-decoration-none text-black">
                                     <img src="{{ asset('storage/frontend/email-gray.svg') }}" alt="Email Icon" class="img-fluid mb-2">
-                                    <div>{{ $settings->email }}</div>
+                                    <div>{{ $settings->{'email_' . $middleware_language} ?? $settings->email_en }}</div>
                                 </a>
                             </div>
                         </div>
 
                         <div class="col-6 col-md-4 col-lg-2 mb-3">
                             <div class="icon-item text-center">
-                                <a href="{{ $settings->instagram }}" class="text-decoration-none text-black" target="_blank">
+                                <a href="{{ $settings->{'instagram_' . $middleware_language} ?? $settings->instagram_en }}" class="text-decoration-none text-black" target="_blank">
                                     <img src="{{ asset('storage/frontend/instagram-gray.svg') }}" alt="Instagram Icon" class="img-fluid mb-2">
                                     <div>{{ $contents->{'section_11_instagram_' . $middleware_language} ?? $contents->section_11_instagram_en }}</div>
                                 </a>
@@ -304,7 +304,7 @@
 
                         <div class="col-6 col-md-4 col-lg-2 mb-3">
                             <div class="icon-item text-center">
-                                <a href="{{ $settings->twitter }}" class="text-decoration-none text-black" target="_blank">
+                                <a href="{{ $settings->{'twitter_' . $middleware_language} ?? $settings->twitter_en }}" class="text-decoration-none text-black" target="_blank">
                                     <img src="{{ asset('storage/frontend/twitter-gray.svg') }}" alt="Twitter Icon" class="img-fluid mb-2">
                                     <div>{{ $contents->{'section_11_twitter_' . $middleware_language} ?? $contents->section_11_twitter_en }}</div>
                                 </a>
@@ -313,7 +313,7 @@
                         
                         <div class="col-6 col-md-4 col-lg-2 mb-3">
                             <div class="icon-item text-center">
-                                <a href="{{ $settings->linkedin }}" class="text-decoration-none text-black" target="_blank">
+                                <a href="{{ $settings->{'linkedin_' . $middleware_language} ?? $settings->linkedin_en }}" class="text-decoration-none text-black" target="_blank">
                                     <img src="{{ asset('storage/frontend/linkedin-gray.svg') }}" alt="LinkedIn Icon" class="img-fluid mb-2">
                                     <div>{{ $contents->{'section_11_linkedin_' . $middleware_language} ?? $contents->section_11_linkedin_en }}</div>
                                 </a>
@@ -322,7 +322,7 @@
 
                         <div class="col-6 col-md-4 col-lg-2 mb-3">
                             <div class="icon-item text-center">
-                                <a href="{{ $settings->youtube }}" class="text-decoration-none text-black" target="_blank">
+                                <a href="{{ $settings->{'youtube_' . $middleware_language} ?? $settings->youtube_en }}" class="text-decoration-none text-black" target="_blank">
                                     <img src="{{ asset('storage/frontend/youtube-gray.svg') }}" alt="Youtube Icon" class="img-fluid mb-2">
                                     <div>{{ $contents->{'section_11_youtube_' . $middleware_language} ?? $contents->section_11_youtube_en }}</div>
                                 </a>
@@ -331,7 +331,7 @@
 
                         <div class="col-6 col-md-4 col-lg-2 mb-3">
                             <div class="icon-item text-center">
-                                <a href="{{ $settings->fb }}" class="text-decoration-none text-black" target="_blank">
+                                <a href="{{ $settings->{'fb_' . $middleware_language} ?? $settings->fb_en }}" class="text-decoration-none text-black" target="_blank">
                                     <img src="{{ asset('storage/frontend/facebook-gray.svg') }}" alt="Facebook Icon" class="img-fluid mb-2">
                                     <div>{{ $contents->{'section_11_facebook_' . $middleware_language} ?? $contents->section_11_facebook_en }}</div>
                                 </a>
