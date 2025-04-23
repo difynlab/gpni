@@ -1299,10 +1299,8 @@ course-content {
 
 .student-testimonial-quote {
     font-weight: 400;
-   
     color: #000;
     margin-bottom: 1.5rem !important;
-    /* font-size: 1.5rem; */
     min-height: 60px;
 }
 
@@ -2256,7 +2254,7 @@ course-content {
 .student-review-name {
     color: #000;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
 }
 
 

@@ -124,7 +124,7 @@
                 <div class="section-title heading mb-3 mb-md-3">
                     {{ $contents->{'section_5_title_' . $middleware_language} ?? $contents->{'section_5_title_en'} }}
                 </div>
-                <div class="section-subtitle fs-20 mb-4 mb-md-5">
+                <div class="section-subtitle sub-heading mb-4 mb-md-5">
                     {!! $contents->{'section_5_description_' . $middleware_language} ?? $contents->{'section_5_description_en'} !!}
                 </div>
                 

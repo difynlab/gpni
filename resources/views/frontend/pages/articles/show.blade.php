@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container article-main-container">
+    <div class="container article-main-container mb-5">
         <x-frontend.notification></x-frontend.notification>
 
         <div class="main-content row">

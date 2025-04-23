@@ -524,7 +524,7 @@ body {
 }
 
 .video-section + .row {
-    margin-top: 5%;
+    margin-top: 3%;
     padding-left: 1.2%; /* Added to move content right */
 
 }

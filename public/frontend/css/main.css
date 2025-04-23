@@ -215,8 +215,6 @@ Define font weights for Poppins */
     font-size: 18px;
     /* color: var(--black); */
 }
-
-/* Add style for last p tag to have no margin-bottom */
 /* p:last-child {
     margin-bottom: 0;
 } */
@@ -228,6 +226,12 @@ Define font weights for Poppins */
 .text-main-content ul, .text-main-content li {
     margin-bottom: 1rem;
     /* color: var(--black); */
+}
+.text-main-content li:last-child {
+    margin-bottom: 0;
+}
+.text-main-content ul:last-child {
+    margin-bottom: 0;
 }
 .text-content {
     margin-bottom: 16px;
@@ -887,7 +891,7 @@ li {
 }
 .white-button:hover {
     background-color: var(--hover_white);
-    color: var(--black);
+    color:var(--primary);;
     transition: all 0.3s;
 }
 .other-white-button {

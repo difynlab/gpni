@@ -219,7 +219,7 @@
             <div class="container">
                 <div class="heading mb-3 text-white text-center">{{ $contents->{'section_8_title_' . $middleware_language} ?? $contents->section_8_title_en }}</div>
                 
-                <div class="section-8-content sub-heading mb-3 text-white">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
+                <div class="section-8-content text-main-content text-white">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
 
                 @guest
                     <div class="py-3">

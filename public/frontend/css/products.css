@@ -52,7 +52,7 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 27.24px;
-    color: #898989;
+    color: #000;
     padding: 0;
     margin: 0 10px;
     border-bottom: 3px solid transparent;
@@ -206,7 +206,6 @@
 
 .row-horizontal {
     display: flex;
-    padding: 20px;
 }
 
 .product-name {
@@ -291,7 +290,6 @@
     width: 70px;
 }
 .product-title {
-    font-size: 20px;
     font-weight: 600;
     color: #000000;
     margin: 0;

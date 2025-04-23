@@ -62,32 +62,32 @@
 
     <div class="container-fluid mx-0 px-0">
         <section class="course-details container-fluid">
-            <div class="row align-items-center text-heading justify-content-center">
+            <div class="row align-items-center text-heading justify-content-center mb-0">
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_no_of_modules_' . $middleware_language} ?? $contents->single_page_no_of_modules_en }}</div>
-                        <div class="value text-heading">{{ $course->no_of_modules }}</div>
+                        <div class="value text-heading mb-0">{{ $course->no_of_modules }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_course_type_' . $middleware_language} ?? $contents->single_page_course_type_en }}</div>
-                        <div class="value text-heading">{{ $course->type }}</div>
+                        <div class="value text-heading mb-0">{{ $course->type }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_course_duration_' . $middleware_language} ?? $contents->single_page_course_duration_en }}</div>
-                        <div class="value text-heading">{{ $course->duration }}</div>
+                        <div class="value text-heading mb-0">{{ $course->duration }}</div>
                     </div>
                     <div class="vertical-line"></div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3 mb-md-3 mb-lg-0 d-flex align-items-center justify-content-center position-relative">
                     <div class="course-item text-center">
                         <div class="label sub-heading">{{ $contents->{'single_page_course_language_' . $middleware_language} ?? $contents->single_page_course_language_en }}</div>
-                        <div class="value text-heading">{{ $course->language }}</div>
+                        <div class="value text-heading mb-0">{{ $course->language }}</div>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
 
         @if($course->certification_section_2_title)
             <section class="plans-payment position-relative">
-                <div class="container my-5">
+                <div class="container">
                     <div class="row">
                         
                         <div class="col-md-5 mb-4 mb-md-0 order-md-1 order-2">
@@ -385,7 +385,7 @@
                                             @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
                                                 <a class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
                                             @else
-                                                <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                                <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn white-button fs-20 py-3 px-4">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
                                             @endif
                                         @else
                                             <a class="btn btn-light fs-20 py-3 px-4">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
