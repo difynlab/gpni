@@ -26,7 +26,7 @@
     text-overflow: ellipsis;
 }
 
-.card-text p {
+.card-text p  {
     font-size: 16px;
     font-weight: 400;
     text-align: left; /* Align the card text to the left */
@@ -36,6 +36,33 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 0;
+}
+
+.card-text ul {
+    padding-left: 0px;
+    margin-bottom: 0;
+}
+
+.card-text li {
+    display: list-item !important; 
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.card-text ul li:first-child {
+    display: list-item !important;
+    visibility: visible;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-text ul li:not(:first-child) {
+    display: none !important;
 }
 
 body {
@@ -66,7 +93,7 @@ body {
 
     .card-text p {
         font-size: 16px; 
-        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-line-clamp: 1; /* Limit to 2 lines */
     }
 
     .modal-body {
@@ -132,7 +159,15 @@ body {
 
     .card-text p {
         font-size: 16px; /* Use existing font size class */
-        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-line-clamp: 1; /* Limit to 2 lines */
+    }
+
+    .card-text ul,li {
+        -webkit-line-clamp: 1; /* Limit to 2 lines */
+    }
+
+    .card-text ul, .card-text li {
+        display: list-item !important;
     }
 
     .modal-content {
@@ -196,9 +231,18 @@ body {
         font-size: 18px;
     }
 
-    .card-text p {
+    .card-text p ,li ,ul {
         font-size: 16px; /* Use existing font size class */
-        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-line-clamp: 1; /* Limit to 2 lines */
+    }
+
+    .card-text p, .card-text li, .card-text ul {
+        font-size: 16px;
+        -webkit-line-clamp: 1;
+    }
+    
+    .card-text li {
+        display: list-item !important;
     }
 
     .modal-content {
@@ -330,8 +374,6 @@ body {
 
 .popup-description p {
     text-align: left;
-    margin-bottom: 20px;
-    font-size: 18px;
 }
 
 .social-icons {
@@ -374,7 +416,7 @@ body {
     .card-text p {
         font-size: 16px;
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-line-clamp: 1; /* Limit to 2 lines */
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -406,7 +448,7 @@ body {
         overflow: visible; /* Show overflow text */
         text-overflow: clip; /* Clip overflow text */
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-line-clamp: 1; /* Limit to 2 lines */
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -438,9 +480,6 @@ body {
         font-size: 1rem; /* Adjust font size for medium mobile devices */
     }
 
-    .popup-description p{
-        font-size:16px; /* Adjust font size for medium mobile devices */
-    }
 
     .gpni-logo-advisory {
         width: 80px; /* Smaller for very small devices */
@@ -588,7 +627,7 @@ body {
         overflow: visible; /* Show overflow text */
         text-overflow: clip; /* Clip overflow text */
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-line-clamp: 1; /* Limit to 2 lines */
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -640,10 +679,6 @@ body {
 
     .popup-info h4 {
         font-size: 1.25rem; /* Adjust font size for tablets */
-    }
-
-    .popup-description p{
-        font-size: 18px; /* Adjust font size for tablets */
     }
 }
 

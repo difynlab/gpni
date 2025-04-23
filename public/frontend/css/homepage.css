@@ -560,7 +560,7 @@
     box-shadow: none;
 }
 .custom-search-bar .input-group {
-    border: 1px solid #ced4da;
+    border: 1px solid #ffffff;
     border-radius: 47px;
 }
 .search-button {
@@ -762,11 +762,6 @@
     background: rgba(0, 0, 0, 0.5);
     padding: 0.75rem;
     border-radius: 5px;
-}
-
-.courses-swiper .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .courses-swiper .swiper-pagination {

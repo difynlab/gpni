@@ -26,8 +26,8 @@
     width: 100%;
     max-width: 600px;
     height: 65px;
-    background-color: #fdfdfd;
-    border: 0.85px solid #c9dbfe;
+    background-color: #ffffff;
+    /* border: 0.85px solid #c9dbfe; */
     border-radius: 50px;
     display: flex;
     align-items: center;

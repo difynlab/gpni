@@ -32,7 +32,7 @@
                             <div class="card-body">
                                 <div class="card-title text-primary">{{ $advisory_board->name }}</div>
                                 <div class="card-subtitle mb-1">{{ $advisory_board->designations }}</div>
-                                <div class="card-text text-muted fs-20"> {!! $advisory_board->description !!}</div>
+                                <div class="card-text text-muted fs-20">{!! $advisory_board->description !!}</div>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                             <div class="popup-designation">{{ $advisory_board->designations }}</div>
                                         </div>
 
-                                        <div class="popup-description">{!! $advisory_board->description !!}</div>
+                                        <div class="popup-description text-content">{!! $advisory_board->description !!}</div>
 
                                         <div class="social-icons">
                                             @if ($advisory_board->fb)
