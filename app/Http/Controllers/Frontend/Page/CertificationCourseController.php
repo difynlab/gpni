@@ -244,6 +244,74 @@ class CertificationCourseController extends Controller
             }
         }
 
+        if($course->id == 34) {
+            if($session->currency == 'usd') {
+                $course_purchase_1 = new CoursePurchase();
+                $course_purchase_1->user_id = $course_order->user_id;
+                $course_purchase_1->course_id = 6;
+                $course_purchase_1->currency = $session->currency;
+                $course_purchase_1->date = now()->toDateString();
+                $course_purchase_1->time = now()->toTimeString();
+                $course_purchase_1->mode = $session->mode;
+                $course_purchase_1->transaction_id = $session->id;
+                $course_purchase_1->amount_paid = $session->currency == 'jpy' ? $session->amount_total : $session->amount_total / 100;
+                $course_purchase_1->material_logistic = 'No';
+                $course_purchase_1->master_pack_buy = 'Yes';
+                $course_purchase_1->payment_status = 'Completed';
+                $course_purchase_1->status = '1';
+                $course_purchase_1->save();
+
+                $course_purchase_2 = new CoursePurchase();
+                $course_purchase_2->user_id = $course_order->user_id;
+                $course_purchase_2->course_id = 7;
+                $course_purchase_2->currency = $session->currency;
+                $course_purchase_2->date = now()->toDateString();
+                $course_purchase_2->time = now()->toTimeString();
+                $course_purchase_2->mode = $session->mode;
+                $course_purchase_2->transaction_id = $session->id;
+                $course_purchase_2->amount_paid = $session->currency == 'jpy' ? $session->amount_total : $session->amount_total / 100;
+                $course_purchase_2->material_logistic = 'No';
+                $course_purchase_2->master_pack_buy = 'Yes';
+                $course_purchase_2->payment_status = 'Completed';
+                $course_purchase_2->status = '1';
+                $course_purchase_2->save();
+            }
+            elseif($session->currency == 'cny') {
+                $course_purchase_1 = new CoursePurchase();
+                $course_purchase_1->user_id = $course_order->user_id;
+                $course_purchase_1->course_id = 25;
+                $course_purchase_1->currency = $session->currency;
+                $course_purchase_1->date = now()->toDateString();
+                $course_purchase_1->time = now()->toTimeString();
+                $course_purchase_1->mode = $session->mode;
+                $course_purchase_1->transaction_id = $session->id;
+                $course_purchase_1->amount_paid = $session->currency == 'jpy' ? $session->amount_total : $session->amount_total / 100;
+                $course_purchase_1->material_logistic = 'No';
+                $course_purchase_1->master_pack_buy = 'Yes';
+                $course_purchase_1->payment_status = 'Completed';
+                $course_purchase_1->status = '1';
+                $course_purchase_1->save();
+
+                $course_purchase_2 = new CoursePurchase();
+                $course_purchase_2->user_id = $course_order->user_id;
+                $course_purchase_2->course_id = 23;
+                $course_purchase_2->currency = $session->currency;
+                $course_purchase_2->date = now()->toDateString();
+                $course_purchase_2->time = now()->toTimeString();
+                $course_purchase_2->mode = $session->mode;
+                $course_purchase_2->transaction_id = $session->id;
+                $course_purchase_2->amount_paid = $session->currency == 'jpy' ? $session->amount_total : $session->amount_total / 100;
+                $course_purchase_2->material_logistic = 'No';
+                $course_purchase_2->master_pack_buy = 'Yes';
+                $course_purchase_2->payment_status = 'Completed';
+                $course_purchase_2->status = '1';
+                $course_purchase_2->save();
+            }
+            // else {
+            //     $currency = 'jpy';
+            // }
+        }
+
         $user = Auth::user();
 
         if($user->referred_by) {

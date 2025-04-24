@@ -93,7 +93,7 @@
                                             'ja' => 'Japanese'
                                         ];
 
-                                        $certificate_courses = App\Models\Course::where('language', $languages[$middleware_language])->where('type', 'Certification')->where('status', '1')->get();
+                                        $certificate_courses = App\Models\Course::where('language', $languages[$middleware_language])->where('type', 'Certification')->orderBy('id', 'asc')->where('status', '1')->get()->take(2);
                                     @endphp
 
                                     @if($certificate_courses->isNotEmpty())

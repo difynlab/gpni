@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('completion_date')->nullable();
             $table->time('time')->nullable();
             $table->string('mode')->nullable();
-            $table->string('transaction_id')->nullable()->unique();
+            $table->string('transaction_id')->nullable();
             $table->string('currency');
             $table->decimal('amount_paid', 8, 2)->nullable();
             $table->string('discount_applied')->nullable();
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('receipt_url')->nullable();
             $table->enum('refund_status', ['Refunded', 'Not Refunded'])->nullable()->default('Not Refunded');
             $table->enum('material_logistic', ['Yes', 'No'])->default('No');
+            $table->enum('master_pack_buy', ['Yes', 'No'])->nullable()->default('No');
 
             $table->enum('status', [0, 1])->index();
             $table->timestamps();

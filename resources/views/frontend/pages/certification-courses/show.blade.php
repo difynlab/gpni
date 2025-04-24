@@ -712,7 +712,7 @@
         @endif -->
     </div>
 
-    @if($course->certification_section_16_title)
+    @if($course->certification_section_16_title && $middleware_language_name != 'Japanese')
         <div class="container-fluid p-0">
             <section class="masters-pack-section py-5">
                 <div class="masters-pack-overlay"></div>
@@ -725,10 +725,18 @@
 
                         @if(auth()->check())
                             @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name) && $course->language == $middleware_language_name)
-                                @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                                    <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                                @if($middleware_language_name == 'English')
+                                    @if(hasUserPurchasedCourse(auth()->user()->id, 6) || hasUserPurchasedCourse(auth()->user()->id, 7))
+                                        <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                                    @else
+                                        <a href="{{ route('frontend.certification-courses.purchase', 34) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                    @endif
                                 @else
-                                    <a href="{{ route('frontend.certification-courses.purchase', $course) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                    @if(hasUserPurchasedCourse(auth()->user()->id, 23) || hasUserPurchasedCourse(auth()->user()->id, 25))
+                                        <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
+                                    @else
+                                        <a href="{{ route('frontend.certification-courses.purchase', 34) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                    @endif
                                 @endif
                             @else
                                 <a class="btn other-white-button">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>

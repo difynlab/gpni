@@ -7,7 +7,6 @@ use App\Models\Course;
 use App\Models\CourseModule;
 use Carbon\Carbon;
 use App\Models\CourseChapter;
-
 use App\Http\Controllers\Controller;
 use App\Models\CourseFinalExam;
 use App\Models\CourseModuleExam;
@@ -30,7 +29,7 @@ class CourseController extends Controller
             $query->where('refund_status', 'Not Refunded')
                   ->orWhereNull('refund_status');
         })
-        ->where('status', '1')->pluck('course_id')->toArray();
+        ->where('status', '1')->whereNot('course_id', 34)->pluck('course_id')->toArray();
 
         // $courses = Course::whereIn('id', $course_ids)->where('status', '1')->orderBy('id', 'desc')->get();
 
