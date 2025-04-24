@@ -256,7 +256,12 @@
             <!-- Location -->
             <div class="d-flex align-items-center">
                 <img src="{{ asset('storage/frontend/pin-icon.svg') }}" alt="Map Icon" class="me-2">
-                <p class="mb-0">{{ $contents->{'footer_country_' . $middleware_language} ?? $contents->footer_country_en }}</p>
+                @php
+                    use Stevebauman\Location\Facades\Location;
+                    $position = \Location::get();
+                    $country = $position ? $position->countryName : 'USA';
+                @endphp
+                <p class="mb-0 country-name">{{ $country }}</p>
             </div>
             
             <!-- Divider -->
@@ -287,3 +292,18 @@
         </div>
     </div>
 </div>
+
+@push('after-scripts')
+    <script>
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                if(data && data.country_name) {
+                    $('.country-name').text(data.country_name);
+                }
+            })
+            .catch(error => {
+                console.warn('Geo fetch failed:', error);
+            });
+    </script>
+@endpush

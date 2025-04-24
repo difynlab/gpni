@@ -69,6 +69,11 @@
                     </div>
 
                     <div class="col-4 mb-4">
+                        <label for="footer_powered_link_{{ $short_code }}" class="form-label">Powered By Link</label>
+                        <input type="url" class="form-control" id="footer_powered_link_{{ $short_code }}" name="footer_powered_link_{{ $short_code }}" value="{{ $contents->{'footer_powered_link_' . $short_code} ?? '' }}" placeholder="Powered By Link">
+                    </div>
+
+                    <div class="col-4 mb-4">
                         <label for="footer_get_in_touch_{{ $short_code }}" class="form-label">Get in Touch</label>
                         <input type="text" class="form-control" id="footer_get_in_touch_{{ $short_code }}" name="footer_get_in_touch_{{ $short_code }}" value="{{ $contents->{'footer_get_in_touch_' . $short_code} ?? '' }}" placeholder="Get in Touch">
                     </div>
@@ -133,14 +138,9 @@
                         <input type="text" class="form-control" id="footer_partners_{{ $short_code }}" name="footer_partners_{{ $short_code }}" value="{{ $contents->{'footer_partners_' . $short_code} ?? '' }}" placeholder="Partners">
                     </div>
 
-                    <div class="col-4 mb-4">
+                    <div class="col-4">
                         <label for="footer_other_{{ $short_code }}" class="form-label">Other</label>
                         <input type="text" class="form-control" id="footer_other_{{ $short_code }}" name="footer_other_{{ $short_code }}" value="{{ $contents->{'footer_other_' . $short_code} ?? '' }}" placeholder="Other">
-                    </div>
-
-                    <div class="col-4">
-                        <label for="footer_country_{{ $short_code }}" class="form-label">Country</label>
-                        <input type="text" class="form-control" id="footer_country_{{ $short_code }}" name="footer_country_{{ $short_code }}" value="{{ $contents->{'footer_country_' . $short_code} ?? '' }}" placeholder="Country">
                     </div>
 
                     <div class="col-4">

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('header_user_member_en')->nullable();
             $table->text('header_user_logout_en')->nullable();
             $table->text('footer_powered_en')->nullable();
+            $table->text('footer_powered_link_en')->nullable();
             $table->text('footer_get_in_touch_en')->nullable();
             $table->text('footer_instagram_en')->nullable();
             $table->text('footer_facebook_en')->nullable();
@@ -37,7 +38,6 @@ return new class extends Migration
             $table->text('footer_education_policy_en')->nullable();
             $table->text('footer_partners_en')->nullable();
             $table->text('footer_other_en')->nullable();
-            $table->text('footer_country_en')->nullable();
             $table->text('footer_copyright_en')->nullable();
             $table->text('captcha_title_en')->nullable();
             $table->text('captcha_button_en')->nullable();
@@ -51,6 +51,7 @@ return new class extends Migration
             $table->text('header_user_member_zh')->nullable();
             $table->text('header_user_logout_zh')->nullable();
             $table->text('footer_powered_zh')->nullable();
+            $table->text('footer_powered_link_zh')->nullable();
             $table->text('footer_get_in_touch_zh')->nullable();
             $table->text('footer_instagram_zh')->nullable();
             $table->text('footer_facebook_zh')->nullable();
@@ -65,7 +66,6 @@ return new class extends Migration
             $table->text('footer_education_policy_zh')->nullable();
             $table->text('footer_partners_zh')->nullable();
             $table->text('footer_other_zh')->nullable();
-            $table->text('footer_country_zh')->nullable();
             $table->text('footer_copyright_zh')->nullable();
             $table->text('captcha_title_zh')->nullable();
             $table->text('captcha_button_zh')->nullable();
@@ -79,6 +79,7 @@ return new class extends Migration
             $table->text('header_user_member_ja')->nullable();
             $table->text('header_user_logout_ja')->nullable();
             $table->text('footer_powered_ja')->nullable();
+            $table->text('footer_powered_link_ja')->nullable();
             $table->text('footer_get_in_touch_ja')->nullable();
             $table->text('footer_instagram_ja')->nullable();
             $table->text('footer_facebook_ja')->nullable();
@@ -93,7 +94,6 @@ return new class extends Migration
             $table->text('footer_education_policy_ja')->nullable();
             $table->text('footer_partners_ja')->nullable();
             $table->text('footer_other_ja')->nullable();
-            $table->text('footer_country_ja')->nullable();
             $table->text('footer_copyright_ja')->nullable();
             $table->text('captcha_title_ja')->nullable();
             $table->text('captcha_button_ja')->nullable();
