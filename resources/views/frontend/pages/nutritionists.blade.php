@@ -400,30 +400,30 @@
                         <div class="details-content">
                             <img src="" class="qr-code" alt="QR Code">
 
-                            <div class="mb-2 name">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</div>
+                            <div class="mb-3 name fw-bold">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</div>
                             
-                            <div class="fs-16"><strong>{{ $contents->{'age_' . $middleware_language} ?? $contents->age_en }}:</strong> <span class="age"></span></div>
+                            <div class="fs-16 mb-3"><strong>{{ $contents->{'age_' . $middleware_language} ?? $contents->age_en }}:</strong> <span class="age"></span></div>
 
-                            <div class="fs-16"><strong>{{ $contents->{'country_' . $middleware_language} ?? $contents->country_en }}:</strong> <span class="country"></span></div>
+                            <div class="fs-16 mb-3"><strong>{{ $contents->{'country_' . $middleware_language} ?? $contents->country_en }}:</strong> <span class="country"></span></div>
 
-                            <div class="fs-16"><strong>{{ $contents->{'cec_status_' . $middleware_language} ?? $contents->cec_status_en }}:</strong> <span class="highlight cec-status"></span></div>
+                            <div class="fs-16 mb-3"><strong>{{ $contents->{'cec_status_' . $middleware_language} ?? $contents->cec_status_en }}:</strong> <span class="highlight cec-status"></span></div>
 
-                            <div class="fs-16"><strong>{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}:</strong> <span class="credentials"></span></div>
+                            <div class="fs-16 mb-3"><strong>{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}:</strong> <span class="credentials"></span></div>
 
-                            <div class="fs-16"><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></div>
+                            <div class="fs-16 mb-3"><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></div>
 
-                            <div class="fs-16"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></div>
+                            <div class="fs-16 mb-3"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></div>
 
-                            <div class="fs-16">
+                            <div class="fs-16 mb-3">
                                 <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
                                 <span class="area-of-interest"></span>
                             </div>
 
-                            <div class="fs-16">
+                            <div class="fs-16 mb-3">
                                 <strong>{{ $contents->{'self_introduction_' . $middleware_language} ?? $contents->self_introduction_en }}:</strong>
                                 
                             </div>
-                            <div class="intro-paragraph fs-16"></div>
+                            <div class="intro-paragraph fs-16 mb-3"></div>
 
                             <div class="bottom-section">
                                 <div class="coach-location-model-item coach-contact-link">

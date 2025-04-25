@@ -85,13 +85,13 @@
                                 <div class="col-lg-10 text-center text-md-start">
                                     <div class="p-0 m-0 sub-heading ff-poppins-semibold">{{ $our_founder->name }}</div>
                                     <div class="title text-heading ff-poppins-regular mb-0">{{ $our_founder->designations }}</div>
-                                    <div class="pt-3 text-content text-center text-md-start">{!! $our_founder->description !!}</div>
+                                    <div class="pt-3 text-main-content text-center text-md-start">{!! $our_founder->description !!}</div>
                                 </div>
                             @else
                                 <div class="col-lg-10 text-center text-md-end order-2 order-md-1">
                                     <div class="p-0 m-0 sub-heading ff-poppins-semibold">{{ $our_founder->name }}</div>
                                     <div class="title text-heading ff-poppins-regular mb-0">{{ $our_founder->designations }}</div>
-                                    <div class="pt-3 text-content text-center text-md-end">{!! $our_founder->description !!}</div>
+                                    <div class="pt-3 text-main-content text-center text-md-end">{!! $our_founder->description !!}</div>
                                 </div>
                                 <div class="col-lg-2 text-center order-1 order-md-2">
                                     <img src="{{ asset('storage/backend/persons/our-founders/' . $our_founder->image) }}" alt="{{ $our_founder->name }}" class="img-fluid">

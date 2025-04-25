@@ -256,12 +256,12 @@
     margin-top: -6px;
 }
 
-.modal-content {
+/* .modal-content {
     border: none;
     box-shadow: none;
     border-radius: 10px;
     z-index: 1050;
-}
+} */
 
 .modal-header {
     border-bottom: 0px !important;

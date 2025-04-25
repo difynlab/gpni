@@ -127,7 +127,7 @@
                         @endif
                     </div>
                     <div class="col-md-7">
-                        <div class="section-3 sub-heading text-start px-2 mb-3">{!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}</div>
+                        <div class="section-3 text-heading text-start px-2 mb-3">{!! $contents->{'section_3_content_' . $middleware_language} ?? $contents->section_3_content_en !!}</div>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,7 @@
                 <div class="section-9-content sub-heading">{!! $contents->{'section_9_content_' . $middleware_language} ?? $contents->section_9_content_en !!}</div>                
                 @if($previous_webinars->isNotEmpty())
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="row align-items-center d-flex justify-content-center">
                             @foreach($previous_webinars as $previous_webinar)
                                 <div class="col-12 col-md-6 col-lg-3 mb-3">
                                     <video controls class="img-fluid">

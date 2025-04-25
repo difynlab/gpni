@@ -142,11 +142,9 @@ h5 {
     overflow: hidden;
     color: #000;
     font-family: 'Poppins';
-    font-size: 13px;
     font-weight: 400;
     font-style: normal;
     line-height: normal;
-    margin-bottom: 20px;
 }
 
 .subscribe {
@@ -180,7 +178,6 @@ h5 {
 
 .subscribe-form-article input[type="email"] {
     flex: 1;
-    padding: 15px 20px;
     border: none;
     background-color: transparent;
     font-size: 14px;
@@ -603,4 +600,150 @@ h5 {
     height: 100%;
     object-fit: cover;
 }
+
+/* You Might Also Like Section Styles */
+
+.article-item-we-might-also-like {
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.article-item:hover {
+    transform: translateY(-5px);
+}
+
+.article-category {
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.article-category span {
+    color: #0047ba;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.article-img {
+    width: 100%;
+    height: 180px;
+    object-fit: fill;
+    margin-bottom: 15px;
+}
+
+.article-content {
+    flex-grow: 1;
+}
+
+.article-title-we-might-also-like {
+    font-weight: 600;
+    line-height: 1.3;
+    color: #000;
+}
+
+.article-date-we-might-also-like {
+    color: #888;
+    margin-top: auto;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* Share Article Section Styles */
+.share-article-section {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.share-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.social-share-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-share-icons a {
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin: 0 5px;
+}
+
+.social-share-icons a:hover {
+    transform: none; /* Remove the transform that causes jumping */
+}
+
+.social-share-icons a:hover img {
+    opacity: 0.8; /* Use opacity change for hover effect instead */
+}
+
+/* Ensure consistent size for social media icons */
+.social-share-icons img {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+/* Navigation Links Styles */
+.article-navigation-links {
+    width: 100%;
+}
+
+.article-navigation-links hr {
+    margin: 20px 0;
+}
+
+.navigation-link {
+    color: #0040c3;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.navigation-link:hover {
+    background-color: #f0f5ff;
+}
+
+.prev-link .navigation-text:before {
+    content: "←";
+    margin-right: 8px;
+}
+
+.next-link .navigation-text:after {
+    content: "→";
+    margin-left: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .share-article-section {
+        justify-content: center;
+    }
+    
+    .navigation-link {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+}
+
 
