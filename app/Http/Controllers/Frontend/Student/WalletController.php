@@ -29,10 +29,17 @@ class WalletController extends Controller
         $activities = $activities->values();
 
         $wallet = Wallet::where('user_id', $student->id)->where('status', '1')->first();
+
+        if(!$wallet) {
+            $wallet_balance = '0.00';
+        }
+        else {
+            $wallet_balance = $wallet->balance;
+        }
     
         return view('frontend.student.wallet', [
             'student' => $student,
-            'wallet' => $wallet,
+            'wallet_balance' => $wallet_balance,
             'activities' => $activities
         ]);
     }
