@@ -36,6 +36,7 @@ use App\Http\Controllers\Frontend\Student\FinalExamController;
 use App\Http\Controllers\Frontend\Student\ModuleExamController;
 use App\Http\Controllers\Frontend\Student\TechnicalSupportController;
 use App\Http\Controllers\Frontend\Common\SubscriptionController;
+use App\Http\Controllers\Frontend\Student\WalletController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/frontend-auth.php';
@@ -198,6 +199,10 @@ Route::middleware(['set_language'])->group(function () {
             Route::prefix('technical-supports')->name('technical-supports.')->group(function() {
                 Route::get('/', [TechnicalSupportController::class, 'index'])->name('index');
                 Route::post('/', [TechnicalSupportController::class, 'store'])->name('store');
+            });
+
+            Route::prefix('wallet')->name('wallet.')->group(function() {
+                Route::get('/', [WalletController::class, 'index'])->name('index');
             });
         });
     // Student routes 

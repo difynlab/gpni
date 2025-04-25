@@ -26,6 +26,7 @@ return new class extends Migration
                 'sidebar_ask_the_experts',
                 'sidebar_technical_supports',
                 'sidebar_refer_friends',
+                'sidebar_wallet',
 
                 'dashboard_welcome',
                 'dashboard_profile',
@@ -320,7 +321,15 @@ return new class extends Migration
                 'refer_withdraw_point_no_points',
                 'refer_withdraw_no_of_points',
                 'refer_withdraw_point_close',
-                'refer_withdraw_point_submit'
+                'refer_withdraw_point_submit',
+
+                'wallet_title',
+                'wallet_balance',
+                'wallet_first_column',
+                'wallet_second_column',
+                'wallet_third_column',
+                'wallet_fourth_column',
+                'wallet_no_records',
             ];
 
             foreach($columns as $column) {

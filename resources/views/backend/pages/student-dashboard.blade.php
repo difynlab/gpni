@@ -70,6 +70,11 @@
                         <label for="sidebar_refer_friends" class="form-label">Refer Friends</label>
                         <input type="text" class="form-control" id="sidebar_refer_friends" name="sidebar_refer_friends" value="{{ $contents->sidebar_refer_friends ?? '' }}" placeholder="Refer Friends">
                     </div>
+
+                    <div class="col-4">
+                        <label for="sidebar_wallet" class="form-label">Wallet</label>
+                        <input type="text" class="form-control" id="sidebar_wallet" name="sidebar_wallet" value="{{ $contents->sidebar_wallet ?? '' }}" placeholder="Wallet">
+                    </div>
                 </div>
             </div>
 
@@ -1550,6 +1555,47 @@
                     <div class="col-4">
                         <label for="refer_withdraw_point_submit" class="form-label">Refer Withdraw Submit</label>
                         <input type="text" class="form-control" id="refer_withdraw_point_submit" name="refer_withdraw_point_submit" value="{{ $contents->refer_withdraw_point_submit ?? '' }}" placeholder="Refer Withdraw Submit">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <p class="inner-page-title">Wallet</p>
+
+                <div class="row form-input">
+                    <div class="col-4 mb-3">
+                        <label for="wallet_title" class="form-label">Wallet Title</label>
+                        <input type="text" class="form-control" id="wallet_title" name="wallet_title" value="{{ $contents->wallet_title ?? '' }}" placeholder="Wallet Title">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="wallet_balance" class="form-label">Wallet Balance</label>
+                        <input type="text" class="form-control" id="wallet_balance" name="wallet_balance" value="{{ $contents->wallet_balance ?? '' }}" placeholder="Wallet Balance">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="wallet_first_column" class="form-label">Wallet First Column</label>
+                        <input type="text" class="form-control" id="wallet_first_column" name="wallet_first_column" value="{{ $contents->wallet_first_column ?? '' }}" placeholder="Wallet First Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="wallet_second_column" class="form-label">Wallet Second Column</label>
+                        <input type="text" class="form-control" id="wallet_second_column" name="wallet_second_column" value="{{ $contents->wallet_second_column ?? '' }}" placeholder="Wallet Second Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="wallet_third_column" class="form-label">Wallet Third Column</label>
+                        <input type="text" class="form-control" id="wallet_third_column" name="wallet_third_column" value="{{ $contents->wallet_third_column ?? '' }}" placeholder="Wallet Third Column">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="wallet_fourth_column" class="form-label">Wallet Fourth Column</label>
+                        <input type="text" class="form-control" id="wallet_fourth_column" name="wallet_fourth_column" value="{{ $contents->wallet_fourth_column ?? '' }}" placeholder="Wallet Fourth Column">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="wallet_no_records" class="form-label">Wallet No Records</label>
+                        <input type="text" class="form-control" id="wallet_no_records" name="wallet_no_records" value="{{ $contents->wallet_no_records ?? '' }}" placeholder="Wallet No Records">
                     </div>
                 </div>
             </div>

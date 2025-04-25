@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Frontend\Page;
 
 use App\Http\Controllers\Controller;
+use App\Mail\GiftCardMail;
 use App\Models\GiftCardContent;
 use App\Models\GiftCardPurchase;
 use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class GiftCardController extends Controller
 {
@@ -150,6 +152,21 @@ class GiftCardController extends Controller
             $wallet->status = '1';
             $wallet->save();
         }
+
+        if($gift_card_purchase->currency == 'usd') {
+            $symbol = '$';
+        }
+        else {
+            $symbol = '¥';
+        }
+
+        $mail_data = [
+            'name' => $user->first_name . ' ' . $user->last_name,
+            'symbol' => $symbol,
+            'amount' => $gift_card_purchase->amount_paid
+        ];
+
+        Mail::to($user->email)->send(new GiftCardMail($mail_data));
 
         return redirect()->route('frontend.gift-cards.index')->with('complete', 'Gift card purchase has been successfully completed');
     }

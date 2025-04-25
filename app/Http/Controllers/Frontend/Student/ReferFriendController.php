@@ -93,6 +93,10 @@ class ReferFriendController extends Controller
                 return redirect()->route('frontend.refer-friends.index')->with('error', 'No sufficient points');
             }
 
+            $setting = Setting::find(1);
+            $conversion_field = 'referral_point_conversion_' . '' . $request->middleware_language;
+            $amount = $setting->$conversion_field * $request->points;
+
             ReferPointActivity::create([
                 'referred_by_id' => $student->id,
                 'activity' => 'Withdrawal',
@@ -100,13 +104,10 @@ class ReferFriendController extends Controller
                 'time' => Carbon::now()->toTimeString(),
                 'points' => $request->points,
                 'balance' => ($refer_point_activity->balance) - ($request->points),
+                'amount' => $amount,
                 'type' => 'Deduction',
                 'status' => '1'
             ]);
-
-            $setting = Setting::find(1);
-            $conversion_field = 'referral_point_conversion_' . '' . $request->middleware_language;
-            $amount = $setting->$conversion_field * $request->points;
 
             $wallet_exist = Wallet::where('user_id', $student->id)->where('status', '1')->first();
 

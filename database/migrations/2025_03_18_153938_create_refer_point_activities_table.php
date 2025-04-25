@@ -21,6 +21,7 @@ return new class extends Migration
             $table->time('time');
             $table->decimal('points', 10, 2);
             $table->decimal('balance', 10, 2);
+            $table->decimal('amount', 10, 2);
             $table->enum('type', ['Addition', 'Deduction']);
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
