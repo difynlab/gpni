@@ -30,19 +30,19 @@
                             <span class="me-2 share-text">Share Article</span>
                             <div class="social-share-icons">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" target="_blank" class="me-2">
-                                    <img src="{{ asset('storage/frontend/fb-icon.svg') }}" alt="Facebook" width="30">
+                                    <img src="{{ asset('storage/frontend/facebook-.png') }}" alt="Facebook" width="30">
                                 </a>
                                 <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($article->title) }}" target="_blank" class="me-2">
-                                    <img src="{{ asset('storage/frontend/twitter-icon.svg') }}" alt="Twitter" width="30">
+                                    <img src="{{ asset('storage/frontend/twitter-x-.png') }}" alt="Twitter" width="30">
                                 </a>
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(request()->url()) }}&title={{ urlencode($article->title) }}" target="_blank">
-                                    <img src="{{ asset('storage/frontend/linkedin-icon.svg') }}" alt="LinkedIn" width="30">
+                                    <img src="{{ asset('storage/frontend/linkedin-.png') }}" alt="LinkedIn" width="30">
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="article-navigation-links mt-4 mb-5">
+                    <div class="article-navigation-links mt-4">
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="#" class="navigation-link prev-link">
@@ -136,7 +136,7 @@
                         </div>
                         <div class="social-icons d-flex justify-content-lg-start justify-content-center gap-4">
                             <a href="{{ $settings->fb }}">
-                                <img src="{{ asset('storage/frontend/fb-icon.svg') }}" alt="Facebook">
+                                <img src="{{ asset('/storage/frontend/facebook-.png') }}" alt="Facebook">
                             </a>
                             <a href="{{ $settings->linkedin }}">
                                 <img src="{{ asset('storage/frontend/linkedin-icon.svg') }}" alt="LinkedIn">
@@ -180,7 +180,7 @@
                         <div class="article-category">
                             <span>SPORTS NUTRITION NEWS</span>
                         </div>
-                        <img src="{{ asset('storage/frontend/articles/article-sample-1.jpg') }}" class="article-img" alt="PNE Level-1 Course">
+                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="PNE Level-1 Course">
                         <div class="article-content">
                             <div class="article-title-we-might-also-like text-heading">PNE LEVEL-1 ONLINE COURSE SCHEDULE</div>
                             <div class="text-content">With The ISSN-SNS Certification The Performance Nutrition Expert (PNE) Level with the ISSN-SNS is a mid to high-level sports nutrition certification and course. Depending on...</div>
@@ -197,7 +197,7 @@
                         <div class="article-category">
                             <span>SPORTS NUTRITION NEWS</span>
                         </div>
-                        <img src="{{ asset('storage/frontend/articles/article-sample-2.jpg') }}" class="article-img" alt="GPNI Singapore">
+                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="GPNI Singapore">
                         <div class="article-content">
                             <div class="article-title-we-might-also-like text-heading">GPNI® SINGAPORE REGION PARTNER OFFICIAL ANNOUNCEMENT</div>
                             <div class="text-content">It gives me great pleasure to announce our newest GPNI® Region Partner's in Singapore. Fit Asia has been one of the leading fitness certification and...</div>
@@ -214,7 +214,7 @@
                         <div class="article-category">
                             <span>SPORTS NUTRITION NEWS</span>
                         </div>
-                        <img src="{{ asset('storage/frontend/articles/article-sample-3.jpg') }}" class="article-img" alt="NEXT Japan Interview">
+                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="NEXT Japan Interview">
                         <div class="article-content">
                             <div class="article-title-we-might-also-like text-heading">NEXT JAPAN MAGAZINE INTERVIEW WITH GPNI® CEO & CO-FOUNDER</div>
                             <div class="text-content">A Word from The Founder CEO & Co-Founder Drew Campbell It was a great pleasure to be interviewed with NEXT Magazine by Fitness Club in...</div>
@@ -231,7 +231,7 @@
                         <div class="article-category">
                             <span>SPORTS NUTRITION NEWS</span>
                         </div>
-                        <img src="{{ asset('storage/frontend/articles/article-sample-4.jpg') }}" class="article-img" alt="To Diet or Not To Diet">
+                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="To Diet or Not To Diet">
                         <div class="article-content">
                             <div class="article-title-we-might-also-like text-heading">TO DIET OR NOT TO DIET?</div>
                             <div class="text-content">Editorial By Cassie Evans In the traditional sense, the word diet refers to what foods a person regularly consumes. Yet the average person uses the...</div>

@@ -22,7 +22,7 @@
 
                     <div class="row align-items-center mb-4">
                         <div class="col-12 text-end">
-                            <button class="wallet-balance">{{ $student_dashboard_contents->wallet_balance }}: {{ $wallet_balance }}</button>
+                            <button class="wallet-balance btn-responsive">{{ $student_dashboard_contents->wallet_balance }}: {{ $wallet_balance }}</button>
                         </div>
                     </div>
 

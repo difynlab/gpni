@@ -25,7 +25,7 @@
 
     <a href="{{ route('frontend.dashboard.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/dashboard-icon.svg') }}" alt="Profile Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/Dashboard.png') }}" alt="Profile Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_dashboard }}</span>
         </div>
     </a>
@@ -95,7 +95,7 @@
 
     <a href="{{ route('frontend.buy-study-materials') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'buy-study-materials' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/buy-study-material-icon.svg') }}" alt="Buy Study Material Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/Study Materials.png') }}" alt="Buy Study Material Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_buy_study_material }}</span>
         </div>
     </a>
@@ -159,7 +159,7 @@
 
     <a href="{{ route('frontend.wallet.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'wallet' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/referral-point-icon.svg') }}" alt="Wallet Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/Wallet.png') }}" alt="Wallet Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_wallet }}</span>
         </div>
     </a>

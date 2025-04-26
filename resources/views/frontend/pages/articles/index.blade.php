@@ -209,7 +209,7 @@
                         </div>
                         <div class="social-icons d-flex justify-content-lg-start justify-content-center gap-4">
                             <a href="{{ $settings->fb }}">
-                                <img src="{{ asset('storage/frontend/fb-icon.svg') }}" alt="Facebook">
+                                <img src="{{ asset('storage/frontend/facebook-.png') }}" alt="Facebook">
                             </a>
                             <a href="{{ $settings->linkedin }}">
                                 <img src="{{ asset('storage/frontend/linkedin-icon.svg') }}" alt="LinkedIn">
