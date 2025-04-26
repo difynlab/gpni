@@ -321,13 +321,13 @@
                 </div>
 
                 <div class="tab-pane fade" id="course-content">
-                    <div class="content-box">
+                    <div class="content-box text-heading text-content">
                         <div>{!! $course->course_content !!}</div>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="chapters">
-                    <div class="content-box">
+                    <div class="content-box text-heading text-content">
                         <div>{!! $course->course_chapter !!}</div>
                     </div>
                 </div>
@@ -411,7 +411,7 @@
                     @if($course->certification_section_9_points)
                         @foreach(json_decode($course->certification_section_9_points) as $certification_section_9_point)
                             <div class="col-md-6">
-                                <div class="learn-list-certificate d-flex text-main-content py-3">
+                                <div class="learn-list-certificate d-flex text-heading mb-0">
                                     <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-3">
                                     {{ $certification_section_9_point }}
                                 </div>
@@ -597,8 +597,8 @@
                                     @foreach($testimonials as $index => $testimonial)
                                         @if($index === 0)
                                             <div class="quote-container">
-                                                <div class="student-testimonial-quote mb-3 sub-heading">"{{ $testimonial->content }}"</div>
-                                                <div class="student-testimonial-author mb-2 fs-18">{{ $testimonial->name }}</div>
+                                                <div class="student-testimonial-quote mb-2 text-heading">"{{ $testimonial->content }}"</div>
+                                                <div class="student-testimonial-author text-content mb-0">{{ $testimonial->name }}</div>
                                                 <div class="stars">
                                                     @for($i = 0; $i < $testimonial->rate; $i++)
                                                         <i class="bi bi-star-fill star"></i>

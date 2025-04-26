@@ -324,6 +324,8 @@ body {
     flex-direction: column;
     padding: 0;
     position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .close {
@@ -682,11 +684,10 @@ body {
     }
 }
 
-/* Styles for laptops */
 @media (min-width: 1024px) and (max-width: 1439.98px) {
    
     .card-title {
-        font-size: 20px; /* Ensure correct font size for laptops */
+        font-size: 20px; 
     }
 
     .card-subtitle {
@@ -698,7 +699,6 @@ body {
     }
 }
 
-/* Styles for large laptops and desktops */
 @media (min-width: 1440px) {
     .description-text {
         max-width: 900px; /* Limit the width to ensure it fits in 2 lines */
@@ -706,11 +706,12 @@ body {
     }
 
     .card-title {
-        font-size:20px; /* Ensure correct font size for large laptops and desktops */
+        font-size:20px; 
+        margin-bottom: 5px;
     }
 
     .card-subtitle {
-        font-size:18px;
+        font-size:15px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
@@ -757,4 +758,42 @@ body {
 
 .modal show {
     padding-left: none;
+}
+
+
+body.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+}
+
+.modal-backdrop {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Keep scrollbar visibility consistent */
+html {
+    overflow-y: scroll !important;
+}
+
+/* Force modal to take correct dimensions */
+.modal {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Ensure modals stack correctly */
+.modal-dialog {
+    margin: 1.75rem auto !important;
+}
+
+/* Fix for style attribute on modal element */
+.modal.fade {
+    padding-left: 0 !important;
 }

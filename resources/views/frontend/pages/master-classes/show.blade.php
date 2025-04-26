@@ -128,7 +128,7 @@
                 @if($course->master_section_2_points)
                     @foreach(json_decode($course->master_section_2_points) as $master_section_2_point)
                         <div class="col-md-6">
-                            <div class="learn-list d-flex text-main-content py-2 py-md-3">
+                            <div class="learn-list d-flex text-heading">
                                 <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick" class="me-2 me-md-3">
                                 <span>{{ $master_section_2_point }}</span>
                             </div>
@@ -188,7 +188,7 @@
             </div>
 
             <div class="tab-pane fade" id="chapters">
-                <div class="content-box text-main-heading text-main-content py-3 py-md-4 px-3 px-md-5">
+                <div class="content-box text-heading text-content py-3 py-md-4 px-3 px-md-5">
                     <div class="fs-20">{!! $course->course_chapter !!}</div>
                 </div>
             </div>
@@ -278,8 +278,8 @@
                         @foreach($testimonials as $index => $testimonial)
                             @if($index === 0)
                                 <div class="quote-container">
-                                    <div class="quote mb-3 sub-heading" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
-                                    <div class="student-name mb-2 fs-20">{{ $testimonial->name }}</div>
+                                    <div class="quote mb-2 text-heading" data-length="{{ strlen($testimonial->content) }}">"{{ $testimonial->content }}"</div>
+                                    <div class="student-name mb-0 text-content">{{ $testimonial->name }}</div>
                                     <div class="stars">
                                         @for($i = 0; $i < $testimonial->rate; $i++)
                                             <i class="bi bi-star-fill star"></i>

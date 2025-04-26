@@ -12,7 +12,7 @@
         <x-frontend.notification></x-frontend.notification>
 
         <div class="main-content row">
-            <div class="col-lg-8">
+            <div class="col-xl-8 col-lg-7">
                 <div class="content-wrapper mt-5">
                     <div class="header-metadata mt-2">
                         <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Calendar Icon" class="icon">
@@ -23,6 +23,39 @@
 
                     <div class="content-section text-content">
                         <div>{!! $article->content !!}</div>
+                    </div>
+
+                    <div class="share-article-section mt-4">
+                        <div class="d-flex align-items-center justify-content-end">
+                            <span class="me-2 share-text">Share Article</span>
+                            <div class="social-share-icons">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" target="_blank" class="me-2">
+                                    <img src="{{ asset('storage/frontend/fb-icon.svg') }}" alt="Facebook" width="30">
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($article->title) }}" target="_blank" class="me-2">
+                                    <img src="{{ asset('storage/frontend/twitter-icon.svg') }}" alt="Twitter" width="30">
+                                </a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(request()->url()) }}&title={{ urlencode($article->title) }}" target="_blank">
+                                    <img src="{{ asset('storage/frontend/linkedin-icon.svg') }}" alt="LinkedIn" width="30">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-navigation-links mt-4 mb-5">
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="navigation-link prev-link">
+                                <div class="d-flex align-items-center">
+                                    <span class="navigation-text">Previous</span>
+                                </div>
+                            </a>
+                            <a href="#" class="navigation-link next-link">
+                                <div class="d-flex align-items-center">
+                                    <span class="navigation-text">Next</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- <div class="mt-4 fs-16 author-title text-center text-md-start">{{ $contents->{'single_article_author_' . $middleware_language} ?? $contents->single_article_author_en }}</div>
@@ -47,7 +80,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-xl-4 col-lg-5">
                 <div class="sidebar mt-5 ps-md-4 px-3 mb-5">
                     <a href="{{ route('frontend.gift-cards.index') }}">
                         <img src="{{ asset('storage/frontend/banner.svg') }}" alt="Banner" class="img-fluid mb-4 banner-section w-100">
@@ -71,8 +104,8 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
-                                                    <div class="article-title fs-13 title-clamp">{{ $latest_article->title }}</div>
-                                                    <div class="line-clamp-2 fs-12">
+                                                    <div class="article-title fs-16 title-clamp">{{ $latest_article->title }}</div>
+                                                    <div class="line-clamp-2 fs-16">
                                                         {!! strip_tags($latest_article->content) !!}
                                                     </div>
                                                     <div
@@ -125,7 +158,7 @@
 
                         <form class="subscribe-form-article" action="{{ route('frontend.subscription') }}" method="POST">
                             @csrf
-                            <input type="email" class="fs-16" name="email" placeholder="{{ $contents->{'section_1_newsletter_placeholder_' . $middleware_language} ?? $contents->section_1_newsletter_placeholder_en }}" required>
+                            <input type="email" class="fs-16 ps-3" name="email" placeholder="{{ $contents->{'section_1_newsletter_placeholder_' . $middleware_language} ?? $contents->section_1_newsletter_placeholder_en }}" required>
                             <button type="submit" class="m-2">{{ $contents->{'section_1_newsletter_button_' . $middleware_language} ?? $contents->section_1_newsletter_button_en }}</button>
                         </form>
 
@@ -135,33 +168,81 @@
             </div>
         </div>
 
+        <div class="container mt-5">
+            <div class="text-center mb-5">
+                <div class="heading">YOU MIGHT ALSO LIKE</div>
+            </div>
 
-        {{-- @if($contents->section_2_title_en)
-            <div class="instagram-section container-fluid px-3 px-md-4 pt-md-5 pt-2">
-                <div class="heading mb-3 mb-md-4">{{ $contents->{'section_2_title_' . $middleware_language} ?? $contents->section_2_title_en }}</div>
+            <div class="row">
+                <!-- Article 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="article-item-we-might-also-like">
+                        <div class="article-category">
+                            <span>SPORTS NUTRITION NEWS</span>
+                        </div>
+                        <img src="{{ asset('storage/frontend/articles/article-sample-1.jpg') }}" class="article-img" alt="PNE Level-1 Course">
+                        <div class="article-content">
+                            <div class="article-title-we-might-also-like text-heading">PNE LEVEL-1 ONLINE COURSE SCHEDULE</div>
+                            <div class="text-content">With The ISSN-SNS Certification The Performance Nutrition Expert (PNE) Level with the ISSN-SNS is a mid to high-level sports nutrition certification and course. Depending on...</div>
+                        </div>
+                        <div class="article-date-we-might-also-like">
+                            <small>May 10, 2022</small>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="sub-heading mb-4 mb-md-5">{{ $contents->{'section_2_description_' . $middleware_language} ?? $contents->section_2_description_en }}</div>
+                <!-- Article 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="article-item-we-might-also-like">
+                        <div class="article-category">
+                            <span>SPORTS NUTRITION NEWS</span>
+                        </div>
+                        <img src="{{ asset('storage/frontend/articles/article-sample-2.jpg') }}" class="article-img" alt="GPNI Singapore">
+                        <div class="article-content">
+                            <div class="article-title-we-might-also-like text-heading">GPNI® SINGAPORE REGION PARTNER OFFICIAL ANNOUNCEMENT</div>
+                            <div class="text-content">It gives me great pleasure to announce our newest GPNI® Region Partner's in Singapore. Fit Asia has been one of the leading fitness certification and...</div>
+                        </div>
+                        <div class="article-date-we-might-also-like"> 
+                            <small>May 10, 2022</small>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="instagram-images row g-3 justify-content-center">
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <img src="{{ asset('storage/frontend/follow-us-on-1.jpg') }}" alt="Instagram post 1"
-                            class="img-fluid w-100 h-100 object-fit-cover">
+                <!-- Article 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="article-item-we-might-also-like">
+                        <div class="article-category">
+                            <span>SPORTS NUTRITION NEWS</span>
+                        </div>
+                        <img src="{{ asset('storage/frontend/articles/article-sample-3.jpg') }}" class="article-img" alt="NEXT Japan Interview">
+                        <div class="article-content">
+                            <div class="article-title-we-might-also-like text-heading">NEXT JAPAN MAGAZINE INTERVIEW WITH GPNI® CEO & CO-FOUNDER</div>
+                            <div class="text-content">A Word from The Founder CEO & Co-Founder Drew Campbell It was a great pleasure to be interviewed with NEXT Magazine by Fitness Club in...</div>
+                        </div>
+                        <div class="article-date-we-might-also-like">
+                            <small>May 10, 2022</small>
+                        </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <img src="{{ asset('storage/frontend/follow-us-on-2.jpg') }}" alt="Instagram post 2"
-                            class="img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <img src="{{ asset('storage/frontend/follow-us-on-3.jpg') }}" alt="Instagram post 3"
-                            class="img-fluid w-100 h-100 object-fit-cover">
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <img src="{{ asset('storage/frontend/follow-us-on-4.jpg') }}" alt="Instagram post 4"
-                            class="img-fluid w-100 h-100 object-fit-cover">
+                </div>
+
+                <!-- Article 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="article-item-we-might-also-like">
+                        <div class="article-category">
+                            <span>SPORTS NUTRITION NEWS</span>
+                        </div>
+                        <img src="{{ asset('storage/frontend/articles/article-sample-4.jpg') }}" class="article-img" alt="To Diet or Not To Diet">
+                        <div class="article-content">
+                            <div class="article-title-we-might-also-like text-heading">TO DIET OR NOT TO DIET?</div>
+                            <div class="text-content">Editorial By Cassie Evans In the traditional sense, the word diet refers to what foods a person regularly consumes. Yet the average person uses the...</div>
+                        </div>
+                        <div class="article-date-we-might-also-like">
+                            <small>May 10, 2022</small>
+                        </div>
                     </div>
                 </div>
             </div>
-        @endif --}}
+        </div>
     </div>
 
 @endsection

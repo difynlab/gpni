@@ -358,9 +358,9 @@
 .coach-image {
     width: 100%;
     max-width: 300px; /* Set a maximum width for larger screens */
-    height: auto;
-    object-fit: contain; /* Ensure the image covers the container while maintaining aspect ratio */
-    /* border-radius: 50%; Make the image circular */
+    height: 440px;
+    object-fit: fill; 
+    /* border-radius: 50%; 
     margin: 0 auto 20px auto; /* Center the image and add bottom margin */
     display: block;
 }
@@ -432,7 +432,44 @@
     justify-content: flex-start;
     gap: 10px;
 }
+.side-section {
+    display: flex;
+    align-items: flex-end;
+}
+/* Fix for modal shifting issues - CSS only solution */
+body.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+}
 
+/* Ensure modal backdrop doesn't cause shifts */
+.modal-backdrop {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+/* Ensure modal content doesn't cause overflow issues */
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Keep scrollbar visibility consistent */
+html {
+    overflow-y: scroll !important;
+}
+
+/* Force modal to take correct dimensions */
+.modal {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Ensure modals stack correctly */
+.modal-dialog {
+    margin: 1.75rem auto !important;
+}
 
 @media (max-width: 991.98px) {
     .learn-best-section {

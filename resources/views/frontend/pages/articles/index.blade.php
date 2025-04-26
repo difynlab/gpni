@@ -45,7 +45,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-xl-8 col-lg-7">
                     <ul class="nav" role="tablist">
                         <li class="nav-item m-0" role="presentation">
                             <button class="nav-link category fs-20 active" id="latest-articles-tab" data-bs-toggle="tab"
@@ -154,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 ps-md-4 px-3">
+                <div class="col-xl-4 col-lg-5 ps-md-4 px-3">
                     <div class="trending-articles-section">
                         <div class="fs-20 trending-article-title py-2 fw-bold">{{ $contents->{'section_1_trend_' . $middleware_language} ?? $contents->section_1_trend_en }}</div>
 
@@ -173,7 +173,7 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="trending-content">
-                                                    <div class="trending-content-title title-clamp fs-13">{{ $trending_article->title }}
+                                                    <div class="trending-content-title title-clamp fs-16">{{ $trending_article->title }}
                                                     </div>
 
                                                     <div class="line-clamp-2">{{ $trending_article->short_description }}</div>
@@ -231,7 +231,7 @@
 
                         <form class="subscribe-form-article" action="{{ route('frontend.subscription') }}" method="POST">
                             @csrf
-                            <input type="email" class="fs-16" name="email" placeholder="{{ $contents->{'section_1_newsletter_placeholder_' . $middleware_language} ?? $contents->section_1_newsletter_placeholder_en }}" required>
+                            <input type="email" class="fs-16 ps-3 " name="email" placeholder="{{ $contents->{'section_1_newsletter_placeholder_' . $middleware_language} ?? $contents->section_1_newsletter_placeholder_en }}" required>
                             <button type="submit" class="m-2">{{ $contents->{'section_1_newsletter_button_' . $middleware_language} ?? $contents->section_1_newsletter_button_en }}</button>
                         </form>
 

@@ -528,6 +528,51 @@
     }
 }
 
+
+body.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+}
+
+
+.modal-backdrop {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+/* Ensure modal content doesn't cause overflow issues */
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Keep scrollbar visibility consistent */
+html {
+    overflow-y: scroll !important;
+}
+
+/* Force modal to take correct dimensions */
+.modal {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Ensure modals stack correctly */
+.modal-dialog {
+    margin: 1.75rem auto !important;
+}
+
+/* Fix for expert modals */
+.expert-modal {
+    padding-left: 0 !important;
+}
+
+/* Fix for any inline padding styles */
+.modal.fade {
+    padding-left: 0 !important;
+}
+
 /* Nutritionist Container */
 .nutritionist-container {
     background-color: #0040c3;
@@ -719,7 +764,7 @@
 
 .courses-swiper .card-img-top {
     height: 450px; /* Fixed height for images */
-    object-fit: cover; /* Maintain aspect ratio while covering the container */
+    object-fit: fill; 
     width: 100%;
     filter: brightness(0.5);
 }
