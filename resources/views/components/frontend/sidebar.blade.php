@@ -25,21 +25,21 @@
 
     <a href="{{ route('frontend.dashboard.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/dashboard-icon.png') }}" alt="Profile Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/dashboard-icon.svg') }}" alt="Profile Icon" width="29" height="29">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_dashboard }}</span>
         </div>
     </a>
 
     <a href="{{ route('frontend.profile.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/profile-icon.svg') }}" alt="Profile Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/student-profile-icon.svg') }}" alt="Profile Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_student_profile }}</span>
         </div>
     </a>
 
     <a href="{{ route('frontend.courses.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == '' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/course-icon.svg') }}" alt="Courses Icon" width="30" height="30">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_courses }}</span>
         </div>
     </a>
@@ -66,14 +66,14 @@
     @if($courses->isNotEmpty())
         <a href="{{ route('frontend.courses.gpni-tv') }}" class="sidebar-link">
             <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == 'gpni-tv' ? 'active' : '' }}">
-                <img src="{{ asset('storage/frontend/gpni-tv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
+                <img src="{{ asset('storage/frontend/gpnitv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
             </div>
         </a>
     @else
         <a href="{{ route('frontend.gpni-tv.index') }}" class="sidebar-link">
             <div class="sidebar-item">
-                <img src="{{ asset('storage/frontend/gpni-tv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
+                <img src="{{ asset('storage/frontend/gpnitv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
             </div>
         </a>
@@ -81,21 +81,21 @@
 
     <a href="{{ route('frontend.qualifications') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'qualifications' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/qualification-icon.svg') }}" alt="Qualifications Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/qualification-icon.svg') }}" alt="Qualifications Icon" width="29" height="29">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_qualifications }}</span>
         </div>
     </a>
 
     <a href="{{ route('frontend.my-storage') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'my-storage' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/study-tool-icon.svg') }}" alt="Study Tools Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/storage-icon.svg') }}" alt="Study Tools Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_my_storage }}</span>
         </div>
     </a>
 
     <a href="{{ route('frontend.buy-study-materials') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'buy-study-materials' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/study-material-icon.png') }}" alt="Buy Study Material Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/Buy-study-material-icon.svg') }}" alt="Buy Study Material Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_buy_study_material }}</span>
         </div>
     </a>
@@ -103,7 +103,7 @@
     @if(auth()->user()->member == 'Yes')
         <a href="{{ route('frontend.member-corner') }}" class="sidebar-link">
             <div class="sidebar-item {{ Request::segment(1) == 'member-corner' ? 'active' : '' }}">
-                <img src="{{ asset('storage/frontend/profile-icon.svg') }}" alt="Member Corner" width="28" height="28">
+                <img src="{{ asset('storage/frontend/members-corner-icon.svg') }}" alt="Member Corner" width="30" height="30">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_member_corner }}</span>
             </div>
         </a>
@@ -118,7 +118,7 @@
 
     <a href="{{ route('frontend.ask-questions.index') }}" class="sidebar-link">
         <div class="sidebar-item position-relative {{ Request::segment(1) == 'ask-questions' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/ask-question-icon.svg') }}" alt="Ask the Experts Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/ask-the-expert-icon.svg') }}" alt="Ask the Experts Icon" width="29" height="29">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_ask_the_experts }}</span>
 
             @php
@@ -145,21 +145,21 @@
 
     <a href="{{ route('frontend.technical-supports.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'technical-supports' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/technical-support-icon.svg') }}" alt="Technical Supports Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/technical-support-icon.svg') }}" alt="Technical Supports Icon" width="27" height="27">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_technical_supports }}</span>
         </div>
     </a>
 
     <a href="{{ route('frontend.refer-friends.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'refer-friends' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/referral-point-icon.svg') }}" alt="Referral Points Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/refer-a-friend-icon.svg') }}" alt="Referral Points Icon" width="27" height="27">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_refer_friends }}</span>
         </div>
     </a>
 
     <a href="{{ route('frontend.wallet.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'wallet' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/wallet-icon.png') }}" alt="Wallet Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/wallet-icon.svg') }}" alt="Wallet Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_wallet }}</span>
         </div>
     </a>

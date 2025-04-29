@@ -19,9 +19,10 @@
     min-width: 180px;
     text-align: center;
     transition: all 0.3s ease;
+    border-radius: 5px;
 }
 .nav-pills .nav-link.active {
-    background-color: #072d7b;
+    background-color: #0040C3;
     color: white;
 }
 .form-label {
@@ -83,13 +84,15 @@
 }
 
 .refer-points {
-    background-color: #d9d202;
+    background-color: #f7bf2e;
     color: black;
     font-size: 18px;
     font-weight: 500;
     border: none;
     padding: 10px 25px;
+    border-radius: 5px;
 }
+
 .refer-point-request {
     text-decoration: none;
     background-color: #0040C3;
@@ -97,17 +100,21 @@
     padding: 10px 25px;
     transition: all 0.3s;
     border: none;
+    border-radius: 5px;
 }
-.refer-point-request:hover {
-    background-color: #023190;
-    transition: all 0.3s;
-}
+
 .table-container {
     overflow-x: auto;
     white-space: nowrap;
+    width: 100%;
+    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+    scrollbar-width: thin; /* For Firefox */
+    max-width: 100%;
+    display: block;
 }
 .table-container::-webkit-scrollbar {
-    height: 10px;
+    height: 8px; /* Slightly smaller for mobile */
 }
 .table-container::-webkit-scrollbar-track {
     background: #dedede;
@@ -120,6 +127,10 @@
 .table-container::-webkit-scrollbar-thumb:hover {
     background-color: #083287;
     cursor: pointer;
+}
+.table-container table {
+    min-width: 650px; /* Ensure minimum width for content */
+    width: 100%;
 }
 .table th {
     font-size: 15px;
@@ -222,6 +233,36 @@
         align-items: center;
         width: 100%;
     }
+    .table-container {
+        margin: 0 -15px; /* Negative margin to allow full width */
+        width: calc(100% + 30px);
+        padding: 0 15px;
+    }
+    .table th, .table td {
+        padding: 12px 10px; 
+        font-size: 13px;
+    }
+    
+    /* Center the buttons container */
+    .row.align-items-center {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Make both columns take full width and center content */
+    .row.align-items-center .col-6 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    /* Make buttons display centered */
+    .refer-points, .refer-point-request {
+        display: inline-block;
+        margin: 0 auto;
+        min-width: 200px;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -232,11 +273,11 @@
         font-size: 0.6875rem; /* fs-11 */
     }
     .button {
-        width: 60px; /* Adjust width */
-        height: 22px; /* Adjust height */
+        width: 60px; 
+        height: 22px; 
         font-size: 0.5625rem; /* fs-9 */
-        line-height: 22px; /* Adjust line height */
-        margin: 0 auto; /* Center the button */
+        line-height: 22px; 
+        margin: 0 auto; 
     }
     .form-control-container {
         display: flex;
@@ -264,22 +305,23 @@
         padding: 8px 10px;
         font-size: 16px;
         margin: 0 auto;
+        border-radius: 5px;
     }
     #pills-tab {
         display: flex;
         justify-content: center;
         width: 100%;
     }
-}
-
-/* Adjust the row and container styles to help with centering */
-@media (max-width: 767.98px) {
-    .container-main .row {
-        justify-content: center;
+    .table-container {
+        margin: 0 -10px;
+        width: calc(100% + 20px);
+        padding: 0 10px;
     }
-    .tab-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .table th, .table td {
+        padding: 10px 8px; /* Even smaller padding on very small devices */
+        font-size: 12px;
+    }
+    .table-container::-webkit-scrollbar {
+        height: 5px; /* Smaller scrollbar for very small devices */
     }
 }

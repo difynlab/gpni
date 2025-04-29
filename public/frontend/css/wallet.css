@@ -11,7 +11,7 @@
     margin-bottom: 0;
 }
 .wallet-balance {
-    background-color: #d9d202;
+    background-color: #f7bf2e;
     color: black;
     font-weight: 500;
     border: none;
@@ -21,7 +21,6 @@
     display: inline-block;
 }
 
-/* Responsive button styles */
 @media (max-width: 768px) {
     .wallet-balance {
         padding: 8px 16px;
