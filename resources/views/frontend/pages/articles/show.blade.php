@@ -30,13 +30,13 @@
                             <span class="me-2 share-text">Share Article</span>
                             <div class="social-share-icons">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" target="_blank" class="me-2">
-                                    <img src="{{ asset('storage/frontend/facebook-.png') }}" alt="Facebook" width="30">
+                                    <img src="{{ asset('storage/frontend/facebook-article.png') }}" alt="Facebook" width="30">
                                 </a>
                                 <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($article->title) }}" target="_blank" class="me-2">
-                                    <img src="{{ asset('storage/frontend/twitter-x-.png') }}" alt="Twitter" width="30">
+                                    <img src="{{ asset('storage/frontend/twitter-article.png') }}" alt="Twitter" width="30">
                                 </a>
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(request()->url()) }}&title={{ urlencode($article->title) }}" target="_blank">
-                                    <img src="{{ asset('storage/frontend/linkedin-.png') }}" alt="LinkedIn" width="30">
+                                    <img src="{{ asset('storage/frontend/linkedin-article.png') }}" alt="LinkedIn" width="30">
                                 </a>
                             </div>
                         </div>
@@ -47,14 +47,14 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="#" class="navigation-link prev-link">
                                 <div class="d-flex align-items-center">
-                                    <img src="{{ asset('storage/frontend/left arrow.png') }}" alt="Previous Arrow">
+                                    <img src="{{ asset('storage/frontend/left-arrow.png') }}" alt="Previous Arrow">
                                     <span class="navigation-text">Previous</span>
                                 </div>
                             </a>
                             <a href="#" class="navigation-link next-link">
                                 <div class="d-flex align-items-center">
                                     <span class="navigation-text">Next</span>
-                                    <img src="{{ asset('storage/frontend/right arrow.png') }}" alt="Next Arrow">
+                                    <img src="{{ asset('storage/frontend/right-arrow.png') }}" alt="Next Arrow">
                                 </div>
                             </a>
                         </div>
@@ -138,7 +138,7 @@
                         </div>
                         <div class="social-icons d-flex justify-content-lg-start justify-content-center gap-4">
                             <a href="{{ $settings->fb }}">
-                                <img src="{{ asset('/storage/frontend/facebook-.png') }}" alt="Facebook">
+                                <img src="{{ asset('/storage/frontend/facebook-article.png') }}" alt="Facebook">
                             </a>
                             <a href="{{ $settings->linkedin }}">
                                 <img src="{{ asset('storage/frontend/linkedin-icon.svg') }}" alt="LinkedIn">
