@@ -718,19 +718,24 @@ h5 {
     transition: all 0.3s ease;
     padding: 10px 15px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .navigation-link:hover {
     background-color: #f0f5ff;
 }
 
-.prev-link .navigation-text:before {
-    content: "←";
+.navigation-link img {
+    width: 16px;
+    height: 16px;
+}
+
+.prev-link img {
     margin-right: 8px;
 }
 
-.next-link .navigation-text:after {
-    content: "→";
+.next-link img {
     margin-left: 8px;
 }
 

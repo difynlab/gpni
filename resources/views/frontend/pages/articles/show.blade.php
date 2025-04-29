@@ -47,12 +47,14 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="#" class="navigation-link prev-link">
                                 <div class="d-flex align-items-center">
+                                    <img src="{{ asset('storage/frontend/left arrow.png') }}" alt="Previous Arrow">
                                     <span class="navigation-text">Previous</span>
                                 </div>
                             </a>
                             <a href="#" class="navigation-link next-link">
                                 <div class="d-flex align-items-center">
                                     <span class="navigation-text">Next</span>
+                                    <img src="{{ asset('storage/frontend/right arrow.png') }}" alt="Next Arrow">
                                 </div>
                             </a>
                         </div>
