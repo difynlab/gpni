@@ -147,10 +147,16 @@ class ProductController extends Controller
 
         if($wallet) {
             if($wallet->balance >= $total_order_amount) {
+                $product_order->wallet_amount = $total_order_amount;
+                $product_order->save();
+
                 $wallet->balance = $wallet->balance - $total_order_amount;
                 $wallet->save();
             }
             else {
+                $product_order->wallet_amount = $wallet->balance;
+                $product_order->save();
+
                 $wallet->balance = '0.00';
                 $wallet->save();
             }

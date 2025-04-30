@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('transaction_id')->nullable()->unique();
             $table->string('currency');
             $table->decimal('amount_paid', 8, 2)->nullable();
+            $table->decimal('wallet_amount', 8, 2)->nullable();
             $table->enum('payment_status', ['Completed', 'Pending', 'Failed'])->default('Pending');
             $table->string('receipt_url')->nullable();
             $table->enum('refund_status', ['Refunded', 'Not Refunded'])->default('Not Refunded');

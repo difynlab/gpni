@@ -241,6 +241,7 @@ class MasterClassController extends Controller
                 'time' => Carbon::now()->toTimeString(),
                 'points' => $calculated_points,
                 'balance' => $last_refer_point_activity->balance + $calculated_points,
+                'amount' => 0,
                 'type' => 'Addition',
                 'status' => '1'
             ]);
