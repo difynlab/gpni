@@ -192,7 +192,7 @@
 
                                 <div class="article-content">
                                     <div class="article-title-we-might-also-like text-heading">{{ $you_like_article->title }}</div>
-                                    <div class="text-content">{{ $you_like_article->short_description }}</div>
+                                    <div class="text-content card-text-article">{{ $you_like_article->short_description }}</div>
                                 </div>
                                 
                                 <div class="article-date-we-might-also-like">
