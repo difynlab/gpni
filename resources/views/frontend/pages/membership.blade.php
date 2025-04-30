@@ -11,91 +11,92 @@
 @section('content')
 
     <div class="membership-section pt-5">
-        <x-frontend.notification></x-frontend.notification>
         <div class="container">
-        @if($contents->section_1_title_en)
-            <div class="heading text-center mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</div>
-            <div class="ff-poppins-regular sub-heading pt-2 text-center">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
-            </div>
-        @endif
+            <x-frontend.notification></x-frontend.notification>
 
-        <div class="row d-flex align-items-center py-4 py-md-4 py-2 mx-md-0 mx-0">
-                <div class="col-12 col-md-6">
-                @if($contents->{'section_2_image_' . $middleware_language})
-                    <img src="{{ asset('storage/backend/pages/' . $contents->{'section_2_image_' . $middleware_language}) }}" class="img-fluid">
-                @elseif($contents->section_2_image_en)
-                    <img src="{{ asset('storage/backend/pages/' . $contents->section_2_image_en) }}" class="img-fluid">
-                @else
-                    <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid">
+            @if($contents->section_1_title_en)
+                <div class="heading text-center mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</div>
+                <div class="ff-poppins-regular sub-heading pt-2 text-center">{!! $contents->{'section_1_description_' . $middleware_language} ?? $contents->section_1_description_en !!}
+                </div>
+            @endif
+
+            <div class="row d-flex align-items-center py-4 py-md-4 py-2 mx-md-0 mx-0">
+                    <div class="col-12 col-md-6">
+                    @if($contents->{'section_2_image_' . $middleware_language})
+                        <img src="{{ asset('storage/backend/pages/' . $contents->{'section_2_image_' . $middleware_language}) }}" class="img-fluid">
+                    @elseif($contents->section_2_image_en)
+                        <img src="{{ asset('storage/backend/pages/' . $contents->section_2_image_en) }}" class="img-fluid">
+                    @else
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" class="img-fluid">
+                    @endif
+                </div>
+
+                @if($contents->section_2_top_description_en)
+                    <div class="col-12 col-md-6 py-md-0 py-3">
+                        @if($contents->section_2_top_description_en)
+                            <div class="feature d-flex align-items-center mb-md-4 mb-3">
+                                <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick Icon" class="feature-icon">
+                                <div class="text-heading text-content">
+                                    {!! $contents->{'section_2_top_description_' . $middleware_language} ?? $contents->section_2_top_description_en !!}
+                                </div>
+                            </div>
+                        @endif
+
+                        @if($contents->section_2_bottom_description_en)
+                            <div class="feature d-flex align-items-center">
+                                <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick Icon" class="feature-icon">
+                                <div class="text-heading text-content">
+                                    {!! $contents->{'section_2_bottom_description_' . $middleware_language} ?? $contents->section_2_bottom_description_en !!}
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                 @endif
             </div>
+                
+            @if($contents->section_3_title_en)
+                <div class="benefits-section py-5 mx-md-0 mx-0">
+                    <div class="text-center heading mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
+                    <div class="text-center mb-md-5 mb-3 sub-heading">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
+                    <div class="membership-buttons">
+                    @if(auth()->check())
+                        @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name))
+                            @if(hasUserPurchasedMembership(auth()->user()->id))
+                                <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_already_purchased_' . $middleware_language} ?? $contents->section_3_already_purchased_en }}</button>
+                            @else
+                                <form action="{{ route('frontend.membership.checkout') }}" method="POST" class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
+                                    @csrf
+                                    <button type="submit" class="btn-pay-now blue-button" name="type" value="Lifetime">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }}</button>
 
-            @if($contents->section_2_top_description_en)
-                <div class="col-12 col-md-6 py-md-0 py-3">
-                    @if($contents->section_2_top_description_en)
-                        <div class="feature d-flex align-items-center mb-md-4 mb-3">
-                            <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick Icon" class="feature-icon">
-                            <div class="text-heading text-content">
-                                {!! $contents->{'section_2_top_description_' . $middleware_language} ?? $contents->section_2_top_description_en !!}
-                            </div>
-                        </div>
+                                    <button type="submit" class="btn-pay-now blue-button" name="type" value="Annual">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }}</button>
+                                </form>
+                            @endif
+                        @else
+                            <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_change_language_' . $middleware_language} ?? $contents->section_3_change_language_en }}</button>
+                        @endif
+                    @else
+                        <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-pay-now text-decoration-none blue-button">{{ $contents->{'section_3_login_for_purchase_' . $middleware_language} ?? $contents->section_3_login_for_purchase_en }}</a>
                     @endif
+                    </div>
 
-                    @if($contents->section_2_bottom_description_en)
-                        <div class="feature d-flex align-items-center">
-                            <img src="{{ asset('storage/frontend/circle-tick.svg') }}" alt="Tick Icon" class="feature-icon">
-                            <div class="text-heading text-content">
-                                {!! $contents->{'section_2_bottom_description_' . $middleware_language} ?? $contents->section_2_bottom_description_en !!}
-                            </div>
+                    @if($contents->section_3_labels_contents_en)
+                        <div class="accordion px-md-4 px-2" id="benefitsAccordion">
+                            @foreach(json_decode($contents->{'section_3_labels_contents_' . $middleware_language} ?? $contents->section_3_labels_contents_en) as $key => $label_content)
+                                <div class="accordion-item">
+                                    <div class="accordion-header" id="heading{{ $key }}">
+                                        <button class="accordion-button collapsed text-heading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $key }}" aria-expanded="false" aria-controls="collapse{{ $key }}"> {{ $label_content->title }}</button>
+                                    </div>
+                                    <div id="collapse{{ $key }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $key }}" data-bs-parent="#benefitsAccordion">
+                                        <div class="accordion-body text-content">
+                                            <div>{!! $label_content->content !!}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     @endif
                 </div>
             @endif
-        </div>
-            
-        @if($contents->section_3_title_en)
-            <div class="benefits-section py-5 mx-md-0 mx-0">
-                <div class="text-center heading mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
-                <div class="text-center mb-md-5 mb-3 sub-heading">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
-                <div class="membership-buttons">
-                @if(auth()->check())
-                    @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name))
-                        @if(hasUserPurchasedMembership(auth()->user()->id))
-                            <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_already_purchased_' . $middleware_language} ?? $contents->section_3_already_purchased_en }}</button>
-                        @else
-                            <form action="{{ route('frontend.membership.checkout') }}" method="POST" class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                @csrf
-                                <button type="submit" class="btn-pay-now blue-button" name="type" value="Lifetime">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }}</button>
-
-                                <button type="submit" class="btn-pay-now blue-button" name="type" value="Annual">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }}</button>
-                            </form>
-                        @endif
-                    @else
-                        <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_change_language_' . $middleware_language} ?? $contents->section_3_change_language_en }}</button>
-                    @endif
-                @else
-                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-pay-now text-decoration-none blue-button">{{ $contents->{'section_3_login_for_purchase_' . $middleware_language} ?? $contents->section_3_login_for_purchase_en }}</a>
-                @endif
-                </div>
-
-                @if($contents->section_3_labels_contents_en)
-                    <div class="accordion px-md-4 px-2" id="benefitsAccordion">
-                        @foreach(json_decode($contents->{'section_3_labels_contents_' . $middleware_language} ?? $contents->section_3_labels_contents_en) as $key => $label_content)
-                            <div class="accordion-item">
-                                <div class="accordion-header" id="heading{{ $key }}">
-                                    <button class="accordion-button collapsed text-heading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $key }}" aria-expanded="false" aria-controls="collapse{{ $key }}"> {{ $label_content->title }}</button>
-                                </div>
-                                <div id="collapse{{ $key }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $key }}" data-bs-parent="#benefitsAccordion">
-                                    <div class="accordion-body text-content">
-                                        <div>{!! $label_content->content !!}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-            </div>
-        @endif
         </div>
 
         @if($contents->section_4_title_en)
@@ -119,8 +120,6 @@
                 </div>
             </div>
         @endif
-        
-        <!-- Commented FAQ section remains unchanged -->
     </div>
 
 @endsection

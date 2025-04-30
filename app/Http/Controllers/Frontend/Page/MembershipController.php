@@ -119,10 +119,16 @@ class MembershipController extends Controller
 
         if($wallet) {
             if($wallet->balance >= $amount) {
+                $membership_purchase->wallet_amount = $amount;
+                $membership_purchase->save();
+
                 $wallet->balance = $wallet->balance - $amount;
                 $wallet->save();
             }
             else {
+                $membership_purchase->wallet_amount = $wallet->balance;
+                $membership_purchase->save();
+
                 $wallet->balance = '0.00';
                 $wallet->save();
             }

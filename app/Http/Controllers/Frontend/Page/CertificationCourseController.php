@@ -235,10 +235,16 @@ class CertificationCourseController extends Controller
 
         if($wallet) {
             if($wallet->balance >= ($course->price + $material_logistic_price)) {
+                $course_order->wallet_amount = $course->price + $material_logistic_price;
+                $course_order->save();
+
                 $wallet->balance = $wallet->balance - ($course->price + $material_logistic_price);
                 $wallet->save();
             }
             else {
+                $course_order->wallet_amount = $wallet->balance;
+                $course_order->save();
+
                 $wallet->balance = '0.00';
                 $wallet->save();
             }
@@ -346,6 +352,7 @@ class CertificationCourseController extends Controller
                 'time' => Carbon::now()->toTimeString(),
                 'points' => $calculated_points,
                 'balance' => $last_refer_point_activity->balance + $calculated_points,
+                'amount' => 0,
                 'type' => 'Addition',
                 'status' => '1'
             ]);

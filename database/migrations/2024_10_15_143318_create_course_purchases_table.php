@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('transaction_id')->nullable();
             $table->string('currency');
             $table->decimal('amount_paid', 8, 2)->nullable();
+            $table->decimal('wallet_amount', 8, 2)->nullable();
             $table->string('discount_applied')->nullable();
             $table->enum('payment_status', ['Completed', 'Pending', 'Failed'])->nullable()->default('Pending');
             $table->enum('course_access_status', ['Active', 'Revoked'])->default('Active');

@@ -334,6 +334,7 @@ class RegisterController extends Controller
                 'time' => Carbon::now()->toTimeString(),
                 'points' => 0,
                 'balance' => 0,
+                'amount' => 0,
                 'type' => 'Addition',
                 'status' => '1'
             ]);
