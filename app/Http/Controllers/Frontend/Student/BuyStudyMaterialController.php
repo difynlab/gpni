@@ -122,10 +122,16 @@ class BuyStudyMaterialController extends Controller
 
         if($wallet) {
             if($wallet->balance >= $course->material_logistic_price) {
+                $material_purchase->wallet_amount = $course->material_logistic_price;
+                $material_purchase->save();
+
                 $wallet->balance = $wallet->balance - $course->material_logistic_price;
                 $wallet->save();
             }
             else {
+                $material_purchase->wallet_amount = $wallet->balance;
+                $material_purchase->save();
+
                 $wallet->balance = '0.00';
                 $wallet->save();
             }
