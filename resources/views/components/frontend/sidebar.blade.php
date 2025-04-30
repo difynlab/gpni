@@ -25,7 +25,7 @@
 
     <a href="{{ route('frontend.dashboard.index') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/dashboard-icon.svg') }}" alt="Profile Icon" width="29" height="29">
+            <img src="{{ asset('storage/frontend/dashboard-icon.svg') }}" alt="Dashboard Icon" width="29" height="29">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_dashboard }}</span>
         </div>
     </a>
@@ -66,14 +66,14 @@
     @if($courses->isNotEmpty())
         <a href="{{ route('frontend.courses.gpni-tv') }}" class="sidebar-link">
             <div class="sidebar-item {{ Request::segment(1) == 'courses' && Request::segment(2) == 'gpni-tv' ? 'active' : '' }}">
-                <img src="{{ asset('storage/frontend/gpnitv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
+                <img src="{{ asset('storage/frontend/gpni-tv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
             </div>
         </a>
     @else
         <a href="{{ route('frontend.gpni-tv.index') }}" class="sidebar-link">
             <div class="sidebar-item">
-                <img src="{{ asset('storage/frontend/gpnitv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
+                <img src="{{ asset('storage/frontend/gpni-tv-icon.svg') }}" alt="Courses Icon" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_gpni_tv }}</span>
             </div>
         </a>
@@ -95,7 +95,7 @@
 
     <a href="{{ route('frontend.buy-study-materials') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'buy-study-materials' ? 'active' : '' }}">
-            <img src="{{ asset('storage/frontend/Buy-study-material-icon.svg') }}" alt="Buy Study Material Icon" width="28" height="28">
+            <img src="{{ asset('storage/frontend/buy-study-material-icon.svg') }}" alt="Buy Study Material Icon" width="28" height="28">
             <span class="fs-20">{{ $student_dashboard_contents->sidebar_buy_study_material }}</span>
         </div>
     </a>
