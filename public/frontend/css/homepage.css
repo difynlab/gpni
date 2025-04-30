@@ -541,24 +541,24 @@ body.modal-open {
     height: 100vh !important;
 }
 
-/* Ensure modal content doesn't cause overflow issues */
+
 .modal-content {
     max-height: 90vh;
     overflow-y: auto;
 }
 
-/* Keep scrollbar visibility consistent */
+
 html {
     overflow-y: scroll !important;
 }
 
-/* Force modal to take correct dimensions */
+
 .modal {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
 
-/* Ensure modals stack correctly */
+
 .modal-dialog {
     margin: 1.75rem auto !important;
 }
@@ -763,7 +763,7 @@ html {
 }
 
 .courses-swiper .card-img-top {
-    height: 450px; /* Fixed height for images */
+    height: 450px; 
     object-fit: fill; 
     width: 100%;
     filter: brightness(0.5);
@@ -1008,170 +1008,3 @@ html {
 .arrow-right-icon:hover {
     transform: translateX(5px);
 }
-
-#notificationModal .modal-content, 
-#failedNotificationModal .modal-content {
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    overflow: visible; 
-    position: relative;
-}
-
-#notificationModal .modal-body, 
-#failedNotificationModal .modal-body {
-    padding: 40px 30px 20px;
-    text-align: center;
-}
-
-/* Confirmation icon - centered blue circle with checkmark */
-#notificationModal .confirmation-icon {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #0040c3;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-#failedNotificationModal .failed-notification-icon {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #dc3545;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-/* Title styling */
-#notificationModal h1,
-#failedNotificationModal h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    color: #333;
-}
-
-#notificationModal p,
-#failedNotificationModal p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-    padding: 0 10px;
-}
-
-#notificationModal .btn-primary {
-    background-color: #0040c3;
-    border-color: #0040c3;
-    min-width: 80px;
-    border-radius: 4px;
-    padding: 8px 30px;
-}
-
-#failedNotificationModal .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    min-width: 80px;
-    border-radius: 4px;
-    padding: 8px 30px;
-}
-
-/* Base modal positioning */
-#notificationModal .modal-dialog,
-#failedNotificationModal .modal-dialog {
-    margin: 10vh auto;
-    max-width: 400px;
-    width: 90%; /* Allow some space on sides */
-}
-
-/* Responsive adjustments for different screen sizes */
-@media (max-width: 767.98px) {notification-modal-container, 
-    /* Mobile devices */ner,
-    #notificationModal .modal-dialog,op {
-    #failedNotificationModal .modal-dialog {
-        margin: 10vh auto;
-        width: 85%;
-        max-width: 320px;    }
-    
-    #notificationModal h1,
-    #failedNotificationModal h1 {
-        font-size: 24px;
-    }
-    
-    #notificationModal p,
-    #failedNotificationModal p {
-        font-size: 14px;
-    }
-    
-    #notificationModal .btn-primary,
-    #failedNotificationModal .btn-danger {
-        padding: 6px 20px;
-        font-size: 14px;
-    }
-    
-    #notificationModal .confirmation-icon,
-    #failedNotificationModal .failed-notification-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-    /* Tablet devices */
-    #notificationModal .modal-dialog,
-    #failedNotificationModal .modal-dialog {
-        max-width: 360px;
-    }
-}
-
-/* Handle landscape orientation on mobile */
-@media (max-height: 500px) {
-    #notificationModal .modal-dialog,
-    #failedNotificationModal .modal-dialog {
-        margin: 5vh auto;
-    }
-    
-    #notificationModal .modal-body,
-    #failedNotificationModal .modal-body {
-        padding: 30px 20px 15px;
-    }
-    
-    #notificationModal h1,
-    #failedNotificationModal h1 {
-        font-size: 22px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    
-    #notificationModal p,
-    #failedNotificationModal p {
-        margin-bottom: 15px;
-    }
-}
-
-/* Remove any previous custom styling that might interfere */
-.notification-modal-container, 
-body .notification-modal-container,
-.modal-backdrop.notification-backdrop {
-    display: none !important;
-}
-

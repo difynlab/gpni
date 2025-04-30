@@ -1,3 +1,7 @@
+@push('after-styles')
+    <link rel="stylesheet" href="{{ asset('frontend/css/notification-popup.css') }}">
+@endpush
+
 @if(session('complete'))
 <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

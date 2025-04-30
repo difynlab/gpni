@@ -443,7 +443,7 @@ body.modal-open {
     width: 100% !important;
 }
 
-/* Ensure modal backdrop doesn't cause shifts */
+
 .modal-backdrop {
     width: 100vw !important;
     height: 100vh !important;

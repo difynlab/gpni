@@ -125,170 +125,31 @@ input[type=number] {
     /* Standard property */
 }
 
-/* Responsive adjustments */
-/* @media (max-width: 1199.98px) {
-    .header-title {
-        line-height: 3rem; 
-    }
-
-    .description {
-        font-size: 1.25rem; 
-        line-height: 1.75rem; 
-    }
-
-    .btn-submit {
-        font-size: 0.875rem; 
-    }
-
-    .custom-selection {
-        display: flex;
-        flex-direction: column; 
-        align-items: flex-start;
-    }
-
-    .form-group label {
-        font-size: 0.875rem; 
-    }
-
-    .selected-card .card-image-container {
-        height: 260px; 
-        max-width: 90%;
-    }
+body.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+    width: 100% !important;
 }
 
-@media (max-width: 991.98px) {
-    .header-title {
-        line-height: 2.5rem; 
-    }
-
-    .description {
-        font-size: 1rem; 
-        line-height: 1.5rem; 
-    }
-
-    .btn-submit {
-        font-size: 0.75rem; 
-    }
-
-    .custom-selection {
-        display: flex;
-        flex-direction: column; 
-        align-items: flex-start;
-    }
-
-    .form-group label {
-        font-size: 0.75rem; 
-
-    .justify-content-between {
-        justify-content: flex-start !important; 
-    }
-
-    .selected-card .card-image-container {
-        height: 240px; 
-        max-width: 85%;
-    }
+.modal-backdrop {
+    width: 100vw !important;
+    height: 100vh !important;
 }
 
-@media (max-width: 767.98px) {
-    .header-title {
-        line-height: 2rem; 
-    }
-
-    .description {
-        font-size: 0.875rem; 
-        line-height: 1.25rem; 
-
-    .btn-submit {
-        font-size: 0.625rem; 
-    }
-
-    .custom-selection {
-        display: flex;
-        flex-direction: column; 
-        align-items: flex-start;
-    }
-
-    .style-card {
-        width: 48px; 
-        height: 31px; 
-    }
-
-    .form-group label {
-        font-size: 0.625rem; 
-    }
-
-    .justify-content-between {
-        justify-content: flex-start !important; 
-    }
-
-    .pt-5 {
-        padding-top: 0 !important; 
-    }
-
-    .selected-card .card-image-container {
-        height: 220px; 
-        max-width: 80%;
-        border-radius: 14px; 
-    }
-    
-    .card-image-container img {
-        border-radius: 12px; 
-    }
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-@media (max-width: 575.98px) {
-    .header-title {
-        font-size: 1.25rem; 
-        line-height: 1.75rem; 
-    }
+html {
+    overflow-y: scroll !important;
+}
 
-    .description {
-        font-size: 0.75rem; 
-        line-height: 1rem; 
-    }
+.modal {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
 
-    .btn-submit {
-        font-size: 0.5rem; 
-
-    .custom-selection {
-        display: flex;
-        flex-direction: column; /
-        align-items: flex-start;
-    }
-
-    .style-card {
-        width: 40px; 
-        height: 26px; 
-    }
-
-    .form-group .d-flex {
-        flex-wrap: nowrap; 
-    }
-
-    .form-group label {
-        font-size: 0.75rem; 
-    }
-
-    .justify-content-between {
-        justify-content: flex-start !important; 
-    }
-
-    .btn {
-        padding: 0.25rem 0.5rem; 
-        font-size: 0.75rem; 
-    }
-
-    .pt-5 {
-        padding-top: 0 !important; 
-    }
-
-    .selected-card .card-image-container {
-        height: 180px; 
-        max-width: 90%; 
-        border-radius: 12px; 
-    }
-    
-    .card-image-container img {
-        border-radius: 10px; /
-    } */
+.modal-dialog {
+    margin: 1.75rem auto !important;
 }

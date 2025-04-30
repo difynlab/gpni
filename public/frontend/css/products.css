@@ -557,3 +557,32 @@
         transform: scale(1.05);
     }
 }
+
+body.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+}
+
+.modal-backdrop {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+html {
+    overflow-y: scroll !important;
+}
+
+.modal {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.modal-dialog {
+    margin: 1.75rem auto !important;
+}
