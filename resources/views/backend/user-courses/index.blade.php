@@ -33,7 +33,6 @@
                             <input type="text" class="form-control" name="title" value="{{ $title ?? '' }}" placeholder="Title">
                         </div>
 
-
                         <div class="col-3 d-flex justify-content-between">
                             <button type="submit" class="filter-search-button" name="action" value="search">SEARCH</button>
 
@@ -94,8 +93,8 @@
             $('.pages .table .delete-button').on('click', function() {
                 let id = $(this).attr('id');
                 let user_id = '<?php echo $user->id; ?>';
-                let url = "{{ route('backend.persons.users.courses.destroy', [':id', ':user_id']) }}";
-                destroy_url = url.replace(':id', id).replace(':user_id', user_id);
+                let url = "{{ route('backend.persons.users.courses.destroy', [':user_id', ':id']) }}";
+                destroy_url = url.replace(':user_id', user_id).replace(':id', id);
 
                 $('.pages .delete-modal form').attr('action', destroy_url);
                 $('.pages .delete-modal').modal('show');

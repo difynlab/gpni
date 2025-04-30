@@ -89,6 +89,21 @@
                         <input type="text" class="form-control" id="section_1_newsletter_button_{{ $short_code }}" name="section_1_newsletter_button_{{ $short_code }}" value="{{ $contents->{'section_1_newsletter_button_' . $short_code} ?? '' }}" placeholder="Newsletter Button">
                     </div>
 
+                    <div class="col-4 mb-4">
+                        <label for="section_1_share_article_{{ $short_code }}" class="form-label">Share Article</label>
+                        <input type="text" class="form-control" id="section_1_share_article_{{ $short_code }}" name="section_1_share_article_{{ $short_code }}" value="{{ $contents->{'section_1_share_article_' . $short_code} ?? '' }}" placeholder="Share Article">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="section_1_previous_{{ $short_code }}" class="form-label">Previous Button</label>
+                        <input type="text" class="form-control" id="section_1_previous_{{ $short_code }}" name="section_1_previous_{{ $short_code }}" value="{{ $contents->{'section_1_previous_' . $short_code} ?? '' }}" placeholder="Previous Button">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="section_1_next_{{ $short_code }}" class="form-label">Next Button</label>
+                        <input type="text" class="form-control" id="section_1_next_{{ $short_code }}" name="section_1_next_{{ $short_code }}" value="{{ $contents->{'section_1_next_' . $short_code} ?? '' }}" placeholder="Next Button">
+                    </div>
+
                     <div class="col-12">
                         <x-backend.upload-video old_name="old_section_1_video" old_value="{{ $contents->{'section_1_video_' . $short_code} ?? '' }}" new_name="new_section_1_video" path="pages"></x-backend.upload-video>
                         <x-backend.input-error field="new_section_1_video"></x-backend.input-error>
@@ -110,6 +125,17 @@
                             <label for="section_2_description_{{ $short_code }}" class="form-label">Description</label>
                             <textarea class="form-control" rows="4" id="section_2_description_{{ $short_code }}" name="section_2_description_{{ $short_code }}" value="{{ $contents->{'section_2_description_' . $short_code} ?? '' }}" placeholder="Description">{{ $contents->{'section_2_description_' . $short_code} ?? '' }}</textarea>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <p class="inner-page-title">Section 3 <span>(You might also like)</span></p>
+
+                <div class="row form-input">
+                    <div class="col-12">
+                        <label for="section_3_title_{{ $short_code }}" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="section_3_title_{{ $short_code }}" name="section_3_title_{{ $short_code }}" value="{{ $contents->{'section_3_title_' . $short_code} ?? '' }}" placeholder="Title">
                     </div>
                 </div>
             </div>

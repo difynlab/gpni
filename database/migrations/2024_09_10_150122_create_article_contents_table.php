@@ -21,8 +21,12 @@ return new class extends Migration
             $table->text('section_1_newsletter_description_en')->nullable();
             $table->text('section_1_newsletter_placeholder_en')->nullable();
             $table->text('section_1_newsletter_button_en')->nullable();
+            $table->text('section_1_share_article_en')->nullable();
+            $table->text('section_1_previous_en')->nullable();
+            $table->text('section_1_next_en')->nullable();
             $table->text('section_2_title_en')->nullable();
             $table->text('section_2_description_en')->nullable();
+            $table->text('section_3_title_en')->nullable();
 
             $table->text('section_1_title_zh')->nullable();
             $table->text('section_1_video_zh')->nullable();
@@ -31,8 +35,12 @@ return new class extends Migration
             $table->text('section_1_newsletter_description_zh')->nullable();
             $table->text('section_1_newsletter_placeholder_zh')->nullable();
             $table->text('section_1_newsletter_button_zh')->nullable();
+            $table->text('section_1_share_article_zh')->nullable();
+            $table->text('section_1_previous_zh')->nullable();
+            $table->text('section_1_next_zh')->nullable();
             $table->text('section_2_title_zh')->nullable();
             $table->text('section_2_description_zh')->nullable();
+            $table->text('section_3_title_zh')->nullable();
 
             $table->text('section_1_title_ja')->nullable();
             $table->text('section_1_video_ja')->nullable();
@@ -41,8 +49,12 @@ return new class extends Migration
             $table->text('section_1_newsletter_description_ja')->nullable();
             $table->text('section_1_newsletter_placeholder_ja')->nullable();
             $table->text('section_1_newsletter_button_ja')->nullable();
+            $table->text('section_1_share_article_ja')->nullable();
+            $table->text('section_1_previous_ja')->nullable();
+            $table->text('section_1_next_ja')->nullable();
             $table->text('section_2_title_ja')->nullable();
             $table->text('section_2_description_ja')->nullable();
+            $table->text('section_3_title_ja')->nullable();
             
             $table->timestamps();
         });

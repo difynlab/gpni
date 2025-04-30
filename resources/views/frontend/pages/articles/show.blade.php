@@ -27,7 +27,7 @@
 
                     <div class="share-article-section mt-4">
                         <div class="d-flex align-items-center justify-content-end">
-                            <span class="me-2 share-text">Share Article</span>
+                            <span class="me-2 share-text">{{ $contents->{'section_1_share_article_' . $middleware_language} ?? $contents->section_1_share_article_en }}</span>
                             <div class="social-share-icons">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" target="_blank" class="me-2">
                                     <img src="{{ asset('storage/frontend/facebook-article.png') }}" alt="Facebook" width="30">
@@ -45,15 +45,15 @@
                     <div class="article-navigation-links mt-4">
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="#" class="navigation-link prev-link">
+                            <a href="{{ route('frontend.articles.show', [$previous_article, \Overtrue\Pinyin\Pinyin::permalink($previous_article->title)]) }}" class="navigation-link prev-link">
                                 <div class="d-flex align-items-center">
                                     <img src="{{ asset('storage/frontend/left-arrow.png') }}" alt="Previous Arrow">
-                                    <span class="navigation-text">Previous</span>
+                                    <span class="navigation-text">{{ $contents->{'section_1_previous_' . $middleware_language} ?? $contents->section_1_previous_en }}</span>
                                 </div>
                             </a>
-                            <a href="#" class="navigation-link next-link">
+                            <a href="{{ route('frontend.articles.show', [$next_article, \Overtrue\Pinyin\Pinyin::permalink($next_article->title)]) }}" class="navigation-link next-link">
                                 <div class="d-flex align-items-center">
-                                    <span class="navigation-text">Next</span>
+                                    <span class="navigation-text">{{ $contents->{'section_1_next_' . $middleware_language} ?? $contents->section_1_next_en }}</span>
                                     <img src="{{ asset('storage/frontend/right-arrow.png') }}" alt="Next Arrow">
                                 </div>
                             </a>
@@ -172,77 +172,36 @@
 
         <div class="container mt-5">
             <div class="text-center mb-5">
-                <div class="heading">YOU MIGHT ALSO LIKE</div>
+                <div class="heading">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
             </div>
 
             <div class="row">
-                <!-- Article 1 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="article-item-we-might-also-like">
-                        <div class="article-category">
-                            <span>SPORTS NUTRITION NEWS</span>
-                        </div>
-                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="PNE Level-1 Course">
-                        <div class="article-content">
-                            <div class="article-title-we-might-also-like text-heading">PNE LEVEL-1 ONLINE COURSE SCHEDULE</div>
-                            <div class="text-content">With The ISSN-SNS Certification The Performance Nutrition Expert (PNE) Level with the ISSN-SNS is a mid to high-level sports nutrition certification and course. Depending on...</div>
-                        </div>
-                        <div class="article-date-we-might-also-like">
-                            <small>May 10, 2022</small>
-                        </div>
-                    </div>
-                </div>
+                @foreach($you_like_articles as $you_like_article)
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <a href="{{ route('frontend.articles.show', [$you_like_article, \Overtrue\Pinyin\Pinyin::permalink($you_like_article->title)]) }}">
+                            <div class="article-item-we-might-also-like">
+                                <div class="article-category">
+                                    <span>{{ App\Models\ArticleCategory::find($you_like_article->article_category_id)->name }}</span>
+                                </div>
 
-                <!-- Article 2 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="article-item-we-might-also-like">
-                        <div class="article-category">
-                            <span>SPORTS NUTRITION NEWS</span>
-                        </div>
-                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="GPNI Singapore">
-                        <div class="article-content">
-                            <div class="article-title-we-might-also-like text-heading">GPNI® SINGAPORE REGION PARTNER OFFICIAL ANNOUNCEMENT</div>
-                            <div class="text-content">It gives me great pleasure to announce our newest GPNI® Region Partner's in Singapore. Fit Asia has been one of the leading fitness certification and...</div>
-                        </div>
-                        <div class="article-date-we-might-also-like"> 
-                            <small>May 10, 2022</small>
-                        </div>
-                    </div>
-                </div>
+                                @if($you_like_article->thumbnail)
+                                    <img src="{{ asset('storage/backend/articles/articles/'. $you_like_article->thumbnail) }}" alt="Article Image" class="article-img">
+                                @else
+                                    <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}" alt="Article Image" class="article-image">
+                                @endif
 
-                <!-- Article 3 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="article-item-we-might-also-like">
-                        <div class="article-category">
-                            <span>SPORTS NUTRITION NEWS</span>
-                        </div>
-                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="NEXT Japan Interview">
-                        <div class="article-content">
-                            <div class="article-title-we-might-also-like text-heading">NEXT JAPAN MAGAZINE INTERVIEW WITH GPNI® CEO & CO-FOUNDER</div>
-                            <div class="text-content">A Word from The Founder CEO & Co-Founder Drew Campbell It was a great pleasure to be interviewed with NEXT Magazine by Fitness Club in...</div>
-                        </div>
-                        <div class="article-date-we-might-also-like">
-                            <small>May 10, 2022</small>
-                        </div>
+                                <div class="article-content">
+                                    <div class="article-title-we-might-also-like text-heading">{{ $you_like_article->title }}</div>
+                                    <div class="text-content">{{ $you_like_article->short_description }}</div>
+                                </div>
+                                
+                                <div class="article-date-we-might-also-like">
+                                    <small>{{ $you_like_article->created_at->format('M d, Y') }}</small>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-
-                <!-- Article 4 -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="article-item-we-might-also-like">
-                        <div class="article-category">
-                            <span>SPORTS NUTRITION NEWS</span>
-                        </div>
-                        <img src="{{ asset('storage/frontend/dummyimg.jpg') }}" class="article-img" alt="To Diet or Not To Diet">
-                        <div class="article-content">
-                            <div class="article-title-we-might-also-like text-heading">TO DIET OR NOT TO DIET?</div>
-                            <div class="text-content">Editorial By Cassie Evans In the traditional sense, the word diet refers to what foods a person regularly consumes. Yet the average person uses the...</div>
-                        </div>
-                        <div class="article-date-we-might-also-like">
-                            <small>May 10, 2022</small>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -55,11 +55,49 @@ class ArticleController extends Controller
         $article->view_count += 1;
         $article->save();
 
+        // Pagination
+            $current_article_id = $article->id;
+            $next_article = null;
+            $previous_article = null;
+
+            $all_articles = Article::where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'asc')->get();
+            if($all_articles->isEmpty() && $request->middleware_language_name != 'English') {
+                $all_articles = Article::where('language', 'English')->where('status', '1')->orderBy('id', 'asc')->get();
+            }
+
+            foreach($all_articles as $all_article) {
+                if($all_article->id > $current_article_id && $all_article->status == '1') {
+                    $next_article = $all_article;
+                    break;
+                }
+            }
+            if(!$next_article) {
+                $next_article = $all_articles->first();
+            }
+
+            foreach($all_articles as $all_article) {
+                if($all_article->id < $current_article_id && $all_article->status == '1') {
+                    $previous_article = $all_article;
+                }
+            }
+            if(!$previous_article) {
+                $previous_article = $all_articles->last();
+            }
+        // Pagination
+
+        $you_like_articles = Article::where('language', $request->middleware_language_name)->where('status', '1')->whereNot('id', $article->id)->take(4)->inRandomOrder()->get();
+        if($you_like_articles->isEmpty() && $request->middleware_language_name != 'English') {
+            $you_like_articles = Article::where('language', 'English')->where('status', '1')->whereNot('id', $article->id)->take(4)->inRandomOrder()->get();
+        }
+
         return view('frontend.pages.articles.show', [
             'contents' => $contents,
             'article' => $article,
             'latest_articles' => $latest_articles,
-            'settings' => $settings
+            'settings' => $settings,
+            'previous_article' => $previous_article,
+            'next_article' => $next_article,
+            'you_like_articles' => $you_like_articles
         ]);
     }
 }
