@@ -83,7 +83,7 @@
             </div>
 
             <div class="col-xl-4 col-lg-5">
-                <div class="sidebar mt-5 ps-md-4 px-3 mb-5">
+                <div class="sidebar mt-5 ps-md-4 px-3">
                     <a href="{{ route('frontend.gift-cards.index') }}">
                         <img src="{{ asset('storage/frontend/banner.svg') }}" alt="Banner" class="img-fluid mb-4 banner-section w-100">
                     </a>
@@ -175,7 +175,7 @@
                 <div class="heading">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
             </div>
 
-            <div class="row">
+            <div class="row d-flex justify-content-center">
                 @foreach($you_like_articles as $you_like_article)
                     <div class="col-lg-3 col-md-6 mb-4">
                         <a href="{{ route('frontend.articles.show', [$you_like_article, \Overtrue\Pinyin\Pinyin::permalink($you_like_article->title)]) }}">

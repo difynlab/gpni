@@ -1,50 +1,51 @@
 @if(session('complete'))
-    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-body">
-                    <div class="confirmation-icon mx-auto" style="background-color: #0040c3;">
-                        <span>&#10003;</span>
-                    </div>
-                    <h1 class="fs-49 ff-poppins-medium text-dark mt-4">Awesome!</h1>
-                    <p class="fs-20 ff-poppins-regular text-muted mt-3">
-                        {{ session('complete') }}
-                    </p>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-primary fs-20 ff-poppins-medium px-4 py-2" data-bs-dismiss="modal">OK</button>
-                </div>
+<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="confirmation-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="modal-body">
+                <h1>Awesome!</h1>
+                <p>{{ session('complete') }}</p>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
+</div>
 @endif
 
 @if(session('fail'))
-    <div class="modal fade" id="failedNotificationModal" tabindex="-1" aria-labelledby="failedNotificationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center">
-                <div class="modal-body">
-                    <div class="failed-notification-icon mx-auto">
-                        <i class="fas fa-times" style="color: white;"></i>
-                    </div>
-
-                    <h1 class="fs-49 ff-poppins-medium text-dark mt-4">Oops!</h1>
-                    <p class="fs-20 ff-poppins-regular text-muted mt-3">
-                        {{ session('fail') }}
-                    </p>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-danger fs-20 ff-poppins-medium px-4 py-2" data-bs-dismiss="modal">OK</button>
-                </div>
+<div class="modal fade" id="failedNotificationModal" tabindex="-1" aria-labelledby="failedNotificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="failed-notification-icon">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-body">
+                <h1>Oops!</h1>
+                <p>{{ session('fail') }}</p>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">OK</button>
             </div>
         </div>
-    </div> 
+    </div>
+</div>
 @endif
 
 @push('after-scripts')
-    <script>
-        $(document).ready(function () {
-            $('#notificationModal').modal('show');
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        // For success notification
+        if ($('#notificationModal').length) {
+            var myModal = new bootstrap.Modal(document.getElementById('notificationModal'));
+            myModal.show();
+        }
+        
+        // For failure notification
+        if ($('#failedNotificationModal').length) {
+            var myModal = new bootstrap.Modal(document.getElementById('failedNotificationModal'));
+            myModal.show();
+        }
+    });
+</script>
 @endpush
