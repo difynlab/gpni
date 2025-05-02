@@ -138,7 +138,12 @@ class CertificationCourseController extends Controller
                 ],
                 'mode' => 'payment',
                 'success_url' => route('frontend.certification-courses.success', ['course_order_id' => $course_order->id, 'material_logistic' => $request->material_logistic]) . '&session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => route('frontend.certification-courses.show', [$request->course_id, $course->title])
+                'cancel_url' => route('frontend.certification-courses.show', [
+                    $request->course_id,
+                    $course->title
+                ]) . '?' . http_build_query([
+                    'error' => 'Course purchase has been failed because of the payment cancellation'
+                ]),
             ]);
         }
         else {
@@ -153,7 +158,12 @@ class CertificationCourseController extends Controller
                 ],
                 'mode' => 'subscription',
                 'success_url' => route('frontend.certification-courses.success', ['course_order_id' => $course_order->id, 'material_logistic' => $request->material_logistic]) . '&session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => route('frontend.certification-courses.show', [$request->course_id, $course->title])
+                'cancel_url' => route('frontend.certification-courses.show', [
+                    $request->course_id,
+                    $course->title
+                ]) . '?' . http_build_query([
+                    'error' => 'Course purchase has been failed because of the payment cancellation'
+                ]),
             ]);
 
             // $subscriptionSchedule = \Stripe\SubscriptionSchedule::create([

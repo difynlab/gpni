@@ -110,7 +110,7 @@
     @else
         <a href="{{ route('frontend.membership') }}" class="sidebar-link">
             <div class="sidebar-item">
-                <img src="{{ asset('storage/frontend/profile-icon.svg') }}" alt="Member Corner" width="28" height="28">
+                <img src="{{ asset('storage/frontend/members-corner-icon.svg') }}" alt="Member Corner" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_member_corner }}</span>
             </div>
         </a>

@@ -80,7 +80,9 @@ class MembershipController extends Controller
             ],
             'mode' => 'payment',
             'success_url' => route('frontend.membership.success', ['membership_purchase_id' => $membership_purchase->id, 'amount' => $amount, 'type' => $request->type]) . '&session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('frontend.membership')
+            'cancel_url' => route('frontend.membership') . '?' . http_build_query([
+                    'error' => 'Membership purchase has been failed because of the payment cancellation'
+                ]),
         ]);
 
         return redirect()->away($session->url);

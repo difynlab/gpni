@@ -13,6 +13,7 @@
     @if($contents->section_1_title_en)
         <div class="container gpni-container py-md-5 py-3">
             <x-frontend.notification></x-frontend.notification>
+            <x-frontend.notification-popup></x-frontend.notification-popup>
 
             <div class="row d-flex align-items-center">
                 <div class="col-lg-7 mx-auto text-center text-lg-start">

@@ -110,7 +110,9 @@ class ProductController extends Controller
             ],
             'mode' => 'payment',
             'success_url' => route('frontend.products.success', ['product_order_id' => $product_order->id, 'total_order_amount' => $total_order_amount]) . '&session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('backend.products.index'),
+            'cancel_url' => route('frontend.products.index') . '?' . http_build_query([
+                    'error' => 'Product/s purchase has been failed because of the payment cancellation'
+                ]),
         ]);
 
         return redirect()->away($session->url);

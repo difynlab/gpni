@@ -108,7 +108,9 @@ class GiftCardController extends Controller
             'success_url' => route('frontend.gift-cards.success', [
                 'gift_card_purchase_id' => $gift_card_purchase->id
                 ]) . '&session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('frontend.gift-cards.index'),
+            'cancel_url' => route('frontend.gift-cards.index') . '?' . http_build_query([
+                    'error' => 'Gift card purchase has been failed because of the payment cancellation'
+                ]),
         ]);
 
         return redirect()->away($session->url);
