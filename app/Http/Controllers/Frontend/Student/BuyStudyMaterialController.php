@@ -90,7 +90,9 @@ class BuyStudyMaterialController extends Controller
             ],
             'mode' => 'payment',
             'success_url' => route('frontend.buy-study-materials.success', ['material_purchase_id' => $material_purchase->id]) . '&session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('frontend.buy-study-materials')
+            'cancel_url' => route('frontend.buy-study-materials') . '?' . http_build_query([
+                    'error' => 'Material purchase has been failed because of the payment cancellation'
+                ]),
         ]);
 
         return redirect()->away($session->url);

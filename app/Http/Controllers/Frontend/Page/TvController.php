@@ -109,7 +109,9 @@ class TvController extends Controller
             ],
             'mode' => 'payment',
             'success_url' => route('frontend.gpni-tv.success', ['course_order_id' => $course_order->id]) . '&session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('frontend.gpni-tv.index')
+            'cancel_url' => route('frontend.gpni-tv.index') . '?' . http_build_query([
+                    'error' => 'Course purchase has been failed because of the payment cancellation'
+                ]),
         ]);
 
         return redirect()->away($session->url);
@@ -151,6 +153,6 @@ class TvController extends Controller
             }
         }
 
-        return redirect()->route('frontend.homepage')->with('complete', 'Course purchase has been successfully completed');
+        return redirect()->route('frontend.gpni-tv.index')->with('complete', 'Course purchase has been successfully completed');
     }
 }

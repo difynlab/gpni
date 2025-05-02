@@ -13,6 +13,7 @@
     <div class="membership-section pt-5">
         <div class="container">
             <x-frontend.notification></x-frontend.notification>
+            <x-frontend.notification-popup></x-frontend.notification-popup>
 
             @if($contents->section_1_title_en)
                 <div class="heading text-center mb-3">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</div>

@@ -10,6 +10,8 @@
 
     <section class="header-section">
         <div class="container">
+            <x-frontend.notification-popup></x-frontend.notification-popup>
+
             <div class="row d-flex align-items-center">
                 <div class="col-lg-7 col-md-12">
                     <section class="certification-section">

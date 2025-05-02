@@ -165,7 +165,9 @@ class MasterClassController extends Controller
             ],
             'mode' => 'payment',
             'success_url' => route('frontend.master-classes.success', ['course_order_id' => $course_order->id]) . '&session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('frontend.master-classes.index')
+            'cancel_url' => route('frontend.master-classes.index') . '?' . http_build_query([
+                    'error' => 'Course purchase has been failed because of the payment cancellation'
+                ]),
         ]);
 
         return redirect()->away($session->url);
