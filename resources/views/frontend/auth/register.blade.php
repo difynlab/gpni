@@ -12,7 +12,7 @@
 
 @section('content')
 
-    <div class="container custom-container my-lg-5 mb-4 my-0">
+    <div class="container custom-container mb-4 my-0">
         <div class="row flex-grow-1 d-flex align-items-center">
 
             <x-frontend.auth></x-frontend.auth>
