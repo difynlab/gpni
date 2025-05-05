@@ -266,7 +266,7 @@
     @endif
 
     @if($course->master_section_7_title)
-        <div class="container mt-5 custom-testimonial-section">
+        <div class="container custom-testimonial-section py-5">
             <div class="row d-flex align-items-center justify-content-center mx-md-3 mx-0">
                 <div class="col-md-6">
                     <div class="testimonial-header mb-3 d-flex align-items-center">

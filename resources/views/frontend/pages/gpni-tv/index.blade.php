@@ -120,7 +120,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-5 text-center mb-4 mb-lg-0">
                         @if($contents->{'section_3_image_' . $middleware_language})
-                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_3_image_' . $middleware_language}) }}" alt="Global Experts" class="img-fluid">
+                            <img src="{{ asset('storage/backend/pages/' . $contents->{'section_3_image_' . $middleware_language}) }}" alt="Global Experts" class="img-fluid" >
                         @elseif($contents->section_3_image_en)
                             <img src="{{ asset('storage/backend/pages/' . $contents->section_3_image_en) }}" alt="Global Experts" class="img-fluid">
                         @else
@@ -223,7 +223,7 @@
                 <div class="section-8-content text-main-content text-white">{!! $contents->{'section_8_content_' . $middleware_language} ?? $contents->section_8_content_en !!}</div>  
 
                 @guest
-                    <div class="py-3">
+                    <div class="py-3 mt-3">
                         <a href="{{ route('frontend.register') }}" class="btn-sign-up">
                             {{ $contents->{'section_8_label_' . $middleware_language} ?? $contents->section_8_label_link_en }}
                         </a>
