@@ -66,7 +66,7 @@
 
                     <div class="col-6 mb-4 position-relative">
                         <label for="confirm_password" class="form-label">Confirm Password</label>
-                        <input type="confirm_password" class="form-control" id="confirm_password" name="confirm_password" placeholder="* * * * * * * *">
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="* * * * * * * *">
                         <span class="bi bi-eye-slash-fill toggle-password"></span>
                         <x-backend.input-error field="confirm_password"></x-backend.input-error>
                     </div>
