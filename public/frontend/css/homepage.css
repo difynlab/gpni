@@ -294,9 +294,9 @@
 .section-4 .student-video video {
     width: 100%;
     height: 350px;
-    /* object-fit: cover; */
-    object-fit: contain;
-    border-radius: 10px;
+    object-fit: cover;
+    /* object-fit: contain; */
+    border-radius: 15px;
 }
 .section-4 .testimonial {
     height: 350px!important;
@@ -437,8 +437,7 @@
     letter-spacing: 0.02em;
 }
 .qualification {
-    /* font-size: ; */
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* .expert-modal{

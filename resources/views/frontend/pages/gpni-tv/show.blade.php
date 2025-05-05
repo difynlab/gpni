@@ -25,7 +25,7 @@
             </div>
 
             <div class="col-12 col-lg-7">
-                <div class="course-introduction">
+                <div class="text-content">
                     {!! $course->course_introduction !!}
                 </div>
             </div>

@@ -42,7 +42,7 @@
         </div>
 
         <div class="language-offerings-section py-5">
-            <div class="container text-main-content pt-3">{!! $contents->{'section_2_bottom_description_' . $middleware_language} ??
+            <div class="container text-main-content">{!! $contents->{'section_2_bottom_description_' . $middleware_language} ??
                 $contents->section_2_bottom_description_en !!}</div>
         </div>
     @endif

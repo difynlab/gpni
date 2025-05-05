@@ -115,7 +115,7 @@ body {
 }
 .card img {
     /* border-radius: 10px; */
-    object-fit: cover;
+    object-fit: fill;
     height: 300px;
 }
 .card-title {
@@ -473,7 +473,6 @@ body {
     width: 609px;
     height:fit-content;
     object-fit: cover;
-
 }
 
 .section-7 h4 {
