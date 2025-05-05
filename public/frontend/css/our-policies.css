@@ -35,6 +35,8 @@
     font-weight: 500;
     padding: 10px 15px;
     background-color: transparent;
+    border: none !important;  /* Add this */
+    transition: none !important;  /* Add this */
 }
 
 .nav-tabs .nav-link.active {
@@ -53,6 +55,22 @@
     width: 100%;
     height: 3px;
     background-color: #0040c3;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.nav-tabs {
+    border: none !important;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: 0;
 }
 
 /* Accordion styling to match FAQ page exactly */
@@ -107,8 +125,8 @@
 
 .accordion-button::after {
     background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23666565\'%3e%3cpath stroke=\'%23666565\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e');
-    width: clamp(16px, 2vw, 24px);
-    height: clamp(16px, 2vw, 24px);
+    width: clamp(16px, 2vw, 20px);
+    height: clamp(16px, 2vw, 20px);
     background-size: contain;
     transition: transform 0.3s ease;
 }
@@ -325,6 +343,9 @@
     }
 
     .badge-warning {
-        font-size: 20px; /* Ensure font size is 20px */
+        font-size: 20px; 
     }
+}
+.accordion-item:not(:first-of-type) {
+    border-top: 1px solid rgba(0,0,0,.125) !important;
 }
