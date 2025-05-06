@@ -7,6 +7,7 @@ use App\Models\ContactUsContent;
 use App\Models\Setting;
 use App\Models\Connection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactUsController extends Controller
 {
@@ -23,6 +24,14 @@ class ContactUsController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required|regex:/^\+?[0-9]+$/'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Message sending failed!');
+        }
+        
         $connection = new Connection();
         $data = $request->except('middleware_language', 'middleware_language_name');
         $data['status'] = '1';

@@ -25,36 +25,39 @@
                     <div class="form-row fs-20">
                         <div class="form-group col-md-6">
                             <label for="first-name" class="required">{{ $contents->{'first_name_' . $middleware_language} ?? $contents->first_name_en }}</label>
-                            <input type="text" class="form-control" id="first-name" name="first_name" required>
+                            <input type="text" class="form-control" id="first-name" name="first_name" value="{{ old('first_name') }}" required>
                         </div>
+
                         <div class="form-group col-md-6">
                             <label for="last-name" class="required">{{ $contents->{'last_name_' . $middleware_language} ?? $contents->last_name_en }}</label>
-                            <input type="text" class="form-control" id="last-name" name="last_name" required>
+                            <input type="text" class="form-control" id="last-name" name="last_name" value="{{ old('last_name') }}" required>
                         </div>
                     </div>
 
                     <div class="form-row fs-20">
                         <div class="form-group col-md-6">
                             <label for="email" class="required">{{ $contents->{'email_' . $middleware_language} ?? $contents->email_en }}</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
                         </div>
+
                         <div class="form-group col-md-6">
                             <label for="phone" class="required">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required>
+                            <x-frontend.input-error field="phone"></x-frontend.input-error>
                         </div>
                     </div>
 
                     <div class="form-row fs-20">
                         <div class="form-group col-12 reason-group">
                             <label for="question" class="required">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
-                            <input type="text" class="form-control" id="question" name="question" required>
+                            <input type="text" class="form-control" id="question" name="question" value="{{ old('question') }}" required>
                         </div>
                     </div>
 
                     <div class="form-row fs-20">
                         <div class="form-group col-12 comments-group">
                             <label for="comments" class="required">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
-                            <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" required></textarea>
+                            <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" value="{{ old('first_name') }}" required>{{ old('comments') }}</textarea>
                         </div>
                     </div>
 
