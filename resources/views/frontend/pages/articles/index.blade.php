@@ -158,8 +158,7 @@
                     <div class="trending-articles-section">
                         <div class="fs-20 trending-article-title py-2 fw-bold">{{ $contents->{'section_1_trend_' . $middleware_language} ?? $contents->section_1_trend_en }}</div>
 
-                        @if($trending_articles->isNotEmpty())'
-                        '
+                        @if($trending_articles->isNotEmpty())
                             @foreach($trending_articles as $trending_article)
                                 <a href="{{ route('frontend.articles.show', [$trending_article, \Overtrue\Pinyin\Pinyin::permalink($trending_article->title)]) }}" class="text-decoration-none">
                                     <div class="trending-article">
