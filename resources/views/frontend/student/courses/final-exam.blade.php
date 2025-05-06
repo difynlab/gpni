@@ -397,18 +397,17 @@
                                 }
                             }
                         });
-                        $('.prev-button').addClass('disabled').off('click');
-                        // $('.prev-button').toggleClass('disabled', currentQuestionIndex === 0);
-                        // $('.next-button').toggleClass('disabled', !answeredQuestions[currentQuestionIndex]);
+
+                        $('.prev-button').toggleClass('disabled', currentQuestionIndex === 0);
+                        $('.next-button').toggleClass('disabled', !answeredQuestions[currentQuestionIndex]);
                     }
 
                     $('.next-button').on('click', function () {
                         if(!$(this).hasClass('disabled') && currentQuestionIndex < totalQuestions - 1) {
                             showQuestion(currentQuestionIndex + 1);
 
-                        let remaining_questions = $('.remaining-questions-count span').text();
-                        $('.remaining-questions-count span').text(totalQuestions - answeredCount)
-
+                            const answeredQuestionsCount = answeredQuestions.filter(Boolean).length;
+                            $('.remaining-questions-count span').text(totalQuestions - answeredQuestionsCount);
                         }
                     });
 
@@ -455,9 +454,6 @@
                                 <input type="hidden" name="answers[${questionId}]" value="${selectedAnswer}">
                             `);
                         }
-
-                        // let remaining_questions = $('.remaining-questions-count span').text();
-                        // $('.remaining-questions-count span').text(totalQuestions - answeredCount)
                     });
 
                     $('.question-box').on('click', function () {
@@ -560,6 +556,42 @@
                     e.preventDefault();
                 }
             });
+
+            // Chagana
+                function isMobileDevice() {
+                    // Check for touch capability and screen size
+                    const hasTouchScreen = (('maxTouchPoints' in navigator) && navigator.maxTouchPoints > 0) || 
+                                        (('msMaxTouchPoints' in navigator) && navigator.msMaxTouchPoints > 0);
+                    
+                    const isSmallScreen = window.innerWidth <= 768;
+                    
+                    return hasTouchScreen && isSmallScreen;
+                }
+
+                // Wrap modal logic in a function for better control - Chagana
+                function handleMobileWarning() {
+                    if (isMobileDevice()) {
+                        $('#start-exam-modal').modal('hide');
+                        $('#mobile-warning-modal').modal('show');
+                        $('#success-modal').modal('hide');
+                        $('#timer-modal').modal('hide');
+                    }
+                    // else {
+                    //     if (!$('#success-modal').hasClass('show')) {
+                    //         $('#start-exam-modal').modal('show');
+                    //     }
+                    // }
+                }
+
+                // Call the handler when document is ready - Chagana
+                $(document).ready(function() {
+                    handleMobileWarning();
+
+                    $(window).on('resize', function() {
+                        handleMobileWarning();
+                    });
+                });
+            // Chagana
         });
     </script>
     
