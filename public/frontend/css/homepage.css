@@ -920,21 +920,21 @@ html {
 }
 /* Apply border-radius to the first accordion button */
 .faq-container .accordion-item:first-of-type .accordion-button, .accordion-item:first-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
-    border-top-left-radius: 20px; /* Adjust as needed */
-    border-top-right-radius: 20px; /* Adjust as needed */
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px; 
 }
 /* Apply border-radius to the last accordion item when not collapsed */
 .faq-container .accordion-item:last-of-type .accordion-collapse.collapse:not(.show) .accordion-body {
-    border-bottom-left-radius: 20px; /* Adjust as needed */
-    border-bottom-right-radius: 20px; /* Adjust as needed */
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px; 
 }
 .faq-container .accordion-item:last-of-type .accordion-button.collapsed{
     border-radius: 20px;
 }
 /* Ensure the last accordion item always has rounded corners at the bottom */
 .faq-container .accordion-item:last-of-type, .accordion-item:last-of-type .accordion-button {
-    border-bottom-left-radius: 20px; /* Adjust as needed */
-    border-bottom-right-radius: 20px; /* Adjust as needed */
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px; 
 }
 .faq-container .accordion-button:not(.collapsed)::after {
     /* background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23e59114\'%3e%3cpath stroke=\'%23e59114\' stroke-width=\'2\' fill-rule=\'evenodd\' d=\'M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z\'/%3e%3c/svg%3e'); */
