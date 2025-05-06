@@ -406,6 +406,9 @@
                         if(!$(this).hasClass('disabled') && currentQuestionIndex < totalQuestions - 1) {
                             showQuestion(currentQuestionIndex + 1);
                         }
+
+                        let remaining_questions = $('.remaining-questions-count span').text();
+                        $('.remaining-questions-count span').text(remaining_questions - 1)
                     });
 
                     $('.prev-button').on('click', function () {
@@ -452,8 +455,8 @@
                             `);
                         }
 
-                        let remaining_questions = $('.remaining-questions-count span').text();
-                        $('.remaining-questions-count span').text(remaining_questions - 1)
+                        // let remaining_questions = $('.remaining-questions-count span').text();
+                        // $('.remaining-questions-count span').text(remaining_questions - 1)
                     });
 
                     $('.question-box').on('click', function () {
