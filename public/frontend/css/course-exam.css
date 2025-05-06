@@ -118,8 +118,8 @@
     transition: all 0.3s;
 }
 .radio-inner {
-    width: 14px;
-    height: 14px;
+    width: 90%;
+    height: 90%;
     border-radius: 50%;
     background-color: transparent;
     transition: all 0.3s;
@@ -141,7 +141,7 @@
 }
 .prev-button {
     border: 1px solid #EDF0F7;
-    color: #898989;
+    color: #0040C3;
 }
 .next-button {
     border: 1px solid #0040C3;
