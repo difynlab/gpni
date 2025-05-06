@@ -350,17 +350,20 @@
                             }
                         });
 
-                        $('.prev-button').toggleClass('disabled', currentQuestionIndex === 0);
-                        $('.next-button').toggleClass('disabled', !answeredQuestions[currentQuestionIndex]);
+                        // $('.prev-button').toggleClass('disabled', currentQuestionIndex === 0);
+                        // $('.next-button').toggleClass('disabled', !answeredQuestions[currentQuestionIndex]);
+                        $('.prev-button').addClass('disabled').off('click');
                     }
 
                     $('.next-button').on('click', function () {
                         if(!$(this).hasClass('disabled') && currentQuestionIndex < totalQuestions - 1) {
                             showQuestion(currentQuestionIndex + 1);
+                            let remaining_questions = $('.remaining-questions-count span').text();
+                        $('.remaining-questions-count span').text(remaining_questions - 1)
                         }
 
-                        let remaining_questions = $('.remaining-questions-count span').text();
-                        $('.remaining-questions-count span').text(remaining_questions - 1)
+                        // let remaining_questions = $('.remaining-questions-count span').text();
+                        // $('.remaining-questions-count span').text(remaining_questions - 1)
                     });
 
                     $('.prev-button').on('click', function () {
