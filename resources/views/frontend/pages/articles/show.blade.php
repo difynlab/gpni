@@ -21,7 +21,7 @@
 
                     <div class="heading pt-2">{{ $article->title }}</div>
 
-                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="">
+                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="article-main-thumbnail">
 
                     <div class="content-section text-content">
                         <div>{!! $article->content !!}</div>
@@ -187,7 +187,7 @@
                                 </div>
 
                                 @if($you_like_article->thumbnail)
-                                    <img src="{{ asset('storage/backend/articles/articles/'. $you_like_article->thumbnail) }}" alt="Article Image" class="article-img">
+                                    <img src="{{ asset('storage/backend/articles/articles/'. $you_like_article->thumbnail) }}" alt="Article Image" class="article-new-img">
                                 @else
                                     <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}" alt="Article Image" class="article-image">
                                 @endif
