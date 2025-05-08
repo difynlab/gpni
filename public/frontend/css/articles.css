@@ -503,7 +503,6 @@ body {
 @media screen and (max-width: 1400px) {
     .video-section {
         max-width: 100%;
-        padding: 0 15px;
     }
 }
 
@@ -521,6 +520,12 @@ body {
 
 .video-section + .row {
     margin-top: 3%;
-    padding-left: 1.2%; /* Added to move content right */
 
+}
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .article-image {
+      width: 100%;
+      height: 185px; 
+      object-fit: cover;
+  }
 }

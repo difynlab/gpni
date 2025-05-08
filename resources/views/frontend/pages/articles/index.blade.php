@@ -17,7 +17,7 @@
             <div class="all-articles-heading heading">{{ $contents->{'section_1_title_' . $middleware_language} ?? $contents->section_1_title_en }}</div>
 
             <div class="video-section my-4">
-                <div class="container">
+                <div class="row">
                     <div class="video-placeholder">
                         @if($contents->{'section_1_video_' . $middleware_language})
                             <video src="{{ asset('storage/backend/pages/' . $contents->{'section_1_video_' . $middleware_language} ?? '') }}" 
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
                     <ul class="nav" role="tablist">

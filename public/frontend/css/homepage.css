@@ -759,18 +759,13 @@ html {
 }
 
 .courses-swiper .swiper-slide {
-    height: auto; /* Allow slides to have different heights */
-    display: flex;
+    aspect-ratio: 1 / 1;
+    width: 100%;
 }
 
 .courses-swiper .card {
-    flex: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+    height: 100%;
     width: 100%;
-    margin: 0;
-    height: 400px; 
     display: flex;
     flex-direction: column;
 }
