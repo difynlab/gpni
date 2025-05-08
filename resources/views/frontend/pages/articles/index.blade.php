@@ -116,10 +116,10 @@
                                                     <a href="{{ route('frontend.articles.show', [$recommended_article, \Overtrue\Pinyin\Pinyin::permalink($recommended_article->title)]) }}">
                                                         @if($recommended_article->thumbnail)
                                                         <img src="{{ asset('storage/backend/articles/articles/'. $recommended_article->thumbnail) }}"
-                                                            alt="Main Image" class="img-fluid w-100">
+                                                            alt="Main Image" class="img-fluid article-image">
                                                         @else
                                                         <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
-                                                            alt="Main Image" class="img-fluid w-100">
+                                                            alt="Main Image" class="img-fluid article-image">
                                                         @endif
                                                     </a>
                                                     <div class="share-icon position-absolute">
