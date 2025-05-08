@@ -114,12 +114,15 @@ body {
 
 @media (max-width: 767.98px) {
     .education-table {
-        padding: 30px 15px;
+        padding: 15px 10px;
     }
     
     .education-table th,
     .education-table td {
-        padding: 0.5rem;
+        padding: 8px;
+        font-size: 14px;
+        word-wrap: break-word;
+        min-width: auto;
     }
     
     .education-table .section-title {
@@ -130,7 +133,11 @@ body {
         --bs-gutter-x: 0px !important;
     }
     .third-column {
-        width: 15% !important;
+        width: 20% !important;
+    }
+
+    .education-table td p {
+        font-size: 14px;
     }
 }
 
@@ -317,7 +324,7 @@ body {
 
 @media (max-width: 767.98px) {
     .education-table {
-        padding: 30px 15px;
+        padding: 15px 10px;
     }
     
     .education-table .custom-table th,
@@ -358,5 +365,5 @@ body {
 }
 
 .custom-width-table {
-    width: 1317px;
+    width: 100%;
 }

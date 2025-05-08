@@ -23,7 +23,9 @@
 
                     <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="article-main-thumbnail">
 
-                    <div class="content-section text-content">
+                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="article-main-thumbnail">
+
+                    <div class="content-section text-content text-url">
                         <div>{!! $article->content !!}</div>
                     </div>
 

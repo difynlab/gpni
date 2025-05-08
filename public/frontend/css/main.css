@@ -681,6 +681,12 @@ Define font weights for Poppins */
         font-size: 15px;
     }
 }
+.text-url a{
+    /* text-decoration: underline; */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 
 /* Responsive Button Sizes */
 .btn-responsive {
