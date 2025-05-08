@@ -60,11 +60,20 @@ class ProductController extends Controller
             'new_thumbnail' => 'required|max:30720',
             'new_images.*' => 'nullable|max:30720',
             'downloadable_content' => 'nullable|max:30720',
+            'price' => 'numeric|min:0',
+            'shipping_cost' =>'numeric|min:0',
+            'membership_price' =>'numeric|min:0'
         ], [
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_thumbnail.required' => 'Thumbnail is required',
             'new_images.*.max' => 'Each image must not be greater than 30 MB',
-            'downloadable_content.max' => 'The file must not be greater than 30 MB'
+            'downloadable_content.max' => 'The file must not be greater than 30 MB',
+            'price.numeric' => 'Price must be a number or decimal',
+            'price.min' => 'Price must be a positive value',
+            'shipping_cost.numeric' => 'Shipping cost must be a number or decimal',
+            'shipping_cost.min' => 'Shipping cost must be a positive value',
+            'membership_price.numeric' => 'Membership price must be a number or decimal',
+            'membership_price.min' => 'Membership price must be a positive value'
         ]);
         
         if($validator->fails()) {
@@ -135,11 +144,20 @@ class ProductController extends Controller
             'old_thumbnail' => 'required|max:30720',
             'new_images.*' => 'nullable|max:30720',
             'downloadable_content' => 'nullable|max:30720',
+            'price' => 'numeric|min:0',
+            'shipping_cost' =>'numeric|min:0',
+            'membership_price' =>'numeric|min:0'
         ], [
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_thumbnail.required' => 'Thumbnail is required',
             'new_images.*.max' => 'Each image must not be greater than 30 MB',
-            'downloadable_content.max' => 'The file must not be greater than 30 MB'
+            'downloadable_content.max' => 'The file must not be greater than 30 MB',
+            'price.numeric' => 'Price must be a number or decimal',
+            'price.min' => 'Price must be a positive value',
+            'shipping_cost.numeric' => 'Shipping cost must be a number or decimal',
+            'shipping_cost.min' => 'Shipping cost must be a positive value',
+            'membership_price.numeric' => 'Membership price must be a number or decimal',
+            'membership_price.min' => 'Membership price must be a positive value'
         ]);
         
         if($validator->fails()) {

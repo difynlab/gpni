@@ -66,6 +66,7 @@
                         <div>
                             <label for="price" class="form-label">Price<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="price" name="price" value="{{ old('price') }}" placeholder="Price" required>
+                            <x-backend.input-error field="price"></x-backend.input-error>
                         </div>
                     </div>
                     <div class="col-6 right-column">
@@ -73,8 +74,8 @@
                             <label for="media_type" class="form-label">Media Type<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="media_type" name="media_type" required>
                                 <option value="">Select</option>
-                                <option value="Image" {{ old('type') == 'Image' ? 'selected' : '' }}>Image</option>
-                                <option value="Video" {{ old('type') == 'Video' ? 'selected' : '' }}>Video</option>
+                                <option value="Image" {{ old('media_type') == 'Image' ? 'selected' : '' }}>Image</option>
+                                <option value="Video" {{ old('media_type') == 'Video' ? 'selected' : '' }}>Video</option>
                             </select>
                         </div>
 
@@ -103,6 +104,7 @@
                         <div>
                             <label for="referral_point_percentage" class="form-label">Referral Point Percentage (%)</label>
                             <input type="text" class="form-control" id="referral_point_percentage" name="referral_point_percentage" value="{{ old('referral_point_percentage') }}" placeholder="Referral Point Percentage (%)">
+                            <x-backend.input-error field="referral_point_percentage"></x-backend.input-error>
                         </div>
                     </div>
                     <div class="col-6 right-column">
@@ -129,6 +131,7 @@
                     <div class="col-4">
                         <label for="instalment_price" class="form-label">Instalment Price</label>
                         <input type="text" class="form-control" id="instalment_price" name="instalment_price" value="{{ old('instalment_price') }}" placeholder="Instalment Price">
+                        <x-backend.input-error field="instalment_price"></x-backend.input-error>
                     </div>
 
                     <div class="col-4">
