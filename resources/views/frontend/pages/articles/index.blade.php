@@ -87,7 +87,7 @@
                                                 <div>
                                                     <div class="header-metadata mb-2 fs-13 pt-3">
                                                         <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon" class="icon mr-2">
-                                                        <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M,Y') }}</span>
+                                                        <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M, Y') }}</span>
                                                         <div class="divider">|</div>
                                                         <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</span>
                                                     </div>
@@ -132,7 +132,7 @@
                                                 <div>
                                                     <div class="header-metadata mb-2 fs-13 pt-3">
                                                         <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon" class="icon mr-2">
-                                                        <span class="custom-text-muted date-meta fs-13">{{ $recommended_article->created_at->format('d M,Y') }}</span>
+                                                        <span class="custom-text-muted date-meta fs-13">{{ $recommended_article->created_at->format('d M, Y') }}</span>
                                                         <div class="divider">|</div>
                                                         <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($recommended_article->article_category_id)->name }}</span>
                                                     </div>
@@ -175,10 +175,10 @@
                                                     <div class="trending-content-title title-clamp fs-16">{{ $trending_article->title }}
                                                     </div>
 
-                                                    <div class="line-clamp-2">{{ $trending_article->short_description }}</div>
+                                                    <div class="line-clamp-2 trending-content-description">{{ $trending_article->short_description }}</div>
 
                                                     <div
-                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-md-3">
+                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-xl-3">
                                                         <!-- Date -->
                                                         <span class="small text-muted">{{ $trending_article->created_at->format('M d,Y')
                                                             }}</span>

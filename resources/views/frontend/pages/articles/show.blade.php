@@ -16,7 +16,7 @@
                 <div class="content-wrapper mt-5">
                     <div class="header-metadata mt-2">
                         <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Calendar Icon" class="icon">
-                        <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M,Y') }}</span>
+                        <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M, Y') }}</span>
                     </div>
 
                     <div class="heading pt-2">{{ $article->title }}</div>
@@ -111,7 +111,7 @@
                                                         {!! strip_tags($latest_article->content) !!}
                                                     </div>
                                                     <div
-                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-md-3">
+                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-xl-3">
                                                         <span class="small text-muted">{{ $latest_article->created_at->format('M
                                                             d,Y')
                                                             }}</span>
