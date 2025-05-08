@@ -307,13 +307,15 @@ class AdminController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users,email',
-            'phone' => 'nullable|unique:users,phone',
+            // 'phone' => 'nullable|unique:users,phone',
+            'phone' => 'nullable|numeric|unique:users,phone',
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password',
             'new_image' => 'nullable|max:30720'
         ], [
             'email.unique' => 'The email address is already in use',
             'phone.unique' => 'The phone number is already in use',
+            'phone.numeric' => 'The phone number must be a number',
             'password.required' => 'The password field is required',
             'password.min' => 'The password must be at least 8 characters long',
             'confirm_password.required' => 'The confirm password field is required',
