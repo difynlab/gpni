@@ -622,11 +622,50 @@ h5 {
     display: inline-block;
 }
 
-.article-img {
+.article-new-img {
     width: 100%;
     height: 180px;
     object-fit: fill;
     margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* Large devices (desktops, 1440px and up) */
+@media screen and (min-width: 1440px) {
+    .article-new-img {
+        height: 180px;
+    }
+}
+
+/* Medium devices (tablets, 768px to 1439px) */
+@media screen and (min-width: 769px) and (max-width: 1439px) {
+    .article-new-img {
+        height: 140px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .article-new-img {
+        height: 150px;
+    }
+}
+
+/* Small devices (phones, less than 768px) */
+@media screen and (max-width: 767px) {
+    .article-new-img {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .article-new-img {
+        height: 200px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 375px) {
+    .article-new-img {
+        height: 160px;
+    }
 }
 
 .article-content {
@@ -750,6 +789,33 @@ h5 {
     .navigation-link {
         font-size: 16px;
         padding: 8px 12px;
+    }
+}
+
+/* Main Article Thumbnail Styles */
+.article-main-thumbnail {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* Responsive styles for article thumbnail */
+@media screen and (max-width: 1200px) {
+    .article-main-thumbnail {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .article-main-thumbnail {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .article-main-thumbnail {
+        height: 200px;
     }
 }
 
