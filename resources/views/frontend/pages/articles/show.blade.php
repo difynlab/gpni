@@ -21,6 +21,8 @@
 
                     <div class="heading pt-2">{{ $article->title }}</div>
 
+                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="">
+
                     <div class="content-section text-content">
                         <div>{!! $article->content !!}</div>
                     </div>
