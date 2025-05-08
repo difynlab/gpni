@@ -21,7 +21,7 @@
 
                     <div class="heading pt-2">{{ $article->title }}</div>
 
-                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="">
+                    <!-- <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class=""> -->
 
                     <div class="content-section text-content">
                         <div>{!! $article->content !!}</div>
@@ -108,21 +108,20 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
-                                                    <div class="article-title fs-16 title-clamp">{{ $latest_article->title }}</div>
-                                                    <div class="line-clamp-2 fs-16">
+                                                    <div class="trending-content-title fs-16 title-clamp">{{ $latest_article->title }}</div>
+                                                    <div class="line-clamp-2 trending-content-description">
                                                         {!! strip_tags($latest_article->content) !!}
                                                     </div>
                                                     <div
-                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-xl-3">
-                                                        <span class="small text-muted">{{ $latest_article->created_at->format('M
-                                                            d,Y')
-                                                            }}</span>
+                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2">
+                                                        <span class="small text-muted">{{ $latest_article->created_at->format('M d, Y') }}</span>
                                                         @if($latest_article->reading_time)
-                                                        <span class="small time-read d-flex align-items-center gap-1">
-                                                            <img src="{{ asset('storage/frontend/clock.svg') }}" alt="Clock"
-                                                                class="read-icon" style="width: 12px; height: 12px;">
-                                                            <span class="d-inline-block">{{ $latest_article->reading_time }}</span>
-                                                        </span> @endif
+                                                            <span class="small time-read d-flex align-items-center gap-1">
+                                                                <img src="{{ asset('storage/frontend/clock.svg') }}" alt="Clock"
+                                                                    class="read-icon" style="width: 12px; height: 12px;">
+                                                                <span class="d-inline-block">{{ $latest_article->reading_time }}</span>
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
