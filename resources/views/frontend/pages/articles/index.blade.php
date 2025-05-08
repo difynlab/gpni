@@ -178,7 +178,7 @@
                                                     <div class="line-clamp-2 trending-content-description">{{ $trending_article->short_description }}</div>
 
                                                     <div
-                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2 mt-xl-3">
+                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2">
                                                         <!-- Date -->
                                                         <span class="small text-muted">{{ $trending_article->created_at->format('M d,Y')
                                                             }}</span>

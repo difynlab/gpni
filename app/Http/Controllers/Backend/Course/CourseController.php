@@ -21,7 +21,7 @@ class CourseController extends Controller
                 $course->action = '
                 <a href="'. route('backend.courses.final-exam-questions.index', $course->id) .'" class="exam-questions-button" title="Finale Exam Questions"><i class="bi bi-patch-question-fill"></i></a>
                 <a href="'. route('backend.courses.information.index', $course->id) .'" class="information-button" title="Information"><i class="bi bi-info-circle-fill"></i></a>
-                <a href="'. route('backend.courses.reviews.index', $course->id) .'" class="review-button" title="Information"><i class="bi bi-chat-square-dots-fill"></i></a>
+                <a href="'. route('backend.courses.reviews.index', $course->id) .'" class="review-button" title="Reviews"><i class="bi bi-chat-square-dots-fill"></i></a>
                 <a href="'. route('backend.courses.edit', $course->id) .'" class="edit-button" title="Edit"><i class="bi bi-pencil-square"></i></a>
                 <a id="'.$course->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
             } else {
@@ -67,11 +67,20 @@ class CourseController extends Controller
             'new_video' => 'nullable|max:102400',
             'new_instructor_profile_image' => 'nullable|max:30720',
             'new_certificate_images.*' => 'max:30720',
+            'price' => 'numeric|min:0',
+            'referral_point_percentage' => 'numeric|min:0',
+            'instalment_price' =>'numeric|min:0'
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
             'new_video.max' => 'Video must not be greater than 100 MB',
             'new_instructor_profile_image.max' => 'Image must not be greater than 30 MB',
-            'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB'
+            'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB',
+            'price.numeric' => 'Price must be a number or decimal',
+            'price.min' => 'Price must be positive value',
+            'referral_point_percentage.numeric' => 'Referral point percentage must be a number or decimal',
+            'referral_point_percentage.min' => 'Referral point percentage must be positive value',
+            'instalment_price.numeric' => 'Instalment price must be a number or decimal',
+            'instalment_price.min' => 'Instalment price must be positive value',
         ]);
 
         if($validator->fails()) {
@@ -153,12 +162,21 @@ class CourseController extends Controller
             'new_image' => 'max:30720',
             'new_video' => 'max:102400',
             'new_instructor_profile_image' => 'max:30720',
-            'new_certificate_images.*' => 'max:30720'
+            'new_certificate_images.*' => 'max:30720',
+            'price' => 'numeric|min:0',
+            'referral_point_percentage' => 'numeric|min:0',
+            'instalment_price' =>'numeric|min:0'
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
             'new_video.max' => 'Video must not be greater than 100 MB',
             'new_instructor_profile_image.max' => 'Image must not be greater than 30 MB',
-            'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB'
+            'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB',
+            'price.numeric' => 'Price must be a number or decimal',
+            'price.min' => 'Price must be a positive value',
+            'referral_point_percentage.numeric' => 'Referral point percentage must be a number or decimal',
+            'referral_point_percentage.min' => 'Referral point percentage must be a positive value',
+            'instalment_price.numeric' => 'Instalment price must be a number or decimal',
+            'instalment_price.min' => 'Instalment price must be a positive value',
         ]);
 
         if($validator->fails()) {

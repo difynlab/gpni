@@ -70,16 +70,19 @@
                         <div class="mb-4">
                             <label for="price" class="form-label">Price<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="price" name="price" value="{{ old('price', $product->price) }}" placeholder="Price" required>
+                            <x-backend.input-error field="price"></x-backend.input-error>
                         </div>
 
                         <div class="mb-4">
                             <label for="membership_price" class="form-label">Membership Price</label>
                             <input type="text" class="form-control" id="membership_price" name="membership_price" value="{{ old('membership_price', $product->membership_price) }}" placeholder="Membership Price">
+                            <x-backend.input-error field="membership_price"></x-backend.input-error>
                         </div>
 
                         <div>
                             <label for="shipping_cost" class="form-label">Shipping Cost</label>
                             <input type="text" class="form-control" id="shipping_cost" name="shipping_cost" value="{{ old('shipping_cost', $product->shipping_cost) }}" placeholder="Shipping Cost">
+                            <x-backend.input-error field="shipping_cost"></x-backend.input-error>
                         </div>
                     </div>
                     <div class="col-5 full-height">

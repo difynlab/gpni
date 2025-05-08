@@ -72,6 +72,7 @@
                         <div>
                             <label for="price" class="form-label">Price<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="price" name="price" value="{{ old('price', $course->price) }}" placeholder="Price" required>
+                            <x-backend.input-error field="price"></x-backend.input-error>
                         </div>
                     </div>
                     <div class="col-6 right-column">
@@ -108,6 +109,7 @@
                         <div>
                             <label for="referral_point_percentage" class="form-label">Referral Point Percentage (%)</label>
                             <input type="text" class="form-control" id="referral_point_percentage" name="referral_point_percentage" value="{{ old('referral_point_percentage', $course->referral_point_percentage) }}" placeholder="Referral Point Percentage (%)">
+                            <x-backend.input-error field="referral_point_percentage"></x-backend.input-error>
                         </div>
                     </div>
                     <div class="col-6 right-column">
@@ -134,6 +136,7 @@
                     <div class="col-4">
                         <label for="instalment_price" class="form-label">Instalment Price</label>
                         <input type="text" class="form-control" id="instalment_price" name="instalment_price" value="{{ old('instalment_price', $course->instalment_price) }}" placeholder="Instalment Price">
+                        <x-backend.input-error field="instalment_price"></x-backend.input-error>
                     </div>
 
                     <div class="col-4">
@@ -164,7 +167,7 @@
                         </div>
 
                         <div>
-                            <x-backend.upload-multi-images image_count="2" old_name="old_certificate_images" old_value="{{ old('old_certificate_images', $course->certificate_images) }}" label="Certification" new_name="new_certificate_images[]" path="courses/certificate-images"></x-backend.upload-multi-images>
+                            <x-backend.upload-multi-images image_count="2" old_name="old_certificate_images" old_value="{{ old('certificate_images', $course->certificate_images) }}" label="Certification" new_name="new_certificate_images[]" path="courses/certificate-images"></x-backend.upload-multi-images>
                             <x-backend.input-error field="new_certificate_images.*"></x-backend.input-error>
                         </div>
                     </div>
