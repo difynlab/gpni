@@ -16,12 +16,45 @@ use Illuminate\Support\Str;
 
 class ReferFriendController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $language = $request->middleware_language_name;
+
+        if($language == 'English') {
+            $referral_account_registered = 'Referral account registered';
+            $Addition = 'Addition';
+            $referral_account_course_purchased = 'Referral account course purchased';
+            $referral_link_created = 'Referral link created';
+            $withdrawal = 'Withdrawal';
+            $deduction = 'Deduction';
+        }
+        elseif($language == 'Chinese') {
+            $referral_account_registered = '被推荐人注册';
+            $Addition = '增加';
+            $referral_account_course_purchased = '被推荐人课程购买';
+            $referral_link_created = '推荐链接创建';
+            $withdrawal = '提现';
+            $deduction = '扣除';
+        }
+        else {
+            $referral_account_registered = '紹介アカウントが登録されました';
+            $Addition = '追加';
+            $referral_account_course_purchased = '紹介アカウントコースを購入しました';
+            $referral_link_created = '紹介リンクを作成しました';
+            $withdrawal = '撤退';
+            $deduction = '控除';
+        }
+
         $student = Auth::user();
 
         $invites = ReferFriend::where('user_id', $student->id)->where('status', '1')->get();
         $refer_point_activities = ReferPointActivity::where('referred_by_id', $student->id)->where('status', '1')->orderBy('id', 'desc')->get();
+
+        dd($refer_point_activities);
+
+        // foreach($refer_point_activities as $refer_point_activity) {
+        //     $refer_point_activity->
+        // }
 
         if(count($refer_point_activities) > 0) {
             $refer_point_balance = $refer_point_activities->first()->balance;
