@@ -22,7 +22,7 @@ class ReferFriendController extends Controller
 
         if($language == 'English') {
             $referral_account_registered = 'Referral account registered';
-            $Addition = 'Addition';
+            $addition = 'Addition';
             $referral_account_course_purchased = 'Referral account course purchased';
             $referral_link_created = 'Referral link created';
             $withdrawal = 'Withdrawal';
@@ -30,7 +30,7 @@ class ReferFriendController extends Controller
         }
         elseif($language == 'Chinese') {
             $referral_account_registered = '被推荐人注册';
-            $Addition = '增加';
+            $addition = '增加';
             $referral_account_course_purchased = '被推荐人课程购买';
             $referral_link_created = '推荐链接创建';
             $withdrawal = '提现';
@@ -38,7 +38,7 @@ class ReferFriendController extends Controller
         }
         else {
             $referral_account_registered = '紹介アカウントが登録されました';
-            $Addition = '追加';
+            $addition = '追加';
             $referral_account_course_purchased = '紹介アカウントコースを購入しました';
             $referral_link_created = '紹介リンクを作成しました';
             $withdrawal = '撤退';
@@ -50,11 +50,28 @@ class ReferFriendController extends Controller
         $invites = ReferFriend::where('user_id', $student->id)->where('status', '1')->get();
         $refer_point_activities = ReferPointActivity::where('referred_by_id', $student->id)->where('status', '1')->orderBy('id', 'desc')->get();
 
-        dd($refer_point_activities);
+        foreach($refer_point_activities as $refer_point_activity) {
+            if($refer_point_activity->activity == 'Withdrawal') {
+                $refer_point_activity->activity = $withdrawal;
+            }
+            elseif($refer_point_activity->activity == 'Referral link created') {
+                $refer_point_activity->activity = $referral_link_created;
+            }
+            elseif(strpos($refer_point_activity->activity, 'Referral account registered') !== false) {
+                $refer_point_activity->activity = str_replace('Referral account registered', $referral_account_registered, $refer_point_activity->activity);
+            }
+            else {
+                $refer_point_activity->activity = str_replace('Referral account course purchased', $referral_account_course_purchased, $refer_point_activity->activity);
+            }
 
-        // foreach($refer_point_activities as $refer_point_activity) {
-        //     $refer_point_activity->
-        // }
+
+            if($refer_point_activity->type == 'Addition') {
+                $refer_point_activity->type = $addition;
+            }
+            else {
+                $refer_point_activity->type = $deduction;
+            }
+        }
 
         if(count($refer_point_activities) > 0) {
             $refer_point_balance = $refer_point_activities->first()->balance;
