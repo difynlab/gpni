@@ -188,7 +188,7 @@
                                             <div class="swiper-slide testimonial">
                                                 <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
 
-                                                <p class="testimonial-content">{{ $testimonial->content }}</p>
+                                                <div class="testimonial-content fs-20">{{ $testimonial->content }}</div>
 
                                                 <div class="author">
                                                     @if($testimonial->image)
@@ -217,57 +217,50 @@
 @endsection
 
 @push('after-scripts')
-        <script>
-        const testimonialsSwiper = new Swiper(".testimonials", {
-            effect: "cube",
-            grabCursor: true,
-            loop: true,
-            cubeEffect: {
-                shadow: false,
-            },
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+    <script>
+        let testimonialsSwiper;
+
+        function initSwiper() {
+            if (testimonialsSwiper) {
+                testimonialsSwiper.destroy(true, true);
+            }
+
+            testimonialsSwiper = new Swiper(".testimonials", {
+                effect: "cube",
+                grabCursor: true,
+                cubeEffect: {
+                    shadow: false,
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                watchOverflow: true,
+            });
+        }
+
+        // Initialize when document is ready
+        document.addEventListener('DOMContentLoaded', initSwiper);
+
+        // Reinitialize on resize
+        window.addEventListener('resize', () => {
+            if (testimonialsSwiper) {
+                testimonialsSwiper.update();
+            }
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('unload', () => {
+            if (testimonialsSwiper) {
+                testimonialsSwiper.destroy();
+            }
         });
     </script>
-    <!-- //     function rotateTestimonials() {
-    //         const testimonials = document.querySelectorAll('.testimonial');
-    //         const numberOfTestimonials = testimonials.length;
-    //         let clearIndex = Array.from(testimonials).findIndex(t => t.classList.contains('clear'));
-
-    //         if(clearIndex >= 0) {
-    //             testimonials[clearIndex].classList.remove('clear');
-    //             testimonials[clearIndex].classList.add('blurry');
-    //         }
-
-    //         const nextClearIndex = (clearIndex + 1) % numberOfTestimonials;
-    //         testimonials[nextClearIndex].classList.add('clear');
-    //         testimonials[nextClearIndex].classList.remove('blurry');
-
-    //         testimonials.forEach((t, i) => {
-    //             const diff = (i - nextClearIndex + numberOfTestimonials) % numberOfTestimonials;
-    //             if(diff === 0) {
-    //                 t.style.top = '50%';
-    //                 t.style.transform = 'translateY(-50%)';
-    //             }
-    //             else if (diff === 1) {
-    //                 t.style.top = '100%';
-    //                 t.style.transform = 'translateY(-100%)';
-    //             }
-    //             else if (diff === 2) {
-    //                 t.style.top = '0%';
-    //                 t.style.transform = 'translateY(0)';
-    //             }
-    //         });
-    //     }
-
-    //     window.addEventListener('DOMContentLoaded', () => {
-    //         setInterval(rotateTestimonials, 3000);
-    //     }); -->
-    
 @endpush

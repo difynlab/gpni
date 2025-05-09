@@ -157,7 +157,7 @@
     .dropdown-submenu .dropdown-menu.show {
         display: block;
         border:none;
-        width:80%;
+        width:90%;
     }
 
     .dropdown-submenu .dropdown-toggle {
