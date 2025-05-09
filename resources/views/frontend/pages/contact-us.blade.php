@@ -55,9 +55,9 @@
                     </div>
 
                     <div class="form-row fs-20">
-                        <div class="form-group col-12 comments-group">
+                        <div class="form-group col-12 mt-3">
                             <label for="comments" class="required">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
-                            <textarea class="form-control form-textarea" id="comments" rows="4" name="comments" value="{{ old('first_name') }}" required>{{ old('comments') }}</textarea>
+                            <textarea class="form-control" id="comments" rows="4" name="comments" value="{{ old('first_name') }}" required>{{ old('comments') }}</textarea>
                         </div>
                     </div>
 

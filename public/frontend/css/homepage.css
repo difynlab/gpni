@@ -294,7 +294,7 @@
 .section-4 .student-video video {
     width: 100%;
     height: 350px;
-    object-fit: cover;
+    object-fit: fill;
     /* object-fit: contain; */
     border-radius: 15px;
 }
@@ -863,6 +863,26 @@ html {
     .courses-swiper .card-title {
         font-size: 1.1rem;
         margin-bottom: 0.75rem;
+    }
+}
+@media (min-width: 319px) and (max-width: 374px) {
+    .courses-swiper {
+        padding-bottom: 130px;
+    }
+}
+@media (min-width: 375px) and (max-width: 424px) {
+    .courses-swiper {
+        padding-bottom: 80px;
+    }
+}
+@media (min-width: 425px) and (max-width: 575px) {
+    .courses-swiper {
+        padding-bottom: 40px;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .courses-swiper {
+        padding-bottom: 120px;
     }
 }
 
