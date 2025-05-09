@@ -351,7 +351,10 @@
 
                         <div class="form-group mb-4">
                             <label for="phone-number">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
-                            <input type="tel" class="form-control" id="phone-number" name="phone_number" required>
+                            {{-- <input type="tel" class="form-control" id="phone-number" name="phone_number" required> --}}
+                            {{-- <input type="tel" class="form-control" id="phone-number" name="phone_number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number"> --}}
+                            <input type="tel" class="form-control" id="phone-number" name="phone_number" required pattern="^\+?[0-9]{10,15}$" title="Please enter a valid phone number (10 to 15 digits, optional + sign)">
+
                         </div>
 
                         <div class="form-group mb-4">
