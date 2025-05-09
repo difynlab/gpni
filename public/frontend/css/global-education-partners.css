@@ -345,10 +345,10 @@ body {
     border: 1px solid #ffffff;
 }
 
-.education-table .table-bordered th,
+/* .education-table .table-bordered th,
 .education-table .table-bordered td {
     border: 1.5px solid #ffffff;
-}
+} */
 /* 
 .gx-4 {
     --bs-gutter-x: -364px;

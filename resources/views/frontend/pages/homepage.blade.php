@@ -287,7 +287,7 @@
                                             <div class="swiper-slide testimonial">
                                                 <img src="{{ asset('storage/frontend/testimonial-quote.svg') }}" alt="Quote Icon" class="quote">
 
-                                                <div class="testimonial-content text-heading text-content">{{ $testimonial->content }}</div>
+                                                <div class="testimonial-content text-heading text-content fs-20">{{ $testimonial->content }}</div>
 
                                                 <div class="author">
                                                     @if($testimonial->image)
