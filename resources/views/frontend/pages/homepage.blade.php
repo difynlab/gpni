@@ -164,7 +164,8 @@
                                                 </div>
                                             @endforeach
                                         </div>
-                                        <div class="swiper-pagination"></div>
+                                        <!-- Add specific pagination container for this swiper -->
+                                        <div class="swiper-pagination courses-pagination"></div>
                                     </div>
                                 </div>
                             </div>
@@ -551,7 +552,7 @@
 @endsection
 
 @push('after-scripts')
-    <script>
+<script>
         const testimonialsSwiper = new Swiper(".testimonials", {
             effect: "cube",
             grabCursor: true,
@@ -569,23 +570,22 @@
             },
         });
         
-        // Initialize courses swipers
-        const initializeCoursesSwiper = (selector) => {
-            return new Swiper(selector, {
+        // Initialize courses swipers with unique pagination
+        const initializeCoursesSwiper = (container) => {
+            return new Swiper(container, {
                 slidesPerView: 1,
                 spaceBetween: 20,
                 grabCursor: true,
                 pagination: {
-                    el: `${selector} .swiper-pagination`,
+                    el: container.querySelector('.courses-pagination'),
                     clickable: true,
+                    type: 'bullets'
                 },
                 breakpoints: {
-                    // when window width is >= 576px
                     576: {
                         slidesPerView: 2,
                         spaceBetween: 20
                     },
-                    // when window width is >= 992px
                     992: {
                         slidesPerView: 3,
                         spaceBetween: 30
@@ -596,26 +596,22 @@
         
         // Initialize all course swipers
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize all course swipers
-            const allTabSwipers = document.querySelectorAll('.courses-swiper');
-            allTabSwipers.forEach((swiperElement) => {
-                initializeCoursesSwiper(`.${swiperElement.className.split(' ').join('.')}`);
+            const allSwipers = document.querySelectorAll('.courses-swiper');
+            allSwipers.forEach((swiperEl) => {
+                initializeCoursesSwiper(swiperEl);
             });
             
-            // Re-initialize the swiper when a tab is shown
+            // Re-initialize swiper when switching tabs
             const tabLinks = document.querySelectorAll('a[data-bs-toggle="pill"]');
             tabLinks.forEach(tabLink => {
-                tabLink.addEventListener('shown.bs.tab', function(event) {
-                    const target = event.target.getAttribute('href');
-                    const swiper = document.querySelector(`${target} .courses-swiper`);
-                    if (swiper) {
-                        const swiperInstance = swiper.swiper;
-                        if (swiperInstance) {
-                            swiperInstance.update();
-                        }
+                tabLink.addEventListener('shown.bs.tab', function(e) {
+                    const targetId = e.target.getAttribute('href');
+                    const targetSwiper = document.querySelector(`${targetId} .courses-swiper`);
+                    if (targetSwiper && targetSwiper.swiper) {
+                        targetSwiper.swiper.update();
                     }
                 });
             });
         });
-    </script>
+</script>
 @endpush

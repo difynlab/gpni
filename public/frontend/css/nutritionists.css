@@ -90,12 +90,13 @@
     padding-top: 45px; /* Add space at top for qualified badge */
 }
 .coach-card .image {
-    width: 43%;
-    height: 100px;
-    object-fit: cover;
+    width: 120px; /* Fixed width */
+    height: 120px; /* Fixed height to maintain perfect circle */
+    object-fit: cover; /* Ensures image fills the space properly */
     border-radius: 50%;
     margin: 15px auto;
     display: block;
+    border: 2px solid #3766C5; /* Optional: adds a border around the image */
 }
 
 .qualified-coach,
@@ -349,7 +350,6 @@
     background: #fff;
     border-radius: 10px;
     padding: 20px;
-    display: flex;
     position: relative;
     overflow: hidden;
 }
@@ -357,12 +357,9 @@
 /* General coach image styles */
 .coach-image {
     width: 100%;
-    max-width: 300px; /* Set a maximum width for larger screens */
-    height: 440px;
-    object-fit: fill; 
-    /* border-radius: 50%; 
-    margin: 0 auto 20px auto; /* Center the image and add bottom margin */
-    display: block;
+    max-width: 300px; 
+    height: 400px;
+    object-fit: cover;
 }
 
 /* Styles for the coach image in the "View Profile" pop-up */
@@ -382,11 +379,16 @@
 }
 
 .qr-code {
-    position: absolute;
-    top: 40px;
-    right: 20px;
+    position: static;
     width: 120px;
     height: 120px;
+}
+
+.qr-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* padding-top: 40px; */
 }
 
 .no-data {
@@ -419,8 +421,8 @@
 }
 
 .intro-paragraph {
-    border: 1px solid rgba(146, 146, 157, 0.39);
-    padding: 10px;
+    /* border: 1px solid rgba(146, 146, 157, 0.39);
+    padding: 10px; */
     border-radius: 5px;
     width: 100%;
 }
@@ -434,8 +436,10 @@
 }
 .side-section {
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
 }
+
 /* Fix for modal shifting issues - CSS only solution */
 body.modal-open {
     overflow: auto !important;
@@ -633,6 +637,19 @@ html {
         padding-left: 0;
         width: 100%;
     }
+
+    .qr-section {
+        padding-top: 20px;
+        order: 2;
+    }
+
+    .details-content {
+        order: 3;
+    }
+
+    .side-section {
+        order: 1;
+    }
 }
 /* Ensure "Contact Coach Now" and "Qualified Coach" appear in one line for small, medium, and large devices */
 @media (max-width: 991.98px) {
@@ -674,5 +691,114 @@ html {
 @media (min-width: 1024px) and (max-width: 1439.98px) {
     .learn-best-section h1 {
         font-size: 2.5rem; /* Adjust font size to fit in one line */
+    }
+}
+
+/* .contact-button-section {
+    margin-top: 20px;
+} */
+
+.contact-button-section {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.contact-button-section .contact-now {
+    min-width: 200px;
+    max-width: 300px;
+    width: auto;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+@media (max-width: 991.98px) {
+    .contact-button-section .contact-now {
+        width: 80%;
+        max-width: 250px;
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contact-button-section {
+        margin-top: 15px;
+    }
+    
+    .contact-button-section .contact-now {
+        width: 90%;
+        max-width: 200px;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+/* Update media query for tablets */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .profile-content .row {
+        flex-direction: column;
+    }
+
+    .side-section {
+        margin-bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        order: 1;
+    }
+
+    .details-content {
+        padding: 0;
+        order: 3;
+    }
+
+    .qr-section {
+        padding-top: 0;
+        margin-bottom: 20px;
+        order: 2;
+    }
+
+    .qr-code {
+        width: 100px;  /* Reduced from 150px */
+        height: 100px; /* Reduced from 150px */
+    }
+
+    /* Ensure contact button stays at bottom */
+    .contact-button-section {
+        order: 4;
+    }
+}
+
+/* Add specific tablet layout adjustments */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .coach-image {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+    }
+
+    .side-section {
+        padding: 0 10px;
+    }
+
+    .details-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Specific fix for 1024px screens */
+@media screen and (width: 1024px) {
+    .coach-card {
+        padding-top: 60px; /* Increase top padding to prevent overlap */
+    }
+    
+    .qualified-coach {
+        top: 15px; /* Adjust top position */
+        width: auto;
+        min-width: 120px;
+        text-align: center;
     }
 }

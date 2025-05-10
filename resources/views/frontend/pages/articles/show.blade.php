@@ -108,8 +108,8 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
-                                                    <div class="trending-content-title fs-16 title-clamp">{{ $latest_article->title }}</div>
-                                                    <div class="line-clamp-2 trending-content-description">
+                                                    <div class="trending-content-title fs-18 title-clamp">{{ $latest_article->title }}</div>
+                                                    <div class="line-clamp-2 trending-content-description fs-16">
                                                         {!! strip_tags($latest_article->content) !!}
                                                     </div>
                                                     <div

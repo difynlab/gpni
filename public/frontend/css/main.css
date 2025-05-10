@@ -137,6 +137,10 @@ Define font weights for Poppins */
     font-size: 16px; /* was 1.000rem */
 }
 
+.fs-18 {
+    font-size: 18px;
+}
+
 .fs-20 {
     font-size: 20px; /* was 1.250rem */
 }
@@ -385,6 +389,10 @@ Define font weights for Poppins */
         font-size: 16px; /* was 1rem */
     }
 
+    .fs-18 {
+        font-size: 15px;
+    }
+
     .fs-16 {
         font-size: 14px; /* was 0.875rem */
     }
@@ -476,6 +484,9 @@ Define font weights for Poppins */
         font-size: 14px; /* was 0.875rem */
     }
 
+    .fs-18 {
+        font-size: 13px;
+    }
 
     .fs-16 {
         font-size: 12px; /* was 0.75rem */
@@ -562,6 +573,10 @@ Define font weights for Poppins */
 
     .fs-20 {
         font-size: 14px; /* was 0.875rem */
+    }
+
+    .fs-18 {
+        font-size: 13px;
     }
 
     .fs-16 {

@@ -394,41 +394,45 @@
 
                 <div class="modal-body">
                     <div class="profile-content">
-                        <div class="side-section">
-                            <img src="" alt="Coach Image" class="coach-image">
-                        </div>
-                        <div class="details-content">
-                            <img src="" class="qr-code" alt="QR Code">
-
-                            <div class="mb-3 name fw-bold">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</div>
-                            
-                            <div class="fs-16 mb-3"><strong>{{ $contents->{'age_' . $middleware_language} ?? $contents->age_en }}:</strong> <span class="age"></span></div>
-
-                            <div class="fs-16 mb-3"><strong>{{ $contents->{'country_' . $middleware_language} ?? $contents->country_en }}:</strong> <span class="country"></span></div>
-
-                            <div class="fs-16 mb-3"><strong>{{ $contents->{'cec_status_' . $middleware_language} ?? $contents->cec_status_en }}:</strong> <span class="highlight cec-status"></span></div>
-
-                            <div class="fs-16 mb-3"><strong>{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}:</strong> <span class="credentials"></span></div>
-
-                            <div class="fs-16 mb-3"><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></div>
-
-                            <div class="fs-16 mb-3"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></div>
-
-                            <div class="fs-16 mb-3">
-                                <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
-                                <span class="area-of-interest"></span>
+                        <div class="row mb-3">
+                            <div class="side-section col-12 col-md-12 col-lg-4">
+                                <img src="" alt="Coach Image" class="coach-image">
                             </div>
-
-                            <div class="fs-16 mb-3">
-                                <strong>{{ $contents->{'self_introduction_' . $middleware_language} ?? $contents->self_introduction_en }}:</strong>
+                            <div class="col-12 col-md-12 col-lg-5 details-content mb-3">
+                                <div class="mb-3 name fw-bold fs-25">{{ $contents->{'coach_name_' . $middleware_language} ?? $contents->coach_name_en }}</div>
                                 
-                            </div>
-                            <div class="intro-paragraph fs-16 mb-3"></div>
+                                <div class="fs-16 mb-3"><strong>{{ $contents->{'age_' . $middleware_language} ?? $contents->age_en }}:</strong> <span class="age"></span></div>
 
-                            <div class="bottom-section">
-                                <div class="coach-location-model-item coach-contact-link">
-                                    <a class="contact-now" data-bs-toggle="modal" data-bs-target="#contact-modal">{{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}</a>
+                                <div class="fs-16 mb-3"><strong>{{ $contents->{'country_' . $middleware_language} ?? $contents->country_en }}:</strong> <span class="country"></span></div>
+
+                                <div class="fs-16 mb-3"><strong>{{ $contents->{'cec_status_' . $middleware_language} ?? $contents->cec_status_en }}:</strong> <span class="highlight cec-status"></span></div>
+
+                                <div class="fs-16 mb-3"><strong>{{ $contents->{'credentials_' . $middleware_language} ?? $contents->credentials_en }}:</strong> <span class="credentials"></span></div>
+
+                                <div class="fs-16 mb-3"><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></div>
+
+                                <div class="fs-16 mb-3"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></div>
+
+                                <div class="fs-16 mb-3">
+                                    <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
+                                    <span class="area-of-interest"></span>
                                 </div>
+
+                                <div class="fs-16 mb-3">
+                                    <strong>{{ $contents->{'self_introduction_' . $middleware_language} ?? $contents->self_introduction_en }}:</strong>
+                                </div>
+                                <div class="intro-paragraph fs-16"></div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-3 qr-section text-center">
+                                <img src="" class="qr-code" alt="QR Code">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12 text-center contact-button-section">
+                                <button class="contact-now" data-bs-toggle="modal" data-bs-target="#contact-modal">
+                                    {{ $contents->{'contact_coach_' . $middleware_language} ?? $contents->contact_coach_en }}
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -871,18 +871,28 @@ html {
 }
 
 .courses-swiper .swiper-pagination {
+    position: absolute;
     bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .courses-swiper .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
+    margin: 0 5px;
     background: #ccc;
     opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .courses-swiper .swiper-pagination-bullet-active {
     background: #0040c3;
+    transform: scale(1.2);
 }
 
 /* Responsive adjustments for cards */

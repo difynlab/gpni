@@ -172,10 +172,10 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="trending-content">
-                                                    <div class="trending-content-title title-clamp fs-16">{{ $trending_article->title }}
+                                                    <div class="trending-content-title title-clamp fs-18">{{ $trending_article->title }}
                                                     </div>
 
-                                                    <div class="line-clamp-2 trending-content-description">{{ $trending_article->short_description }}</div>
+                                                    <div class="line-clamp-2 trending-content-description fs-16">{{ $trending_article->short_description }}</div>
 
                                                     <div
                                                         class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2">
