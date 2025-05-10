@@ -54,9 +54,17 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'title' => 'required|min:3|max:250',
             'new_thumbnail' => 'nullable|max:30720',
-            'new_author_image' => 'nullable|max:30720'
+            'new_author_image' => 'nullable|max:30720',
+            // 'Short Description' => 'required|min:3|max:250'
         ], [
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
+            // 'Short Description' => 'The Short Description field is required.',
+            // 'Short Description.min' => 'The Short Description must be at least 3 characters.',
+            // 'Short Description.max' => 'The Short Description must not be greater than 250 characters.',
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_author_image.max' => 'The author image must not be greater than 30 MB'
         ]);
@@ -112,9 +120,17 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $validator = Validator::make($request->all(), [
+            'title' => 'required|min:3|max:250',
             'new_thumbnail' => 'nullable|max:30720',
-            'new_author_image' => 'nullable|max:30720'
+            'new_author_image' => 'nullable|max:30720',
+            // 'Short Description' => 'required|min:3|max:250'
         ], [
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
+            // 'Short Description' => 'The Short Description field is required.',
+            // 'Short Description.min' => 'The Short Description must be at least 3 characters.',
+            // 'Short Description.max' => 'The Short Description must not be greater than 250 characters.',
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_author_image.max' => 'The author image must not be greater than 30 MB'
         ]);

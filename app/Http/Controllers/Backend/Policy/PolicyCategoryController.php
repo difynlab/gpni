@@ -42,6 +42,18 @@ class PolicyCategoryController extends Controller
                                                                               
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:3|max:250',
+        ], [
+            'name' => 'The name field is required.',
+            'name.min' => 'The name must be at least 3 characters.',
+            'name.max' => 'The name must not be greater than 250 characters.',
+        ]);
+        
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+        }
+
         $policy_category = new PolicyCategory();
         $data = $request->all();
         $policy_category->create($data);
@@ -58,6 +70,17 @@ class PolicyCategoryController extends Controller
 
     public function update(Request $request, PolicyCategory $policy_category)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:3|max:250',
+        ], [
+            'name' => 'The name field is required.',
+            'name.min' => 'The name must be at least 3 characters.',
+            'name.max' => 'The name must not be greater than 250 characters.',
+        ]);
+        
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
+        }
         $data = $request->all();
         $policy_category->fill($data)->save();
         

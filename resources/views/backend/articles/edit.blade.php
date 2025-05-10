@@ -19,6 +19,7 @@
                         <div class="mb-4">
                             <label for="title" class="form-label">Title<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $article->title) }}" placeholder="Title" required>
+                            <x-backend.input-error field="title"></x-backend.input-error>
                         </div>
 
                         <div class="mb-4">

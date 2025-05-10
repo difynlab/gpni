@@ -44,8 +44,11 @@ class FAQController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'answer' => 'required',
+            'date' => 'required|date_format:Y-m-d',
         ], [
-            'answer.required' => 'The answer field is required'
+            'answer.required' => 'The answer field is required',
+            'date.required' => 'The date field is required.',
+            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
         ]);
         
         if($validator->fails()) {
@@ -70,8 +73,11 @@ class FAQController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'answer' => 'required',
+            'date' => 'required|date_format:Y-m-d',
         ], [
-            'answer.required' => 'The answer field is required'
+            'answer.required' => 'The answer field is required',
+            'date.required' => 'The date field is required.',
+            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
         ]);
         
         if($validator->fails()) {

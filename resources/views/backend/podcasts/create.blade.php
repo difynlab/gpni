@@ -18,6 +18,7 @@
                         <div class="mb-4">
                             <label for="title" class="form-label">Title<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="{{ old('title') }}" required>
+                            <x-backend.input-error field="title"></x-backend.input-error>
                         </div>
 
                         <div class="mb-4">

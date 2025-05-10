@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Backend\Conference;
 
 use App\Http\Controllers\Controller;
 use App\Models\Conference;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class ConferenceController extends Controller
 {
     private function processConferences($conferences)
@@ -41,6 +42,21 @@ class ConferenceController extends Controller
     
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:3|max:250',
+            'date' => 'required|date_format:Y-m-d',
+        ], messages: [
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
+            'date.required' => 'The date field is required.',
+            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+        ]);   
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+        }
+
         if($request->more_detail_titles != null) {
             $more_details = [];
             foreach($request->more_detail_titles as $key => $title) {
@@ -90,6 +106,21 @@ class ConferenceController extends Controller
 
     public function update(Request $request, Conference $conference)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:3|max:250',
+            'date' => 'required|date_format:Y-m-d',
+        ], messages: [
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
+            'date.required' => 'The date field is required.',
+            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+        ]);   
+        
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+        }
+        
         if($request->more_detail_titles != null) {
             $more_details = [];
             foreach($request->more_detail_titles as $key => $title) {

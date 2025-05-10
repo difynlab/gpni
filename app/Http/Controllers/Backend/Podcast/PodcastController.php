@@ -48,10 +48,14 @@ class PodcastController extends Controller
             'video' => 'max:102400',
             'content' => 'required',
             'new_thumbnail' => 'image|max:30720',
+            'title' => 'required|min:3|max:250',
         ], [
             'video.max' => 'The video size must not exceed 100 MB',
             'content.required' => 'This field is required',
-            'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB'
+            'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
         ]);
         
         if($validator->fails()) {
@@ -102,12 +106,18 @@ class PodcastController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'video' => 'nullable|max:102400',
-            'content' => 'required',
-            'new_thumbnail' => 'nullable|max:30720'
+            'content' => 'required|min:100|max:1000',
+            'new_thumbnail' => 'nullable|max:30720',
+            'title' => 'required|min:3|max:250',
         ], [
             'video.max' => 'The video size must not exceed 100 MB',
             'content.required' => 'This field is required',
+            'content.min' => 'The content must be at least 100 characters.',
+            'content.max' => 'The content must not be greater than 1000 characters.',
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
         ]);
         
         if($validator->fails()) {
