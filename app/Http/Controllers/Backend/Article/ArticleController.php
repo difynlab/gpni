@@ -55,10 +55,17 @@ class ArticleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'new_thumbnail' => 'nullable|max:30720',
-            'new_author_image' => 'nullable|max:30720'
+            'new_author_image' => 'nullable|max:30720',
+            'title' => 'required|min:3|max:250',
+            'short_description' => 'nullable|min:3|max:250'
         ], [
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
-            'new_author_image.max' => 'The author image must not be greater than 30 MB'
+            'new_author_image.max' => 'The author image must not be greater than 30 MB',
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
+            'short_description.min' => 'The short description must be at least 3 characters.',
+            'short_description.max' => 'The short description must not be greater than 250 characters.',
         ]);
         
         if($validator->fails()) {
@@ -113,10 +120,17 @@ class ArticleController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'new_thumbnail' => 'nullable|max:30720',
-            'new_author_image' => 'nullable|max:30720'
+            'new_author_image' => 'nullable|max:30720',
+            'title' => 'required|min:3|max:250',
+            'short_description' => 'nullable|min:3|max:250'
         ], [
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
-            'new_author_image.max' => 'The author image must not be greater than 30 MB'
+            'new_author_image.max' => 'The author image must not be greater than 30 MB',
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.',
+            'short_description.min' => 'The short description must be at least 3 characters.',
+            'short_description.max' => 'The short description must not be greater than 250 characters.',
         ]);
         
         if($validator->fails()) {

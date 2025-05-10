@@ -18,11 +18,13 @@
                         <div class="mb-4">
                             <label for="title" class="form-label">Title<span class="asterisk">*</span></label>
                             <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Title" required>
+                            <x-backend.input-error field="title"></x-backend.input-error>
                         </div>
 
                         <div class="mb-4">
                             <label for="short_description" class="form-label">Short Description</label>
                             <input type="text" class="form-control" id="short_description" name="short_description" value="{{ old('short_description') }}" placeholder="Short Description">
+                            <x-backend.input-error field="short_description"></x-backend.input-error>
                         </div>
 
                         <div class="mb-4">

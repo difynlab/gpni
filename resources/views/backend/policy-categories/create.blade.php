@@ -17,6 +17,7 @@
                     <div class="col-6">
                         <label for="name" class="form-label">Name<span class="asterisk">*</span></label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Name" required>
+                        <x-backend.input-error field="name"></x-backend.input-error>
                     </div>
                     <div class="col-6">
                         <label for="language" class="form-label">Language<span class="asterisk">*</span></label>
