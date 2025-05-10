@@ -18,11 +18,13 @@
                     <div class="col-6 mb-4">
                         <label for="title" class="form-label">Title<span class="asterisk">*</span></label>
                         <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $conference->title) }}" placeholder="Event Title" required>
+                        <x-backend.input-error field="title"></x-backend.input-error>
                     </div>
 
                     <div class="col-6 mb-4">
                         <label for="date" class="form-label">Date<span class="asterisk">*</span></label>
                         <input type="text" class="form-control" id="date" name="date" value="{{ old('date', $conference->date) }}" placeholder="Date" required>
+                        <x-backend.input-error field="date"></x-backend.input-error>
                     </div>
 
                     <div class="col-6 mb-4">

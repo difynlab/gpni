@@ -351,7 +351,8 @@
 
                         <div class="form-group mb-4">
                             <label for="phone-number">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
-                            <input type="tel" class="form-control" id="phone-number" name="phone_number" required>
+                            <input type="text" class="form-control" id="phone-number" name="phone_number" required>
+                            <x-frontend.input-error field="phone_number"></x-frontend.input-error>
                         </div>
 
                         <div class="form-group mb-4">
