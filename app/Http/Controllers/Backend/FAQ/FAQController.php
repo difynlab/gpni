@@ -43,12 +43,15 @@ class FAQController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'answer' => 'required',
-            'date' => 'required|date_format:Y-m-d',
+            'question' => 'required|min:3|max:65535',
+            'answer' => 'required|min:10|max:65535',
         ], [
-            'answer.required' => 'The answer field is required',
-            'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+            'question.required' => 'The question field is required.',
+            'question.min' => 'The question must be at least 3 characters.',
+            'question.max' => 'The question must not be greater than 250 characters.',
+            'answer.required' => 'This answer field is required.',
+            'answer.min' => 'The answer must be at least 10 characters.',
+            'answer.max' => 'The answer must not be greater than 65535 characters.',
         ]);
         
         if($validator->fails()) {
@@ -72,12 +75,15 @@ class FAQController extends Controller
     public function update(Request $request, FAQ $faq)
     {
         $validator = Validator::make($request->all(), [
-            'answer' => 'required',
-            'date' => 'required|date_format:Y-m-d',
+            'question' => 'required|min:3|max:65535',
+            'answer' => 'required|min:10|max:65535',
         ], [
-            'answer.required' => 'The answer field is required',
-            'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+            'question.required' => 'The question field is required.',
+            'question.min' => 'The question must be at least 3 characters.',
+            'question.max' => 'The question must not be greater than 250 characters.',
+            'answer.required' => 'This answer field is required.',
+            'answer.min' => 'The answer must be at least 10 characters.',
+            'answer.max' => 'The answer must not be greater than 65535 characters.',
         ]);
         
         if($validator->fails()) {

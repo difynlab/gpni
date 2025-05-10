@@ -43,14 +43,11 @@ class ConferenceController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|min:3|max:250',
-            'date' => 'required|date_format:Y-m-d',
-        ], messages: [
+            'title' => 'required|min:3|max:250'
+        ], [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
-            'title.max' => 'The title must not be greater than 250 characters.',
-            'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+            'title.max' => 'The title must not be greater than 250 characters.'
         ]);   
 
         if($validator->fails()) {
@@ -107,18 +104,15 @@ class ConferenceController extends Controller
     public function update(Request $request, Conference $conference)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|min:3|max:250',
-            'date' => 'required|date_format:Y-m-d',
-        ], messages: [
+            'title' => 'required|min:3|max:250'
+        ], [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
-            'title.max' => 'The title must not be greater than 250 characters.',
-            'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
-        ]);   
+            'title.max' => 'The title must not be greater than 250 characters.'
+        ]);    
         
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
         
         if($request->more_detail_titles != null) {

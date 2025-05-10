@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Policy;
 use App\Models\PolicyCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PolicyCategoryController extends Controller
 {
@@ -45,11 +46,11 @@ class PolicyCategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:3|max:250',
         ], [
-            'name' => 'The name field is required.',
-            'name.min' => 'The name must be at least 3 characters.',
-            'name.max' => 'The name must not be greater than 250 characters.',
+            'name.required' => 'The name field is required.',
+            'name.min' => 'The name field must be at least 3 characters.',
+            'name.max' => 'The name field must not be greater than 250 characters.',
         ]);
-        
+
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
         }
@@ -73,14 +74,15 @@ class PolicyCategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:3|max:250',
         ], [
-            'name' => 'The name field is required.',
-            'name.min' => 'The name must be at least 3 characters.',
-            'name.max' => 'The name must not be greater than 250 characters.',
+            'name.required' => 'The name field is required.',
+            'name.min' => 'The name field must be at least 3 characters.',
+            'name.max' => 'The name field must not be greater than 250 characters.',
         ]);
         
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
+
         $data = $request->all();
         $policy_category->fill($data)->save();
         
