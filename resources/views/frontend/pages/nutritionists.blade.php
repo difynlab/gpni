@@ -350,8 +350,14 @@
                         </div>
 
                         <div class="form-group mb-4">
+<<<<<<< HEAD
                             <label for="phone_number">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
                             <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
+=======
+                            <label for="phone-number">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
+                            <input type="text" class="form-control" id="phone-number" name="phone_number" required>
+                            <x-frontend.input-error field="phone_number"></x-frontend.input-error>
+>>>>>>> 94d5cc83da5eda2d2e602b221400884cf6c7dee9
                         </div>
 
                         <div class="form-group mb-4">

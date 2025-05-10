@@ -51,14 +51,14 @@ class PolicyController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:3|max:250',
-            'content' => 'required|min:100|max:1000',
+            'content' => 'required|min:10|max:65535',
         ], [
-            'content.required' => 'This field is required',
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
             'title.max' => 'The title must not be greater than 250 characters.',
-            'content.min' => 'The content must be at least 100 characters.',
-            'content.max' => 'The content must not be greater than 1000 characters.',
+            'content.required' => 'This content field is required.',
+            'content.min' => 'The content must be at least 10 characters.',
+            'content.max' => 'The content must not be greater than 65535 characters.',
         ]);
         
         if($validator->fails()) {
@@ -85,13 +85,15 @@ class PolicyController extends Controller
     public function update(Request $request, Policy $policy)
     {
         $validator = Validator::make($request->all(), [
-            'content' => 'required',
             'title' => 'required|min:3|max:250',
+            'content' => 'required|min:10|max:65535',
         ], [
-            'content.required' => 'This field is required',
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
             'title.max' => 'The title must not be greater than 250 characters.',
+            'content.required' => 'This content field is required.',
+            'content.min' => 'The content must be at least 10 characters.',
+            'content.max' => 'The content must not be greater than 65535 characters.',
         ]);
         
         if($validator->fails()) {

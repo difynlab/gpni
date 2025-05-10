@@ -20,6 +20,21 @@ class QualificationController extends Controller
 {
     public function index(Request $request)
     {
+        $language = $request->middleware_language_name;
+
+        if($language == 'English') {
+            $addition = 'Addition';
+            $deduction = 'Deduction';
+        }
+        elseif($language == 'Chinese') {
+            $addition = '增加';
+            $deduction = '扣除';
+        }
+        else {
+            $addition = '追加';
+            $deduction = '控除';
+        }
+
         $student = Auth::user();
         $courses = $request->qualification ? Course::where('title', 'like', '%' . $request->qualification . '%')->where('status', '1')->get() : Course::where('status', '1')->get();
         $course_ids = $courses->pluck('id')->toArray();
@@ -56,6 +71,15 @@ class QualificationController extends Controller
         })->filter();
 
         $cec_point_activities = CECPointActivity::where('user_id', $student->id)->where('status', '!=', '0')->orderBy('id', 'desc')->get();
+
+        foreach($cec_point_activities as $cec_point_activity) {
+            if($cec_point_activity->type == 'Addition') {
+                $cec_point_activity->type = $addition;
+            }
+            else {
+                $cec_point_activity->type = $deduction;
+            }
+        }
         
         $course_ids = $purchases->pluck('course_id')->toArray();
 

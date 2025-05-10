@@ -11,11 +11,39 @@ use App\Models\MembershipPurchase;
 use App\Models\ProductOrder;
 use App\Models\ReferPointActivity;
 use App\Models\Wallet;
+use Illuminate\Http\Request;
 
 class WalletController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $language = $request->middleware_language_name;
+
+        if($language == 'English') {
+            $gift_card_purchase_activity = 'Gift Card';
+            $refer_point_activity_activity = 'Refer Point Withdrawal';
+            $course_purchase_activity = 'Course Purchase';
+            $product_purchase_activity = 'Product Purchase';
+            $membership_purchase_activity = 'Membership Purchase';
+            $material_purchase_activity = 'Material Purchase';
+        }
+        elseif($language == 'Chinese') {
+            $gift_card_purchase_activity = '礼品卡';
+            $refer_point_activity_activity = '积分提现';
+            $course_purchase_activity = '课程购买';
+            $product_purchase_activity = '产品购买';
+            $membership_purchase_activity = '会员购买';
+            $material_purchase_activity = '教材购买';
+        }
+        else {
+            $gift_card_purchase_activity = 'ギフトカード';
+            $refer_point_activity_activity = '参照ポイントの引き出し';
+            $course_purchase_activity = 'コース購入';
+            $product_purchase_activity = '製品購入';
+            $membership_purchase_activity = '会員購入';
+            $material_purchase_activity = '資材購入';
+        }
+
         $student = Auth::user();
 
         $gift_card_purchases = GiftCardPurchase::where('receiver_email', $student->email)->where('payment_status', 'Completed')->where('refund_status', 'Not Refunded')->where('status', '1')->orderBy('id', 'desc')->get();
@@ -26,26 +54,26 @@ class WalletController extends Controller
         $material_purchases = MaterialPurchase::where('user_id', $student->id)->where('payment_status', 'Completed')->where('refund_status', 'Not Refunded')->where('wallet_amount', '!=', 0.00)->where('status', '1')->orderBy('id', 'desc')->get();
 
         foreach($gift_card_purchases as $gift_card_purchase) {
-            $gift_card_purchase->activity = 'Gift Card';   
-            $gift_card_purchase->amount = $gift_card_purchase->amount_paid;   
+            $gift_card_purchase->activity = $gift_card_purchase_activity;
+            $gift_card_purchase->amount = $gift_card_purchase->amount_paid;
         }
         foreach($refer_point_activities as $refer_point_activity) {
-            $refer_point_activity->activity = 'Refer Point Withdrawal';
+            $refer_point_activity->activity = $refer_point_activity_activity;
         }
         foreach($course_purchases as $course_purchase) {
-            $course_purchase->activity = 'Course Purchase';
+            $course_purchase->activity = $course_purchase_activity;
             $course_purchase->amount = $course_purchase->wallet_amount;
         }
         foreach($product_purchases as $product_purchase) {
-            $product_purchase->activity = 'Product Purchase';
+            $product_purchase->activity = $product_purchase_activity;
             $product_purchase->amount = $product_purchase->wallet_amount;
         }
         foreach($membership_purchases as $membership_purchase) {
-            $membership_purchase->activity = 'Membership Purchase';
+            $membership_purchase->activity = $membership_purchase_activity;
             $membership_purchase->amount = $membership_purchase->wallet_amount;
         }
         foreach($material_purchases as $material_purchase) {
-            $material_purchase->activity = 'Material Purchase';
+            $material_purchase->activity = $material_purchase_activity;
             $material_purchase->amount = $material_purchase->wallet_amount;
         }
 

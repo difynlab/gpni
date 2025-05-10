@@ -133,7 +133,6 @@ Define font weights for Poppins */
 .fs-13 {
     font-size: 13px; /* was 0.812rem */
 }
-
 .fs-16 {
     font-size: 16px; /* was 1.000rem */
 }
@@ -204,6 +203,10 @@ Define font weights for Poppins */
 .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
     font-size: 22px;
     /* color: var(--black); */
+}
+.text-content img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Add style for last p tag in text-main-content to have no margin-bottom */
@@ -680,6 +683,12 @@ Define font weights for Poppins */
     .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
         font-size: 15px;
     }
+}
+.text-url a{
+    /* text-decoration: underline; */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Responsive Button Sizes */

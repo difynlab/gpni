@@ -9,6 +9,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class NutritionistController extends Controller
@@ -355,6 +356,14 @@ class NutritionistController extends Controller
 
     public function contact(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required|regex:/^\+?[0-9]+$/'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Message sending failed');
+        }
+
         $nutritionist = User::find($request->nutritionist);
 
         $contact_coach = new ContactCoach();

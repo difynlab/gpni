@@ -43,6 +43,7 @@ class ConferenceController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+<<<<<<< HEAD
             'title' => 'required|min:3|max:250',
             'date' => 'required|min:3|max:50',
         ],  [
@@ -52,6 +53,13 @@ class ConferenceController extends Controller
             'date.required' => 'The date field is required.',
             'date.min' => 'The date must be at least 3 characters.',
             'date.max' => 'The date must not be greater than 50 characters.',
+=======
+            'title' => 'required|min:3|max:250'
+        ], [
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.'
+>>>>>>> 94d5cc83da5eda2d2e602b221400884cf6c7dee9
         ]);   
 
         if($validator->fails()) {
@@ -108,6 +116,7 @@ class ConferenceController extends Controller
     public function update(Request $request, Conference $conference)
     {
         $validator = Validator::make($request->all(), [
+<<<<<<< HEAD
             'title' => 'required|min:3|max:250',
             'date' => 'required|min:3|max:50',
         ],  [
@@ -118,9 +127,17 @@ class ConferenceController extends Controller
             'date.min' => 'The date must be at least 3 characters.',
             'date.max' => 'The date must not be greater than 50 characters.',
         ]);   
+=======
+            'title' => 'required|min:3|max:250'
+        ], [
+            'title.required' => 'The title field is required.',
+            'title.min' => 'The title must be at least 3 characters.',
+            'title.max' => 'The title must not be greater than 250 characters.'
+        ]);    
+>>>>>>> 94d5cc83da5eda2d2e602b221400884cf6c7dee9
         
         if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
         }
         
         if($request->more_detail_titles != null) {

@@ -36,8 +36,7 @@ body {
 }
 
 .comments-group label {
-    margin-bottom: 1px;
-    /* Reduce margin below the label */
+    margin-bottom: 5px;
 }
 
 .form-control,
@@ -48,10 +47,44 @@ textarea.form-textarea:focus {
     border-bottom: 1px solid #ced4da;
     border-radius: 0;
     padding: 5px 0;
-    /* Reduce padding to bring it closer to the label */
     outline: none;
     box-shadow: none;
-    width: 100%; /* Ensure the input fields take the full width */
+    width: 100%;
+    min-height: 0;
+    height: 30px;
+    resize: none;
+    line-height: normal;
+    overflow: hidden;
+    display: block;
+    margin-top: 0;
+}
+
+textarea.form-textarea {
+    height: auto;
+    min-height: 100px;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    padding: 5px 0;
+    /* Reduce padding to bring it closer to the label */
+    border-radius: 0;
+    resize: none;
+    outline: none;
+    width: 100%;
+}
+
+textarea.form-textarea,
+textarea.form-textarea:focus {
+    height: 34px;
+    overflow: hidden;
+    resize: none;
+    line-height: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    transition: height 0.1s ease;
+}
+
+textarea.form-textarea:focus {
+    height: 100px;
 }
 
 .btn-submit {
@@ -66,19 +99,6 @@ textarea.form-textarea:focus {
     font-size: 1.25rem; /* 20px */
     /* line-height: 30px; */
     margin: 30px auto;
-}
-
-textarea.form-textarea {
-    height: auto;
-    min-height: 100px;
-    border: none;
-    border-bottom: 1px solid #ced4da;
-    padding: 5px 0;
-    /* Reduce padding to bring it closer to the label */
-    border-radius: 0;
-    resize: none;
-    outline: none;
-    width: 100%; /* Ensure the textarea takes the full width */
 }
 
 .contact-info {

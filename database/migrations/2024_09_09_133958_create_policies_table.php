@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->enum('language', ['English', 'Chinese', 'Japanese']);
             $table->string('policy_category_id');
-            $table->text('content');
+            $table->mediumText('content');
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });

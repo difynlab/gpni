@@ -14,16 +14,35 @@
     line-height: 46.5px;
     color: #0e0e0e;
 }
-.table-container {
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #5b5b5b;
-    overflow-x: auto;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+
+/* Table horizontal scrollbar */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+    .table-container {
+        width: 100%;
+        background-color: #fff;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .table-container::-webkit-scrollbar {
+        height: 10px;
+    }
+    .table-container::-webkit-scrollbar-track {
+        background: #dedede;
+        border-radius: 5px;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+        background-color: #0040C3;
+        border-radius: 5px;
+    }
+    .table-container::-webkit-scrollbar-thumb:hover {
+        background-color: #083287;
+        cursor: pointer;
+    }
+/* Table horizontal scrollbar */
 
 th, td {
     padding: 10px 12px;

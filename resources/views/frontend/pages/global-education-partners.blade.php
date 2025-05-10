@@ -50,7 +50,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="table-responsive">
                         <table class="table table-bordered mx-auto custom-width-table">
-                            <thead>
+                            <thead class="table-head-css">
                                 <tr class="sub-heading">
                                     <th class="p-2 p-md-3 border-0 text-heading">
                                         {{ $contents->{'section_2_first_column_title_' . $middleware_language} ?? $contents->section_2_first_column_title_en }}
