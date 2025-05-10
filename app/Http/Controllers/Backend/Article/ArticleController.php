@@ -57,14 +57,14 @@ class ArticleController extends Controller
             'title' => 'required|min:3|max:250',
             'new_thumbnail' => 'nullable|max:30720',
             'new_author_image' => 'nullable|max:30720',
-            // 'Short Description' => 'required|min:3|max:250'
+            'short_description' => 'required|min:3|max:250'
         ], [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
             'title.max' => 'The title must not be greater than 250 characters.',
-            // 'Short Description' => 'The Short Description field is required.',
-            // 'Short Description.min' => 'The Short Description must be at least 3 characters.',
-            // 'Short Description.max' => 'The Short Description must not be greater than 250 characters.',
+            'short_description.required' => 'The Short Description field is required.',
+            'short_description.min' => 'The Short Description must be at least 3 characters.',
+            'short_description.max' => 'The Short Description must not be greater than 250 characters.',
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_author_image.max' => 'The author image must not be greater than 30 MB'
         ]);
@@ -123,14 +123,14 @@ class ArticleController extends Controller
             'title' => 'required|min:3|max:250',
             'new_thumbnail' => 'nullable|max:30720',
             'new_author_image' => 'nullable|max:30720',
-            // 'Short Description' => 'required|min:3|max:250'
+            'short_description' => 'required|min:3|max:250'
         ], [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
             'title.max' => 'The title must not be greater than 250 characters.',
-            // 'Short Description' => 'The Short Description field is required.',
-            // 'Short Description.min' => 'The Short Description must be at least 3 characters.',
-            // 'Short Description.max' => 'The Short Description must not be greater than 250 characters.',
+            'short_description.required' => 'The Short Description field is required.',
+            'short_description.min' => 'The Short Description must be at least 3 characters.',
+            'short_description.max' => 'The Short Description must not be greater than 250 characters.',
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_author_image.max' => 'The author image must not be greater than 30 MB'
         ]);

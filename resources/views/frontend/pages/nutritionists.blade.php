@@ -350,8 +350,8 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label for="phone-number">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
-                            <input type="tel" class="form-control" id="phone-number" name="phone_number" required>
+                            <label for="phone_number">{{ $contents->{'phone_' . $middleware_language} ?? $contents->phone_en }}</label>
+                            <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
                         </div>
 
                         <div class="form-group mb-4">

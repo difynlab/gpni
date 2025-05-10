@@ -36,6 +36,7 @@
                     <div class="col-12 mb-4">
                         <label for="question" class="form-label">Question<span class="asterisk">*</span></label>
                         <textarea class="form-control" id="question" rows="4" name="question" value="{{ old('question', $faq->question) }}" required>{{ old('question', $faq->question) }}</textarea>
+                        <x-backend.input-error field="question"></x-backend.input-error>
                     </div>
 
                     <div class="col-12">

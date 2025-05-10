@@ -44,13 +44,14 @@ class ConferenceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:3|max:250',
-            'date' => 'required|date_format:Y-m-d',
-        ], messages: [
+            'date' => 'required|min:3|max:50',
+        ],  [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
             'title.max' => 'The title must not be greater than 250 characters.',
             'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+            'date.min' => 'The date must be at least 3 characters.',
+            'date.max' => 'The date must not be greater than 50 characters.',
         ]);   
 
         if($validator->fails()) {
@@ -108,13 +109,14 @@ class ConferenceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:3|max:250',
-            'date' => 'required|date_format:Y-m-d',
-        ], messages: [
+            'date' => 'required|min:3|max:50',
+        ],  [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
             'title.max' => 'The title must not be greater than 250 characters.',
             'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+            'date.min' => 'The date must be at least 3 characters.',
+            'date.max' => 'The date must not be greater than 50 characters.',
         ]);   
         
         if($validator->fails()) {

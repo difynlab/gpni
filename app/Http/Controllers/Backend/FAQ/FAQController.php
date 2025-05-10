@@ -44,11 +44,15 @@ class FAQController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'answer' => 'required',
-            'date' => 'required|date_format:Y-m-d',
+            'question' => 'required|min:10|max:1000',
+            
         ], [
             'answer.required' => 'The answer field is required',
-            'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+            'question.required' => 'This field is required',
+            'question.min' => 'The question must be at least 10 characters.',
+            'question.max' => 'The question must not be greater than 1000 characters.',
+            
+            
         ]);
         
         if($validator->fails()) {
@@ -73,11 +77,14 @@ class FAQController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'answer' => 'required',
-            'date' => 'required|date_format:Y-m-d',
+            'question' => 'required|min:10|max:1000',
+            
         ], [
             'answer.required' => 'The answer field is required',
-            'date.required' => 'The date field is required.',
-            'date.date_format' => 'The date must be in the format YYYY-MM-DD.',
+            'question.required' => 'This field is required',
+            'question.min' => 'The question must be at least 10 characters.',
+            'question.max' => 'The question must not be greater than 1000 characters.',
+            
         ]);
         
         if($validator->fails()) {

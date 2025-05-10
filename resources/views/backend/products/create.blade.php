@@ -127,7 +127,7 @@
 
                             <div class="row single-item">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" name="available_sizes[]" placeholder="Size">
+                                    <input type="text" class="form-control" name="available_sizes[]" placeholder="Size" >
                                 </div>
                             </div>
                         </div>
