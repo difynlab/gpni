@@ -731,13 +731,13 @@
                                     @if(hasUserPurchasedCourse(auth()->user()->id, 6) || hasUserPurchasedCourse(auth()->user()->id, 7))
                                         <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
                                     @else
-                                        <a href="{{ route('frontend.certification-courses.purchase', 34) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                        <a href="{{ route('frontend.certification-courses.purchase', 19) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
                                     @endif
                                 @else
-                                    @if(hasUserPurchasedCourse(auth()->user()->id, 23) || hasUserPurchasedCourse(auth()->user()->id, 25))
+                                    @if(hasUserPurchasedCourse(auth()->user()->id, 10) || hasUserPurchasedCourse(auth()->user()->id, 12))
                                         <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
                                     @else
-                                        <a href="{{ route('frontend.certification-courses.purchase', 34) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
+                                        <a href="{{ route('frontend.certification-courses.purchase', 19) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }}</a>
                                     @endif
                                 @endif
                             @else

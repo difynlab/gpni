@@ -260,7 +260,7 @@ class CertificationCourseController extends Controller
             }
         }
 
-        if($course->id == 34) {
+        if($course->id == 19) {
             if($session->currency == 'usd') {
                 $course_purchase_1 = new CoursePurchase();
                 $course_purchase_1->user_id = $course_order->user_id;
@@ -295,7 +295,7 @@ class CertificationCourseController extends Controller
             elseif($session->currency == 'cny') {
                 $course_purchase_1 = new CoursePurchase();
                 $course_purchase_1->user_id = $course_order->user_id;
-                $course_purchase_1->course_id = 25;
+                $course_purchase_1->course_id = 10;
                 $course_purchase_1->currency = $session->currency;
                 $course_purchase_1->date = now()->toDateString();
                 $course_purchase_1->time = now()->toTimeString();
@@ -310,7 +310,7 @@ class CertificationCourseController extends Controller
 
                 $course_purchase_2 = new CoursePurchase();
                 $course_purchase_2->user_id = $course_order->user_id;
-                $course_purchase_2->course_id = 23;
+                $course_purchase_2->course_id = 12;
                 $course_purchase_2->currency = $session->currency;
                 $course_purchase_2->date = now()->toDateString();
                 $course_purchase_2->time = now()->toTimeString();
