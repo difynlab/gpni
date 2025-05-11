@@ -215,7 +215,7 @@
         $('.add-row-button.available-sizes').on('click', function() {
             let html = `<div class="row single-item align-items-center mt-2">
                             <div class="col-11">
-                                <input type="text" class="form-control" name="available_sizes[]" placeholder="Size">
+                                <input type="text" class="form-control" name="available_sizes[]" placeholder="Size" required>
                             </div>
                             <div class="col-1">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
@@ -228,7 +228,7 @@
         $('.add-row-button.colors').on('click', function() {
             let html = `<div class="row single-item align-items-center mt-2">
                             <div class="col-11">
-                                <input type="text" class="form-control" name="colors[]" placeholder="Color">
+                                <input type="text" class="form-control" name="colors[]" placeholder="Color" required>
                             </div>
                             <div class="col-1">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
