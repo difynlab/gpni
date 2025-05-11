@@ -525,7 +525,7 @@
                         @foreach($faqs->take(5) as $faq)
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed p-2 p-md-3 text-heading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
+                                    <button class="accordion-button collapsed text-heading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="false" aria-controls="collapse_{{ $faq->id }}">
                                         {{ $faq->{'question'} }}
                                     </button>
                                 </h2>
