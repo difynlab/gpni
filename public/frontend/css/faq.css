@@ -9,7 +9,11 @@
     color: #000;
     font-weight: 500;
     border-radius: 20px;
-    height: 100px;
+    /* height: 100px; */
+    padding: 30px 25px;
+}
+.faq-container .accordion-button.text-heading {
+    margin-bottom: 0;
 }
 .faq-container .accordion-item:first-of-type {
     border-radius: 20px;
@@ -52,6 +56,9 @@
         width: clamp(14px, 1.8vw, 20px);
         height: clamp(14px, 1.8vw, 20px);
     }
+    .faq-container .accordion-button {
+        padding: 25px 15px;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -70,7 +77,7 @@
     font-size: 1.5rem;
     font-weight: 500;
     border-radius: 20px;
-    height: 100px;
+    /* height: 100px; */
     font-family: 'Poppins', sans-serif;
 }
 
