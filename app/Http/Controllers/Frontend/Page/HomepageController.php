@@ -8,12 +8,42 @@ use App\Models\Course;
 use App\Models\FAQ;
 use App\Models\Testimonial;
 use App\Models\HomepageContent;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomepageController extends Controller
 {
     public function index(Request $request)
     {
+        // Step 1: Collect active users
+$activeUsers = [];
+
+$users = User::all();
+
+foreach ($users as $user) {
+    if ($user->status == '0') {
+        $user->delete();
+    } else {
+        $userData = $user->toArray();
+        unset($userData['id']);            // allow auto-increment
+        $userData['cec_balance'] = 0.00;
+        $userData['updated_at'] = now();
+        $activeUsers[] = $userData;
+    }
+}
+
+// Step 2: Truncate and reset auto-increment
+DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+DB::table('users')->truncate();
+DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+// Step 3: Insert in chunks (e.g., 500 records per batch)
+$chunks = array_chunk($activeUsers, 500);
+foreach ($chunks as $chunk) {
+    DB::table('users')->insert($chunk);
+}
+        
         $contents = HomepageContent::find(1);
 
         $courses = Course::where('language', $request->middleware_language_name)->where('status', '1')->get();
