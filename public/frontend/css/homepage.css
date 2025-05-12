@@ -993,7 +993,11 @@ html {
     color: #000;
     font-weight: 500;
     border-radius: 20px;
-    height: 100px;
+    /* height: 100px; */
+    padding: 30px 25px;
+}
+.faq-container .accordion-button.text-heading {
+    margin-bottom: 0;
 }
 .faq-container .accordion-item:first-of-type {
     border-radius: 20px;
@@ -1054,7 +1058,7 @@ html {
     font-size: 1.5rem;
     font-weight: 500;
     border-radius: 20px;
-    height: 100px;
+    /* height: 100px; */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -1081,6 +1085,9 @@ html {
     }
     .accordion-body {
         font-size: 0.875rem; /* Adjust font size for smaller screens */
+    }
+    .faq-container .accordion-button {
+        padding: 25px 15px;
     }
 }
 
