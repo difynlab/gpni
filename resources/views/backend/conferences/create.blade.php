@@ -95,7 +95,7 @@
         $('.add-more-details-button').on('click', function() {
             let html = `<div class="row single-item mt-3">
                             <div class="col">
-                                <input type="text" class="form-control" name="more_detail_titles[]" placeholder="Title">
+                                <input type="text" class="form-control" name="more_detail_titles[]" placeholder="Title" required>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="more_detail_values[]" placeholder="Text">
@@ -110,7 +110,7 @@
         $('.add-pricing-details-button').on('click', function() {
             let html = `<div class="row single-item mt-3">
                             <div class="col">
-                                <input type="text" class="form-control" name="price_detail_member_types[]" placeholder="Member Type">
+                                <input type="text" class="form-control" name="price_detail_member_types[]" placeholder="Member Type" required>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="price_detail_early_registration_prices[]" placeholder="Early Registration Price">

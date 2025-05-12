@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend\Conference;
 
 use App\Http\Controllers\Controller;
 use App\Models\Conference;
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class ConferenceController extends Controller
@@ -43,11 +42,15 @@ class ConferenceController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|min:3|max:250'
+            'title' => 'required|min:3|max:250',
+            'date' => 'required|min:3|max:100'
         ], [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
-            'title.max' => 'The title must not be greater than 250 characters.'
+            'title.max' => 'The title must not be greater than 250 characters.',
+            'date.required' => 'The date field is required.',
+            'date.min' => 'The date must be at least 3 characters.',
+            'date.max' => 'The date must not be greater than 100 characters.',
         ]);   
 
         if($validator->fails()) {
@@ -104,11 +107,15 @@ class ConferenceController extends Controller
     public function update(Request $request, Conference $conference)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|min:3|max:250'
+            'title' => 'required|min:3|max:250',
+            'date' => 'required|min:3|max:100'
         ], [
             'title.required' => 'The title field is required.',
             'title.min' => 'The title must be at least 3 characters.',
-            'title.max' => 'The title must not be greater than 250 characters.'
+            'title.max' => 'The title must not be greater than 250 characters.',
+            'date.required' => 'The date field is required.',
+            'date.min' => 'The date must be at least 3 characters.',
+            'date.max' => 'The date must not be greater than 100 characters.',
         ]);    
         
         if($validator->fails()) {

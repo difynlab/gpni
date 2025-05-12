@@ -61,8 +61,8 @@ class ProductController extends Controller
             'new_images.*' => 'nullable|max:30720',
             'downloadable_content' => 'nullable|max:30720',
             'price' => 'numeric|min:0',
-            'shipping_cost' =>'numeric|min:0',
-            'membership_price' =>'numeric|min:0'
+            'shipping_cost' =>'nullable|numeric|min:0',
+            'membership_price' =>'nullable|numeric|min:0'
         ], [
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_thumbnail.required' => 'Thumbnail is required',
@@ -145,8 +145,8 @@ class ProductController extends Controller
             'new_images.*' => 'nullable|max:30720',
             'downloadable_content' => 'nullable|max:30720',
             'price' => 'numeric|min:0',
-            'shipping_cost' =>'numeric|min:0',
-            'membership_price' =>'numeric|min:0'
+            'shipping_cost' =>'nullable|numeric|min:0',
+            'membership_price' =>'nullable|numeric|min:0'
         ], [
             'new_thumbnail.max' => 'The thumbnail must not be greater than 30 MB',
             'new_thumbnail.required' => 'Thumbnail is required',
