@@ -165,7 +165,7 @@
                                             @endforeach
                                         </div>
                                         <!-- Add specific pagination container for this swiper -->
-                                        <div class="swiper-pagination courses-pagination"></div>
+                                        <div class="swiper-pagination"></div>
                                     </div>
                                 </div>
                             </div>
@@ -577,7 +577,7 @@
                 spaceBetween: 20,
                 grabCursor: true,
                 pagination: {
-                    el: container.querySelector('.courses-pagination'),
+                    el: '.swiper-pagination',  // Changed from container-specific to general class
                     clickable: true,
                     type: 'bullets'
                 },

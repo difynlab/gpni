@@ -872,7 +872,7 @@ html {
 
 .courses-swiper .swiper-pagination {
     position: absolute;
-    bottom: 10px;
+    bottom: 10px !important;
     left: 0;
     right: 0;
     z-index: 10;
@@ -893,6 +893,11 @@ html {
 .courses-swiper .swiper-pagination-bullet-active {
     background: #0040c3;
     transform: scale(1.2);
+}
+
+.tab-pane .swiper-pagination {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Responsive adjustments for cards */
