@@ -25,7 +25,19 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'phone' => 'required|regex:/^\+?[0-9]+$/'
+            'phone' => 'required|regex:/^\+?[0-9]+$/',
+            'question' => 'required|min:10|max:65535',
+            'comments' => 'required|min:10|max:65535',
+        ], [
+            'phone.unique' => 'The phone number is already in use',
+            'phone.regex' => 'The phone number is invalid',
+            'question.required' => 'This content field is required.',
+            'question.min' => 'The content must be at least 10 characters.',
+            'question.max' => 'The content must not be greater than 65535 characters.',
+            'comments.required' => 'This comments field is required.',
+            'comments.min' => 'The comments must be at least 10 characters.',
+            'comments.max' => 'The comments must not be greater than 65535 characters.',
+            
         ]);
 
         if($validator->fails()) {
