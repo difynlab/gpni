@@ -147,7 +147,7 @@
                                 @foreach(json_decode($product->available_sizes) as $available_size)
                                     <div class="row single-item align-items-center mt-2">
                                         <div class="col-11">
-                                            <input type="text" class="form-control" name="available_sizes[]" value="{{ $available_size }}" placeholder="Size">
+                                            <input type="text" class="form-control" name="available_sizes[]" value="{{ $available_size }}" placeholder="Size" required>
                                         </div>
                                         <div class="col-1">
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
@@ -174,7 +174,7 @@
                                 @foreach(json_decode($product->colors) as $color)
                                     <div class="row single-item align-items-center mt-2">
                                         <div class="col-11">
-                                            <input type="text" class="form-control" name="colors[]" value="{{ $color }}" placeholder="Color">
+                                            <input type="text" class="form-control" name="colors[]" value="{{ $color }}" placeholder="Color" required>
                                         </div>
                                         <div class="col-1">
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>

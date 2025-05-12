@@ -118,18 +118,18 @@
                                     <label class="form-label">Available Size/s</label>
                                 </div>
                                 <div class="col-3 text-end">
-                                    <button type="button" class="add-row-button">
+                                    <button type="button" class="add-row-button available-sizes">
                                         <i class="bi bi-plus-lg"></i>
                                         Add More
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="row single-item">
+                            <!-- <div class="row single-item">
                                 <div class="col-12">
                                     <input type="text" class="form-control" name="available_sizes[]" placeholder="Size">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="mb-4">
@@ -138,18 +138,18 @@
                                     <label class="form-label">Color/s</label>
                                 </div>
                                 <div class="col-3 text-end">
-                                    <button type="button" class="add-row-button">
+                                    <button type="button" class="add-row-button colors">
                                         <i class="bi bi-plus-lg"></i>
                                         Add More
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="row single-item">
+                            <!-- <div class="row single-item">
                                 <div class="col-12">
                                     <input type="text" class="form-control" name="colors[]" placeholder="Color">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         
                         <div class="mb-4">
@@ -180,44 +180,70 @@
             $(this).closest('.single-item').remove();
         });
 
-        $('.add-row-button').on('click', function() {
-            let $row = $(this).closest('.row');
-            let $singleItem = $row.next('.single-item');
-            let singleItemHtml = $singleItem.html();
+        // $('.add-row-button').on('click', function() {
+        //     let $row = $(this).closest('.row');
+        //     let $singleItem = $row.next('.single-item');
+        //     let singleItemHtml = $singleItem.html();
             
-            let $temp = $('<div>').html(singleItemHtml);
+        //     let $temp = $('<div>').html(singleItemHtml);
             
-            let $firstDiv = $temp.find('div:eq(0)');
-            let $secondDiv = $temp.find('div:eq(1)');
-            let currentClass;
+        //     let $firstDiv = $temp.find('div:eq(0)');
+        //     let $secondDiv = $temp.find('div:eq(1)');
+        //     let currentClass;
 
-            if($secondDiv.length > 0) {
-                currentClass = $secondDiv.attr('class');
-            }
-            else {
-                currentClass = $firstDiv.attr('class');
-            }
+        //     if($secondDiv.length > 0) {
+        //         currentClass = $secondDiv.attr('class');
+        //     }
+        //     else {
+        //         currentClass = $firstDiv.attr('class');
+        //     }
 
-            let newClass = currentClass.replace(/col-(\d+)/, function(match, p1) {
-                return 'col-' + (parseInt(p1) - 1);
-            });
+        //     let newClass = currentClass.replace(/col-(\d+)/, function(match, p1) {
+        //         return 'col-' + (parseInt(p1) - 1);
+        //     });
 
-            if($secondDiv.length > 0) {
-                $secondDiv.attr('class', newClass);
-            }
-            else {
-                $firstDiv.attr('class', newClass);
-            }
+        //     if($secondDiv.length > 0) {
+        //         $secondDiv.attr('class', newClass);
+        //     }
+        //     else {
+        //         $firstDiv.attr('class', newClass);
+        //     }
             
-            let updatedSingleItem = $temp.html();
+        //     let updatedSingleItem = $temp.html();
             
-            let html = `<div class="row single-item mt-2">
-                            ${updatedSingleItem}
-                            <div class="col-1 d-flex align-items-center">
+        //     let html = `<div class="row single-item mt-2">
+        //                     ${updatedSingleItem}
+        //                     <div class="col-1 d-flex align-items-center">
+        //                         <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
+        //                     </div>
+        //                 </div>`;
+        //     $row.parent().append(html);
+        // });
+
+        $('.add-row-button.available-sizes').on('click', function() {
+            let html = `<div class="row single-item align-items-center mt-2">
+                            <div class="col-11">
+                                <input type="text" class="form-control" name="available_sizes[]" placeholder="Size" required>
+                            </div>
+                            <div class="col-1">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                             </div>
                         </div>`;
-            $row.parent().append(html);
+
+            $(this).closest('.row').parent().append(html);
+        });
+
+        $('.add-row-button.colors').on('click', function() {
+            let html = `<div class="row single-item align-items-center mt-2">
+                            <div class="col-11">
+                                <input type="text" class="form-control" name="colors[]" placeholder="Color" required>
+                            </div>
+                            <div class="col-1">
+                                <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
+                            </div>
+                        </div>`;
+
+            $(this).closest('.row').parent().append(html);
         });
 
         function toggleAffiliateLink() {
