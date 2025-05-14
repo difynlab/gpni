@@ -82,6 +82,8 @@
 .overlay-text ul {
     list-style: none;
     padding: 0;
+    background-color: rgba(0, 0, 0, 50%);
+    padding: 20px;
 }
 .overlay-text ul li {
     padding-left: 1rem;
@@ -96,16 +98,19 @@
     left: 0;
     color: #fff;
 }
+.overlay-text ul li:last-child {
+    padding-bottom: 0;
+}
 /* Responsive adjustments */
 @media (min-width: 768px) {
     .overlay-text {
         width: 30%;
-        top: 54px;
+        top: 30px;
         text-align: left;
     }
     .overlay-text ul li {
         padding-left: 30px;
-        padding-bottom: 24px;
+        padding-bottom: 20px;
     }
 }
 @media (max-width: 767.98px) {

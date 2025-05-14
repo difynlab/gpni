@@ -1,5 +1,5 @@
 .container-main {
-    padding: 20px;
+    padding: 30px;
     background-color: #F7F6FB;
     border: 1px solid #e0eaff;
     border-radius: 15px;
@@ -269,6 +269,46 @@
     text-align: left;
 }
 
+/* Update table container styles */
+.table-container {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 15px;
+    padding-bottom: 10px; /* Add padding between table and scrollbar */
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5px; /* Add small margin to table bottom */
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar {
+    height: 10px;
+    margin-top: 10px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #dedede;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #0040C3;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #083287;
+    cursor: pointer;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1199.98px) {
     .header {
@@ -336,13 +376,5 @@
     .container-main .nav-pills .nav-link {
         font-size: 0.6875rem; /* fs-11 */
         padding: 6px 10px;
-    }
-    /* .table {
-        margin-right: 50px; /* Add more space to the right of the table 
-    } */
-
-    .table-responsive {
-        overflow-x: auto;
-        padding-right: 40px;  
     }
 }

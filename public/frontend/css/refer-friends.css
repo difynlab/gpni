@@ -103,44 +103,46 @@
     border-radius: 5px;
 }
 
+/* Table and Scrollbar styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table-wrapper {
+    margin-bottom: 30px;  /* Space between table and scrollbar */
+    background: #fff;
+    padding: 15px;
+}
+
 .table-container {
+    width: 100%;
     overflow-x: auto;
     white-space: nowrap;
-    width: 100%;
-    margin-bottom: 20px;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
-    scrollbar-width: thin; /* For Firefox */
-    max-width: 100%;
-    display: block;
+    padding-bottom: 25px;  /* Space for scrollbar */
 }
+
 .table-container::-webkit-scrollbar {
-    height: 8px; /* Slightly smaller for mobile */
+    height: 10px;
+    margin-top: 15px;
 }
+
 .table-container::-webkit-scrollbar-track {
     background: #dedede;
     border-radius: 5px;
 }
+
 .table-container::-webkit-scrollbar-thumb {
     background-color: #0040C3;
     border-radius: 5px;
 }
+
 .table-container::-webkit-scrollbar-thumb:hover {
     background-color: #083287;
     cursor: pointer;
 }
-.table-container table {
-    min-width: 650px; /* Ensure minimum width for content */
-    width: 100%;
-}
-.table th {
-    font-size: 15px;
-    color: #444444;
-    padding: 15px;
-}
-.table td {
-    font-size: 14px;
-    padding: 15px;
-}
+
 .modal-content {
     border: none;
     box-shadow: none;
@@ -233,35 +235,19 @@
         align-items: center;
         width: 100%;
     }
-    .table-container {
-        margin: 0 -15px; /* Negative margin to allow full width */
-        width: calc(100% + 30px);
-        padding: 0 15px;
+    .refer-points {
+        display: block;
+        margin: 0 auto;
     }
-    .table th, .table td {
-        padding: 12px 10px; 
-        font-size: 13px;
-    }
-    
-    /* Center the buttons container */
-    .row.align-items-center {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    /* Make both columns take full width and center content */
-    .row.align-items-center .col-6 {
-        width: 100%;
+    .points-wrapper {
         text-align: center;
         margin-bottom: 15px;
     }
-    
-    /* Make buttons display centered */
-    .refer-points, .refer-point-request {
-        display: inline-block;
-        margin: 0 auto;
-        min-width: 200px;
+    .points-wrapper .col-6 {
+        width: 100%;
+    }
+    .points-wrapper .col-6:first-child {
+        margin-bottom: 15px;
     }
 }
 
@@ -311,17 +297,5 @@
         display: flex;
         justify-content: center;
         width: 100%;
-    }
-    .table-container {
-        margin: 0 -10px;
-        width: calc(100% + 20px);
-        padding: 0 10px;
-    }
-    .table th, .table td {
-        padding: 10px 8px; /* Even smaller padding on very small devices */
-        font-size: 12px;
-    }
-    .table-container::-webkit-scrollbar {
-        height: 5px; /* Smaller scrollbar for very small devices */
     }
 }

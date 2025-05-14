@@ -46,48 +46,54 @@
 
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" role="tabpanel" tabindex="0">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>{{ $student_dashboard_contents->my_storage_corner_first_column }}</th>
-                                        <th>{{ $student_dashboard_contents->my_storage_corner_second_column }}</th>
-                                        <th>{{ $student_dashboard_contents->my_storage_corner_third_column }}</th>
-                                    </tr>
-                                </thead>
+                            <div class="table-wrapper">
+                                <div class="scrollbar-wrapper">
+                                    <div class="table-container">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>{{ $student_dashboard_contents->my_storage_corner_first_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->my_storage_corner_second_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->my_storage_corner_third_column }}</th>
+                                                </tr>
+                                            </thead>
 
-                                <tbody>
-                                    @if($medias->isNotEmpty())
-                                        @foreach($medias as $media)
-                                            <tr>
-                                                <td>{{ $media->id }}</td>
-                                                <td>
-                                                    {{ $media->name }}
-                                                </td>
-                                                <td>
-                                                    @if($media->type == $student_dashboard_contents->my_storage_corner_second_tab)
-                                                        <img src="{{ asset('storage/backend/medias/' . $media->image) }}" alt="{{ $media->name }}" style="width: 300px; height: 170px; object-fit: cover;">
-                                                    @elseif($media->type == $student_dashboard_contents->my_storage_corner_third_tab)
-                                                        <video class="video-player" src="{{ asset('storage/backend/medias/' . $media->video) }}" controls style="width: 300px; height: 170px; object-fit: cover;"></video>
-                                                    @elseif($media->type == $student_dashboard_contents->my_storage_corner_fourth_tab)
-                                                        <a class="text-decoration-none" href="{{ $media->vimeo_video_link }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_play_now }}</a>
-                                                    @elseif($media->type == $student_dashboard_contents->my_storage_corner_fifth_tab)
-                                                        <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->pdf) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
-                                                    @elseif($media->type == $student_dashboard_contents->my_storage_corner_sixth_tab)
-                                                        <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->word) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
-                                                    @elseif($media->type == $student_dashboard_contents->my_storage_corner_seventh_tab)
-                                                        <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->excel) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
-                                                    @elseif($media->type == $student_dashboard_contents->my_storage_corner_eighth_tab)
-                                                        <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->ppt) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
-                                                    @elseif($media->type == $student_dashboard_contents->my_storage_corner_ninth_tab)
-                                                        <audio src="{{ asset('storage/backend/medias/' . $media->audio) }}" type="audio/mpeg" controls></audio>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                </tbody>
-                            </table>
-
+                                            <tbody>
+                                                @if($medias->isNotEmpty())
+                                                    @foreach($medias as $media)
+                                                        <tr>
+                                                            <td>{{ $media->id }}</td>
+                                                            <td>
+                                                                {{ $media->name }}
+                                                            </td>
+                                                            <td>
+                                                                @if($media->type == $student_dashboard_contents->my_storage_corner_second_tab)
+                                                                    <img src="{{ asset('storage/backend/medias/' . $media->image) }}" alt="{{ $media->name }}" style="width: 300px; height: 170px; object-fit: cover;">
+                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_third_tab)
+                                                                    <video class="video-player" src="{{ asset('storage/backend/medias/' . $media->video) }}" controls style="width: 300px; height: 170px; object-fit: cover;"></video>
+                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_fourth_tab)
+                                                                    <a class="text-decoration-none" href="{{ $media->vimeo_video_link }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_play_now }}</a>
+                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_fifth_tab)
+                                                                    <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->pdf) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
+                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_sixth_tab)
+                                                                    <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->word) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
+                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_seventh_tab)
+                                                                    <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->excel) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
+                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_eighth_tab)
+                                                                    <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->ppt) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
+                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_ninth_tab)
+                                                                    <audio src="{{ asset('storage/backend/medias/' . $media->audio) }}" type="audio/mpeg" controls></audio>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             {{ $medias->appends(['type' => $type])->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
                         </div>
                     </div>
