@@ -301,42 +301,44 @@
                 </div>
             </div>
             
-            @if(count($testimonials) > 1)
-            <div class="testimonial-slider-container mt-5">
-                <div class="testimonial-slider">
-                    <button class="slider-arrow prev-arrow">
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-                    
-                    <div class="slider-wrapper">
-                        <div class="slider-track">
-                            @foreach($testimonials as $testimonial)
-                                <div class="testimonial-slide">
-                                    <div class="student-review-card-2 p-3">
-                                        <div class="student-review-name text-heading">{{ $testimonial->name }}</div>
-                                        <div class="student-review-text text-content">{{ $testimonial->content }}</div>
-                                        <div class="student-review-footer">
-                                            <div class="student-review-rating">
-                                                <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
-                                                
-                                                <span>
-                                                    @for($i = 0; $i < $testimonial->rate; $i++)
-                                                        <i class="bi bi-star-fill star"></i>
-                                                    @endfor
-                                                </span>
+            @if(count($testimonials) > 2)
+                <div class="testimonial-slider-container mt-5">
+                    <div class="testimonial-slider">
+                        <button class="slider-arrow prev-arrow">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        
+                        <div class="slider-wrapper">
+                            <div class="slider-track">
+                                @foreach($testimonials as $index => $testimonial)
+                                    @if($index !== 0)
+                                        <div class="testimonial-slide">
+                                            <div class="student-review-card-2 p-3">
+                                                <div class="student-review-name text-heading">{{ $testimonial->name }}</div>
+                                                <div class="student-review-text text-content">{{ $testimonial->content }}</div>
+                                                <div class="student-review-footer">
+                                                    <div class="student-review-rating">
+                                                        <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
+                                                        
+                                                        <span>
+                                                            @for($i = 0; $i < $testimonial->rate; $i++)
+                                                                <i class="bi bi-star-fill star"></i>
+                                                            @endfor
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
+                
+                        <button class="slider-arrow next-arrow">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
                     </div>
-            
-                    <button class="slider-arrow next-arrow">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
                 </div>
-            </div>
             @endif
         </div>
     @endif

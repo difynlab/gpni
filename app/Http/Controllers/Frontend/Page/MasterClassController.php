@@ -79,13 +79,13 @@ class MasterClassController extends Controller
         $testimonials = Testimonial::where('language', $request->middleware_language_name)
             ->where('type', 'Master Class')
             ->where('status', '1')
-            ->orderBy('id', 'desc')  // This ensures the newest testimonial is first
+            ->orderBy('id', 'desc')
             ->get();
         if($testimonials->isEmpty() && $request->middleware_language_name != 'English') {
             $testimonials = Testimonial::where('language', 'English')
                 ->where('type', 'Master Class')
                 ->where('status', '1')
-                ->orderBy('id', 'desc')  // This ensures the newest testimonial is first
+                ->orderBy('id', 'desc')
                 ->get();
         }
 
