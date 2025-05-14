@@ -28,7 +28,7 @@
                     <table class="table table-striped w-100">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <!-- <th scope="col">ID</th> -->
                             <th scope="col">Question</th>
                             <th scope="col">Answer</th>
                             <th scope="col">Status</th>
@@ -40,7 +40,7 @@
                         @if(count($course_final_exam_questions) > 0)
                             @foreach($course_final_exam_questions as $course_final_exam_question)
                                 <tr>
-                                    <td>#{{ $course_final_exam_question->id }}</td>
+                                    <!-- <td>#{{ $course_final_exam_question->id }}</td> -->
                                     <td>{!! $course_final_exam_question->question !!}</td>
                                     <td>{{ $course_final_exam_question->answer }}</td>
                                     <td>{!! $course_final_exam_question->status !!}</td>
@@ -49,7 +49,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="5" style="text-align: center;">No data available in table</td>
+                                <td colspan="4" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
