@@ -66,7 +66,7 @@
                         @foreach(json_decode($conference->more_details) as $conference_more_detail)
                             <div class="row single-item mt-3">
                                 <div class="col">
-                                    <input type="text" class="form-control" name="more_detail_titles[]" value="{{ $conference_more_detail->title }}" placeholder="Title">
+                                    <input type="text" class="form-control" name="more_detail_titles[]" value="{{ $conference_more_detail->title }}" placeholder="Title" required>
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" name="more_detail_values[]" value="{{ $conference_more_detail->value }}" placeholder="Text">
@@ -98,7 +98,7 @@
                         @foreach(json_decode($conference->price_details) as $conference_price_detail)
                             <div class="row single-item mt-3">
                                 <div class="col">
-                                    <input type="text" class="form-control" name="price_detail_member_types[]" value="{{ $conference_price_detail->member_type }}" placeholder="Member Type">
+                                    <input type="text" class="form-control" name="price_detail_member_types[]" value="{{ $conference_price_detail->member_type }}" placeholder="Member Type" required>
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" name="price_detail_early_registration_prices[]" value="{{ $conference_price_detail->early_registration_price }}" placeholder="Early Registration Price">
@@ -131,7 +131,7 @@
         $('.add-more-details-button').on('click', function() {
             let html = `<div class="row single-item mt-3">
                             <div class="col">
-                                <input type="text" class="form-control" name="more_detail_titles[]" placeholder="Title">
+                                <input type="text" class="form-control" name="more_detail_titles[]" placeholder="Title" required>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="more_detail_values[]" placeholder="Value">
@@ -146,7 +146,7 @@
         $('.add-pricing-details-button').on('click', function() {
             let html = `<div class="row single-item mt-3">
                             <div class="col">
-                                <input type="text" class="form-control" name="price_detail_member_types[]" placeholder="Member Type">
+                                <input type="text" class="form-control" name="price_detail_member_types[]" placeholder="Member Type" required>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="price_detail_early_registration_prices[]" placeholder="Early Registration Price">

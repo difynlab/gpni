@@ -108,11 +108,13 @@
                     <div class="col-6">
                         <label for="meta_keywords" class="form-label">Meta Keywords</label>
                         <textarea class="form-control" rows="4" id="meta_keywords" name="meta_keywords" value="{{ old('meta_keywords', $article->meta_keywords) }}" placeholder="Meta Keywords">{{ old('meta_keywords', $article->meta_keywords) }}</textarea>
+                        <x-backend.input-error field="meta_keywords"></x-backend.input-error>
                     </div>
                     
                     <div class="col-6">
                         <label for="meta_description" class="form-label">Meta Description</label>
                         <textarea class="form-control" rows="4" id="meta_description" name="meta_description" value="{{ old('meta_description', $article->meta_description) }}" placeholder="Meta Description">{{ old('meta_description', $article->meta_description) }}</textarea>
+                        <x-backend.input-error field="meta_description"></x-backend.input-error>
                     </div>
                 </div>
             </div>
