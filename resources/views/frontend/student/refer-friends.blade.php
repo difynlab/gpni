@@ -48,33 +48,37 @@
                             </a>
                     
                             <div class="history d-none">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>{{ $student_dashboard_contents->refer_friends_first_column }}</th>
-                                            <th>{{ $student_dashboard_contents->refer_friends_second_column }}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if(count($invites) > 0)
-                                            @foreach($invites as $invite)
+                                <div class="table-wrapper">
+                                    <div class="table-container">
+                                        <table class="table table-bordered">
+                                            <thead>
                                                 <tr>
-                                                    <td>{{ $invite->id }}</td>
-                                                    <td>{{ $invite->email }}</td>
+                                                    <th>{{ $student_dashboard_contents->refer_friends_first_column }}</th>
+                                                    <th>{{ $student_dashboard_contents->refer_friends_second_column }}</th>
                                                 </tr>
-                                            @endforeach
-                                        @else
-                                            <tr>
-                                                <td colspan="2" style="text-align: center;">{{ $student_dashboard_contents->refer_friends_no_data }}</td>
-                                            </tr>
-                                        @endif
-                                    </tbody>
-                                </table>
+                                            </thead>
+                                            <tbody>
+                                                @if(count($invites) > 0)
+                                                    @foreach($invites as $invite)
+                                                        <tr>
+                                                            <td>{{ $invite->id }}</td>
+                                                            <td>{{ $invite->email }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <tr>
+                                                        <td colspan="2" style="text-align: center;">{{ $student_dashboard_contents->refer_friends_no_data }}</td>
+                                                    </tr>
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="pills-refer-points" role="tabpanel" aria-labelledby="pills-refer-points-tab" tabindex="0">
-                            <div class="row align-items-center mb-4">
+                            <div class="row align-items-center mb-4 points-wrapper">
                                 <div class="col-6">
                                     <button class="refer-points">{{ $student_dashboard_contents->refer_withdraw_points }}: {{ $refer_point_balance }}</button>
                                 </div>
