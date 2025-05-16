@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('author_description')->nullable();
             $table->string('author_image')->nullable();
             $table->string('reading_time')->nullable();
-            $table->string('meta_keywords')->nullable();
-            $table->string('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+            $table->text('meta_description')->nullable();
             $table->integer('view_count')->default(0);
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
