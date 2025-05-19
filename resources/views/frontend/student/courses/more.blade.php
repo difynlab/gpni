@@ -67,7 +67,9 @@
                                                     @foreach($videos as $video)
                                                         <div class="col-6 mb-3">
                                                             <p class="mb-2">{{ $video->title }}</p>
-                                                            <video src="{{ asset('storage/backend/courses/course-chapter-videos/' . $video->file) }}" controls class="video-player"></video>
+                                                            <div class="video-container">
+                                                                <video src="{{ asset('storage/backend/courses/course-chapter-videos/' . $video->file) }}" controls class="video-player"></video>
+                                                            </div>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -92,8 +94,10 @@
                                                         </div> -->
 
                                                         <div class="col-6 mb-3">
-                                                            <p class="mb-2">{{ $video_link->title }}</p>
-                                                            <iframe src="{{ $video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            <p class="mb-2 fs-18">{{ $video_link->title }}</p>
+                                                            <div class="video-container">
+                                                                <iframe src="{{ $video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            </div>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -150,7 +154,9 @@
 
                                                         <div class="col-6 mb-3">
                                                             <p class="mb-2">{{ $additional_video_link->title }}</p>
-                                                            <iframe src="{{ $additional_video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            <div class="video-container">
+                                                                <iframe src="{{ $additional_video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            </div>
                                                         </div>
                                                     @endforeach
                                                 </div>
