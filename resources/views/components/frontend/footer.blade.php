@@ -140,21 +140,21 @@
                                 </li>
                             @endif
                         @elseif($middleware_language == 'zh')
-                            @if(App\Models\Course::find(25))
+                            @if(App\Models\Course::find(10))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [25, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(25)->title)]) }}">{{ App\Models\Course::find(25)->title }}</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [10, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(10)->title)]) }}">{{ App\Models\Course::find(10)->title }}</a>
                                 </li>
                             @endif
 
-                            @if(App\Models\Course::find(23))
+                            @if(App\Models\Course::find(12))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [23, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(23)->title)]) }}">{{ App\Models\Course::find(23)->title }}</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [12, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(12)->title)]) }}">{{ App\Models\Course::find(12)->title }}</a>
                                 </li>
                             @endif
                         @else
-                            @if(App\Models\Course::find(24))
+                            @if(App\Models\Course::find(11))
                                 <li>
-                                    <a href="{{ route('frontend.certification-courses.show', [24, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(24)->title)]) }}">{{ App\Models\Course::find(24)->title }}</a>
+                                    <a href="{{ route('frontend.certification-courses.show', [11, \Overtrue\Pinyin\Pinyin::permalink(App\Models\Course::find(11)->title)]) }}">{{ App\Models\Course::find(11)->title }}</a>
                                 </li>
                             @endif
                         @endif

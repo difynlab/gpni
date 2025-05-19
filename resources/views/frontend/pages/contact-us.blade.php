@@ -51,6 +51,7 @@
                         <div class="form-group col-12 reason-group">
                             <label for="question" class="required">{{ $contents->{'question_' . $middleware_language} ?? $contents->question_en }}</label>
                             <input type="text" class="form-control" id="question" name="question" value="{{ old('question') }}" required>
+                            <x-frontend.input-error field="question"></x-frontend.input-error>
                         </div>
                     </div>
 
@@ -58,6 +59,7 @@
                         <div class="form-group col-12 mt-3">
                             <label for="comments" class="required">{{ $contents->{'comments_' . $middleware_language} ?? $contents->comments_en }}</label>
                             <textarea class="form-control" id="comments" rows="4" name="comments" value="{{ old('first_name') }}" required>{{ old('comments') }}</textarea>
+                            <x-frontend.input-error field="comments"></x-frontend.input-error>
                         </div>
                     </div>
 
