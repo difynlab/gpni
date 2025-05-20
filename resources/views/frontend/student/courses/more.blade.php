@@ -226,6 +226,7 @@
                                     <div class='pre-loader'>
                                         <img class='loading-gif' alt='loading' src="{{ asset('storage/frontend/pre-loader.gif') }}"/>
                                     </div>
+                                    <div id="view" class="pdf-viewer"></div>
                                 </div>
                             </div>
                         </div>
