@@ -68,6 +68,10 @@ return new class extends Migration
             $table->decimal('referral_point_conversion_en', 10, 2);
             $table->decimal('referral_point_conversion_zh', 10, 2);
             $table->decimal('referral_point_conversion_ja', 10, 2);
+
+            $table->decimal('makeup_exam_price_en', 10, 2);
+            $table->decimal('makeup_exam_price_zh', 10, 2);
+            $table->decimal('makeup_exam_price_ja', 10, 2);
             
             $table->timestamps();
         });

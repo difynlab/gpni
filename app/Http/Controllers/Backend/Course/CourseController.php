@@ -68,8 +68,8 @@ class CourseController extends Controller
             'new_instructor_profile_image' => 'nullable|max:30720',
             'new_certificate_images.*' => 'max:30720',
             'price' => 'numeric|min:0',
-            'referral_point_percentage' => 'numeric|min:0',
-            'instalment_price' =>'numeric|min:0'
+            'referral_point_percentage' => 'nullable|numeric|min:0',
+            'instalment_price' =>'nullable|numeric|min:0'
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
             'new_video.max' => 'Video must not be greater than 100 MB',

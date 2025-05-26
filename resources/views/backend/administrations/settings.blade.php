@@ -80,6 +80,21 @@
                         <input type="text" class="form-control" id="referral_point_conversion_ja" name="referral_point_conversion_ja" value="{{ old('referral_point_conversion_ja', $settings->referral_point_conversion_ja) }}" placeholder="Referral Point Conversion (Japanese)" required>
                     </div>
 
+                    <div class="col-4 mb-4">
+                        <label for="makeup_exam_price_en" class="form-label">Makeup Exam Price (English)<span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" id="makeup_exam_price_en" name="makeup_exam_price_en" value="{{ old('makeup_exam_price_en', $settings->makeup_exam_price_en) }}" placeholder="Makeup Exam Price (English)" required>
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="makeup_exam_price_zh" class="form-label">Makeup Exam Price (Chinese)<span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" id="makeup_exam_price_zh" name="makeup_exam_price_zh" value="{{ old('makeup_exam_price_zh', $settings->makeup_exam_price_zh) }}" placeholder="Makeup Exam Price (Chinese)" required>
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label for="makeup_exam_price_ja" class="form-label">Makeup Exam Price (Japanese)<span class="asterisk">*</span></label>
+                        <input type="text" class="form-control" id="makeup_exam_price_ja" name="makeup_exam_price_ja" value="{{ old('makeup_exam_price_ja', $settings->makeup_exam_price_ja) }}" placeholder="Makeup Exam Price (Japanese)" required>
+                    </div>
+
                     <div class="col-6 mb-4">
                         <label for="email_en" class="form-label">Email (English)<span class="asterisk">*</span></label>
                         <input type="email" class="form-control" id="email_en" name="email_en" value="{{ old('email_en', $settings->email_en) }}" placeholder="Email" required>

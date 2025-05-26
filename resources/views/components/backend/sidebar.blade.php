@@ -219,6 +219,13 @@
                             <span>Membership Purchases</span>
                         </a>
                     </li>
+
+                    <li class="sub-menu-link">
+                        <a href="{{ route('backend.purchases.final-exam-purchases.index') }}">
+                            <img src="{{ asset('storage/backend/sidebar/order.png') }}" alt="Icon">
+                            <span>Final Exam Purchases</span>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </li>
