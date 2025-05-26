@@ -670,11 +670,8 @@ course-content {
 }
 
 .slider-container {
-    /* position: relative; */
+    position: relative;
     overflow: hidden;
-    margin-left: 50px;
-    margin-right: 50px;
-    position: unset;
 }
 
 .testimonial-slider {
@@ -845,11 +842,60 @@ course-content {
     font-size: 20px;
     
     color: #505050;
-    margin-bottom: 20px;
+} */
+
+.image-container {
+    position: relative;
+    max-height: 375px;
+}
+
+.image-container .shape1 {
+    position: absolute;
+    top: 31.79px;
+    left: 164.67px;
+    z-index: 1;
+}
+
+.image-container .shape2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.image-container .person {
+    position: relative;
+    z-index: 3;
+}
+
+.image-container .shape3,
+.image-container .shape4,
+.image-container .dots {
+    position: absolute;
+    z-index: 0;
+}
+
+.image-container .shape3 {
+    top: 0;
+    left: 0;
+}
+
+.image-container .shape4 {
+    bottom: 0;
+    left: 0;
+}
+
+.image-container .dots {
+    bottom: -30px;
+    right: -30px;
 }
 
 @media (max-width: 768px) {
-    .requirements-title {
+    .requirements-section {
+        padding: 20px;
+    }
+
+    /* .requirements-title {
         font-size: 28px;
         line-height: 42px;
     }
@@ -861,7 +907,7 @@ course-content {
     .section-7-video {
         height:auto !important;
     }
-
+}
 
 /* Section 2 Image */
 .section-2-image {
@@ -1321,52 +1367,42 @@ course-content {
 }
 
 .student-review-card {
+    border: 1px solid #e0e0e0;
     border-radius: 5px;
-    border: 1px solid #CFDEFF;
-    background: #FDFDFD;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.2s;
+    background-color: #ffffff;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    position: relative;
-    transition: all 0.3s ease;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-}
-
-.student-review-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    z-index: 2;
 }
 
 .student-review-text {
-    position: relative;
-    max-height: 145px;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    margin-bottom: 15px;
+    font-weight: 400;
+    
     color: #505050;
-    text-align: left;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    overflow: hidden;
 }
 
-.student-review-card:hover .student-review-text {
-    max-height: 1000px;
+
+.student-review-text {
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 15px;
+    flex-grow: 1;
 }
 
-.student-review-text::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(253, 253, 253, 0), #fdfdfd);
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
+.student-review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
 
-.student-review-card:hover .student-review-text::after {
-    opacity: 0;
 }
 
 .student-review-rating {
@@ -1790,6 +1826,7 @@ course-content {
     height: auto;
     min-height: 50px;
     max-height: 450px;
+    object-fit: cover;
 }
 .video-section {
     width: 100%;
@@ -1962,7 +1999,6 @@ course-content {
     overflow: hidden;
     width: 100%;
     padding: 0 20px;
-    clip-path: inset(0);
 }
 
 .slider-track {
@@ -1974,14 +2010,6 @@ course-content {
 .testimonial-slide {
     flex: 0 0 calc(33.333% - 14px);
     max-width: calc(33.333% - 14px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.testimonial-slide.visible {
-    opacity: 1;
-    visibility: visible;
 }
 
 .slider-arrow {
@@ -1999,36 +2027,23 @@ course-content {
 }
 
 .prev-arrow {
-    left: -50px;
+    left: 0;
 }
 
 .next-arrow {
-    right: -50px;
+    right: 0;
 }
-
 
 .testimonial-card {
     border-radius: 5px;
     border: 1px solid #CFDEFF;
     background: #FDFDFD;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    position: relative;
-    transition: all 0.3s ease;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-}
-
-.testimonial-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    z-index: 2;
 }
 
 .quote {
     font-weight: 500;
     color: #0040c3;
+   
     margin-bottom: 20px;
 }
 
@@ -2191,7 +2206,6 @@ course-content {
     overflow: hidden;
     width: 100%;
     padding: 0 20px;
-    clip-path: inset(0);
 }
 
 .slider-track {
@@ -2203,14 +2217,6 @@ course-content {
 .testimonial-slide {
     flex: 0 0 calc(33.333% - 14px);
     max-width: calc(33.333% - 14px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.testimonial-slide.visible {
-    opacity: 1;
-    visibility: visible;
 }
 
 .slider-arrow {
@@ -2227,96 +2233,40 @@ course-content {
     justify-content: center;
 }
 
+.prev-arrow {
+    left: 0;
+}
+
+.next-arrow {
+    right: 0;
+}
+
 .student-review-card {
     border-radius: 5px;
     border: 1px solid #CFDEFF;
     background: #FDFDFD;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    position: relative;
-    transition: all 0.3s ease;
     height: 100%;
-    width: 100%;
-    z-index: 1;
-    text-align: left;
-}
-
-.student-review-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-}
-
-.student-review-text {
-    position: relative;
-    max-height: 145px;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    margin-bottom: 15px;
-    color: #505050;
-}
-
-.student-review-card:hover .student-review-text {
-    max-height: 1000px;
-}
-
-.student-review-text::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(253, 253, 253, 0), #fdfdfd);
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.student-review-card:hover .student-review-text::after {
-    opacity: 0;
-}
-
-.student-review-rating {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    gap: 5px;
-
 }
 
-.student-review-rating img {
-    /* width: 12px;
-    height: 12px; */
-    margin-right: 5px;
-}
-
-.student-review-rating span {
-    font-weight: 400;
-    font-size: 16px;
+.student-review-name {
     color: #000;
+    font-weight: 500;
+    margin-bottom: 10px !important;
 }
 
-.student-review-verified {
-    font-weight: 400;
-    /* font-size: 13px; */
-    color: #000;
-    margin-bottom: 0px;
-}
 
-.student-review-batch {
-    font-weight: 400;
-    /* font-size: 12px; */
-    color: #505050;
+@media (max-width: 992px) {
+    .testimonial-slide {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
 }
 
 @media (max-width: 768px) {
-
-    .student-review-footer {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .student-review-rating {
-        font-size: 12px;
+    .testimonial-slide {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }

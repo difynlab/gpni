@@ -411,7 +411,7 @@
                 } else if (window.innerWidth <= 992) {
                     slidesToShow = 2;
                 } else {
-                    slidesToShow = 1;
+                    slidesToShow = 3;
                 }
             }
 
