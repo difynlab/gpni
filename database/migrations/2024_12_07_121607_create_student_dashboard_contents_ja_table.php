@@ -156,6 +156,8 @@ return new class extends Migration
                 'courses_final_take_final_exam_tooltip',
                 'courses_final_exam_locked',
                 'courses_final_exam_locked_tooltip',
+                'courses_final_exam_pay_now',
+                'courses_final_exam_pay_now_tooltip',
                 'courses_no_modules',
                 'courses_return',
                 'gpni_tv_return',

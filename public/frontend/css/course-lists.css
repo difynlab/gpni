@@ -45,6 +45,8 @@
     text-overflow: ellipsis;
 }
 .course-info p {
+    display: flex;
+    align-items: center;
     font-size: 14px;
     font-weight: 400;
     color: #898989;
@@ -76,7 +78,7 @@
     padding: 2px 5px;
     margin-left: 10px;
 }
-.badge-in-progress {
+/* .badge-in-progress {
     background-color: #f7bf2e;
     color: #fff;
     font-size: 7px;
@@ -84,8 +86,17 @@
     border-radius: 9.89px;
     padding: 2px 5px;
     margin-left: 10px;
+} */
+.badge-in-progress {
+    background-color: #f7bf2e;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 3px 9px;
+    margin-left: 10px;
+    line-height: 13px;
 }
-
 @media (max-width: 768px) {
     .dashboard-container {
         margin: 20px;

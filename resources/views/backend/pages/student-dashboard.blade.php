@@ -727,6 +727,16 @@
                     </div>
 
                     <div class="col-4 mb-3">
+                        <label for="courses_final_exam_pay_now" class="form-label">Final Exam Pay Now</label>
+                        <input type="text" class="form-control" id="courses_final_exam_pay_now" name="courses_final_exam_pay_now" value="{{ $contents->courses_final_exam_pay_now ?? '' }}" placeholder="Final Exam Pay Now">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="courses_final_exam_pay_now_tooltip" class="form-label">Final Exam Pay Now Tooltip</label>
+                        <input type="text" class="form-control" id="courses_final_exam_pay_now_tooltip" name="courses_final_exam_pay_now_tooltip" value="{{ $contents->courses_final_exam_pay_now_tooltip ?? '' }}" placeholder="Final Exam Pay Now Tooltip">
+                    </div>
+
+                    <div class="col-4 mb-3">
                         <label for="courses_no_modules" class="form-label">No Modules</label>
                         <input type="text" class="form-control" id="courses_no_modules" name="courses_no_modules" value="{{ $contents->courses_no_modules ?? '' }}" placeholder="No Modules">
                     </div>

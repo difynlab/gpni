@@ -12,7 +12,9 @@
 
     <div class="container-fluid dashboard">
         <div class="row p-lg-5 p-3">
-            <x-frontend.sidebar :student="$student" />
+            <x-frontend.sidebar :student="$student"></x-frontend.sidebar>
+
+            <x-frontend.notification-popup></x-frontend.notification-popup>
 
             <div class="col-12 col-lg-8 main-content ps-lg-5">
                 <div class="module-container">
@@ -162,15 +164,21 @@
                                             </div>
                                         @else
                                             <div class="col-6">
-                                                <a href="{{ route('frontend.final-exam.index', $course) }}" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_take_again_tooltip }}" data-bs-custom-class="custom-tooltip">
-                                                    {{ $student_dashboard_contents->courses_final_take_again }}
-                                                </a>
+                                                @if(hasStudentAttendedTwoTimes($student->id, $course->id) >= 2)
+                                                    <form action="{{ route('frontend.final-exam.checkout') }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+
+                                                        <button type="submit" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_exam_pay_now_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_exam_pay_now }}</button>
+                                                    </form>
+                                                @else
+                                                    <a href="{{ route('frontend.final-exam.index', $course) }}" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_take_again_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_take_again }}</a>
+                                                @endif
                                             </div>
                                         @endif
                                     </div>
                                 @else
-                                    <a href="{{ route('frontend.final-exam.index', $course) }}" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_take_final_exam_tooltip }}" data-bs-custom-class="custom-tooltip">
-                                        {{ $student_dashboard_contents->courses_final_take_final_exam }}
+                                    <a href="{{ route('frontend.final-exam.index', $course) }}" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_take_final_exam_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_take_final_exam }}
                                     </a>
                                 @endif
                             @else

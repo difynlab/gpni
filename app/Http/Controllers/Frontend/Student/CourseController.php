@@ -8,9 +8,14 @@ use App\Models\CourseModule;
 use Carbon\Carbon;
 use App\Models\CourseChapter;
 use App\Http\Controllers\Controller;
+use App\Mail\FinalExamPurchaseMail;
 use App\Models\CourseFinalExam;
 use App\Models\CourseModuleExam;
+use App\Models\FinalExamPurchase;
+use App\Models\Setting;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CourseController extends Controller
 {
@@ -50,6 +55,8 @@ class CourseController extends Controller
             $course->date = $course_purchase && $course_purchase->date ? Carbon::parse($course_purchase->date)->format('d M Y') : null;
 
             $course->completion_date = $course_purchase && $course_purchase->completion_date ? Carbon::parse($course_purchase->completion_date)->format('d M Y') : null;
+
+            $course->course_final_exam = CourseFinalExam::where('course_id', $course->id)->where('status', '1')->orderBy('id', 'desc')->first();
         }
 
         return view('frontend.student.courses.index', [
@@ -127,5 +134,133 @@ class CourseController extends Controller
                 'file_title' => $file_title
             ]
         );
+    }
+
+    public function checkout(Request $request)
+    {
+        $course = Course::find($request->course_id);
+        $user = Auth::user();
+        
+        $wallet = Wallet::where('user_id', $user->id)->where('status', '1')->first();
+        $wallet_balance = $wallet ? $wallet->balance : '0.00';
+
+        $setting = Setting::find(1);
+
+        if($course->language == 'English') {
+            $makeup_price = $setting->makeup_exam_price_en;
+            $currency = 'usd';
+        }
+        elseif($course->language == 'Chinese') {
+            $makeup_price = $setting->makeup_exam_price_ch;
+            $currency = 'cny';
+        }
+        else {
+            $makeup_price = $setting->makeup_exam_price_ja;
+            $currency = 'jpy';
+        }
+
+        if($makeup_price >= $wallet_balance) {
+            $amount = $makeup_price - $wallet_balance;
+        }
+        else {
+            $amount = '0.00';
+        }
+
+        $final_exam_purchase = new FinalExamPurchase();
+        $final_exam_purchase->user_id = Auth::user()->id;
+        $final_exam_purchase->course_id = $request->course_id;
+        $final_exam_purchase->currency = $currency;
+        $final_exam_purchase->status = '1';
+        $final_exam_purchase->save();
+
+        $total_order_amount_in_cents = $currency === 'jpy' ? (int)$amount : (int)($amount * 100);
+
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        $session = \Stripe\Checkout\Session::create([
+            'line_items' => [
+                [
+                    'price_data' => [
+                        'currency' => $currency,
+                        'product_data' => [
+                            'name' => $course->title . ": Final Exam Purchase"
+                        ],
+                        'unit_amount' => $total_order_amount_in_cents
+                    ],
+                    'quantity' => 1,
+                ]
+            ],
+            'mode' => 'payment',
+            'success_url' => route('frontend.final-exam.success', ['final_exam_purchase_id' => $final_exam_purchase->id]) . '&session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('frontend.courses.show', $course->id) . '?' . http_build_query([
+                    'error' => 'Final exam purchase has been failed because of the payment cancellation'
+                ]),
+        ]);
+
+        return redirect()->away($session->url);
+    }
+
+    public function success(Request $request)
+    {
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+
+        $session_id = $request->query('session_id');
+        $final_exam_purchase_id = $request->query('final_exam_purchase_id');
+
+        $session = \Stripe\Checkout\Session::retrieve($session_id);
+
+        $final_exam_purchase = FinalExamPurchase::find($final_exam_purchase_id);
+
+        if($final_exam_purchase) {
+            $final_exam_purchase->date = now()->toDateString();
+            $final_exam_purchase->time = now()->toTimeString();
+            $final_exam_purchase->mode = $session->mode;
+            $final_exam_purchase->transaction_id = $session->id;
+            $final_exam_purchase->amount_paid = $session->currency == 'jpy' ? $session->amount_total : $session->amount_total / 100;
+            $final_exam_purchase->payment_status = 'Completed';
+            $final_exam_purchase->save();
+        }
+
+        $wallet = Wallet::where('user_id', $final_exam_purchase->user_id)->where('status', '1')->first();
+        $course = Course::find($final_exam_purchase->course_id);
+
+        $setting = Setting::find(1);
+
+        if($course->language == 'English') {
+            $makeup_price = $setting->makeup_exam_price_en;
+        }
+        elseif($course->language == 'Chinese') {
+            $makeup_price = $setting->makeup_exam_price_ch;
+        }
+        else {
+            $makeup_price = $setting->makeup_exam_price_ja;
+        }
+
+        if($wallet) {
+            if($wallet->balance >= $makeup_price) {
+                $final_exam_purchase->wallet_amount = $makeup_price;
+                $final_exam_purchase->save();
+
+                $wallet->balance = $wallet->balance - $makeup_price;
+                $wallet->save();
+            }
+            else {
+                $final_exam_purchase->wallet_amount = $wallet->balance;
+                $final_exam_purchase->save();
+
+                $wallet->balance = '0.00';
+                $wallet->save();
+            }
+        }
+
+        $user = Auth::user();
+
+        $mail_data = [
+            'name' => $user->first_name . ' ' . $user->last_name,
+            'course' => $course->title
+        ];
+
+        Mail::to($user->email)->send(new FinalExamPurchaseMail($mail_data));
+
+        return redirect()->route('frontend.final-exam.index', $course->id);
     }
 }

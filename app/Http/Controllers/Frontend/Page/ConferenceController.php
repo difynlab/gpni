@@ -14,10 +14,10 @@ class ConferenceController extends Controller
     {
         $contents = ConferenceContent::find(1);
 
-        $conferences = Conference::where('language', $request->middleware_language_name)->where('status', '1')->get();
+        $conferences = Conference::where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc')->get();
 
         if($conferences->isEmpty() && $request->middleware_language_name != 'English') {
-            $conferences = Conference::where('language', 'English')->where('status', '1')->get();
+            $conferences = Conference::where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->get();
         }
 
         return view('frontend.pages.conferences.index', [

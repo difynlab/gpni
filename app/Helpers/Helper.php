@@ -93,6 +93,22 @@ if(!function_exists('hasStudentCompletedFinalExam')) {
     }
 }
 
+if(!function_exists('hasStudentAttendedTwoTimes')) {
+    function hasStudentAttendedTwoTimes($user_id, $course_id)
+    {
+        $user = User::find($user_id);
+        $course = Course::find($course_id);
+
+        if(!$user || !$course) {
+            return false;
+        }
+
+        $total_exams_attended = CourseFinalExam::where('user_id', $user_id)->where('course_id', $course_id)->where('status', '1')->count();
+
+        return $total_exams_attended;
+    }
+}
+
 if(!function_exists('hasUserPurchasedMembership')) {
     function hasUserPurchasedMembership($user_id)
     {
