@@ -814,21 +814,34 @@
             
             let currentPosition = 0;
             let slidesToShow = 3;
-            let slidesToScroll = 1;
+            let slidesToScroll = 3;
 
             function updateSlidesToShow() {
                 if (window.innerWidth <= 768) {
                     slidesToShow = 1;
+                    slidesToScroll = 1;
                 } else if (window.innerWidth <= 992) {
                     slidesToShow = 2;
+                    slidesToScroll = 2;
                 } else {
                     slidesToShow = 3;
+                    slidesToScroll = 3;
                 }
+                updateSliderPosition();
             }
 
             function updateSliderPosition() {
                 const slideWidth = 100 / slidesToShow;
                 sliderTrack.style.transform = `translateX(-${currentPosition * slideWidth}%)`;
+                
+                // Update visibility of slides
+                slides.forEach((slide, index) => {
+                    if (index >= currentPosition && index < currentPosition + slidesToShow) {
+                        slide.classList.add('visible');
+                    } else {
+                        slide.classList.remove('visible');
+                    }
+                });
             }
 
             function checkButtons() {
@@ -840,7 +853,7 @@
 
             prevButton.addEventListener('click', () => {
                 if (currentPosition > 0) {
-                    currentPosition--;
+                    currentPosition = Math.max(0, currentPosition - slidesToScroll);
                     updateSliderPosition();
                     checkButtons();
                 }
@@ -848,22 +861,28 @@
 
             nextButton.addEventListener('click', () => {
                 if (currentPosition < slides.length - slidesToShow) {
-                    currentPosition++;
+                    currentPosition = Math.min(slides.length - slidesToShow, currentPosition + slidesToScroll);
                     updateSliderPosition();
                     checkButtons();
                 }
             });
 
+            // Initialize slider
             window.addEventListener('resize', () => {
                 updateSlidesToShow();
-                currentPosition = 0;
-                updateSliderPosition();
                 checkButtons();
             });
 
+            // Initial setup
             updateSlidesToShow();
-            updateSliderPosition();
             checkButtons();
+
+            // Show initial slides
+            slides.forEach((slide, index) => {
+                if (index < slidesToShow) {
+                    slide.classList.add('visible');
+                }
+            });
         });
     </script>
 @endpush
