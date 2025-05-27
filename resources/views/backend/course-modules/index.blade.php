@@ -88,23 +88,25 @@
                                     <div class="mb-4">
                                         <label for="module_exam" class="form-label">Module Exam<span class="asterisk">*</span></label>
                                         <select class="form-control form-select module-exam" id="module_exam" name="module_exam" required>
-                                            <option value="">Select</option>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No">No</option>
+                                            <option value="">Select module exam</option>
+                                            <option value="Yes" {{ old('module_exam') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                            <option value="No" {{ old('module_exam') == 'No' ? 'selected' : '' }}>No</option>
                                         </select>
                                     </div>
 
                                     <div class="mb-4">
                                         <label for="time_required" class="form-label">Time Required<span class="asterisk">*</span></label>
                                         <select class="form-control form-select time-required" id="time_required" name="time_required" required>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No" selected>No</option>
+                                            <option value="">Select time required</option>
+                                            <option value="Yes" {{ old('time_required') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                            <option value="No" {{ old('time_required') == 'No' ? 'selected' : '' }}>No</option>
                                         </select>
                                     </div>
 
-                                    <div class="mb-4 d-none exam-time-div">
-                                        <label for="exam_time" class="form-label">Exam Time<span class="asterisk">*</span></label>
-                                        <input type="time" class="form-control" step="1" id="exam-time" name="exam_time">
+                                    <div class="mb-4 {{ old('exam_time') == null ? 'd-none' : '' }} exam-time-div">
+                                        <label for="exam_time" class="form-label">Exam Time (HH:MM)<span class="asterisk">*</span></label>
+                                        <input type="text" class="form-control" id="exam-time" name="exam_time" value="{{ old('exam_time') }}">
+                                        <x-backend.input-error field="exam_time"></x-backend.input-error>
                                     </div>
 
                                     <div>
@@ -153,22 +155,25 @@
                                     <div class="mb-4">
                                         <label for="module_exam" class="form-label">Module Exam<span class="asterisk">*</span></label>
                                         <select class="form-control form-select module-exam" id="module_exam" name="module_exam" required>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No" selected>No</option>
+                                            <option value="">Select module exam</option>
+                                            <option value="Yes" {{ old('module_exam') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                            <option value="No" {{ old('module_exam') == 'No' ? 'selected' : '' }}>No</option>
                                         </select>
                                     </div>
 
                                     <div class="mb-4">
                                         <label for="time_required" class="form-label">Time Required<span class="asterisk">*</span></label>
                                         <select class="form-control form-select time-required" id="time_required" name="time_required" required>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No" selected>No</option>
+                                            <option value="">Select time required</option>
+                                            <option value="Yes" {{ old('time_required') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                            <option value="No" {{ old('time_required') == 'No' ? 'selected' : '' }}>No</option>
                                         </select>
                                     </div>
 
-                                    <div class="mb-4 d-none exam-time-div">
-                                        <label for="exam_time" class="form-label">Exam Time<span class="asterisk">*</span></label>
-                                        <input type="time" class="form-control" step="1" id="exam-time" name="exam_time">
+                                    <div class="mb-4 {{ old('exam_time') == null ? 'd-none' : '' }} exam-time-div">
+                                        <label for="exam_time" class="form-label">Exam Time (HH:MM)<span class="asterisk">*</span></label>
+                                        <input type="text" class="form-control" id="exam-time" name="exam_time" value="{{ old('exam_time') }}">
+                                        <x-backend.input-error field="exam_time"></x-backend.input-error>
                                     </div>
 
                                     <div>
