@@ -225,6 +225,7 @@
                         <div class="mt-4">
                             <label for="time_required" class="form-label">Time Required<span class="asterisk">*</span></label>
                             <select class="form-control form-select time-required" id="time_required" name="time_required" required>
+                                <option value="">Select time required</option>
                                 <option value="Yes" {{ old('time_required', $course->time_required) == 'Yes' ? 'selected' : '' }}>Yes</option>
                                 <option value="No" {{ old('time_required', $course->time_required) == 'No' ? 'selected' : '' }}>No</option>
                             </select>
@@ -232,13 +233,15 @@
 
                         @if($course->exam_time != null)
                             <div class="mt-4 exam-time-div">
-                                <label for="exam_time" class="form-label">Exam Time<span class="asterisk">*</span></label>
-                                <input type="time" class="form-control" step="1" id="exam-time" name="exam_time" value="{{ old('exam_time', $course->exam_time) }}">
+                                <label for="exam_time" class="form-label">Exam Time (HH:MM)<span class="asterisk">*</span></label>
+                                <input type="text" class="form-control" id="exam_time" name="exam_time" value="{{ old('exam_time', $course->exam_time) }}">
+                                <x-backend.input-error field="exam_time"></x-backend.input-error>
                             </div>
                         @else
-                            <div class="mt-4 d-none exam-time-div">
-                                <label for="exam_time" class="form-label">Exam Time<span class="asterisk">*</span></label>
-                                <input type="time" class="form-control" step="1" id="exam-time" name="exam_time" value="{{ old('exam_time', $course->exam_time) }}">
+                            <div class="mt-4 {{ old('exam_time') == null ? 'd-none' : '' }} exam-time-div">
+                                <label for="exam_time" class="form-label">Exam Time (HH:MM)<span class="asterisk">*</span></label>
+                                <input type="text" class="form-control" id="exam-time" name="exam_time" value="{{ old('exam_time', $course->exam_time) }}">
+                                <x-backend.input-error field="exam_time"></x-backend.input-error>
                             </div>
                         @endif
                     </div>

@@ -8,6 +8,7 @@ use App\Models\CourseChapter;
 use App\Models\CourseModule;
 use App\Models\CourseModuleExamQuestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CourseModuleController extends Controller
 {
@@ -23,6 +24,16 @@ class CourseModuleController extends Controller
                                                                               
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'exam_time' => ['nullable', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/']
+        ], [
+            'exam_time.regex' => 'Exam time must be in HH:MM format (e.g., 01:15, 00:20)',
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
+        }
+
         $last_course_module = CourseModule::where('course_id', $request->course_id)->where('status', '!=', '0')->latest('id')->first();
 
         $course_module = new CourseModule();
@@ -40,6 +51,16 @@ class CourseModuleController extends Controller
 
     public function update(Request $request, CourseModule $course_module)
     {
+        $validator = Validator::make($request->all(), [
+            'exam_time' => ['nullable', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/']
+        ], [
+            'exam_time.regex' => 'Exam time must be in HH:MM format (e.g., 01:15, 00:20)',
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
+        }
+
         $course_module->title = $request->title;
         $course_module->description = $request->description;
         $course_module->module_exam = $request->module_exam;

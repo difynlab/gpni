@@ -48,7 +48,7 @@
                         <div class="col-md-6 col-12">
                             <div class="timer-section">
                                 <p class="remaining-time">{{ $student_dashboard_contents->courses_exam_remaining_time }}</p>
-                                <p id="countdown" class="countdown fs-39">{{ $course_module->exam_time }}</p> 
+                                <p id="countdown" class="countdown fs-39">{{ $course_module->exam_time }}:00</p> 
                             </div>
                         </div>
                     @endif
@@ -295,6 +295,8 @@
 
                 // Timer
                     let timeString = "{{ $course_module->exam_time }}";
+                    timeString = timeString + ':00';
+
                     if(timeString != ''){
                         function timeToSeconds(timeString) {
                             const [hours, minutes, seconds] = timeString.split(":").map(Number);

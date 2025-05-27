@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->enum('module_exam', ['Yes', 'No'])->default('No');
             $table->enum('time_required', ['Yes', 'No'])->default('No');
-            $table->time('exam_time')->nullable();
+            $table->string('exam_time')->nullable();
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
         });

@@ -205,14 +205,16 @@
                         <div class="mt-4">
                             <label for="time_required" class="form-label">Time Required<span class="asterisk">*</span></label>
                             <select class="form-control form-select time-required" id="time_required" name="time_required" required>
-                                <option value="Yes">Yes</option>
-                                <option value="No" selected>No</option>
+                                <option value="">Select time required</option>
+                                <option value="Yes" {{ old('time_required') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                <option value="No" {{ old('time_required') == 'No' ? 'selected' : '' }}>No</option>
                             </select>
                         </div>
 
-                        <div class="mt-4 d-none exam-time-div">
-                            <label for="exam_time" class="form-label">Exam Time<span class="asterisk">*</span></label>
-                            <input type="time" class="form-control" step="1" id="exam-time" name="exam_time">
+                        <div class="mt-4 {{ old('exam_time') == null ? 'd-none' : '' }} exam_time-div">
+                            <label for="exam_time" class="form-label">Exam Time (HH:MM)<span class="asterisk">*</span></label>
+                            <input type="text" class="form-control" id="exam_time" name="exam_time" value="{{ old('exam_time') }}">
+                            <x-backend.input-error field="exam_time"></x-backend.input-error>
                         </div>
                     </div>
                 </div>
@@ -226,8 +228,8 @@
                         <label for="member_course" class="form-label">Member Course?<span class="asterisk">*</span></label>
                         <select class="form-control form-select" id="member_course" name="member_course" required>
                             <option value="">Select</option>
-                            <option value="Yes" {{ old('final_exam') == 'Yes' ? 'selected' : '' }}>Yes</option>
-                            <option value="No" {{ old('final_exam') == 'No' ? 'selected' : '' }}>No</option>
+                            <option value="Yes" {{ old('member_course') == 'Yes' ? 'selected' : '' }}>Yes</option>
+                            <option value="No" {{ old('member_course') == 'No' ? 'selected' : '' }}>No</option>
                         </select>
                     </div>
                 </div>
