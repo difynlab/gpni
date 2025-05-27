@@ -9,6 +9,8 @@ use App\Models\CourseModule;
 use App\Models\CourseModuleExam;
 use App\Models\CourseModuleExamAnswer;
 use App\Models\CourseModuleExamQuestion;
+use App\Models\CoursePurchase;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -74,6 +76,19 @@ class ModuleExamController extends Controller
         $course_module_exam->marks = $marks;
         $course_module_exam->result = $result;
         $course_module_exam->save();
+
+        if($result == 'Pass') {
+            $last_course_module = CourseModule::where('course_id', $course->id)->where('status', '1')->orderBy('id', 'desc')->first();
+
+            if($last_course_module->id == $course_module->id) {
+                $course_purchase = CoursePurchase::where('user_id', $student->id)->where('course_id', $course->id)->where('status', '1')->where('course_access_status', 'Active')->first();
+
+                if($course_purchase) {
+                    $course_purchase->completion_date = Carbon::now()->toDateString();
+                    $course_purchase->save();
+                }
+            }
+        }
 
         $mail_data = [
             'name' => $student->first_name . ' ' . $student->last_name,

@@ -70,7 +70,7 @@ class CourseController extends Controller
             'price' => 'numeric|min:0',
             'referral_point_percentage' => 'nullable|numeric|min:0',
             'instalment_price' =>'nullable|numeric|min:0',
-            'exam_time' => ['regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/']
+            'exam_time' => ['regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/'],
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
             'new_video.max' => 'Video must not be greater than 100 MB',
@@ -82,7 +82,7 @@ class CourseController extends Controller
             'referral_point_percentage.min' => 'Referral point percentage must be positive value',
             'instalment_price.numeric' => 'Instalment price must be a number or decimal',
             'instalment_price.min' => 'Instalment price must be positive value',
-            'exam_time.regex' => 'Exam time must be in HH:MM format (01:15, 00:20)',
+            'exam_time.regex' => 'Exam time must be in HH:MM format (e.g., 01:15, 00:20)',
         ]);
 
         if($validator->fails()) {
@@ -166,8 +166,8 @@ class CourseController extends Controller
             'new_instructor_profile_image' => 'max:30720',
             'new_certificate_images.*' => 'max:30720',
             'price' => 'numeric|min:0',
-            'referral_point_percentage' => 'numeric|min:0',
-            'instalment_price' =>'numeric|min:0',
+            'referral_point_percentage' => 'nullable|numeric|min:0',
+            'instalment_price' =>'nullable|numeric|min:0',
             'exam_time' => ['regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/']
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
@@ -180,7 +180,7 @@ class CourseController extends Controller
             'referral_point_percentage.min' => 'Referral point percentage must be a positive value',
             'instalment_price.numeric' => 'Instalment price must be a number or decimal',
             'instalment_price.min' => 'Instalment price must be a positive value',
-            'exam_time.regex' => 'Exam time must be in HH:MM format (01:15, 00:20)'
+            'exam_time.regex' => 'Exam time must be in HH:MM format (e.g., 01:15, 00:20)',
         ]);
 
         if($validator->fails()) {

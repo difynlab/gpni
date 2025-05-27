@@ -73,8 +73,10 @@ class FinalExamController extends Controller
         if($result == 'Pass') {
             $course_purchase = CoursePurchase::where('user_id', $student->id)->where('course_id', $course->id)->where('status', '1')->where('course_access_status', 'Active')->first();
 
-            $course_purchase->completion_date = Carbon::now()->toDateString();
-            $course_purchase->save();
+            if($course_purchase) {
+                $course_purchase->completion_date = Carbon::now()->toDateString();
+                $course_purchase->save();
+            }
         }
 
         $course_final_exam->total_correct_answers = $total_correct_answers;
