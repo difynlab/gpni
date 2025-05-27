@@ -809,6 +809,27 @@
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
+                breakpoints: {
+                    0: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        },
+        // when window width is >= 576px (mobile landscape)
+        576: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        },
+        // when window width is >= 768px (tablets)
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 15
+        },
+        // when window width is >= 992px (desktop)
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        }
+    }
             });
         // Testimonial swiper
     </script>
