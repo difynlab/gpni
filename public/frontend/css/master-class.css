@@ -2032,8 +2032,6 @@ h1.display-4 {
 
 .student-review-card:hover {
     height: auto;
-    max-height: 500px; /* Maximum height on hover */
-    /* /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
     transform: translateY(0px);
 }
 
