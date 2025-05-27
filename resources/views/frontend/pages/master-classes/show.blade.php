@@ -266,7 +266,7 @@
     @endif
 
     @if($course->master_section_7_title)
-        <div class="container custom-testimonial-section py-5">
+        <div class="container custom-testimonial-section mt-5">
             <div class="row d-flex align-items-center justify-content-center mx-md-3 mx-0">
                 <div class="col-md-6">
                     <div class="testimonial-header mb-3 d-flex align-items-center">
@@ -302,43 +302,39 @@
             </div>
             
             @if(count($testimonials) > 2)
-                <div class="testimonial-slider-container mt-5">
-                    <div class="testimonial-slider">
-                        <button class="slider-arrow prev-arrow">
-                            <i class="bi bi-chevron-left"></i>
-                        </button>
-                        
-                        <div class="slider-wrapper">
-                            <div class="slider-track">
-                                @foreach($testimonials as $index => $testimonial)
-                                    @if($index !== 0)
-                                        <div class="testimonial-slide">
-                                            <div class="student-review-card-2 p-3">
-                                                <div class="student-review-name text-heading">{{ $testimonial->name }}</div>
-                                                <div class="student-review-text text-content">{{ $testimonial->content }}</div>
-                                                <div class="student-review-footer">
-                                                    <div class="student-review-rating">
-                                                        <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
-                                                        
-                                                        <span>
-                                                            @for($i = 0; $i < $testimonial->rate; $i++)
-                                                                <i class="bi bi-star-fill star"></i>
-                                                            @endfor
-                                                        </span>
+                <section class="student-reviews-section container pt-0 mb-3">
+                    <div class="testimonial-slider-container mt-5">
+                        <div class="testimonial-slider">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    @foreach($testimonials as $index => $testimonial)
+                                        @if($index !== 0)
+                                            <div class="swiper-slide testimonial-slide">
+                                                <div class="student-review-card p-3">
+                                                    <h5 class="student-review-name text-heading">{{ $testimonial->name }}</h5>
+                                                    <p class="student-review-text text-content">{{ $testimonial->content }}</p>
+                                                    <div class="student-review-footer">
+                                                        <div class="student-review-rating">
+                                                            <span>{{ $contents->{'single_page_rated_' . $middleware_language} ?? $contents->single_page_rated_en }} {{ $testimonial->rate }}/5 {{ $contents->{'single_page_stars_' . $middleware_language} ?? $contents->single_page_stars_en }}</span>
+                                                            
+                                                            <span>
+                                                                @for($i = 0; $i < $testimonial->rate; $i++)
+                                                                    <i class="bi bi-star-fill star"></i>
+                                                                @endfor
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endif
-                                @endforeach
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
-                
-                        <button class="slider-arrow next-arrow">
-                            <i class="bi bi-chevron-right"></i>
-                        </button>
                     </div>
-                </div>
+                </section>
             @endif
         </div>
     @endif
@@ -395,64 +391,36 @@
         goToSlide(0);
 
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const sliderTrack = document.querySelector('.slider-track');
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const prevButton = document.querySelector('.prev-arrow');
-            const nextButton = document.querySelector('.next-arrow');
-            
-            let currentPosition = 0;
-            let slidesToShow = 3;
-            let slidesToScroll = 1;
-
-            function updateSlidesToShow() {
-                if (window.innerWidth <= 768) {
-                    slidesToShow = 1;
-                } else if (window.innerWidth <= 992) {
-                    slidesToShow = 2;
-                } else {
-                    slidesToShow = 3;
-                }
-            }
-
-            function updateSliderPosition() {
-                const slideWidth = 100 / slidesToShow;
-                sliderTrack.style.transform = `translateX(-${currentPosition * slideWidth}%)`;
-            }
-
-            function checkButtons() {
-                prevButton.disabled = currentPosition === 0;
-                nextButton.disabled = currentPosition >= slides.length - slidesToShow;
-                prevButton.style.opacity = prevButton.disabled ? '0.5' : '1';
-                nextButton.style.opacity = nextButton.disabled ? '0.5' : '1';
-            }
-
-            prevButton.addEventListener('click', () => {
-                if (currentPosition > 0) {
-                    currentPosition--;
-                    updateSliderPosition();
-                    checkButtons();
-                }
+        // Testimonial swiper
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    0: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        },
+        // when window width is >= 576px (mobile landscape)
+        576: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        },
+        // when window width is >= 768px (tablets)
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 15
+        },
+        // when window width is >= 992px (desktop)
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        }
+    }
             });
-
-            nextButton.addEventListener('click', () => {
-                if (currentPosition < slides.length - slidesToShow) {
-                    currentPosition++;
-                    updateSliderPosition();
-                    checkButtons();
-                }
-            });
-
-            window.addEventListener('resize', () => {
-                updateSlidesToShow();
-                currentPosition = 0;
-                updateSliderPosition();
-                checkButtons();
-            });
-
-            updateSlidesToShow();
-            updateSliderPosition();
-            checkButtons();
-        });
+        // Testimonial swiper
     </script>
 @endpush

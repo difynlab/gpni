@@ -155,7 +155,7 @@
                                                             <div class="card-body course-card-body ps-4">
                                                                 <div class="card-title text-heading d-flex justify-content-start text-start">{{ $course->title }}</div>
                                                                 <div class="apply-now-container d-flex justify-content-between align-items-center text=content w-100">
-                                                                    <div class="apply-now-text text-content mb-0">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
+                                                                    <div class="apply-now-text fs-16 mb-0">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
                                                                     <img src="{{ asset('storage/frontend/right-chevron-arrow.svg') }}" alt="right-chevron-arrow">
                                                                 </div>
                                                             </div>
