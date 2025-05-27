@@ -129,7 +129,7 @@ return new class extends Migration
 
             $table->enum('final_exam', ['Yes', 'No'])->default('No');
             $table->enum('time_required', ['Yes', 'No'])->default('No');
-            $table->time('exam_time')->nullable();
+            $table->string('exam_time')->nullable();
 
             $table->enum('member_course', ['Yes', 'No'])->default('No');
 
