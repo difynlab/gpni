@@ -623,19 +623,16 @@
                     </div>
                 </div>
             </section>
+
             @if(count($testimonials) > 1)
                 <section class="student-reviews-section container pt-0 mb-3">
                     <div class="testimonial-slider-container mt-5">
                         <div class="testimonial-slider">
-                            <button class="slider-arrow prev-arrow">
-                                <i class="bi bi-chevron-left"></i>
-                            </button>
-                            
-                            <div class="slider-wrapper">
-                                <div class="slider-track">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
                                     @foreach($testimonials as $index => $testimonial)
                                         @if($index !== 0)
-                                            <div class="testimonial-slide">
+                                            <div class="swiper-slide testimonial-slide">
                                                 <div class="student-review-card p-3">
                                                     <h5 class="student-review-name text-heading">{{ $testimonial->name }}</h5>
                                                     <p class="student-review-text text-content">{{ $testimonial->content }}</p>
@@ -656,10 +653,8 @@
                                     @endforeach
                                 </div>
                             </div>
-                    
-                            <button class="slider-arrow next-arrow">
-                                <i class="bi bi-chevron-right"></i>
-                            </button>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                 </section>
@@ -806,64 +801,15 @@
         goToSlide(0);
 
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const sliderTrack = document.querySelector('.slider-track');
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const prevButton = document.querySelector('.prev-arrow');
-            const nextButton = document.querySelector('.next-arrow');
-            
-            let currentPosition = 0;
-            let slidesToShow = 3;
-            let slidesToScroll = 1;
-
-            function updateSlidesToShow() {
-                if (window.innerWidth <= 768) {
-                    slidesToShow = 1;
-                } else if (window.innerWidth <= 992) {
-                    slidesToShow = 2;
-                } else {
-                    slidesToShow = 3;
-                }
-            }
-
-            function updateSliderPosition() {
-                const slideWidth = 100 / slidesToShow;
-                sliderTrack.style.transform = `translateX(-${currentPosition * slideWidth}%)`;
-            }
-
-            function checkButtons() {
-                prevButton.disabled = currentPosition === 0;
-                nextButton.disabled = currentPosition >= slides.length - slidesToShow;
-                prevButton.style.opacity = prevButton.disabled ? '0.5' : '1';
-                nextButton.style.opacity = nextButton.disabled ? '0.5' : '1';
-            }
-
-            prevButton.addEventListener('click', () => {
-                if (currentPosition > 0) {
-                    currentPosition--;
-                    updateSliderPosition();
-                    checkButtons();
-                }
+        // Testimonial swiper
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
             });
-
-            nextButton.addEventListener('click', () => {
-                if (currentPosition < slides.length - slidesToShow) {
-                    currentPosition++;
-                    updateSliderPosition();
-                    checkButtons();
-                }
-            });
-
-            window.addEventListener('resize', () => {
-                updateSlidesToShow();
-                currentPosition = 0;
-                updateSliderPosition();
-                checkButtons();
-            });
-
-            updateSlidesToShow();
-            updateSliderPosition();
-            checkButtons();
-        });
+        // Testimonial swiper
     </script>
 @endpush
