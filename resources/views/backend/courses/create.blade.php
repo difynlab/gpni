@@ -212,7 +212,8 @@
 
                         <div class="mt-4 d-none exam-time-div">
                             <label for="exam_time" class="form-label">Exam Time<span class="asterisk">*</span></label>
-                            <input type="time" class="form-control" step="1" id="exam-time" name="exam_time">
+                            <input type="text" class="form-control" step="1" id="exam_time" name="exam_time">
+                            <x-backend.input-error field="exam_time"></x-backend.input-error>
                         </div>
                     </div>
                 </div>

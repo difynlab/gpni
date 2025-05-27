@@ -233,7 +233,8 @@
                         @if($course->exam_time != null)
                             <div class="mt-4 exam-time-div">
                                 <label for="exam_time" class="form-label">Exam Time<span class="asterisk">*</span></label>
-                                <input type="time" class="form-control" step="1" id="exam-time" name="exam_time" value="{{ old('exam_time', $course->exam_time) }}">
+                                <input type="text" class="form-control" step="1" id="exam_time" name="exam_time">
+                                <x-backend.input-error field="exam_time"></x-backend.input-error>
                             </div>
                         @else
                             <div class="mt-4 d-none exam-time-div">
