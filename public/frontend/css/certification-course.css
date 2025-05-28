@@ -713,8 +713,6 @@ course-content {
 
 .testimonial-content {
     font-weight: 400;
-   
-    color: #3e3e3e;
 }
 
 /* Slider Controls */
@@ -1338,12 +1336,24 @@ course-content {
     text-align: left;
     transition: all 0.3s ease;
     background-color: #ffffff;
-    height: 180px; /* Initial fixed height */
+    height: 180px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     cursor: pointer;
     position: relative;
+    z-index: 1;
+}
+
+.student-review-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: -1;
+    transition: border-color 0.4s ease;
 }
 
 .student-review-card::after {
@@ -1360,6 +1370,15 @@ course-content {
 .student-review-card:hover {
     height: auto;
     transform: translateY(0px);
+    box-shadow: 0 12px 28px rgba(0, 64, 195, 0.15);
+}
+
+.student-review-card:not(:hover) {
+    transition-delay: 0.1s;
+}
+
+.student-review-card:hover::before {
+    animation: borderPulse 1.5s infinite alternate;
 }
 
 .student-review-card:hover::after {
@@ -1382,6 +1401,32 @@ course-content {
 .student-review-card:hover .student-review-text {
     -webkit-line-clamp: unset;
     display: block;
+    animation: contentFadeIn 0.7s ease-out forwards;
+}
+
+@keyframes contentFadeIn {
+    0% {
+        opacity: 0.5;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contentExpand {
+    0% {
+        opacity: 0.7;
+        transform: translateY(10px) scale(0.98);
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .student-review-footer {
@@ -1389,6 +1434,8 @@ course-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
 }
 
 .student-review-rating {
@@ -2218,9 +2265,9 @@ course-content {
     border-radius: 5px;
     border: 1px solid #CFDEFF;
     background: #FDFDFD;
-    height: 250px; /* Initial fixed height */
+    height: 250px; 
     overflow: hidden;
-    transition: height 0.3s ease; /* Smooth height transition */
+    transition: height 0.3s ease; 
 }
 
 .student-review-card.expanded {
