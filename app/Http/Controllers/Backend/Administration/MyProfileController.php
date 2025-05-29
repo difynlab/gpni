@@ -302,18 +302,18 @@ class MyProfileController extends Controller
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/backend/persons/admins', $image_name);
         }
-        else if($request->delete_image == '1') {
-            if($request->old_image) {
-                Storage::delete('public/backend/persons/admins/' . $request->old_image);
+        else if($request->old_image == null) {
+            if($my_profile->image) {
+                Storage::delete('public/backend/persons/admins/' . $my_profile->image);
             }
+
             $image_name = null;
         }
         else {
             $image_name = $request->old_image;
         }
-
-        // $data = $request->except('old_image', 'new_image', 'password', 'confirm_password');
-        $data = $request->except('old_image', 'new_image', 'password', 'confirm_password', 'delete_image');
+        
+        $data = $request->except('old_image', 'new_image', 'password', 'confirm_password');
 
         if($request->password != null) {
             $validator = Validator::make($request->all(), [

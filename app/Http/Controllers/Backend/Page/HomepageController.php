@@ -82,6 +82,13 @@ class HomepageController extends Controller
                 $section_1_image_name = Str::random(40) . '.' . $new_section_1_image->getClientOriginalExtension();
                 $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
+            else if($request->old_section_1_image == null) {
+                if($contents->{'section_1_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_1_image_' . $short_code});
+                }
+
+                $section_1_image_name = null;
+            }
             else {
                 if($contents->{'section_1_image_' . $short_code}) {
                     $section_1_image_name = $request->old_section_1_image;
@@ -140,7 +147,6 @@ class HomepageController extends Controller
         // Section 4 video
 
         // Section 5 images
-            
             if($request->file('new_section_5_images') != null) {
                 if($request->old_section_5_images) {
                     $encoded_string = htmlspecialchars_decode($request->old_section_5_images);

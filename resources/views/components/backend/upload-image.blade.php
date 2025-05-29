@@ -23,33 +23,24 @@
     <label for="{{ $new_name }}" class="button">Browse File</label>
     <p class="condition">Maximum file size is 30 MB</p>
     <input type="file" id="{{ $new_name }}" class="image-file-element" name="{{ $new_name }}" accept="image/*" style="display:none">
-    <input type="hidden" name="{{ $old_name }}" value="{{ $old_value }}">
-    <input type="hidden" name="delete_image" value="0" class="delete-image-input">
+    <input type="hidden" name="{{ $old_name }}" id="old-value" value="{{ $old_value }}">
 
-    <div class="image-preview right">
+    <div class="image-preview">
         @if($old_value)
             <img src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}">
-        <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 delete-image-btn" style="padding: 0.05rem 0.2rem; font-size: 0.75rem;">
-            <i class="bi bi-x small"></i>
-        </button>
 
+            <button type="button" class="close-icon">
+                <i class="bi bi-x small"></i>
+            </button>
         @endif
     </div>
 </div>
 
 @push('after-scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const deleteBtn = document.querySelector('.delete-image-btn');
-        const deleteInput = document.querySelector('.delete-image-input');
-        const imagePreview = document.querySelector('.image-preview');
-        
-        if (deleteBtn) {
-            deleteBtn.addEventListener('click', function() {
-                imagePreview.innerHTML = '';
-                deleteInput.value = '1';
-            });
-        }
-    });
-</script>
+    <script>
+        $('.close-icon').on('click', function() {
+            $(this).parent('.image-preview').remove();
+            $('#old-value').val('');
+        })
+    </script>
 @endpush
