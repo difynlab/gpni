@@ -29,9 +29,10 @@
     <div class="image-preview right">
         @if($old_value)
             <img src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}">
-            <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2 delete-image-btn">
-                <i class="bi bi-x"></i>
-            </button>
+        <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 delete-image-btn" style="padding: 0.05rem 0.2rem; font-size: 0.75rem;">
+            <i class="bi bi-x small"></i>
+        </button>
+
         @endif
     </div>
 </div>
