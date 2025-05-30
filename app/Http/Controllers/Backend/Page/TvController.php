@@ -85,6 +85,13 @@ class TvController extends Controller
                 $section_1_image_name = Str::random(40) . '.' . $new_section_1_image->getClientOriginalExtension();
                 $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
+            else if($request->old_section_1_image == null) {
+                if($contents->{'section_1_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_1_image_' . $short_code});
+                }
+
+                $section_1_image_name = null;
+            }
             else {
                 if($contents->{'section_1_image_' . $short_code}) {
                     $section_1_image_name = $request->old_section_1_image;
@@ -104,6 +111,13 @@ class TvController extends Controller
                 $new_section_3_image = $request->file('new_section_3_image');
                 $section_3_image_name = Str::random(40) . '.' . $new_section_3_image->getClientOriginalExtension();
                 $new_section_3_image->storeAs('public/backend/pages', $section_3_image_name);
+            }
+            else if($request->old_section_3_image == null) {
+                if($contents->{'section_3_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_3_image_' . $short_code});
+                }
+
+                $section_3_image_name = null;
             }
             else {
                 if($contents->{'section_3_image_' . $short_code}) {
@@ -125,6 +139,13 @@ class TvController extends Controller
                 $section_5_image_name = Str::random(40) . '.' . $new_section_5_image->getClientOriginalExtension();
                 $new_section_5_image->storeAs('public/backend/pages', $section_5_image_name);
             }
+            else if($request->old_section_5_image == null) {
+                if($contents->{'section_5_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_5_image_' . $short_code});
+                }
+
+                $section_5_image_name = null;
+            }
             else {
                 if($contents->{'section_5_image_' . $short_code}) {
                     $section_5_image_name = $request->old_section_5_image;
@@ -144,6 +165,13 @@ class TvController extends Controller
                 $new_section_6_image = $request->file('new_section_6_image');
                 $section_6_image_name = Str::random(40) . '.' . $new_section_6_image->getClientOriginalExtension();
                 $new_section_6_image->storeAs('public/backend/pages', $section_6_image_name);
+            }
+            else if($request->old_section_6_image == null) {
+                if($contents->{'section_6_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_6_image_' . $short_code});
+                }
+
+                $section_6_image_name = null;
             }
             else {
                 if($contents->{'section_6_image_' . $short_code}) {
@@ -184,6 +212,13 @@ class TvController extends Controller
                 $new_section_10_image = $request->file('new_section_10_image');
                 $section_10_image_name = Str::random(40) . '.' . $new_section_10_image->getClientOriginalExtension();
                 $new_section_10_image->storeAs('public/backend/pages', $section_10_image_name);
+            }
+            else if($request->old_section_10_image == null) {
+                if($contents->{'section_10_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_10_image_' . $short_code});
+                }
+
+                $section_10_image_name = null;
             }
             else {
                 if($contents->{'section_10_image_' . $short_code}) {

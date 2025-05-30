@@ -39,8 +39,8 @@
 @push('after-scripts')
     <script>
         $('.close-icon').on('click', function() {
+            $(this).parent('.image-preview').prev().val('');
             $(this).parent('.image-preview').remove();
-            $('#old-value').val('');
         })
     </script>
 @endpush
