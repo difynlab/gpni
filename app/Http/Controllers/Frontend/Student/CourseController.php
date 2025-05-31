@@ -142,7 +142,7 @@ class CourseController extends Controller
         $user = Auth::user();
         
         $wallet = Wallet::where('user_id', $user->id)->where('status', '1')->first();
-        $wallet_balance = $wallet ? $wallet->balance : '0.00';
+        $wallet_balance = $wallet ? $wallet->balance : 0;
 
         $setting = Setting::find(1);
 
@@ -151,7 +151,7 @@ class CourseController extends Controller
             $currency = 'usd';
         }
         elseif($course->language == 'Chinese') {
-            $makeup_price = $setting->makeup_exam_price_ch;
+            $makeup_price = $setting->makeup_exam_price_zh;
             $currency = 'cny';
         }
         else {
@@ -229,7 +229,7 @@ class CourseController extends Controller
             $makeup_price = $setting->makeup_exam_price_en;
         }
         elseif($course->language == 'Chinese') {
-            $makeup_price = $setting->makeup_exam_price_ch;
+            $makeup_price = $setting->makeup_exam_price_zh;
         }
         else {
             $makeup_price = $setting->makeup_exam_price_ja;
