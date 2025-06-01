@@ -10,6 +10,7 @@ use App\Models\CourseFinalExamQuestion;
 use App\Models\CoursePurchase;
 use Carbon\Carbon;
 use App\Mail\ExamResultMail;
+use App\Models\FinalExamPurchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -83,6 +84,8 @@ class FinalExamController extends Controller
         $course_final_exam->marks = $marks;
         $course_final_exam->result = $result;
         $course_final_exam->save();
+
+        $final_exam_purchase = FinalExamPurchase::where('user_id', $student->id)->where('course_id', $course->id)->where('attempted', 'No')->where('status', '1')->orderBy('id', 'desc')->update(['attempted' => 'Yes']);
 
         $mail_data = [
             'name' => $student->first_name . ' ' . $student->last_name,

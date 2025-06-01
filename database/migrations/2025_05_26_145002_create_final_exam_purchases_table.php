@@ -26,6 +26,7 @@ return new class extends Migration
             $table->enum('payment_status', ['Completed', 'Pending', 'Failed'])->default('Pending');
             $table->string('receipt_url')->nullable();
             $table->enum('refund_status', ['Refunded', 'Not Refunded'])->default('Not Refunded');
+            $table->enum('attempted', ['Yes', 'No'])->default('No');
 
             $table->enum('status', [0, 1])->index();
             $table->timestamps();

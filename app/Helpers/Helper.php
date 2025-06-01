@@ -6,6 +6,7 @@ use App\Models\CourseFinalExam;
 use App\Models\CourseModule;
 use App\Models\CourseModuleExam;
 use App\Models\CoursePurchase;
+use App\Models\FinalExamPurchase;
 use App\Models\MembershipPurchase;
 use App\Models\Product;
 use App\Models\User;
@@ -106,6 +107,22 @@ if(!function_exists('hasStudentAttendedTwoTimes')) {
         $total_exams_attended = CourseFinalExam::where('user_id', $user_id)->where('course_id', $course_id)->where('status', '1')->count();
 
         return $total_exams_attended;
+    }
+}
+
+if(!function_exists('hasStudentAttendedFinalExam')) {
+    function hasStudentAttendedFinalExam($user_id, $course_id)
+    {
+        $user = User::find($user_id);
+        $course = Course::find($course_id);
+
+        if(!$user || !$course) {
+            return false;
+        }
+
+        $user_attended = FinalExamPurchase::where('user_id', $user_id)->where('course_id', $course_id)->where('attempted', 'No')->where('status', '1')->exists();
+
+        return $user_attended;
     }
 }
 

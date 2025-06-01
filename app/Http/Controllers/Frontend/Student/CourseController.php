@@ -261,6 +261,6 @@ class CourseController extends Controller
 
         Mail::to($user->email)->send(new FinalExamPurchaseMail($mail_data));
 
-        return redirect()->route('frontend.final-exam.index', $course->id);
+        return redirect()->route('frontend.courses.show', $course->id);
     }
 }
