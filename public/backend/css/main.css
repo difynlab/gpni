@@ -63,7 +63,7 @@
     .select2 {
         width: 100%!important;
     }
-    .select2-selection.select2-selection--multiple {
+    .select2-container .select2-selection--multiple {
         height: 110px;
         display: flex;
         align-items: center;
@@ -72,6 +72,13 @@
         font-size: 14px;
         border-radius: 0;
         overflow-y: auto;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        margin: 0!important;
+    }
+    .select2-container .select2-search--inline .select2-search__field {
+        margin-top: 20px;
+        margin-left: 10px;
     }
     .select2-container .select2-selection--single {
         height: 50px;

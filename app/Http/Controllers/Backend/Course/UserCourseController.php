@@ -63,18 +63,20 @@ class UserCourseController extends Controller
             $currency = 'jpy';
         }
 
-        $course_purchase = new CoursePurchase();
-        $course_purchase->user_id = $user->id;
-        $course_purchase->course_id = $request->course_id;
-        $course_purchase->date = now()->toDateString();
-        $course_purchase->time = now()->toTimeString();
-        $course_purchase->currency = $currency;
-        $course_purchase->amount_paid = 0.00;
-        $course_purchase->payment_status = 'Completed';
-        $course_purchase->refund_status = null;
-        $course_purchase->status = '1';
-        $course_purchase->save();
-
+        foreach($request->courses as $key => $course) {
+            $course_purchase = new CoursePurchase();
+            $course_purchase->user_id = $user->id;
+            $course_purchase->course_id = $course;
+            $course_purchase->date = now()->toDateString();
+            $course_purchase->time = now()->toTimeString();
+            $course_purchase->currency = $currency;
+            $course_purchase->amount_paid = 0.00;
+            $course_purchase->payment_status = 'Completed';
+            $course_purchase->refund_status = null;
+            $course_purchase->status = '1';
+            $course_purchase->save();
+        }
+        
         return redirect()->route('backend.persons.users.courses.index', $user)->with('success', 'Successfully added!');
     }
 

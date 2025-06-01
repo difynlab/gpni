@@ -60,7 +60,7 @@
             <div class="container-fluid bottom-section">
                 <div class="container">
                     <div class="row justify-content-between">
-                        <div class="col-lg-7 col-12">
+                        <div class="col-lg-8 col-12">
                             @foreach($questions as $key => $question)
                                 @if($key == 0)
                                     <div class="question-section" data-question-id="{{ $question->id }}" id="question{{$key}}">
@@ -152,7 +152,7 @@
                             @endforeach
                         </div>
 
-                        <div class="col-lg-5 col-12">
+                        <div class="col-lg-4 col-12">
                             <div class="remaining-questions mt-5 mt-lg-0">
                                 <p class="remaining-questions-count">{{ $student_dashboard_contents->courses_exam_remaining_questions }}: <span>{{ $questions->count() }}</span></p>
                                 <h2 class="all-questions-heading">All question</h2>

@@ -13,7 +13,7 @@
                 <div class="row form-input">
                     <div class="col-12">
                         <label for="course_id" class="form-label">Course<span class="asterisk">*</span></label>
-                        <select class="form-control js-example-basic-single course" name="course_id" id="course_id" required>
+                        <select class="form-control js-example-basic-multiple course" name="courses[]" id="courses" required multiple="multiple">
                             <option value="">Select Course</option>
                             @foreach($courses as $course)
                                 <option value="{{ $course->id }}">{{ $course->title }}</option>
@@ -36,7 +36,7 @@
 
 @push('after-scripts')
     <script>
-        $('.js-example-basic-single').select2({
+        $('.js-example-basic-multiple').select2({
         });
     </script>
 @endpush

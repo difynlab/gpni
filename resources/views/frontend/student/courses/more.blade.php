@@ -65,8 +65,8 @@
                                             <div class="accordion-body pb-0">
                                                 <div class="row">
                                                     @foreach($videos as $video)
-                                                        <div class="col-6 mb-3">
-                                                            <p class="mb-2">{{ $video->title }}</p>
+                                                        <div class="col-12 mb-4">
+                                                            <p class="mb-1 fs-18">{{ $video->title }}</p>
                                                             <div class="video-container">
                                                                 <video src="{{ asset('storage/backend/courses/course-chapter-videos/' . $video->file) }}" controls class="video-player"></video>
                                                             </div>
@@ -93,8 +93,8 @@
                                                             <a href="{{ $video_link->link }}" target="_blank">{{ $video_link->title }}</a>
                                                         </div> -->
 
-                                                        <div class="col-6 mb-3">
-                                                            <p class="mb-2 fs-18">{{ $video_link->title }}</p>
+                                                        <div class="col-12 mb-4">
+                                                            <p class="mb-1 fs-18">{{ $video_link->title }}</p>
                                                             <div class="video-container">
                                                                 <iframe src="{{ $video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                             </div>
@@ -126,8 +126,8 @@
                                             <div class="accordion-body pb-0">
                                                 <div class="row">
                                                     @foreach($additional_videos as $additional_video)
-                                                        <div class="col-6 mb-3">
-                                                            <p class="mb-2">{{ $additional_video->title }}</p>
+                                                        <div class="col-12 mb-4">
+                                                            <p class="mb-1 fs-18">{{ $additional_video->title }}</p>
                                                             <video src="{{ asset('storage/backend/courses/course-chapter-additional-videos/' . $additional_video->file) }}" controls class="video-player"></video>
                                                         </div>
                                                     @endforeach
@@ -152,10 +152,9 @@
                                                             <a href="{{ $additional_video_link }}" target="_blank">{{ $additional_video_link }}</a>
                                                         </div> -->
 
-                                                        <div class="col-6 mb-3">
-                                                            <p class="mb-2">{{ $additional_video_link->title }}</p>
+                                                        <div class="col-12 mb-4">
                                                             <div class="video-container">
-                                                                <iframe src="{{ $additional_video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                <iframe src="{{ $additional_video_link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                             </div>
                                                         </div>
                                                     @endforeach
