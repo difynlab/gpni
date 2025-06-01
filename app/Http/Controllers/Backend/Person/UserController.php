@@ -684,6 +684,13 @@ class UserController extends Controller
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/backend/persons/users', $image_name);
         }
+        else if($request->old_image == null) {
+            if($user->image) {
+                Storage::delete('public/backend/persons/users/' . $user->image);
+            }
+
+            $image_name = null;
+        }
         else {
             $image_name = $request->old_image;
         }

@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="col-5 full-height">
-                        <x-backend.upload-image old_name="old_thumbnail" old_value="{{ $product->thumbnail ?? old('thumbnail') }}" new_name="new_thumbnail" path="products/products" label="Thumbnail" class="side-box-uploader"></x-backend.upload-image>
+                        <x-backend.upload-image-must old_name="old_thumbnail" old_value="{{ $product->thumbnail ?? old('thumbnail') }}" new_name="new_thumbnail" path="products/products" label="Thumbnail" class="side-box-uploader"></x-backend.upload-image-must>
                         <x-backend.input-error field="new_thumbnail"></x-backend.input-error>
                     </div>
                 </div>
@@ -110,24 +110,29 @@
                         <div class="mb-4">
                             <label for="downloadable_content" class="form-label">Downloadable Content</label>
 
-                            <div class="row align-items-center">
-                                @if($product->downloadable_content)
+                            @if($product->downloadable_content)
+                                <div class="row single-item align-items-center">
                                     <div class="col-11">
                                         <input type="file" class="form-control" name="downloadable_content" accept=".pdf" value="{{ $product->downloadable_content }}">
                                         <x-backend.input-error field="downloadable_content"></x-backend.input-error>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1 d-flex">
                                         <input type="hidden" name="old_downloadable_content" value="{{ $product->downloadable_content }}">
 
                                         <a href="{{ asset('storage/backend/products/files/' . $product->downloadable_content) }}" class="download-button" download><i class="bi bi-download"></i></a>
+
+                                        <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                     </div>
-                                @else
+                                </div>
+                            @else
+                                <div class="row align-items-center">
                                     <div class="col-12">
                                         <input type="file" class="form-control" name="downloadable_content" accept=".pdf">
                                         <x-backend.input-error field="downloadable_content"></x-backend.input-error>
                                     </div>
-                                @endif
-                            </div>
+                                </div>
+                            @endif
+                            
                         </div>
 
                         <div class="mb-4">

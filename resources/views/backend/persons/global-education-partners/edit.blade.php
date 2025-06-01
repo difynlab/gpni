@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="col-12">
-                        <x-backend.upload-image old_name="old_image" old_value="{{ $global_education_partner->image ?? old('image') }}" new_name="new_image" path="persons/global-education-partners"></x-backend.upload-image>
+                        <x-backend.upload-image-must old_name="old_image" old_value="{{ $global_education_partner->image ?? old('image') }}" new_name="new_image" path="persons/global-education-partners"></x-backend.upload-image-must>
                         <x-backend.input-error field="new_image"></x-backend.input-error>
                     </div>
                 </div>

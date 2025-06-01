@@ -141,7 +141,6 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $validator = Validator::make($request->all(), [
-            'old_thumbnail' => 'required|max:30720',
             'new_images.*' => 'nullable|max:30720',
             'downloadable_content' => 'nullable|max:30720',
             'price' => 'numeric|min:0',
@@ -178,6 +177,39 @@ class ProductController extends Controller
         }
 
         // Images
+            // if($request->file('new_images') != null) {
+            //     if($request->old_images) {
+            //         $encoded_string = htmlspecialchars_decode($request->old_images);
+            //         $images = json_decode($encoded_string);
+
+            //         foreach($images as $image) {
+            //             Storage::delete('public/backend/products/products/' . $image);
+            //         }
+            //     }
+
+            //     $new_images = [];
+            //     foreach($request->file('new_images') as $image) {
+            //         $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
+            //         $image->storeAs('public/backend/products/products', $image_name);
+            //         $new_images[] = $image_name;
+            //     }
+
+            //     $new_images = json_encode($new_images);
+            // }
+            // else {
+            //     $new_images = htmlspecialchars_decode($request->old_images);
+            // }
+
+            $existing_images = json_decode($product->images, true) ?? [];
+            $current_images = json_decode(htmlspecialchars_decode($request->old_images), true) ?? [];
+
+            $deleted_images = array_diff($existing_images, $current_images);
+            foreach($deleted_images as $image) {
+                Storage::delete('public/backend/products/products/' . $image);
+            }
+
+            $images = $current_images;
+
             if($request->file('new_images') != null) {
                 if($request->old_images) {
                     $encoded_string = htmlspecialchars_decode($request->old_images);
@@ -188,18 +220,15 @@ class ProductController extends Controller
                     }
                 }
 
-                $new_images = [];
+                $images = [];
                 foreach($request->file('new_images') as $image) {
                     $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
                     $image->storeAs('public/backend/products/products', $image_name);
-                    $new_images[] = $image_name;
+                    $images[] = $image_name;
                 }
-
-                $new_images = json_encode($new_images);
             }
-            else {
-                $new_images = htmlspecialchars_decode($request->old_images);
-            }
+            
+            $images = !empty($images) ? json_encode($images) : null;
         // Images
 
         if($request->file('downloadable_content') != null) {
@@ -210,6 +239,13 @@ class ProductController extends Controller
             $file = $request->file('downloadable_content');
             $file_name = Str::random(40) . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/backend/products/files', $file_name);
+        }
+        else if($request->old_downloadable_content == null) {
+            if($product->downloadable_content) {
+                Storage::delete('public/backend/products/files/' . $product->downloadable_content);
+            }
+
+            $file_name = null;
         }
         else {
             $file_name = $request->old_downloadable_content;
@@ -223,7 +259,7 @@ class ProductController extends Controller
             'old_downloadable_content'
         );
         $data['thumbnail'] = $thumbnail_name;
-        $data['images'] = $new_images;
+        $data['images'] = $images;
         $data['downloadable_content'] = $file_name;
         $data['available_sizes'] = $request->available_sizes != null ? json_encode($request->available_sizes) : null;
         $data['colors'] = $request->colors != null ? json_encode($request->colors) : null;

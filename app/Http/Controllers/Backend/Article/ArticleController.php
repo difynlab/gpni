@@ -158,31 +158,38 @@ class ArticleController extends Controller
             $thumbnail_name = Str::random(40) . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->storeAs('public/backend/articles/articles', $thumbnail_name);
         }
+        else if($request->old_thumbnail == null) {
+            if($article->thumbnail) {
+                Storage::delete('public/backend/articles/articles/' . $article->thumbnail);
+            }
+
+            $thumbnail_name = null;
+        }
         else {
             $thumbnail_name = $request->old_thumbnail;
         }
 
-        if($request->file('new_author_image') != null) {
-            if($request->old_author_image) {
-                Storage::delete('public/backend/articles/author-images/' . $request->old_author_image);
-            }
+        // if($request->file('new_author_image') != null) {
+        //     if($request->old_author_image) {
+        //         Storage::delete('public/backend/articles/author-images/' . $request->old_author_image);
+        //     }
 
-            $author_image = $request->file('new_author_image');
-            $author_image_name = Str::random(40) . '.' . $author_image->getClientOriginalExtension();
-            $author_image->storeAs('public/backend/articles/author-images', $author_image_name);
-        }
-        else {
-            $author_image_name = $request->old_author_image;
-        }
+        //     $author_image = $request->file('new_author_image');
+        //     $author_image_name = Str::random(40) . '.' . $author_image->getClientOriginalExtension();
+        //     $author_image->storeAs('public/backend/articles/author-images', $author_image_name);
+        // }
+        // else {
+        //     $author_image_name = $request->old_author_image;
+        // }
 
         $data = $request->except(
             'old_thumbnail',
             'new_thumbnail',
-            'old_author_image',
-            'new_author_image'
+            // 'old_author_image',
+            // 'new_author_image'
         );
         $data['thumbnail'] = $thumbnail_name;
-        $data['author_image'] = $author_image_name;
+        // $data['author_image'] = $author_image_name;
 
         $article->fill($data)->save();
         

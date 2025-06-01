@@ -26,19 +26,6 @@
     <div class="video-preview">
         @if($old_value)
             <video src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}" controls></video>
-
-            <button type="button" class="close-icon">
-                <i class="bi bi-x small"></i>
-            </button>
         @endif
     </div>
 </div>
-
-@push('after-scripts')
-    <script>
-        $('.close-icon').on('click', function() {
-            $(this).parent('.video-preview').prev().val('');
-            $(this).parent('.video-preview').remove();
-        })
-    </script>
-@endpush

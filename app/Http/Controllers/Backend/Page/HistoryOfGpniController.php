@@ -183,7 +183,8 @@ class HistoryOfGpniController extends Controller
             'new_section_5_image',
             'old_section_6_image',
             'new_section_6_image'
-        );     
+        );
+        
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_3_image_' . '' . $short_code] = $section_3_image_name;
         $data['section_5_image_' . '' . $short_code] = $section_5_image_name;

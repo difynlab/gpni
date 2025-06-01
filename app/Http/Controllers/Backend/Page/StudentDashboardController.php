@@ -73,6 +73,13 @@ class StudentDashboardController extends Controller
                 $member_corner_we_chat_qr_name = Str::random(40) . '.' . $new_member_corner_we_chat_qr->getClientOriginalExtension();
                 $new_member_corner_we_chat_qr->storeAs('public/backend/pages', $member_corner_we_chat_qr_name);
             }
+            else if($request->old_member_corner_we_chat_qr == null) {
+                if($contents->member_corner_we_chat_qr) {
+                    Storage::delete('public/backend/pages/' . $contents->member_corner_we_chat_qr);
+                }
+
+                $member_corner_we_chat_qr_name = null;
+            }
             else {
                 if($contents->member_corner_we_chat_qr) {
                     $member_corner_we_chat_qr_name = $request->old_member_corner_we_chat_qr;

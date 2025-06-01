@@ -30,19 +30,6 @@
     <div class="image-preview">
         @if($old_value)
             <img src="{{ asset('storage/backend/' . $path . '/' . $old_value) }}">
-
-            <button type="button" class="close-icon">
-                <i class="bi bi-x small"></i>
-            </button>
         @endif
     </div>
 </div>
-
-@push('after-scripts')
-    <script>
-        $('.close-icon').on('click', function() {
-            $(this).parent('.image-preview').prev().val('');
-            $(this).parent('.image-preview').remove();
-        })
-    </script>
-@endpush

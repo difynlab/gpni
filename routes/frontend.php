@@ -11,7 +11,6 @@ use App\Http\Controllers\Frontend\Page\OurPolicyController;
 use App\Http\Controllers\Frontend\Page\ConferenceController;
 use App\Http\Controllers\Frontend\Page\InsuranceProfessionalMembershipController;
 use App\Http\Controllers\Frontend\Page\GiftCardController;
-use App\Http\Controllers\Frontend\Page\PodcastController;
 use App\Http\Controllers\Frontend\Page\ArticleController;
 use App\Http\Controllers\Frontend\Page\CertificationCourseController;
 use App\Http\Controllers\Frontend\Page\WhyWeAreDifferentController;
@@ -77,10 +76,6 @@ Route::middleware(['set_language'])->group(function () {
             Route::get('show/{course}/{title}', [TvController::class, 'show'])->name('show');
             Route::post('checkout', [TvController::class, 'checkout'])->name('checkout');
             Route::get('success', [TvController::class, 'success'])->name('success');
-        });
-        Route::prefix('podcasts')->name('podcasts.')->group(function() {
-            Route::get('/', [PodcastController::class, 'index'])->name('index');
-            Route::get('show/{podcast}/{title}', [PodcastController::class, 'show'])->name('show');
         });
         Route::prefix('nutritionists')->name('nutritionists.')->group(function() {
             Route::get('/', [NutritionistController::class, 'index'])->name('index');

@@ -193,6 +193,13 @@ class TvController extends Controller
                 $section_7_video_name = Str::random(40) . '.' . $new_section_7_video->getClientOriginalExtension();
                 $new_section_7_video->storeAs('public/backend/pages', $section_7_video_name);
             }
+            else if($request->old_section_7_video == null) {
+                if($contents->{'section_7_video_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_7_video_' . $short_code});
+                }
+
+                $section_7_video_name = null;
+            }
             else {
                 if($contents->{'section_7_video_' . $short_code}) {
                     $section_7_video_name = $request->old_section_7_video;
@@ -244,6 +251,7 @@ class TvController extends Controller
             'old_section_10_image',
             'new_section_10_image'
         );
+        
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_3_image_' . '' . $short_code] = $section_3_image_name;
         $data['section_5_image_' . '' . $short_code] = $section_5_image_name;

@@ -158,6 +158,7 @@ class InsuranceProfessionalMembershipController extends Controller
             'old_section_4_image',
             'new_section_4_image'
         );
+        
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_2_image_' . '' . $short_code] = $section_2_image_name;
         $data['section_4_image_' . '' . $short_code] = $section_4_image_name;

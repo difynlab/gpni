@@ -633,6 +633,13 @@ class AdminController extends Controller
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/backend/persons/admins', $image_name);
         }
+        else if($request->old_image == null) {
+            if($admin->image) {
+                Storage::delete('public/backend/persons/admins/' . $admin->image);
+            }
+
+            $image_name = null;
+        }
         else {
             $image_name = $request->old_image;
         }

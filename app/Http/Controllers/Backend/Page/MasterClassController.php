@@ -123,6 +123,13 @@ class MasterClassController extends Controller
                 $section_4_video_name = Str::random(40) . '.' . $new_section_4_video->getClientOriginalExtension();
                 $new_section_4_video->storeAs('public/backend/pages', $section_4_video_name);
             }
+            else if($request->old_section_4_video == null) {
+                if($contents->{'section_4_video_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_4_video_' . $short_code});
+                }
+
+                $section_4_video_name = null;
+            }
             else {
                 if($contents->{'section_4_video_' . $short_code}) {
                     $section_4_video_name = $request->old_section_4_video;

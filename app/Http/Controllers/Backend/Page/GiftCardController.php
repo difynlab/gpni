@@ -66,6 +66,44 @@ class GiftCardController extends Controller
         }
 
         // Images
+            // if($request->file('new_images') != null) {
+            //     if($request->old_images) {
+            //         $encoded_string = htmlspecialchars_decode($request->old_images);
+            //         $images = json_decode($encoded_string);
+
+            //         foreach($images as $image) {
+            //             Storage::delete('public/backend/pages/' . $image);
+            //         }
+            //     }
+
+            //     $images = [];
+            //     foreach($request->file('new_images') as $image) {
+            //         $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
+            //         $image->storeAs('public/backend/pages', $image_name);
+            //         $images[] = $image_name;
+            //     }
+
+            //     $images = json_encode($images);
+            // }
+            // else {
+            //     if($contents->{'images_' . $short_code}) {
+            //         $images = htmlspecialchars_decode($request->old_images);
+            //     }
+            //     else {
+            //         $images = null;
+            //     }
+            // }
+
+            $existing_images = json_decode($contents->{'images_' . $short_code}, true) ?? [];
+            $current_images = json_decode(htmlspecialchars_decode($request->old_images), true) ?? [];
+
+            $deleted_images = array_diff($existing_images, $current_images);
+            foreach($deleted_images as $image) {
+                Storage::delete('public/backend/pages/' . $image);
+            }
+
+            $images = $current_images;
+
             if($request->file('new_images') != null) {
                 if($request->old_images) {
                     $encoded_string = htmlspecialchars_decode($request->old_images);
@@ -82,23 +120,16 @@ class GiftCardController extends Controller
                     $image->storeAs('public/backend/pages', $image_name);
                     $images[] = $image_name;
                 }
-
-                $images = json_encode($images);
             }
-            else {
-                if($contents->{'images_' . $short_code}) {
-                    $images = htmlspecialchars_decode($request->old_images);
-                }
-                else {
-                    $images = null;
-                }
-            }
+            
+            $images = !empty($images) ? json_encode($images) : null;
         // Images
 
         $data = $request->except(
             'old_images',
             'new_images'
         );
+        
         $data['images_' . '' . $short_code] = $images;
 
         $contents->fill($data)->save();
