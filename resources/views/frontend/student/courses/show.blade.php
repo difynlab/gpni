@@ -165,12 +165,16 @@
                                         @else
                                             <div class="col-6">
                                                 @if(hasStudentAttendedTwoTimes($student->id, $course->id) >= 2)
-                                                    <form action="{{ route('frontend.final-exam.checkout') }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                                    @if(!hasStudentAttendedFinalExam($student->id, $course->id))
+                                                        <form action="{{ route('frontend.final-exam.checkout') }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="course_id" value="{{ $course->id }}">
 
-                                                        <button type="submit" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_exam_pay_now_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_exam_pay_now }}</button>
-                                                    </form>
+                                                            <button type="submit" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_exam_pay_now_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_exam_pay_now }}</button>
+                                                        </form>
+                                                    @else
+                                                        <a href="{{ route('frontend.final-exam.index', $course) }}" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_take_again_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_take_again }}</a>
+                                                    @endif
                                                 @else
                                                     <a href="{{ route('frontend.final-exam.index', $course) }}" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_take_again_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_take_again }}</a>
                                                 @endif
