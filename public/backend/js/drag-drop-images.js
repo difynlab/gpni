@@ -1,11 +1,13 @@
 $(document).ready(function() {
     let dropAreas = document.querySelectorAll('.images-drop-area');
+    let buttons = document.querySelectorAll('.images-drop-area .button');
     let fileInputs = document.querySelectorAll('.image-file-elements');
     let imagesPreviews = document.querySelectorAll('.images-preview');
     let imageCounts = document.querySelectorAll('.image-counts');
 
     dropAreas.forEach((dropArea, index) => {
         let fileInput = fileInputs[index];
+        let button = buttons[index];
         let imagePreview = imagesPreviews[index];
         let imageCount = imageCounts[index];
         let filesArray = [];
@@ -30,7 +32,7 @@ $(document).ready(function() {
         });
 
         dropArea.addEventListener('drop', handleDrop, false);
-        dropArea.addEventListener('click', () => fileInput.click());
+        button.addEventListener('click', () => fileInput.click());
 
         // Fix: Handle file selection properly
         fileInput.addEventListener('change', (e) => {

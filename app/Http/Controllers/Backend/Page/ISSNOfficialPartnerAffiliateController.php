@@ -75,6 +75,13 @@ class ISSNOfficialPartnerAffiliateController extends Controller
                 $section_2_image_name = Str::random(40) . '.' . $new_section_2_image->getClientOriginalExtension();
                 $new_section_2_image->storeAs('public/backend/pages', $section_2_image_name);
             }
+            else if($request->old_section_2_image == null) {
+                if($contents->{'section_2_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_2_image_' . $short_code});
+                }
+
+                $section_2_image_name = null;
+            }
             else {
                 if($contents->{'section_2_image_' . $short_code}) {
                     $section_2_image_name = $request->old_section_2_image;

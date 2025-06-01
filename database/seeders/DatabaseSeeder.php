@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
             InsuranceProfessionalMembershipContentSeeder::class,
             ArticleContentSeeder::class,
             ConferenceContentSeeder::class,
-            PodcastContentSeeder::class,
             MembershipContentSeeder::class,
             ContactUsContentSeeder::class,
             NutritionistContentSeeder::class,

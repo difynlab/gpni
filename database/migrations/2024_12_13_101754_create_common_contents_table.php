@@ -41,6 +41,7 @@ return new class extends Migration
             $table->text('footer_copyright_en')->nullable();
             $table->text('captcha_title_en')->nullable();
             $table->text('captcha_button_en')->nullable();
+            $table->text('footer_podcast_en')->nullable();
 
             $table->text('header_second_tab_zh')->nullable();
             $table->text('header_second_tab_third_zh')->nullable();
@@ -69,6 +70,7 @@ return new class extends Migration
             $table->text('footer_copyright_zh')->nullable();
             $table->text('captcha_title_zh')->nullable();
             $table->text('captcha_button_zh')->nullable();
+            $table->text('footer_podcast_zh')->nullable();
 
             $table->text('header_second_tab_ja')->nullable();
             $table->text('header_second_tab_third_ja')->nullable();
@@ -97,6 +99,7 @@ return new class extends Migration
             $table->text('footer_copyright_ja')->nullable();
             $table->text('captcha_title_ja')->nullable();
             $table->text('captcha_button_ja')->nullable();
+            $table->text('footer_podcast_ja')->nullable();
 
             $table->text('footer_podcast_link')->nullable();
 

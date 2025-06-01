@@ -77,6 +77,13 @@ class WhyWeAreDifferentController extends Controller
                 $section_1_video_name = Str::random(40) . '.' . $new_section_1_video->getClientOriginalExtension();
                 $new_section_1_video->storeAs('public/backend/pages', $section_1_video_name);
             }
+            else if($request->old_section_1_video == null) {
+                if($contents->{'section_1_video_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_1_video_' . $short_code});
+                }
+
+                $section_1_video_name = null;
+            }
             else {
                 if($contents->{'section_1_video_' . $short_code}) {
                     $section_1_video_name = $request->old_section_1_video;
@@ -96,6 +103,13 @@ class WhyWeAreDifferentController extends Controller
                 $new_section_2_image = $request->file('new_section_2_image');
                 $section_2_image_name = Str::random(40) . '.' . $new_section_2_image->getClientOriginalExtension();
                 $new_section_2_image->storeAs('public/backend/pages', $section_2_image_name);
+            }
+            else if($request->old_section_2_image == null) {
+                if($contents->{'section_2_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_2_image_' . $short_code});
+                }
+
+                $section_2_image_name = null;
             }
             else {
                 if($contents->{'section_2_image_' . $short_code}) {

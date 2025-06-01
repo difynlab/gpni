@@ -81,6 +81,44 @@ class OurPolicyController extends Controller
         // CEC points
 
         // CEC images
+            // if($request->file('new_cec_images') != null) {
+            //     if($request->old_cec_images) {
+            //         $encoded_string = htmlspecialchars_decode($request->old_cec_images);
+            //         $images = json_decode($encoded_string);
+
+            //         foreach($images as $image) {
+            //             Storage::delete('public/backend/pages/' . $image);
+            //         }
+            //     }
+
+            //     $cec_images = [];
+            //     foreach($request->file('new_cec_images') as $image) {
+            //         $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
+            //         $image->storeAs('public/backend/pages', $image_name);
+            //         $cec_images[] = $image_name;
+            //     }
+
+            //     $cec_images = json_encode($cec_images);
+            // }
+            // else {
+            //     if($contents->{'cec_images_' . $short_code}) {
+            //         $cec_images = htmlspecialchars_decode($request->old_cec_images);
+            //     }
+            //     else {
+            //         $cec_images = null;
+            //     }
+            // }
+
+            $existing_images = json_decode($contents->{'cec_images_' . $short_code}, true) ?? [];
+            $current_images = json_decode(htmlspecialchars_decode($request->old_cec_images), true) ?? [];
+
+            $deleted_images = array_diff($existing_images, $current_images);
+            foreach($deleted_images as $image) {
+                Storage::delete('public/backend/pages/' . $image);
+            }
+
+            $cec_images = $current_images;
+
             if($request->file('new_cec_images') != null) {
                 if($request->old_cec_images) {
                     $encoded_string = htmlspecialchars_decode($request->old_cec_images);
@@ -97,17 +135,9 @@ class OurPolicyController extends Controller
                     $image->storeAs('public/backend/pages', $image_name);
                     $cec_images[] = $image_name;
                 }
-
-                $cec_images = json_encode($cec_images);
             }
-            else {
-                if($contents->{'cec_images_' . $short_code}) {
-                    $cec_images = htmlspecialchars_decode($request->old_cec_images);
-                }
-                else {
-                    $cec_images = null;
-                }
-            }
+            
+            $cec_images = !empty($cec_images) ? json_encode($cec_images) : null;
         // CEC images
 
         $data = $request->except(

@@ -107,6 +107,13 @@ class TestimonialController extends Controller
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/backend/testimonials', $image_name);
         }
+        else if($request->old_image == null) {
+            if($testimonial->image) {
+                Storage::delete('public/backend/testimonials/' . $testimonial->image);
+            }
+
+            $image_name = null;
+        }
         else {
             $image_name = $request->old_image;
         }

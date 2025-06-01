@@ -79,6 +79,13 @@ class InsuranceProfessionalMembershipController extends Controller
                 $section_1_image_name = Str::random(40) . '.' . $new_section_1_image->getClientOriginalExtension();
                 $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
+            else if($request->old_section_1_image == null) {
+                if($contents->{'section_1_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_1_image_' . $short_code});
+                }
+
+                $section_1_image_name = null;
+            }
             else {
                 if($contents->{'section_1_image_' . $short_code}) {
                     $section_1_image_name = $request->old_section_1_image;
@@ -98,6 +105,13 @@ class InsuranceProfessionalMembershipController extends Controller
                 $new_section_2_image = $request->file('new_section_2_image');
                 $section_2_image_name = Str::random(40) . '.' . $new_section_2_image->getClientOriginalExtension();
                 $new_section_2_image->storeAs('public/backend/pages', $section_2_image_name);
+            }
+            else if($request->old_section_2_image == null) {
+                if($contents->{'section_2_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_2_image_' . $short_code});
+                }
+
+                $section_2_image_name = null;
             }
             else {
                 if($contents->{'section_2_image_' . $short_code}) {
@@ -119,6 +133,13 @@ class InsuranceProfessionalMembershipController extends Controller
                 $section_4_image_name = Str::random(40) . '.' . $new_section_4_image->getClientOriginalExtension();
                 $new_section_4_image->storeAs('public/backend/pages', $section_4_image_name);
             }
+            else if($request->old_section_4_image == null) {
+                if($contents->{'section_4_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_4_image_' . $short_code});
+                }
+
+                $section_4_image_name = null;
+            }
             else {
                 if($contents->{'section_4_image_' . $short_code}) {
                     $section_4_image_name = $request->old_section_4_image;
@@ -137,6 +158,7 @@ class InsuranceProfessionalMembershipController extends Controller
             'old_section_4_image',
             'new_section_4_image'
         );
+        
         $data['section_1_image_' . '' . $short_code] = $section_1_image_name;
         $data['section_2_image_' . '' . $short_code] = $section_2_image_name;
         $data['section_4_image_' . '' . $short_code] = $section_4_image_name;

@@ -60,13 +60,6 @@
                     </li>
 
                     <li class="sub-menu-link">
-                        <a href="{{ route('backend.podcasts.index') }}">
-                            <img src="{{ asset('storage/backend/sidebar/podcast.png') }}" alt="Icon">
-                            <span>Podcasts</span>
-                        </a>
-                    </li>
-
-                    <li class="sub-menu-link">
                         <a href="#">
                             <img src="{{ asset('storage/backend/sidebar/policy.png') }}" alt="Icon">
                             <span>Policies</span>

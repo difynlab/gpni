@@ -82,6 +82,13 @@ class HomepageController extends Controller
                 $section_1_image_name = Str::random(40) . '.' . $new_section_1_image->getClientOriginalExtension();
                 $new_section_1_image->storeAs('public/backend/pages', $section_1_image_name);
             }
+            else if($request->old_section_1_image == null) {
+                if($contents->{'section_1_image_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_1_image_' . $short_code});
+                }
+
+                $section_1_image_name = null;
+            }
             else {
                 if($contents->{'section_1_image_' . $short_code}) {
                     $section_1_image_name = $request->old_section_1_image;
@@ -109,6 +116,13 @@ class HomepageController extends Controller
                 $section_2_video_name = Str::random(40) . '.' . $new_section_2_video->getClientOriginalExtension();
                 $new_section_2_video->storeAs('public/backend/pages', $section_2_video_name);
             }
+            else if($request->old_section_2_video == null) {
+                if($contents->{'section_2_video_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_2_video_' . $short_code});
+                }
+
+                $section_2_video_name = null;
+            }
             else {
                 if($contents->{'section_2_video_' . $short_code}) {
                     $section_2_video_name = $request->old_section_2_video;
@@ -129,6 +143,13 @@ class HomepageController extends Controller
                 $section_4_video_name = Str::random(40) . '.' . $new_section_4_video->getClientOriginalExtension();
                 $new_section_4_video->storeAs('public/backend/pages', $section_4_video_name);
             }
+            else if($request->old_section_4_video == null) {
+                if($contents->{'section_4_video_' . $short_code}) {
+                    Storage::delete('public/backend/pages/' . $contents->{'section_4_video_' . $short_code});
+                }
+
+                $section_4_video_name = null;
+            }
             else {
                 if($contents->{'section_4_video_' . $short_code}) {
                     $section_4_video_name = $request->old_section_4_video;
@@ -140,7 +161,44 @@ class HomepageController extends Controller
         // Section 4 video
 
         // Section 5 images
-            
+            // if($request->file('new_section_5_images') != null) {
+            //     if($request->old_section_5_images) {
+            //         $encoded_string = htmlspecialchars_decode($request->old_section_5_images);
+            //         $images = json_decode($encoded_string);
+
+            //         foreach($images as $image) {
+            //             Storage::delete('public/backend/pages/' . $image);
+            //         }
+            //     }
+
+            //     $section_5_images = [];
+            //     foreach($request->file('new_section_5_images') as $image) {
+            //         $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
+            //         $image->storeAs('public/backend/pages', $image_name);
+            //         $section_5_images[] = $image_name;
+            //     }
+
+            //     $section_5_images = json_encode($section_5_images);
+            // }
+            // else {
+            //     if($contents->{'section_5_images_' . $short_code}) {
+            //         $section_5_images = htmlspecialchars_decode($request->old_section_5_images);
+            //     }
+            //     else {
+            //         $section_5_images = null;
+            //     }
+            // }
+
+            $existing_images = json_decode($contents->{'section_5_images_' . $short_code}, true) ?? [];
+            $current_images = json_decode(htmlspecialchars_decode($request->old_section_5_images), true) ?? [];
+
+            $deleted_images = array_diff($existing_images, $current_images);
+            foreach($deleted_images as $image) {
+                Storage::delete('public/backend/pages/' . $image);
+            }
+
+            $section_5_images = $current_images;
+
             if($request->file('new_section_5_images') != null) {
                 if($request->old_section_5_images) {
                     $encoded_string = htmlspecialchars_decode($request->old_section_5_images);
@@ -157,17 +215,9 @@ class HomepageController extends Controller
                     $image->storeAs('public/backend/pages', $image_name);
                     $section_5_images[] = $image_name;
                 }
-
-                $section_5_images = json_encode($section_5_images);
             }
-            else {
-                if($contents->{'section_5_images_' . $short_code}) {
-                    $section_5_images = htmlspecialchars_decode($request->old_section_5_images);
-                }
-                else {
-                    $section_5_images = null;
-                }
-            }
+            
+            $section_5_images = !empty($section_5_images) ? json_encode($section_5_images) : null;
         // Section 5 images
 
         // Section 6 labels & links

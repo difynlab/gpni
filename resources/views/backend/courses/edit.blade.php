@@ -183,14 +183,16 @@
                             @if($course->material_logistic)
                                 <label for="pdf" class="form-label">PDF</label>
 
-                                <div class="row align-items-center">
+                                <div class="row single-item align-items-center">
                                     <div class="col-11">
                                         <input type="file" class="form-control" id="new_material_logistic" name="new_material_logistic" placeholder="PDF" accept=".pdf">
                                         <x-backend.input-error field="new_material_logistic"></x-backend.input-error>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1 d-flex">
                                         <a href="{{ asset('storage/backend/courses/material-and-logistics/' . $course->material_logistic) }}" class="download-button" download><i class="bi bi-download"></i></a>
                                         <input type="hidden" class="form-control" name="old_material_logistic" value="{{ $course->material_logistic }}">
+
+                                        <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                     </div>
                                 </div>
                             @else
@@ -275,6 +277,10 @@
     <script src="{{ asset('backend/js/drag-drop-images.js') }}"></script>
 
     <script>
+        $(document).on('click', '.delete-button', function() {
+            $(this).closest('.single-item').remove();
+        });
+        
         $('.time-required').on('change', function() {
             let value = $(this).val();
 

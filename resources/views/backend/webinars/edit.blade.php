@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="col-6 right-column">
-                        <x-backend.upload-video old_name="old_video" old_value="{{ $webinar->video ?? old('video') }}" new_name="new_video" path="webinars" class="side-box-uploader"></x-backend.upload-video>
+                        <x-backend.upload-video-must old_name="old_video" old_value="{{ $webinar->video ?? old('video') }}" new_name="new_video" path="webinars" class="side-box-uploader"></x-backend.upload-video-must>
                         <x-backend.input-error field="new_video"></x-backend.input-error>
                     </div>
                 </div>

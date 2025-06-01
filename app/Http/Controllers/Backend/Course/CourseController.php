@@ -196,6 +196,13 @@ class CourseController extends Controller
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/backend/courses/course-images', $image_name);
         }
+        else if($request->old_image == null) {
+            if($course->image) {
+                Storage::delete('public/backend/courses/course-images/' . $course->image);
+            }
+
+            $image_name = null;
+        }
         else {
             $image_name = $request->old_image;
         }
@@ -208,6 +215,13 @@ class CourseController extends Controller
             $video = $request->file('new_video');
             $video_name = Str::random(40) . '.' . $video->getClientOriginalExtension();
             $video->storeAs('public/backend/courses/course-videos', $video_name);
+        }
+        else if($request->old_video == null) {
+            if($course->video) {
+                Storage::delete('public/backend/courses/course-videos/' . $course->video);
+            }
+
+            $video_name = null;
         }
         else {
             $video_name = $request->old_video;
@@ -222,9 +236,54 @@ class CourseController extends Controller
             $instructor_profile_image_name = Str::random(40) . '.' . $instructor_profile_image->getClientOriginalExtension();
             $instructor_profile_image->storeAs('public/backend/courses/course-instructors', $instructor_profile_image_name);
         }
+        else if($request->old_instructor_profile_image == null) {
+            if($course->instructor_profile_image) {
+                Storage::delete('public/backend/courses/course-instructors/' . $course->instructor_profile_image);
+            }
+
+            $instructor_profile_image_name = null;
+        }
         else {
             $instructor_profile_image_name = $request->old_instructor_profile_image;
         }
+
+        // if($request->file('new_certificate_images') != null) {
+        //     if($request->old_certificate_images) {
+        //         $encoded_string = htmlspecialchars_decode($request->old_certificate_images);
+        //         $images = json_decode($encoded_string);
+
+        //         foreach($images as $image) {
+        //             Storage::delete('public/backend/courses/certificate-images/' . $image);
+        //         }
+        //     }
+
+        //     $certificate_images = [];
+        //     foreach($request->file('new_certificate_images') as $image) {
+        //         $certificate_image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
+        //         $image->storeAs('public/backend/courses/certificate-images', $certificate_image_name);
+        //         $certificate_images[] = $certificate_image_name;
+        //     }
+
+        //     $certificate_images = json_encode($certificate_images);
+        // }
+        // else {
+        //     if($course->certificate_images) {
+        //         $certificate_images = htmlspecialchars_decode($request->old_certificate_images);
+        //     }
+        //     else {
+        //         $certificate_images = null;
+        //     }
+        // }
+
+        $existing_images = json_decode($course->certificate_images, true) ?? [];
+        $current_images = json_decode(htmlspecialchars_decode($request->old_certificate_images), true) ?? [];
+
+        $deleted_images = array_diff($existing_images, $current_images);
+        foreach($deleted_images as $image) {
+            Storage::delete('public/backend/courses/certificate-images/' . $image);
+        }
+
+        $certificate_images = $current_images;
 
         if($request->file('new_certificate_images') != null) {
             if($request->old_certificate_images) {
@@ -242,17 +301,9 @@ class CourseController extends Controller
                 $image->storeAs('public/backend/courses/certificate-images', $certificate_image_name);
                 $certificate_images[] = $certificate_image_name;
             }
-
-            $certificate_images = json_encode($certificate_images);
         }
-        else {
-            if($course->certificate_images) {
-                $certificate_images = htmlspecialchars_decode($request->old_certificate_images);
-            }
-            else {
-                $certificate_images = null;
-            }
-        }
+        
+        $certificate_images = !empty($certificate_images) ? json_encode($certificate_images) : null;
 
         if($request->file('new_material_logistic') != null) {
             if($request->old_material_logistic) {
@@ -262,6 +313,13 @@ class CourseController extends Controller
             $new_material_logistic = $request->file('new_material_logistic');
             $new_material_logistic_name = Str::random(40) . '.' . $new_material_logistic->getClientOriginalExtension();
             $new_material_logistic->storeAs('public/backend/courses/material-and-logistics', $new_material_logistic_name);
+        }
+        else if($request->old_material_logistic == null) {
+            if($course->material_logistic) {
+                Storage::delete('public/backend/courses/material-and-logistics/' . $course->material_logistic);
+            }
+
+            $new_material_logistic_name = null;
         }
         else {
             $new_material_logistic_name = $request->old_material_logistic;

@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="col-12">
-                        <x-backend.upload-image old_name="old_image" old_value="{{ $advisory_board->image ?? old('image') }}" new_name="new_image" path="persons/advisory-boards"></x-backend.upload-image>
+                        <x-backend.upload-image-must old_name="old_image" old_value="{{ $advisory_board->image ?? old('image') }}" new_name="new_image" path="persons/advisory-boards"></x-backend.upload-image-must>
                         <x-backend.input-error field="new_image"></x-backend.input-error>
                     </div>
                 </div>
