@@ -59,194 +59,210 @@
         </div>
 
         @if($questions->isNotEmpty())
-        <div class="container-fluid bottom-section">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-7">
-                        @foreach($questions as $key => $question)
-                        @if($key == 0)
-                        <div class="question-section" data-question-id="{{ $question->id }}" id="question{{$key}}">
-                            <div class="question">
-                                <p>Q1.</p>
-                                <div>{!! $question->question !!}</div>
-                            </div>
+            <div class="container-fluid bottom-section">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-8">
+                            @foreach($questions as $key => $question)
+                                @if($key == 0)
+                                    <div class="question-section" data-question-id="{{ $question->id }}" id="question{{$key}}">
+                                        <div class="question">
+                                            <p>Q1.</p>
+                                            <div>{!! $question->question !!}</div>
+                                        </div>
 
-                            <div class="options">
-                                <div class="option" data-answer="A">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
+                                        <div class="options">
+                                            <div class="option" data-answer="A">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
+        
+                                                <p class="letter">
+                                                    A)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_a !!}
+                                                </div>
+                                            </div>
+                                            <div class="option" data-answer="B">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
+
+                                                <p class="letter">
+                                                    B)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_b !!}
+                                                </div>
+                                            </div>
+                                            <div class="option" data-answer="C">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
+
+                                                <p class="letter">
+                                                    C)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_c !!}
+                                                </div>
+                                            </div>
+                                            <div class="option" data-answer="D">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
+
+                                                <p class="letter">
+                                                    D)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_d !!}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="navigation">
+                                            <div class="button prev-button disabled">← {{
+                                                $student_dashboard_contents->courses_exam_previous }}</div>
+                                            <div class="button next-button disabled">{{ $student_dashboard_contents->courses_exam_next
+                                                }} →</div>
+                                        </div>
+
                                     </div>
+                                @else
+                                    <div class="question-section d-none" data-question-id="{{ $question->id }}" id="question{{$key}}">
+                                        <div class="question">
+                                            <p>Q{{ $key + 1 }}.</p>
+                                            <div>{!! $question->question !!}</div>
+                                        </div>
 
-                                    <p>
-                                        A)
-                                    </p>
+                                        <div class="options">
+                                            <div class="option" data-answer="A">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
 
-                                    <div>
-                                        {!! $question->option_a !!}
+                                                <p class="letter">
+                                                    A)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_a !!}
+                                                </div>
+                                            </div>
+                                            <div class="option" data-answer="B">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
+
+                                                <p class="letter">
+                                                    B)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_b !!}
+                                                </div>
+                                            </div>
+                                            <div class="option" data-answer="C">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
+
+                                                <p class="letter">
+                                                    C)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_c !!}
+                                                </div>
+                                            </div>
+                                            <div class="option" data-answer="D">
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
+                                                </div>
+
+                                                <p class="letter">
+                                                    D)
+                                                </p>
+
+                                                <div class="answer">
+                                                    {!! $question->option_d !!}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="navigation">
+                                            <div class="button prev-button">← {{ $student_dashboard_contents->courses_exam_previous }}
+                                            </div>
+                                            <div class="button next-button">{{ $student_dashboard_contents->courses_exam_next }} →</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="option" data-answer="B">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
-                                    </div>
-
-                                    <p>
-                                        B)
-                                    </p>
-
-                                    <div>
-                                        {!! $question->option_b !!}
-                                    </div>
-                                </div>
-                                <div class="option" data-answer="C">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
-                                    </div>
-
-                                    <p>
-                                        C)
-                                    </p>
-
-                                    <div>
-                                        {!! $question->option_c !!}
-                                    </div>
-                                </div>
-                                <div class="option" data-answer="D">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
-                                    </div>
-
-                                    <p>
-                                        D)
-                                    </p>
-
-                                    <div>
-                                        {!! $question->option_d !!}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="navigation">
-                                <div class="button prev-button disabled">← {{
-                                    $student_dashboard_contents->courses_exam_previous }}</div>
-                                <div class="button next-button disabled">{{ $student_dashboard_contents->courses_exam_next
-                                    }} →</div>
-                            </div>
-
+                                @endif
+                            @endforeach
                         </div>
-                        @else
-                        <div class="question-section d-none" data-question-id="{{ $question->id }}" id="question{{$key}}">
-                            <div class="question">
-                                <p>Q{{ $key + 1 }}.</p>
-                                <div>{!! $question->question !!}</div>
+
+                        <div class="col-4">
+                            <div class="remaining-questions">
+                                <p class="remaining-questions-count">{{
+                                    $student_dashboard_contents->courses_exam_remaining_questions }}: <span>{{
+                                        $questions->count() }}</span></p>
+
+                                <div class="question-nav">
+                                    @foreach($questions as $key => $question)
+                                    <div class="box text-center">
+                                        <img src="{{ asset('storage/frontend/incomplete-flag.svg') }}" class="invisible">
+
+                                        <div class="question-box" id="questionBox{{ $key + 1 }}">
+                                            <span>{{ $key + 1 }}</span>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+
+                                <div class="legend-container">
+                                    <div class="legend-section">
+                                        <img src="{{ asset('storage/frontend/attempted.svg') }}">
+                                        <span class="legend">{{ $student_dashboard_contents->courses_exam_attempted }}</span>
+                                    </div>
+                                    <div class="legend-section">
+                                        <img src="{{ asset('storage/frontend/not-attempted.svg') }}">
+                                        <span class="legend">{{ $student_dashboard_contents->courses_exam_not_attempted
+                                            }}</span>
+                                    </div>
+                                    <div class="legend-section">
+                                        <img src="{{ asset('storage/frontend/incomplete-flag.svg') }}">
+                                        <span class="legend">{{ $student_dashboard_contents->courses_exam_incomplete }}</span>
+                                    </div>
+                                </div>
+
+                                <button class="finish-exam-btn" data-bs-toggle="modal" data-bs-target="#submit-modal">{{
+                                    $student_dashboard_contents->courses_exam_finish_exam }}</button>
                             </div>
-
-                            <div class="options">
-                                <div class="option" data-answer="A">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
-                                    </div>
-
-                                    <p>
-                                        A)
-                                    </p>
-
-                                    <div>
-                                        {!! $question->option_a !!}
-                                    </div>
-                                </div>
-                                <div class="option" data-answer="B">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
-                                    </div>
-
-                                    <p>
-                                        B)
-                                    </p>
-
-                                    <div>
-                                        {!! $question->option_b !!}
-                                    </div>
-                                </div>
-                                <div class="option" data-answer="C">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
-                                    </div>
-
-                                    <p>
-                                        C)
-                                    </p>
-
-                                    <div>
-                                        {!! $question->option_c !!}
-                                    </div>
-                                </div>
-                                <div class="option" data-answer="D">
-                                    <div class="radio">
-                                        <div class="radio-inner"></div>
-                                    </div>
-
-                                    <p>
-                                        D)
-                                    </p>
-
-                                    <div>
-                                        {!! $question->option_d !!}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="navigation">
-                                <div class="button prev-button">← {{ $student_dashboard_contents->courses_exam_previous }}
-                                </div>
-                                <div class="button next-button">{{ $student_dashboard_contents->courses_exam_next }} →</div>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
-                    </div>
-
-                    <div class="col-4">
-                        <div class="remaining-questions">
-                            <p class="remaining-questions-count">{{
-                                $student_dashboard_contents->courses_exam_remaining_questions }}: <span>{{
-                                    $questions->count() }}</span></p>
-
-                            <div class="question-nav">
-                                @foreach($questions as $key => $question)
-                                <div class="box text-center">
-                                    <img src="{{ asset('storage/frontend/incomplete-flag.svg') }}" class="invisible">
-
-                                    <div class="question-box" id="questionBox{{ $key + 1 }}">
-                                        <span>{{ $key + 1 }}</span>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-
-                            <div class="legend-container">
-                                <div class="legend-section">
-                                    <img src="{{ asset('storage/frontend/attempted.svg') }}">
-                                    <span class="legend">{{ $student_dashboard_contents->courses_exam_attempted }}</span>
-                                </div>
-                                <div class="legend-section">
-                                    <img src="{{ asset('storage/frontend/not-attempted.svg') }}">
-                                    <span class="legend">{{ $student_dashboard_contents->courses_exam_not_attempted
-                                        }}</span>
-                                </div>
-                                <div class="legend-section">
-                                    <img src="{{ asset('storage/frontend/incomplete-flag.svg') }}">
-                                    <span class="legend">{{ $student_dashboard_contents->courses_exam_incomplete }}</span>
-                                </div>
-                            </div>
-
-                            <button class="finish-exam-btn" data-bs-toggle="modal" data-bs-target="#submit-modal">{{
-                                $student_dashboard_contents->courses_exam_finish_exam }}</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         @endif
 
         <form action="{{ route('frontend.final-exam.store', $course) }}" method="POST">

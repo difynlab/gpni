@@ -252,6 +252,11 @@ class CoursePurchaseController extends Controller
 
         $data = $request->except('old_certificate_dates', 'old_certificate_times', 'old_certificate_files', 'certificate_dates', 'certificate_times', 'certificate_files');
         $data['certificates'] = $final_certificates;
+
+        if($final_certificates == null) {
+            $data['status'] = '0';
+        }
+
         $course_certificate->fill($data)->save();
         
         return redirect()->route('backend.purchases.course-purchases.certificates.index', $course_certificate->course_purchase_id)->with('success', "Successfully updated!");

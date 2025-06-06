@@ -100,7 +100,10 @@
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
-    gap: 10px;
+    /* gap: 10px; */
+}
+.option .letter {
+    margin-right: 10px;
 }
 .option:last-child {
     margin-bottom: 0;
@@ -110,7 +113,7 @@
     height: 20px;
     border-radius: 50%;
     border: 2px solid #B8D0FF;
-    /* margin-right: 12px; */
+    margin-right: 12px;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -173,6 +176,8 @@
     flex-wrap: wrap;
     margin-bottom: 20px;
     gap: 10px;
+    height: 30vh;
+    overflow-y: auto;
 }
 .question-box {
     width: 40px;
@@ -335,7 +340,7 @@
     }
 }
 
-@media (max-width: 1366px) {
+/* @media (max-width: 1366px) {
     .radio {
         width: 25px;
     }
@@ -363,4 +368,4 @@
     .radio {
         width: 30px;
     }
-}
+} */

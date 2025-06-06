@@ -60,7 +60,7 @@
             <div class="container-fluid bottom-section">
                 <div class="container">
                     <div class="row justify-content-between">
-                        <div class="col-lg-8 col-12">
+                        <div class="col-8">
                             @foreach($questions as $key => $question)
                                 @if($key == 0)
                                     <div class="question-section" data-question-id="{{ $question->id }}" id="question{{$key}}">
@@ -71,32 +71,48 @@
 
                                         <div class="options">
                                             <div class="option" data-answer="A">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>A)</p>
-                                                <div>{!! $question->option_a !!}</div>
+
+                                                <p class="letter">A)</p>
+
+                                                <div class="answer">{!! $question->option_a !!}</div>
                                             </div>
                                             <div class="option" data-answer="B">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>B)</p>
-                                                <div>{!! $question->option_b !!}</div>
+
+                                                <p class="letter">B)</p>
+
+                                                <div class="answer">{!! $question->option_b !!}</div>
                                             </div>
                                             <div class="option" data-answer="C">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>C)</p>
-                                                <div>{!! $question->option_c !!}</div>
+
+                                                <p class="letter">C)</p>
+
+                                                <div class="answer">{!! $question->option_c !!}</div>
                                             </div>
                                             <div class="option" data-answer="D">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>D)</p>
-                                                <div>{!! $question->option_d !!}</div>
+
+                                                <p class="letter">D)</p>
+
+                                                <div class="answer">{!! $question->option_d !!}</div>
                                             </div>
                                         </div>
 
@@ -114,32 +130,48 @@
 
                                         <div class="options">
                                             <div class="option" data-answer="A">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>A)</p>
-                                                <div>{!! $question->option_a !!}</div>
+
+                                                <p class="letter">A)</p>
+
+                                                <div class="answer">{!! $question->option_a !!}</div>
                                             </div>
                                             <div class="option" data-answer="B">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>B)</p>
-                                                <div>{!! $question->option_b !!}</div>
+
+                                                <p class="letter">B)</p>
+
+                                                <div class="answer">{!! $question->option_b !!}</div>
                                             </div>
                                             <div class="option" data-answer="C">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>C)</p>
-                                                <div>{!! $question->option_c !!}</div>
+
+                                                <p class="letter">C)</p>
+
+                                                <div class="answer">{!! $question->option_c !!}</div>
                                             </div>
                                             <div class="option" data-answer="D">
-                                                <div class="radio">
-                                                    <div class="radio-inner"></div>
+                                                <div class="circle">
+                                                    <div class="radio">
+                                                        <div class="radio-inner"></div>
+                                                    </div>
                                                 </div>
-                                                <p>D)</p>
-                                                <div>{!! $question->option_d !!}</div>
+
+                                                <p class="letter">D)</p>
+
+                                                <div class="answer">{!! $question->option_d !!}</div>
                                             </div>
                                         </div>
 
@@ -152,7 +184,7 @@
                             @endforeach
                         </div>
 
-                        <div class="col-lg-4 col-12">
+                        <div class="col-4">
                             <div class="remaining-questions mt-5 mt-lg-0">
                                 <p class="remaining-questions-count">{{ $student_dashboard_contents->courses_exam_remaining_questions }}: <span>{{ $questions->count() }}</span></p>
                                 <h2 class="all-questions-heading">All question</h2>

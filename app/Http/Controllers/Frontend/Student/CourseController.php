@@ -73,10 +73,10 @@ class CourseController extends Controller
 
         foreach($course_modules as $course_module) {
             $course_module->chapters = CourseChapter::where('course_id', $course->id)->where('module_id', $course_module->id)->where('status', '1')->get();
-            $course_module->course_module_exam = CourseModuleExam::where('course_id', $course->id)->where('module_id', $course_module->id)->where('status', '1')->orderBy('id', 'desc')->first();
+            $course_module->course_module_exam = CourseModuleExam::where('user_id', $student->id)->where('course_id', $course->id)->where('module_id', $course_module->id)->where('status', '1')->orderBy('id', 'desc')->first();
         }
 
-        $course->course_final_exam = CourseFinalExam::where('course_id', $course->id)->where('status', '1')->orderBy('id', 'desc')->first();
+        $course->course_final_exam = CourseFinalExam::where('user_id', $student->id)->where('course_id', $course->id)->where('status', '1')->orderBy('id', 'desc')->first();
 
         return view('frontend.student.courses.show', [
             'course' => $course,

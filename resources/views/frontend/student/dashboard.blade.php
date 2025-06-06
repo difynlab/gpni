@@ -64,10 +64,37 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="{{ route('frontend.my-orders') }}" class="card h-100">
+                            <a href="{{ route('frontend.qualifications') }}" class="card h-100">
                                 <div class="card-body">
-                                    <h2 class="card-title fs-25">{{ $student_dashboard_contents->dashboard_billing_centre }}</h2>
-                                    <p class="card-text">{{ $student_dashboard_contents->dashboard_billing_centre_description }}</p>
+                                    <h2 class="card-title fs-25">{{ $student_dashboard_contents->dashboard_qualifications }}</h2>
+                                    <p class="card-text">{{ $student_dashboard_contents->dashboard_qualifications_description }}</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Row 3 -->
+                        <div class="col-12 col-md-6">
+                            @if(auth()->user()->member == 'Yes')
+                                <a href="{{ route('frontend.member-corner') }}" class="card h-100">
+                                    <div class="card-body">
+                                        <h2 class="card-title fs-25">{{ $student_dashboard_contents->dashboard_member_corner }}</h2>
+                                        <p class="card-text">{{ $student_dashboard_contents->dashboard_member_corner_description }}</p>
+                                    </div>
+                                </a>
+                            @else
+                                <a href="{{ route('frontend.membership') }}" class="card h-100">
+                                    <div class="card-body">
+                                        <h2 class="card-title fs-25">{{ $student_dashboard_contents->dashboard_member_corner }}</h2>
+                                        <p class="card-text">{{ $student_dashboard_contents->dashboard_member_corner_description }}</p>
+                                    </div>
+                                </a>
+                            @endif
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <a href="{{ route('frontend.my-storage') }}" class="card h-100">
+                                <div class="card-body">
+                                    <h2 class="card-title fs-25">{{ $student_dashboard_contents->dashboard_my_storage }}</h2>
+                                    <p class="card-text">{{ $student_dashboard_contents->dashboard_my_storage_description }}</p>
                                 </div>
                             </a>
                         </div>

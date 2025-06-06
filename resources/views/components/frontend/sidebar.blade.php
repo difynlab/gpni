@@ -93,6 +93,13 @@
         </div>
     </a>
 
+    <a href="{{ route('frontend.my-orders') }}" class="sidebar-link">
+        <div class="sidebar-item {{ Request::segment(1) == 'my-orders' ? 'active' : '' }}">
+            <img src="{{ asset('storage/frontend/storage-icon.svg') }}" alt="Study Tools Icon" width="28" height="28">
+            <span class="fs-20">{{ $student_dashboard_contents->sidebar_my_orders }}</span>
+        </div>
+    </a>
+
     <a href="{{ route('frontend.buy-study-materials') }}" class="sidebar-link">
         <div class="sidebar-item {{ Request::segment(1) == 'buy-study-materials' ? 'active' : '' }}">
             <img src="{{ asset('storage/frontend/buy-study-material-icon.svg') }}" alt="Buy Study Material Icon" width="28" height="28">
@@ -102,14 +109,14 @@
 
     @if(auth()->user()->member == 'Yes')
         <a href="{{ route('frontend.member-corner') }}" class="sidebar-link">
-            <div class="sidebar-item {{ Request::segment(1) == 'member-corner' ? 'active' : '' }}">
+            <div class="sidebar-item {{ Request::segment(1) == 'member-corner' ? 'active' : '' }} thicker-line">
                 <img src="{{ asset('storage/frontend/members-corner-icon.svg') }}" alt="Member Corner" width="30" height="30">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_member_corner }}</span>
             </div>
         </a>
     @else
         <a href="{{ route('frontend.membership') }}" class="sidebar-link">
-            <div class="sidebar-item">
+            <div class="sidebar-item thicker-line">
                 <img src="{{ asset('storage/frontend/members-corner-icon.svg') }}" alt="Member Corner" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_member_corner }}</span>
             </div>

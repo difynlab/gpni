@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div class="question-answer">
+    <!-- <div class="question-answer">
         @foreach($questions_answers as $key => $question_answer)
             <div class="question-card">
                 <div class="info">
@@ -113,6 +113,18 @@
                 </div>
             </div>
         @endforeach
+    </div> -->
+
+    <div class="message">
+        @if($course_final_exam->result == 'Pass')
+            <p class="pass-text">{{ $student_dashboard_contents->courses_exam_result_pass_text }}</p>
+        @else
+            @if(hasStudentAttendedTwoTimes($course_final_exam->user_id, $course_final_exam->course_id) >= 2)
+                <p class="second-fail-text">{{ $student_dashboard_contents->courses_exam_result_second_fail_text }}</p>
+            @else
+                <p class="first-fail-text">{{ $student_dashboard_contents->courses_exam_result_first_fail_text }}</p>
+            @endif
+        @endif
     </div>
 
 @endsection

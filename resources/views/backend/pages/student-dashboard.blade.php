@@ -47,6 +47,11 @@
                     </div>
 
                     <div class="col-4 mb-3">
+                        <label for="sidebar_my_orders" class="form-label">My Orders</label>
+                        <input type="text" class="form-control" id="sidebar_my_orders" name="sidebar_my_orders" value="{{ $contents->sidebar_my_orders ?? '' }}" placeholder="My Orders">
+                    </div>
+
+                    <div class="col-4 mb-3">
                         <label for="sidebar_buy_study_material" class="form-label">Buy Study Material</label>
                         <input type="text" class="form-control" id="sidebar_buy_study_material" name="sidebar_buy_study_material" value="{{ $contents->sidebar_buy_study_material ?? '' }}" placeholder="Buy Study Material">
                     </div>
@@ -61,12 +66,12 @@
                         <input type="text" class="form-control" id="sidebar_ask_the_experts" name="sidebar_ask_the_experts" value="{{ $contents->sidebar_ask_the_experts ?? '' }}" placeholder="Ask the Experts">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="sidebar_technical_supports" class="form-label">Technical Supports</label>
                         <input type="text" class="form-control" id="sidebar_technical_supports" name="sidebar_technical_supports" value="{{ $contents->sidebar_technical_supports ?? '' }}" placeholder="Technical Supports">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="sidebar_refer_friends" class="form-label">Refer Friends</label>
                         <input type="text" class="form-control" id="sidebar_refer_friends" name="sidebar_refer_friends" value="{{ $contents->sidebar_refer_friends ?? '' }}" placeholder="Refer Friends">
                     </div>
@@ -112,19 +117,39 @@
                         <input type="text" class="form-control" id="dashboard_courses" name="dashboard_courses" value="{{ $contents->dashboard_courses ?? '' }}" placeholder="Courses">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="dashboard_courses_description" class="form-label">Courses Description</label>
                         <input type="text" class="form-control" id="dashboard_courses_description" name="dashboard_courses_description" value="{{ $contents->dashboard_courses_description ?? '' }}" placeholder="Courses Description">
                     </div>
 
-                    <div class="col-4">
-                        <label for="dashboard_billing_centre" class="form-label">Billing Centre</label>
-                        <input type="text" class="form-control" id="dashboard_billing_centre" name="dashboard_billing_centre" value="{{ $contents->dashboard_billing_centre ?? '' }}" placeholder="Billing Centre">
+                    <div class="col-4 mb-3">
+                        <label for="dashboard_qualifications" class="form-label">Qualifications</label>
+                        <input type="text" class="form-control" id="dashboard_qualifications" name="dashboard_qualifications" value="{{ $contents->dashboard_qualifications ?? '' }}" placeholder="Qualifications">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="dashboard_qualifications_description" class="form-label">Qualifications Description</label>
+                        <input type="text" class="form-control" id="dashboard_qualifications_description" name="dashboard_qualifications_description" value="{{ $contents->dashboard_qualifications_description ?? '' }}" placeholder="Qualifications Description">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="dashboard_member_corner" class="form-label">Member Corner</label>
+                        <input type="text" class="form-control" id="dashboard_member_corner" name="dashboard_member_corner" value="{{ $contents->dashboard_member_corner ?? '' }}" placeholder="Member Corner">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="dashboard_member_corner_description" class="form-label">Member Corner Description</label>
+                        <input type="text" class="form-control" id="dashboard_member_corner_description" name="dashboard_member_corner_description" value="{{ $contents->dashboard_member_corner_description ?? '' }}" placeholder="Member Corner Description">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="dashboard_my_storage" class="form-label">My Storage</label>
+                        <input type="text" class="form-control" id="dashboard_my_storage" name="dashboard_my_storage" value="{{ $contents->dashboard_my_storage ?? '' }}" placeholder="My Storage">
                     </div>
 
                     <div class="col-4">
-                        <label for="dashboard_billing_centre_description" class="form-label">Billing Centre Description</label>
-                        <input type="text" class="form-control" id="dashboard_billing_centre_description" name="dashboard_billing_centre_description" value="{{ $contents->dashboard_billing_centre_description ?? '' }}" placeholder="Billing Centre Description">
+                        <label for="dashboard_my_storage_description" class="form-label">My Storage Description</label>
+                        <input type="text" class="form-control" id="dashboard_my_storage_description" name="dashboard_my_storage_description" value="{{ $contents->dashboard_my_storage_description ?? '' }}" placeholder="My Storage Description">
                     </div>
                 </div>
             </div>
@@ -747,6 +772,11 @@
                     </div>
 
                     <div class="col-4 mb-3">
+                        <label for="gpni_tv_title" class="form-label">GPNi Tv Title</label>
+                        <input type="text" class="form-control" id="gpni_tv_title" name="gpni_tv_title" value="{{ $contents->gpni_tv_title ?? '' }}" placeholder="GPNi Tv Title">
+                    </div>
+
+                    <div class="col-4 mb-3">
                         <label for="gpni_tv_return" class="form-label">GPNi Tv Return</label>
                         <input type="text" class="form-control" id="gpni_tv_return" name="gpni_tv_return" value="{{ $contents->gpni_tv_return ?? '' }}" placeholder="GPNi Tv Return">
                     </div>
@@ -966,14 +996,29 @@
                         <input type="text" class="form-control" id="courses_exam_result_correct_answer" name="courses_exam_result_correct_answer" value="{{ $contents->courses_exam_result_correct_answer ?? '' }}" placeholder="Correct Answer">
                     </div>
 
-                    <div class="col-6 mb-3">
+                    <div class="col-4 mb-3">
                         <label for="courses_exam_result_incorrect_answer" class="form-label">Incorrect Answer</label>
                         <input type="text" class="form-control" id="courses_exam_result_incorrect_answer" name="courses_exam_result_incorrect_answer" value="{{ $contents->courses_exam_result_incorrect_answer ?? '' }}" placeholder="Incorrect Answer">
                     </div>
 
-                    <div class="col-6 mb-3">
+                    <div class="col-4 mb-3">
                         <label for="courses_exam_result_un_attempted" class="form-label">Unattempted</label>
                         <input type="text" class="form-control" id="courses_exam_result_un_attempted" name="courses_exam_result_un_attempted" value="{{ $contents->courses_exam_result_un_attempted ?? '' }}" placeholder="Unattempted">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="courses_exam_result_pass_text" class="form-label">Course Pass Message</label>
+                        <input type="text" class="form-control" id="courses_exam_result_pass_text" name="courses_exam_result_pass_text" value="{{ $contents->courses_exam_result_pass_text ?? '' }}" placeholder="Course Pass Message">
+                    </div>
+
+                    <div class="col-6 mb-3">
+                        <label for="courses_exam_result_first_fail_text" class="form-label">Course First Fail Message</label>
+                        <input type="text" class="form-control" id="courses_exam_result_first_fail_text" name="courses_exam_result_first_fail_text" value="{{ $contents->courses_exam_result_first_fail_text ?? '' }}" placeholder="Course First Fail Message">
+                    </div>
+
+                    <div class="col-6 mb-3">
+                        <label for="courses_exam_result_second_fail_text" class="form-label">Course Second Fail Message</label>
+                        <input type="text" class="form-control" id="courses_exam_result_second_fail_text" name="courses_exam_result_second_fail_text" value="{{ $contents->courses_exam_result_second_fail_text ?? '' }}" placeholder="Course Second Fail Message">
                     </div>
 
                     <div class="col-4">

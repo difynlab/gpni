@@ -17,7 +17,20 @@
             <div class="col-12 col-lg-8 main-content ps-lg-5">
                 <div class="course-container">
                     <div class="course-header">
-                        <h1>{{ $student_dashboard_contents->courses_title }}</h1>
+                        @php
+                            $first_segment = request()->segment(1);
+                            $second_segment = request()->segment(2);
+                            $title = null;
+
+                            if($first_segment === 'courses' && !$second_segment) {
+                                $title = $student_dashboard_contents->courses_title;
+                            }
+                            elseif($first_segment === 'courses' && $second_segment === 'gpni-tv') {
+                                $title = $student_dashboard_contents->gpni_tv_title;
+                            }
+                        @endphp
+
+                        <h1>{{ $title }}</h1>
                     </div>
 
                     @if($courses->isNotEmpty())
@@ -39,7 +52,7 @@
                                             @endif
                                         @else
                                             @if(hasStudentCompletedAllModuleExams($student->id, $course->id))
-                                                <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}</span>
+                                                <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}ss</span>
                                             @else
                                                 <span class="badge-in-progress">{{ $student_dashboard_contents->courses_inprogress }}</span>
                                             @endif

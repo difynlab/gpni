@@ -54,16 +54,17 @@
                             @php
                                 $all_previous_modules_completed = true;
 
-                                for ($i = 0; $i < $key; $i++) {
+                                for($i = 0; $i < $key; $i++) {
                                     $module = $course_modules[$i];
-                                    if ($module->module_exam == 'Yes' && hasStudentCompletedModuleExam($student->id, $module->course_id, $module->id)) {
+                                    if($module->module_exam == 'Yes' && hasStudentCompletedModuleExam($student->id, $module->course_id, $module->id)) {
                                         $exam_result = $module->course_module_exam['result'] ?? null;
 
-                                        if ($exam_result !== 'Pass') {
+                                        if($exam_result !== 'Pass') {
                                             $all_previous_modules_completed = false;
                                             break;
                                         }
-                                    } elseif ($module->module_exam == 'Yes' && !hasStudentCompletedModuleExam($student->id, $module->course_id, $module->id)) {
+                                    }
+                                    elseif ($module->module_exam == 'Yes' && !hasStudentCompletedModuleExam($student->id, $module->course_id, $module->id)) {
                                         $all_previous_modules_completed = false;
                                         break;
                                     }

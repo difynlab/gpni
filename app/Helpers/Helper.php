@@ -45,7 +45,7 @@ if(!function_exists('hasStudentCompletedModuleExam')) {
     {
         $user = User::find($user_id);
         $course = Course::find($course_id);
-        $course_module = CourseModule::find($course_module_id);
+        $course_module = CourseModule::where('course_id', $course_id)->where('module_exam', 'Yes')->where('status', '1')->find($course_module_id);
 
         if(!$user || !$course || !$course_module) {
             return false;
@@ -73,6 +73,10 @@ if(!function_exists('hasStudentCompletedAllModuleExams')) {
         ->where('status', '1')
         ->where('result', 'Pass')
         ->count();
+
+        if(count($course_modules) == 0) {
+            return false;
+        }
 
         $all_modules_passed = $passed_modules_count === count($course_modules);
 
