@@ -34,15 +34,15 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="option_c" class="form-label">Option C<span class="asterisk">*</span></label>
+                            <label for="option_c" class="form-label">Option C</label>
                             <textarea class="editor" id="option_c" name="option_c" value="{{ old('option_c', $course_module_exam_question->option_c) }}">{{ old('option_c', $course_module_exam_question->option_c) }}</textarea>
-                            <x-backend.input-error field="option_c"></x-backend.input-error>
+                            <!-- <x-backend.input-error field="option_c"></x-backend.input-error> -->
                         </div>
 
                         <div class="mb-4">
-                            <label for="option_d" class="form-label">Option D<span class="asterisk">*</span></label>
+                            <label for="option_d" class="form-label">Option D</label>
                             <textarea class="editor" id="option_d" name="option_d" value="{{ old('option_d', $course_module_exam_question->option_d) }}">{{ old('option_d', $course_module_exam_question->option_d) }}</textarea>
-                            <x-backend.input-error field="option_d"></x-backend.input-error>
+                            <!-- <x-backend.input-error field="option_d"></x-backend.input-error> -->
                         </div>
 
                         <div>

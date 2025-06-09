@@ -60,8 +60,8 @@ class CourseModuleExamQuestionController extends Controller
             'question' => 'required',
             'option_a' => 'required',
             'option_b' => 'required',
-            'option_c' => 'required',
-            'option_d' => 'required'
+            'option_c' => 'nullable',
+            'option_d' => 'nullable'
         ]);
 
         if($validator->fails()) {

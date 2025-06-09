@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('question');
             $table->text('option_a');
             $table->text('option_b');
-            $table->text('option_c');
-            $table->text('option_d');
+            $table->text('option_c')->nullable();
+            $table->text('option_d')->nullable();
             $table->enum('answer', ['A', 'B', 'C', 'D']);
             $table->enum('status', [0, 1, 2])->index();
             $table->timestamps();
