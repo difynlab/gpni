@@ -138,6 +138,10 @@
     margin-top: 10px;
     transition: all 0.3s;
 }
+.pay-now-button {
+    background-color: #f7bf2e;
+    color: var(--black);
+}
 .final-exam-locked-button {
     background-color: #858990;
     color: #FFF;
@@ -155,6 +159,10 @@
 }
 .final-exam-button:hover, .final-exam-locked-button:hover {
     background-color: #0c5965;
+    transition: all 0.3s;
+}
+.pay-now-button:hover {
+    background-color: #cf9d1b;
     transition: all 0.3s;
 }
 .results-button {

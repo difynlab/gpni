@@ -13,7 +13,7 @@
     <div class="exam-header">
         <div class="exam-title-section">
             <div>
-                <p class="exam-title fs-39">{{ $student_dashboard_contents->courses_exam_result_title }}</p>
+                <p class="exam-title fs-39">{{ $student_dashboard_contents->courses_final_exam_result_title }}</p>
                 <p class="exam-details fs-20">{{ $course->title }}</p>
             </div>
 

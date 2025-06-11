@@ -151,7 +151,7 @@
                                                                 <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
                                                             </div>
                                                             <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
-                                                            <div class="card-body course-card-body ps-4">
+                                                            <div class="card-body course-card-body">
                                                                 <div class="card-title text-heading d-flex justify-content-start text-start">{{ $course->title }}</div>
                                                                 <div class="apply-now-container d-flex justify-content-between align-items-center w-100">
                                                                     <div class="apply-now-text fs-16 mb-0">{{ $contents->{'section_3_apply_' . $middleware_language} ?? $contents->section_3_apply_en }}</div>
@@ -184,7 +184,7 @@
                                                                     <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
                                                                 </div>
                                                                 <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
-                                                                <div class="card-body ps-4">
+                                                                <div class="card-body course-card-body">
                                                                     <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
                                                                     <div
                                                                         class="apply-now-container d-flex justify-content-between align-items-center w-100">
@@ -218,7 +218,7 @@
                                                                     <img src="{{ asset('storage/frontend/issn.png') }}" alt="Logo" width="100%">
                                                                 </div>
                                                                 <img src="{{ asset('storage/backend/courses/course-images/' . $course->image) }}" alt="Menu Item" class="card-img-top">
-                                                                <div class="card-body ps-4">
+                                                                <div class="card-body course-card-body">
                                                                     <div class="card-title fs-36 d-flex justify-content-start text-start">{{ $course->title }}</div>
                                                                     <div
                                                                         class="apply-now-container d-flex justify-content-between align-items-center w-100">

@@ -102,36 +102,34 @@
                                                     {!! $question->option_b !!}
                                                 </div>
                                             </div>
-                                            <div class="option" data-answer="C">
-                                                <div class="circle">
-                                                    <div class="radio">
-                                                        <div class="radio-inner"></div>
+
+                                            @if($question->option_c)
+                                                <div class="option" data-answer="C">
+                                                    <div class="circle">
+                                                        <div class="radio">
+                                                            <div class="radio-inner"></div>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <p class="letter">
-                                                    C)
-                                                </p>
+                                                    <p class="letter">C)</p>
 
-                                                <div class="answer">
-                                                    {!! $question->option_c !!}
+                                                    <div class="answer">{!! $question->option_c !!}</div>
                                                 </div>
-                                            </div>
-                                            <div class="option" data-answer="D">
-                                                <div class="circle">
-                                                    <div class="radio">
-                                                        <div class="radio-inner"></div>
+                                            @endif
+
+                                            @if($question->option_d)
+                                                <div class="option" data-answer="D">
+                                                    <div class="circle">
+                                                        <div class="radio">
+                                                            <div class="radio-inner"></div>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <p class="letter">
-                                                    D)
-                                                </p>
+                                                    <p class="letter">D)</p>
 
-                                                <div class="answer">
-                                                    {!! $question->option_d !!}
+                                                    <div class="answer">{!! $question->option_d !!}</div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
 
                                         <div class="navigation">
@@ -180,36 +178,34 @@
                                                     {!! $question->option_b !!}
                                                 </div>
                                             </div>
-                                            <div class="option" data-answer="C">
-                                                <div class="circle">
-                                                    <div class="radio">
-                                                        <div class="radio-inner"></div>
+
+                                            @if($question->option_c)
+                                                <div class="option" data-answer="C">
+                                                    <div class="circle">
+                                                        <div class="radio">
+                                                            <div class="radio-inner"></div>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <p class="letter">
-                                                    C)
-                                                </p>
+                                                    <p class="letter">C)</p>
 
-                                                <div class="answer">
-                                                    {!! $question->option_c !!}
+                                                    <div class="answer">{!! $question->option_c !!}</div>
                                                 </div>
-                                            </div>
-                                            <div class="option" data-answer="D">
-                                                <div class="circle">
-                                                    <div class="radio">
-                                                        <div class="radio-inner"></div>
+                                            @endif
+
+                                            @if($question->option_d)
+                                                <div class="option" data-answer="D">
+                                                    <div class="circle">
+                                                        <div class="radio">
+                                                            <div class="radio-inner"></div>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <p class="letter">
-                                                    D)
-                                                </p>
+                                                    <p class="letter">D)</p>
 
-                                                <div class="answer">
-                                                    {!! $question->option_d !!}
+                                                    <div class="answer">{!! $question->option_d !!}</div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
 
                                         <div class="navigation">

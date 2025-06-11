@@ -210,12 +210,15 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                             @if($course_chapter->additional_video_links)
                                 @foreach(json_decode($course_chapter->additional_video_links) as $additional_video_link)
                                     <div class="row single-item mt-2">
-                                        <div class="col-11">
-                                            <input type="url" class="form-control" name="additional_video_links[]" value="{{ $additional_video_link }}" placeholder="Video Link">
+                                        <div class="col">
+                                            <input type="text" class="form-control" name="additional_video_link_titles[]" value="{{ $additional_video_link->title }}" placeholder="Title">
+                                        </div>
+                                        <div class="col">
+                                            <input type="url" class="form-control" name="additional_video_link_urls[]" value="{{ $additional_video_link->link }}" placeholder="Link">
                                         </div>
                                         <div class="col-1 d-flex align-items-center">
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
@@ -389,8 +392,11 @@
 
         $('.add-row-button.additional-video-links').on('click', function() {
             let html = `<div class="row single-item mt-2">
-                            <div class="col-11">
-                                <input type="url" class="form-control" name="additional_video_links[]" placeholder="Video Link" required>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="additional_video_link_titles[]" placeholder="Title" required>
+                            </div>
+                            <div class="col-5">
+                                <input type="url" class="form-control" name="additional_video_link_urls[]" placeholder="Link" required>
                             </div>
                             <div class="col-1 d-flex align-items-center">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>

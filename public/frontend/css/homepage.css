@@ -822,38 +822,27 @@ html {
 }
 
 .courses-swiper .card {
-    height: 100%;
+    /* height: 100%; */
+    height: 425px;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .courses-swiper .card-img-top {
-    height: 450px; 
+    /* height: 450px; */
+    height: 250px;
     object-fit: fill; 
     width: 100%;
     filter: brightness(0.5);
 }
 
 .courses-swiper .card-body {
-    /* position: relative; */
-    padding: 1.5rem;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
-    /* flex: 1;  */
-    background: linear-gradient(180deg, rgba(214, 214, 214, 0), rgba(94, 94, 94, 0.67));
-    position: absolute;
-    /* top: 0; */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(214, 214, 214, 0), rgba(94, 94, 94, 0.67));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    padding: 20px;
+    height: 175px;
 }
 
 .courses-swiper .card-title {
@@ -906,13 +895,39 @@ html {
 }
 
 /* Responsive adjustments for cards */
+@media (max-width: 1400px) {
+    .courses-swiper .card {
+        height: 360px;
+    }
+    .courses-swiper .card-body {
+        height: 160px;
+    }
+    .courses-swiper .card-img-top {
+        height: 200px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .courses-swiper .card {
+        height: 300px;
+    }
+    .courses-swiper .card-body {
+        height: 155px;
+    }
+    .courses-swiper .card-img-top {
+        height: 145px;
+    }
+}
+
 @media (max-width: 991.98px) {
     .courses-swiper .card {
-        height: 400px;
+        height: 350px;
     }
-    
+    .courses-swiper .card-body {
+        height: 160px;
+    }
     .courses-swiper .card-img-top {
-        height: 450px;
+        height: 235px;
     }
 }
 
@@ -926,7 +941,7 @@ html {
     }
     
     .courses-swiper .card-img-top {
-        height: 450px;
+        height: 247px;
     }
     
     .courses-swiper .swiper-pagination {

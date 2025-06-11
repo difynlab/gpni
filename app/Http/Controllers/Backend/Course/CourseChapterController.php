@@ -171,6 +171,20 @@ class CourseChapterController extends Controller
             }
         // Course additional videos store function
 
+        // Course additional video links store function
+            if($request->additional_video_link_titles) {
+                $additional_video_links = [];
+
+                foreach($request->additional_video_link_titles as $key => $additional_video_link_title) {
+                    array_push($additional_video_links, [
+                        'title' => $additional_video_link_title,
+                        'link' => $request->additional_video_link_urls[$key] ?? null
+                    ]);
+                }
+                $final_additional_video_links = $additional_video_links ? json_encode($additional_video_links) : null;
+            }
+        // Course additional video links store function
+
         // Course presentation medias store function
             if($request->presentation_media_titles) {
                 $presentation_medias = [];
@@ -220,7 +234,7 @@ class CourseChapterController extends Controller
         $course_chapter->video_links = $final_video_links ?? null;
 
         $course_chapter->additional_videos = $final_additional_videos ?? null;
-        $course_chapter->additional_video_links = $request->additional_video_links ? json_encode($request->additional_video_links) : null;
+        $course_chapter->additional_video_links = $final_additional_video_links ?? null;
         $course_chapter->presentation_medias = $final_presentation_medias ?? null;
 
         $course_chapter->downloadable_resources = $final_downloadable_resources ?? null;
@@ -372,6 +386,19 @@ class CourseChapterController extends Controller
             $final_additional_videos = $additional_videos ? json_encode($additional_videos) : null;
         // Course additional videos store function
 
+         // Course additional video links store function
+            $additional_video_links = [];
+            if($request->additional_video_link_titles) {
+                foreach($request->additional_video_link_titles as $key => $additional_video_link_title) {
+                    array_push($additional_video_links, [
+                        'title' => $additional_video_link_title,
+                        'link' => $request->additional_video_link_urls[$key] ?? null
+                    ]);
+                }
+            }
+            $final_additional_video_links = $additional_video_links ? json_encode($additional_video_links) : null;
+        // Course additional video links store function
+
         // Course presentation medias store function
             $presentation_medias = [];
 
@@ -443,7 +470,7 @@ class CourseChapterController extends Controller
         $course_chapter->video_links = $final_video_links;
 
         $course_chapter->additional_videos = $final_additional_videos;
-        $course_chapter->additional_video_links = $request->additional_video_links ? json_encode($request->additional_video_links) : null;
+        $course_chapter->additional_video_links = $final_additional_video_links;
         $course_chapter->presentation_medias = $final_presentation_medias;
 
         $course_chapter->downloadable_resources = $final_downloadable_resources;

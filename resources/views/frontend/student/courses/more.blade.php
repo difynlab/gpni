@@ -89,10 +89,6 @@
                                             <div class="accordion-body pb-0">
                                                 <div class="row">
                                                     @foreach($video_links as $video_link)
-                                                        <!-- <div class="link-item">
-                                                            <a href="{{ $video_link->link }}" target="_blank">{{ $video_link->title }}</a>
-                                                        </div> -->
-
                                                         <div class="col-12 mb-4">
                                                             <p class="mb-1 fs-18">{{ $video_link->title }}</p>
                                                             <div class="video-container">
@@ -148,13 +144,10 @@
                                             <div class="accordion-body pb-0">
                                                 <div class="row">
                                                     @foreach($additional_video_links as $additional_video_link)
-                                                        <!-- <div class="link-item">
-                                                            <a href="{{ $additional_video_link }}" target="_blank">{{ $additional_video_link }}</a>
-                                                        </div> -->
-
                                                         <div class="col-12 mb-4">
+                                                            <p class="mb-1 fs-18">{{ $additional_video_link->title }}</p>
                                                             <div class="video-container">
-                                                                <iframe src="{{ $additional_video_link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                <iframe src="{{ $additional_video_link->link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                             </div>
                                                         </div>
                                                     @endforeach

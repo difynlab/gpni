@@ -127,7 +127,7 @@
 
                         <div class="row mb-4">
                             <div class="col-12">
-                                <x-backend.input-error field="additional_video_files.*"></x-backend.input-error>
+                                <x-backend.input-error field="video_files.*"></x-backend.input-error>
                             </div>
                         </div>
 
@@ -277,8 +277,11 @@
 
         $('.add-row-button.additional-video-links').on('click', function() {
             let html = `<div class="row single-item mt-2">
-                            <div class="col-11">
-                                <input type="url" class="form-control" name="additional_video_links[]" placeholder="Video Link" required>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="additional_video_link_titles[]" placeholder="Title" required>
+                            </div>
+                            <div class="col-5">
+                                <input type="url" class="form-control" name="additional_video_link_urls[]" placeholder="Link" required>
                             </div>
                             <div class="col-1 d-flex align-items-center">
                                 <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>

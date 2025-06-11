@@ -27,6 +27,7 @@ class ReferFriendController extends Controller
             $referral_link_created = 'Referral link created';
             $withdrawal = 'Withdrawal';
             $deduction = 'Deduction';
+            $referral_link_initial = 'Initial activity';
         }
         elseif($language == 'Chinese') {
             $referral_account_registered = '被推荐人注册';
@@ -35,6 +36,7 @@ class ReferFriendController extends Controller
             $referral_link_created = '推荐链接创建';
             $withdrawal = '提现';
             $deduction = '扣除';
+            $referral_link_initial = '初始活动';
         }
         else {
             $referral_account_registered = '紹介アカウントが登録されました';
@@ -43,6 +45,7 @@ class ReferFriendController extends Controller
             $referral_link_created = '紹介リンクを作成しました';
             $withdrawal = '撤退';
             $deduction = '控除';
+            $referral_link_initial = '初期活動';
         }
 
         $student = Auth::user();
@@ -59,6 +62,9 @@ class ReferFriendController extends Controller
             }
             elseif(strpos($refer_point_activity->activity, 'Referral account registered') !== false) {
                 $refer_point_activity->activity = str_replace('Referral account registered', $referral_account_registered, $refer_point_activity->activity);
+            }
+            elseif($refer_point_activity->activity == 'Initial activity') {
+                $refer_point_activity->activity = $referral_link_initial;
             }
             else {
                 $refer_point_activity->activity = str_replace('Referral account course purchased', $referral_account_course_purchased, $refer_point_activity->activity);

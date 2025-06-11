@@ -952,8 +952,13 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="courses_exam_result_title" class="form-label">Result Title</label>
-                        <input type="text" class="form-control" id="courses_exam_result_title" name="courses_exam_result_title" value="{{ $contents->courses_exam_result_title ?? '' }}" placeholder="Result Title">
+                        <label for="courses_module_exam_result_title" class="form-label">Module Result Title</label>
+                        <input type="text" class="form-control" id="courses_module_exam_result_title" name="courses_module_exam_result_title" value="{{ $contents->courses_module_exam_result_title ?? '' }}" placeholder="Module Result Title">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="courses_final_exam_result_title" class="form-label">Final Result Title</label>
+                        <input type="text" class="form-control" id="courses_final_exam_result_title" name="courses_final_exam_result_title" value="{{ $contents->courses_final_exam_result_title ?? '' }}" placeholder="Final Result Title">
                     </div>
 
                     <div class="col-4 mb-3">
@@ -1011,12 +1016,12 @@
                         <input type="text" class="form-control" id="courses_exam_result_pass_text" name="courses_exam_result_pass_text" value="{{ $contents->courses_exam_result_pass_text ?? '' }}" placeholder="Course Pass Message">
                     </div>
 
-                    <div class="col-6 mb-3">
+                    <div class="col-4 mb-3">
                         <label for="courses_exam_result_first_fail_text" class="form-label">Course First Fail Message</label>
                         <input type="text" class="form-control" id="courses_exam_result_first_fail_text" name="courses_exam_result_first_fail_text" value="{{ $contents->courses_exam_result_first_fail_text ?? '' }}" placeholder="Course First Fail Message">
                     </div>
 
-                    <div class="col-6 mb-3">
+                    <div class="col-4 mb-3">
                         <label for="courses_exam_result_second_fail_text" class="form-label">Course Second Fail Message</label>
                         <input type="text" class="form-control" id="courses_exam_result_second_fail_text" name="courses_exam_result_second_fail_text" value="{{ $contents->courses_exam_result_second_fail_text ?? '' }}" placeholder="Course Second Fail Message">
                     </div>
