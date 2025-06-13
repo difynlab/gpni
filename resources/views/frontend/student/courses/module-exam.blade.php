@@ -24,7 +24,8 @@
                         <img src="{{ asset('storage/frontend/left-chevron-icon.svg') }}" alt="Arrow Left" width="20" height="20">
                         {{ $student_dashboard_contents->courses_return }}
                     </a>
-                    <button class="btn confirm-button start-exam-button mx-3">{{ $student_dashboard_contents->courses_exam_start_modal_start_exam }}</button>
+                    {{-- <button class="btn confirm-button start-exam-button mx-3">{{ $student_dashboard_contents->courses_exam_start_modal_start_exam }}</button> --}}
+                    <button class="btn confirm-button start-exam-button mx-3">Start Module Test</button>
                 </div>
             </div>
         </div>
@@ -228,7 +229,8 @@
                                     </div>
                                 </div>
 
-                                <button class="finish-exam-btn" data-bs-toggle="modal" data-bs-target="#submit-modal">{{ $student_dashboard_contents->courses_exam_finish_exam }}</button>
+                                {{-- <button class="finish-exam-btn" data-bs-toggle="modal" data-bs-target="#submit-modal">{{ $student_dashboard_contents->courses_exam_finish_exam }}</button> --}}
+                                <button class="finish-exam-btn" data-bs-toggle="modal" data-bs-target="#submit-modal">Finish Module Test</button>
                             </div>
                         </div>
                     </div>
