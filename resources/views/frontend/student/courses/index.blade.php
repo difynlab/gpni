@@ -52,7 +52,7 @@
                                             @endif
                                         @else
                                             @if(hasStudentCompletedAllModuleExams($student->id, $course->id))
-                                                <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}ss</span>
+                                                <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}</span>
                                             @else
                                                 <span class="badge-in-progress">{{ $student_dashboard_contents->courses_inprogress }}</span>
                                             @endif
