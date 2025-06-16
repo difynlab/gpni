@@ -14,14 +14,14 @@ class ArticleController extends Controller
     {
         $contents = ArticleContent::find(1);
 
-        $articles = Article::where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc')->paginate(4);
+        $articles = Article::where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc')->paginate(8);
         if($articles->isEmpty() && $request->middleware_language_name != 'English') {
-            $articles = Article::where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->paginate(4);
+            $articles = Article::where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->paginate(8);
         }
 
-        $recommended_articles = Article::where('recommending', 'Yes')->where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc')->paginate(4);
+        $recommended_articles = Article::where('recommending', 'Yes')->where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc')->paginate(8);
         if($recommended_articles->isEmpty() && $request->middleware_language_name != 'English') {
-            $recommended_articles = Article::where('recommending', 'Yes')->where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->paginate(4);
+            $recommended_articles = Article::where('recommending', 'Yes')->where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->paginate(8);
         }
 
         $trending_articles = Article::where('language', $request->middleware_language_name)->where('status', '1')->orderBy('view_count', 'desc')->take(5)->get();

@@ -106,6 +106,24 @@
     transition: all 0.3s;
     font-size: 12px !important;
 }
+.exam-completed-button {
+    background-color: #f7bf2e;
+    color: var(--black) !important;
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    transition: all 0.3s;
+    font-size: 12px !important;
+}
+.exam-completed-button:hover {
+    background-color: #cf9d1b;
+    transition: all 0.3s;
+}
 .exam-locked-button {
     background-color: #858990;
     color: #FFF !important;
@@ -124,8 +142,8 @@
     transition: all 0.3s;
 }
 .final-exam-button {
-    background-color: #0a93a8;
-    color: #FFF;
+    background-color: #f7bf2e;
+    color: var(--black);
     width: 100%;
     font-size: 20px;
     margin-bottom: 30px;
@@ -137,10 +155,6 @@
     border: none;
     margin-top: 10px;
     transition: all 0.3s;
-}
-.pay-now-button {
-    background-color: #f7bf2e;
-    color: var(--black);
 }
 .final-exam-locked-button {
     background-color: #858990;
@@ -158,15 +172,11 @@
     transition: all 0.3s;
 }
 .final-exam-button:hover, .final-exam-locked-button:hover {
-    background-color: #0c5965;
-    transition: all 0.3s;
-}
-.pay-now-button:hover {
     background-color: #cf9d1b;
     transition: all 0.3s;
 }
 .results-button {
-    background-color: #2b8b05;
+    background-color: gray;
     color: #FFF !important;
     width: 100%;
     display: flex;
@@ -182,11 +192,11 @@
     font-size: 12px !important;
 }
 .results-button:hover {
-    background-color: #2d7411;
+    background-color: #5e5d5d;
     transition: all 0.3s;
 }
 .final-results-button {
-    background-color: #2b8b05;
+    background-color: gray;
     color: #FFF !important;
     width: 100%;
     font-size: 20px;
@@ -201,7 +211,7 @@
     transition: all 0.3s;
 }
 .final-results-button:hover {
-    background-color: #2d7411;
+    background-color: #5e5d5d;
     transition: all 0.3s;
 }
 .custom-tooltip {

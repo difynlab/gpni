@@ -100,7 +100,7 @@
 
                                                     @if($course_module->course_module_exam['result'] == 'Pass')
                                                         <div class="col-6">
-                                                            <button class="exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_module_exam_completed_tooltip }}" data-bs-custom-class="custom-tooltip" disabled>
+                                                            <button class="exam-completed-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_module_exam_completed_tooltip }}" data-bs-custom-class="custom-tooltip" disabled>
                                                                 {{ $student_dashboard_contents->courses_module_exam_completed }}
                                                             </button>
                                                         </div>
@@ -171,7 +171,7 @@
                                                             @csrf
                                                             <input type="hidden" name="course_id" value="{{ $course->id }}">
 
-                                                            <button type="submit" class="final-exam-button text-decoration-none pay-now-button" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_exam_pay_now_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_exam_pay_now }}</button>
+                                                            <button type="submit" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_exam_pay_now_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_exam_pay_now }}</button>
                                                         </form>
                                                     @else
                                                         <a href="{{ route('frontend.final-exam.index', $course) }}" class="final-exam-button text-decoration-none" data-bs-toggle="tooltip" data-bs-title="{{ $student_dashboard_contents->courses_final_take_again_tooltip }}" data-bs-custom-class="custom-tooltip">{{ $student_dashboard_contents->courses_final_take_again }}</a>
