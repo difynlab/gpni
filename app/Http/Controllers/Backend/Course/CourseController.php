@@ -64,7 +64,7 @@ class CourseController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'new_image' => 'nullable|max:30720',
-            'new_video' => 'nullable|max:102400',
+            'new_video' => 'nullable|max:204800',
             'new_instructor_profile_image' => 'nullable|max:30720',
             'new_certificate_images.*' => 'max:30720',
             'price' => 'numeric|min:0',
@@ -73,7 +73,7 @@ class CourseController extends Controller
             'exam_time' => ['nullable', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/']
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
-            'new_video.max' => 'Video must not be greater than 100 MB',
+            'new_video.max' => 'Video must not be greater than 200 MB',
             'new_instructor_profile_image.max' => 'Image must not be greater than 30 MB',
             'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB',
             'price.numeric' => 'Price must be a number or decimal',
@@ -162,7 +162,7 @@ class CourseController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'new_image' => 'max:30720',
-            'new_video' => 'max:102400',
+            'new_video' => 'max:204800',
             'new_instructor_profile_image' => 'max:30720',
             'new_certificate_images.*' => 'max:30720',
             'price' => 'numeric|min:0',
@@ -171,7 +171,7 @@ class CourseController extends Controller
             'exam_time' => ['nullable', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/']
         ], [
             'new_image.max' => 'Image must not be greater than 30 MB',
-            'new_video.max' => 'Video must not be greater than 100 MB',
+            'new_video.max' => 'Video must not be greater than 200 MB',
             'new_instructor_profile_image.max' => 'Image must not be greater than 30 MB',
             'new_certificate_images.*.max' => 'Each image must not be greater than 30 MB',
             'price.numeric' => 'Price must be a number or decimal',

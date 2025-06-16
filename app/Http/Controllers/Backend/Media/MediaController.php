@@ -46,7 +46,7 @@ class MediaController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'image' => 'nullable|image|max:30720',
-            'video' => 'nullable|max:102400',
+            'video' => 'nullable|max:204800',
             'pdf' => 'nullable|max:30720',
             'word' => 'nullable|max:30720',
             'excel' => 'nullable|max:30720',
@@ -54,7 +54,7 @@ class MediaController extends Controller
             'audio' => 'nullable|max:30720',
         ], [
             'image.max' => 'The image size must not exceed 30 MB',
-            'video.max' => 'The video size must not exceed 100 MB',
+            'video.max' => 'The video size must not exceed 200 MB',
             'pdf.max' => 'The pdf size must not exceed 30 MB',
             'word.max' => 'The word size must not exceed 30 MB',
             'excel.max' => 'The excel size must not exceed 30 MB',
@@ -155,7 +155,7 @@ class MediaController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'new_image' => 'nullable|image|max:30720',
-            'new_video' => 'nullable|max:102400',
+            'new_video' => 'nullable|max:204800',
             'new_pdf' => 'nullable|max:30720',
             'new_word' => 'nullable|max:30720',
             'new_excel' => 'nullable|max:30720',
@@ -163,7 +163,7 @@ class MediaController extends Controller
             'new_audio' => 'nullable|max:30720',
         ], [
             'new_image.max' => 'The image size must not exceed 30 MB',
-            'new_video.max' => 'The video size must not exceed 100 MB',
+            'new_video.max' => 'The video size must not exceed 200 MB',
             'new_pdf.max' => 'The pdf size must not exceed 30 MB',
             'new_word.max' => 'The word size must not exceed 30 MB',
             'new_excel.max' => 'The excel size must not exceed 30 MB',

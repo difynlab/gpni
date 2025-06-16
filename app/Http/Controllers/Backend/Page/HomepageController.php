@@ -41,13 +41,13 @@ class HomepageController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'new_section_1_image' => 'max:30720',
-            'new_section_2_video' => 'max:102400',
-            'new_section_4_video' => 'max:102400',
+            'new_section_2_video' => 'max:204800',
+            'new_section_4_video' => 'max:204800',
             'new_section_5_images.*' => 'max:30720',
         ], [
             'new_section_1_image.max' => 'Image must not be greater than 30 MB',
-            'new_section_2_video.max' => 'Video must not be greater than 100 MB',
-            'new_section_4_video.max' => 'Video must not be greater than 100 MB',
+            'new_section_2_video.max' => 'Video must not be greater than 200 MB',
+            'new_section_4_video.max' => 'Video must not be greater than 200 MB',
             'new_section_5_images.*.max' => 'Each image must not be greater than 30 MB'
         ]);
 
