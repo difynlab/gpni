@@ -27,7 +27,7 @@
                         {{ $student_dashboard_contents->courses_return }}
                     </a>
                     <button class="btn confirm-button start-exam-button mx-3">{{
-                        $student_dashboard_contents->courses_exam_start_modal_start_exam }}</button>
+                        $student_dashboard_contents->courses_exam_start_modal_start_final_exam }}</button>
                 </div>
             </div>
         </div>
@@ -253,7 +253,7 @@
                                 </div>
 
                                 <button class="finish-exam-btn" data-bs-toggle="modal" data-bs-target="#submit-modal">{{
-                                    $student_dashboard_contents->courses_exam_finish_exam }}</button>
+                                    $student_dashboard_contents->courses_exam_finish_final_exam }}</button>
                             </div>
                         </div>
                     </div>

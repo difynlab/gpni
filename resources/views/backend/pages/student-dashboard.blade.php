@@ -867,8 +867,13 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="courses_exam_start_modal_start_exam" class="form-label">Start Exam</label>
-                        <input type="text" class="form-control" id="courses_exam_start_modal_start_exam" name="courses_exam_start_modal_start_exam" value="{{ $contents->courses_exam_start_modal_start_exam ?? '' }}" placeholder="Start Exam">
+                        <label for="courses_exam_start_modal_start_module_exam" class="form-label">Start Module Exam</label>
+                        <input type="text" class="form-control" id="courses_exam_start_modal_start_module_exam" name="courses_exam_start_modal_start_module_exam" value="{{ $contents->courses_exam_start_modal_start_module_exam ?? '' }}" placeholder="Start Module Exam">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="courses_exam_start_modal_start_final_exam" class="form-label">Start Finale Exam</label>
+                        <input type="text" class="form-control" id="courses_exam_start_modal_start_final_exam" name="courses_exam_start_modal_start_final_exam" value="{{ $contents->courses_exam_start_modal_start_final_exam ?? '' }}" placeholder="Start Finale Exam">
                     </div>
 
                     <div class="col-4 mb-3">
@@ -907,8 +912,13 @@
                     </div>
 
                     <div class="col-4 mb-3">
-                        <label for="courses_exam_finish_exam" class="form-label">Finish Exam</label>
-                        <input type="text" class="form-control" id="courses_exam_finish_exam" name="courses_exam_finish_exam" value="{{ $contents->courses_exam_finish_exam ?? '' }}" placeholder="Finish Exam">
+                        <label for="courses_exam_finish_module_exam" class="form-label">Finish Module Exam</label>
+                        <input type="text" class="form-control" id="courses_exam_finish_module_exam" name="courses_exam_finish_module_exam" value="{{ $contents->courses_exam_finish_module_exam ?? '' }}" placeholder="Finish Module Exam">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="courses_exam_finish_final_exam" class="form-label">Finish Final Exam</label>
+                        <input type="text" class="form-control" id="courses_exam_finish_final_exam" name="courses_exam_finish_final_exam" value="{{ $contents->courses_exam_finish_final_exam ?? '' }}" placeholder="Finish Final Exam">
                     </div>
 
                     <div class="col-4 mb-3">
@@ -1016,12 +1026,12 @@
                         <input type="text" class="form-control" id="courses_exam_result_pass_text" name="courses_exam_result_pass_text" value="{{ $contents->courses_exam_result_pass_text ?? '' }}" placeholder="Course Pass Message">
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-6 mb-3">
                         <label for="courses_exam_result_first_fail_text" class="form-label">Course First Fail Message</label>
                         <input type="text" class="form-control" id="courses_exam_result_first_fail_text" name="courses_exam_result_first_fail_text" value="{{ $contents->courses_exam_result_first_fail_text ?? '' }}" placeholder="Course First Fail Message">
                     </div>
 
-                    <div class="col-4 mb-3">
+                    <div class="col-6 mb-3">
                         <label for="courses_exam_result_second_fail_text" class="form-label">Course Second Fail Message</label>
                         <input type="text" class="form-control" id="courses_exam_result_second_fail_text" name="courses_exam_result_second_fail_text" value="{{ $contents->courses_exam_result_second_fail_text ?? '' }}" placeholder="Course Second Fail Message">
                     </div>
