@@ -107,8 +107,8 @@
     font-size: 12px !important;
 }
 .exam-completed-button {
-    background-color: #f7bf2e;
-    color: var(--black) !important;
+    background-color: #0040c3;
+    color: var(--white) !important;
     width: 100%;
     display: flex !important;
     justify-content: center !important;
@@ -157,7 +157,7 @@
     transition: all 0.3s;
 }
 .final-exam-locked-button {
-    background-color: #858990;
+    background-color: #43464b;
     color: #FFF;
     width: 100%;
     font-size: 20px;
@@ -176,7 +176,7 @@
     transition: all 0.3s;
 }
 .results-button {
-    background-color: gray;
+    background-color: #43464b;
     color: #FFF !important;
     width: 100%;
     display: flex;
