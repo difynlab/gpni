@@ -1036,17 +1036,22 @@
                         <input type="text" class="form-control" id="courses_exam_result_second_fail_text" name="courses_exam_result_second_fail_text" value="{{ $contents->courses_exam_result_second_fail_text ?? '' }}" placeholder="Course Second Fail Message">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-6 mb-3">
                         <label for="courses_exam_start_modal_instructions" class="form-label">Start Modal Module Exam Instructions</label>
                         <textarea class="editor" id="content" name="courses_module_exam_start_modal_instructions">{{ $contents->courses_module_exam_start_modal_instructions }}</textarea>
                     </div>
 
-                    <div class="col-4">
-                        <label for="courses_exam_start_modal_instructions" class="form-label">Start Modal Final Exam Instructions</label>
-                        <textarea class="editor" id="content" name="courses_final_exam_start_modal_instructions">{{ $contents->courses_final_exam_start_modal_instructions }}</textarea>
+                    <div class="col-6 mb-3">
+                        <label for="courses_sns_final_exam_start_modal_instructions" class="form-label">Start Modal SNS Final Exam Instructions</label>
+                        <textarea class="editor" id="content" name="courses_sns_final_exam_start_modal_instructions">{{ $contents->courses_sns_final_exam_start_modal_instructions }}</textarea>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-6 mb-3">
+                        <label for="courses_cissn_final_exam_start_modal_instructions" class="form-label">Start Modal CISSN Final Exam Instructions</label>
+                        <textarea class="editor" id="content" name="courses_cissn_final_exam_start_modal_instructions">{{ $contents->courses_cissn_final_exam_start_modal_instructions }}</textarea>
+                    </div>
+
+                    <div class="col-6">
                         <label for="courses_exam_instructions" class="form-label">Exam Instructions</label>
                         <textarea class="editor" id="content" name="courses_exam_instructions">{{ $contents->courses_exam_instructions }}</textarea>
                     </div>

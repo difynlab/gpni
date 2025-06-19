@@ -44,20 +44,21 @@
 
                         <div class="mb-4">
                             <label for="type" class="form-label">Type<span class="asterisk">*</span></label>
-                            <select class="form-control form-select" id="type" name="type" required>
+                            <select class="form-control form-select type" id="type" name="type" required>
                                 <option value="Certification" {{ old('type', $course->type) == 'Certification' ? 'selected' : '' }}>Certification</option>
                                 <option value="Master" {{ old('type', $course->type) == 'Master' ? 'selected' : '' }}>Master</option>
                                 <option value="Small Course" {{ old('type', $course->type) == 'Small Course' ? 'selected' : '' }}>Small Course</option>
                             </select>
                         </div>
 
-                        <!-- <div class="mb-4">
-                            <label for="course_status" class="form-label">Course Status<span class="asterisk">*</span></label>
-                            <select class="form-control form-select" id="course_status" name="course_status" required>
-                                <option value="Present" {{ old('course_status', $course->course_status) == 'Present' ? 'selected' : '' }}>Present</option>
-                                <option value="Upcoming" {{ old('course_status', $course->course_status) == 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
+                        <div class="mb-4 {{ old('type', $course->type) != 'Certification' ? 'd-none' : '' }}">
+                            <label for="certification_type" class="form-label">Certification Type<span class="asterisk">*</span></label>
+                            <select class="form-control form-select" id="certification_type" name="certification_type">
+                                <option value="">Select certification type</option>
+                                <option value="SNS" {{ old('certification_type', $course->certification_type) == 'SNS' ? 'selected' : '' }}>SNS</option>
+                                <option value="CISSN" {{ old('certification_type', $course->certification_type) == 'CISSN' ? 'selected' : '' }}>CISSN</option>
                             </select>
-                        </div> -->
+                        </div>
 
                         <div class="mb-4">
                             <label for="no_of_modules" class="form-label">No of Modules</label>
@@ -287,6 +288,21 @@
             if(value == 'Yes') {
                 $(this).closest('div').next().removeClass('d-none');
                 $(this).closest('div').next().find('input').attr('required', true);
+            }
+            else {
+                $(this).closest('div').next().addClass('d-none');
+                $(this).closest('div').next().find('input').attr('required', false);
+            }
+        });
+
+        $('.type').on('change', function() {
+            let value = $(this).val();
+
+            console.log(value);
+
+            if(value == 'Certification') {
+                $(this).closest('div').next().removeClass('d-none');
+                $(this).closest('div').next().find('select').attr('required', true);
             }
             else {
                 $(this).closest('div').next().addClass('d-none');

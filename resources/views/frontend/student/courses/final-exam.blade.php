@@ -17,7 +17,11 @@
                     <p class="title">{{ $student_dashboard_contents->courses_exam_start_modal_title }}</p>
                     <p class="description">{{ $student_dashboard_contents->courses_exam_start_modal_description }}</p>
 
-                    {!! $student_dashboard_contents->courses_final_exam_start_modal_instructions !!}
+                    @if($course->certification_type == 'SNS')
+                        {!! $student_dashboard_contents->courses_sns_final_exam_start_modal_instructions !!}
+                    @else
+                        {!! $student_dashboard_contents->courses_cissn_final_exam_start_modal_instructions !!}
+                    @endif
                 </div>
 
                 <div class="modal-footer text-center">

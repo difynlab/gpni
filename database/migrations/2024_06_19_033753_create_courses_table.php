@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->string('duration')->nullable();
                 $table->enum('language', ['English', 'Chinese', 'Japanese']);
                 $table->enum('type', ['Certification', 'Master', 'Small Course']);
-                $table->enum('course_status', ['Present', 'Upcoming'])->nullable();
+                $table->enum('certification_type', ['SNS', 'CISSN'])->nullable();
                 $table->string('no_of_modules')->nullable();
                 $table->string('no_of_students_enrolled')->nullable();
                 $table->decimal('price', 10, 2);
