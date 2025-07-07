@@ -386,7 +386,7 @@ class CourseChapterController extends Controller
             $final_additional_videos = $additional_videos ? json_encode($additional_videos) : null;
         // Course additional videos store function
 
-         // Course additional video links store function
+        // Course additional video links store function
             $additional_video_links = [];
             if($request->additional_video_link_titles) {
                 foreach($request->additional_video_link_titles as $key => $additional_video_link_title) {

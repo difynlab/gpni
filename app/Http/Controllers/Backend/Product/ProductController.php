@@ -120,8 +120,8 @@ class ProductController extends Controller
         $data['thumbnail'] = $thumbnail_name;
         $data['images'] = $new_images != null ? json_encode($new_images) : null;
         $data['downloadable_content'] = $file_name;
-        $data['available_sizes'] = $request->available_sizes[0] != null ? json_encode($request->available_sizes) : null;
-        $data['colors'] = $request->colors[0] != null ? json_encode($request->colors) : null;
+        $data['available_sizes'] = $request->available_sizes != null ? json_encode($request->available_sizes) : null;
+        $data['colors'] = $request->colors != null ? json_encode($request->colors) : null;
 
         $product->create($data);
 
