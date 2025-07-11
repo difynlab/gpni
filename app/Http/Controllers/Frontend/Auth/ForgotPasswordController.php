@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetPasswordMail;
 use App\Models\AuthenticationContent;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ForgotPasswordController extends Controller
 {
@@ -33,6 +34,13 @@ class ForgotPasswordController extends Controller
         ]);
 
         if(!optional($response->json())['success']) {
+            Log::warning('hCaptcha verification failed', [
+                'ip'       => $request->ip(),
+                'activity' => 'forgot-password',
+                'response' => $response->json(),
+                'user_agent' => $request->userAgent(),
+            ]);
+
             return redirect()->back()->withInput()->with('error', 'Captcha verification failed!');;
         }
         
