@@ -35,10 +35,12 @@
                         <div class="form-input">
                             <x-frontend.captcha></x-frontend.captcha>
                         </div>
-                        
-                        <div class="py-2">
-                            <button type="submit" class="btn submit-button" style="background-color: #0040c3; color: #fff; border: none; border-radius: 10px; height: 46px;" disabled>{{ $contents->{'forgot_page_button_' . $middleware_language} ?? $contents->forgot_page_button_en }}</button>
+
+                        <div class="form-input text-center">
+                            <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="hcaptchaCallback"></div>
                         </div>
+                        
+                        <button type="submit" class="btn submit-button" style="background-color: #0040c3; color: #fff; border: none; border-radius: 10px; height: 46px;" disabled>{{ $contents->{'forgot_page_button_' . $middleware_language} ?? $contents->forgot_page_button_en }}</button>
                     </form>
                 </div>
             </div>

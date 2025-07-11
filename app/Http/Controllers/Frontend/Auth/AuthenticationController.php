@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AuthenticationContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class AuthenticationController extends Controller
 {
@@ -20,6 +21,16 @@ class AuthenticationController extends Controller
 
     public function store(Request $request)
     {
+        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [
+            'secret' => config('services.hcaptcha.secret'),
+            'response' => $request->input('h-captcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        if(!optional($response->json())['success']) {
+            return redirect()->back()->withInput()->with('error', 'Captcha verification failed!');;
+        }
+
         $contents = AuthenticationContent::find(1);
 
         if(Auth::attempt($request->only('email', 'password'))) {

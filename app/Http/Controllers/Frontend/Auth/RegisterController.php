@@ -12,10 +12,10 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Lunaweb\RecaptchaV3\Facades\RecaptchaV3;
 
 class RegisterController extends Controller
 {
@@ -295,29 +295,14 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        $token = $request->get('g-recaptcha-response');
-        $action = 'register';
-        $threshold = 0.7;
+        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [
+            'secret' => config('services.hcaptcha.secret'),
+            'response' => $request->input('h-captcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
 
-        if(!$token) {
-            Log::warning('Missing reCAPTCHA token', [
-                'ip' => $request->ip(),
-                'email' => $request->email,
-            ]);
-
-            return redirect()->back()->withInput()->with('error', 'Captcha verification failed.');
-        }
-
-        $score = RecaptchaV3::verify($token, $action);
-
-        if($score < $threshold) {
-            Log::warning('reCAPTCHA failed (score too low)', [
-                'ip' => $request->ip(),
-                'score' => $score,
-                'email' => $request->email,
-            ]);
-
-            return redirect()->back()->withInput()->with('error', 'Account creation failed');
+        if(!optional($response->json())['success']) {
+            return redirect()->back()->withInput()->with('error', 'Captcha verification failed!');;
         }
 
         $validator = Validator::make($request->all(), [
@@ -328,7 +313,6 @@ class RegisterController extends Controller
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password',
             'language' => 'required|in:English,Chinese,Japanese',
-            // 'g-recaptcha-response' => 'required|recaptchav3:register,0.7',
         ]);
         
         if($validator->fails()) {
@@ -344,7 +328,7 @@ class RegisterController extends Controller
             $referred_by = null;
         }
 
-        $data = $request->except('code', 'confirm_password', 'middleware_language_name', 'middleware_language', 'g-recaptcha-response');
+        $data = $request->except('code', 'confirm_password', 'middleware_language_name', 'middleware_language', 'g-recaptcha-response', 'h-captcha-response');
         $data['role'] = 'student';
         $data['referred_by'] = $referred_by;
         $data['status'] = '1';
@@ -380,7 +364,12 @@ class RegisterController extends Controller
             'name' => $request->first_name . ' ' . $request->last_name
         ];
 
-        Mail::to([$request->email])->send(new RegisterMail($mail_data));
+        try {
+            Mail::to($request->email)->send(new RegisterMail($mail_data));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         Auth::login($student);
         $request->session()->regenerate();

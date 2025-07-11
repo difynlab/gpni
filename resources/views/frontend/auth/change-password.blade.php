@@ -67,10 +67,6 @@
                                     <x-frontend.input-error field="confirm_password"></x-frontend.input-error>
                                 </div>
 
-                                <div class="form-input">
-                                    <x-frontend.captcha></x-frontend.captcha>
-                                </div>
-
                                 <div class="change-password-button">
                                     <button type="submit" class="btn btn-change-password">{{ $student_dashboard_contents->change_password_button }}</button>
                                 </div>
@@ -85,7 +81,6 @@
 @endsection
 
 @push('after-scripts')
-    <script src="{{ asset('frontend/js/captcha.js') }}"></script>
     <script>
         $(".toggle-password").click(function () {
             $(this).toggleClass("bi-eye-slash-fill bi-eye-fill");

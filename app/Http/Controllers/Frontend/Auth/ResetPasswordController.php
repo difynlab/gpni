@@ -7,6 +7,7 @@ use App\Models\AuthenticationContent;
 use App\Models\PasswordResetToken;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class ResetPasswordController extends Controller
@@ -30,6 +31,16 @@ class ResetPasswordController extends Controller
 
     public function store(Request $request)
     {
+        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [
+            'secret' => config('services.hcaptcha.secret'),
+            'response' => $request->input('h-captcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        if(!optional($response->json())['success']) {
+            return redirect()->back()->withInput()->with('error', 'Captcha verification failed!');;
+        }
+        
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|min:8',

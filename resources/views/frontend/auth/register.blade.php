@@ -19,6 +19,8 @@
 
             <div class="col-lg-8 white-section d-flex justify-content-center">
                 <div class="form-container">
+                    <x-frontend.notification></x-frontend.notification>
+
                     <h1 class="fs-39 text-center pt-4">{{ $contents->{'register_page_title_' . $middleware_language} ?? $contents->register_page_title_en }}</h1>
                     <p class="subheading fs-16 text-center">{{ $contents->{'register_page_sub_title_' . $middleware_language} ?? $contents->register_page_sub_title_en }}
                         <a href="{{ route('frontend.login') }}" class="text-primary">{{ $contents->{'register_page_login_' . $middleware_language} ?? $contents->register_page_login_en }}</a>
@@ -104,9 +106,12 @@
                             <x-frontend.captcha></x-frontend.captcha>
                         </div>
 
+                        <div class="form-input text-center">
+                            <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="hcaptchaCallback"></div>
+                        </div>
+
                         <div class="d-flex justify-content-end">
                             <input type="hidden" name="code" value="{{ $code }}">
-                            {!! RecaptchaV3::field('register') !!}
                             <button type="submit" class="btn btn-primary btn-block submit-button" style="background-color: #0040c3; color: #fff; border: none; border-radius: 10px; height: 46px;" disabled>{{ $contents->{'register_page_button_' . $middleware_language} ?? $contents->register_page_button_en }}</button>
                         </div>
                     </form>

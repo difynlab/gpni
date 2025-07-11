@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetPasswordMail;
 use App\Models\AuthenticationContent;
+use Illuminate\Support\Facades\Http;
 
 class ForgotPasswordController extends Controller
 {
@@ -25,6 +26,16 @@ class ForgotPasswordController extends Controller
 
     public function store(Request $request)
     {
+        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [
+            'secret' => config('services.hcaptcha.secret'),
+            'response' => $request->input('h-captcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        if(!optional($response->json())['success']) {
+            return redirect()->back()->withInput()->with('error', 'Captcha verification failed!');;
+        }
+        
         $validator = Validator::make($request->all(), [
             'email' => [
                 'required',

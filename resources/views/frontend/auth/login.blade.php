@@ -18,10 +18,9 @@
             <x-frontend.auth></x-frontend.auth>
 
             <div class="col-lg-8 white-section d-flex justify-content-center">
-
-                <x-frontend.notification></x-frontend.notification>
-
                 <div class="form-container">
+                    <x-frontend.notification></x-frontend.notification>
+
                     <h1 class="fs-39">{{ $contents->{'login_page_title_' . $middleware_language} ?? $contents->login_page_title_en }}</h1>
 
                     <div class="subheading fs-16">{{ $contents->{'login_page_sub_title_' . $middleware_language} ?? $contents->login_page_sub_title_en }}</div>
@@ -75,6 +74,10 @@
                             <x-frontend.captcha></x-frontend.captcha>
                         </div>
 
+                        <div class="form-input text-center">
+                            <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="hcaptchaCallback"></div>
+                        </div>
+
                         <input type="hidden" name="redirect" value="{{ request('redirect') }}">
 
                         <button type="submit" class="btn submit-button" disabled>{{ $contents->{'login_page_button_' . $middleware_language} ?? $contents->login_page_button_en }}</button>
@@ -106,4 +109,6 @@
             }
         });
     </script>
+
+    
 @endpush

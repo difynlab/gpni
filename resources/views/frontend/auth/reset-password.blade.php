@@ -1,4 +1,4 @@
-d@extends('frontend.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title', $contents->{'reset_page_name_' . $middleware_language} !== '' 
     ? $contents->{'reset_page_name_' . $middleware_language} 
@@ -19,6 +19,8 @@ d@extends('frontend.layouts.app')
 
                 <div class="col-lg-8 white-section d-flex justify-content-center">
                     <div class="form-container">
+
+                        <x-frontend.notification></x-frontend.notification>
 
                         <h1 class="fs-39">{{ $contents->{'reset_page_title_' . $middleware_language} ?? $contents->reset_page_title_en }}</h1>
                         <p class="subheading fs-16">{{ $contents->{'reset_page_sub_title_' . $middleware_language} ?? $contents->reset_page_sub_title_en }}</p>
@@ -41,6 +43,10 @@ d@extends('frontend.layouts.app')
 
                             <div class="form-input">
                                 <x-frontend.captcha></x-frontend.captcha>
+                            </div>
+
+                            <div class="form-input text-center">
+                                <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="hcaptchaCallback"></div>
                             </div>
 
                             <div class="form-input">

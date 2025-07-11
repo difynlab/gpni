@@ -1,4 +1,3 @@
-
 @if(session('success'))
     <div class="notification-box">
         <div class="row">

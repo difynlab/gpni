@@ -17,7 +17,6 @@
             <link rel="stylesheet" href="{{ asset('frontend/css/navbar.css') }}">
             <link rel="stylesheet" href="{{ asset('frontend/css/footer.css') }}">
             <link rel="stylesheet" href="{{ asset('frontend/css/swiper.css') }}">
-            {!! RecaptchaV3::initJs() !!}
         @stack('after-styles')
     </head>
 
@@ -35,6 +34,7 @@
             <script src="{{ asset('frontend/js/main.js') }}"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
             <script src="{{ asset('frontend/js/swiper.js') }}"></script>
+            <script src="https://hcaptcha.com/1/api.js" async defer></script>
         @stack('after-scripts')
     </body>
     
