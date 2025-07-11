@@ -17,6 +17,7 @@
             <link rel="stylesheet" href="{{ asset('frontend/css/navbar.css') }}">
             <link rel="stylesheet" href="{{ asset('frontend/css/footer.css') }}">
             <link rel="stylesheet" href="{{ asset('frontend/css/swiper.css') }}">
+            {!! RecaptchaV3::initJs() !!}
         @stack('after-styles')
     </head>
 

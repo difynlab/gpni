@@ -12,8 +12,10 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Lunaweb\RecaptchaV3\Facades\RecaptchaV3;
 
 class RegisterController extends Controller
 {
@@ -293,16 +295,40 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
+        $token = $request->get('g-recaptcha-response');
+        $action = 'register';
+        $threshold = 0.7;
+
+        if(!$token) {
+            Log::warning('Missing reCAPTCHA token', [
+                'ip' => $request->ip(),
+                'email' => $request->email,
+            ]);
+
+            return redirect()->back()->withInput()->with('error', 'Captcha verification failed.');
+        }
+
+        $score = RecaptchaV3::verify($token, $action);
+
+        if($score < $threshold) {
+            Log::warning('reCAPTCHA failed (score too low)', [
+                'ip' => $request->ip(),
+                'score' => $score,
+                'email' => $request->email,
+            ]);
+
+            return redirect()->back()->withInput()->with('error', 'Account creation failed');
+        }
+
         $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'country' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'confirm_password' => 'required|same:password'
-        ], [
-            'email.unique' => 'The email address is already in use',
-            'password.required' => 'The password field is required',
-            'password.min' => 'The password must be at least 8 characters long',
-            'confirm_password.required' => 'The confirm password field is required',
-            'confirm_password.same' => 'The confirm password must match the password',
+            'confirm_password' => 'required|same:password',
+            'language' => 'required|in:English,Chinese,Japanese',
+            // 'g-recaptcha-response' => 'required|recaptchav3:register,0.7',
         ]);
         
         if($validator->fails()) {
@@ -318,7 +344,7 @@ class RegisterController extends Controller
             $referred_by = null;
         }
 
-        $data = $request->except('code', 'confirm_password', 'middleware_language_name', 'middleware_language');
+        $data = $request->except('code', 'confirm_password', 'middleware_language_name', 'middleware_language', 'g-recaptcha-response');
         $data['role'] = 'student';
         $data['referred_by'] = $referred_by;
         $data['status'] = '1';
