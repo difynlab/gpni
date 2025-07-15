@@ -68,7 +68,6 @@ class GiftCardController extends Controller
             return redirect()->back()->withInput()->with('error', "The recipient's preferred language is " . ' ' . $user->language . ', and the currency is ' . $user_currency . '. Please ensure the language dropdown is set to ' . $user->language . ' when completing the purchase, even if you initially switch to another language');
         }
 
-
         if($request->middleware_language == 'en') {
             $currency = 'usd';
         }
@@ -77,6 +76,34 @@ class GiftCardController extends Controller
         }
         else {
             $currency = 'jpy';
+        }
+
+        $min_amounts = [
+            'usd' => 50,
+            'cny' => 400,
+            'jpy' => 75
+        ];
+
+        if (
+            ($currency === 'jpy' && (int)$request->amount < $min_amounts['jpy']) ||
+            ($currency !== 'jpy' && (int)($request->amount * 100) < $min_amounts[$currency])
+        ) {
+            $readable_currency_names = [
+                'usd' => 'dollars',
+                'cny' => 'yuans',
+                'jpy' => 'yen'
+            ];
+
+            $min_display_amount = $currency !== 'jpy'
+                ? number_format($min_amounts[$currency] / 100, 2)
+                : $min_amounts[$currency];
+
+            $currency_name = $readable_currency_names[$currency] ?? $currency;
+
+            return redirect()->back()->withInput()->with(
+                'error',
+                "The minimum allowed amount for this currency ({$currency}) is {$min_display_amount} {$currency_name}."
+            );
         }
 
         $gift_card_purchase = new GiftCardPurchase();
