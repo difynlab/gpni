@@ -372,7 +372,8 @@ class RegisterController extends Controller
         ];
 
         try {
-            Mail::to($request->email)->send(new RegisterMail($mail_data));
+            Mail::to($request->email)->send(new RegisterMail($mail_data, 'user'));
+            Mail::to('zajjith@epirco.net')->send(new RegisterMail($mail_data, 'admin'));
         }
         catch(\Exception $e) {
             Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());

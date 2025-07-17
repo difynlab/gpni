@@ -16,7 +16,7 @@ class RegisterMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public $mail_data)
+    public function __construct(public $mail_data, public $type)
     {
         //
     }
@@ -36,6 +36,12 @@ class RegisterMail extends Mailable
      */
     public function content(): Content
     {
+        if($this->type == 'admin') {
+            return new Content(
+                view: 'mail.admin-register',
+            );
+        }
+
         return new Content(
             view: 'mail.register',
         );
