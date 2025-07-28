@@ -32,7 +32,7 @@ class GiftCardPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $gift_card_purchases = GiftCardPurchase::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $gift_card_purchases = GiftCardPurchase::where('status', '1')->where('date', '!=', null)->orderBy('id', 'desc')->paginate($items);
         $gift_card_purchases = $this->processGiftCardPurchases($gift_card_purchases);
 
         return view('backend.purchases.gift-card-purchases.index', [

@@ -78,10 +78,10 @@ class CoursePurchaseController extends Controller
         if(auth()->user()->admin_language) {
             $user_ids = User::where('role', 'student')->where('language', auth()->user()->admin_language)->where('status', '1')->pluck('id')->toArray();
 
-            $course_purchases = CoursePurchase::whereIn('user_id', $user_ids)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+            $course_purchases = CoursePurchase::whereIn('user_id', $user_ids)->where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
         }
         else {
-            $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+            $course_purchases = CoursePurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
         }
 
         $course_purchases = $this->processCoursePurchases($course_purchases);

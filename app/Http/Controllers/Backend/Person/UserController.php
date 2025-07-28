@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Mail\CECPointApprovedMail;
 use App\Mail\CECPointRejectedMail;
+use App\Models\Subscription;
 use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
@@ -347,6 +348,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users,email',
             'phone' => 'nullable|regex:/^\+?[0-9]+$/|unique:users,phone',
+            'website' => 'nullable|regex:/^(https?:\/\/)?([\w\-]+\.)+[\w\-]{2,}(\/[\w\-._~:\/?#[\]@!$&\'()*+,;=]*)?$/',
             'password' => 'required|min:8',
             'confirm_password' => 'required|same:password',
             'new_image' => 'nullable|max:30720'
@@ -365,6 +367,13 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Creation failed!');
         }
 
+        if($request->newsletter) {
+            $subscription = new Subscription();
+            $subscription->email = $request->email;
+            $subscription->status = '1';
+            $subscription->save();
+        }
+
         if($request->file('new_image') != null) {
             $image = $request->file('new_image');
             $image_name = Str::random(40) . '.' . $image->getClientOriginalExtension();
@@ -375,7 +384,7 @@ class UserController extends Controller
         }
 
         $user = new User();
-        $data = $request->except('old_image', 'new_image', 'confirm_password');
+        $data = $request->except('old_image', 'new_image', 'confirm_password', 'newsletter');
         
         $is_certified = $request->has('is_certified') ? '1' : null;
         $is_sns = $request->has('is_sns') ? '1' : null;
@@ -652,9 +661,18 @@ class UserController extends Controller
             "Zimbabwe"
         ];
 
+        $subscription = Subscription::where('email', $user->email)->where('status', '1')->first();
+        if($subscription) {
+            $newsletter = true;
+        }
+        else {
+            $newsletter = false;
+        }
+
         return view('backend.persons.users.edit', [
             'user' => $user,
-            'countries' => $countries
+            'countries' => $countries,
+            'newsletter' => $newsletter,
         ]);
     }
 
@@ -663,6 +681,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users,email,'.$user->id,
             'phone' => 'nullable|regex:/^\+?[0-9]+$/|unique:users,phone,'.$user->id,
+            'website' => 'nullable|regex:/^(https?:\/\/)?([\w\-]+\.)+[\w\-]{2,}(\/[\w\-._~:\/?#[\]@!$&\'()*+,;=]*)?$/',
             'new_image' => 'nullable|max:30720'
         ], [
             'email.unique' => 'The email address is already in use',
@@ -695,11 +714,31 @@ class UserController extends Controller
             $image_name = $request->old_image;
         }
 
+        if($request->newsletter) {
+            $subscription = Subscription::where('email', $user->email)->where('status', '1')->first();
+            
+            if(!$subscription) {
+                $subscription = new Subscription();
+                $subscription->email = $request->email;
+                $subscription->status = '1';
+                $subscription->save();
+            }
+        }
+        else {
+            $subscription = Subscription::where('email', $user->email)->where('status', '1')->first();
+            
+            if($subscription) {
+                $subscription->status = '0';
+                $subscription->save();
+            }
+        }
+
         $data = $request->except(
             'old_image',
             'new_image',
             'password',
-            'confirm_password'
+            'confirm_password',
+            'newsletter'
         );
 
         if($request->password != null) {

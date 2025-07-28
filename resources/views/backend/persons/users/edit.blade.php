@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="col-12">
-                        <x-backend.upload-image old_name="old_image" old_value="{{ $user->image ?? old('image') }}" new_name="new_image" path="persons/users" label="User"></x-backend.upload-image>
+                        <x-backend.upload-image-must old_name="old_image" old_value="{{ $user->image ?? old('image') }}" new_name="new_image" path="persons/users" label="User"></x-backend.upload-image-must>
                         <x-backend.input-error field="new_image"></x-backend.input-error>
                     </div>
                 </div>
@@ -244,7 +244,8 @@
 
                     <div class="col-4 mb-4">
                         <label for="website" class="form-label">Website</label>
-                        <input type="url" class="form-control" id="website" name="website" placeholder="Website" value="{{ old('website', $user->website) }}">
+                        <input type="text" class="form-control" id="website" name="website" placeholder="Website" value="{{ old('website', $user->website) }}">
+                        <x-backend.input-error field="website"></x-backend.input-error>
                     </div>
 
                     <div class="col-4 mb-4">
@@ -309,6 +310,13 @@
                             <option value="Social Media" {{ old('ad_platform', $user->ad_platform) == 'Social Media' ? 'selected' : '' }}>Social Media</option>
                             <option value="Other" {{ old('ad_platform', $user->ad_platform) == 'Other' ? 'selected' : '' }}>Other</option>
                         </select>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                        <div class="form-group d-flex">
+                            <input type="checkbox" id="newsletter" class="styled-checkbox" name="newsletter" {{ $newsletter == true ? 'checked' : '' }}>
+                            <label for="newsletter" class="form-label mb-0 ms-2">Subscribe to Newsletter</label>
+                        </div>
                     </div>
 
                     <div class="col-12">

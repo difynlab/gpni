@@ -30,7 +30,7 @@ class UserCourseController extends Controller
     public function index(Request $request, User $user)
     {
         $items = $request->items ?? 10;
-        $course_purchases = CoursePurchase::where('user_id', $user->id)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $course_purchases = CoursePurchase::where('user_id', $user->id)->where('payment_status', 'completed')->where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $course_purchases = $this->processCoursePurchases($course_purchases);
 
         return view('backend.user-courses.index', [
@@ -42,7 +42,7 @@ class UserCourseController extends Controller
 
     public function create(User $user)
     {
-        $purchased_course_ids = CoursePurchase::where('user_id', $user->id)->where('status', '1')->pluck('course_id')->toArray();
+        $purchased_course_ids = CoursePurchase::where('user_id', $user->id)->where('payment_status', 'completed')->where('status', '1')->pluck('course_id')->toArray();
         $courses = Course::whereNotIn('id', $purchased_course_ids)->where('status', '1')->get();
 
         return view('backend.user-courses.create', [
@@ -115,7 +115,7 @@ class UserCourseController extends Controller
 
         $title = $request->title;
 
-        $course_purchases = CoursePurchase::where('user_id', $user->id)->where('status', '1')->orderBy('id', 'desc');
+        $course_purchases = CoursePurchase::where('user_id', $user->id)->where('payment_status', 'completed')->where('status', '1')->orderBy('id', 'desc');
 
         if($title) {
             $course_ids = Course::where('title', 'like', '%' . $title . '%')->where('status', '1')->orderBy('id', 'desc')->pluck('id')->toArray();

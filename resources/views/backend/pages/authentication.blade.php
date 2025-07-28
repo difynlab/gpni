@@ -169,8 +169,8 @@
                     </div>
 
                     <div class="col-4">
-                        <label for="register_page_button_{{ $short_code }}" class="form-label">button</label>
-                        <input type="text" class="form-control" id="register_page_button_{{ $short_code }}" name="register_page_button_{{ $short_code }}" value="{{ $contents->{'register_page_button_' . $short_code} ?? '' }}" placeholder="button">
+                        <label for="register_page_button_{{ $short_code }}" class="form-label">Button</label>
+                        <input type="text" class="form-control" id="register_page_button_{{ $short_code }}" name="register_page_button_{{ $short_code }}" value="{{ $contents->{'register_page_button_' . $short_code} ?? '' }}" placeholder="Button">
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
 
                     <div class="col-4">
                         <label for="reset_page_button_{{ $short_code }}" class="form-label">Button</label>
-                        <input type="text" class="form-control" id="reset_page_button_{{ $short_code }}" name="reset_page_button_{{ $short_code }}" value="{{ $contents->{'reset_page_button_' . $short_code} ?? '' }}" placeholder="Reset Button">
+                        <input type="text" class="form-control" id="reset_page_button_{{ $short_code }}" name="reset_page_button_{{ $short_code }}" value="{{ $contents->{'reset_page_button_' . $short_code} ?? '' }}" placeholder="Button">
                     </div>
                 </div>
             </div>

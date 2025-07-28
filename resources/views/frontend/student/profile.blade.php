@@ -79,8 +79,8 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group d-flex">
-                                        <input type="checkbox" id="newsletter" class="styled-checkbox" checked>
-                                        <p for="newsletter" class="ms-2 mb-0 styled-label">{{ $student_dashboard_contents->student_profile_personal_subscribe }}</p>
+                                        <input type="checkbox" id="newsletter" class="styled-checkbox" name="newsletter" {{ $newsletter == true ? 'checked' : '' }}>
+                                        <label for="newsletter" class="ms-2 mb-0 styled-label">{{ $student_dashboard_contents->student_profile_personal_subscribe }}</label>
                                     </div>
                                 </div>
                             </div>
@@ -188,6 +188,7 @@
                                     <div class="form-group">
                                         <label for="website">{{ $student_dashboard_contents->student_profile_primary_website }}</label>
                                         <input type="text" class="form-control" id="website" name="website" value="{{ old('website') ??  $student->website }}">
+                                        <x-frontend.input-error field="website"></x-frontend.input-error>
                                     </div>
                                 </div>
                             </div>

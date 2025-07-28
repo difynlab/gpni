@@ -42,7 +42,7 @@ class ProductPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $product_purchases = ProductOrder::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $product_purchases = ProductOrder::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $product_purchases = $this->processProductOrders($product_purchases);
 
         return view('backend.purchases.product-purchases.index', [

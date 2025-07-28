@@ -40,6 +40,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">User</th>
                             <th scope="col">Course</th>
+                            <th scope="col">Date & Time</th>
                             <th scope="col">Marks (%)</th>
                             <th scope="col">Result</th>
                             <th scope="col">Action</th>
@@ -53,6 +54,7 @@
                                     <td>#{{ $result->id }}</td>
                                     <td>{{ $result->user_id }}</td>
                                     <td>{{ $result->course_id }}</td>
+                                    <td>{{ $result->created_at->format('H:i:s / Y-m-d') }}</td>
                                     <td>{{ $result->marks }}</td>
                                     <td>{!! $result->result !!}</td>
                                     <td>{!! $result->action !!}</td>
