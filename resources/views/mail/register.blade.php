@@ -4,7 +4,7 @@
 
 <p>Your account is all set up, and you're ready to explore everything we have to offer.</p>
 
-<p>If you ever need help, our support team is here for you at info@dev.thegpni.com. We can't wait for you to dive in and make the most of your experience!</p>
+<p>If you ever need help, our support team is here for you at edu@thegpni.com. We can't wait for you to dive in and make the most of your experience!</p>
 
 <p>Happy exploring!</p>
 

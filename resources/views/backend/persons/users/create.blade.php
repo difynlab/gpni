@@ -236,7 +236,8 @@
 
                     <div class="col-4 mb-4">
                         <label for="website" class="form-label">Website</label>
-                        <input type="url" class="form-control" id="website" name="website" placeholder="Website" value="{{ old('website') }}">
+                        <input type="text" class="form-control" id="website" name="website" placeholder="Website" value="{{ old('website') }}">
+                        <x-backend.input-error field="website"></x-backend.input-error>
                     </div>
 
                     <div class="col-4 mb-4">
@@ -301,6 +302,13 @@
                             <option value="Social Media" {{ old('ad_platform') == 'Social Media' ? 'selected' : '' }}>Social Media</option>
                             <option value="Other" {{ old('ad_platform') == 'Other' ? 'selected' : '' }}>Other</option>
                         </select>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                        <div class="form-group d-flex">
+                            <input type="checkbox" id="newsletter" class="styled-checkbox" name="newsletter">
+                            <label for="newsletter" class="form-label mb-0 ms-2">Subscribe to Newsletter</label>
+                        </div>
                     </div>
 
                     <div class="col-12">

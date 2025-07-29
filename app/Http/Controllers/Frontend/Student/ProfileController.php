@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Mail\UpdateProfileMail;
+use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -271,14 +272,24 @@ class ProfileController extends Controller
             "Zambia",
             "Zimbabwe"
         ];
+
+        $subscription = Subscription::where('email', $student->email)->where('status', '1')->first();
+        if($subscription) {
+            $newsletter = true;
+        }
+        else {
+            $newsletter = false;
+        }
         
         return view('frontend.student.profile', [
             'student' => $student,
-            'countries' => $countries
+            'countries' => $countries,
+            'newsletter' => $newsletter,
         ]);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $student = Auth::user();
         
         $validator = Validator::make($request->all(), [
@@ -290,6 +301,12 @@ class ProfileController extends Controller
             'phone.unique' => 'The phone number is already in use',
             'new_image.max' => 'The image size must not exceed 30 MB'
         ]);
+
+        $validator->after(function ($validator) use ($student, $request) {
+            if($student->image === null && $request->new_image === null) {
+                $validator->errors()->add('new_image', 'Image is required if no image is currently set.');
+            }
+        });
 
         if($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Update failed!');
@@ -308,7 +325,26 @@ class ProfileController extends Controller
             $image_name = $request->old_image;
         }
 
-        $data = $request->except('old_image', 'new_image', 'middleware_language', 'middleware_language_name');
+        if($request->newsletter) {
+            $subscription = Subscription::where('email', $student->email)->where('status', '1')->first();
+            
+            if(!$subscription) {
+                $subscription = new Subscription();
+                $subscription->email = $request->email;
+                $subscription->status = '1';
+                $subscription->save();
+            }
+        }
+        else {
+            $subscription = Subscription::where('email', $student->email)->where('status', '1')->first();
+            
+            if($subscription) {
+                $subscription->status = '0';
+                $subscription->save();
+            }
+        }
+
+        $data = $request->except('old_image', 'new_image', 'middleware_language', 'middleware_language_name', 'newsletter');
         $data['image'] = $image_name;
 
         $student->fill($data)->save();

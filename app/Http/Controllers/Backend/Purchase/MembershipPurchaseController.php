@@ -35,7 +35,7 @@ class MembershipPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $membership_purchases = MembershipPurchase::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $membership_purchases = MembershipPurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $membership_purchases = $this->processMembershipPurchases($membership_purchases);
 
         return view('backend.purchases.membership-purchases.index', [

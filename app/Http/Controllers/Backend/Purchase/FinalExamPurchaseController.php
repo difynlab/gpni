@@ -38,7 +38,7 @@ class FinalExamPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $final_exam_purchases = FinalExamPurchase::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $final_exam_purchases = FinalExamPurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $final_exam_purchases = $this->processFinalExamPurchases($final_exam_purchases);
 
         return view('backend.purchases.final-exam-purchases.index', [

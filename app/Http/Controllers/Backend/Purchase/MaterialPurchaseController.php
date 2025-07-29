@@ -41,7 +41,7 @@ class MaterialPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $material_purchases = MaterialPurchase::where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $material_purchases = MaterialPurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
         $material_purchases = $this->processMaterialPurchases($material_purchases);
 
         return view('backend.purchases.material-purchases.index', [
