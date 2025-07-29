@@ -259,7 +259,8 @@ class CourseController extends Controller
             'course' => $course->title
         ];
 
-        Mail::to($user->email)->send(new FinalExamPurchaseMail($mail_data));
+        Mail::to($user->email)->send(new FinalExamPurchaseMail($mail_data, 'user'));
+        Mail::to('mbssajjath@gmail.com')->send(new FinalExamPurchaseMail($mail_data, 'admin'));
 
         return redirect()->route('frontend.courses.show', $course->id);
     }

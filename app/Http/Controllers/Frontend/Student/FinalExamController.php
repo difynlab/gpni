@@ -96,7 +96,8 @@ class FinalExamController extends Controller
             'result' => $result
         ];
 
-        Mail::to($student->email)->send(new ExamResultMail($mail_data));
+        Mail::to($student->email)->send(new ExamResultMail($mail_data, 'user'));
+        Mail::to('mbssajjath@gmail.com')->send(new ExamResultMail($mail_data,'admin'));
 
         return redirect()->back()->with([
             'success' => 'Submission success',

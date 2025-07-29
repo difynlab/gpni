@@ -16,7 +16,7 @@ class GiftCardMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public $mail_data)
+    public function __construct(public $mail_data, public $type)
     {
         //
     }
@@ -36,6 +36,11 @@ class GiftCardMail extends Mailable
      */
     public function content(): Content
     {
+        if($this->type == 'admin') {
+            return new Content(
+                view: 'mail.admin-gift-card',
+            );
+        }
         return new Content(
             view: 'mail.gift-card',
         );

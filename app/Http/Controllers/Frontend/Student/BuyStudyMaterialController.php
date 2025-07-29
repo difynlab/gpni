@@ -146,7 +146,8 @@ class BuyStudyMaterialController extends Controller
             'course' => $course->title
         ];
 
-        Mail::to($user->email)->send(new MaterialPurchaseMail($mail_data));
+        Mail::to($user->email)->send(new MaterialPurchaseMail($mail_data,'user'));
+        Mail::to('mbssajjath@gmail.com')->send(new MaterialPurchaseMail($mail_data, 'admin'));
 
         return redirect()->route('frontend.buy-study-materials')->with('complete', 'Material purchase has been successfully completed');
     }

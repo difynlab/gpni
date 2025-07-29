@@ -34,7 +34,12 @@ class SubscriptionController extends Controller
         $subscription->status = '1';
         $subscription->save();
 
-        Mail::to([$request->email])->send(new SubscriptionMail());
+        $mail_data = [
+            'email' => $request->email
+        ];
+
+        Mail::to([$request->email])->send(new SubscriptionMail($mail_data,'user'));
+        Mail::to('mbssajjath@gmail.com')->send(new SubscriptionMail( $mail_data,'admin'));
 
         return redirect()->back()->with('success', 'Successfully subscribed');
     }

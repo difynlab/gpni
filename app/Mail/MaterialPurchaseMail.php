@@ -16,7 +16,7 @@ class MaterialPurchaseMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public $mail_data)
+    public function __construct(public $mail_data, public $type)
     {
         //
     }
@@ -36,6 +36,11 @@ class MaterialPurchaseMail extends Mailable
      */
     public function content(): Content
     {
+        if($this->type == 'admin') {
+            return new Content(
+                view: 'mail.admin-material-purchase',
+            );
+        }
         return new Content(
             view: 'mail.material-purchase',
         );

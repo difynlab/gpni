@@ -386,7 +386,8 @@ class CertificationCourseController extends Controller
             'material_logistic' => $material_logistic
         ];
 
-        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name));
+        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'user'));
+        Mail::to('mbssajjath@gmail.com')->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'admin'));
 
         return redirect()->route('frontend.homepage')->with('complete', 'Course purchase has been successfully completed');
     }

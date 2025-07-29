@@ -16,7 +16,7 @@ class SubscriptionMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public $mail_data, public $type)
     {
         //
     }
@@ -36,8 +36,15 @@ class SubscriptionMail extends Mailable
      */
     public function content(): Content
     {
+        if($this->type == 'admin') {
+            return new Content(
+                view: 'mail.admin-subscription',
+                with: ['mail_data' => $this->mail_data]
+            );
+        }
         return new Content(
             view: 'mail.subscription',
+            with: ['mail_data' => $this->mail_data]
         );
     }
 

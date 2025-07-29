@@ -16,7 +16,7 @@ class CoursePurchaseMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public $mail_data, public $file_path, public $file_name)
+    public function __construct(public $mail_data, public $file_path, public $file_name, public $type)
     {
         //
     }
@@ -36,6 +36,11 @@ class CoursePurchaseMail extends Mailable
      */
     public function content(): Content
     {
+        if($this->type == 'admin') {
+            return new Content(
+                view: 'mail.admin-course-purchase',
+            );
+        }
         return new Content(
             view: 'mail.course-purchase',
         );
