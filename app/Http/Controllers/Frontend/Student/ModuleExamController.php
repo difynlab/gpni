@@ -93,13 +93,15 @@ class ModuleExamController extends Controller
         $mail_data = [
             'name' => $student->first_name . ' ' . $student->last_name,
             'type' => 'module',
+            'course_name' => $course->title,
             'total_questions' => $total_questions,
             'total_correct_answers' => $total_correct_answers,
             'marks' => $marks,
             'result' => $result
         ];
-    
-        Mail::to($student->email)->send(new ExamResultMail($mail_data));
+
+        Mail::to($student->email)->send(new ExamResultMail($mail_data, 'user'));
+        Mail::to(config('app.admin_email'))->send(new ExamResultMail($mail_data, 'admin'));
 
         return redirect()->back()->with([
             'success' => 'Submission success',

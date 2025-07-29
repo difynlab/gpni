@@ -38,8 +38,8 @@ class SubscriptionController extends Controller
             'email' => $request->email
         ];
 
-        Mail::to([$request->email])->send(new SubscriptionMail($mail_data,'user'));
-        Mail::to('mbssajjath@gmail.com')->send(new SubscriptionMail( $mail_data,'admin'));
+        Mail::to($request->email)->send(new SubscriptionMail($mail_data, 'user'));
+        Mail::to(config('app.admin_email'))->send(new SubscriptionMail($mail_data, 'admin'));
 
         return redirect()->back()->with('success', 'Successfully subscribed');
     }

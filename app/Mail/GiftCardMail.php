@@ -41,6 +41,12 @@ class GiftCardMail extends Mailable
                 view: 'mail.admin-gift-card',
             );
         }
+        elseif($this->type == 'buyer') {
+            return new Content(
+                view: 'mail.buyer-gift-card',
+            );
+        }
+
         return new Content(
             view: 'mail.gift-card',
         );

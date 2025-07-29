@@ -38,13 +38,11 @@ class SubscriptionMail extends Mailable
     {
         if($this->type == 'admin') {
             return new Content(
-                view: 'mail.admin-subscription',
-                with: ['mail_data' => $this->mail_data]
+                view: 'mail.admin-subscription'
             );
         }
         return new Content(
-            view: 'mail.subscription',
-            with: ['mail_data' => $this->mail_data]
+            view: 'mail.subscription'
         );
     }
 

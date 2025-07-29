@@ -270,7 +270,8 @@ class MasterClassController extends Controller
         $file_name = null;
         $file_path = null;
 
-        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name));
+        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'user'));
+        Mail::to(config('app.admin_email'))->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'admin'));
 
         return redirect()->route('frontend.master-classes.index')->with('complete', 'Course purchase has been successfully completed');
     }

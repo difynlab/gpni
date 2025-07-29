@@ -12,8 +12,6 @@
 
 <p><strong>Total Amount: {{ $mail_data['symbol'] }}{{ number_format($mail_data['total'], 2) }}</strong></p>
 
-<p>Please process and ship the order at the earliest convenience.</p>
-
 <p style="margin-top: 35px; margin-bottom: 3px;">Best regards,</p>
 
 <p style="margin-top: 0px;">GPNi</p>

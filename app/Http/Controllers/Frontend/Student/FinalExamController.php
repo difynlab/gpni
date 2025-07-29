@@ -90,6 +90,7 @@ class FinalExamController extends Controller
         $mail_data = [
             'name' => $student->first_name . ' ' . $student->last_name,
             'type' => 'final',
+            'course_name' => $course->title,
             'total_questions' => $total_questions,
             'total_correct_answers' => $total_correct_answers,
             'marks' => $marks,
@@ -97,13 +98,12 @@ class FinalExamController extends Controller
         ];
 
         Mail::to($student->email)->send(new ExamResultMail($mail_data, 'user'));
-        Mail::to('mbssajjath@gmail.com')->send(new ExamResultMail($mail_data,'admin'));
+        Mail::to(config('app.admin_email'))->send(new ExamResultMail($mail_data, 'admin'));
 
         return redirect()->back()->with([
             'success' => 'Submission success',
             'course_final_exam_id' => $course_final_exam->id
         ]);
-
     }
 
     public function results(Course $course, CourseFinalExam $course_final_exam)
