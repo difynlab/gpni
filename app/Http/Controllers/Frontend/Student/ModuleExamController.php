@@ -33,6 +33,16 @@ class ModuleExamController extends Controller
         $student = Auth::user();
         $answers = $request->answers;
 
+        $existing_exam = CourseModuleExam::where('user_id', $student->id)
+            ->where('course_id', $course->id)
+            ->where('module_id', $course_module->id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        if($existing_exam && $existing_exam->result === 'Pass') {
+            return redirect()->back()->with('error', 'You have already passed this exam.');
+        }
+
         $questions = CourseModuleExamQuestion::where('course_id', $course->id)->where('module_id', $course_module->id)->where('status', '1')->get();
 
         $total_questions = $questions->count();

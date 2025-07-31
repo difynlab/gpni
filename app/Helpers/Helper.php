@@ -65,10 +65,10 @@ if(!function_exists('hasStudentCompletedAllModuleExams')) {
             return false;
         }
 
-        $course_modules = CourseModule::where('course_id', $course_id)->where('module_exam', 'Yes')->where('status', '1')->pluck('id')->toArray();
+        $course_modules = CourseModule::where('course_id', $course->id)->where('module_exam', 'Yes')->where('status', '1')->pluck('id')->toArray();
 
-        $passed_modules_count = CourseModuleExam::where('user_id', $user_id)
-        ->where('course_id', $course_id)
+        $passed_modules_count = CourseModuleExam::where('user_id', $user->id)
+        ->where('course_id', $course->id)
         ->whereIn('module_id', $course_modules)
         ->where('status', '1')
         ->where('result', 'Pass')
