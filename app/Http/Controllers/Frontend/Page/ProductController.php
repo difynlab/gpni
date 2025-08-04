@@ -186,8 +186,13 @@ class ProductController extends Controller
             'total' => $product_order->amount_paid
         ];
 
-        Mail::to($user->email)->send(new ProductPurchaseMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new ProductPurchaseMail($mail_data, 'admin'));
+        try {
+            Mail::to($user->email)->send(new ProductPurchaseMail($mail_data, 'user'));
+            Mail::to(config('app.admin_email'))->send(new ProductPurchaseMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->route('frontend.products.index')->with('complete', 'Product/s purchase has been successfully completed');
     }

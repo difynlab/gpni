@@ -96,7 +96,12 @@ class AskQuestionController extends Controller
             'reply_message' => $request->message,
         ];
 
-        Mail::to($user->email)->send(new AskQuestionReplyMail($mail_data, 'user'));
+            try {
+                Mail::to($user->email)->send(new AskQuestionReplyMail($mail_data, 'user'));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
         
         return redirect()->route('backend.communications.ask-questions.edit', $ask_question)->with('success', "Successfully sent!");
     }

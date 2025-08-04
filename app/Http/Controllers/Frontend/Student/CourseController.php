@@ -259,8 +259,13 @@ class CourseController extends Controller
             'course' => $course->title
         ];
 
-        Mail::to($user->email)->send(new FinalExamPurchaseMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new FinalExamPurchaseMail($mail_data, 'admin'));
+        try {
+            Mail::to($user->email)->send(new FinalExamPurchaseMail($mail_data, 'user'));
+            Mail::to(config('app.admin_email'))->send(new FinalExamPurchaseMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->route('frontend.courses.show', $course->id);
     }

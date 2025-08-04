@@ -74,7 +74,12 @@ class MaterialPurchaseController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name
         ];
 
-        Mail::to([$student->email])->send(new MaterialMail($mail_data, $file_path, $file_name));
+        try {
+                Mail::to([$student->email])->send(new MaterialMail($mail_data, $file_path, $file_name));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
 
         return redirect()->route('backend.purchases.material-purchases.index')->with('success', 'Material sent successfully');
     }

@@ -38,8 +38,13 @@ class TechnicalSupportController extends Controller
             'message' => $request->message
         ];
 
-        Mail::to($auth->email)->send(new TechnicalSupportMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new TechnicalSupportMail($mail_data, 'admin'));
+        try {
+            Mail::to($auth->email)->send(new TechnicalSupportMail($mail_data, 'user'));
+            Mail::to(config('app.admin_email'))->send(new TechnicalSupportMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->back()->with('success', 'Message sent successfully');
     }

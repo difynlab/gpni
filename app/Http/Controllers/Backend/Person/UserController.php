@@ -944,7 +944,12 @@ class UserController extends Controller
                 $user->cec_balance -= $cec_point_activity->points;
             }
 
-            Mail::to($user->email)->send(new CECPointApprovedMail($mail_data));
+            try {
+                Mail::to($user->email)->send(new CECPointApprovedMail($mail_data));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
         }
         else {
             if($cec_point_activity->type == 'Addition') {
@@ -954,7 +959,12 @@ class UserController extends Controller
                 $user->cec_balance += $cec_point_activity->points;
             }
 
-            Mail::to($user->email)->send(new CECPointRejectedMail($mail_data));
+            try {
+                Mail::to($user->email)->send(new CECPointRejectedMail($mail_data));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
         }
        
         $user->save();

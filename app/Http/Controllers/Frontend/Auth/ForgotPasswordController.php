@@ -80,7 +80,12 @@ class ForgotPasswordController extends Controller
             'token' => $token,
         ];
 
-        Mail::to([$request->email])->send(new ResetPasswordMail($mail_data, $role));
+        try {
+                Mail::to([$request->email])->send(new ResetPasswordMail($mail_data, $role));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
 
         return redirect()->back()->with('success', "Email sent successfully");
     }

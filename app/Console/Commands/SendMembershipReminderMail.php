@@ -25,8 +25,13 @@ class SendMembershipReminderMail extends Command
                 'name' => $user->first_name . ' ' . $user->last_name,
                 'member_annual_expiry_date' => $user->member_annual_expiry_date
             ];
-
-            Mail::to($user->email)->send(new MembershipReminderMail($mail_data));
+            
+            try {
+                Mail::to($user->email)->send(new MembershipReminderMail($mail_data));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
         }
     }
 }

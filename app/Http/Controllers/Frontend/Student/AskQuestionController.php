@@ -44,8 +44,13 @@ class AskQuestionController extends Controller
             'initial_message' => $request->initial_message,
         ];
 
-        Mail::to($auth->email)->send(new AskQuestionMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new AskQuestionMail($mail_data, 'admin'));
+        try {
+            Mail::to($auth->email)->send(new AskQuestionMail($mail_data, 'user'));
+            Mail::to(config('app.admin_email'))->send(new AskQuestionMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->back()->with('success', 'Your question has been submitted successfully');
     }
@@ -126,7 +131,12 @@ class AskQuestionController extends Controller
             'reply_message' => $request->message,
         ];
 
-        Mail::to(config('app.admin_email'))->send(new AskQuestionReplyMail($mail_data, 'admin'));
+        try {
+            Mail::to(config('app.admin_email'))->send(new AskQuestionReplyMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->back();
     }

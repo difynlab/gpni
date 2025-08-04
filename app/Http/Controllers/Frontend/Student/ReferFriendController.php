@@ -134,7 +134,12 @@ class ReferFriendController extends Controller
             'code' => $code
         ];
 
-        Mail::to([$request->email])->send(new ReferFriendMail($mail_data));
+        try {
+            Mail::to([$request->email])->send(new ReferFriendMail($mail_data));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->back()->with('success', 'Invitation sent successfully!');
     }

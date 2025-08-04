@@ -110,8 +110,13 @@ class ModuleExamController extends Controller
             'result' => $result
         ];
 
-        Mail::to($student->email)->send(new ExamResultMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new ExamResultMail($mail_data, 'admin'));
+        try {
+            Mail::to($student->email)->send(new ExamResultMail($mail_data, 'user'));
+            Mail::to(config('app.admin_email'))->send(new ExamResultMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->back()->with([
             'success' => 'Submission success',

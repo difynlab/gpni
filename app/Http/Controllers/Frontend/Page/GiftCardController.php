@@ -196,10 +196,15 @@ class GiftCardController extends Controller
             'buyer_name' => $gift_card_purchase->buyer_name,
         ];
 
-        Mail::to($gift_card_purchase->buyer_email)->send(new GiftCardMail($mail_data, 'buyer'));
-        Mail::to($user->email)->send(new GiftCardMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new GiftCardMail($mail_data, 'admin'));
-
+        try {
+            Mail::to($gift_card_purchase->buyer_email)->send(new GiftCardMail($mail_data, 'buyer'));
+            Mail::to($user->email)->send(new GiftCardMail($mail_data, 'user'));
+            Mail::to(config('app.admin_email'))->send(new GiftCardMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
+        
         return redirect()->route('frontend.gift-cards.index')->with('complete', 'Gift card purchase has been successfully completed');
     }
 }

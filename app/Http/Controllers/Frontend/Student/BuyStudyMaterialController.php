@@ -146,8 +146,13 @@ class BuyStudyMaterialController extends Controller
             'course' => $course->title
         ];
 
-        Mail::to($user->email)->send(new MaterialPurchaseMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new MaterialPurchaseMail($mail_data, 'admin'));
+        try {
+            Mail::to($user->email)->send(new MaterialPurchaseMail($mail_data, 'user'));
+            Mail::to(config('app.admin_email'))->send(new MaterialPurchaseMail($mail_data, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->route('frontend.buy-study-materials')->with('complete', 'Material purchase has been successfully completed');
     }

@@ -120,8 +120,13 @@ class QualificationController extends Controller
             'user_comment' => $request->user_comment
         ];
 
-        Mail::to($student->email)->send(new CECPointUserMail($mail_data));
-        Mail::to(config('app.admin_email'))->send(new CECPointRequestMail($mail_data));
+        try {
+                Mail::to($student->email)->send(new CECPointUserMail($mail_data));
+                Mail::to(config('app.admin_email'))->send(new CECPointRequestMail($mail_data));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->route('frontend.qualifications')->with('success', 'Request successfully completed');
     }

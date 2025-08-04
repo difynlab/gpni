@@ -353,7 +353,12 @@ class ProfileController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name
         ];
 
-        Mail::to($student->email)->send(new UpdateProfileMail($mail_data));
+        try {
+            Mail::to($student->email)->send(new UpdateProfileMail($mail_data));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        }
 
         return redirect()->back()->with('success', 'Update success');
     }

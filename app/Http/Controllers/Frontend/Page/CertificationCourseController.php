@@ -377,7 +377,12 @@ class CertificationCourseController extends Controller
                 'points' => $calculated_points
             ];
 
-            Mail::to($referrer->email)->send(new ReferFriendCoursePurchaseMail($mail_data));
+            try {
+                Mail::to($referrer->email)->send(new ReferFriendCoursePurchaseMail($mail_data));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
         }
 
         $mail_data = [
@@ -386,8 +391,13 @@ class CertificationCourseController extends Controller
             'material_logistic' => $material_logistic
         ];
 
-        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'user'));
-        Mail::to(config('app.admin_email'))->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'admin'));
+        try {
+            Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'user'));
+            Mail::to(config('app.admin_email'))->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'admin'));
+        }
+        catch(\Exception $e) {
+            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+        } 
 
         return redirect()->route('frontend.homepage')->with('complete', 'Course purchase has been successfully completed');
     }
