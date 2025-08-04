@@ -60,24 +60,30 @@
                     <div class="text-center heading mb-3">{{ $contents->{'section_3_title_' . $middleware_language} ?? $contents->section_3_title_en }}</div>
                     <div class="text-center mb-md-5 mb-3 sub-heading">{!! $contents->{'section_3_description_' . $middleware_language} ?? $contents->section_3_description_en !!}</div>
                     <div class="membership-buttons">
-                    @if(auth()->check())
-                        @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name))
-                            @if(hasUserPurchasedMembership(auth()->user()->id))
-                                <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_already_purchased_' . $middleware_language} ?? $contents->section_3_already_purchased_en }}</button>
-                            @else
-                                <form action="{{ route('frontend.membership.checkout') }}" method="POST" class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                    @csrf
-                                    <button type="submit" class="btn-pay-now blue-button" name="type" value="Lifetime">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }}</button>
+                        @if(auth()->check())
+                            @if(hasUserSelectedCorrectLanguage(auth()->user()->id, $middleware_language_name))
+                                @if(hasUserPurchasedMembership(auth()->user()->id))
+                                    <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_already_purchased_' . $middleware_language} ?? $contents->section_3_already_purchased_en }}</button>
+                                @else
+                                    <form action="{{ route('frontend.memberships.checkout') }}" id="autoPurchaseForm" method="POST" class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
+                                        @csrf
+                                        <button type="submit" class="btn-pay-now blue-button" name="type" value="Lifetime">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }} {{ $currency_symbol }}{{ $lifetime_membership_price }}</button>
 
-                                    <button type="submit" class="btn-pay-now blue-button" name="type" value="Annual">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }}</button>
-                                </form>
+                                        <input type="hidden" name="type" id="autoMembershipType">
+
+                                        <button type="submit" class="btn-pay-now blue-button" name="type" value="Annual">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }} {{ $currency_symbol }}{{ $annual_membership_price }}</button>
+                                    </form>
+                                @endif
+                            @else
+                                <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_change_language_' . $middleware_language} ?? $contents->section_3_change_language_en }}</button>
                             @endif
                         @else
-                            <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_change_language_' . $middleware_language} ?? $contents->section_3_change_language_en }}</button>
+                            <div class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
+                                <a href="{{ route('frontend.memberships.purchase', 'Lifetime') }}" class="btn-pay-now blue-button">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }} {{ $currency_symbol }}{{ $lifetime_membership_price }}</a>
+
+                                <button type="{{ route('frontend.memberships.purchase', 'Annual') }}" class="btn-pay-now blue-button">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }} {{ $currency_symbol }}{{ $annual_membership_price }}</button>
+                            </div>
                         @endif
-                    @else
-                        <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-pay-now text-decoration-none blue-button">{{ $contents->{'section_3_login_for_purchase_' . $middleware_language} ?? $contents->section_3_login_for_purchase_en }}</a>
-                    @endif
                     </div>
 
                     @if($contents->section_3_labels_contents_en)
@@ -124,3 +130,15 @@
     </div>
 
 @endsection
+
+@push('after-scripts')
+    @if(session('auto_membership_purchase'))
+        <script>
+            $(document).ready(function () {
+                const membershipType = "{{ session('auto_membership_purchase') }}";
+                $('#autoMembershipType').val(membershipType);
+                $('#autoPurchaseForm').submit();
+            });
+        </script>
+    @endif
+@endpush

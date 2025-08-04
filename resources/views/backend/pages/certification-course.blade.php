@@ -52,10 +52,10 @@
                         <input type="text" class="form-control" id="single_page_not_available_{{ $short_code }}" name="single_page_not_available_{{ $short_code }}" value="{{ $contents->{'single_page_not_available_' . $short_code} ?? '' }}" placeholder="Not Available">
                     </div>
 
-                    <div class="col-4 mb-4">
+                    <!-- <div class="col-4 mb-4">
                         <label for="single_page_login_for_enroll_{{ $short_code }}" class="form-label">Login for Enroll</label>
                         <input type="text" class="form-control" id="single_page_login_for_enroll_{{ $short_code }}" name="single_page_login_for_enroll_{{ $short_code }}" value="{{ $contents->{'single_page_login_for_enroll_' . $short_code} ?? '' }}" placeholder="Login for Enroll">
-                    </div>
+                    </div> -->
 
                     <div class="col-4 mb-4">
                         <label for="single_page_no_of_modules_{{ $short_code }}" class="form-label">No of Modules</label>

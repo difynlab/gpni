@@ -98,20 +98,20 @@
 
                 @if(auth()->check())
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
-                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 ">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
+                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-2">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
                     @else
-                        <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
+                        <form action="{{ route('frontend.master-classes.checkout') }}" id="autoEnrollForm" method="POST">
                             @csrf
                             <input type="hidden" name="course_name" value="{{ $course->title }}">
                             <input type="hidden" name="course_id" value="{{ $course->id }}">
                             <input type="hidden" name="payment_mode" value="payment">
                             <input type="hidden" name="price" value="{{ $course->price }}">
 
-                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20  mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
+                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
                         </form>
                     @endif
                 @else
-                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20  mt-2 mt-md-3">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
+                    <a href="{{ route('frontend.master-classes.enroll', $course->id) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-3">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
                 @endif
             </div>
         </div>
@@ -256,7 +256,7 @@
                                     </form>
                                 @endif
                             @else
-                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
+                                <a href="{{ route('frontend.master-classes.enroll', $course->id) }}" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
                             @endif
                         </div>
                     </div>
@@ -401,26 +401,34 @@
                 },
                 breakpoints: {
                     0: {
-            slidesPerView: 1,
-            spaceBetween: 10
-        },
-        // when window width is >= 576px (mobile landscape)
-        576: {
-            slidesPerView: 1,
-            spaceBetween: 10
-        },
-        // when window width is >= 768px (tablets)
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 15
-        },
-        // when window width is >= 992px (desktop)
-        992: {
-            slidesPerView: 3,
-            spaceBetween: 20
-        }
-    }
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    // when window width is >= 576px (mobile landscape)
+                    576: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    // when window width is >= 768px (tablets)
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 15
+                    },
+                    // when window width is >= 992px (desktop)
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    }
+                }
             });
         // Testimonial swiper
     </script>
+
+    @if(session('auto_enroll_course_id') == $course->id)
+        <script>
+            $(document).ready(function () {
+                $('#autoEnrollForm').submit();
+            });
+        </script>
+    @endif
 @endpush

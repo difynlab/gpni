@@ -37,7 +37,7 @@
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
                         <button type="submit" class="btn btn-primary btn-block w-100" style="font-size: 20px; font-weight: 500; line-height: 30px;">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
                     @else
-                        <form action="{{ route('frontend.gpni-tv.checkout') }}" method="POST">
+                        <form action="{{ route('frontend.gpni-tv.checkout') }}" id="autoEnrollForm" method="POST">
                             @csrf
                             <input type="hidden" name="course_name" value="{{ $course->title }}">
                             <input type="hidden" name="course_id" value="{{ $course->id }}">
@@ -48,10 +48,20 @@
                         </form>
                     @endif
                 @else
-                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-primary btn-block w-100" style="font-size: 20px; font-weight: 500; line-height: 30px;">{{ $contents->{'login_for_enroll_' . $middleware_language} ?? $contents->login_for_enroll_en }}</a>
+                    <a href="{{ route('frontend.gpni-tv.enroll', $course->id) }}" class="btn btn-primary btn-block w-100" style="font-size: 20px; font-weight: 500; line-height: 30px;">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
                 @endif
             </div>
         </div>
     </div>
 
 @endsection
+
+@push('after-scripts')
+    @if(session('auto_enroll_course_id') == $course->id)
+        <script>
+            $(document).ready(function () {
+                $('#autoEnrollForm').submit();
+            });
+        </script>
+    @endif
+@endpush

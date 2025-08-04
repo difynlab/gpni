@@ -59,6 +59,15 @@ class TvController extends Controller
         ]);
     }
 
+    public function enroll(Request $request, Course $course)
+    {
+        session(['auto_enroll_course_id' => $course->id]);
+
+        return redirect()->route('frontend.login', [
+            'redirect' => url()->previous(),
+        ]);
+    }
+
     public function checkout(Request $request)
     {
         if($request->middleware_language == 'en') {
@@ -114,6 +123,8 @@ class TvController extends Controller
                 ]),
         ]);
 
+        session()->forget('auto_enroll_course_id');
+        
         return redirect()->away($session->url);
     }
 

@@ -60,7 +60,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('frontend.membership') }}" class="btn member-button">{{ $student_dashboard_contents->member_corner_top_fourth_action }}</a>
+                                        <a href="{{ route('frontend.memberships.index') }}" class="btn member-button">{{ $student_dashboard_contents->member_corner_top_fourth_action }}</a>
                                     </td>
                                 </tr>
                             </tbody>

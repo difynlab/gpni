@@ -102,7 +102,7 @@
                             @php
                                 $fourth = App\Models\MembershipContent::find(1);
                             @endphp
-                            <a href="{{ route('frontend.membership') }}">{{ $fourth->{'page_name_' . $middleware_language} !== '' ? $fourth->{'page_name_' . $middleware_language} : $fourth->page_name_en }}</a>
+                            <a href="{{ route('frontend.memberships.index') }}">{{ $fourth->{'page_name_' . $middleware_language} !== '' ? $fourth->{'page_name_' . $middleware_language} : $fourth->page_name_en }}</a>
                         </li>
 
                         <li>

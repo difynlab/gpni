@@ -82,7 +82,7 @@
                                     </div>
                                 </a>
                             @else
-                                <a href="{{ route('frontend.membership') }}" class="card h-100">
+                                <a href="{{ route('frontend.memberships.index') }}" class="card h-100">
                                     <div class="card-body">
                                         <h2 class="card-title fs-25">{{ $student_dashboard_contents->dashboard_member_corner }}</h2>
                                         <p class="card-text">{{ $student_dashboard_contents->dashboard_member_corner_description }}</p>

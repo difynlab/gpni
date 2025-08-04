@@ -115,7 +115,7 @@
             </div>
         </a>
     @else
-        <a href="{{ route('frontend.membership') }}" class="sidebar-link">
+        <a href="{{ route('frontend.memberships.index') }}" class="sidebar-link">
             <div class="sidebar-item thicker-line">
                 <img src="{{ asset('storage/frontend/members-corner-icon.svg') }}" alt="Member Corner" width="28" height="28">
                 <span class="fs-20">{{ $student_dashboard_contents->sidebar_member_corner }}</span>

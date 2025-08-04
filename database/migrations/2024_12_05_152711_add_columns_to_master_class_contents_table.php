@@ -58,7 +58,7 @@ return new class extends Migration
             $table->text('by_en')->nullable();
             $table->text('already_purchased_en')->nullable();
             $table->text('enroll_now_en')->nullable();
-            $table->text('login_for_enroll_en')->nullable();
+            // $table->text('login_for_enroll_en')->nullable();
             $table->text('first_tab_en')->nullable();
             $table->text('second_tab_en')->nullable();
             $table->text('third_tab_en')->nullable();
@@ -82,7 +82,7 @@ return new class extends Migration
             $table->text('by_zh')->nullable();
             $table->text('already_purchased_zh')->nullable();
             $table->text('enroll_now_zh')->nullable();
-            $table->text('login_for_enroll_zh')->nullable();
+            // $table->text('login_for_enroll_zh')->nullable();
             $table->text('first_tab_zh')->nullable();
             $table->text('second_tab_zh')->nullable();
             $table->text('third_tab_zh')->nullable();
@@ -106,7 +106,7 @@ return new class extends Migration
             $table->text('by_ja')->nullable();
             $table->text('already_purchased_ja')->nullable();
             $table->text('enroll_now_ja')->nullable();
-            $table->text('login_for_enroll_ja')->nullable();
+            // $table->text('login_for_enroll_ja')->nullable();
             $table->text('first_tab_ja')->nullable();
             $table->text('second_tab_ja')->nullable();
             $table->text('third_tab_ja')->nullable();
@@ -175,7 +175,7 @@ return new class extends Migration
                 'by_en',
                 'already_purchased_en',
                 'enroll_now_en',
-                'login_for_enroll_en',
+                // 'login_for_enroll_en',
                 'first_tab_en',
                 'second_tab_en',
                 'third_tab_en',
@@ -197,7 +197,7 @@ return new class extends Migration
                 'by_zh',
                 'already_purchased_zh',
                 'enroll_now_zh',
-                'login_for_enroll_zh',
+                // 'login_for_enroll_zh',
                 'first_tab_zh',
                 'second_tab_zh',
                 'third_tab_zh',
@@ -219,7 +219,7 @@ return new class extends Migration
                 'by_ja',
                 'already_purchased_ja',
                 'enroll_now_ja',
-                'login_for_enroll_ja',
+                // 'login_for_enroll_ja',
                 'first_tab_ja',
                 'second_tab_ja',
                 'third_tab_ja',

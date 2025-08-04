@@ -46,7 +46,6 @@ Route::middleware(['set_language'])->group(function () {
     // Page routes
         Route::get('/', [HomepageController::class, 'index'])->name('homepage');
         Route::get('why-we-are-different', [WhyWeAreDifferentController::class, 'index'])->name('why-we-are-different');
-        Route::get('membership', [MembershipController::class, 'index'])->name('membership');
         Route::get('advisory-board-and-expert-lectures', [AdvisoryBoardExpertLectureController::class, 'index'])->name('advisory-board-and-expert-lectures');
         Route::get('faqs', [FAQController::class, 'index'])->name('faqs');
         Route::get('history-of-gpni', [HistoryOfGpniController::class, 'index'])->name('history-of-gpni');
@@ -54,6 +53,12 @@ Route::middleware(['set_language'])->group(function () {
         Route::get('insurance-and-professional-membership', [InsuranceProfessionalMembershipController::class, 'index'])->name('insurance-and-professional-membership');
         Route::get('global-education-partners', [GlobalEducationPartnersController::class, 'index'])->name('global-education-partners');
         Route::get('issn-official-partners-and-affiliates', [ISSNOfficialPartnerAffiliateController::class, 'index'])->name('issn-official-partners-and-affiliates');
+
+        Route::prefix('memberships')->name('memberships.')->group(function() {
+            Route::get('/', [MembershipController::class, 'index'])->name('index');
+            Route::get('purchase/{value}', [MembershipController::class, 'purchase'])->name('purchase');
+        });
+
         Route::prefix('articles')->name('articles.')->group(function() {
             Route::get('/', [ArticleController::class, 'index'])->name('index');
             Route::get('show/{article}/{title}', [ArticleController::class, 'show'])->name('show');
@@ -74,6 +79,7 @@ Route::middleware(['set_language'])->group(function () {
         Route::prefix('gpni-tv')->name('gpni-tv.')->group(function() {
             Route::get('/', [TvController::class, 'index'])->name('index');
             Route::get('show/{course}/{title}', [TvController::class, 'show'])->name('show');
+            Route::get('enroll/{course}', [TvController::class, 'enroll'])->name('enroll');
             Route::post('checkout', [TvController::class, 'checkout'])->name('checkout');
             Route::get('success', [TvController::class, 'success'])->name('success');
         });
@@ -85,6 +91,7 @@ Route::middleware(['set_language'])->group(function () {
         Route::prefix('master-classes')->name('master-classes.')->group(function() {
             Route::get('/', [MasterClassController::class, 'index'])->name('index');
             Route::get('show/{course}/{title}', [MasterClassController::class, 'show'])->name('show');
+            Route::get('enroll/{course}', [MasterClassController::class, 'enroll'])->name('enroll');
         });
         Route::prefix('products')->name('products.')->group(function() {
             Route::get('/', [ProductController::class, 'index'])->name('index');
@@ -124,7 +131,7 @@ Route::middleware(['set_language'])->group(function () {
                     Route::get('success', [BuyStudyMaterialController::class, 'success'])->name('success');
                 });
 
-                Route::prefix('membership')->name('membership.')->group(function() {
+                Route::prefix('memberships')->name('memberships.')->group(function() {
                     Route::post('checkout', [MembershipController::class, 'checkout'])->name('checkout');
                     Route::get('success', [MembershipController::class, 'success'])->name('success');
                 });

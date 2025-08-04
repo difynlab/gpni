@@ -25,6 +25,8 @@ class CertificationCourseController extends Controller
 {
     public function show(Request $request, Course $course)
     {
+        $currency_symbol = ($request->middleware_language === 'en') ? '$' : '¥';
+
         $advisory_boards = AdvisoryBoard::where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc')->take(9)->get();
         if($advisory_boards->isEmpty() && $request->middleware_language_name != 'English') {
             $advisory_boards = AdvisoryBoard::where('language', 'English')->where('status', '1')->orderBy('id', 'desc')->take(9)->get();
@@ -46,14 +48,17 @@ class CertificationCourseController extends Controller
         }
 
         $contents = CertificationCourseContent::find(1);
+        $master_pack = Course::find(19);
         
         return view('frontend.pages.certification-courses.show', [
+            'currency_symbol' => $currency_symbol,
             'contents' => $contents,
             'course' => $course,
             'advisory_boards' => $advisory_boards,
             'testimonials' => $testimonials,
             'course_reviews' => $course_reviews,
             'average_rating' => $average_rating,
+            'master_pack' => $master_pack,
         ]);
     }
 

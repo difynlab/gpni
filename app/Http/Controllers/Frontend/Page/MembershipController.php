@@ -17,6 +17,7 @@ class MembershipController extends Controller
     public function index(Request $request)
     {
         $contents = MembershipContent::find(1);
+        $currency_symbol = ($request->middleware_language === 'en') ? '$' : '¥';
 
         $faqs = FAQ::where('language', $request->middleware_language_name)->where('status', '1')->where('type', 'Membership')->get();
 
@@ -24,9 +25,33 @@ class MembershipController extends Controller
             $faqs = FAQ::where('language', 'English')->where('status', '1')->where('type', 'Membership')->get();
         }
 
+        if($request->middleware_language == 'en') {
+            $lifetime_membership_price = Setting::find(1)->lifetime_membership_price_en;
+            $annual_membership_price = Setting::find(1)->annual_membership_price_en;
+        }
+        elseif($request->middleware_language == 'zh') {
+            $lifetime_membership_price = Setting::find(1)->lifetime_membership_price_zh;
+            $annual_membership_price = Setting::find(1)->annual_membership_price_zh;
+        }
+        else {
+            $lifetime_membership_price = Setting::find(1)->lifetime_membership_price_ja;
+            $annual_membership_price = Setting::find(1)->annual_membership_price_ja;
+        }
+
         return view('frontend.pages.membership', [
             'contents' => $contents,
-            'faqs' => $faqs
+            'currency_symbol' => $currency_symbol,
+            'faqs' => $faqs,
+            'lifetime_membership_price' => $lifetime_membership_price,
+            'annual_membership_price' => $annual_membership_price
+        ]);
+    }
+
+    public function purchase(Request $request, $value) {
+        session(['auto_membership_purchase' => $value]);
+
+        return redirect()->route('frontend.login', [
+            'redirect' => url()->previous(),
         ]);
     }
 
@@ -79,11 +104,13 @@ class MembershipController extends Controller
                 ]
             ],
             'mode' => 'payment',
-            'success_url' => route('frontend.membership.success', ['membership_purchase_id' => $membership_purchase->id, 'amount' => $amount, 'type' => $request->type]) . '&session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('frontend.membership') . '?' . http_build_query([
+            'success_url' => route('frontend.memberships.success', ['membership_purchase_id' => $membership_purchase->id, 'amount' => $amount, 'type' => $request->type]) . '&session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('frontend.memberships.index') . '?' . http_build_query([
                     'error' => 'Membership purchase has been failed because of the payment cancellation'
                 ]),
         ]);
+
+        session()->forget('auto_membership_purchase');
 
         return redirect()->away($session->url);
     }
@@ -136,6 +163,6 @@ class MembershipController extends Controller
             }
         }
 
-        return redirect()->route('frontend.membership')->with('success', 'Membership purchased successfully');
+        return redirect()->route('frontend.memberships.index')->with('success', 'Membership purchased successfully');
     }
 }

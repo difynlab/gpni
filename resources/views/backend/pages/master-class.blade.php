@@ -260,10 +260,10 @@
                             <input type="text" class="form-control" id="enroll_now_{{ $short_code }}" name="enroll_now_{{ $short_code }}" value="{{ $contents->{'enroll_now_' . $short_code} ?? '' }}" placeholder="Enroll Now">
                         </div>
 
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <label for="login_for_enroll_{{ $short_code }}" class="form-label">Login for Enroll</label>
                             <input type="text" class="form-control" id="login_for_enroll_{{ $short_code }}" name="login_for_enroll_{{ $short_code }}" value="{{ $contents->{'login_for_enroll_' . $short_code} ?? '' }}" placeholder="Login for Enroll">
-                        </div>
+                        </div> -->
 
                         <div class="mb-4">
                             <label for="first_tab_{{ $short_code }}" class="form-label">First Tab</label>

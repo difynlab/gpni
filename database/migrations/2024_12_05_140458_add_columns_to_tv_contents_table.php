@@ -43,15 +43,15 @@ return new class extends Migration
 
             $table->text('already_purchased_en')->nullable();
             $table->text('enroll_now_en')->nullable();
-            $table->text('login_for_enroll_en')->nullable();
+            // $table->text('login_for_enroll_en')->nullable();
 
             $table->text('already_purchased_zh')->nullable();
             $table->text('enroll_now_zh')->nullable();
-            $table->text('login_for_enroll_zh')->nullable();
+            // $table->text('login_for_enroll_zh')->nullable();
 
             $table->text('already_purchased_ja')->nullable();
             $table->text('enroll_now_ja')->nullable();
-            $table->text('login_for_enroll_ja')->nullable();
+            // $table->text('login_for_enroll_ja')->nullable();
 
             $table->timestamps();
         });
@@ -77,15 +77,15 @@ return new class extends Migration
 
                 'already_purchased_en',
                 'enroll_now_en',
-                'login_for_enroll_en',
+                // 'login_for_enroll_en',
 
                 'already_purchased_zh',
                 'enroll_now_zh',
-                'login_for_enroll_zh',
+                // 'login_for_enroll_zh',
 
                 'already_purchased_ja',
                 'enroll_now_ja',
-                'login_for_enroll_ja',
+                // 'login_for_enroll_ja',
             ]);
 
             $table->dropTimestamps();

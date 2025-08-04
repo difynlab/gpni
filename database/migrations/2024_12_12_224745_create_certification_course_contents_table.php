@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('single_page_already_purchased_en')->nullable();
             $table->text('single_page_enroll_now_en')->nullable();
             $table->text('single_page_not_available_en')->nullable();
-            $table->text('single_page_login_for_enroll_en')->nullable();
+            // $table->text('single_page_login_for_enroll_en')->nullable();
             $table->text('single_page_no_of_modules_en')->nullable();
             $table->text('single_page_course_type_en')->nullable();
             $table->text('single_page_course_duration_en')->nullable();
@@ -57,7 +57,7 @@ return new class extends Migration
             $table->text('single_page_already_purchased_zh')->nullable();
             $table->text('single_page_enroll_now_zh')->nullable();
             $table->text('single_page_not_available_zh')->nullable();
-            $table->text('single_page_login_for_enroll_zh')->nullable();
+            // $table->text('single_page_login_for_enroll_zh')->nullable();
             $table->text('single_page_no_of_modules_zh')->nullable();
             $table->text('single_page_course_type_zh')->nullable();
             $table->text('single_page_course_duration_zh')->nullable();
@@ -95,7 +95,7 @@ return new class extends Migration
             $table->text('single_page_already_purchased_ja')->nullable();
             $table->text('single_page_enroll_now_ja')->nullable();
             $table->text('single_page_not_available_ja')->nullable();
-            $table->text('single_page_login_for_enroll_ja')->nullable();
+            // $table->text('single_page_login_for_enroll_ja')->nullable();
             $table->text('single_page_no_of_modules_ja')->nullable();
             $table->text('single_page_course_type_ja')->nullable();
             $table->text('single_page_course_duration_ja')->nullable();

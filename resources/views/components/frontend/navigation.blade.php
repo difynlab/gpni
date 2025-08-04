@@ -153,7 +153,7 @@
                                 @php
                                     $third_fifth_tab = App\Models\MembershipContent::find(1);
                                 @endphp
-                                <a class="dropdown-item fs-16" href="{{ route('frontend.membership') }}">{{ $third_fifth_tab->{'page_name_' . $middleware_language} !== '' ? $third_fifth_tab->{'page_name_' . $middleware_language} : $third_fifth_tab->page_name_en }}</a>
+                                <a class="dropdown-item fs-16" href="{{ route('frontend.memberships.index') }}">{{ $third_fifth_tab->{'page_name_' . $middleware_language} !== '' ? $third_fifth_tab->{'page_name_' . $middleware_language} : $third_fifth_tab->page_name_en }}</a>
                             </li>
                             <li>
                                 @php
@@ -233,7 +233,7 @@
                                         @if(auth()->user()->member == 'Yes')
                                             <a class="dropdown-item fs-16" href="{{ route('frontend.member-corner') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
                                         @else
-                                            <a class="dropdown-item fs-16" href="{{ route('frontend.membership') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
+                                            <a class="dropdown-item fs-16" href="{{ route('frontend.memberships.index') }}">{{ $contents->{'header_user_member_' . $middleware_language} ?? $contents->header_user_member_en }}</a>
                                         @endif
                                     </li>
                                     <li>
