@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Frontend\Student;
 use App\Http\Controllers\Controller;
 use App\Models\AskQuestion;
 use App\Models\AskQuestionReply;
+use App\Mail\AskQuestionMail;
+use App\Mail\AskQuestionReplyMail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class AskQuestionController extends Controller
@@ -31,6 +34,16 @@ class AskQuestionController extends Controller
         $ask_question->admin_viewed = '0';
         $ask_question->status = '1';
         $ask_question->save();
+
+        $mail_data = [
+            'user_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
+            'user_email' => Auth::user()->email,
+            'subject' => $request->subject,
+            'initial_message' => $request->initial_message,
+        ];
+
+        Mail::to(Auth::user()->email)->send(new AskQuestionMail($mail_data, 'user'));
+        Mail::to(config('app.admin_email'))->send(new AskQuestionMail($mail_data, 'admin'));
 
         return redirect()->back()->with('success', 'Your question has been submitted successfully');
     }
@@ -100,6 +113,17 @@ class AskQuestionController extends Controller
         $ask_question_reply->user_viewed = '1';
         $ask_question_reply->status = '1';
         $ask_question_reply->save();
+
+        $mail_data = [
+            'user_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
+            'user_email' => Auth::user()->email,
+            'expert_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
+            'subject' => $ask_question->subject,
+            'initial_message' => $ask_question->initial_message,
+            'reply_message' => $request->message,
+        ];
+
+        Mail::to(config('app.admin_email'))->send(new AskQuestionReplyMail($mail_data, 'admin'));
 
         return redirect()->back();
     }

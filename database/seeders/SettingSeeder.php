@@ -47,6 +47,14 @@ class SettingSeeder extends Seeder
             'referral_point_percentage_zh' => '0.00',
             'referral_point_percentage_ja' => '0.00',
 
+            'referral_point_conversion_en' => '0.00',
+            'referral_point_conversion_zh' => '0.00',
+            'referral_point_conversion_ja' => '0.00',
+
+            'makeup_exam_price_en' => '0.00',
+            'makeup_exam_price_zh' => '0.00',
+            'makeup_exam_price_ja' => '0.00',
+
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

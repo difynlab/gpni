@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\AskQuestion;
 use App\Models\AskQuestionReply;
 use App\Models\User;
+use App\Mail\AskQuestionReplyMail;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class AskQuestionController extends Controller
@@ -82,6 +84,21 @@ class AskQuestionController extends Controller
         $ask_question_reply->user_viewed = '0';
         $ask_question_reply->status = '1';
         $ask_question_reply->save();
+
+        $user = User::find($ask_question->user_id);
+        $expert = auth()->user();
+
+        $mail_data = [
+            'user_name' => $user->first_name . ' ' . $user->last_name,
+            'user_email' => $user->email,
+            'expert_name' => $expert->first_name . ' ' . $expert->last_name,
+            'subject' => $ask_question->subject,
+            'initial_message' => $ask_question->initial_message,
+            'reply_message' => $request->message,
+        ];
+
+        Mail::to($user->email)->send(new AskQuestionReplyMail($mail_data, 'user'));
+        Mail::to(config('app.admin_email'))->send(new AskQuestionReplyMail($mail_data, 'admin'));
         
         return redirect()->route('backend.communications.ask-questions.edit', $ask_question)->with('success', "Successfully sent!");
     }
