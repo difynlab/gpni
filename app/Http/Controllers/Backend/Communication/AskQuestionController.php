@@ -91,14 +91,12 @@ class AskQuestionController extends Controller
         $mail_data = [
             'user_name' => $user->first_name . ' ' . $user->last_name,
             'user_email' => $user->email,
-            'expert_name' => $expert->first_name . ' ' . $expert->last_name,
             'subject' => $ask_question->subject,
             'initial_message' => $ask_question->initial_message,
             'reply_message' => $request->message,
         ];
 
         Mail::to($user->email)->send(new AskQuestionReplyMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new AskQuestionReplyMail($mail_data, 'admin'));
         
         return redirect()->route('backend.communications.ask-questions.edit', $ask_question)->with('success', "Successfully sent!");
     }

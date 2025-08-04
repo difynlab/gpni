@@ -13,13 +13,8 @@
                 <div class="row form-input">
                     <div class="col-12 mb-4">
                         <label for="course_id" class="form-label">Course<span class="asterisk">*</span></label>
-                        <select class="form-control js-example-basic-single course" name="course_id" id="course_id" required disabled readonly>
-                            <option value="">Select Course</option>
-                            @foreach($courses as $course)
-                                <option value="{{ $course->id }}" {{ $course_purchase->course_id == $course->id ? 'selected' : '' }}>{{ $course->title }}</option>
-                            @endforeach
-                        </select>
 
+                        <input type="text" class="form-control" value="{{ $course->title }}" disabled readonly>
                         <input type="hidden" name="course_id" value="{{ $course_purchase->course_id }}">
                     </div>
 

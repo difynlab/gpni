@@ -13,14 +13,16 @@
         data-bs-keyboard="false">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <div class="modal-body text-center">
+                <div class="modal-body">
                     <p class="title">{{ $student_dashboard_contents->courses_exam_start_modal_title }}</p>
                     <p class="description">{{ $student_dashboard_contents->courses_exam_start_modal_description }}</p>
 
                     @if($course->certification_type == 'SNS')
                         {!! $student_dashboard_contents->courses_sns_final_exam_start_modal_instructions !!}
-                    @else
+                    @elseif($course->certification_type == 'CISSN')
                         {!! $student_dashboard_contents->courses_cissn_final_exam_start_modal_instructions !!}
+                    @else
+                        {!! $student_dashboard_contents->courses_common_final_exam_start_modal_instructions !!}
                     @endif
                 </div>
 

@@ -8,11 +8,7 @@
 <p><strong>Subject:</strong> {{ $mail_data['subject'] }}</p>
 <p><strong>Original Message:</strong> {{ $mail_data['initial_message'] }}</p>
 
-<p><strong>Expert Reply:</strong></p>
-<p><strong>Expert:</strong> {{ $mail_data['expert_name'] }}</p>
-<p><strong>Reply:</strong> {{ $mail_data['reply_message'] }}</p>
-
-<p>The user has been notified of this reply.</p>
+<p><strong>User Reply:</strong> {{ $mail_data['reply_message'] }}</p>
 
 <p style="margin-top: 15px; margin-bottom: 3px;">Best regards,</p>
 

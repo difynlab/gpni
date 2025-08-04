@@ -51,7 +51,7 @@
                             </select>
                         </div>
 
-                        <div class="mb-4 {{ old('type', $course->type) != 'Certification' ? 'd-none' : '' }}">
+                        <div class="mb-4 ">
                             <label for="certification_type" class="form-label">Certification Type<span class="asterisk">*</span></label>
                             <select class="form-control form-select" id="certification_type" name="certification_type">
                                 <option value="">Select certification type</option>
@@ -298,15 +298,14 @@
         $('.type').on('change', function() {
             let value = $(this).val();
 
-            console.log(value);
-
             if(value == 'Certification') {
                 $(this).closest('div').next().removeClass('d-none');
                 $(this).closest('div').next().find('select').attr('required', true);
             }
             else {
                 $(this).closest('div').next().addClass('d-none');
-                $(this).closest('div').next().find('input').attr('required', false);
+                $(this).closest('div').next().find('select').attr('required', false);
+                $(this).closest('div').next().find('select').val('');
             }
         });
     </script>

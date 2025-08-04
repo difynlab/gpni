@@ -187,6 +187,7 @@ return new class extends Migration
                 'courses_module_exam_start_modal_instructions',
                 'courses_sns_final_exam_start_modal_instructions',
                 'courses_cissn_final_exam_start_modal_instructions',
+                'courses_common_final_exam_start_modal_instructions',
                 'courses_exam_start_modal_start_module_exam',
                 'courses_exam_start_modal_start_final_exam',
                 'courses_exam_instructions',

@@ -25,8 +25,10 @@ class AskQuestionController extends Controller
 
     public function store(Request $request)
     {
+        $auth = Auth::user();
+
         $ask_question = new AskQuestion();
-        $ask_question->user_id = Auth::user()->id;
+        $ask_question->user_id = $auth->id;
         $ask_question->subject = $request->subject;
         $ask_question->initial_message = $request->initial_message;
         $ask_question->date = Carbon::now()->toDateString();
@@ -36,13 +38,13 @@ class AskQuestionController extends Controller
         $ask_question->save();
 
         $mail_data = [
-            'user_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
-            'user_email' => Auth::user()->email,
+            'user_name' => $auth->first_name . ' ' . $auth->last_name,
+            'user_email' => $auth->email,
             'subject' => $request->subject,
             'initial_message' => $request->initial_message,
         ];
 
-        Mail::to(Auth::user()->email)->send(new AskQuestionMail($mail_data, 'user'));
+        Mail::to($auth->email)->send(new AskQuestionMail($mail_data, 'user'));
         Mail::to(config('app.admin_email'))->send(new AskQuestionMail($mail_data, 'admin'));
 
         return redirect()->back()->with('success', 'Your question has been submitted successfully');
@@ -103,9 +105,11 @@ class AskQuestionController extends Controller
 
     public function update(Request $request, AskQuestion $ask_question)
     {
+        $auth = Auth::user();
+
         $ask_question_reply = new AskQuestionReply();
         $ask_question_reply->ask_question_id = $ask_question->id;
-        $ask_question_reply->replied_by = Auth::user()->id;
+        $ask_question_reply->replied_by = $auth->id;
         $ask_question_reply->message = $request->message;
         $ask_question_reply->date = Carbon::now()->toDateString();
         $ask_question_reply->time = Carbon::now()->toTimeString();
@@ -115,9 +119,8 @@ class AskQuestionController extends Controller
         $ask_question_reply->save();
 
         $mail_data = [
-            'user_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
-            'user_email' => Auth::user()->email,
-            'expert_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
+            'user_name' => $auth->first_name . ' ' . $auth->last_name,
+            'user_email' => $auth->email,
             'subject' => $ask_question->subject,
             'initial_message' => $ask_question->initial_message,
             'reply_message' => $request->message,

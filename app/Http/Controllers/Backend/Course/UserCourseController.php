@@ -43,7 +43,7 @@ class UserCourseController extends Controller
     public function create(User $user)
     {
         $purchased_course_ids = CoursePurchase::where('user_id', $user->id)->where('payment_status', 'completed')->where('status', '1')->pluck('course_id')->toArray();
-        $courses = Course::whereNotIn('id', $purchased_course_ids)->where('status', '1')->get();
+        $courses = Course::whereNotIn('id', $purchased_course_ids)->where('status', '!=', '0')->get();
 
         return view('backend.user-courses.create', [
             'courses' => $courses,
@@ -82,10 +82,10 @@ class UserCourseController extends Controller
 
     public function edit(User $user, CoursePurchase $course_purchase)
     {
-        $courses = Course::where('status', '1')->get();
+        $course = Course::find($course_purchase->course_id);
 
         return view('backend.user-courses.edit', [
-            'courses' => $courses,
+            'course' => $course,
             'course_purchase' => $course_purchase,
             'user' => $user
         ]);

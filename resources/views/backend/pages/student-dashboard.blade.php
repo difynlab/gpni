@@ -1051,7 +1051,12 @@
                         <textarea class="editor" id="content" name="courses_cissn_final_exam_start_modal_instructions">{{ $contents->courses_cissn_final_exam_start_modal_instructions }}</textarea>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 mb-3">
+                        <label for="courses_common_final_exam_start_modal_instructions" class="form-label">Start Modal Common Final Exam Instructions</label>
+                        <textarea class="editor" id="content" name="courses_common_final_exam_start_modal_instructions">{{ $contents->courses_common_final_exam_start_modal_instructions }}</textarea>
+                    </div>
+
+                    <div class="col-12">
                         <label for="courses_exam_instructions" class="form-label">Exam Instructions</label>
                         <textarea class="editor" id="content" name="courses_exam_instructions">{{ $contents->courses_exam_instructions }}</textarea>
                     </div>

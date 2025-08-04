@@ -256,7 +256,8 @@
             }
             else {
                 $(this).closest('div').next().addClass('d-none');
-                $(this).closest('div').next().find('input').attr('required', false);
+                $(this).closest('div').next().find('select').attr('required', false);
+                $(this).closest('div').next().find('select').val('');
             }
         });
 
@@ -272,6 +273,7 @@
             else {
                 $(this).closest('div').next().addClass('d-none');
                 $(this).closest('div').next().find('input').attr('required', false);
+                $(this).closest('div').next().find('input').val('');
             }
         });
     </script>

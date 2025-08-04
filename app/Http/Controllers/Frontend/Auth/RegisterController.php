@@ -364,7 +364,12 @@ class RegisterController extends Controller
                 'friend_email' => $student->email
             ];
 
-            Mail::to($referrer->email)->send(new ReferFriendConfirmationMail($mail_data));
+            try {
+                Mail::to($referrer->email)->send(new ReferFriendConfirmationMail($mail_data));
+            }
+            catch(\Exception $e) {
+                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
+            }
         }
 
         $mail_data = [
@@ -373,7 +378,7 @@ class RegisterController extends Controller
 
         try {
             Mail::to($request->email)->send(new RegisterMail($mail_data, 'user'));
-            Mail::to('zajjith@epirco.net')->send(new RegisterMail($mail_data, 'admin'));
+            Mail::to(config('app.admin_email'))->send(new RegisterMail($mail_data, 'admin'));
         }
         catch(\Exception $e) {
             Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());

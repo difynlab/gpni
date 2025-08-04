@@ -38,7 +38,7 @@ class CourseController extends Controller
 
         // $courses = Course::whereIn('id', $course_ids)->where('status', '1')->orderBy('id', 'desc')->get();
 
-        $query = Course::whereIn('id', $course_ids)->where('status', '1');
+        $query = Course::whereIn('id', $course_ids)->where('status', '!=', '0');
 
         if($request->route()->getName() === 'frontend.courses.gpni-tv') {
             $query->where('type', 'Small Course');

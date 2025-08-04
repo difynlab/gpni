@@ -301,9 +301,9 @@
 #start-exam-modal ul li {
     margin-bottom: 5px;
 }
-.final-start-exam-modal ul li:first-of-type {
+/* .final-start-exam-modal ul li:first-of-type {
     color: red;
-}
+} */
 
 .all-questions-heading{
     color: #303030;

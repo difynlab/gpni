@@ -104,7 +104,7 @@
     border: none;
     margin-top: 10px;
     transition: all 0.3s;
-    font-size: 12px !important;
+    font-size: 14px !important;
 }
 .exam-completed-button {
     background-color: #0040c3;
@@ -118,7 +118,7 @@
     border: none;
     margin-top: 10px;
     transition: all 0.3s;
-    font-size: 12px !important;
+    font-size: 14px !important;
 }
 .exam-completed-button:hover {
     background-color: #cf9d1b;
@@ -136,6 +136,7 @@
     border: none;
     margin-top: 10px;
     transition: all 0.3s;
+    font-size: 14px !important;
 }
 .exam-button:hover, .exam-locked-button:hover {
     background-color: #02256a;
@@ -189,7 +190,7 @@
     padding: 1rem;
     transition: all 0.3s;
     white-space: nowrap;
-    font-size: 12px !important;
+    font-size: 14px !important;
 }
 .results-button:hover {
     background-color: #5e5d5d;

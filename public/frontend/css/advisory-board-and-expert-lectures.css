@@ -26,7 +26,7 @@
     text-overflow: ellipsis;
 }
 
-.card-text p  {
+.card-text {
     font-size: 16px;
     font-weight: 400;
     text-align: left; /* Align the card text to the left */
@@ -36,6 +36,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 0;
+}
+
+.card-text p {
+    margin-bottom: 0!important;
 }
 
 .card-text ul {
@@ -91,7 +95,7 @@ body {
         font-size: 18px; 
     }
 
-    .card-text p {
+    .card-text {
         font-size: 16px; 
         -webkit-line-clamp: 1; /* Limit to 2 lines */
     }
@@ -157,18 +161,18 @@ body {
         font-size:18px;
     }
 
-    .card-text p {
-        font-size: 16px; /* Use existing font size class */
-        -webkit-line-clamp: 1; /* Limit to 2 lines */
+    .card-text {
+        font-size: 16px;
+        -webkit-line-clamp: 1;
     }
 
-    .card-text ul,li {
-        -webkit-line-clamp: 1; /* Limit to 2 lines */
+    /* .card-text ul,li {
+        -webkit-line-clamp: 1;
     }
 
     .card-text ul, .card-text li {
         display: list-item !important;
-    }
+    } */
 
     .modal-content {
         width: 451px; /* Set width for laptops */
@@ -231,19 +235,19 @@ body {
         font-size: 18px;
     }
 
-    .card-text p ,li ,ul {
+    .card-text {
         font-size: 16px; /* Use existing font size class */
         -webkit-line-clamp: 1; /* Limit to 2 lines */
     }
 
-    .card-text p, .card-text li, .card-text ul {
+    /* .card-text p, .card-text li, .card-text ul {
         font-size: 16px;
         -webkit-line-clamp: 1;
     }
     
     .card-text li {
         display: list-item !important;
-    }
+    } */
 
     .modal-content {
         width: 451px; /* Set width for large laptops and desktops */
@@ -415,7 +419,7 @@ body {
         font-size: 18px;
     }
 
-    .card-text p {
+    .card-text {
         font-size: 16px;
         display: -webkit-box;
         -webkit-line-clamp: 1; /* Limit to 2 lines */
@@ -445,7 +449,7 @@ body {
         height: auto; /* Auto height for medium mobile devices */
     }
 
-    .card-title, .card-subtitle, .card-text p {
+    .card-title, .card-subtitle, .card-text {
         white-space: normal; /* Allow text to wrap */
         overflow: visible; /* Show overflow text */
         text-overflow: clip; /* Clip overflow text */
@@ -624,7 +628,7 @@ body {
         height: auto !important; /* Auto height for medium mobile devices */
     }
 
-    .card-title, .card-subtitle, .card-text p {
+    .card-title, .card-subtitle, .card-text {
         white-space: normal; /* Allow text to wrap */
         overflow: visible; /* Show overflow text */
         text-overflow: clip; /* Clip overflow text */
@@ -647,7 +651,7 @@ body {
         font-size: 14px;
     }
 
-    .card-text p {
+    .card-text {
         font-size: 12px; /* Use existing font size class */
     }
 
@@ -694,7 +698,7 @@ body {
         font-size: 18px;
     }
 
-    .card-text p {
+    .card-text {
         font-size: 16px;
     }
 }

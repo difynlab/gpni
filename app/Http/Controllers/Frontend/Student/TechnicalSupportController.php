@@ -22,21 +22,23 @@ class TechnicalSupportController extends Controller
 
     public function store(Request $request)
     {
+        $auth = Auth::user();
+
         $technical_support = new TechnicalSupport();
-        $technical_support->user_id = Auth::user()->id;
+        $technical_support->user_id = $auth->id;
         $technical_support->subject = $request->subject;
         $technical_support->message = $request->message;
         $technical_support->status = '1';
         $technical_support->save();
 
         $mail_data = [
-            'user_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
-            'user_email' => Auth::user()->email,
+            'user_name' => $auth->first_name . ' ' . $auth->last_name,
+            'user_email' => $auth->email,
             'subject' => $request->subject,
             'message' => $request->message
         ];
 
-        Mail::to(Auth::user()->email)->send(new TechnicalSupportMail($mail_data, 'user'));
+        Mail::to($auth->email)->send(new TechnicalSupportMail($mail_data, 'user'));
         Mail::to(config('app.admin_email'))->send(new TechnicalSupportMail($mail_data, 'admin'));
 
         return redirect()->back()->with('success', 'Message sent successfully');
