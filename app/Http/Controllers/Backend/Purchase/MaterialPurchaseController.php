@@ -8,7 +8,6 @@ use App\Models\Course;
 use App\Models\MaterialPurchase;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class MaterialPurchaseController extends Controller
 {
@@ -74,12 +73,7 @@ class MaterialPurchaseController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name
         ];
 
-        try {
-                Mail::to([$student->email])->send(new MaterialMail($mail_data, $file_path, $file_name));
-            }
-            catch(\Exception $e) {
-                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-            }
+        send_email(new MaterialMail($mail_data, $file_path, $file_name), $student->email);
 
         return redirect()->route('backend.purchases.material-purchases.index')->with('success', 'Material sent successfully');
     }

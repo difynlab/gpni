@@ -7,7 +7,6 @@ use App\Models\TechnicalSupport;
 use App\Mail\TechnicalSupportMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class TechnicalSupportController extends Controller
 {
@@ -38,13 +37,8 @@ class TechnicalSupportController extends Controller
             'message' => $request->message
         ];
 
-        try {
-            Mail::to($auth->email)->send(new TechnicalSupportMail($mail_data, 'user'));
-            Mail::to(config('app.admin_email'))->send(new TechnicalSupportMail($mail_data, 'admin'));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new TechnicalSupportMail($mail_data, 'user'), $auth->email);
+        send_email(new TechnicalSupportMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->back()->with('success', 'Message sent successfully');
     }

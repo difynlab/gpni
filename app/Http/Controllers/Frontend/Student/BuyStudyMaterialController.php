@@ -9,7 +9,6 @@ use App\Models\Course;
 use App\Models\MaterialPurchase;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class BuyStudyMaterialController extends Controller
 {
@@ -146,13 +145,8 @@ class BuyStudyMaterialController extends Controller
             'course' => $course->title
         ];
 
-        try {
-            Mail::to($user->email)->send(new MaterialPurchaseMail($mail_data, 'user'));
-            Mail::to(config('app.admin_email'))->send(new MaterialPurchaseMail($mail_data, 'admin'));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new MaterialPurchaseMail($mail_data, 'user'), $user->email);
+        send_email(new MaterialPurchaseMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->route('frontend.buy-study-materials')->with('complete', 'Material purchase has been successfully completed');
     }

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\ReferFriend;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferFriendMail;
 use App\Models\ReferPointActivity;
 use App\Models\Setting;
@@ -134,12 +133,7 @@ class ReferFriendController extends Controller
             'code' => $code
         ];
 
-        try {
-            Mail::to([$request->email])->send(new ReferFriendMail($mail_data));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new ReferFriendMail($mail_data), $request->email);
 
         return redirect()->back()->with('success', 'Invitation sent successfully!');
     }

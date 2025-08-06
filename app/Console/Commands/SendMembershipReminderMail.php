@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\MembershipReminderMail;
 use Carbon\Carbon;
 
@@ -26,12 +25,7 @@ class SendMembershipReminderMail extends Command
                 'member_annual_expiry_date' => $user->member_annual_expiry_date
             ];
             
-            try {
-                Mail::to($user->email)->send(new MembershipReminderMail($mail_data));
-            }
-            catch(\Exception $e) {
-                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-            }
+            send_email(new MembershipReminderMail($mail_data), $user->email);
         }
     }
 }

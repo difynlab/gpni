@@ -9,7 +9,6 @@ use App\Mail\AskQuestionMail;
 use App\Mail\AskQuestionReplyMail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class AskQuestionController extends Controller
@@ -44,13 +43,8 @@ class AskQuestionController extends Controller
             'initial_message' => $request->initial_message,
         ];
 
-        try {
-            Mail::to($auth->email)->send(new AskQuestionMail($mail_data, 'user'));
-            Mail::to(config('app.admin_email'))->send(new AskQuestionMail($mail_data, 'admin'));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new AskQuestionMail($mail_data, 'user'), $auth->email);
+        send_email(new AskQuestionMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->back()->with('success', 'Your question has been submitted successfully');
     }
@@ -131,12 +125,7 @@ class AskQuestionController extends Controller
             'reply_message' => $request->message,
         ];
 
-        try {
-            Mail::to(config('app.admin_email'))->send(new AskQuestionReplyMail($mail_data, 'admin'));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new AskQuestionReplyMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->back();
     }

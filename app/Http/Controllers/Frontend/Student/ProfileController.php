@@ -9,7 +9,6 @@ use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class ProfileController extends Controller
@@ -353,12 +352,7 @@ class ProfileController extends Controller
             'name' => $student->first_name . ' ' . $student->last_name
         ];
 
-        try {
-            Mail::to($student->email)->send(new UpdateProfileMail($mail_data));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new UpdateProfileMail($mail_data), $student->email);
 
         return redirect()->back()->with('success', 'Update success');
     }

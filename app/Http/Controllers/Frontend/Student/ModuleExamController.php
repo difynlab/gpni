@@ -13,7 +13,6 @@ use App\Models\CoursePurchase;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class ModuleExamController extends Controller
 {
@@ -110,13 +109,8 @@ class ModuleExamController extends Controller
             'result' => $result
         ];
 
-        try {
-            Mail::to($student->email)->send(new ExamResultMail($mail_data, 'user'));
-            Mail::to(config('app.admin_email'))->send(new ExamResultMail($mail_data, 'admin'));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new ExamResultMail($mail_data, 'user'), $student->email);
+        send_email(new ExamResultMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->back()->with([
             'success' => 'Submission success',

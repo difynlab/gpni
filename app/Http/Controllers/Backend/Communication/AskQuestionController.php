@@ -8,7 +8,6 @@ use App\Models\AskQuestionReply;
 use App\Models\User;
 use App\Mail\AskQuestionReplyMail;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class AskQuestionController extends Controller
@@ -96,12 +95,7 @@ class AskQuestionController extends Controller
             'reply_message' => $request->message,
         ];
 
-            try {
-                Mail::to($user->email)->send(new AskQuestionReplyMail($mail_data, 'user'));
-            }
-            catch(\Exception $e) {
-                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-            }
+        send_email(new AskQuestionReplyMail($mail_data, 'user'), $user->email);
         
         return redirect()->route('backend.communications.ask-questions.edit', $ask_question)->with('success', "Successfully sent!");
     }

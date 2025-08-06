@@ -15,7 +15,6 @@ use App\Models\FinalExamPurchase;
 use App\Models\Setting;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class CourseController extends Controller
 {
@@ -259,13 +258,8 @@ class CourseController extends Controller
             'course' => $course->title
         ];
 
-        try {
-            Mail::to($user->email)->send(new FinalExamPurchaseMail($mail_data, 'user'));
-            Mail::to(config('app.admin_email'))->send(new FinalExamPurchaseMail($mail_data, 'admin'));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new FinalExamPurchaseMail($mail_data, 'user'), $user->email);
+        send_email(new FinalExamPurchaseMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->route('frontend.courses.show', $course->id);
     }

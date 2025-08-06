@@ -12,9 +12,7 @@ use App\Models\CoursePurchase;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\CECPointRequestMail;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\CECPointUserMail;
-use App\Models\User;
 
 class QualificationController extends Controller
 {
@@ -120,13 +118,8 @@ class QualificationController extends Controller
             'user_comment' => $request->user_comment
         ];
 
-        try {
-                Mail::to($student->email)->send(new CECPointUserMail($mail_data));
-                Mail::to(config('app.admin_email'))->send(new CECPointRequestMail($mail_data));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new CECPointUserMail($mail_data), $student->email);
+        send_email(new CECPointRequestMail($mail_data), config('app.admin_emails'));
 
         return redirect()->route('frontend.qualifications')->with('success', 'Request successfully completed');
     }

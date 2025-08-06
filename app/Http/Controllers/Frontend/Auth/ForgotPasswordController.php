@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetPasswordMail;
 use App\Models\AuthenticationContent;
 use Illuminate\Support\Facades\Http;
@@ -80,12 +79,7 @@ class ForgotPasswordController extends Controller
             'token' => $token,
         ];
 
-        try {
-                Mail::to([$request->email])->send(new ResetPasswordMail($mail_data, $role));
-            }
-            catch(\Exception $e) {
-                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-            }
+        send_email(new ResetPasswordMail($mail_data, $role), $user->email);
 
         return redirect()->back()->with('success', "Email sent successfully");
     }
