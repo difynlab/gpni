@@ -11,6 +11,8 @@ use App\Models\MembershipPurchase;
 use App\Models\Product;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 if(!function_exists('hasUserPurchasedCourse')) {
     function hasUserPurchasedCourse($user_id, $course_id)
@@ -201,5 +203,23 @@ if(!function_exists('userCredentials')) {
         $credentials = implode(", ", $certificates);
 
         return $credentials ;
+    }
+}
+
+if(!function_exists('send_email')) {
+    function send_email($mailable, $emails) {
+        if(!is_array($emails)) {
+            $emails = explode(", ", trim($emails, "[]"));
+        }
+
+        foreach($emails as $email) {
+            try {
+                Mail::to($email)->send(clone $mailable);
+            }
+            catch (\Throwable $e) {
+                Log::error("Failed to send email to {$email}: " . $e->getMessage());
+                continue;
+            }
+        }
     }
 }

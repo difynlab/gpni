@@ -9,7 +9,6 @@ use App\Models\GiftCardPurchase;
 use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class GiftCardController extends Controller
 {
@@ -196,10 +195,10 @@ class GiftCardController extends Controller
             'buyer_name' => $gift_card_purchase->buyer_name,
         ];
 
-        Mail::to($gift_card_purchase->buyer_email)->send(new GiftCardMail($mail_data, 'buyer'));
-        Mail::to($user->email)->send(new GiftCardMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new GiftCardMail($mail_data, 'admin'));
-
+        send_email(new GiftCardMail($mail_data, 'buyer'), $gift_card_purchase->buyer_email);
+        send_email(new GiftCardMail($mail_data, 'user'), $user->email);
+        send_email(new GiftCardMail($mail_data, 'admin'), config('app.admin_emails'));
+        
         return redirect()->route('frontend.gift-cards.index')->with('complete', 'Gift card purchase has been successfully completed');
     }
 }

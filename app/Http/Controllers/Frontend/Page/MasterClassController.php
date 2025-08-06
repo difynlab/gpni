@@ -14,7 +14,6 @@ use App\Models\Testimonial;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\CoursePurchaseMail;
 use App\Mail\ReferFriendCoursePurchaseMail;
 use App\Models\ReferFriend;
@@ -269,7 +268,7 @@ class MasterClassController extends Controller
                 'points' => $calculated_points
             ];
 
-            Mail::to($referrer->email)->send(new ReferFriendCoursePurchaseMail($mail_data));
+            send_email(new ReferFriendCoursePurchaseMail($mail_data), $referrer->email);
         }
 
         $mail_data = [
@@ -281,8 +280,8 @@ class MasterClassController extends Controller
         $file_name = null;
         $file_path = null;
 
-        Mail::to($user->email)->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'user'));
-        Mail::to(config('app.admin_email'))->send(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'admin'));
+        send_email(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'user'), $user->email);
+        send_email(new CoursePurchaseMail($mail_data, $file_path, $file_name, 'admin'), config('app.admin_emails'));
 
         return redirect()->route('frontend.master-classes.index')->with('complete', 'Course purchase has been successfully completed');
     }

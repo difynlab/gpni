@@ -7,7 +7,6 @@ use App\Mail\SubscriptionMail;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Mail;
 
 class SubscriptionController extends Controller
 {
@@ -38,8 +37,8 @@ class SubscriptionController extends Controller
             'email' => $request->email
         ];
 
-        Mail::to($request->email)->send(new SubscriptionMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new SubscriptionMail($mail_data, 'admin'));
+        send_email(new SubscriptionMail($mail_data, 'user'), $request->email);
+        send_email(new SubscriptionMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->back()->with('success', 'Successfully subscribed');
     }

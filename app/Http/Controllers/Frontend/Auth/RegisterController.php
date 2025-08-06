@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -364,25 +363,15 @@ class RegisterController extends Controller
                 'friend_email' => $student->email
             ];
 
-            try {
-                Mail::to($referrer->email)->send(new ReferFriendConfirmationMail($mail_data));
-            }
-            catch(\Exception $e) {
-                Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-            }
+            send_email(new ReferFriendConfirmationMail($mail_data, 'user'), $referrer->email);
         }
 
         $mail_data = [
             'name' => $request->first_name . ' ' . $request->last_name
         ];
 
-        try {
-            Mail::to($request->email)->send(new RegisterMail($mail_data, 'user'));
-            Mail::to(config('app.admin_email'))->send(new RegisterMail($mail_data, 'admin'));
-        }
-        catch(\Exception $e) {
-            Log::warning("Mail send failed to {$request->email}: " . $e->getMessage());
-        }
+        send_email(new RegisterMail($mail_data, 'user'), $request->email);
+        send_email(new RegisterMail($mail_data, 'admin'), config('app.admin_emails'));
 
         Auth::login($student);
         $request->session()->regenerate();

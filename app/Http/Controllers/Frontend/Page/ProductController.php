@@ -12,7 +12,6 @@ use App\Models\ProductOrderDetail;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\ProductPurchaseMail;
 
 class ProductController extends Controller
@@ -186,8 +185,8 @@ class ProductController extends Controller
             'total' => $product_order->amount_paid
         ];
 
-        Mail::to($user->email)->send(new ProductPurchaseMail($mail_data, 'user'));
-        Mail::to(config('app.admin_email'))->send(new ProductPurchaseMail($mail_data, 'admin'));
+        send_email(new ProductPurchaseMail($mail_data, 'user'), $user->email);
+        send_email(new ProductPurchaseMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->route('frontend.products.index')->with('complete', 'Product/s purchase has been successfully completed');
     }

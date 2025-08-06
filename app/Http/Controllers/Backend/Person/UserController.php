@@ -18,7 +18,6 @@ use Illuminate\Support\Str;
 use App\Mail\CECPointApprovedMail;
 use App\Mail\CECPointRejectedMail;
 use App\Models\Subscription;
-use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -944,7 +943,7 @@ class UserController extends Controller
                 $user->cec_balance -= $cec_point_activity->points;
             }
 
-            Mail::to($user->email)->send(new CECPointApprovedMail($mail_data));
+            send_email(new CECPointApprovedMail($mail_data), $user->email);
         }
         else {
             if($cec_point_activity->type == 'Addition') {
@@ -954,7 +953,7 @@ class UserController extends Controller
                 $user->cec_balance += $cec_point_activity->points;
             }
 
-            Mail::to($user->email)->send(new CECPointRejectedMail($mail_data));
+            send_email(new CECPointRejectedMail($mail_data), $user->email);
         }
        
         $user->save();

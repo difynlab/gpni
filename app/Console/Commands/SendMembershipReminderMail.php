@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\MembershipReminderMail;
 use Carbon\Carbon;
 
@@ -25,8 +24,8 @@ class SendMembershipReminderMail extends Command
                 'name' => $user->first_name . ' ' . $user->last_name,
                 'member_annual_expiry_date' => $user->member_annual_expiry_date
             ];
-
-            Mail::to($user->email)->send(new MembershipReminderMail($mail_data));
+            
+            send_email(new MembershipReminderMail($mail_data), $user->email);
         }
     }
 }
