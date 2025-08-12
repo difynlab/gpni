@@ -7,7 +7,7 @@
 !/frontend/**
 
 # Ignore everything else in the backend folder
-/backend/**
+!/backend/**
 
 # Re-include the sidebar folder to override the previous ignore rule
 !/backend/sidebar/
