@@ -204,6 +204,11 @@
                     </div>
 
                     <div class="col-4">
+                        <label for="payment_page_coupon_code_{{ $short_code }}" class="form-label">Coupon Code</label>
+                        <input type="text" class="form-control" id="payment_page_coupon_code_{{ $short_code }}" name="payment_page_coupon_code_{{ $short_code }}" value="{{ $contents->{'payment_page_coupon_code_' . $short_code} ?? '' }}" placeholder="Coupon Code">
+                    </div>
+
+                    <div class="col-4">
                         <label for="payment_page_pay_{{ $short_code }}" class="form-label">Pay</label>
                         <input type="text" class="form-control" id="payment_page_pay_{{ $short_code }}" name="payment_page_pay_{{ $short_code }}" value="{{ $contents->{'payment_page_pay_' . $short_code} ?? '' }}" placeholder="Pay">
                     </div>

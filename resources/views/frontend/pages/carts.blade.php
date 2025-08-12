@@ -70,6 +70,11 @@
                                 <h5 class="fs-20">{{ $contents->{'page_total_' . $middleware_language} ?? $contents->page_total_en }}: <span class="price total-price">{{ $currency_symbol }}{{ sprintf('%.2f', $total_price) }}</span></h5>
                             </div>
 
+                            <div class="coupon-div">
+                                <input type="text" class="form-control coupon-code" placeholder="{{ $contents->{'page_coupon_code_' . $middleware_language} ?? $contents->page_coupon_code_en }}" name="coupon_code" value="{{ old('coupon_code') }}">
+                                <x-frontend.input-error field="coupon_code"></x-frontend.input-error>
+                            </div>
+
                             <button type="submit" class="btn btn-primary btn-custom btn-responsive">{{ $contents->{'page_button_' . $middleware_language} ?? $contents->page_button_en }}</button>
                         </div>
 

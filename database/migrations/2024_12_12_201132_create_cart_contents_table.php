@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('page_shipping_fee_en')->nullable();
             $table->text('page_gift_amount_en')->nullable();
             $table->text('page_total_en')->nullable();
+            $table->text('page_coupon_code_en')->nullable();
             $table->text('page_button_en')->nullable();
             $table->text('page_we_accept_en')->nullable();
 
@@ -33,6 +34,7 @@ return new class extends Migration
             $table->text('page_shipping_fee_zh')->nullable();
             $table->text('page_gift_amount_zh')->nullable();
             $table->text('page_total_zh')->nullable();
+            $table->text('page_coupon_code_zh')->nullable();
             $table->text('page_button_zh')->nullable();
             $table->text('page_we_accept_zh')->nullable();
 
@@ -44,6 +46,7 @@ return new class extends Migration
             $table->text('page_shipping_fee_ja')->nullable();
             $table->text('page_gift_amount_ja')->nullable();
             $table->text('page_total_ja')->nullable();
+            $table->text('page_coupon_code_ja')->nullable();
             $table->text('page_button_ja')->nullable();
             $table->text('page_we_accept_ja')->nullable();
 

@@ -13,6 +13,8 @@ use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\ProductPurchaseMail;
+use App\Models\Coupon;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -42,6 +44,39 @@ class ProductController extends Controller
 
     public function checkout(Request $request)
     {
+        $coupon_amount = 0;
+        $valid_coupon_code = null;
+        if($request->coupon_code) {
+            $coupon_code = $request->coupon_code;
+            $coupon = Coupon::where('code', $coupon_code)->where('language', $request->middleware_language_name)->where('coupon_for', 'Product Purchase')->where('status', '1')->first();
+
+            if(!$coupon) {
+                return back()->withInput()->withErrors([
+                    'coupon_code' => 'Invalid coupon code',
+                ]);
+            }
+
+            if($coupon->coupon_validity === 'Fix Time') {
+                $now = Carbon::now();
+                $expiry = Carbon::parse("{$coupon->expiry_date} {$coupon->expiry_time}");
+
+                if($expiry->lte($now)) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'Coupon code is expired',
+                    ]);
+                }
+            }
+
+            if($coupon->coupon_type == 'Percentage') {
+                $coupon_amount = ($coupon->value / 100);
+            }
+            else {
+                $coupon_amount = $coupon->value;
+            }
+
+            $valid_coupon_code = $request->coupon_code;
+        }
+
         $user = Auth::user();
         $wallet = Wallet::where('user_id', $user->id)->where('status', '1')->first();
         $wallet_balance = $wallet ? $wallet->balance : '0.00';
@@ -62,6 +97,7 @@ class ProductController extends Controller
         $product_order = new ProductOrder();
         $product_order->user_id = Auth::user()->id;
         $product_order->currency = $currency;
+        $product_order->discount_applied = $valid_coupon_code;
         $product_order->status = '1';
         $product_order->save();
 
@@ -83,6 +119,13 @@ class ProductController extends Controller
             $total_order_amount += $product_order_detail->total_cost;
         }
 
+        if($coupon_amount != 0) {
+            if($coupon->coupon_type == 'Percentage') {
+                $coupon_amount = $coupon_amount * $total_order_amount;
+            }
+        }
+
+        $total_order_amount = $total_order_amount - $coupon_amount;
         if($total_order_amount >= $wallet_balance) {
             $amount = $total_order_amount - $wallet_balance;
         }

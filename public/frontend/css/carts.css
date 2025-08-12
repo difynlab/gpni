@@ -173,6 +173,20 @@ body {
     margin-right: 10px
 }
 
+.coupon-div {
+    margin-bottom: 20px;
+}
+.coupon-code {
+    border-radius: 0;
+    background: rgba(120, 164, 254, 0.06);
+    font-size: 16px;
+    padding: 15px;
+}
+.coupon-code:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
 @media (max-width: 1024px) {
     .section-header, .product-title {
         font-size: 22px;
@@ -184,6 +198,10 @@ body {
 @media (max-width: 768px) {
     .card, .item-box {
         width: 100%;
+    }
+
+    .coupon-code {
+        font-size: 15px;
     }
     
     .product-card {

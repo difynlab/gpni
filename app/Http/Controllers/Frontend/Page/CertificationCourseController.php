@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\CoursePurchaseMail;
 use App\Mail\ReferFriendCoursePurchaseMail;
+use App\Models\Coupon;
 use App\Models\ReferFriend;
 use App\Models\ReferPointActivity;
 use App\Models\Setting;
@@ -102,6 +103,72 @@ class CertificationCourseController extends Controller
 
     public function checkout(Request $request)
     {
+        $user = Auth::user();
+
+        $coupon_amount = 0;
+        $valid_coupon_code = null;
+        if($request->coupon_code) {
+            $coupon_code = $request->coupon_code;
+            $coupon = Coupon::where('code', $coupon_code)->where('language', $request->middleware_language_name)->where('status', '1')->first();
+
+            if(!$coupon) {
+                return back()->withInput()->withErrors([
+                    'coupon_code' => 'Invalid coupon code',
+                ]);
+            }
+
+            if($coupon->coupon_for != 'Course Purchase' && $coupon->coupon_for != 'Already Purchased Course') {
+                return back()->withInput()->withErrors([
+                    'coupon_code' => 'Invalid coupon code',
+                ]);
+            }
+
+            if($coupon->coupon_for == 'Already Purchased Course') {
+                if($coupon->new_course_id != $request->course_id) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'This coupon is not valid for this course',
+                    ]);
+                }
+
+                $check_course_purchase = CoursePurchase::where('user_id', $user->id)->where('course_id', $coupon->old_course_id)->where('payment_status', 'Completed')->where('status', '1')->exists();
+
+                if(!$check_course_purchase) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'You have to purchase the prerequisite course',
+                    ]);
+                }
+            }
+
+            // if($coupon->language != $request->middleware_language_name) {
+            //     return back()->withErrors([
+            //         'coupon_code' => 'Coupon code is not valid for selected language',
+            //     ]);
+            // }
+
+            if($coupon->coupon_validity === 'Fix Time') {
+                $now = Carbon::now();
+                $expiry = Carbon::parse("{$coupon->expiry_date} {$coupon->expiry_time}");
+
+                if($expiry->lte($now)) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'Coupon code is expired',
+                    ]);
+                }
+            }
+
+            if($coupon->coupon_type == 'Percentage') {
+                $coupon_amount = ($coupon->value / 100) * $request->price;
+            }
+            else {
+                $coupon_amount = $coupon->value;
+            }
+
+            $valid_coupon_code = $request->coupon_code;
+        }
+
+        $wallet = Wallet::where('user_id', $user->id)->where('status', '1')->first();
+        $wallet_balance = $wallet ? $wallet->balance : '0.00';
+
         if($request->middleware_language == 'en') {
             $currency = 'usd';
         }
@@ -113,20 +180,28 @@ class CertificationCourseController extends Controller
         }
 
         $course_order = new CoursePurchase();
-        $course_order->user_id = Auth::user()->id;
+        $course_order->user_id = $user->id;
         $course_order->course_id = $request->course_id;
+        $course_order->discount_applied = $valid_coupon_code;
         $course_order->currency = $currency;
         $course_order->status = '1';
         $course_order->save();
 
         $course = Course::find($request->course_id);
 
+        $total_order_amount = $request->price - $coupon_amount;
+        if($total_order_amount >= $wallet_balance) {
+            $amount = $total_order_amount - $wallet_balance;
+        }
+        else {
+            $amount = '0.00';
+        }
+
+        $total_order_amount_in_cents = $currency === 'jpy' ? (int)$amount : (int)($amount * 100);
+
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
         if($request->payment_mode == 'payment') {
-
-            $total_order_amount_in_cents = $currency === 'jpy' ? str_replace(',', '', $request->price) : (int)($request->price * 100);
-
             $session = \Stripe\Checkout\Session::create([
                 'line_items' => [
                     [

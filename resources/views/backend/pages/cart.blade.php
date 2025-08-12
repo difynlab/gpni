@@ -56,7 +56,12 @@
                         <input type="text" class="form-control" id="page_total_{{ $short_code }}" name="page_total_{{ $short_code }}" value="{{ $contents->{'page_total_' . $short_code} ?? '' }}" placeholder="Total">
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 mb-4">
+                        <label for="page_coupon_code_{{ $short_code }}" class="form-label">Coupon Code</label>
+                        <input type="text" class="form-control" id="page_coupon_code_{{ $short_code }}" name="page_coupon_code_{{ $short_code }}" value="{{ $contents->{'page_coupon_code_' . $short_code} ?? '' }}" placeholder="Coupon Code">
+                    </div>
+
+                    <div class="col-6 mb-4">
                         <label for="page_button_{{ $short_code }}" class="form-label">Button</label>
                         <input type="text" class="form-control" id="page_button_{{ $short_code }}" name="page_button_{{ $short_code }}" value="{{ $contents->{'page_button_' . $short_code} ?? '' }}" placeholder="Button">
                     </div>

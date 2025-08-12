@@ -58,6 +58,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="col-md-4">
                     <div class="order-details">
                         <h1 class="pb-4">{{ $contents->{'payment_page_order_details_' . $middleware_language} ?? $contents->payment_page_order_details_en }}</h1>
@@ -124,6 +125,11 @@
                                     <input type="hidden" name="price_id" value="{{ $course->instalment_price_id }}">
                                     <input type="hidden" id="material-logistic" name="material_logistic" value="No">
                                     <input type="hidden" id="payment-mode" name="payment_mode" value="payment">
+
+                                    <div class="coupon-div">
+                                        <input type="text" class="form-control coupon-code" placeholder="{{ $contents->{'payment_page_coupon_code_' . $middleware_language} ?? $contents->payment_page_coupon_code_en }}" name="coupon_code" value="{{ old('coupon_code') }}">
+                                        <x-frontend.input-error field="coupon_code"></x-frontend.input-error>
+                                    </div>
 
                                     <button type="submit" class="btn pay-now">{{ $contents->{'payment_page_pay_' . $middleware_language} ?? $contents->payment_page_pay_en }}</button>
                                 </form>
@@ -201,6 +207,7 @@
                     $('#total-amount span').text(totalPrice);
 
                     $('.wallet-amount-div').toggleClass('d-none');
+                    $('.coupon-div').toggleClass('d-none');
                 }
                 else {
                     $('.additional-option').toggleClass('d-none');
@@ -215,6 +222,8 @@
                     $('#total-amount span').text(totalPrice);
 
                     $('.wallet-amount-div').toggleClass('d-none');
+                    $('.coupon-div').toggleClass('d-none');
+                    $('.coupon-div').find('input').val('');
                 }
             });
         });

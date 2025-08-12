@@ -58,7 +58,7 @@ use App\Http\Controllers\Backend\Policy\PolicyCategoryController;
 use App\Http\Controllers\Backend\Policy\PolicyController;
 use App\Http\Controllers\Backend\Product\ProductCategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
-use App\Http\Controllers\Backend\Promotion\PromotionController;
+use App\Http\Controllers\Backend\Coupon\CouponController;
 use App\Http\Controllers\Backend\Purchase\CoursePurchaseController;
 use App\Http\Controllers\Backend\Purchase\FinalExamPurchaseController;
 use App\Http\Controllers\Backend\Purchase\GiftCardPurchaseController;
@@ -87,7 +87,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // All page related routes
         Route::get('pages', [PageController::class, 'index'])->name('pages.index');
         Route::prefix('pages')->name('pages.')->group(function() {
-
             Route::get('homepage/{language}', [HomepageController::class, 'index'])->name('homepage.index');
             Route::post('homepage/{language}', [HomepageController::class, 'update'])->name('homepage.update');
 
@@ -208,9 +207,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::post('final-exam-questions/{course}/update/{course_final_exam_question}', [CourseFinalExamQuestionController::class, 'update'])->name('final-exam-questions.update');
             Route::delete('final-exam-questions/{course}/destroy/{course_final_exam_question}', [CourseFinalExamQuestionController::class, 'destroy'])->name('final-exam-questions.destroy');
         });
-
-        Route::resource('promotions', PromotionController::class)->except('show');
     // All course related routes
+
+
+    // Coupons routes
+        Route::resource('coupons', CouponController::class)->except('show');
+        Route::get('coupons/filter', [CouponController::class, 'filter'])->name('coupons.filter');
+    // Coupons routes
 
 
     // All article related routes

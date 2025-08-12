@@ -95,6 +95,13 @@
                             <span>Webinars</span>
                         </a>
                     </li>
+
+                    <li class="sub-menu-link">
+                        <a href="{{ route('backend.coupons.index') }}">
+                            <img src="{{ asset('storage/backend/sidebar/coupon.png') }}" alt="Icon">
+                            <span>Coupons</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 

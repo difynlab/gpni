@@ -49,6 +49,7 @@ return new class extends Migration
             $table->text('payment_page_wallet_amount_en')->nullable();
             $table->text('payment_page_total_en')->nullable();
             $table->text('payment_page_already_purchased_en')->nullable();
+            $table->text('payment_page_coupon_code_en')->nullable();
             $table->text('payment_page_pay_en')->nullable();
             $table->text('payment_page_login_for_pay_en')->nullable();
 
@@ -87,6 +88,7 @@ return new class extends Migration
             $table->text('payment_page_wallet_amount_zh')->nullable();
             $table->text('payment_page_total_zh')->nullable();
             $table->text('payment_page_already_purchased_zh')->nullable();
+            $table->text('payment_page_coupon_code_zh')->nullable();
             $table->text('payment_page_pay_zh')->nullable();
             $table->text('payment_page_login_for_pay_zh')->nullable();
 
@@ -125,6 +127,7 @@ return new class extends Migration
             $table->text('payment_page_wallet_amount_ja')->nullable();
             $table->text('payment_page_total_ja')->nullable();
             $table->text('payment_page_already_purchased_ja')->nullable();
+            $table->text('payment_page_coupon_code_ja')->nullable();
             $table->text('payment_page_pay_ja')->nullable();
             $table->text('payment_page_login_for_pay_ja')->nullable();
 

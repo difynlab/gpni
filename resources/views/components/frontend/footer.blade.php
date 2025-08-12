@@ -205,7 +205,6 @@
                 <div class="d-flex flex-column">
                     <h5 class="mb-3">{{ $contents->{'footer_other_' . $middleware_language} ?? $contents->footer_other_en }}</h5>
                     <ul class="list-unstyled">
-                        <!-- <li><a href="#">Promotion</a></li> -->
                         <li>
                             @php
                                 $thirteenth = App\Models\GiftCardContent::find(1);
