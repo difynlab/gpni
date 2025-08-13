@@ -20,7 +20,7 @@
             <div class="description sub-heading">{{ $contents->{'description_' . $middleware_language} ?? $contents->description_en }}</div>
 
             <div class="form-container">
-                <form action="{{ route('frontend.contact-us.store') }}" method="POST">
+                <form action="{{ route('frontend.contact-us.store') }}" method="POST" id="myForm">
                     @csrf
                     <div class="form-row fs-20">
                         <div class="form-group col-md-6">
@@ -63,7 +63,11 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-submit">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
+                    <div style="display:none;">
+                        <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onHcaptchaSuccess"></div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary btn-submit" id="submitBtn">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
                 </form>
             </div>
 
@@ -91,3 +95,25 @@
     @endif
 
 @endsection
+
+@push('after-scripts')
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.getElementById('myForm');
+
+        submitBtn.addEventListener('click', function () {
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+
+            hcaptcha.execute();
+        });
+
+        function onHcaptchaSuccess(token) {
+            form.submit();
+        }
+    </script>
+@endpush

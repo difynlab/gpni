@@ -663,6 +663,9 @@ body {
     border: 1px solid #ECECEC;
     border-radius: 4px;
 }
+.newsletter input[type="email"]:focus {
+    box-shadow: none!important;
+}
 
 .newsletter button {
     background-color: #0040c3;

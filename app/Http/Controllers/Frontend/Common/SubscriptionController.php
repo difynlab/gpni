@@ -6,12 +6,31 @@ use App\Http\Controllers\Controller;
 use App\Mail\SubscriptionMail;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class SubscriptionController extends Controller
 {
     public function store(Request $request)
     {
+        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [
+            'secret' => config('services.hcaptcha.secret'),
+            'response' => $request->input('h-captcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        if(!optional($response->json())['success']) {
+            Log::warning('hCaptcha verification failed', [
+                'ip'       => $request->ip(),
+                'activity' => 'login',
+                'response' => $response->json(),
+                'user_agent' => $request->userAgent(),
+            ]);
+            
+            return redirect()->back()->withInput()->with('error', 'Captcha verification failed!');;
+        }
+        
         $validator = Validator::make($request->all(), [
             'email' => [
                 'required',

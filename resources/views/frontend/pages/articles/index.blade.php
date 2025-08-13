@@ -228,10 +228,14 @@
                             {{ $contents->{'section_1_newsletter_description_' . $middleware_language} ??
                             $contents->section_1_newsletter_description_en }}</div>
 
-                        <form class="subscribe-form-article" action="{{ route('frontend.subscription') }}" method="POST">
+                        <form id="myForm" class="subscribe-form-article" action="{{ route('frontend.subscription') }}" method="POST">
                             @csrf
                             <input type="email" class="fs-16 ps-3 " name="email" placeholder="{{ $contents->{'section_1_newsletter_placeholder_' . $middleware_language} ?? $contents->section_1_newsletter_placeholder_en }}" required>
-                            <button type="submit" class="m-2">{{ $contents->{'section_1_newsletter_button_' . $middleware_language} ?? $contents->section_1_newsletter_button_en }}</button>
+                            <button type="button" class="m-2" id="submitBtn">{{ $contents->{'section_1_newsletter_button_' . $middleware_language} ?? $contents->section_1_newsletter_button_en }}</button>
+
+                            <div style="display:none;">
+                                <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onHcaptchaSuccess"></div>
+                            </div>
                         </form>
 
                         <x-frontend.input-error field="email"></x-frontend.input-error>
@@ -291,6 +295,26 @@
                 const twitterUrl = `https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}`;
                 window.open(twitterUrl, '_blank');
             }
+        }
+    </script>
+
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.getElementById('myForm');
+
+        submitBtn.addEventListener('click', function () {
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+
+            hcaptcha.execute();
+        });
+
+        function onHcaptchaSuccess(token) {
+            form.submit();
         }
     </script>
 @endpush

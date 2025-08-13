@@ -344,16 +344,20 @@
                 <div class="newsletter mt-4">
                     <div class="mb-3 fs-20" style="color: #000;">{{ $contents->{'section_11_message_' . $middleware_language} ?? $contents->section_11_message_en }}</div>
                     
-                    <form action="{{ route('frontend.subscription') }}" method="POST">
+                    <form action="{{ route('frontend.subscription') }}" method="POST" id="myForm">
                         @csrf
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <div class="d-flex flex-md-row justify-content-center align-items-center">
                                         <input type="email" class="form-control" name="email" placeholder="{{ $contents->{'section_11_placeholder_' . $middleware_language} ?? $contents->section_11_placeholder_en }}" required>
-                                        <button class="btn btn-primary ml-md-2">{{ $contents->{'section_11_button_' . $middleware_language} ?? $contents->section_11_button_en }}</button>
+                                        <button type="button" class="btn btn-primary ml-md-2" id="submitBtn">{{ $contents->{'section_11_button_' . $middleware_language} ?? $contents->section_11_button_en }}</button>
                                     </div>
                                     <x-frontend.input-error field="email"></x-frontend.input-error>
+
+                                    <div style="display:none;">
+                                        <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onHcaptchaSuccess"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -364,3 +368,25 @@
     @endif
 
 @endsection
+
+@push('after-scripts')
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.getElementById('myForm');
+
+        submitBtn.addEventListener('click', function () {
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+
+            hcaptcha.execute();
+        });
+
+        function onHcaptchaSuccess(token) {
+            form.submit();
+        }
+    </script>
+@endpush
