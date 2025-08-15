@@ -12,7 +12,7 @@
 
 @section('content')
 
-    <div class="container custom-container my-lg-5 mb-4 my-0">
+    <div class="container custom-container mb-4 my-0">
         <div class="row flex-grow-1 d-flex align-items-center">
 
             <x-frontend.auth></x-frontend.auth>
@@ -25,37 +25,27 @@
 
                     <div class="subheading fs-16">{{ $contents->{'login_page_sub_title_' . $middleware_language} ?? $contents->login_page_sub_title_en }}</div>
 
-                    <!-- <div class="social-login-buttons d-flex justify-content-center">
-                        <a href="#" class="btn-social">
-                            <img src="/storage/frontend/devicon-google.svg" alt="Google">
-                            Login with Google
+                    <div class="social-login-buttons">
+                        <a href="{{ route('frontend.login.google') }}" class="btn-social">
+                            <i class="bi bi-google"></i>
+                            {{ $contents->{'login_page_google_' . $middleware_language} ?? $contents->login_page_google_en }}
                         </a>
-                        <a href="#" class="btn-social">
-                            <img src="/storage/frontend/ic-baseline-apple.svg" alt="Apple">
-                            Login with Apple
-                        </a>
-                        <a href="#" class="btn-social">
-                            <img src="/storage/frontend/basil-facebook-outline-6.svg" alt="Facebook">
-                            Login with Facebook
-                        </a>
+                        <!-- <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
+                            <i class="bi bi-facebook"></i>
+                            {{ $contents->{'login_page_facebook_' . $middleware_language} ?? $contents->login_page_facebook_en }}
+                        </a> -->
                     </div>
-
-                    <div class="or-separator">
-                        <div class="line"></div>
-                        <div class="or-text">Or</div>
-                        <div class="line"></div>
-                    </div> -->
 
                     <form method="POST" action="{{ route('frontend.login.store') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="username" class="fs-16" style="font-size:16px; font-weight:500;">{{ $contents->{'login_page_username_' . $middleware_language} ?? $contents->login_page_username_en }}</label>
+                            <label for="username" class="fs-16 mb-1" style="font-size:16px; font-weight:500;">{{ $contents->{'login_page_username_' . $middleware_language} ?? $contents->login_page_username_en }}</label>
                             <input type="email" class="form-control fs-13" id="username" name="email" required>
                             <x-frontend.input-error field="login_failed"></x-frontend.input-error>
                         </div>
 
                         <div class="form-group position-relative">
-                            <label for="password" class="fs-16" style="font-size:16px; font-weight:500;">{{ $contents->{'login_page_password_' . $middleware_language} ?? $contents->login_page_password_en }}</label>
+                            <label for="password" class="fs-16 mb-1" style="font-size:16px; font-weight:500;">{{ $contents->{'login_page_password_' . $middleware_language} ?? $contents->login_page_password_en }}</label>
                             <input type="password" class="form-control pr-5 fs-13" id="password" name="password" required>
                             <span class="bi bi-eye-slash-fill toggle-password"></span>
                             <x-frontend.input-error field="login_failed"></x-frontend.input-error>

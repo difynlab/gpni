@@ -34,69 +34,39 @@
 .social-login-buttons {
     display: flex;
     justify-content: space-between;
-    width: 560px;
+    width: 100%;
     gap: 10px;
+    margin-bottom: 30px;
 }
-
-.social-login-buttons {
-    width: 100%;
-}
-
-.btn-social {
-    margin: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-social {
+.social-login-buttons .btn-social {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 41px;
+    height: 50px;
     border-radius: 5px;
     border: 1px solid #d1d1d1;
     background-color: #ffffff;
     text-decoration: none;
     color: #282828;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
 }
-
-.btn-social:hover {
+.social-login-buttons .btn-social:hover {
     background-color: #f1f1f1;
 }
 
-.btn-social img {
+.social-login-buttons .btn-social i {
     margin-right: 10px;
+    font-size: 22px;
 }
 
 .form-input {
     margin-bottom: 20px;
 }
 
-.or-separator {
-    display: flex;
-    align-items: center;
-    margin: 50px 0;
-}
-
-.or-separator .line {
-    flex-grow: 1;
-    height: 0.5px;
-    background-color: #D2D2D2;
-}
-
-.or-separator .or-text {
-    margin: 0 10px;
-    color: #d2d2d2;
-    font-size: 13px;
-    font-weight: 400;
-}
-
 .form-group .form-control {
-    border-radius: 10px;
+    border-radius: 5px;
     height: 46px;
     border: 1px solid #d2d2d2;
     background-color: #ffffff !important; 
@@ -154,7 +124,7 @@
     color: #9A9A9A;
     cursor: pointer;
     position: absolute;
-    top: 32px;
+    top: 35px;
     font-size: 20px;
     right: 15px;
 }
@@ -166,7 +136,7 @@
     background-color: #0040C3 !important; /* Ensure the background color is applied */
     border: 1.345px solid #0040C3 !important; /* Changed from #FFF to #0040C3 */
     border-radius: 10px; /* Rounded corners */
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     text-align: center;
     cursor: pointer;
@@ -234,7 +204,6 @@
 
     .social-login-buttons {
         flex-direction: column;
-        gap: 10px;
     }
 
     .form-container h1 {

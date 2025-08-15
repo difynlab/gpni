@@ -39,6 +39,36 @@ body {
     color: #282828;
 }
 
+.social-login-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.social-login-buttons .btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
+    background-color: #ffffff;
+    text-decoration: none;
+    color: #282828;
+    font-size: 15px;
+    font-weight: 500;
+}
+.social-login-buttons .btn-social:hover {
+    background-color: #f1f1f1;
+}
+
+.social-login-buttons .btn-social i {
+    margin-right: 10px;
+    font-size: 22px;
+}
+
 .form-check-label {
     color: #505050;
 }
@@ -149,7 +179,6 @@ body {
 
     .social-login-buttons {
         flex-direction: column;
-        gap: 10px;
     }
 
     .form-container h1 {

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Frontend\Auth\AuthenticationController;
 use App\Http\Controllers\Frontend\Auth\ChangePasswordController;
+use App\Http\Controllers\Frontend\Auth\FacebookController;
 use App\Http\Controllers\Frontend\Auth\ForgotPasswordController;
+use App\Http\Controllers\Frontend\Auth\GoogleController;
 use App\Http\Controllers\Frontend\Auth\ResetPasswordController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +28,14 @@ Route::middleware(['set_language'])->group(function () {
     Route::middleware('auth', 'role:student')->group(function () {
         Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
     });
+});
+
+Route::prefix('login/facebook')->name('login.')->group(function() {
+    Route::get('/', [FacebookController::class, 'redirectToFacebook'])->name('facebook');
+    Route::get('callback', [FacebookController::class, 'handleFacebookCallback']);
+});
+
+Route::prefix('login/google')->name('login.')->group(function() {
+    Route::get('/', [GoogleController::class, 'redirectToGoogle'])->name('google');
+    Route::get('callback', [GoogleController::class, 'handleGoogleCallback']);
 });

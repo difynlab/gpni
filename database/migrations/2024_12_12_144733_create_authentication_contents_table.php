@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('authentication_contents', function (Blueprint $table) {
             $table->id();
 
+            $table->text('login_page_google_en')->nullable();
+            $table->text('login_page_facebook_en')->nullable();
             $table->text('login_page_name_en')->nullable();
             $table->text('login_page_title_en')->nullable();
             $table->text('login_page_sub_title_en')->nullable();
@@ -24,6 +26,8 @@ return new class extends Migration
             $table->text('login_page_button_en')->nullable();
             $table->text('login_page_no_account_en')->nullable();
             $table->text('login_page_register_en')->nullable();
+            $table->text('register_page_google_en')->nullable();
+            $table->text('register_page_facebook_en')->nullable();
             $table->text('register_page_name_en')->nullable();
             $table->text('register_page_title_en')->nullable();
             $table->text('register_page_sub_title_en')->nullable();
@@ -54,6 +58,8 @@ return new class extends Migration
             $table->text('reset_page_button_en')->nullable();
 
 
+            $table->text('login_page_google_zh')->nullable();
+            $table->text('login_page_facebook_zh')->nullable();
             $table->text('login_page_name_zh')->nullable();
             $table->text('login_page_title_zh')->nullable();
             $table->text('login_page_sub_title_zh')->nullable();
@@ -64,6 +70,8 @@ return new class extends Migration
             $table->text('login_page_button_zh')->nullable();
             $table->text('login_page_no_account_zh')->nullable();
             $table->text('login_page_register_zh')->nullable();
+            $table->text('register_page_google_zh')->nullable();
+            $table->text('register_page_facebook_zh')->nullable();
             $table->text('register_page_name_zh')->nullable();
             $table->text('register_page_title_zh')->nullable();
             $table->text('register_page_sub_title_zh')->nullable();
@@ -94,6 +102,8 @@ return new class extends Migration
             $table->text('reset_page_button_zh')->nullable();
 
 
+            $table->text('login_page_google_ja')->nullable();
+            $table->text('login_page_facebook_ja')->nullable();
             $table->text('login_page_name_ja')->nullable();
             $table->text('login_page_title_ja')->nullable();
             $table->text('login_page_sub_title_ja')->nullable();
@@ -104,6 +114,8 @@ return new class extends Migration
             $table->text('login_page_button_ja')->nullable();
             $table->text('login_page_no_account_ja')->nullable();
             $table->text('login_page_register_ja')->nullable();
+            $table->text('register_page_google_ja')->nullable();
+            $table->text('register_page_facebook_ja')->nullable();
             $table->text('register_page_name_ja')->nullable();
             $table->text('register_page_title_ja')->nullable();
             $table->text('register_page_sub_title_ja')->nullable();

@@ -43,6 +43,16 @@
 
                 <div class="row form-input">
                     <div class="col-4 mb-3">
+                        <label for="login_page_google_{{ $short_code }}" class="form-label">Google</label>
+                        <input type="text" class="form-control" id="login_page_google_{{ $short_code }}" name="login_page_google_{{ $short_code }}" value="{{ $contents->{'login_page_google_' . $short_code} ?? '' }}" placeholder="Google">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="login_page_facebook_{{ $short_code }}" class="form-label">Facebook</label>
+                        <input type="text" class="form-control" id="login_page_facebook_{{ $short_code }}" name="login_page_facebook_{{ $short_code }}" value="{{ $contents->{'login_page_facebook_' . $short_code} ?? '' }}" placeholder="Facebook">
+                    </div>
+
+                    <div class="col-4 mb-3">
                         <label for="login_page_title_{{ $short_code }}" class="form-label">Title</label>
                         <input type="text" class="form-control" id="login_page_title_{{ $short_code }}" name="login_page_title_{{ $short_code }}" value="{{ $contents->{'login_page_title_' . $short_code} ?? '' }}" placeholder="Title">
                     </div>
@@ -72,7 +82,7 @@
                         <input type="text" class="form-control" id="login_page_forgot_password_{{ $short_code }}" name="login_page_forgot_password_{{ $short_code }}" value="{{ $contents->{'login_page_forgot_password_' . $short_code} ?? '' }}" placeholder="Forgot Password">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-3">
                         <label for="login_page_button_{{ $short_code }}" class="form-label">Button</label>
                         <input type="text" class="form-control" id="login_page_button_{{ $short_code }}" name="login_page_button_{{ $short_code }}" value="{{ $contents->{'login_page_button_' . $short_code} ?? '' }}" placeholder="Button">
                     </div>
@@ -93,6 +103,16 @@
                 <p class="inner-page-title">Register</p>
 
                 <div class="row form-input">
+                    <div class="col-4 mb-3">
+                        <label for="register_page_google_{{ $short_code }}" class="form-label">Google</label>
+                        <input type="text" class="form-control" id="register_page_google_{{ $short_code }}" name="register_page_google_{{ $short_code }}" value="{{ $contents->{'register_page_google_' . $short_code} ?? '' }}" placeholder="Google">
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="register_page_facebook_{{ $short_code }}" class="form-label">Facebook</label>
+                        <input type="text" class="form-control" id="register_page_facebook_{{ $short_code }}" name="register_page_facebook_{{ $short_code }}" value="{{ $contents->{'register_page_facebook_' . $short_code} ?? '' }}" placeholder="Facebook">
+                    </div>
+
                     <div class="col-4 mb-3">
                         <label for="register_page_title_{{ $short_code }}" class="form-label">Title</label>
                         <input type="text" class="form-control" id="register_page_title_{{ $short_code }}" name="register_page_title_{{ $short_code }}" value="{{ $contents->{'register_page_title_' . $short_code} ?? '' }}" placeholder="Title">

@@ -27,6 +27,8 @@ return new class extends Migration
             $table->enum('member', ['Yes', 'No'])->default('No');
             $table->enum('member_type', ['Lifetime', 'Annual'])->nullable();
             $table->date('member_annual_expiry_date')->nullable();
+            $table->string('facebook_id')->nullable();
+            $table->string('google_id')->nullable();
             $table->enum('status', [0, 1, 2])->index();
 
             $table->string('business_name')->nullable();
