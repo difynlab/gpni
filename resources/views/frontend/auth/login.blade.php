@@ -25,16 +25,16 @@
 
                     <div class="subheading fs-16">{{ $contents->{'login_page_sub_title_' . $middleware_language} ?? $contents->login_page_sub_title_en }}</div>
 
-                    <div class="social-login-buttons">
+                    <!-- <div class="social-login-buttons">
                         <a href="{{ route('frontend.login.google') }}" class="btn-social">
                             <i class="bi bi-google"></i>
                             {{ $contents->{'login_page_google_' . $middleware_language} ?? $contents->login_page_google_en }}
                         </a>
-                        <!-- <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
+                        <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
                             <i class="bi bi-facebook"></i>
                             {{ $contents->{'login_page_facebook_' . $middleware_language} ?? $contents->login_page_facebook_en }}
-                        </a> -->
-                    </div>
+                        </a>
+                    </div> -->
 
                     <form method="POST" action="{{ route('frontend.login.store') }}">
                         @csrf

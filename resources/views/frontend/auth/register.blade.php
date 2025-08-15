@@ -26,16 +26,16 @@
                         <a href="{{ route('frontend.login') }}" class="text-primary">{{ $contents->{'register_page_login_' . $middleware_language} ?? $contents->register_page_login_en }}</a>
                     </p>
 
-                    <div class="social-login-buttons">
+                    <!-- <div class="social-login-buttons">
                         <a href="{{ route('frontend.login.google') }}" class="btn-social">
                             <i class="bi bi-google"></i>
                             Login with Google
                         </a>
-                        <!-- <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
+                        <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
                             <i class="bi bi-facebook"></i>
                             Login with Facebook
-                        </a> -->
-                    </div>
+                        </a>
+                    </div> -->
 
                     <form method="POST" action="{{ route('frontend.register.store') }}">
                         @csrf
