@@ -293,7 +293,7 @@
                                     </form>
                                 @endif
                             @else
-                                <a href="{{ route('frontend.master-classes.enroll', $course->id) }}" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
+                                <a href="{{ route('frontend.login', ['redirect' => route('frontend.certification-courses.purchase', $course)]) }}" class="btn btn-light mt-3 mt-md-4 fs-20 py-2 px-3 px-md-4">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
                             @endif
                         </div>
                     </div>

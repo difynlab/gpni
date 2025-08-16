@@ -84,7 +84,7 @@
                         </div>
                     @endif
                 @else
-                    <a href="{{ route('frontend.gpni-tv.enroll', $course->id) }}" class="btn btn-primary btn-block w-100" style="font-size: 20px; font-weight: 500; line-height: 30px;">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
+                    <a href="{{ route('frontend.login', ['redirect' => route('frontend.certification-courses.purchase', $course)]) }}" class="btn btn-primary btn-block w-100" style="font-size: 20px; font-weight: 500; line-height: 30px;">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
                 @endif
             </div>
         </div>
