@@ -31,10 +31,10 @@
                             <i class="bi bi-google"></i>
                             Login with Google
                         </a>
-                        <!-- <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
+                        <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
                             <i class="bi bi-facebook"></i>
                             Login with Facebook
-                        </a> -->
+                        </a>
                     </div>
 
                     <form method="POST" action="{{ route('frontend.register.store') }}">

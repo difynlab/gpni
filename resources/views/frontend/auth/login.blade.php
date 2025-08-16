@@ -30,10 +30,10 @@
                             <i class="bi bi-google"></i>
                             {{ $contents->{'login_page_google_' . $middleware_language} ?? $contents->login_page_google_en }}
                         </a>
-                        <!-- <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
+                        <a href="{{ route('frontend.login.facebook') }}" class="btn-social">
                             <i class="bi bi-facebook"></i>
                             {{ $contents->{'login_page_facebook_' . $middleware_language} ?? $contents->login_page_facebook_en }}
-                        </a> -->
+                        </a>
                     </div>
 
                     <form method="POST" action="{{ route('frontend.login.store') }}">

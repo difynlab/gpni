@@ -46,7 +46,8 @@ class FacebookController extends Controller
             }
         }
         catch(\Exception $e) {
-            Log::error("Failed to create account: " . $e->getMessage());
+            report($e);
+            Log::error("Failed to create account");
         }
     }
 }
