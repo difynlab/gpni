@@ -19,17 +19,17 @@ return new class extends Migration
             $table->text('section_3_already_purchased_en')->nullable()->after('section_3_description_en');
             // $table->text('section_3_membership_disabled_en')->nullable()->after('section_3_already_purchased_en');
             $table->text('section_3_change_language_en')->nullable()->after('section_3_already_purchased_en');
-            $table->text('section_3_login_for_purchase_en')->nullable()->after('section_3_change_language_en');
+            // $table->text('section_3_login_for_purchase_en')->nullable()->after('section_3_change_language_en');
 
             $table->text('section_3_already_purchased_zh')->nullable()->after('section_3_description_zh');
             // $table->text('section_3_membership_disabled_zh')->nullable()->after('section_3_already_purchased_zh');
             $table->text('section_3_change_language_zh')->nullable()->after('section_3_already_purchased_zh');
-            $table->text('section_3_login_for_purchase_zh')->nullable()->after('section_3_change_language_zh');
+            // $table->text('section_3_login_for_purchase_zh')->nullable()->after('section_3_change_language_zh');
 
             $table->text('section_3_already_purchased_ja')->nullable()->after('section_3_description_ja');
             // $table->text('section_3_membership_disabled_ja')->nullable()->after('section_3_already_purchased_ja');
             $table->text('section_3_change_language_ja')->nullable()->after('section_3_already_purchased_ja');
-            $table->text('section_3_login_for_purchase_ja')->nullable()->after('section_3_change_language_ja');
+            // $table->text('section_3_login_for_purchase_ja')->nullable()->after('section_3_change_language_ja');
         });
     }
 
@@ -44,15 +44,15 @@ return new class extends Migration
                 'section_3_already_purchased_en',
                 // 'section_3_membership_disabled_en',
                 'section_3_change_language_en',
-                'section_3_login_for_purchase_en',
+                // 'section_3_login_for_purchase_en',
                 'section_3_already_purchased_zh',
                 // 'section_3_membership_disabled_zh',
                 'section_3_change_language_zh',
-                'section_3_login_for_purchase_zh',
+                // 'section_3_login_for_purchase_zh',
                 'section_3_already_purchased_ja',
                 // 'section_3_membership_disabled_ja',
                 'section_3_change_language_ja',
-                'section_3_login_for_purchase_ja',
+                // 'section_3_login_for_purchase_ja',
             ]);
         });
     }

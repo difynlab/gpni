@@ -8,6 +8,8 @@
 
 @section('content')
 
+    <x-frontend.notification-popup></x-frontend.notification-popup>
+
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col">
@@ -93,6 +95,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-7">
                 <div class="line-clamp-3 sub-heading mb-0">{{ $course->short_description }}</div>
 
@@ -100,18 +103,52 @@
                     @if(hasUserPurchasedCourse(auth()->user()->id, $course->id))
                         <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-2">{{ $contents->{'already_purchased_' . $middleware_language} ?? $contents->already_purchased_en }}</button>
                     @else
-                        <form action="{{ route('frontend.master-classes.checkout') }}" id="autoEnrollForm" method="POST">
-                            @csrf
-                            <input type="hidden" name="course_name" value="{{ $course->title }}">
-                            <input type="hidden" name="course_id" value="{{ $course->id }}">
-                            <input type="hidden" name="payment_mode" value="payment">
-                            <input type="hidden" name="price" value="{{ $course->price }}">
+                        <button type="button" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-2" data-bs-toggle="modal" data-bs-target="#purchaseModal">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
 
-                            <button type="submit" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-2">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</button>
-                        </form>
+                        <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content order-details">
+                                    <div class="modal-body">
+                                        <form action="{{ route('frontend.master-classes.checkout') }}" method="POST">
+                                            @csrf
+                                            <h6 class="title">{{ $contents->{'order_details_' . $middleware_language} ?? $contents->order_details_en }}</h6>
+
+                                            <div class="d-flex justify-content-between section-subtitle">
+                                                <div>{{ $contents->{'course_' . $middleware_language} ?? $contents->course_en }}</div>
+                                                <div>{{ $contents->{'amount_' . $middleware_language} ?? $contents->amount_en }}</div>
+                                            </div>
+
+                                            <div class="d-flex justify-content-between section-order">
+                                                <div class="modal-course">{{ $course->title }}</div> 
+                                                <div class="modal-amount">{{ $course->price }}</div>
+                                            </div>
+
+                                            <div class="line"></div>
+
+                                            <div class="d-flex justify-content-between section-total">
+                                                <div>{{ $contents->{'total_' . $middleware_language} ?? $contents->total_en }}</div>
+                                                <div class="modal-amount">{{ $course->price }}</div>
+                                            </div>
+
+                                            <div class="coupon-div">
+                                                <input type="text" class="form-control coupon-code" placeholder="{{ $contents->{'coupon_code_' . $middleware_language} ?? $contents->coupon_code_en }}" name="coupon_code" value="{{ old('coupon_code') }}">
+                                                <x-frontend.input-error field="coupon_code"></x-frontend.input-error>
+                                            </div>
+
+                                            <input type="hidden" name="course_name" value="{{ $course->title }}">
+                                            <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                            <input type="hidden" name="payment_mode" value="payment">
+                                            <input type="hidden" name="price" value="{{ $course->price }}">
+
+                                            <button type="submit" class="btn pay-now">{{ $contents->{'pay_now_' . $middleware_language} ?? $contents->pay_now_en }}</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                 @else
-                    <a href="{{ route('frontend.master-classes.enroll', $course->id) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-3">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
+                    <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn btn-primary btn-block w-100 py-2 py-md-3 fs-20 mt-2 mt-md-3">{{ $contents->{'enroll_now_' . $middleware_language} ?? $contents->enroll_now_en }} {{ $currency_symbol }}{{ $course->price }}</a>
                 @endif
             </div>
         </div>
@@ -423,12 +460,4 @@
             });
         // Testimonial swiper
     </script>
-
-    @if(session('auto_enroll_course_id') == $course->id)
-        <script>
-            $(document).ready(function () {
-                $('#autoEnrollForm').submit();
-            });
-        </script>
-    @endif
 @endpush

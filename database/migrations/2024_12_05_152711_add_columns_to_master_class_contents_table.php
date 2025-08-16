@@ -73,6 +73,12 @@ return new class extends Migration
             $table->text('facebook_en')->nullable();
             $table->text('rated_en')->nullable();
             $table->text('stars_en')->nullable();
+            $table->text('order_details_en')->nullable();
+            $table->text('course_en')->nullable();
+            $table->text('amount_en')->nullable();
+            $table->text('total_en')->nullable();
+            $table->text('coupon_code_en')->nullable();
+            $table->text('pay_now_en')->nullable();
 
             $table->text('course_duration_zh')->nullable();
             $table->text('language_zh')->nullable();
@@ -97,6 +103,12 @@ return new class extends Migration
             $table->text('facebook_zh')->nullable();
             $table->text('rated_zh')->nullable();
             $table->text('stars_zh')->nullable();
+            $table->text('order_details_zh')->nullable();
+            $table->text('course_zh')->nullable();
+            $table->text('amount_zh')->nullable();
+            $table->text('total_zh')->nullable();
+            $table->text('coupon_code_zh')->nullable();
+            $table->text('pay_now_zh')->nullable();
 
             $table->text('course_duration_ja')->nullable();
             $table->text('language_ja')->nullable();
@@ -121,6 +133,12 @@ return new class extends Migration
             $table->text('facebook_ja')->nullable();
             $table->text('rated_ja')->nullable();
             $table->text('stars_ja')->nullable();
+            $table->text('order_details_ja')->nullable();
+            $table->text('course_ja')->nullable();
+            $table->text('amount_ja')->nullable();
+            $table->text('total_ja')->nullable();
+            $table->text('coupon_code_ja')->nullable();
+            $table->text('pay_now_ja')->nullable();
 
             $table->timestamps();
         });
@@ -188,6 +206,12 @@ return new class extends Migration
                 'linkedin_en',
                 'youtube_en',
                 'facebook_en',
+                'order_details_en',
+                'course_en',
+                'amount_en',
+                'total_en',
+                'coupon_code_en',
+                'pay_now_en',
 
                 'course_duration_zh',
                 'language_zh',
@@ -210,6 +234,12 @@ return new class extends Migration
                 'linkedin_zh',
                 'youtube_zh',
                 'facebook_zh',
+                'order_details_zh',
+                'course_zh',
+                'amount_zh',
+                'total_zh',
+                'coupon_code_zh',
+                'pay_now_zh',
 
                 'course_duration_ja',
                 'language_ja',
@@ -232,6 +262,12 @@ return new class extends Migration
                 'linkedin_ja',
                 'youtube_ja',
                 'facebook_ja',
+                'order_details_ja',
+                'course_ja',
+                'amount_ja',
+                'total_ja',
+                'coupon_code_ja',
+                'pay_now_ja',
             ]);
 
             $table->dropTimestamps();

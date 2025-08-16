@@ -21,7 +21,7 @@
             </section>
 
             <form action="{{ route('frontend.master-classes.index') }}" method="GET">
-                <section class="search-section mt-5">
+                <section class="search-section">
                     <input type="text" class="search-field" name="master_class" value="{{ $master_class ?? '' }}" placeholder="{{ $contents->{'section_1_search_' . $middleware_language} ?? $contents->section_1_search_en }}">
                     <img src="{{ asset('storage/frontend/search-icon-gray.svg') }}" class="search-icon" alt="Search Icon">
                 </section>

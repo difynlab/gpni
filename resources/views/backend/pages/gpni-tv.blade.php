@@ -253,56 +253,54 @@
                 <p class="inner-page-title">Section 11</p>
 
                 <div class="row form-input">
-                    <div class="col-12">
-                        <div class="mb-4">
-                            <label for="section_11_title_{{ $short_code }}" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="section_11_title_{{ $short_code }}" name="section_11_title_{{ $short_code }}" value="{{ $contents->{'section_11_title_' . $short_code} ?? '' }}" placeholder="Title">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_title_{{ $short_code }}" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="section_11_title_{{ $short_code }}" name="section_11_title_{{ $short_code }}" value="{{ $contents->{'section_11_title_' . $short_code} ?? '' }}" placeholder="Title">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_sub_title_{{ $short_code }}" class="form-label">Sub Title</label>
-                            <input type="text" class="form-control" id="section_11_sub_title_{{ $short_code }}" name="section_11_sub_title_{{ $short_code }}" value="{{ $contents->{'section_11_sub_title_' . $short_code} ?? '' }}" placeholder="Sub Title">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_sub_title_{{ $short_code }}" class="form-label">Sub Title</label>
+                        <input type="text" class="form-control" id="section_11_sub_title_{{ $short_code }}" name="section_11_sub_title_{{ $short_code }}" value="{{ $contents->{'section_11_sub_title_' . $short_code} ?? '' }}" placeholder="Sub Title">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_instagram_{{ $short_code }}" class="form-label">Instagram</label>
-                            <input type="text" class="form-control" id="section_11_instagram_{{ $short_code }}" name="section_11_instagram_{{ $short_code }}" value="{{ $contents->{'section_11_instagram_' . $short_code} ?? '' }}" placeholder="Instagram">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_instagram_{{ $short_code }}" class="form-label">Instagram</label>
+                        <input type="text" class="form-control" id="section_11_instagram_{{ $short_code }}" name="section_11_instagram_{{ $short_code }}" value="{{ $contents->{'section_11_instagram_' . $short_code} ?? '' }}" placeholder="Instagram">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_twitter_{{ $short_code }}" class="form-label">Twitter</label>
-                            <input type="text" class="form-control" id="section_11_twitter_{{ $short_code }}" name="section_11_twitter_{{ $short_code }}" value="{{ $contents->{'section_11_twitter_' . $short_code} ?? '' }}" placeholder="Twitter">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_twitter_{{ $short_code }}" class="form-label">Twitter</label>
+                        <input type="text" class="form-control" id="section_11_twitter_{{ $short_code }}" name="section_11_twitter_{{ $short_code }}" value="{{ $contents->{'section_11_twitter_' . $short_code} ?? '' }}" placeholder="Twitter">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_linkedin_{{ $short_code }}" class="form-label">Linkedin</label>
-                            <input type="text" class="form-control" id="section_11_linkedin_{{ $short_code }}" name="section_11_linkedin_{{ $short_code }}" value="{{ $contents->{'section_11_linkedin_' . $short_code} ?? '' }}" placeholder="Linkedin">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_linkedin_{{ $short_code }}" class="form-label">Linkedin</label>
+                        <input type="text" class="form-control" id="section_11_linkedin_{{ $short_code }}" name="section_11_linkedin_{{ $short_code }}" value="{{ $contents->{'section_11_linkedin_' . $short_code} ?? '' }}" placeholder="Linkedin">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_youtube_{{ $short_code }}" class="form-label">Youtube</label>
-                            <input type="text" class="form-control" id="section_11_youtube_{{ $short_code }}" name="section_11_youtube_{{ $short_code }}" value="{{ $contents->{'section_11_youtube_' . $short_code} ?? '' }}" placeholder="Youtube">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_youtube_{{ $short_code }}" class="form-label">Youtube</label>
+                        <input type="text" class="form-control" id="section_11_youtube_{{ $short_code }}" name="section_11_youtube_{{ $short_code }}" value="{{ $contents->{'section_11_youtube_' . $short_code} ?? '' }}" placeholder="Youtube">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_facebook_{{ $short_code }}" class="form-label">Facebook</label>
-                            <input type="text" class="form-control" id="section_11_facebook_{{ $short_code }}" name="section_11_facebook_{{ $short_code }}" value="{{ $contents->{'section_11_facebook_' . $short_code} ?? '' }}" placeholder="Facebook">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_facebook_{{ $short_code }}" class="form-label">Facebook</label>
+                        <input type="text" class="form-control" id="section_11_facebook_{{ $short_code }}" name="section_11_facebook_{{ $short_code }}" value="{{ $contents->{'section_11_facebook_' . $short_code} ?? '' }}" placeholder="Facebook">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_message_{{ $short_code }}" class="form-label">Message</label>
-                            <input type="text" class="form-control" id="section_11_message_{{ $short_code }}" name="section_11_message_{{ $short_code }}" value="{{ $contents->{'section_11_message_' . $short_code} ?? '' }}" placeholder="Message">
-                        </div>
+                    <div class="col-6 mb-4">
+                        <label for="section_11_message_{{ $short_code }}" class="form-label">Message</label>
+                        <input type="text" class="form-control" id="section_11_message_{{ $short_code }}" name="section_11_message_{{ $short_code }}" value="{{ $contents->{'section_11_message_' . $short_code} ?? '' }}" placeholder="Message">
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="section_11_placeholder_{{ $short_code }}" class="form-label">Placeholder</label>
-                            <input type="text" class="form-control" id="section_11_placeholder_{{ $short_code }}" name="section_11_placeholder_{{ $short_code }}" value="{{ $contents->{'section_11_placeholder_' . $short_code} ?? '' }}" placeholder="Placeholder">
-                        </div>
+                    <div class="col-6">
+                        <label for="section_11_placeholder_{{ $short_code }}" class="form-label">Placeholder</label>
+                        <input type="text" class="form-control" id="section_11_placeholder_{{ $short_code }}" name="section_11_placeholder_{{ $short_code }}" value="{{ $contents->{'section_11_placeholder_' . $short_code} ?? '' }}" placeholder="Placeholder">
+                    </div>
 
-                        <div>
-                            <label for="section_11_button_{{ $short_code }}" class="form-label">Button</label>
-                            <input type="text" class="form-control" id="section_11_button_{{ $short_code }}" name="section_11_button_{{ $short_code }}" value="{{ $contents->{'section_11_button_' . $short_code} ?? '' }}" placeholder="Button">
-                        </div>
+                    <div class="col-6">
+                        <label for="section_11_button_{{ $short_code }}" class="form-label">Button</label>
+                        <input type="text" class="form-control" id="section_11_button_{{ $short_code }}" name="section_11_button_{{ $short_code }}" value="{{ $contents->{'section_11_button_' . $short_code} ?? '' }}" placeholder="Button">
                     </div>
                 </div>
             </div>
@@ -311,12 +309,12 @@
                 <p class="inner-page-title">Common Words</p>
 
                 <div class="row form-input">
-                    <div class="col-4">
+                    <div class="col-4 mb-4">
                         <label for="already_purchased_{{ $short_code }}" class="form-label">Already Purchased</label>
                         <input type="text" class="form-control" id="already_purchased_{{ $short_code }}" name="already_purchased_{{ $short_code }}" value="{{ $contents->{'already_purchased_' . $short_code} ?? '' }}" placeholder="Already Purchased">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-4 mb-4">
                         <label for="enroll_now_{{ $short_code }}" class="form-label">Enroll Now</label>
                         <input type="text" class="form-control" id="enroll_now_{{ $short_code }}" name="enroll_now_{{ $short_code }}" value="{{ $contents->{'enroll_now_' . $short_code} ?? '' }}" placeholder="Enroll Now">
                     </div>
@@ -325,6 +323,36 @@
                         <label for="login_for_enroll_{{ $short_code }}" class="form-label">Login for Enroll</label>
                         <input type="text" class="form-control" id="login_for_enroll_{{ $short_code }}" name="login_for_enroll_{{ $short_code }}" value="{{ $contents->{'login_for_enroll_' . $short_code} ?? '' }}" placeholder="Login for Enroll">
                     </div> -->
+
+                    <div class="col-4 mb-4">
+                        <label class="form-label">Order Details</label>
+                        <input class="form-control" type="text" id="order_details_{{ $short_code }}" name="order_details_{{ $short_code }}" value="{{ $contents->{'order_details_' . $short_code} ?? '' }}" placeholder="Order Details">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label class="form-label">Course</label>
+                        <input class="form-control" type="text" id="course_{{ $short_code }}" name="course_{{ $short_code }}" value="{{ $contents->{'course_' . $short_code} ?? '' }}" placeholder="Course">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label class="form-label">Amount</label>
+                        <input class="form-control" type="text" id="amount_{{ $short_code }}" name="amount_{{ $short_code }}" value="{{ $contents->{'amount_' . $short_code} ?? '' }}" placeholder="Amount">
+                    </div>
+
+                    <div class="col-4 mb-4">
+                        <label class="form-label">Total</label>
+                        <input class="form-control" type="text" id="total_{{ $short_code }}" name="total_{{ $short_code }}" value="{{ $contents->{'total_' . $short_code} ?? '' }}" placeholder="Total">
+                    </div>
+
+                    <div class="col-4">
+                        <label class="form-label">Coupon Code</label>
+                        <input class="form-control" type="text" id="coupon_code_{{ $short_code }}" name="coupon_code_{{ $short_code }}" value="{{ $contents->{'coupon_code_' . $short_code} ?? '' }}" placeholder="Coupon Code">
+                    </div>
+
+                    <div class="col-4">
+                        <label class="form-label">Pay Now</label>
+                        <input class="form-control" type="text" id="pay_now_{{ $short_code }}" name="pay_now_{{ $short_code }}" value="{{ $contents->{'pay_now_' . $short_code} ?? '' }}" placeholder="Pay Now">
+                    </div>
                 </div>
             </div>
 

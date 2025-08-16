@@ -104,6 +104,7 @@ class CertificationCourseController extends Controller
     public function checkout(Request $request)
     {
         $user = Auth::user();
+        $course = Course::find($request->course_id);
 
         $coupon_amount = 0;
         $valid_coupon_code = null;
@@ -157,7 +158,7 @@ class CertificationCourseController extends Controller
             }
 
             if($coupon->coupon_type == 'Percentage') {
-                $coupon_amount = ($coupon->value / 100) * $request->price;
+                $coupon_amount = ($coupon->value / 100) * $course->price;
             }
             else {
                 $coupon_amount = $coupon->value;
@@ -187,9 +188,7 @@ class CertificationCourseController extends Controller
         $course_order->status = '1';
         $course_order->save();
 
-        $course = Course::find($request->course_id);
-
-        $total_order_amount = $request->price - $coupon_amount;
+        $total_order_amount = $course->price - $coupon_amount;
         if($total_order_amount >= $wallet_balance) {
             $amount = $total_order_amount - $wallet_balance;
         }

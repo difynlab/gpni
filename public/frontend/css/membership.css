@@ -217,6 +217,74 @@
     color: #fff !important;
 }
 
+.coupon-div {
+    margin-bottom: 20px;
+}
+.coupon-code {
+    border-radius: 0;
+    background: rgba(120, 164, 254, 0.06);
+    color: white;
+    font-size: 17px;
+    padding: 15px;
+}
+.coupon-code::placeholder {
+    color: white;
+}
+.coupon-code:focus {
+    color: white;
+    background-color: transparent;
+    border-color: white;
+    outline: 0;
+    box-shadow: none;
+}
+.coupon-div .error-message {
+    color: yellow;
+}
+
+.order-details {
+    background-color: #0040c3;
+    padding: 30px;
+    color: white;
+}
+.order-details .title {
+    color: #FFF;
+    font-size: 30px;
+    text-align: center;
+}
+.order-details .section-subtitle {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.order-details .section-order {
+    color: #FFF;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.order-details .section-total {
+    font-size: 20px;
+    color: #FFF;
+    margin: 24px 0;
+}
+.order-details .line {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+.order-details .pay-now {
+    display: block;
+    width: 100%;
+    background: white;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    transition: all 0.3s;
+}
+.order-details .pay-now:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.3s;
+}
+
+
 
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {

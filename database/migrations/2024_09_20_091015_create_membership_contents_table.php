@@ -24,6 +24,12 @@ return new class extends Migration
             $table->text('section_3_lifetime_proceed_en')->nullable();
             $table->text('section_3_annual_proceed_en')->nullable();
             $table->text('section_3_labels_contents_en')->nullable();
+            $table->text('section_3_order_details_en')->nullable();
+            $table->text('section_3_type_en')->nullable();
+            $table->text('section_3_amount_en')->nullable();
+            $table->text('section_3_total_en')->nullable();
+            $table->text('section_3_coupon_code_en')->nullable();
+            $table->text('section_3_pay_now_en')->nullable();
             $table->text('section_4_title_en')->nullable();
             $table->text('section_4_description_en')->nullable();
             $table->text('section_4_label_en')->nullable();
@@ -41,6 +47,12 @@ return new class extends Migration
             $table->text('section_3_lifetime_proceed_zh')->nullable();
             $table->text('section_3_annual_proceed_zh')->nullable();
             $table->text('section_3_labels_contents_zh')->nullable();
+            $table->text('section_3_order_details_zh')->nullable();
+            $table->text('section_3_type_zh')->nullable();
+            $table->text('section_3_amount_zh')->nullable();
+            $table->text('section_3_total_zh')->nullable();
+            $table->text('section_3_coupon_code_zh')->nullable();
+            $table->text('section_3_pay_now_zh')->nullable();
             $table->text('section_4_title_zh')->nullable();
             $table->text('section_4_description_zh')->nullable();
             $table->text('section_4_label_zh')->nullable();
@@ -58,6 +70,12 @@ return new class extends Migration
             $table->text('section_3_lifetime_proceed_ja')->nullable();
             $table->text('section_3_annual_proceed_ja')->nullable();
             $table->text('section_3_labels_contents_ja')->nullable();
+            $table->text('section_3_order_details_ja')->nullable();
+            $table->text('section_3_type_ja')->nullable();
+            $table->text('section_3_amount_ja')->nullable();
+            $table->text('section_3_total_ja')->nullable();
+            $table->text('section_3_coupon_code_ja')->nullable();
+            $table->text('section_3_pay_now_ja')->nullable();
             $table->text('section_4_title_ja')->nullable();
             $table->text('section_4_description_ja')->nullable();
             $table->text('section_4_label_ja')->nullable();

@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\CoursePurchaseMail;
 use App\Mail\ReferFriendCoursePurchaseMail;
+use App\Models\Coupon;
 use App\Models\ReferFriend;
 use App\Models\ReferPointActivity;
 use App\Models\User;
@@ -114,17 +115,69 @@ class MasterClassController extends Controller
         ]);
     }
 
-    public function enroll(Request $request, Course $course)
-    {
-        session(['auto_enroll_course_id' => $course->id]);
-
-        return redirect()->route('frontend.login', [
-            'redirect' => url()->previous(),
-        ]);
-    }
-
     public function checkout(Request $request)
     {
+        $user = Auth::user();
+        $course = Course::find($request->course_id);
+
+        $coupon_amount = 0;
+        $valid_coupon_code = null;
+        if($request->coupon_code) {
+            $coupon_code = $request->coupon_code;
+            $coupon = Coupon::where('code', $coupon_code)->where('language', $request->middleware_language_name)->where('status', '1')->first();
+
+            if(!$coupon) {
+                return back()->withInput()->withErrors([
+                    'coupon_code' => 'Invalid coupon code',
+                ])->with('fail', 'Invalid coupon code');
+            }
+
+            if($coupon->coupon_for != 'Course Purchase' && $coupon->coupon_for != 'Already Purchased Course') {
+                return back()->withInput()->withErrors([
+                    'coupon_code' => 'Invalid coupon code',
+                ])->with('fail', 'Invalid coupon code');
+            }
+
+            if($coupon->coupon_for == 'Already Purchased Course') {
+                if($coupon->new_course_id != $request->course_id) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'This coupon is not valid for this course',
+                    ])->with('fail', 'This coupon is not valid for this course');
+                }
+
+                $check_course_purchase = CoursePurchase::where('user_id', $user->id)->where('course_id', $coupon->old_course_id)->where('payment_status', 'Completed')->where('status', '1')->exists();
+
+                if(!$check_course_purchase) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'You have to purchase the prerequisite course',
+                    ])->with('fail', 'You have to purchase the prerequisite course');
+                }
+            }
+
+            if($coupon->coupon_validity === 'Fix Time') {
+                $now = Carbon::now();
+                $expiry = Carbon::parse("{$coupon->expiry_date} {$coupon->expiry_time}");
+
+                if($expiry->lte($now)) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'Coupon code is expired',
+                    ])->with('fail', 'Coupon code is expired');
+                }
+            }
+
+            if($coupon->coupon_type == 'Percentage') {
+                $coupon_amount = ($coupon->value / 100) * $course->price;
+            }
+            else {
+                $coupon_amount = $coupon->value;
+            }
+
+            $valid_coupon_code = $request->coupon_code;
+        }
+
+        $wallet = Wallet::where('user_id', $user->id)->where('status', '1')->first();
+        $wallet_balance = $wallet ? $wallet->balance : '0.00';
+
         if($request->middleware_language == 'en') {
             $currency = 'usd';
         }
@@ -135,28 +188,25 @@ class MasterClassController extends Controller
             $currency = 'jpy';
         }
 
-        $user = Auth::user();
-        $course = Course::find($request->course_id);
-        $wallet = Wallet::where('user_id', $user->id)->where('status', '1')->first();
-        $wallet_balance = $wallet ? $wallet->balance : '0.00';
+        $course_order = new CoursePurchase();
+        $course_order->user_id = Auth::user()->id;
+        $course_order->course_id = $request->course_id;
+        $course_order->discount_applied = $valid_coupon_code;
+        $course_order->currency = $currency;
+        $course_order->status = '1';
+        $course_order->save();
 
-        if($course->price >= $wallet_balance) {
-            $amount = $course->price - $wallet_balance;
+        $total_order_amount = $course->price - $coupon_amount;
+        if($total_order_amount >= $wallet_balance) {
+            $amount = $total_order_amount - $wallet_balance;
         }
         else {
             $amount = '0.00';
         }
 
-        $course_order = new CoursePurchase();
-        $course_order->user_id = Auth::user()->id;
-        $course_order->course_id = $request->course_id;
-        $course_order->currency = $currency;
-        $course_order->status = '1';
-        $course_order->save();
-
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
-
         $total_order_amount_in_cents = $currency === 'jpy' ? (int)$amount : (int)($amount * 100);
+        
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
         $session = \Stripe\Checkout\Session::create([
             'line_items' => [
@@ -177,8 +227,6 @@ class MasterClassController extends Controller
                     'error' => 'Course purchase has been failed because of the payment cancellation'
                 ]),
         ]);
-
-        session()->forget('auto_enroll_course_id');
 
         return redirect()->away($session->url);
     }

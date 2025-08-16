@@ -93,10 +93,25 @@
                             <input class="form-control" type="text" id="section_3_already_purchased_{{ $short_code }}" name="section_3_already_purchased_{{ $short_code }}" value="{{ $contents->{'section_3_already_purchased_' . $short_code} ?? '' }}" placeholder="Already Purchased Button">
                         </div>
 
+                        <div class="mb-4">
+                            <label class="form-label">Order Details</label>
+                            <input class="form-control" type="text" id="section_3_order_details_{{ $short_code }}" name="section_3_order_details_{{ $short_code }}" value="{{ $contents->{'section_3_order_details_' . $short_code} ?? '' }}" placeholder="Order Details">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Type</label>
+                            <input class="form-control" type="text" id="section_3_type_{{ $short_code }}" name="section_3_type_{{ $short_code }}" value="{{ $contents->{'section_3_type_' . $short_code} ?? '' }}" placeholder="Type">
+                        </div>
+
                         <div>
+                            <label class="form-label">Amount</label>
+                            <input class="form-control" type="text" id="section_3_amount_{{ $short_code }}" name="section_3_amount_{{ $short_code }}" value="{{ $contents->{'section_3_amount_' . $short_code} ?? '' }}" placeholder="Amount">
+                        </div>
+
+                        <!-- <div>
                             <label class="form-label">Login for Purchase Button</label>
                             <input class="form-control" type="text" id="section_3_login_for_purchase_{{ $short_code }}" name="section_3_login_for_purchase_{{ $short_code }}" value="{{ $contents->{'section_3_login_for_purchase_' . $short_code} ?? '' }}" placeholder="Login for Purchase Button">
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="col-6">
@@ -105,9 +120,24 @@
                             <input class="form-control" type="text" id="section_3_annual_proceed_{{ $short_code }}" name="section_3_annual_proceed_{{ $short_code }}" value="{{ $contents->{'section_3_annual_proceed_' . $short_code} ?? '' }}" placeholder="Annual Proceed Button">
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <label class="form-label">Change Language Button</label>
                             <input class="form-control" type="text" id="section_3_change_language_{{ $short_code }}" name="section_3_change_language_{{ $short_code }}" value="{{ $contents->{'section_3_change_language_' . $short_code} ?? '' }}" placeholder="Change Language Button">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Total</label>
+                            <input class="form-control" type="text" id="section_3_total_{{ $short_code }}" name="section_3_total_{{ $short_code }}" value="{{ $contents->{'section_3_total_' . $short_code} ?? '' }}" placeholder="Total">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Coupon Code</label>
+                            <input class="form-control" type="text" id="section_3_coupon_code_{{ $short_code }}" name="section_3_coupon_code_{{ $short_code }}" value="{{ $contents->{'section_3_coupon_code_' . $short_code} ?? '' }}" placeholder="Coupon Code">
+                        </div>
+
+                        <div>
+                            <label class="form-label">Pay Now</label>
+                            <input class="form-control" type="text" id="section_3_pay_now_{{ $short_code }}" name="section_3_pay_now_{{ $short_code }}" value="{{ $contents->{'section_3_pay_now_' . $short_code} ?? '' }}" placeholder="Pay Now">
                         </div>
 
                         <!-- <div>

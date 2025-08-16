@@ -44,14 +44,32 @@ return new class extends Migration
             $table->text('already_purchased_en')->nullable();
             $table->text('enroll_now_en')->nullable();
             // $table->text('login_for_enroll_en')->nullable();
+            $table->text('order_details_en')->nullable();
+            $table->text('course_en')->nullable();
+            $table->text('amount_en')->nullable();
+            $table->text('total_en')->nullable();
+            $table->text('coupon_code_en')->nullable();
+            $table->text('pay_now_en')->nullable();
 
             $table->text('already_purchased_zh')->nullable();
             $table->text('enroll_now_zh')->nullable();
             // $table->text('login_for_enroll_zh')->nullable();
+            $table->text('order_details_zh')->nullable();
+            $table->text('course_zh')->nullable();
+            $table->text('amount_zh')->nullable();
+            $table->text('total_zh')->nullable();
+            $table->text('coupon_code_zh')->nullable();
+            $table->text('pay_now_zh')->nullable();
 
             $table->text('already_purchased_ja')->nullable();
             $table->text('enroll_now_ja')->nullable();
             // $table->text('login_for_enroll_ja')->nullable();
+            $table->text('order_details_ja')->nullable();
+            $table->text('course_ja')->nullable();
+            $table->text('amount_ja')->nullable();
+            $table->text('total_ja')->nullable();
+            $table->text('coupon_code_ja')->nullable();
+            $table->text('pay_now_ja')->nullable();
 
             $table->timestamps();
         });
@@ -78,14 +96,32 @@ return new class extends Migration
                 'already_purchased_en',
                 'enroll_now_en',
                 // 'login_for_enroll_en',
+                'order_details_en',
+                'course_en',
+                'amount_en',
+                'total_en',
+                'coupon_code_en',
+                'pay_now_en',
 
                 'already_purchased_zh',
                 'enroll_now_zh',
                 // 'login_for_enroll_zh',
+                'order_details_zh',
+                'course_zh',
+                'amount_zh',
+                'total_zh',
+                'coupon_code_zh',
+                'pay_now_zh',
 
                 'already_purchased_ja',
                 'enroll_now_ja',
                 // 'login_for_enroll_ja',
+                'order_details_ja',
+                'course_ja',
+                'amount_ja',
+                'total_ja',
+                'coupon_code_ja',
+                'pay_now_ja',
             ]);
 
             $table->dropTimestamps();

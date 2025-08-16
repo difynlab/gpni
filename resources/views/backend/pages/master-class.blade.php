@@ -275,9 +275,24 @@
                             <input type="text" class="form-control" id="second_tab_{{ $short_code }}" name="second_tab_{{ $short_code }}" value="{{ $contents->{'second_tab_' . $short_code} ?? '' }}" placeholder="Second Tab">
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <label for="stars_{{ $short_code }}" class="form-label">Stars</label>
                             <input type="text" class="form-control" id="stars_{{ $short_code }}" name="stars_{{ $short_code }}" value="{{ $contents->{'stars_' . $short_code} ?? '' }}" placeholder="Stars">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Order Details</label>
+                            <input class="form-control" type="text" id="order_details_{{ $short_code }}" name="order_details_{{ $short_code }}" value="{{ $contents->{'order_details_' . $short_code} ?? '' }}" placeholder="Order Details">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Course</label>
+                            <input class="form-control" type="text" id="course_{{ $short_code }}" name="course_{{ $short_code }}" value="{{ $contents->{'course_' . $short_code} ?? '' }}" placeholder="Course">
+                        </div>
+
+                        <div>
+                            <label class="form-label">Amount</label>
+                            <input class="form-control" type="text" id="amount_{{ $short_code }}" name="amount_{{ $short_code }}" value="{{ $contents->{'amount_' . $short_code} ?? '' }}" placeholder="Amount">
                         </div>
                     </div>
 
@@ -332,9 +347,24 @@
                             <input type="text" class="form-control" id="facebook_{{ $short_code }}" name="facebook_{{ $short_code }}" value="{{ $contents->{'facebook_' . $short_code} ?? '' }}" placeholder="Facebook">
                         </div>
 
-                        <div>
+                        <div class="mb-4">
                             <label for="rated_{{ $short_code }}" class="form-label">Rated</label>
                             <input type="text" class="form-control" id="rated_{{ $short_code }}" name="rated_{{ $short_code }}" value="{{ $contents->{'rated_' . $short_code} ?? '' }}" placeholder="Rated">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Total</label>
+                            <input class="form-control" type="text" id="total_{{ $short_code }}" name="total_{{ $short_code }}" value="{{ $contents->{'total_' . $short_code} ?? '' }}" placeholder="Total">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Coupon Code</label>
+                            <input class="form-control" type="text" id="coupon_code_{{ $short_code }}" name="coupon_code_{{ $short_code }}" value="{{ $contents->{'coupon_code_' . $short_code} ?? '' }}" placeholder="Coupon Code">
+                        </div>
+
+                        <div>
+                            <label class="form-label">Pay Now</label>
+                            <input class="form-control" type="text" id="pay_now_{{ $short_code }}" name="pay_now_{{ $short_code }}" value="{{ $contents->{'pay_now_' . $short_code} ?? '' }}" placeholder="Pay Now">
                         </div>
                     </div>
                 </div>

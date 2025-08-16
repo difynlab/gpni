@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Page;
 
 use App\Http\Controllers\Controller;
+use App\Models\Coupon;
 use App\Models\MembershipContent;
 use App\Models\FAQ;
 use App\Models\MembershipPurchase;
@@ -47,16 +48,43 @@ class MembershipController extends Controller
         ]);
     }
 
-    public function purchase(Request $request, $value) {
-        session(['auto_membership_purchase' => $value]);
-
-        return redirect()->route('frontend.login', [
-            'redirect' => url()->previous(),
-        ]);
-    }
-
     public function checkout(Request $request)
     {
+        $user = Auth::user();
+
+        $coupon_amount = 0;
+        $valid_coupon_code = null;
+        if($request->coupon_code) {
+            $coupon_code = $request->coupon_code;
+            $coupon = Coupon::where('code', $coupon_code)->where('language', $request->middleware_language_name)->where('coupon_for', 'Membership Purchase')->where('status', '1')->first();
+
+            if(!$coupon) {
+                return back()->withInput()->withErrors([
+                    'coupon_code' => 'Invalid coupon code',
+                ])->with('fail', 'Invalid coupon code');
+            }
+
+            if($coupon->coupon_validity === 'Fix Time') {
+                $now = Carbon::now();
+                $expiry = Carbon::parse("{$coupon->expiry_date} {$coupon->expiry_time}");
+
+                if($expiry->lte($now)) {
+                    return back()->withInput()->withErrors([
+                        'coupon_code' => 'Coupon code is expired',
+                    ])->with('fail', 'Coupon code is expired');
+                }
+            }
+
+            if($coupon->coupon_type == 'Percentage') {
+                $coupon_amount = ($coupon->value / 100);
+            }
+            else {
+                $coupon_amount = $coupon->value;
+            }
+
+            $valid_coupon_code = $request->coupon_code;
+        }
+
         if($request->middleware_language == 'en') {
             $currency = 'usd';
             $amount = $request->type == 'Lifetime' ? Setting::find(1)->lifetime_membership_price_en : Setting::find(1)->annual_membership_price_en;
@@ -70,12 +98,18 @@ class MembershipController extends Controller
             $amount = $request->type == 'Lifetime' ? Setting::find(1)->lifetime_membership_price_ja : Setting::find(1)->annual_membership_price_ja;
         }
 
-        $user = Auth::user();
         $wallet = Wallet::where('user_id', $user->id)->where('status', '1')->first();
         $wallet_balance = $wallet ? $wallet->balance : '0.00';
+        
+        if($coupon_amount != 0) {
+            if($coupon->coupon_type == 'Percentage') {
+                $coupon_amount = $coupon_amount * $amount;
+            }
+        }
 
-        if($amount >= $wallet_balance) {
-            $final_amount = $amount - $wallet_balance;
+        $final_amount = $amount - $coupon_amount;
+        if($final_amount >= $wallet_balance) {
+            $final_amount = $final_amount - $wallet_balance;
         }
         else {
             $final_amount = '0.00';
@@ -84,6 +118,7 @@ class MembershipController extends Controller
         $membership_purchase = new MembershipPurchase();
         $membership_purchase->user_id = Auth::user()->id;
         $membership_purchase->currency = $currency;
+        $membership_purchase->discount_applied = $valid_coupon_code;
         $membership_purchase->status = '1';
         $membership_purchase->save();
 
@@ -109,8 +144,6 @@ class MembershipController extends Controller
                     'error' => 'Membership purchase has been failed because of the payment cancellation'
                 ]),
         ]);
-
-        session()->forget('auto_membership_purchase');
 
         return redirect()->away($session->url);
     }

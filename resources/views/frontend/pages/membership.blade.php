@@ -22,7 +22,7 @@
             @endif
 
             <div class="row d-flex align-items-center py-4 py-md-4 py-2 mx-md-0 mx-0">
-                    <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                     @if($contents->{'section_2_image_' . $middleware_language})
                         <img src="{{ asset('storage/backend/pages/' . $contents->{'section_2_image_' . $middleware_language}) }}" class="img-fluid">
                     @elseif($contents->section_2_image_en)
@@ -65,23 +65,59 @@
                                 @if(hasUserPurchasedMembership(auth()->user()->id))
                                     <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_already_purchased_' . $middleware_language} ?? $contents->section_3_already_purchased_en }}</button>
                                 @else
-                                    <form action="{{ route('frontend.memberships.checkout') }}" id="autoPurchaseForm" method="POST" class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                        @csrf
-                                        <button type="submit" class="btn-pay-now blue-button" name="type" value="Lifetime">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }} {{ $currency_symbol }}{{ $lifetime_membership_price }}</button>
+                                    <div class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
+                                        <button type="button" class="btn-pay-now blue-button btn-pay-now-modal" data-value="Lifetime" data-type="{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }}" data-amount="{{ $currency_symbol }}{{ $lifetime_membership_price }}" data-bs-toggle="modal" data-bs-target="#purchaseModal">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }} {{ $currency_symbol }}{{ $lifetime_membership_price }}</button>
 
-                                        <input type="hidden" name="type" id="autoMembershipType">
+                                        <button type="button" class="btn-pay-now blue-button btn-pay-now-modal" data-value="Annual" data-type="{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }}" data-amount="{{ $currency_symbol }}{{ $annual_membership_price }}" data-bs-toggle="modal" data-bs-target="#purchaseModal">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }} {{ $currency_symbol }}{{ $annual_membership_price }}</button>
+                                    </div>
+                                    
+                                    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content order-details">
+                                                <div class="modal-body">
+                                                    <form action="{{ route('frontend.memberships.checkout') }}" method="POST">
+                                                        @csrf
+                                                        <h6 class="title">{{ $contents->{'section_3_order_details_' . $middleware_language} ?? $contents->section_3_order_details_en }}</h6>
 
-                                        <button type="submit" class="btn-pay-now blue-button" name="type" value="Annual">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }} {{ $currency_symbol }}{{ $annual_membership_price }}</button>
-                                    </form>
+                                                        <div class="d-flex justify-content-between section-subtitle">
+                                                            <div>{{ $contents->{'section_3_type_' . $middleware_language} ?? $contents->section_3_type_en }}</div>
+                                                            <div>{{ $contents->{'section_3_amount_' . $middleware_language} ?? $contents->section_3_amount_en }}</div>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-between section-order">
+                                                            <div class="modal-type"></div> 
+                                                            <div class="modal-amount"></div>
+                                                        </div>
+
+                                                        <div class="line"></div>
+
+                                                        <div class="d-flex justify-content-between section-total">
+                                                            <div>{{ $contents->{'section_3_total_' . $middleware_language} ?? $contents->section_3_total_en }}</div>
+                                                            <div class="modal-amount"></div>
+                                                        </div>
+
+                                                        <div class="coupon-div">
+                                                            <input type="text" class="form-control coupon-code" placeholder="{{ $contents->{'section_3_coupon_code_' . $middleware_language} ?? $contents->section_3_coupon_code_en }}" name="coupon_code" value="{{ old('coupon_code') }}">
+                                                            <x-frontend.input-error field="coupon_code"></x-frontend.input-error>
+                                                        </div>
+
+                                                        <input type="hidden" name="type" class="modal-hidden-type">
+
+                                                        <button type="submit" class="btn pay-now">{{ $contents->{'section_3_pay_now_' . $middleware_language} ?? $contents->section_3_pay_now_en }}</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endif
                             @else
                                 <button class="btn-pay-now fs-sm-16">{{ $contents->{'section_3_change_language_' . $middleware_language} ?? $contents->section_3_change_language_en }}</button>
                             @endif
                         @else
                             <div class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                <a href="{{ route('frontend.memberships.purchase', 'Lifetime') }}" class="btn-pay-now blue-button">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }} {{ $currency_symbol }}{{ $lifetime_membership_price }}</a>
+                                <a href="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-pay-now blue-button">{{ $contents->{'section_3_lifetime_proceed_' . $middleware_language} ?? $contents->section_3_lifetime_proceed_en }} {{ $currency_symbol }}{{ $lifetime_membership_price }}</a>
 
-                                <button type="{{ route('frontend.memberships.purchase', 'Annual') }}" class="btn-pay-now blue-button">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }} {{ $currency_symbol }}{{ $annual_membership_price }}</button>
+                                <button type="{{ route('frontend.login', ['redirect' => url()->current()]) }}" class="btn-pay-now blue-button">{{ $contents->{'section_3_annual_proceed_' . $middleware_language} ?? $contents->section_3_annual_proceed_en }} {{ $currency_symbol }}{{ $annual_membership_price }}</button>
                             </div>
                         @endif
                     </div>
@@ -132,13 +168,15 @@
 @endsection
 
 @push('after-scripts')
-    @if(session('auto_membership_purchase'))
-        <script>
-            $(document).ready(function () {
-                const membershipType = "{{ session('auto_membership_purchase') }}";
-                $('#autoMembershipType').val(membershipType);
-                $('#autoPurchaseForm').submit();
-            });
-        </script>
-    @endif
+    <script>
+        $('.btn-pay-now-modal').on('click', function() {
+            let value = $(this).attr('data-value');
+            let type = $(this).attr('data-type');
+            let amount = $(this).attr('data-amount');
+
+            $('#purchaseModal').find('.modal-type').html(type);
+            $('#purchaseModal').find('.modal-amount').html(amount);
+            $('#purchaseModal').find('.modal-hidden-type').val(value);
+        });
+    </script>
 @endpush

@@ -77,7 +77,7 @@
                                     <td>{{ $coupon->coupon_type }}</td>
 
                                     @if($coupon->coupon_type == 'Amount')
-                                        <td>USD {{ $coupon->value }}</td>
+                                        <td>{{ $coupon->language === 'English' ? '$' : '¥' }}{{ $coupon->value }}</td>
                                     @else
                                         <td>{{ $coupon->value }}%</td>
                                     @endif

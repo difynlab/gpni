@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('mode')->nullable();
             $table->string('transaction_id')->nullable()->unique();
             $table->string('currency');
+            $table->string('discount_applied')->nullable();
             $table->decimal('amount_paid', 8, 2)->nullable();
             $table->decimal('wallet_amount', 8, 2)->nullable();
             $table->enum('payment_status', ['Completed', 'Pending', 'Failed'])->default('Pending');
