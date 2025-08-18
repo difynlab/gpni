@@ -78,15 +78,15 @@
                     </div>
 
                     <div class="col-6">
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <label for="custom_{{ $short_code }}" class="form-label">Custom</label>
                             <input type="text" class="form-control" id="custom_{{ $short_code }}" name="custom_{{ $short_code }}" value="{{ $contents->{'custom_' . $short_code} ?? '' }}" placeholder="Custom">
-                        </div>
+                        </div> -->
 
-                        <div class="mb-4">
+                        <!-- <div class="mb-4">
                             <label for="enter_the_amount_{{ $short_code }}" class="form-label">Enter the Amount</label>
                             <input type="text" class="form-control" id="enter_the_amount_{{ $short_code }}" name="enter_the_amount_{{ $short_code }}" value="{{ $contents->{'enter_the_amount_' . $short_code} ?? '' }}" placeholder="Enter the Amount">
-                        </div>
+                        </div> -->
 
                         <div class="mb-4">
                             <label for="message_{{ $short_code }}" class="form-label">Message</label>

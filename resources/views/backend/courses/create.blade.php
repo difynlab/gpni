@@ -264,8 +264,6 @@
         $('.type').on('change', function() {
             let value = $(this).val();
 
-            console.log(value);
-
             if(value == 'Certification') {
                 $(this).closest('div').next().removeClass('d-none');
                 $(this).closest('div').next().find('select').attr('required', true);

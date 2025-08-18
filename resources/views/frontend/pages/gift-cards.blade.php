@@ -63,14 +63,16 @@
                                 @foreach($amounts as $amount)
                                     <button type="button" class="btn btn-outline-primary mx-1 my-2 btn-responsive" onclick="setAmount({{ $amount }})">{{ $currency_symbol }}{{ $amount }}</button>
                                 @endforeach
-                                <button type="button" class="btn btn-outline-primary mx-1 my-2 btn-responsive" onclick="customAmount()">{{ $contents->{'custom_' . $middleware_language} ?? $contents->custom_en }}</button>
+                                <!-- <button type="button" class="btn btn-outline-primary mx-1 my-2 btn-responsive" onclick="customAmount()">{{ $contents->{'custom_' . $middleware_language} ?? $contents->custom_en }}</button> -->
                             </div>
                         </div>
 
-                        <div class="form-group d-none pb-3" id="custom-amount-section">
+                        <!-- <div class="form-group d-none pb-3" id="custom-amount-section">
                             <label for="custom-amount pb-1" class="fs-16">{{ $contents->{'enter_the_amount_' . $middleware_language} ?? $contents->enter_the_amount_en }}</label>
-                            <input type="number" class="form-control" id="custom-amount" name="amount">
-                        </div>
+                            <input type="hidden" class="form-control" id="custom-amount" name="amount">
+                        </div> -->
+
+                        <input type="hidden" class="form-control" id="custom-amount" name="amount">
 
                         <div class="form-group pb-3">
                             <label for="message" class="required text-heading pb-1">{{ $contents->{'message_' . $middleware_language} ?? $contents->message_en }}</label>
@@ -94,22 +96,22 @@
         });
 
         function setAmount(value) {
-            const customAmountSection = document.getElementById('custom-amount-section');
+            // const customAmountSection = document.getElementById('custom-amount-section');
             const customAmountInput = document.getElementById('custom-amount');
             
-            customAmountSection.classList.add('d-none');
+            // customAmountSection.classList.add('d-none');
             customAmountInput.value = value;
             
             setActiveButton(value);
         }
 
-        function customAmount() {
-            const customAmountSection = document.getElementById('custom-amount-section');
-            customAmountSection.classList.remove('d-none');
-            document.getElementById('custom-amount').value = '';
+        // function customAmount() {
+        //     const customAmountSection = document.getElementById('custom-amount-section');
+        //     customAmountSection.classList.remove('d-none');
+        //     document.getElementById('custom-amount').value = '';
             
-            setActiveButton(null);
-        }
+        //     setActiveButton(null);
+        // }
 
         function setActiveButton(value) {
             let currency_symbol = '<?php echo $currency_symbol; ?>';

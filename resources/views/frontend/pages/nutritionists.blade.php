@@ -513,7 +513,6 @@
                 url: url,
                 type: "GET",
                 success: function(response) {
-                    console.log(response);
                     if(response.nutritionist['image']) {
                         $('#view-modal .coach-image').attr('src', 'storage/backend/persons/users/' + response.nutritionist['image']);
                     }

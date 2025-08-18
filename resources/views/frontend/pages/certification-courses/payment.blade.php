@@ -156,8 +156,6 @@
 
             let middlewareLanguage = "<?php echo $middleware_language; ?>";
 
-            console.log(initialTotalPrice);
-
             $('#checkbox').on('change', function() {
                 if($(this).is(':checked')) {
                     $('#material-details').toggleClass('d-none');
