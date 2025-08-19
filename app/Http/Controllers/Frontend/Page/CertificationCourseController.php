@@ -48,7 +48,8 @@ class CertificationCourseController extends Controller
         }
 
         $contents = CertificationCourseContent::find(1);
-        $master_pack = Course::find(19);
+
+        $master_pack = $request->middleware_language == 'en' ? Course::find(19) : Course::find(47);
         
         return view('frontend.pages.certification-courses.show', [
             'currency_symbol' => $currency_symbol,
@@ -370,7 +371,12 @@ class CertificationCourseController extends Controller
                 $course_purchase_2->status = '1';
                 $course_purchase_2->save();
             }
-            elseif($session->currency == 'cny') {
+            // else {
+            //     $currency = 'jpy';
+            // }
+        }
+        elseif($course->id == 47) {
+            if($session->currency == 'cny') {
                 $course_purchase_1 = new CoursePurchase();
                 $course_purchase_1->user_id = $course_order->user_id;
                 $course_purchase_1->course_id = 10;
@@ -401,9 +407,6 @@ class CertificationCourseController extends Controller
                 $course_purchase_2->status = '1';
                 $course_purchase_2->save();
             }
-            // else {
-            //     $currency = 'jpy';
-            // }
         }
 
         $user = Auth::user();

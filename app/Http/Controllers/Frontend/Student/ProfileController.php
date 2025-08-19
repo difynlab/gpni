@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Mail\UpdateProfileMail;
 use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -332,6 +334,52 @@ class ProfileController extends Controller
                 $subscription->email = $request->email;
                 $subscription->status = '1';
                 $subscription->save();
+
+                try {
+                    $portal_id = '40197468';
+
+                    if($request->middleware_language == 'en') {
+                        $form_id = '64e9ff1a-77b8-409d-84f7-c6cb06eb4673';
+                    }
+                    elseif($request->middleware_language == 'zh') {
+                        $form_id = '8fc6801d-3dd7-470c-aac8-5206d48c5ced';
+                    }
+                    else {
+                        $form_id = '7b536000-3c0e-4d8f-b654-2c4e7e42647f';
+                    }
+
+                    $hs_url = "https://api.hsforms.com/submissions/v3/integration/submit/{$portal_id}/{$form_id}";
+
+                    $payload = [
+                        'fields' => [
+                            ['name' => 'email', 'value' => $subscription->email],
+                        ],
+                        'context' => [
+                            'pageUri'  => $request->headers->get('referer') ?? url()->current(),
+                            'pageName' => 'Subscription',
+                        ],
+                    ];
+
+                    $hs_res = Http::acceptJson()
+                        ->withHeaders(['Content-Type' => 'application/json'])
+                        ->timeout(8)
+                        ->retry(2, 200)
+                        ->post($hs_url, $payload);
+
+                    if(!$hs_res->ok()) {
+                        Log::warning('HubSpot submission failed', [
+                            'status' => $hs_res->status(),
+                            'body'   => $hs_res->body(),
+                            'email'  => $subscription->email,
+                        ]);
+                    }
+                }
+                catch (\Throwable $e) {
+                    Log::error('HubSpot submission exception', [
+                        'error' => $e->getMessage(),
+                        'email' => $subscription->email,
+                    ]);
+                }
             }
         }
         else {

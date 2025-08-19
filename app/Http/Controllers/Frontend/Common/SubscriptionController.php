@@ -52,7 +52,7 @@ class SubscriptionController extends Controller
         $subscription->status = '1';
         $subscription->save();
 
-        try{
+        try {
             $portal_id = '40197468';
 
             if($request->middleware_language == 'en') {

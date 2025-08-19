@@ -33,7 +33,7 @@ class CourseController extends Controller
             $query->where('refund_status', 'Not Refunded')
                   ->orWhereNull('refund_status');
         })
-        ->where('status', '1')->whereNot('course_id', 19)->pluck('course_id')->toArray();
+        ->where('status', '1')->whereNot('course_id', 19)->whereNot('course_id', 47)->pluck('course_id')->toArray();
 
         // $courses = Course::whereIn('id', $course_ids)->where('status', '1')->orderBy('id', 'desc')->get();
 

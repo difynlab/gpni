@@ -732,14 +732,18 @@
                                     @if(hasUserPurchasedCourse(auth()->user()->id, 10) || hasUserPurchasedCourse(auth()->user()->id, 12))
                                         <a class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_already_purchased_' . $middleware_language} ?? $contents->single_page_already_purchased_en }}</a>
                                     @else
-                                        <a href="{{ route('frontend.certification-courses.purchase', 19) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }} {{ $currency_symbol }}{{ $master_pack->price }}</a>
+                                        <a href="{{ route('frontend.certification-courses.purchase', 47) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }} {{ $currency_symbol }}{{ $master_pack->price }}</a>
                                     @endif
                                 @endif
                             @else
-                                <a class="btn other-white-button">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
+                                <a class="btn-custom blue-button">{{ $contents->{'single_page_not_available_' . $middleware_language} ?? $contents->single_page_not_available_en }}</a>
                             @endif
                         @else
-                            <a href="{{ route('frontend.login', ['redirect' => route('frontend.certification-courses.purchase', 19)]) }}" class="btn-custom blue-button">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }} {{ $currency_symbol }}{{ $master_pack->price }}</a>
+                            @if($middleware_language_name == 'English')
+                                <a href="{{ route('frontend.login', ['redirect' => route('frontend.certification-courses.purchase', 19)]) }}" class="btn-custom blue-button">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }} {{ $currency_symbol }}{{ $master_pack->price }}</a>
+                            @else
+                                <a href="{{ route('frontend.login', ['redirect' => route('frontend.certification-courses.purchase', 47)]) }}" class="btn blue-button btn-responsive mb-2 mb-md-0 me-md-3 py-3 px-5 fs-20">{{ $contents->{'single_page_enroll_now_' . $middleware_language} ?? $contents->single_page_enroll_now_en }} {{ $currency_symbol }}{{ $master_pack->price }}</a>
+                            @endif
                         @endif
 
                         <a href="{{ json_decode($course->certification_section_16_label_link)->link }}" class="btn-custom secondary other-white-button border-0">{{ json_decode($course->certification_section_16_label_link)->label }} <img src="{{ asset('storage/frontend/arrow-icon-white.svg') }}" alt="Arrow"></a>
@@ -802,35 +806,35 @@
 
 
         // Testimonial swiper
-            var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 3,
-                spaceBetween: 20,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                breakpoints: {
-                    0: {
-            slidesPerView: 1,
-            spaceBetween: 10
-        },
-        // when window width is >= 576px (mobile landscape)
-        576: {
-            slidesPerView: 1,
-            spaceBetween: 10
-        },
-        // when window width is >= 768px (tablets)
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 15
-        },
-        // when window width is >= 992px (desktop)
-        992: {
+        var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
-            spaceBetween: 20
-        }
-    }
-            });
+            spaceBetween: 20,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                // when window width is >= 576px (mobile landscape)
+                576: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                // when window width is >= 768px (tablets)
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 15
+                },
+                // when window width is >= 992px (desktop)
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                }
+            }
+        });
         // Testimonial swiper
     </script>
 @endpush
