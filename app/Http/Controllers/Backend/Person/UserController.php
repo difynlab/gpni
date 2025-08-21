@@ -377,10 +377,10 @@ class UserController extends Controller
             try {
                 $portal_id = '40197468';
 
-                if($request->middleware_language == 'en') {
+                if($request->language == 'English') {
                     $form_id = '64e9ff1a-77b8-409d-84f7-c6cb06eb4673';
                 }
-                elseif($request->middleware_language == 'zh') {
+                elseif($request->language == 'Chinese') {
                     $form_id = '8fc6801d-3dd7-470c-aac8-5206d48c5ced';
                 }
                 else {
@@ -773,10 +773,10 @@ class UserController extends Controller
                 try {
                     $portal_id = '40197468';
 
-                    if($request->middleware_language == 'en') {
+                    if($request->language == 'English') {
                         $form_id = '64e9ff1a-77b8-409d-84f7-c6cb06eb4673';
                     }
-                    elseif($request->middleware_language == 'zh') {
+                    elseif($request->language == 'Chinese') {
                         $form_id = '8fc6801d-3dd7-470c-aac8-5206d48c5ced';
                     }
                     else {
