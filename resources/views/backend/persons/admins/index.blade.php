@@ -60,7 +60,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Language</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
+                            <th scope="col">Date</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -73,9 +73,9 @@
                                     <td>#{{ $admin->id }}</td>
                                     <td>{!! $admin->image !!}</td>
                                     <td>{{ $admin->first_name }} {{ $admin->last_name }}</td>
-                                    <td>{{ $admin->admin_language }}</td>
+                                    <td>{{ $admin->admin_language ?? '-' }}</td>
                                     <td>{{ $admin->email }}</td>
-                                    <td>{{ $admin->phone ?? '-' }}</td>
+                                    <td>{{ $admin->created_at }}</td>
                                     <td>{!! $admin->status !!}</td>
                                     <td>{!! $admin->action !!}</td>
                                 </tr>

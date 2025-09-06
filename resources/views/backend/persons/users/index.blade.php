@@ -60,7 +60,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Language</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
+                                <th scope="col">Date</th>
                                 <th scope="col">Wallet</th>
                                 <th scope="col" class="position-relative">
                                     CEC Points
@@ -84,7 +84,7 @@
                                         <td>{{ $user->first_name }} {{ $user->last_name }}</td>
                                         <td>{{ $user->language }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->phone ?? '-' }}</td>
+                                        <td>{{ $user->created_at }}</td>
                                         <td>{{ $user->wallet }}</td>
                                         <td>
                                             <a href="{{ route('backend.persons.users.cec-points.index', $user) }}" class="points-box">{{ $user->cec_balance }}</a>
