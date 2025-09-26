@@ -189,7 +189,14 @@ class CertificationCourseController extends Controller
         $course_order->status = '1';
         $course_order->save();
 
-        $total_order_amount = $course->price - $coupon_amount;
+        if($request->material_logistic == 'Yes') {
+            $material_logistic_price = $course->material_logistic_price;
+        }
+        else {
+            $material_logistic_price = 0;
+        }
+
+        $total_order_amount = ($course->price + $material_logistic_price) - $coupon_amount;
         if($total_order_amount >= $wallet_balance) {
             $amount = $total_order_amount - $wallet_balance;
         }
