@@ -331,14 +331,15 @@
 
     .remaining-questions .legend-container {
         justify-content: center;
+        gap: 30px;
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #start-exam-modal {
         display: none !important;
     }
-}
+} */
 
 /* @media (max-width: 1366px) {
     .radio {

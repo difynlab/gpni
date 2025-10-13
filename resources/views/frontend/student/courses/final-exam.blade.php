@@ -43,7 +43,7 @@
         <div class="container-fluid top-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-12 col-md-9">
                         <div class="title-section">
                             <h1>{{ $course->title }}</h1>
                         </div>
@@ -53,7 +53,7 @@
                     </div>
 
                     @if($course->exam_time)
-                    <div class="col-3">
+                    <div class="col-12 col-md-3">
                         <div class="timer-section">
                             <p class="remaining-time">{{ $student_dashboard_contents->courses_exam_remaining_time }}</p>
                             <p id="countdown" class="countdown">{{ $course->exam_time }}:00</p>
@@ -68,7 +68,7 @@
             <div class="container-fluid bottom-section">
                 <div class="container">
                     <div class="row justify-content-between">
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                             @foreach($questions as $key => $question)
                                 @if($key == 0)
                                     <div class="question-section" data-question-id="{{ $question->id }}" id="question{{$key}}">
@@ -224,7 +224,7 @@
                             @endforeach
                         </div>
 
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="remaining-questions">
                                 <p class="remaining-questions-count">{{
                                     $student_dashboard_contents->courses_exam_remaining_questions }}: <span>{{
@@ -583,7 +583,7 @@
                     const hasTouchScreen = (('maxTouchPoints' in navigator) && navigator.maxTouchPoints > 0) || 
                                         (('msMaxTouchPoints' in navigator) && navigator.msMaxTouchPoints > 0);
                     
-                    const isSmallScreen = window.innerWidth <= 768;
+                    const isSmallScreen = window.innerWidth <= 100;
                     
                     return hasTouchScreen && isSmallScreen;
                 }
