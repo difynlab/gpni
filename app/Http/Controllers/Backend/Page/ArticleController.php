@@ -40,9 +40,9 @@ class ArticleController extends Controller
     public function update(Request $request, $language) {
 
         $validator = Validator::make($request->all(), [
-            'new_section_1_video' => 'max:204800'
+            'new_section_1_video' => 'max:409600'
         ], [
-            'new_section_1_video.max' => 'Video must not be greater than 200 MB'
+            'new_section_1_video.max' => 'Video must not be greater than 400 MB'
         ]);
 
         if($validator->fails()) {

@@ -43,14 +43,14 @@ class TvController extends Controller
             'new_section_3_image' => 'max:30720',
             'new_section_5_image' => 'max:30720',
             'new_section_6_image' => 'max:30720',
-            'new_section_7_video' => 'max:204800',
+            'new_section_7_video' => 'max:409600',
             'new_section_10_image' => 'max:30720'
         ], [
             'new_section_1_image.max' => 'Image must not be greater than 30 MB',
             'new_section_3_image.max' => 'Image must not be greater than 30 MB',
             'new_section_5_image.max' => 'Image must not be greater than 30 MB',
             'new_section_6_image.max' => 'Image must not be greater than 30 MB',
-            'new_section_7_video.max' => 'Video must not be greater than 200 MB',
+            'new_section_7_video.max' => 'Video must not be greater than 400 MB',
             'new_section_10_image.max' => 'Image must not be greater than 30 MB',
         ]);
 

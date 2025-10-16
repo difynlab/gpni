@@ -53,11 +53,11 @@ class WebinarController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'new_video' => 'required|max:204800',
+            'new_video' => 'required|max:409600',
             'content' => 'required'
         ], [
             'new_video.required' => 'The video field must be required',
-            'new_video.max' => 'The video must not be greater than 200 MB',
+            'new_video.max' => 'The video must not be greater than 400 MB',
             'content.required' => 'The content field must be required'
         ]);
         
@@ -96,11 +96,11 @@ class WebinarController extends Controller
     public function update(Request $request, Webinar $webinar)
     {
         $validator = Validator::make($request->all(), [
-            'new_video' => 'nullable|max:204800',
+            'new_video' => 'nullable|max:409600',
             'content' => 'required'
         ], [
             'new_video.required' => 'The video field must be required',
-            'new_video.max' => 'The video must not be greater than 200 MB',
+            'new_video.max' => 'The video must not be greater than 400 MB',
             'content.required' => 'The content field must be required'
         ]);
         

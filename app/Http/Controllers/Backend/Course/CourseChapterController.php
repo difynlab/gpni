@@ -73,14 +73,14 @@ class CourseChapterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'book_files.*' => 'max:30720',
-            'video_files.*' => 'max:204800',
-            'additional_video_files.*' => 'max:204800',
+            'video_files.*' => 'max:409600',
+            'additional_video_files.*' => 'max:409600',
             'presentation_media_files.*' => 'max:30720',
             'downloadable_resource_files.*' => 'max:30720',
         ], [
             'book_files.*.max' => 'Each book must not be greater than 30 MB',
-            'video_files.*.max' => 'Each video must not be greater than 200 MB',
-            'additional_video_files.*.max' => 'Each video must not be greater than 200 MB',
+            'video_files.*.max' => 'Each video must not be greater than 400 MB',
+            'additional_video_files.*.max' => 'Each video must not be greater than 400 MB',
             'presentation_media_files.*.max' => 'Each file must not be greater than 30 MB',
             'downloadable_resource_files.*.max' => 'Each file must not be greater than 30 MB'
         ]);
@@ -262,14 +262,14 @@ class CourseChapterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'book_files.*' => 'max:30720',
-            'video_files.*' => 'max:204800',
-            'additional_video_files.*' => 'max:204800',
+            'video_files.*' => 'max:409600',
+            'additional_video_files.*' => 'max:409600',
             'presentation_media_files.*' => 'max:30720',
             'downloadable_resource_files.*' => 'max:30720',
         ], [
             'book_files.*.max' => 'Each book must not be greater than 30 MB',
-            'video_files.*.max' => 'Each video must not be greater than 200 MB',
-            'additional_video_files.*.max' => 'Each video must not be greater than 200 MB',
+            'video_files.*.max' => 'Each video must not be greater than 400 MB',
+            'additional_video_files.*.max' => 'Each video must not be greater than 400 MB',
             'presentation_media_files.*.max' => 'Each file must not be greater than 30 MB',
             'downloadable_resource_files.*.max' => 'Each file must not be greater than 30 MB'
         ]);
