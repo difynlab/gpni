@@ -253,7 +253,12 @@
             <div class="sub-heading mb-4 mb-md-5">{{ $contents->{'section_2_description_' . $middleware_language} ??
                 $contents->section_2_description_en }}</div>
 
-            <div class="instagram-images row g-3 justify-content-center">
+            <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-aa4a975b-7ddc-4b65-a17d-0e207c6756f9" data-elfsight-app-lazy></div>
+            <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+
+            <!-- <div class="instagram-images row g-3 justify-content-center">
                 <div class="col-6 col-sm-6 col-md-3">
                     <img src="{{ asset('storage/frontend/follow-us-on-1.jpg') }}" alt="Instagram post 1"
                         class="img-fluid w-100 h-100 object-fit-cover">
@@ -270,7 +275,7 @@
                     <img src="{{ asset('storage/frontend/follow-us-on-4.jpg') }}" alt="Instagram post 4"
                         class="img-fluid w-100 h-100 object-fit-cover">
                 </div>
-            </div>
+            </div> -->
         </div>
     @endif
 

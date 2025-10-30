@@ -53,11 +53,11 @@
             <div class="col-12 col-md-4 px-lg-5">
                 <div class="footer-title mb-3">{{ $contents->{'footer_get_latest_' . $middleware_language} ?? $contents->footer_get_latest_en }}</div>
 
-                <form id="myForm" action="{{ route('frontend.subscription') }}" method="POST"  class="newsletter-form">
+                <form id="myFooterForm" action="{{ route('frontend.subscription') }}" method="POST"  class="newsletter-form">
                     @csrf
                     <div class="subscribe-form mb-3 position-relative">
                         <input type="email" class="form-control subscribe-input flex-grow-1 mb-3 mb-md-0 mr-md-3" name="email" placeholder="{{ $contents->{'footer_placeholder_' . $middleware_language} ?? $contents->footer_placeholder_en }}" required>
-                        <button type="button" class="btn subscribe-button" id="submitBtn">{{ $contents->{'footer_button_' . $middleware_language} ?? $contents->footer_button_en }}</button>
+                        <button type="button" class="btn subscribe-button" id="footerSubmitBtn">{{ $contents->{'footer_button_' . $middleware_language} ?? $contents->footer_button_en }}</button>
                     </div>
 
                     <div style="display:none;">
@@ -309,22 +309,22 @@
     </script>
 
     <script>
-        const submitBtn = document.getElementById('submitBtn');
-        const form = document.getElementById('myForm');
+        const footerSubmitBtn = document.getElementById('footerSubmitBtn');
+        const myFooterForm = document.getElementById('myFooterForm');
 
-        submitBtn.addEventListener('click', function () {
-            if(!form.checkValidity()) {
-                form.reportValidity();
+        footerSubmitBtn.addEventListener('click', function () {
+            if(!myFooterForm.checkValidity()) {
+                myFooterForm.reportValidity();
                 return;
             }
 
-            submitBtn.disabled = true;
+            footerSubmitBtn.disabled = true;
 
             hcaptcha.execute();
         });
 
         function onHcaptchaSuccess(token) {
-            form.submit();
+            myFooterForm.submit();
         }
     </script>
 @endpush
