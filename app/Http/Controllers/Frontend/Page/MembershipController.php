@@ -7,6 +7,7 @@ use App\Models\Coupon;
 use App\Models\MembershipContent;
 use App\Models\FAQ;
 use App\Models\MembershipPurchase;
+use App\Mail\MembershipPurchaseMail;
 use App\Models\Setting;
 use App\Models\Wallet;
 use Carbon\Carbon;
@@ -195,6 +196,15 @@ class MembershipController extends Controller
                 $wallet->save();
             }
         }
+
+        $mail_data = [
+            'name' => $user->first_name . ' ' . $user->last_name,
+            'member_type' => $type,
+            'member_annual_expiry_date' => ($type == 'Annual') ? Carbon::now()->addYear()->toDateString() : null,
+        ];
+
+        send_email(new MembershipPurchaseMail($mail_data, 'user'), $user->email);
+        send_email(new MembershipPurchaseMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->route('frontend.memberships.index')->with('success', 'Membership purchased successfully');
     }
