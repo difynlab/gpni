@@ -21,7 +21,11 @@
 
                     <div class="heading pt-2">{{ $article->title }}</div>
 
-                    <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="article-main-thumbnail">
+                    @if($article->thumbnail)
+                        <img src="{{ asset('storage/backend/articles/articles/'. $article->thumbnail) }}" alt="Article Thumbnail" class="article-main-thumbnail">
+                    @else
+                        <img src="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image) }}" alt="Article Thumbnail" class="article-main-thumbnail">
+                    @endif
 
                     <div class="content-section text-content text-url">
                         <div>{!! $article->content !!}</div>
