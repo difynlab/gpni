@@ -356,13 +356,13 @@ class NutritionistController extends Controller
 
     public function contact(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'phone' => 'required|regex:/^\+?[0-9]+$/'
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'phone' => 'required|regex:/^\+?[0-9]+$/'
+        // ]);
 
-        if($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Message sending failed');
-        }
+        // if($validator->fails()) {
+        //     return redirect()->back()->withErrors($validator)->withInput()->with('error', 'Message sending failed');
+        // }
 
         $nutritionist = User::find($request->nutritionist);
 

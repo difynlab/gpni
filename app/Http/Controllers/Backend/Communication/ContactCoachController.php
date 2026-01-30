@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Communication;
 use App\Http\Controllers\Controller;
 use App\Models\ContactCoach;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ContactCoachController extends Controller
@@ -17,6 +18,7 @@ class ContactCoachController extends Controller
 
             $user = User::find($contact_coach->user);
             $contact_coach->user = $user->first_name . ' ' . $user->last_name;
+            $contact_coach->time = Carbon::parse($contact_coach->created_at)->toTimeString();
         }
 
         return $contact_coaches;

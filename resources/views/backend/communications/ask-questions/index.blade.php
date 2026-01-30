@@ -44,6 +44,7 @@
                         <tr>
                             <th scope="col">ID </th>
                             <th scope="col">User</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Subject</th>
                             <th scope="col">Initial Message</th>
                             <th scope="col">Date</th>
@@ -70,6 +71,7 @@
                                     @endif
                                     
                                     <td>{{ $ask_question->user }}</td>
+                                    <td>{{ $ask_question->email }}</td>
                                     <td>{{ $ask_question->subject }}</td>
                                     <td>{{ $ask_question->initial_message }}</td>
                                     <td>{{ $ask_question->date }}</td>
@@ -79,7 +81,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7" style="text-align: center;">No data available in table</td>
+                                <td colspan="8" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>

@@ -21,6 +21,7 @@ class AskQuestionController extends Controller
 
             $user = User::find($ask_question->user_id);
             $ask_question->user = $user->first_name . ' ' . $user->last_name;
+            $ask_question->email = $user->email;
         }
 
         return $ask_questions;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Communication;
 
 use App\Http\Controllers\Controller;
 use App\Models\Subscription;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
@@ -13,6 +14,9 @@ class SubscriptionController extends Controller
         foreach($subscriptions as $subscription) {
             $subscription->action = '
             <a id="'.$subscription->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+
+            $subscription->date = Carbon::parse($subscription->created_at)->toDateString();
+            $subscription->time = Carbon::parse($subscription->created_at)->toTimeString();
         }
 
         return $subscriptions;

@@ -17,6 +17,8 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -27,6 +29,8 @@
                                 <tr>
                                     <td>#{{ $subscription->id }}</td>
                                     <td>{{ $subscription->email }}</td>
+                                    <td>{{ $subscription->date }}</td>
+                                    <td>{{ $subscription->time }}</td>
                                     <td>{!! $subscription->action !!}</td>
                                 </tr>
                             @endforeach

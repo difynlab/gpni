@@ -35,8 +35,11 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">User</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Subject</th>
                             <th scope="col">Message</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -47,8 +50,11 @@
                                 <tr>
                                     <td>#{{ $technical_support->id }}</td>
                                     <td>{{ $technical_support->user }}</td>
+                                    <td>{{ $technical_support->email }}</td>
                                     <td>{{ $technical_support->subject }}</td>
                                     <td>{{ $technical_support->message }}</td>
+                                    <td>{{ $technical_support->date }}</td>
+                                    <td>{{ $technical_support->time }}</td>
                                     <td>{!! $technical_support->action !!}</td>
                                 </tr>
                             @endforeach

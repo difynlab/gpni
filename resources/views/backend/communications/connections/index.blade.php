@@ -22,6 +22,8 @@
                             <th scope="col">Phone</th>
                             <th scope="col">Question</th>
                             <th scope="col">Comments</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -37,12 +39,14 @@
                                     <td>{{ $connection->phone }}</td>
                                     <td>{{ $connection->question }}</td>
                                     <td>{{ $connection->comments }}</td>
+                                    <td>{{ $connection->date }}</td>
+                                    <td>{{ $connection->time }}</td>
                                     <td>{!! $connection->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;">No data available in table</td>
+                                <td colspan="10" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>

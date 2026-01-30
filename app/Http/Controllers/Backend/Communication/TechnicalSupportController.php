@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Communication;
 use App\Http\Controllers\Controller;
 use App\Models\TechnicalSupport;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TechnicalSupportController extends Controller
@@ -18,6 +19,10 @@ class TechnicalSupportController extends Controller
             $user = User::find($technical_support->user_id);
 
             $technical_support->user = $user->first_name . ' ' . $user->last_name;
+            $technical_support->email = $user->email;
+
+            $technical_support->date = Carbon::parse($technical_support->created_at)->toDateString();
+            $technical_support->time = Carbon::parse($technical_support->created_at)->toTimeString();
         }
 
         return $technical_supports;

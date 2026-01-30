@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Communication;
 use App\Http\Controllers\Controller;
 use App\Models\ReferFriend;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReferFriendController extends Controller
@@ -17,6 +18,10 @@ class ReferFriendController extends Controller
 
             $user = User::find($refer_friend->user_id);
             $refer_friend->user = $user->first_name . ' ' . $user->last_name;
+            $refer_friend->user_email = $user->email;
+
+            $refer_friend->date = Carbon::parse($refer_friend->created_at)->toDateString();
+            $refer_friend->time = Carbon::parse($refer_friend->created_at)->toTimeString();
         }
 
         return $refer_friends;

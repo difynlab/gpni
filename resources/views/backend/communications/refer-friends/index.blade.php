@@ -18,6 +18,9 @@
                             <th scope="col">ID</th>
                             <th scope="col">User</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Invited Email</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -28,7 +31,10 @@
                                 <tr>
                                     <td>#{{ $refer_friend->id }}</td>
                                     <td>{{ $refer_friend->user }}</td>
+                                    <td>{{ $refer_friend->user_email }}</td>
                                     <td>{{ $refer_friend->email }}</td>
+                                    <td>{{ $refer_friend->date }}</td>
+                                    <td>{{ $refer_friend->time }}</td>
                                     <td>{!! $refer_friend->action !!}</td>
                                 </tr>
                             @endforeach
