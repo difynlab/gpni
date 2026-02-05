@@ -474,7 +474,7 @@
                         $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
                         $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
                         $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
-                        $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
+                        $('#view-modal .intro-paragraph').html(response.nutritionist['self_introduction']);
                         $('#view-modal .credentials').text(response.credentials);
 
                         $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);
@@ -528,7 +528,7 @@
                     $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
                     $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
                     $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
-                    $('#view-modal .intro-paragraph').text(response.nutritionist['self_introduction']);
+                    $('#view-modal .intro-paragraph').html(response.nutritionist['self_introduction']);
                     $('#view-modal .credentials').text(response.credentials);
 
                     $('#view-modal .area-of-interest').text(response.nutritionist['area_of_interest']);

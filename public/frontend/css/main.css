@@ -1,5 +1,5 @@
 /* Import Poppins and Open Sans fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;600&family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;600&family=Poppins:wght@400;500;600;700&display=swap");
 
 /* Common styles */
 * {
@@ -12,10 +12,16 @@
     --hover: #07399b;
     --hover_white: #e6e6e6;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-bottom: 1rem;
 }
-a, a:hover {
+a,
+a:hover {
     text-decoration: none;
 }
 .swiper-pagination-bullet-active {
@@ -28,7 +34,31 @@ a, a:hover {
 }
 
 .page {
-    padding-top: 100px
+    padding-top: 100px;
+}
+
+form .ck.ck-editor {
+    overflow-x: hidden;
+}
+form .ck.ck-sticky-panel__content {
+    border-color: #eaeaea !important;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+}
+form .ck.ck-toolbar {
+    border-color: #eaeaea !important;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+}
+form .ck.ck-content {
+    height: 250px;
+    border-color: #eaeaea !important;
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+form .ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+    box-shadow: none !important;
+    outline: none;
 }
 /* Common styles */
 /********** Template CSS **********/
@@ -64,38 +94,36 @@ a, a:hover {
 
 /* FONT FAMILIES */
 
-Define font weights for Poppins */
-.ff-poppins-regular {
-    font-family: 'Poppins', sans-serif;
+Define font weights for Poppins */ .ff-poppins-regular {
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
 
 .ff-poppins-medium {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
-} 
+}
 
 .ff-poppins-semibold {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 
 .ff-poppins-bold {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
 }
 
 /*Define font weights for Open Sans */
 .ff-open-sans-regular {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
 
 .ff-open-sans-semibold {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
-
 
 /* Utility classes for font weights */
 /* .fw-light {
@@ -120,13 +148,13 @@ Define font weights for Poppins */
 
 .fw-extra-bold {
     font-weight: 800 !important;
-} */ 
+} */
 /* define font size*/
 .fs-10 {
     font-size: 10px; /* was 0.625rem */
 }
 
-.fs-12{
+.fs-12 {
     font-size: 12px; /* was 0.75rem */
 }
 
@@ -156,7 +184,7 @@ Define font weights for Poppins */
 .fs-31 {
     font-size: 31px; /* was 1.938rem */
 }
-.fs-36{
+.fs-36 {
     font-size: 36px; /* was 2.250rem */
 }
 
@@ -181,12 +209,24 @@ Define font weights for Poppins */
     margin-bottom: 60px;
 }
 
-.text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+.text-main-heading,
+.text-main-heading h1,
+.text-main-heading h2,
+.text-main-heading h3,
+.text-main-heading h4,
+.text-main-heading h5,
+.text-main-heading h6 {
     font-size: 42px;
     /* color: var(--black); */
 }
 
-.text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
+.text-heading,
+.text-heading h1,
+.text-heading h2,
+.text-heading h3,
+.text-heading h4,
+.text-heading h5,
+.text-heading h6 {
     font-size: 20px;
     /* color: var(--black); */
 }
@@ -204,7 +244,11 @@ Define font weights for Poppins */
     text-decoration: underline;
 }
 
-.text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+.text-main-content,
+.text-main-content p,
+.text-main-content ul,
+.text-main-content li,
+.text-main-content a {
     font-size: 22px;
     /* color: var(--black); */
 }
@@ -218,7 +262,11 @@ Define font weights for Poppins */
     margin-bottom: 0;
 }
 
-.text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+.text-content,
+.text-content p,
+.text-content ul,
+.text-content li,
+.text-content a {
     font-size: 18px;
     /* color: var(--black); */
 }
@@ -230,7 +278,8 @@ Define font weights for Poppins */
     margin-bottom: 0;
 }
 
-.text-main-content ul, .text-main-content li {
+.text-main-content ul,
+.text-main-content li {
     margin-bottom: 1rem;
     /* color: var(--black); */
 }
@@ -270,83 +319,82 @@ Define font weights for Poppins */
 }
 
 /* Purchase notification popup */
-    .confirmation-box {
-        background-color: white;
-        border-radius: 10px;
-        padding: 40px 20px 20px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        position: relative;
-        margin-top: 30px;
-    }
-    .confirmation-icon {
-        width: 80px; /* Increased width */
-        height: 80px; /* Increased height */
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: -40px; /* Adjusted position for larger size */
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 40px; /* Increased font size for better visibility */
-        font-weight: bold;
-        color: white; /* Ensure icon color is white */
-    }
-    .confirmation-icon span {
-        color: white; /* Ensure the icon inside the span is white */
-    }
-    .failed-notification-icon {
-        width: 80px; /* Icon container width */
-        height: 80px; /* Icon container height */
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #dc3545; /* Red background for failed notification */
-        color: white !important; /* Force white color */
-        font-size: 40px; /* Icon font size */
-        font-weight: bold;
-        position: absolute;
-        top: -40px; /* Adjusted position */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .failed-notification-icon span {
-        color: white !important; /* Force white color for the icon */
-    }
-    .failed-notification-icon i {
-        font-size: 40px; /* Adjust font-awesome icon size */
-    }
-    .confirmation-box h1 {
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-        margin: 40px 0 10px;
-        color: #333;
-    }
-    .confirmation-box p {
-        font-family: Arial, sans-serif;
-        font-size: 16px; /* already in px */
-        margin: 0 0 20px;
-        color: #555;
-    }
-    .confirmation-box button {
-        background-color: #7ed321;
-        color: white !important;
-        border: none;
-        border-radius: 10px;
-        padding: 10px 20px;
-        font-size: 16px; /* already in px */
-        cursor: pointer;
-        display: block;
-        margin: 0 auto;
-    }
-    .confirmation-box button:hover {
-        background-color: #6dbb1f;
-    }
+.confirmation-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px 20px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-top: 30px;
+}
+.confirmation-icon {
+    width: 80px; /* Increased width */
+    height: 80px; /* Increased height */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -40px; /* Adjusted position for larger size */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px; /* Increased font size for better visibility */
+    font-weight: bold;
+    color: white; /* Ensure icon color is white */
+}
+.confirmation-icon span {
+    color: white; /* Ensure the icon inside the span is white */
+}
+.failed-notification-icon {
+    width: 80px; /* Icon container width */
+    height: 80px; /* Icon container height */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dc3545; /* Red background for failed notification */
+    color: white !important; /* Force white color */
+    font-size: 40px; /* Icon font size */
+    font-weight: bold;
+    position: absolute;
+    top: -40px; /* Adjusted position */
+    left: 50%;
+    transform: translateX(-50%);
+}
+.failed-notification-icon span {
+    color: white !important; /* Force white color for the icon */
+}
+.failed-notification-icon i {
+    font-size: 40px; /* Adjust font-awesome icon size */
+}
+.confirmation-box h1 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    margin: 40px 0 10px;
+    color: #333;
+}
+.confirmation-box p {
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* already in px */
+    margin: 0 0 20px;
+    color: #555;
+}
+.confirmation-box button {
+    background-color: #7ed321;
+    color: white !important;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px; /* already in px */
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+.confirmation-box button:hover {
+    background-color: #6dbb1f;
+}
 /* Purchase notification popup */
-
 
 /* Responsive Font Sizes */
 @media (max-width: 1199.98px) {
@@ -355,7 +403,7 @@ Define font weights for Poppins */
     }
 
     .fs-49 {
-        font-size: 40px; 
+        font-size: 40px;
     }
 
     .heading {
@@ -366,7 +414,7 @@ Define font weights for Poppins */
         font-size: 32px; /* was 2rem */
     }
 
-    .fs-36{
+    .fs-36 {
         font-size: 30px; /* was 1.875rem */
     }
 
@@ -401,7 +449,7 @@ Define font weights for Poppins */
         font-size: 12px; /* was 0.75rem */
     }
 
-    .fs-12{
+    .fs-12 {
         font-size: 10px; /* was 0.625rem */
     }
 
@@ -412,11 +460,21 @@ Define font weights for Poppins */
         padding-top: 95px;
     }
 
-    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4 ,.text-heading h5, .text-heading h6 {
+    .text-heading,
+    .text-heading h1,
+    .text-heading h2,
+    .text-heading h3,
+    .text-heading h4,
+    .text-heading h5,
+    .text-heading h6 {
         font-size: 18px;
     }
 
-    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+    .text-content,
+    .text-content p,
+    .text-content ul,
+    .text-content li,
+    .text-content a {
         font-size: 16px;
     }
 
@@ -433,11 +491,21 @@ Define font weights for Poppins */
         width: 20px;
     }
 
-    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+    .text-main-heading,
+    .text-main-heading h1,
+    .text-main-heading h2,
+    .text-main-heading h3,
+    .text-main-heading h4,
+    .text-main-heading h5,
+    .text-main-heading h6 {
         font-size: 36px;
     }
-    
-    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+
+    .text-main-content,
+    .text-main-content p,
+    .text-main-content ul,
+    .text-main-content li,
+    .text-main-content a {
         font-size: 20px;
     }
 }
@@ -450,15 +518,15 @@ Define font weights for Poppins */
     .fs-49 {
         font-size: 24px; /* was 1.5rem */
     }
-    
+
     .heading {
         font-size: 32px;
-    }   
+    }
     .fs-39 {
         font-size: 20px; /* was 1.25rem */
     }
 
-    .fs-36{
+    .fs-36 {
         font-size: 18px; /* was 1.125rem */
     }
 
@@ -472,7 +540,7 @@ Define font weights for Poppins */
     .sub-heading {
         font-size: 18px;
     }
-    
+
     .page {
         padding-top: 70px;
     }
@@ -496,7 +564,7 @@ Define font weights for Poppins */
         font-size: 10px; /* was 0.625rem */
     }
 
-    .fs-12{
+    .fs-12 {
         font-size: 10px; /* was 0.625rem */
     }
 
@@ -504,11 +572,21 @@ Define font weights for Poppins */
         font-size: 8px; /* was 0.5rem */
     }
 
-    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
+    .text-heading,
+    .text-heading h1,
+    .text-heading h2,
+    .text-heading h3,
+    .text-heading h4,
+    .text-heading h5,
+    .text-heading h6 {
         font-size: 16px;
     }
 
-    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+    .text-content,
+    .text-content p,
+    .text-content ul,
+    .text-content li,
+    .text-content a {
         font-size: 15px;
     }
 
@@ -525,11 +603,21 @@ Define font weights for Poppins */
         width: 18px;
     }
 
-    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+    .text-main-heading,
+    .text-main-heading h1,
+    .text-main-heading h2,
+    .text-main-heading h3,
+    .text-main-heading h4,
+    .text-main-heading h5,
+    .text-main-heading h6 {
         font-size: 32px;
     }
-    
-    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+
+    .text-main-content,
+    .text-main-content p,
+    .text-main-content ul,
+    .text-main-content li,
+    .text-main-content a {
         font-size: 18px;
     }
 }
@@ -550,7 +638,7 @@ Define font weights for Poppins */
         font-size: 24px; /* was 1.5rem */
     }
 
-    .fs-36{
+    .fs-36 {
         font-size: 22px; /* was 1.375rem */
     }
 
@@ -582,13 +670,12 @@ Define font weights for Poppins */
     .fs-16 {
         font-size: 12px; /* was 0.5rem */
     }
-    
 
     .fs-13 {
         font-size: 10px; /* was 0.625rem */
     }
 
-    .fs-12{
+    .fs-12 {
         font-size: 10px; /* was 0.625rem */
     }
 
@@ -599,24 +686,34 @@ Define font weights for Poppins */
     .fs-sm-12 {
         font-size: 12px !important; /* was 0.75rem */
     }
-    
+
     .fs-sm-14 {
         font-size: 14px !important; /* was 0.875rem */
     }
-    
+
     .fs-sm-16 {
         font-size: 16px !important; /* was 1rem */
     }
-    
+
     .fs-md-18 {
         font-size: 16px !important; /* was 1rem */
     }
 
-    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4, .text-heading h5, .text-heading h6 {
+    .text-heading,
+    .text-heading h1,
+    .text-heading h2,
+    .text-heading h3,
+    .text-heading h4,
+    .text-heading h5,
+    .text-heading h6 {
         font-size: 15px;
     }
 
-    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+    .text-content,
+    .text-content p,
+    .text-content ul,
+    .text-content li,
+    .text-content a {
         font-size: 14px;
     }
 
@@ -633,11 +730,21 @@ Define font weights for Poppins */
         width: 16px;
     }
 
-    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+    .text-main-heading,
+    .text-main-heading h1,
+    .text-main-heading h2,
+    .text-main-heading h3,
+    .text-main-heading h4,
+    .text-main-heading h5,
+    .text-main-heading h6 {
         font-size: 28px;
     }
-    
-    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+
+    .text-main-content,
+    .text-main-content p,
+    .text-main-content ul,
+    .text-main-content li,
+    .text-main-content a {
         font-size: 16px;
     }
 }
@@ -646,15 +753,15 @@ Define font weights for Poppins */
     .fs-sm-12 {
         font-size: 10px !important; /* was 0.625rem */
     }
-    
+
     .fs-sm-14 {
         font-size: 12px !important; /* was 0.75rem */
     }
-    
+
     .fs-sm-16 {
         font-size: 14px !important; /* was 0.875rem */
     }
-    
+
     .fs-md-18 {
         font-size: 14px !important; /* was 0.875rem */
     }
@@ -667,11 +774,21 @@ Define font weights for Poppins */
         font-size: 15px;
     }
 
-    .text-heading, .text-heading h1, .text-heading h2, .text-heading h3, .text-heading h4 , .text-heading h5, .text-heading h6 {
+    .text-heading,
+    .text-heading h1,
+    .text-heading h2,
+    .text-heading h3,
+    .text-heading h4,
+    .text-heading h5,
+    .text-heading h6 {
         font-size: 14px;
     }
 
-    .text-content, .text-content p, .text-content ul, .text-content li, .text-content a {
+    .text-content,
+    .text-content p,
+    .text-content ul,
+    .text-content li,
+    .text-content a {
         font-size: 13px;
     }
 
@@ -687,19 +804,29 @@ Define font weights for Poppins */
     .other-white-button .icon {
         width: 14px;
     }
-    .page{
+    .page {
         padding-top: 70px;
     }
 
-    .text-main-heading, .text-main-heading h1, .text-main-heading h2, .text-main-heading h3, .text-main-heading h4, .text-main-heading h5, .text-main-heading h6 {
+    .text-main-heading,
+    .text-main-heading h1,
+    .text-main-heading h2,
+    .text-main-heading h3,
+    .text-main-heading h4,
+    .text-main-heading h5,
+    .text-main-heading h6 {
         font-size: 24px;
     }
-    
-    .text-main-content, .text-main-content p, .text-main-content ul, .text-main-content li, .text-main-content a {
+
+    .text-main-content,
+    .text-main-content p,
+    .text-main-content ul,
+    .text-main-content li,
+    .text-main-content a {
         font-size: 15px;
     }
 }
-.text-url a{
+.text-url a {
     /* text-decoration: underline; */
     white-space: normal;
     word-wrap: break-word;
@@ -724,7 +851,6 @@ Define font weights for Poppins */
     }
 }
 
-
 .back-to-top {
     position: fixed;
     display: none;
@@ -733,22 +859,21 @@ Define font weights for Poppins */
     z-index: 99;
 }
 
-
 /*** Button ***/
 .btn {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
-    transition: .5s;
+    transition: 0.5s;
 }
 
-.btn.btn-primary{
+.btn.btn-primary {
     background-color: #0040c3;
-    color: #FFFFFF;
-    border-radius:5px;
+    color: #ffffff;
+    border-radius: 5px;
 }
 .btn.btn-secondary {
-    color: #FFFFFF;
-    border-radius:5px;
+    color: #ffffff;
+    border-radius: 5px;
 }
 
 .btn-square {
@@ -837,7 +962,7 @@ li {
     h3, .h3 { font-size: 32px; } 
     h4, .h4 { font-size: 24px; } 
     h5, .h5 { font-size: 20px; }  */
-    /* p, .p, ul, ol, li { 
+/* p, .p, ul, ol, li { 
         font-size: 20px !important; 
     } 
 }
@@ -848,7 +973,7 @@ li {
     h3, .h3 { font-size: 28px; } 
     h4, .h4 { font-size: 20px; } 
     h5, .h5 { font-size: 16px; }  */
-    /* p, .p, ul, ol, li { 
+/* p, .p, ul, ol, li { 
         font-size: 16px !important; 
     } 
 }
@@ -859,7 +984,7 @@ li {
     h3, .h3 { font-size: 24px; } 
     h4, .h4 { font-size: 20px; } 
     h5, .h5 { font-size: 32px; }  */
-    /* p, .p, ul, ol, li { 
+/* p, .p, ul, ol, li { 
         font-size: 16px !important; 
     } 
 }
@@ -915,7 +1040,7 @@ li {
 }
 .white-button:hover {
     background-color: var(--hover_white);
-    color:var(--primary);;
+    color: var(--primary);
     transition: all 0.3s;
 }
 .other-white-button {

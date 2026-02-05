@@ -45,6 +45,7 @@
         @stack('before-scripts')
             <script src="{{ asset('frontend/js/jquery.js') }}"></script>
             <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
+            <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
             <script src="{{ asset('frontend/js/main.js') }}"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
             <script src="{{ asset('frontend/js/swiper.js') }}"></script>

@@ -311,9 +311,14 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <label for="self_introduction" class="form-label">Self Introduction</label>
                         <textarea class="form-control" rows="5" id="self_introduction" name="self_introduction" value="{{ old('self_introduction') }}" placeholder="Self Introduction">{{ old('self_introduction') }}</textarea>
+                    </div> -->
+
+                    <div class="col-12">
+                        <label for="self_introduction" class="form-label">Self Introduction</label>
+                        <textarea class="editor" id="self_introduction" name="self_introduction" value="{{ old('self_introduction') }}">{{ old('self_introduction') }}</textarea>
                     </div>
                 </div>
             </div>

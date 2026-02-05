@@ -284,7 +284,9 @@
                             <div class="col-md-12 mb-4">
                                 <h5 class="profile-title mb-3">{{ $student_dashboard_contents->student_profile_self }}</h5>
 
-                                <textarea class="form-control" rows="5" name="self_introduction" placeholder="{{ $student_dashboard_contents->student_profile_self_placeholder }}" style="height: initial;" value="{{ old('self_introduction') ?? $student->self_introduction }}">{{ old('self_introduction') ?? $student->self_introduction }}</textarea>
+                                <!-- <textarea class="form-control" rows="5" name="self_introduction" placeholder="{{ $student_dashboard_contents->student_profile_self_placeholder }}" style="height: initial;" value="{{ old('self_introduction') ?? $student->self_introduction }}">{{ old('self_introduction') ?? $student->self_introduction }}</textarea> -->
+
+                                <textarea class="editor" id="self_introduction" name="self_introduction" placeholder="{{ $student_dashboard_contents->student_profile_self_placeholder }}" value="{{ old('self_introduction') ?? $student->self_introduction }}">{{ old('self_introduction') ?? $student->self_introduction }}</textarea>
                             </div>
                             
                             <div class="col-md-12">
