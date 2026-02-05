@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Page;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NutritionistMail;
 use App\Models\ContactCoach;
 use App\Models\NutritionistContent;
 use App\Models\User;
@@ -371,6 +372,15 @@ class NutritionistController extends Controller
         $data['date'] = Carbon::now()->toDateString();
         $data['status'] = '1';
         $contact_coach->create($data);
+
+        $mail_data = [
+            'nutritionist' => $nutritionist,
+            'request' => $data
+        ];
+
+        send_email(new NutritionistMail($mail_data, 'user'), $request->email);
+        send_email(new NutritionistMail($mail_data, 'nutritionist'), $nutritionist->email);
+        send_email(new NutritionistMail($mail_data, 'admin'), config('app.admin_emails'));
 
         return redirect()->back()->with('success', 'Message sent successfully');
     }
