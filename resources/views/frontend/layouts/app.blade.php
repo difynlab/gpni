@@ -22,7 +22,9 @@
 
         <title>{{ config('app.name') }} | @yield('title')</title>
         <link rel="icon" href="{{ asset('storage/backend/main/' . App\Models\Setting::find(1)->favicon) }}">
-        
+
+        @stack('head-meta')
+
         @stack('before-styles')
             <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}">
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
