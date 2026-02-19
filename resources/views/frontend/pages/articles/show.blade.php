@@ -104,16 +104,16 @@
                                             <div class="col-4 col-lg-6">
                                                 @if($latest_article->thumbnail)
                                                 <img src="{{ asset('storage/backend/articles/articles/'. $latest_article->thumbnail) }}"
-                                                    alt="Main Image" class="img-fluid object-fit-cover">
+                                                    alt="Main Image">
                                                 @else
                                                 <img src="{{ asset('storage/backend/main/'. App\Models\Setting::find(1)->no_image) }}"
-                                                    alt="Trending Image" class="img-fluid object-fit-cover">
+                                                    alt="Trending Image">
                                                 @endif
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
-                                                    <div class="trending-content-title fs-18 title-clamp">{{ $latest_article->title }}</div>
-                                                    <div class="line-clamp-2 trending-content-description fs-16">
+                                                    <div class="trending-content-title fs-16 title-clamp">{{ $latest_article->title }}</div>
+                                                    <div class="line-clamp-2 trending-content-description fs-14">
                                                         {!! strip_tags($latest_article->content) !!}
                                                     </div>
                                                     <div
