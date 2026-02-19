@@ -2,6 +2,22 @@
 
 @section('title', $contents->{'single_article_page_name_' . $middleware_language} ?? $contents->single_article_page_name_en)
 
+@push('head-meta')
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $article->title }}">
+    <meta property="og:description" content="{{ $article->short_description ?: \Illuminate\Support\Str::limit(strip_tags($article->content), 160) }}">
+    @php
+        $thumbnailUrl = $article->thumbnail
+            ? url(asset('storage/backend/articles/articles/' . $article->thumbnail))
+            : url(asset('storage/backend/main/' . App\Models\Setting::find(1)->no_image));
+    @endphp
+    <meta property="og:image" content="{{ $thumbnailUrl }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+@endpush
+
 @push('after-styles')
     <link rel="stylesheet" href="{{ asset('frontend/css/article.css') }}">
 @endpush
