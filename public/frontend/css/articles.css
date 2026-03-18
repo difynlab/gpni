@@ -61,9 +61,13 @@ body {
     color: #000;
     font-style: normal;
     font-weight: 500;
-    line-height: 33px; /* 150% */    
+    font-size: 18px;   
     display: inline-flex;
     align-items: center;
+    text-decoration: none;
+  }
+  .text-content {
+    font-size: 17px;
   }
 
   .title-clamp {
@@ -74,10 +78,7 @@ body {
       overflow: hidden;
       text-overflow: ellipsis;
   }
-  
-  .text-primary-title {
-    text-decoration: none;
-  }
+
   
   .icon {
     width: 24px;
@@ -157,6 +158,7 @@ body {
   }
   
   .trending-content-description {
+    font-size: 14px;
     color: #505050;
     font-family: 'Poppins';
     font-weight: 400;
@@ -193,10 +195,9 @@ body {
   }
   
   .header-metadata {
-    display: inline-flex;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
   }
   
   .find-us-on {
@@ -335,7 +336,14 @@ body {
     border-bottom-color: #0040c3;
   }
 
-  .line-clamp-3 {
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -369,6 +377,7 @@ body {
 }
 
 .trending-content-title{
+  font-size: 15px;
   color: #000;
   font-style: normal;
   font-weight: 500;

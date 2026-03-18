@@ -92,9 +92,9 @@
                                                         <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</span>
                                                     </div>
                                                     <a href="{{ route('frontend.articles.show', [$article, \Overtrue\Pinyin\Pinyin::permalink($article->title)]) }}" class="text-decoration-none">
-                                                        <div class="text-primary-title text-heading mb-2 title-clamp">{{ $article->title }}</div>
+                                                        <div class="text-primary-title text-heading mb-2">{{ $article->title }}</div>
                                                     </a>
-                                                    <div class="text-content card-text mb-3 line-clamp-3">{{ $article->short_description }}</div>
+                                                    <div class="text-content card-text line-clamp-2">{{ $article->short_description }}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,10 +138,10 @@
                                                     </div>
 
                                                     <a href="{{ route('frontend.articles.show', [$recommended_article, \Overtrue\Pinyin\Pinyin::permalink($recommended_article->title)]) }}" class="text-decoration-none">
-                                                        <div class="text-primary-title fs-22 mb-2 title-clamp">{{ $recommended_article->title }}</div>
+                                                        <div class="text-primary-title text-heading mb-2">{{ $recommended_article->title }}</div>
                                                     </a>
 
-                                                    <div class="fs-16 card-text mb-4 line-clamp-3">{{ $recommended_article->short_description }}</div>
+                                                    <div class="text-content card-text line-clamp-2">{{ $recommended_article->short_description }}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@
                             @foreach($trending_articles as $trending_article)
                                 <a href="{{ route('frontend.articles.show', [$trending_article, \Overtrue\Pinyin\Pinyin::permalink($trending_article->title)]) }}" class="text-decoration-none">
                                     <div class="trending-article">
-                                        <div class="row g-3 w-100">
+                                        <div class="row w-100 align-items-center">
                                             <div class="col-4 col-lg-6">
                                                 @if($trending_article->thumbnail)
                                                     <img src="{{ asset('storage/backend/articles/articles/' . $trending_article->thumbnail) }}" alt="Trending Image" class="img-fluid object-fit-cover">
@@ -172,13 +172,13 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="trending-content">
-                                                    <div class="trending-content-title title-clamp fs-18">{{ $trending_article->title }}
+                                                    <div class="trending-content-title line-clamp-2 mb-1">{{ $trending_article->title }}
                                                     </div>
 
-                                                    <div class="line-clamp-2 trending-content-description fs-16">{{ $trending_article->short_description }}</div>
+                                                    <div class="line-clamp-1 trending-content-description">{{ $trending_article->short_description }}</div>
 
                                                     <div
-                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2">
+                                                        class="date-and-read mt-1">
                                                         <!-- Date -->
                                                         <span class="small text-muted">{{ $trending_article->created_at->format('M d,Y')
                                                             }}</span>

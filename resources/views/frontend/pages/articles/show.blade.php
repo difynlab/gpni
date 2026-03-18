@@ -116,7 +116,7 @@
                             @foreach($latest_articles as $latest_article)
                                 <a href="{{ route('frontend.articles.show', [$latest_article, \Overtrue\Pinyin\Pinyin::permalink($latest_article->title)]) }}" class="text-decoration-none">
                                     <div class="article-container">
-                                        <div class="row g-3 w-100">
+                                        <div class="row w-100 align-items-center">
                                             <div class="col-4 col-lg-6">
                                                 @if($latest_article->thumbnail)
                                                 <img src="{{ asset('storage/backend/articles/articles/'. $latest_article->thumbnail) }}"
@@ -128,12 +128,12 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
-                                                    <div class="trending-content-title fs-16 title-clamp">{{ $latest_article->title }}</div>
-                                                    <div class="line-clamp-2 trending-content-description fs-14">
+                                                    <div class="trending-content-title line-clamp-2 mb-1">{{ $latest_article->title }}</div>
+                                                    <div class="line-clamp-1 trending-content-description">
                                                         {!! strip_tags($latest_article->content) !!}
                                                     </div>
                                                     <div
-                                                        class="date-and-read d-flex justify-content-between align-items-center flex-wrap gap-2 mt-2">
+                                                        class="date-and-read mt-1">
                                                         <span class="small text-muted">{{ $latest_article->created_at->format('M d, Y') }}</span>
                                                         @if($latest_article->reading_time)
                                                             <span class="small time-read d-flex align-items-center gap-1">
