@@ -381,6 +381,10 @@ body {
   text-transform: capitalize;
 }
 
+.articles-categories-section a:hover .trending-content-title {
+  color: #0040C3;
+}
+
 /* Laptop/tablet specific styles */
 @media screen and (max-width: 1024px) {
   .custom-text-muted {

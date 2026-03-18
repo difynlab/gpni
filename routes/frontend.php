@@ -60,6 +60,7 @@ Route::middleware(['set_language'])->group(function () {
 
         Route::prefix('articles')->name('articles.')->group(function() {
             Route::get('/', [ArticleController::class, 'index'])->name('index');
+            Route::get('category/{article_category}/{title?}', [ArticleController::class, 'category'])->name('category');
             Route::get('show/{article}/{title}', [ArticleController::class, 'show'])->name('show');
         });
         Route::prefix('conferences')->name('conferences.')->group(function() {

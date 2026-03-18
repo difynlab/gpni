@@ -155,6 +155,18 @@
                 </div>
 
                 <div class="col-xl-4 col-lg-5 ps-md-4 px-3">
+                    <div class="trending-articles-section articles-categories-section mb-4">
+                        <div class="fs-20 trending-article-title py-2 fw-bold">Articles Categories</div>
+
+                        @if(isset($article_categories) && $article_categories->isNotEmpty())
+                            @foreach($article_categories as $article_category)
+                                <a href="{{ route('frontend.articles.category', [$article_category, \Overtrue\Pinyin\Pinyin::permalink($article_category->name)]) }}" class="text-decoration-none d-block py-1">
+                                    <div class="trending-content-title line-clamp-1 mb-0">{{ $article_category->name }}</div>
+                                </a>
+                            @endforeach
+                        @endif
+                    </div>
+
                     <div class="trending-articles-section">
                         <div class="fs-20 trending-article-title py-2 fw-bold">{{ $contents->{'section_1_trend_' . $middleware_language} ?? $contents->section_1_trend_en }}</div>
 

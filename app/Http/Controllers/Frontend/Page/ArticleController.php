@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Page;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\ArticleContent;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -30,6 +31,17 @@ class ArticleController extends Controller
             $trending_articles = Article::where('language', 'English')->where('status', '1')->orderBy('view_count', 'desc')->take(5)->get();
         }
 
+        $article_categories = ArticleCategory::where('language', $request->middleware_language_name)
+            ->where('status', '1')
+            ->orderBy('id', 'asc')
+            ->get();
+        if($article_categories->isEmpty() && $request->middleware_language_name != 'English') {
+            $article_categories = ArticleCategory::where('language', 'English')
+                ->where('status', '1')
+                ->orderBy('id', 'asc')
+                ->get();
+        }
+
         $settings = Setting::find(1);
 
         return view('frontend.pages.articles.index', [
@@ -37,7 +49,47 @@ class ArticleController extends Controller
             'articles' => $articles,
             'recommended_articles' => $recommended_articles,
             'trending_articles' => $trending_articles,
+            'article_categories' => $article_categories,
             'settings' => $settings
+        ]);
+    }
+
+    public function category(Request $request, ArticleCategory $article_category)
+    {
+        $contents = ArticleContent::find(1);
+
+        $articles = Article::where('article_category_id', $article_category->id)
+            ->where('language', $request->middleware_language_name)
+            ->where('status', '1')
+            ->orderBy('id', 'desc')
+            ->paginate(8);
+        if($articles->isEmpty() && $request->middleware_language_name != 'English') {
+            $articles = Article::where('article_category_id', $article_category->id)
+                ->where('language', 'English')
+                ->where('status', '1')
+                ->orderBy('id', 'desc')
+                ->paginate(8);
+        }
+
+        $article_categories = ArticleCategory::where('language', $request->middleware_language_name)
+            ->where('status', '1')
+            ->orderBy('id', 'asc')
+            ->get();
+        if($article_categories->isEmpty() && $request->middleware_language_name != 'English') {
+            $article_categories = ArticleCategory::where('language', 'English')
+                ->where('status', '1')
+                ->orderBy('id', 'asc')
+                ->get();
+        }
+
+        $settings = Setting::find(1);
+
+        return view('frontend.pages.articles.article-category', [
+            'contents' => $contents,
+            'article_category' => $article_category,
+            'articles' => $articles,
+            'article_categories' => $article_categories,
+            'settings' => $settings,
         ]);
     }
     
