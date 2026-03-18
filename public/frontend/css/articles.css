@@ -67,7 +67,8 @@ body {
     text-decoration: none;
   }
   .text-content {
-    font-size: 17px;
+    font-size: 16px;
+    color: #505050;
   }
 
   .title-clamp {
@@ -355,11 +356,6 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  color: #000;
-  font-family: 'Poppins';
-  font-weight: 400;
-  font-style: normal;
-  line-height: normal;
 }
 
 .read-more-button {
@@ -377,7 +373,7 @@ body {
 }
 
 .trending-content-title{
-  font-size: 15px;
+  font-size: 14px;
   color: #000;
   font-style: normal;
   font-weight: 500;

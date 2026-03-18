@@ -92,7 +92,7 @@
                                                         <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</span>
                                                     </div>
                                                     <a href="{{ route('frontend.articles.show', [$article, \Overtrue\Pinyin\Pinyin::permalink($article->title)]) }}" class="text-decoration-none">
-                                                        <div class="text-primary-title text-heading mb-2">{{ $article->title }}</div>
+                                                        <div class="text-primary-title text-heading mb-1">{{ $article->title }}</div>
                                                     </a>
                                                     <div class="text-content card-text line-clamp-2">{{ $article->short_description }}</div>
                                                 </div>
@@ -138,7 +138,7 @@
                                                     </div>
 
                                                     <a href="{{ route('frontend.articles.show', [$recommended_article, \Overtrue\Pinyin\Pinyin::permalink($recommended_article->title)]) }}" class="text-decoration-none">
-                                                        <div class="text-primary-title text-heading mb-2">{{ $recommended_article->title }}</div>
+                                                        <div class="text-primary-title text-heading mb-1">{{ $recommended_article->title }}</div>
                                                     </a>
 
                                                     <div class="text-content card-text line-clamp-2">{{ $recommended_article->short_description }}</div>
@@ -172,10 +172,10 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="trending-content">
-                                                    <div class="trending-content-title line-clamp-2 mb-1">{{ $trending_article->title }}
+                                                    <div class="trending-content-title">{{ $trending_article->title }}
                                                     </div>
 
-                                                    <div class="line-clamp-1 trending-content-description">{{ $trending_article->short_description }}</div>
+                                                    <!-- <div class="line-clamp-1 trending-content-description">{{ $trending_article->short_description }}</div> -->
 
                                                     <div
                                                         class="date-and-read mt-1">

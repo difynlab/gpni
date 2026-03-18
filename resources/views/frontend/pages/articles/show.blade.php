@@ -128,10 +128,10 @@
                                             </div>
                                             <div class="col-8 col-lg-6">
                                                 <div class="article-details">
-                                                    <div class="trending-content-title line-clamp-2 mb-1">{{ $latest_article->title }}</div>
-                                                    <div class="line-clamp-1 trending-content-description">
+                                                    <div class="trending-content-title">{{ $latest_article->title }}</div>
+                                                    <!-- <div class="line-clamp-1 trending-content-description">
                                                         {!! strip_tags($latest_article->content) !!}
-                                                    </div>
+                                                    </div> -->
                                                     <div
                                                         class="date-and-read mt-1">
                                                         <span class="small text-muted">{{ $latest_article->created_at->format('M d, Y') }}</span>
