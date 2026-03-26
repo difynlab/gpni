@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('user_id');
             $table->string('subject');
-            $table->string('initial_message');
+            $table->text('initial_message');
             $table->date('date');
             $table->time('time');
             $table->enum('admin_viewed', [0, 1]);

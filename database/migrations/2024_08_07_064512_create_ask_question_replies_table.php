@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('ask_question_id');
             $table->string('replied_by');
-            $table->string('message');
+            $table->text('message');
             $table->date('date');
             $table->time('time');
             $table->enum('admin_viewed', [0, 1]);
