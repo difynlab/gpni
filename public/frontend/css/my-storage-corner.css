@@ -275,9 +275,17 @@
     background-color: transparent;
     border-radius: 5px;
     overflow-x: auto;
-    white-space: nowrap;
+    white-space: normal;
     margin-bottom: 15px;
     padding-bottom: 10px; /* Add padding between table and scrollbar */
+}
+
+/* Stretching the table */
+.table-container .table td:first-child,
+.table-container .table th:first-child {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .table-container table {

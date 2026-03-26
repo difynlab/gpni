@@ -213,12 +213,20 @@
 
                             @if($course_chapter->additional_video_links)
                                 @foreach(json_decode($course_chapter->additional_video_links) as $additional_video_link)
+                                    @php
+                                        $additional_video_link_title = is_string($additional_video_link)
+                                            ? ''
+                                            : ($additional_video_link->title ?? '');
+                                        $additional_video_link_url = is_string($additional_video_link)
+                                            ? $additional_video_link
+                                            : ($additional_video_link->link ?? '');
+                                    @endphp
                                     <div class="row single-item mt-2">
                                         <div class="col">
-                                            <input type="text" class="form-control" name="additional_video_link_titles[]" value="{{ $additional_video_link->title }}" placeholder="Title">
+                                            <input type="text" class="form-control" name="additional_video_link_titles[]" value="{{ $additional_video_link_title }}" placeholder="Title">
                                         </div>
                                         <div class="col">
-                                            <input type="url" class="form-control" name="additional_video_link_urls[]" value="{{ $additional_video_link->link }}" placeholder="Link">
+                                            <input type="url" class="form-control" name="additional_video_link_urls[]" value="{{ $additional_video_link_url }}" placeholder="Link">
                                         </div>
                                         <div class="col-1 d-flex align-items-center">
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
@@ -243,14 +251,22 @@
 
                             @if($course_chapter->presentation_medias)
                                 @foreach(json_decode($course_chapter->presentation_medias) as $presentation_media)
+                                    @php
+                                        $presentation_media_title = is_string($presentation_media)
+                                            ? ''
+                                            : ($presentation_media->title ?? '');
+                                        $presentation_media_file = is_string($presentation_media)
+                                            ? $presentation_media
+                                            : ($presentation_media->file ?? '');
+                                    @endphp
                                     <div class="row single-item mt-2">
                                         <div class="col-11">
-                                            <input type="text" class="form-control" name="old_presentation_media_titles[]" value="{{ $presentation_media->title }}" placeholder="Title">
+                                            <input type="text" class="form-control" name="old_presentation_media_titles[]" value="{{ $presentation_media_title }}" placeholder="Title">
                                         </div>
                                         <div class="col-1 d-flex align-items-center">
-                                            <input type="hidden" name="old_presentation_media_files[]" value="{{ $presentation_media->file }}">
+                                            <input type="hidden" name="old_presentation_media_files[]" value="{{ $presentation_media_file }}">
 
-                                            <a href="{{ asset('storage/backend/courses/course-chapter-presentation-medias/' . $presentation_media->file) }}" class="download-button" download><i class="bi bi-download"></i></a>
+                                            <a href="{{ asset('storage/backend/courses/course-chapter-presentation-medias/' . $presentation_media_file) }}" class="download-button" download><i class="bi bi-download"></i></a>
 
                                             <a class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>
                                         </div>

@@ -62,13 +62,13 @@ class GiftCardPurchaseController extends Controller
             return redirect()->route('backend.purchases.gift-card-purchases.index');
         }
 
-        $transaction_id = $request->transaction_id;
+        $email = $request->email;
         $date = $request->date;
 
         $gift_card_purchases = GiftCardPurchase::where('status', '1')->orderBy('id', 'desc');
 
-        if($transaction_id != null) {
-            $gift_card_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');
+        if($email != null) {
+            $gift_card_purchases->where('receiver_email', 'like', '%' . $email . '%');
         }
 
         if($date != null) {
@@ -82,7 +82,7 @@ class GiftCardPurchaseController extends Controller
         return view('backend.purchases.gift-card-purchases.index', [
             'gift_card_purchases' => $gift_card_purchases,
             'items' => $items,
-            'transaction_id' => $transaction_id,
+            'email' => $email,
             'date' => $date
         ]);
     }

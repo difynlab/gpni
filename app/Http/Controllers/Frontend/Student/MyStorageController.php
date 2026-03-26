@@ -15,7 +15,11 @@ class MyStorageController extends Controller
 
         $type = $request->query('type', 'All');
         
-        $query = Media::where('location', 'Student Center')->where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc');
+        $query = Media::where('location', 'Student Center')
+            ->where('language', $request->middleware_language_name)
+            ->where('status', '1')
+            ->where('type', '!=', 'Audio')
+            ->orderBy('id', 'desc');
 
         if($type !== 'All') {
             $query->where('type', $type);

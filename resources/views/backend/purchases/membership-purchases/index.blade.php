@@ -12,7 +12,7 @@
                 <form action="{{ route('backend.purchases.membership-purchases.filter') }}" method="GET" class="filter-form">
                     <div class="row align-items-center">
                         <div class="col">
-                            <input type="text" class="form-control" name="transaction_id" value="{{ $transaction_id ?? '' }}" placeholder="Transaction ID">
+                            <input type="text" class="form-control" name="email" value="{{ $email ?? '' }}" placeholder="Email">
                         </div>
 
                         <!-- <div class="col">

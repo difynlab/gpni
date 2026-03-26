@@ -45,6 +45,9 @@ class CourseChapterController extends Controller
         $items = $request->items ?? 10;
 
         $course = Course::where('status', '!=', '0')->find($course_module->course_id);
+        if(!$course) {
+            abort(404);
+        }
 
         $course_chapters = CourseChapter::where('module_id', $course_module->id)->where('status', '!=', '0')->orderBy('id', 'desc')->paginate($items);
         $course_chapters = $this->processCourseChapters($course_chapters);
@@ -60,6 +63,9 @@ class CourseChapterController extends Controller
     public function create(CourseModule $course_module)
     {
         $course = Course::where('status', '!=', '0')->find($course_module->course_id);
+        if(!$course) {
+            abort(404);
+        }
         $course_language = $course->language;
 
         return view('backend.course-chapters.create', [
@@ -247,7 +253,14 @@ class CourseChapterController extends Controller
 
     public function edit(CourseModule $course_module, CourseChapter $course_chapter)
     {
+        if((int) $course_chapter->module_id !== (int) $course_module->id) {
+            abort(404);
+        }
+
         $course = Course::where('status', '!=', '0')->find($course_module->course_id);
+        if(!$course) {
+            abort(404);
+        }
         $course_language = $course->language;
 
         return view('backend.course-chapters.edit', [
@@ -260,6 +273,10 @@ class CourseChapterController extends Controller
 
     public function update(Request $request, CourseModule $course_module, CourseChapter $course_chapter)
     {
+        if((int) $course_chapter->module_id !== (int) $course_module->id) {
+            abort(404);
+        }
+
         $validator = Validator::make($request->all(), [
             'book_files.*' => 'max:30720',
             'video_files.*' => 'max:409600',
@@ -483,6 +500,10 @@ class CourseChapterController extends Controller
 
     public function destroy(CourseModule $course_module, CourseChapter $course_chapter)
     {
+        if((int) $course_chapter->module_id !== (int) $course_module->id) {
+            abort(404);
+        }
+
         $course_chapter->status = '0';
         $course_chapter->save();
 

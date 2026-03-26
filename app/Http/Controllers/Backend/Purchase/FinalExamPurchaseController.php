@@ -74,13 +74,19 @@ class FinalExamPurchaseController extends Controller
             return redirect()->route('backend.purchases.final-exam-purchases.index');
         }
 
-        $transaction_id = $request->transaction_id;
+        $email = $request->email;
         $date = $request->date;
 
         $final_exam_purchases = FinalExamPurchase::where('status', '1')->orderBy('id', 'desc');
 
-        if($transaction_id != null) {
-            $final_exam_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');
+        if($email != null) {
+            $email_user_ids = User::where('role', 'student')
+                ->where('status', '1')
+                ->where('email', 'like', '%' . $email . '%')
+                ->pluck('id')
+                ->toArray();
+
+            $final_exam_purchases->whereIn('user_id', $email_user_ids);
         }
 
         if($date != null) {
@@ -94,7 +100,7 @@ class FinalExamPurchaseController extends Controller
         return view('backend.purchases.final-exam-purchases.index', [
             'final_exam_purchases' => $final_exam_purchases,
             'items' => $items,
-            'transaction_id' => $transaction_id,
+            'email' => $email,
             'date' => $date
         ]);
     }

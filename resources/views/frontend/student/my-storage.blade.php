@@ -31,7 +31,6 @@
                                 $student_dashboard_contents->my_storage_corner_sixth_tab,
                                 $student_dashboard_contents->my_storage_corner_seventh_tab,
                                 $student_dashboard_contents->my_storage_corner_eighth_tab,
-                                $student_dashboard_contents->my_storage_corner_ninth_tab,
                             ];
                         @endphp
 
@@ -52,7 +51,6 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>{{ $student_dashboard_contents->my_storage_corner_first_column }}</th>
                                                     <th>{{ $student_dashboard_contents->my_storage_corner_second_column }}</th>
                                                     <th>{{ $student_dashboard_contents->my_storage_corner_third_column }}</th>
                                                 </tr>
@@ -62,7 +60,6 @@
                                                 @if($medias->isNotEmpty())
                                                     @foreach($medias as $media)
                                                         <tr>
-                                                            <td>{{ $media->id }}</td>
                                                             <td>
                                                                 {{ $media->name }}
                                                             </td>
@@ -81,8 +78,6 @@
                                                                     <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->excel) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
                                                                 @elseif($media->type == $student_dashboard_contents->my_storage_corner_eighth_tab)
                                                                     <a class="text-decoration-none" href="{{ asset('storage/backend/medias/' . $media->ppt) }}" target="_blank">{{ $student_dashboard_contents->my_storage_corner_download }}</a>
-                                                                @elseif($media->type == $student_dashboard_contents->my_storage_corner_ninth_tab)
-                                                                    <audio src="{{ asset('storage/backend/medias/' . $media->audio) }}" type="audio/mpeg" controls></audio>
                                                                 @endif
                                                             </td>
                                                         </tr>

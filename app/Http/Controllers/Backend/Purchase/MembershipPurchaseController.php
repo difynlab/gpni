@@ -72,14 +72,20 @@ class MembershipPurchaseController extends Controller
             return redirect()->route('backend.purchases.membership-purchases.index');
         }
 
-        $transaction_id = $request->transaction_id;
+        $email = $request->email;
         // $buyer_receiver_name = $request->buyer_receiver_name;
         $date = $request->date;
 
         $membership_purchases = MembershipPurchase::where('status', '1')->orderBy('id', 'desc');
 
-        if($transaction_id != null) {
-            $membership_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');
+        if($email != null) {
+            $email_user_ids = User::where('role', 'student')
+                ->where('status', '1')
+                ->where('email', 'like', '%' . $email . '%')
+                ->pluck('id')
+                ->toArray();
+
+            $membership_purchases->whereIn('user_id', $email_user_ids);
         }
 
         // if($buyer_receiver_name != null) {
@@ -100,7 +106,7 @@ class MembershipPurchaseController extends Controller
         return view('backend.purchases.membership-purchases.index', [
             'membership_purchases' => $membership_purchases,
             'items' => $items,
-            'transaction_id' => $transaction_id,
+            'email' => $email,
             // 'buyer_receiver_name' => $buyer_receiver_name,
             'date' => $date,
         ]);

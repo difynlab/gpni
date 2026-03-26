@@ -92,14 +92,20 @@ class MaterialPurchaseController extends Controller
             return redirect()->route('backend.purchases.material-purchases.index');
         }
 
-        $transaction_id = $request->transaction_id;
+        $email = $request->email;
         // $buyer_receiver_name = $request->buyer_receiver_name;
         $date = $request->date;
 
         $material_purchases = MaterialPurchase::where('status', '1')->orderBy('id', 'desc');
 
-        if($transaction_id != null) {
-            $material_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');
+        if($email != null) {
+            $email_user_ids = User::where('role', 'student')
+                ->where('status', '1')
+                ->where('email', 'like', '%' . $email . '%')
+                ->pluck('id')
+                ->toArray();
+
+            $material_purchases->whereIn('user_id', $email_user_ids);
         }
 
         // if($buyer_receiver_name != null) {
@@ -120,7 +126,7 @@ class MaterialPurchaseController extends Controller
         return view('backend.purchases.material-purchases.index', [
             'material_purchases' => $material_purchases,
             'items' => $items,
-            'transaction_id' => $transaction_id,
+            'email' => $email,
             // 'buyer_receiver_name' => $buyer_receiver_name,
             'date' => $date,
         ]);

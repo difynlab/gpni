@@ -119,7 +119,7 @@ class CoursePurchaseController extends Controller
             return redirect()->route('backend.purchases.course-purchases.index');
         }
 
-        $transaction_id = $request->transaction_id;
+        $email = $request->email;
         $student_name = $request->student_name;
         $course_name = $request->course_name;
         $date = $request->date;
@@ -133,8 +133,14 @@ class CoursePurchaseController extends Controller
             $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc');
         }
 
-        if($transaction_id) {
-            $course_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');
+        if($email) {
+            $email_user_ids = User::where('role', 'student')
+                ->where('status', '1')
+                ->where('email', 'like', '%' . $email . '%')
+                ->pluck('id')
+                ->toArray();
+
+            $course_purchases->whereIn('user_id', $email_user_ids);
         }
 
         if($student_name) {
@@ -167,7 +173,7 @@ class CoursePurchaseController extends Controller
         return view('backend.purchases.course-purchases.index', [
             'course_purchases' => $course_purchases,
             'items' => $items,
-            'transaction_id' => $transaction_id,
+            'email' => $email,
             'student_name' => $student_name,
             'course_name' => $course_name,
             'date' => $date,

@@ -16,7 +16,12 @@ class MemberCornerController extends Controller
 
         $type = $request->query('type', 'All');
         
-        $query = Media::where('location', 'Member Corner')->where('language', $request->middleware_language_name)->where('status', '1')->orderBy('id', 'desc');
+        $query = Media::where('location', 'Member Corner')
+            ->where('language', $request->middleware_language_name)
+            ->where('status', '1')
+            ->where('type', '!=', 'Audio')
+            ->where('type', '!=', 'Image')
+            ->orderBy('id', 'desc');
 
         if($type !== 'All') {
             $query->where('type', $type);

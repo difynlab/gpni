@@ -100,13 +100,19 @@ class ProductPurchaseController extends Controller
             return redirect()->route('backend.purchases.product-purchases.index');
         }
 
-        $transaction_id = $request->transaction_id;
+        $email = $request->email;
         $date = $request->date;
 
         $product_purchases = ProductOrder::where('status', '1')->orderBy('id', 'desc');
 
-        if($transaction_id != null) {
-            $product_purchases->where('transaction_id', 'like', '%' . $transaction_id . '%');
+        if($email != null) {
+            $email_user_ids = User::where('role', 'student')
+                ->where('status', '1')
+                ->where('email', 'like', '%' . $email . '%')
+                ->pluck('id')
+                ->toArray();
+
+            $product_purchases->whereIn('user_id', $email_user_ids);
         }
 
         if($date != null) {
@@ -120,7 +126,7 @@ class ProductPurchaseController extends Controller
         return view('backend.purchases.product-purchases.index', [
             'product_purchases' => $product_purchases,
             'items' => $items,
-            'transaction_id' => $transaction_id,
+            'email' => $email,
             'date' => $date
         ]);
     }
