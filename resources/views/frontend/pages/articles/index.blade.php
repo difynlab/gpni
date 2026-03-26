@@ -89,7 +89,7 @@
                                                         <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon" class="icon mr-2">
                                                         <span class="custom-text-muted date-meta fs-13">{{ $article->created_at->format('d M, Y') }}</span>
                                                         <div class="divider">|</div>
-                                                        <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</span>
+                                                        <a href="{{ route('frontend.article-categories.index', [App\Models\ArticleCategory::find($article->article_category_id)->id, \Overtrue\Pinyin\Pinyin::permalink(App\Models\ArticleCategory::find($article->article_category_id)->name)]) }}" class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</a>
                                                     </div>
                                                     <a href="{{ route('frontend.articles.show', [$article, \Overtrue\Pinyin\Pinyin::permalink($article->title)]) }}" class="text-decoration-none">
                                                         <div class="text-primary-title text-heading mb-1">{{ $article->title }}</div>
@@ -134,7 +134,7 @@
                                                         <img src="{{ asset('storage/frontend/calendar.svg') }}" alt="Icon" class="icon mr-2">
                                                         <span class="custom-text-muted date-meta fs-13">{{ $recommended_article->created_at->format('d M, Y') }}</span>
                                                         <div class="divider">|</div>
-                                                        <span class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($recommended_article->article_category_id)->name }}</span>
+                                                        <a href="{{ route('frontend.article-categories.index', [App\Models\ArticleCategory::find($article->article_category_id)->id, \Overtrue\Pinyin\Pinyin::permalink(App\Models\ArticleCategory::find($article->article_category_id)->name)]) }}" class="custom-text-muted fs-13">{{ App\Models\ArticleCategory::find($article->article_category_id)->name }}</a>
                                                     </div>
 
                                                     <a href="{{ route('frontend.articles.show', [$recommended_article, \Overtrue\Pinyin\Pinyin::permalink($recommended_article->title)]) }}" class="text-decoration-none">
@@ -156,11 +156,11 @@
 
                 <div class="col-xl-4 col-lg-5 ps-md-4 px-3">
                     <div class="trending-articles-section articles-categories-section mb-4">
-                        <div class="fs-20 trending-article-title py-2 fw-bold">Articles Categories</div>
+                        <div class="fs-20 trending-article-title py-2 fw-bold">{{ $contents->{'section_1_category_' . $middleware_language} ?? $contents->section_1_category_en }}</div>
 
-                        @if(isset($article_categories) && $article_categories->isNotEmpty())
+                        @if($article_categories->isNotEmpty())
                             @foreach($article_categories as $article_category)
-                                <a href="{{ route('frontend.articles.category', [$article_category, \Overtrue\Pinyin\Pinyin::permalink($article_category->name)]) }}" class="text-decoration-none d-block py-1">
+                                <a href="{{ route('frontend.article-categories.index', [$article_category, \Overtrue\Pinyin\Pinyin::permalink($article_category->name)]) }}" class="text-decoration-none d-block py-1">
                                     <div class="trending-content-title line-clamp-1 mb-0">{{ $article_category->name }}</div>
                                 </a>
                             @endforeach

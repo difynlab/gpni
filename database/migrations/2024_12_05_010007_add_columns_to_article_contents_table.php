@@ -27,17 +27,20 @@ return new class extends Migration
             $table->text('section_1_first_tab_en')->nullable()->after('section_1_title_en');
             $table->text('section_1_second_tab_en')->nullable()->after('section_1_first_tab_en');
             $table->text('section_1_read_en')->nullable()->after('section_1_second_tab_en');
-            $table->text('section_1_trend_en')->nullable()->after('section_1_read_en');
+            $table->text('section_1_category_en')->nullable()->after('section_1_read_en');
+            $table->text('section_1_trend_en')->nullable()->after('section_1_category_en');
 
             $table->text('section_1_first_tab_zh')->nullable()->after('section_1_title_zh');
             $table->text('section_1_second_tab_zh')->nullable()->after('section_1_first_tab_zh');
             $table->text('section_1_read_zh')->nullable()->after('section_1_second_tab_zh');
-            $table->text('section_1_trend_zh')->nullable()->after('section_1_read_zh');
+            $table->text('section_1_category_zh')->nullable()->after('section_1_read_zh');
+            $table->text('section_1_trend_zh')->nullable()->after('section_1_category_zh');
 
             $table->text('section_1_first_tab_ja')->nullable()->after('section_1_title_ja');
             $table->text('section_1_second_tab_ja')->nullable()->after('section_1_first_tab_ja');
             $table->text('section_1_read_ja')->nullable()->after('section_1_second_tab_ja');
-            $table->text('section_1_trend_ja')->nullable()->after('section_1_read_ja');
+            $table->text('section_1_category_ja')->nullable()->after('section_1_read_ja');
+            $table->text('section_1_trend_ja')->nullable()->after('section_1_category_ja');
         });
     }
 
@@ -54,17 +57,20 @@ return new class extends Migration
 
                 'section_1_first_tab_en', 
                 'section_1_second_tab_en', 
-                'section_1_read_en', 
+                'section_1_read_en',
+                'section_1_category_en',
                 'section_1_trend_en',
 
                 'section_1_first_tab_zh', 
                 'section_1_second_tab_zh', 
-                'section_1_read_zh', 
+                'section_1_read_zh',
+                'section_1_category_zh',
                 'section_1_trend_zh',
 
                 'section_1_first_tab_ja', 
                 'section_1_second_tab_ja', 
-                'section_1_read_ja', 
+                'section_1_read_ja',
+                'section_1_category_ja',
                 'section_1_trend_ja',
             ]);
         });

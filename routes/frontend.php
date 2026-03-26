@@ -35,6 +35,7 @@ use App\Http\Controllers\Frontend\Student\FinalExamController;
 use App\Http\Controllers\Frontend\Student\ModuleExamController;
 use App\Http\Controllers\Frontend\Student\TechnicalSupportController;
 use App\Http\Controllers\Frontend\Common\SubscriptionController;
+use App\Http\Controllers\Frontend\Page\ArticleCategoryController;
 use App\Http\Controllers\Frontend\Student\WalletController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,9 +59,11 @@ Route::middleware(['set_language'])->group(function () {
             Route::get('/', [MembershipController::class, 'index'])->name('index');
         });
 
+        Route::prefix('article-categories')->name('article-categories.')->group(function() {
+            Route::get('/{article_category}/{title}', [ArticleCategoryController::class, 'index'])->name('index');
+        });
         Route::prefix('articles')->name('articles.')->group(function() {
             Route::get('/', [ArticleController::class, 'index'])->name('index');
-            Route::get('category/{article_category}/{title?}', [ArticleController::class, 'category'])->name('category');
             Route::get('show/{article}/{title}', [ArticleController::class, 'show'])->name('show');
         });
         Route::prefix('conferences')->name('conferences.')->group(function() {

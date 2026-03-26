@@ -60,6 +60,11 @@
                     </div>
 
                     <div class="col-6 mb-4">
+                        <label for="section_1_category_{{ $short_code }}" class="form-label">Category</label>
+                        <input type="text" class="form-control" id="section_1_category_{{ $short_code }}" name="section_1_category_{{ $short_code }}" value="{{ $contents->{'section_1_category_' . $short_code} ?? '' }}" placeholder="Category">
+                    </div>
+
+                    <div class="col-6 mb-4">
                         <label for="section_1_trend_{{ $short_code }}" class="form-label">Trend</label>
                         <input type="text" class="form-control" id="section_1_trend_{{ $short_code }}" name="section_1_trend_{{ $short_code }}" value="{{ $contents->{'section_1_trend_' . $short_code} ?? '' }}" placeholder="Trend">
                     </div>
@@ -89,17 +94,17 @@
                         <input type="text" class="form-control" id="section_1_newsletter_button_{{ $short_code }}" name="section_1_newsletter_button_{{ $short_code }}" value="{{ $contents->{'section_1_newsletter_button_' . $short_code} ?? '' }}" placeholder="Newsletter Button">
                     </div>
 
-                    <div class="col-4 mb-4">
+                    <div class="col-6 mb-4">
                         <label for="section_1_share_article_{{ $short_code }}" class="form-label">Share Article</label>
                         <input type="text" class="form-control" id="section_1_share_article_{{ $short_code }}" name="section_1_share_article_{{ $short_code }}" value="{{ $contents->{'section_1_share_article_' . $short_code} ?? '' }}" placeholder="Share Article">
                     </div>
 
-                    <div class="col-4 mb-4">
+                    <div class="col-6 mb-4">
                         <label for="section_1_previous_{{ $short_code }}" class="form-label">Previous Button</label>
                         <input type="text" class="form-control" id="section_1_previous_{{ $short_code }}" name="section_1_previous_{{ $short_code }}" value="{{ $contents->{'section_1_previous_' . $short_code} ?? '' }}" placeholder="Previous Button">
                     </div>
 
-                    <div class="col-4 mb-4">
+                    <div class="col-6 mb-4">
                         <label for="section_1_next_{{ $short_code }}" class="form-label">Next Button</label>
                         <input type="text" class="form-control" id="section_1_next_{{ $short_code }}" name="section_1_next_{{ $short_code }}" value="{{ $contents->{'section_1_next_' . $short_code} ?? '' }}" placeholder="Next Button">
                     </div>

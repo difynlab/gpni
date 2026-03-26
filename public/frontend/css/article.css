@@ -135,6 +135,10 @@ h5 {
     font-family: 'Poppins';
 }
 
+.articles-categories-section a:hover .trending-content-title {
+    color: #0040C3;
+}
+
 .trending-content-description {
     font-size: 14px;
     color: #505050;
