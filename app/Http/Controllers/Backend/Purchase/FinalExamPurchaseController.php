@@ -38,7 +38,7 @@ class FinalExamPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $final_exam_purchases = FinalExamPurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $final_exam_purchases = FinalExamPurchase::where('date', '!=', null)->orderBy('id', 'desc')->paginate($items);
         $final_exam_purchases = $this->processFinalExamPurchases($final_exam_purchases);
 
         return view('backend.purchases.final-exam-purchases.index', [
@@ -74,15 +74,15 @@ class FinalExamPurchaseController extends Controller
             return redirect()->route('backend.purchases.final-exam-purchases.index');
         }
 
-        $email = $request->email;
+        $student_email = $request->student_email;
         $date = $request->date;
 
-        $final_exam_purchases = FinalExamPurchase::where('status', '1')->orderBy('id', 'desc');
+        $final_exam_purchases = FinalExamPurchase::where('date', '!=', null)->orderBy('id', 'desc');
 
-        if($email != null) {
+        if($student_email) {
             $email_user_ids = User::where('role', 'student')
                 ->where('status', '1')
-                ->where('email', 'like', '%' . $email . '%')
+                ->where('email', 'like', '%' . $student_email . '%')
                 ->pluck('id')
                 ->toArray();
 
@@ -100,7 +100,7 @@ class FinalExamPurchaseController extends Controller
         return view('backend.purchases.final-exam-purchases.index', [
             'final_exam_purchases' => $final_exam_purchases,
             'items' => $items,
-            'email' => $email,
+            'student_email' => $student_email,
             'date' => $date
         ]);
     }

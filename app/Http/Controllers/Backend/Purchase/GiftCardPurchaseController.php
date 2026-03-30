@@ -32,7 +32,7 @@ class GiftCardPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $gift_card_purchases = GiftCardPurchase::where('status', '1')->where('date', '!=', null)->orderBy('id', 'desc')->paginate($items);
+        $gift_card_purchases = GiftCardPurchase::where('date', '!=', null)->orderBy('id', 'desc')->paginate($items);
         $gift_card_purchases = $this->processGiftCardPurchases($gift_card_purchases);
 
         return view('backend.purchases.gift-card-purchases.index', [
@@ -62,13 +62,13 @@ class GiftCardPurchaseController extends Controller
             return redirect()->route('backend.purchases.gift-card-purchases.index');
         }
 
-        $email = $request->email;
+        $student_email = $request->student_email;
         $date = $request->date;
 
-        $gift_card_purchases = GiftCardPurchase::where('status', '1')->orderBy('id', 'desc');
+        $gift_card_purchases = GiftCardPurchase::where('date', '!=', null)->orderBy('id', 'desc');
 
-        if($email != null) {
-            $gift_card_purchases->where('receiver_email', 'like', '%' . $email . '%');
+        if($student_email != null) {
+            $gift_card_purchases->where('receiver_email', 'like', '%' . $student_email . '%');
         }
 
         if($date != null) {
@@ -82,7 +82,7 @@ class GiftCardPurchaseController extends Controller
         return view('backend.purchases.gift-card-purchases.index', [
             'gift_card_purchases' => $gift_card_purchases,
             'items' => $items,
-            'email' => $email,
+            'student_email' => $student_email,
             'date' => $date
         ]);
     }

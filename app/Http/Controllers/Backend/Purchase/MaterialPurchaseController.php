@@ -40,7 +40,7 @@ class MaterialPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $material_purchases = MaterialPurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $material_purchases = MaterialPurchase::where('date', '!=', null)->orderBy('id', 'desc')->paginate($items);
         $material_purchases = $this->processMaterialPurchases($material_purchases);
 
         return view('backend.purchases.material-purchases.index', [
@@ -92,16 +92,16 @@ class MaterialPurchaseController extends Controller
             return redirect()->route('backend.purchases.material-purchases.index');
         }
 
-        $email = $request->email;
+        $student_email = $request->student_email;
         // $buyer_receiver_name = $request->buyer_receiver_name;
         $date = $request->date;
 
-        $material_purchases = MaterialPurchase::where('status', '1')->orderBy('id', 'desc');
+        $material_purchases = MaterialPurchase::where('date', '!=', null)->orderBy('id', 'desc');
 
-        if($email != null) {
+        if($student_email) {
             $email_user_ids = User::where('role', 'student')
                 ->where('status', '1')
-                ->where('email', 'like', '%' . $email . '%')
+                ->where('email', 'like', '%' . $student_email . '%')
                 ->pluck('id')
                 ->toArray();
 
@@ -126,7 +126,7 @@ class MaterialPurchaseController extends Controller
         return view('backend.purchases.material-purchases.index', [
             'material_purchases' => $material_purchases,
             'items' => $items,
-            'email' => $email,
+            'student_email' => $student_email,
             // 'buyer_receiver_name' => $buyer_receiver_name,
             'date' => $date,
         ]);

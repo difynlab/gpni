@@ -12,7 +12,7 @@
                 <form action="{{ route('backend.purchases.material-purchases.filter') }}" method="GET" class="filter-form">
                     <div class="row align-items-center">
                         <div class="col">
-                            <input type="text" class="form-control" name="email" value="{{ $email ?? '' }}" placeholder="Email">
+                            <input type="text" class="form-control" name="student_email" value="{{ $student_email ?? '' }}" placeholder="Student email">
                         </div>
 
                         <!-- <div class="col">

@@ -119,7 +119,7 @@ class CoursePurchaseController extends Controller
             return redirect()->route('backend.purchases.course-purchases.index');
         }
 
-        $email = $request->email;
+        $student_email = $request->student_email;
         $student_name = $request->student_name;
         $course_name = $request->course_name;
         $date = $request->date;
@@ -127,16 +127,16 @@ class CoursePurchaseController extends Controller
         if(auth()->user()->admin_language) {
             $user_ids = User::where('role', 'student')->where('language', auth()->user()->admin_language)->where('status', '1')->pluck('id')->toArray();
 
-            $course_purchases = CoursePurchase::whereIn('user_id', $user_ids)->where('status', '1')->orderBy('id', 'desc');
+            $course_purchases = CoursePurchase::whereIn('user_id', $user_ids)->where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc');
         }
         else {
-            $course_purchases = CoursePurchase::where('status', '1')->orderBy('id', 'desc');
+            $course_purchases = CoursePurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc');
         }
 
-        if($email) {
+        if($student_email) {
             $email_user_ids = User::where('role', 'student')
                 ->where('status', '1')
-                ->where('email', 'like', '%' . $email . '%')
+                ->where('email', 'like', '%' . $student_email . '%')
                 ->pluck('id')
                 ->toArray();
 
@@ -173,7 +173,7 @@ class CoursePurchaseController extends Controller
         return view('backend.purchases.course-purchases.index', [
             'course_purchases' => $course_purchases,
             'items' => $items,
-            'email' => $email,
+            'student_email' => $student_email,
             'student_name' => $student_name,
             'course_name' => $course_name,
             'date' => $date,

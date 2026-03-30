@@ -42,9 +42,9 @@ class CourseController extends Controller
         if($request->route()->getName() === 'frontend.courses.gpni-tv') {
             $query->where('type', 'Small Course');
         }
-        else {
-            $query->whereNot('type', 'Small Course');
-        }
+        // else {
+        //     $query->whereNot('type', 'Small Course');
+        // }
 
         $courses = $query->orderBy('id', 'desc')->get();
 

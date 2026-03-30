@@ -35,7 +35,7 @@ class MembershipPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $membership_purchases = MembershipPurchase::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $membership_purchases = MembershipPurchase::where('date', '!=', null)->orderBy('id', 'desc')->paginate($items);
         $membership_purchases = $this->processMembershipPurchases($membership_purchases);
 
         return view('backend.purchases.membership-purchases.index', [
@@ -72,16 +72,16 @@ class MembershipPurchaseController extends Controller
             return redirect()->route('backend.purchases.membership-purchases.index');
         }
 
-        $email = $request->email;
+        $student_email = $request->student_email;
         // $buyer_receiver_name = $request->buyer_receiver_name;
         $date = $request->date;
 
-        $membership_purchases = MembershipPurchase::where('status', '1')->orderBy('id', 'desc');
+        $membership_purchases = MembershipPurchase::where('date', '!=', null)->orderBy('id', 'desc');
 
-        if($email != null) {
+        if($student_email) {
             $email_user_ids = User::where('role', 'student')
                 ->where('status', '1')
-                ->where('email', 'like', '%' . $email . '%')
+                ->where('email', 'like', '%' . $student_email . '%')
                 ->pluck('id')
                 ->toArray();
 
@@ -106,7 +106,7 @@ class MembershipPurchaseController extends Controller
         return view('backend.purchases.membership-purchases.index', [
             'membership_purchases' => $membership_purchases,
             'items' => $items,
-            'email' => $email,
+            'student_email' => $student_email,
             // 'buyer_receiver_name' => $buyer_receiver_name,
             'date' => $date,
         ]);

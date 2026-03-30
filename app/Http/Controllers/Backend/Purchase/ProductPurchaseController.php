@@ -42,7 +42,7 @@ class ProductPurchaseController extends Controller
     {
         $items = $request->items ?? 10;
 
-        $product_purchases = ProductOrder::where('date', '!=', null)->where('status', '1')->orderBy('id', 'desc')->paginate($items);
+        $product_purchases = ProductOrder::where('date', '!=', null)->orderBy('id', 'desc')->paginate($items);
         $product_purchases = $this->processProductOrders($product_purchases);
 
         return view('backend.purchases.product-purchases.index', [
@@ -100,15 +100,15 @@ class ProductPurchaseController extends Controller
             return redirect()->route('backend.purchases.product-purchases.index');
         }
 
-        $email = $request->email;
+        $student_email = $request->student_email;
         $date = $request->date;
 
-        $product_purchases = ProductOrder::where('status', '1')->orderBy('id', 'desc');
+        $product_purchases = ProductOrder::where('date', '!=', null)->orderBy('id', 'desc');
 
-        if($email != null) {
+        if($student_email) {
             $email_user_ids = User::where('role', 'student')
                 ->where('status', '1')
-                ->where('email', 'like', '%' . $email . '%')
+                ->where('email', 'like', '%' . $student_email . '%')
                 ->pluck('id')
                 ->toArray();
 
@@ -126,7 +126,7 @@ class ProductPurchaseController extends Controller
         return view('backend.purchases.product-purchases.index', [
             'product_purchases' => $product_purchases,
             'items' => $items,
-            'email' => $email,
+            'student_email' => $student_email,
             'date' => $date
         ]);
     }
