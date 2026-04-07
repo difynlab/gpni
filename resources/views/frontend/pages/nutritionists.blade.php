@@ -412,7 +412,7 @@
 
                                 <div class="fs-16 mb-3"><strong>{{ $contents->{'certificate_number_' . $middleware_language} ?? $contents->certificate_number_en }}:</strong> <span class="certificate-number"></span></div>
 
-                                <div class="fs-16 mb-3"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></div>
+                                <!-- <div class="fs-16 mb-3"><strong>{{ $contents->{'membership_credential_status_' . $middleware_language} ?? $contents->membership_credential_status_en }}:</strong> <span class="membership-credential-status"></span></div> -->
 
                                 <div class="fs-16 mb-3">
                                     <strong>{{ $contents->{'area_of_interest_' . $middleware_language} ?? $contents->area_of_interest_en }}:</strong>
@@ -473,7 +473,7 @@
                         $('#view-modal .country').text(response.nutritionist['country']);
                         $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
                         $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
-                        $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
+                        // $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
                         $('#view-modal .intro-paragraph').html(response.nutritionist['self_introduction']);
                         $('#view-modal .credentials').text(response.credentials);
 
@@ -527,7 +527,7 @@
                     $('#view-modal .country').text(response.nutritionist['country']);
                     $('#view-modal .cec-status').text(response.nutritionist['cec_status'] == '1' ? 'Active' : 'Inactive');
                     $('#view-modal .certificate-number').text(response.nutritionist['certificate_number']);
-                    $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
+                    // $('#view-modal .membership-credential-status').text(response.nutritionist['membership_credential_status'] == '1' ? 'Active' : 'Inactive');
                     $('#view-modal .intro-paragraph').html(response.nutritionist['self_introduction']);
                     $('#view-modal .credentials').text(response.credentials);
 
