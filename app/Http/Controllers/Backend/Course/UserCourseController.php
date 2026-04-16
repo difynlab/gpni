@@ -21,6 +21,8 @@ class UserCourseController extends Controller
 
             $course_purchase->course_access_status = ($course_purchase->course_access_status == 'Active') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Revoked</span>';
 
+            $course_purchase->overwrite_completion_status = ($course_purchase->overwrite_completion_status == '1') ? '<span class="active-status">Yes</span>' : '<span class="inactive-status">No</span>';
+
             $course_purchase->status = ($course_purchase->status == '1') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Inactive</span>';
         }
 
@@ -94,6 +96,7 @@ class UserCourseController extends Controller
     public function update(Request $request, User $user, CoursePurchase $course_purchase)
     {
         $course_purchase->course_access_status = $request->course_access_status;
+        $course_purchase->overwrite_completion_status = $request->overwrite_completion_status;
         $course_purchase->save();
 
         return redirect()->route('backend.persons.users.courses.index', $user)->with('success', 'Successfully updated!');

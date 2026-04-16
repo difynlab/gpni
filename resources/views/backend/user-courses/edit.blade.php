@@ -18,11 +18,19 @@
                         <input type="hidden" name="course_id" value="{{ $course_purchase->course_id }}">
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 mb-4">
                         <label for="course_access_status" class="form-label">Course Access Status<span class="asterisk">*</span></label>
                         <select class="form-control" name="course_access_status" id="course_access_status" required>
                             <option value="Active" {{ $course_purchase->course_access_status == 'Active' ? 'selected' : '' }}>Active</option>
                             <option value="Revoked" {{ $course_purchase->course_access_status == 'Revoked' ? 'selected' : '' }}>Revoked</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="overwrite_completion_status" class="form-label">Overwrite Completion Status<span class="asterisk">*</span></label>
+                        <select class="form-control" name="overwrite_completion_status" id="overwrite_completion_status" required>
+                            <option value="1" {{ $course_purchase->overwrite_completion_status == '1' ? 'selected' : '' }}>Yes</option>
+                            <option value="0" {{ $course_purchase->overwrite_completion_status == '0' ? 'selected' : '' }}>No</option>
                         </select>
                     </div>
                 </div>

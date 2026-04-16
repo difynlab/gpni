@@ -54,6 +54,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Course</th>
                             <th scope="col">Course Access Status</th>
+                            <th scope="col">Overwrite Completion Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -65,6 +66,7 @@
                                     <td>#{{ $course_purchase->id }}</td>
                                     <td>{{ $course_purchase->course }}</td>
                                     <td>{!! $course_purchase->course_access_status !!}</td>
+                                    <td>{!! $course_purchase->overwrite_completion_status !!}</td>
                                     <td>{!! $course_purchase->action !!}</td>
                                 </tr>
                             @endforeach

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('discount_applied')->nullable();
             $table->enum('payment_status', ['Completed', 'Pending', 'Failed'])->nullable()->default('Pending');
             $table->enum('course_access_status', ['Active', 'Revoked'])->default('Active');
+            $table->enum('overwrite_completion_status', [0, 1])->default(0);
             $table->timestamp('expiration_date')->nullable();
             $table->string('receipt_url')->nullable();
             $table->enum('refund_status', ['Refunded', 'Not Refunded'])->nullable()->default('Not Refunded');

@@ -56,6 +56,8 @@ class CourseController extends Controller
             $course->completion_date = $course_purchase && $course_purchase->completion_date ? Carbon::parse($course_purchase->completion_date)->format('d M Y') : null;
 
             $course->course_final_exam = CourseFinalExam::where('course_id', $course->id)->where('status', '1')->orderBy('id', 'desc')->first();
+
+            $course->course_purchase = $course_purchase;
         }
 
         return view('frontend.student.courses.index', [
@@ -76,6 +78,8 @@ class CourseController extends Controller
         }
 
         $course->course_final_exam = CourseFinalExam::where('user_id', $student->id)->where('course_id', $course->id)->where('status', '1')->orderBy('id', 'desc')->first();
+
+        $course->course_purchase = CoursePurchase::where('course_id', $course->id)->where('user_id', $student->id)->first();
 
         return view('frontend.student.courses.show', [
             'course' => $course,

@@ -43,18 +43,22 @@
 
                                     <p>
                                     {{ $student_dashboard_contents->courses_started }}: {{ $course->date }} | {{ $student_dashboard_contents->courses_completed }}: {{ $course->completion_date ?? $student_dashboard_contents->courses_not_yet }}
-                                        
-                                        @if($course->final_exam == 'Yes')
-                                            @if(hasStudentCompletedFinalExam($student->id, $course->id) && $course->course_final_exam['result'] == 'Pass')
-                                                <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}</span>
-                                            @else
-                                                <span class="badge-in-progress">{{ $student_dashboard_contents->courses_inprogress }}</span>
-                                            @endif
+
+                                        @if($course->course_purchase['overwrite_completion_status'] == '1')
+                                            <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}</span>
                                         @else
-                                            @if(hasStudentCompletedAllModuleExams($student->id, $course->id))
-                                                <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}</span>
+                                            @if($course->final_exam == 'Yes')
+                                                @if(hasStudentCompletedFinalExam($student->id, $course->id) && $course->course_final_exam['result'] == 'Pass')
+                                                    <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}</span>
+                                                @else
+                                                    <span class="badge-in-progress">{{ $student_dashboard_contents->courses_inprogress }}</span>
+                                                @endif
                                             @else
-                                                <span class="badge-in-progress">{{ $student_dashboard_contents->courses_inprogress }}</span>
+                                                @if(hasStudentCompletedAllModuleExams($student->id, $course->id))
+                                                    <span class="badge-completed">{{ $student_dashboard_contents->courses_completed }}</span>
+                                                @else
+                                                    <span class="badge-in-progress">{{ $student_dashboard_contents->courses_inprogress }}</span>
+                                                @endif
                                             @endif
                                         @endif
                                     </p>

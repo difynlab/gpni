@@ -69,14 +69,21 @@
                                         break;
                                     }
                                 }
+
+                                if($course->course_purchase['overwrite_completion_status'] == '1') {
+                                    $overwrite_completion_status = true;
+                                }
+                                else {
+                                    $overwrite_completion_status = false;
+                                }
                             @endphp
 
-                            <div class="module module-card {{ $all_previous_modules_completed ? '' : 'disabled-module' }}">
+                            <div class="module module-card {{ $all_previous_modules_completed || $overwrite_completion_status ? '' : 'disabled-module' }}">
                                 <div class="row mb-3 align-items-center">
                                     <div class="col-md-7 col-12 d-flex align-items-center" style="gap: 10px;">
                                         <h2 class="mb-0">{{ $course_module->title }}</h2>
                                         @if($course_module->module_exam == 'Yes')
-                                            @if(hasStudentCompletedModuleExam($student->id, $course_module->course_id, $course_module->id) && $course_module->course_module_exam['result'] == 'Pass')
+                                            @if((hasStudentCompletedModuleExam($student->id, $course_module->course_id, $course_module->id) && $course_module->course_module_exam['result'] == 'Pass') || $overwrite_completion_status)
                                                 <span class="completed-badge">{{ $student_dashboard_contents->courses_completed }}</span>
                                             @else
                                                 @if($all_previous_modules_completed)
@@ -126,7 +133,7 @@
                                 </div>
 
                                 @if(count($course_module->chapters) > 0)
-                                    @if($all_previous_modules_completed)
+                                    @if($all_previous_modules_completed || $overwrite_completion_status)
                                         <div class="">
                                             @foreach($course_module->chapters as $chapter)
                                                 <a href="{{ route('frontend.courses.show-more', ['course' => $course, 'course_module' => $course_module, 'course_chapter' => $chapter]) }}">
