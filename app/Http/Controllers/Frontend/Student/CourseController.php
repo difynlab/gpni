@@ -49,7 +49,21 @@ class CourseController extends Controller
         $courses = $query->orderBy('id', 'desc')->get();
 
         foreach($courses as $course) {
-            $course_purchase = CoursePurchase::where('course_id', $course->id)->where('user_id', $student->id)->first();
+            $course_purchase = CoursePurchase::
+                where('user_id', $student->id)
+                ->where('course_id', $course->id)
+                ->where(function ($query) {
+                    $query->where('payment_status', 'Completed')
+                        ->orWhereNull('payment_status');
+                })
+                ->where('course_access_status', 'Active')
+                ->where(function ($query) {
+                    $query->where('refund_status', 'Not Refunded')
+                        ->orWhereNull('refund_status');
+                })
+                ->where('status', '1')->whereNot('course_id', 19)->whereNot('course_id', 47)
+                ->orderBy('id', 'desc')
+                ->first();
 
             $course->date = $course_purchase && $course_purchase->date ? Carbon::parse($course_purchase->date)->format('d M Y') : null;
 
@@ -79,7 +93,21 @@ class CourseController extends Controller
 
         $course->course_final_exam = CourseFinalExam::where('user_id', $student->id)->where('course_id', $course->id)->where('status', '1')->orderBy('id', 'desc')->first();
 
-        $course->course_purchase = CoursePurchase::where('course_id', $course->id)->where('user_id', $student->id)->first();
+        $course->course_purchase = CoursePurchase::
+                where('user_id', $student->id)
+                ->where('course_id', $course->id)
+                ->where(function ($query) {
+                    $query->where('payment_status', 'Completed')
+                        ->orWhereNull('payment_status');
+                })
+                ->where('course_access_status', 'Active')
+                ->where(function ($query) {
+                    $query->where('refund_status', 'Not Refunded')
+                        ->orWhereNull('refund_status');
+                })
+                ->where('status', '1')->whereNot('course_id', 19)->whereNot('course_id', 47)
+                ->orderBy('id', 'desc')
+                ->first();
 
         return view('frontend.student.courses.show', [
             'course' => $course,
