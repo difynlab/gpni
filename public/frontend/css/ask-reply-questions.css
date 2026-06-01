@@ -74,7 +74,7 @@
         color: white;
         padding: 10px 15px;
         border-radius: 20px;
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 0;
     }
     .chat-box .admin-single-message {
@@ -90,7 +90,7 @@
         background-color: rgba(0, 64, 195, 0.2);
         padding: 10px 15px;
         border-radius: 20px;
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 0;
     }
     .chat-box .single-message:last-child {
