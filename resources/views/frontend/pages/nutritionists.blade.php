@@ -129,7 +129,7 @@
         </div>
     </div>
 
-    <form action="{{ route('frontend.nutritionists.contact') }}" method="POST">
+    <form action="{{ route('frontend.nutritionists.contact') }}" method="POST" id="myForm">
         @csrf
         <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -378,7 +378,9 @@
 
                         <input type="hidden" id="coach-id" name="nutritionist" value="">
 
-                        <button type="submit" class="btn submit-btn">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
+                        <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onHcaptchaSuccess" data-size="invisible"></div>
+
+                        <button type="button" class="btn submit-btn" id="submitBtn">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
                     </div>
                 </div>
             </div>
@@ -561,5 +563,25 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.getElementById('myForm');
+
+        submitBtn.addEventListener('click', function () {
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+
+            hcaptcha.execute();
+        });
+
+        function onHcaptchaSuccess(token) {
+            form.submit();
+        }
     </script>
 @endpush

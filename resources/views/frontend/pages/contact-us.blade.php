@@ -11,7 +11,7 @@
 @section('content')
 
     @if($contents->title_en)
-        <main class="container py-5">
+        <div class="container py-5">
 
             <x-frontend.notification></x-frontend.notification>
 
@@ -63,9 +63,7 @@
                         </div>
                     </div>
 
-                    <div style="display:none;">
-                        <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onHcaptchaSuccess"></div>
-                    </div>
+                    <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onHcaptchaSuccess" data-size="invisible"></div>
 
                     <button type="button" class="btn btn-primary btn-submit" id="submitBtn">{{ $contents->{'button_' . $middleware_language} ?? $contents->button_en }}</button>
                 </form>
@@ -91,7 +89,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     @endif
 
 @endsection

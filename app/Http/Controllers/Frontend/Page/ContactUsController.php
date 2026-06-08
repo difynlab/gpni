@@ -36,7 +36,7 @@ class ContactUsController extends Controller
         if(!optional($response->json())['success']) {
             Log::warning('hCaptcha verification failed', [
                 'ip'       => $request->ip(),
-                'activity' => 'login',
+                'activity' => 'contact us',
                 'response' => $response->json(),
                 'user_agent' => $request->userAgent(),
             ]);

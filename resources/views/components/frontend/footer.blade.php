@@ -60,9 +60,7 @@
                         <button type="button" class="btn subscribe-button" id="footerSubmitBtn">{{ $contents->{'footer_button_' . $middleware_language} ?? $contents->footer_button_en }}</button>
                     </div>
 
-                    <div style="display:none;">
-                        <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onHcaptchaSuccess"></div>
-                    </div>
+                    <div class="h-captcha" data-sitekey="{{ config('services.hcaptcha.sitekey') }}" data-callback="onFooterHcaptchaSuccess" data-size="invisible"></div>
 
                     <x-frontend.input-error field="email"></x-frontend.input-error>
                     <x-frontend.notification></x-frontend.notification>
@@ -323,7 +321,7 @@
             hcaptcha.execute();
         });
 
-        function onHcaptchaSuccess(token) {
+        function onFooterHcaptchaSuccess(token) {
             myFooterForm.submit();
         }
     </script>

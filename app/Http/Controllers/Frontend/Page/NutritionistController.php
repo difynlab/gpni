@@ -10,6 +10,8 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class NutritionistController extends Controller
@@ -356,6 +358,23 @@ class NutritionistController extends Controller
 
     public function contact(Request $request)
     {
+        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [
+            'secret' => config('services.hcaptcha.secret'),
+            'response' => $request->input('h-captcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        if(!optional($response->json())['success']) {
+            Log::warning('hCaptcha verification failed', [
+                'ip'       => $request->ip(),
+                'activity' => 'contact coach',
+                'response' => $response->json(),
+                'user_agent' => $request->userAgent(),
+            ]);
+            
+            return redirect()->back()->withInput()->with('error', 'Captcha verification failed!');
+        }
+        
         // $validator = Validator::make($request->all(), [
         //     'phone' => 'required|regex:/^\+?[0-9]+$/'
         // ]);
@@ -367,7 +386,7 @@ class NutritionistController extends Controller
         $nutritionist = User::find($request->nutritionist);
 
         $contact_coach = new ContactCoach();
-        $data = $request->except('middleware_language', 'middleware_language_name', 'nutritionist');
+        $data = $request->except('middleware_language', 'middleware_language_name', 'nutritionist', 'g-recaptcha-response', 'h-captcha-response');
         $data['user'] = $nutritionist->id;
         $data['date'] = Carbon::now()->toDateString();
         $data['status'] = '1';
