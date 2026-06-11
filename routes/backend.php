@@ -363,14 +363,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                 Route::get('/', [GiftCardPurchaseController::class, 'index'])->name('index');
                 Route::get('{gift_card_purchase}/show', [GiftCardPurchaseController::class, 'show'])->name('show');
                 Route::get('filter', [GiftCardPurchaseController::class, 'filter'])->name('filter');
-                Route::delete('{gift_card_purchase}', [GiftCardPurchaseController::class, 'destroy'])->name('destroy');
+                Route::put('{gift_card_purchase}/refund-status', [GiftCardPurchaseController::class, 'updateRefundStatus'])->name('refund-status');
+                // Route::delete('{gift_card_purchase}', [GiftCardPurchaseController::class, 'destroy'])->name('destroy');
             });
 
             Route::prefix('course-purchases')->name('course-purchases.')->group(function() {
                 Route::get('/', [CoursePurchaseController::class, 'index'])->name('index');
                 Route::get('{course_purchase}/show', [CoursePurchaseController::class, 'show'])->name('show');
                 Route::get('filter', [CoursePurchaseController::class, 'filter'])->name('filter');
-                Route::delete('{course_purchase}', [CoursePurchaseController::class, 'destroy'])->name('destroy');
+                Route::put('{course_purchase}/refund-status', [CoursePurchaseController::class, 'updateRefundStatus'])->name('refund-status');
+                // Route::delete('{course_purchase}', [CoursePurchaseController::class, 'destroy'])->name('destroy');
 
                 Route::prefix('certificates')->name('certificates.')->group(function() {
                     Route::get('{course_purchase}', [CoursePurchaseController::class, 'certificate'])->name('index');
@@ -381,7 +383,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
             Route::prefix('product-purchases')->name('product-purchases.')->group(function() {
                 Route::get('/', [ProductPurchaseController::class, 'index'])->name('index');
                 Route::get('{product_purchase}/show', [ProductPurchaseController::class, 'show'])->name('show');
-                Route::delete('/{product_purchase}', [ProductPurchaseController::class, 'destroy'])->name('destroy');
+                Route::put('{product_purchase}/refund-status', [ProductPurchaseController::class, 'updateRefundStatus'])->name('refund-status');
+                // Route::delete('/{product_purchase}', [ProductPurchaseController::class, 'destroy'])->name('destroy');
                 Route::get('filter', [ProductPurchaseController::class, 'filter'])->name('filter');
 
                 Route::get('products/{product_purchase}', [ProductPurchaseController::class, 'products'])->name('products');
@@ -400,14 +403,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                 Route::get('/', [MembershipPurchaseController::class, 'index'])->name('index');
                 Route::get('{membership_purchase}/show', [MembershipPurchaseController::class, 'show'])->name('show');
                 Route::get('filter', [MembershipPurchaseController::class, 'filter'])->name('filter');
-                Route::delete('{membership_purchase}', [MembershipPurchaseController::class, 'destroy'])->name('destroy');
+                Route::put('{membership_purchase}/refund-status', [MembershipPurchaseController::class, 'updateRefundStatus'])->name('refund-status');
+                // Route::delete('{membership_purchase}', [MembershipPurchaseController::class, 'destroy'])->name('destroy');
             });
 
             Route::prefix('final-exam-purchases')->name('final-exam-purchases.')->group(function() {
                 Route::get('/', [FinalExamPurchaseController::class, 'index'])->name('index');
                 Route::get('{final_exam_purchase}/show', [FinalExamPurchaseController::class, 'show'])->name('show');
                 Route::get('filter', [FinalExamPurchaseController::class, 'filter'])->name('filter');
-                Route::delete('{final_exam_purchase}', [FinalExamPurchaseController::class, 'destroy'])->name('destroy');
+                Route::put('{final_exam_purchase}/refund-status', [FinalExamPurchaseController::class, 'updateRefundStatus'])->name('refund-status');
+                // Route::delete('{final_exam_purchase}', [FinalExamPurchaseController::class, 'destroy'])->name('destroy');
             });
         });
     // All purchase routes

@@ -22,8 +22,7 @@ class CoursePurchaseController extends Controller
         foreach($course_purchases as $course_purchase) {
             $course_purchase->action = '
             <a href="'. route('backend.purchases.course-purchases.show', $course_purchase->id) .'" class="review-button" title="Details"><i class="bi bi-calendar-fill"></i></a>
-            <a href="'. route('backend.purchases.course-purchases.certificates.index', $course_purchase->id) .'" class="edit-button" title="Provide Certificate"><i class="bi bi-patch-check-fill"></i></a>
-            <a id="'.$course_purchase->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+            <a href="'. route('backend.purchases.course-purchases.certificates.index', $course_purchase->id) .'" class="edit-button" title="Provide Certificate"><i class="bi bi-patch-check-fill"></i></a>';
 
             $course_purchase->user = User::find($course_purchase->user_id)->first_name . ' ' . User::find($course_purchase->user_id)->last_name;
             $course_purchase->course = Course::find($course_purchase->course_id)->title;
@@ -66,6 +65,11 @@ class CoursePurchaseController extends Controller
             
 
             $course_purchase->course_access_status = ($course_purchase->course_access_status == 'Active') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Revoked</span>';
+
+            $course_purchase->refund_status_badge =
+                ($course_purchase->refund_status == 'Refunded')
+                ? '<span class="inactive-status">Refunded</span>'
+                : '<span class="active-status">Not Refunded</span>';
         }
 
         return $course_purchases;
@@ -105,12 +109,24 @@ class CoursePurchaseController extends Controller
         ]);
     }
 
-    public function destroy(CoursePurchase $course_purchase)
+    // public function destroy(CoursePurchase $course_purchase)
+    // {
+    //     $course_purchase->status = '0';
+    //     $course_purchase->save();
+
+    //     return redirect()->back()->with('success', 'Successfully deleted!');
+    // }
+
+    public function updateRefundStatus(Request $request, CoursePurchase $course_purchase)
     {
-        $course_purchase->status = '0';
+        $request->validate([
+            'refund_status' => 'required|in:Refunded,Not Refunded',
+        ]);
+
+        $course_purchase->refund_status = $request->refund_status;
         $course_purchase->save();
 
-        return redirect()->back()->with('success', 'Successfully deleted!');
+        return redirect()->route('backend.purchases.course-purchases.index')->with('success', 'Refund status updated successfully!');
     }
 
     public function filter(Request $request)

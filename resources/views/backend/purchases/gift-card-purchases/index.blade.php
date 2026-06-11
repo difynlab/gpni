@@ -46,6 +46,7 @@
                             <th scope="col">Date & Time</th>
                             <th scope="col">Amount Paid</th>
                             <th scope="col">Payment Status</th>
+                            <th scope="col">Refund Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -59,12 +60,13 @@
                                     <td>{{ $gift_card_purchase->date_time }}</td>
                                     <td>{{ $gift_card_purchase->currency === 'usd' ? '$' : '¥' }}{{ $gift_card_purchase->amount_paid }}</td>
                                     <td>{!! $gift_card_purchase->payment_status !!}</td>
+                                    <td>{!! $gift_card_purchase->refund_status_badge !!}</td>
                                     <td>{!! $gift_card_purchase->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="6" style="text-align: center;">No data available in table</td>
+                                <td colspan="7" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
@@ -75,7 +77,6 @@
             </div>
         </div>
 
-        <x-backend.delete-data title="Gift Card Purchase"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -84,17 +85,8 @@
 @push('after-scripts')
     <script>
         $(document).ready(function() {
-            $('.pages .table .delete-button').on('click', function() {
-                let id = $(this).attr('id');
-                let url = "{{ route('backend.purchases.gift-card-purchases.destroy', [':id']) }}";
-                destroy_url = url.replace(':id', id);
-
-                $('.pages .delete-modal form').attr('action', destroy_url);
-                $('.pages .delete-modal').modal('show');
-            });
-
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $gift_card_purchases->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $gift_card_purchases->url(1) !!}&items=" + this.value;
             });
         });
     </script>

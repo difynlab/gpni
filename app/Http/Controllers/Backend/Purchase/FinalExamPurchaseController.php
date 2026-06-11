@@ -14,8 +14,7 @@ class FinalExamPurchaseController extends Controller
     {
         foreach($final_exam_purchases as $final_exam_purchase) {
             $final_exam_purchase->action = '
-            <a href="'. route('backend.purchases.final-exam-purchases.show', $final_exam_purchase->id) .'" class="review-button" title="Details"><i class="bi bi-calendar-fill"></i></a>
-            <a id="'.$final_exam_purchase->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+            <a href="'. route('backend.purchases.final-exam-purchases.show', $final_exam_purchase->id) .'" class="review-button" title="Details"><i class="bi bi-calendar-fill"></i></a>';
 
             $final_exam_purchase->user_id = User::find($final_exam_purchase->user_id)->first_name . ' ' . User::find($final_exam_purchase->user_id)->last_name;
 
@@ -23,12 +22,17 @@ class FinalExamPurchaseController extends Controller
 
             $final_exam_purchase->date_time = $final_exam_purchase->date . ' | ' . $final_exam_purchase->time;
 
-            $final_exam_purchase->payment_status = 
-                ($final_exam_purchase->payment_status == 'Completed') 
-                ? '<span class="active-status">Completed</span>' 
-                : (($final_exam_purchase->payment_status == 'Pending') 
-                    ? '<span class="pending-status">Pending</span>' 
+            $final_exam_purchase->payment_status =
+                ($final_exam_purchase->payment_status == 'Completed')
+                ? '<span class="active-status">Completed</span>'
+                : (($final_exam_purchase->payment_status == 'Pending')
+                    ? '<span class="pending-status">Pending</span>'
                     : '<span class="inactive-status">Failed</span>');
+
+            $final_exam_purchase->refund_status_badge =
+                ($final_exam_purchase->refund_status == 'Refunded')
+                ? '<span class="inactive-status">Refunded</span>'
+                : '<span class="active-status">Not Refunded</span>';
         }
 
         return $final_exam_purchases;
@@ -60,12 +64,24 @@ class FinalExamPurchaseController extends Controller
         ]);
     }
 
-    public function destroy(FinalExamPurchase $final_exam_purchase)
+    // public function destroy(FinalExamPurchase $final_exam_purchase)
+    // {
+    //     $final_exam_purchase->status = '0';
+    //     $final_exam_purchase->save();
+
+    //     return redirect()->back()->with('success', 'Successfully deleted!');
+    // }
+
+    public function updateRefundStatus(Request $request, FinalExamPurchase $final_exam_purchase)
     {
-        $final_exam_purchase->status = '0';
+        $request->validate([
+            'refund_status' => 'required|in:Refunded,Not Refunded',
+        ]);
+
+        $final_exam_purchase->refund_status = $request->refund_status;
         $final_exam_purchase->save();
 
-        return redirect()->back()->with('success', 'Successfully deleted!');
+        return redirect()->route('backend.purchases.final-exam-purchases.index')->with('success', 'Refund status updated successfully!');
     }
 
     public function filter(Request $request)

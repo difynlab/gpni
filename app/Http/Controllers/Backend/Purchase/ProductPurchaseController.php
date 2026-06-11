@@ -17,8 +17,7 @@ class ProductPurchaseController extends Controller
         foreach($product_purchases as $product_purchase) {
             $product_purchase->action = '
             <a href="'. route('backend.purchases.product-purchases.products', $product_purchase->id) .'" class="review-button" title="Products"><i class="bi bi-basket-fill"></i></a>
-            <a href="'. route('backend.purchases.product-purchases.show', $product_purchase->id) .'" class="edit-button" title="View"><i class="bi bi-calendar-fill"></i></a>
-            <a id="'.$product_purchase->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+            <a href="'. route('backend.purchases.product-purchases.show', $product_purchase->id) .'" class="edit-button" title="View"><i class="bi bi-calendar-fill"></i></a>';
 
             $product_purchase->user_id = User::find($product_purchase->user_id)->first_name . ' ' . User::find($product_purchase->user_id)->last_name;
 
@@ -33,6 +32,10 @@ class ProductPurchaseController extends Controller
 
             $product_purchase->course_access_status = ($product_purchase->course_access_status == 'Active') ? '<span class="active-status">Active</span>' : '<span class="inactive-status">Revoked</span>';
 
+            $product_purchase->refund_status_badge =
+                ($product_purchase->refund_status == 'Refunded')
+                ? '<span class="inactive-status">Refunded</span>'
+                : '<span class="active-status">Not Refunded</span>';
         }
 
         return $product_purchases;
@@ -86,12 +89,24 @@ class ProductPurchaseController extends Controller
         ]);
     }
 
-    public function destroy(ProductOrder $product_purchase)
+    // public function destroy(ProductOrder $product_purchase)
+    // {
+    //     $product_purchase->status = '0';
+    //     $product_purchase->save();
+
+    //     return redirect()->back()->with('success', 'Successfully deleted!');
+    // }
+
+    public function updateRefundStatus(Request $request, ProductOrder $product_purchase)
     {
-        $product_purchase->status = '0';
+        $request->validate([
+            'refund_status' => 'required|in:Refunded,Not Refunded',
+        ]);
+
+        $product_purchase->refund_status = $request->refund_status;
         $product_purchase->save();
 
-        return redirect()->back()->with('success', 'Successfully deleted!');
+        return redirect()->route('backend.purchases.product-purchases.index')->with('success', 'Refund status updated successfully!');
     }
 
     public function filter(Request $request)

@@ -47,6 +47,7 @@
                             <th scope="col">Transaction ID</th>
                             <th scope="col">Amount Paid</th>
                             <th scope="col">Payment Status</th>
+                            <th scope="col">Refund Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -61,12 +62,13 @@
                                     <td>{{ $product_purchase->transaction_id }}</td>
                                     <td>{{ $product_purchase->currency === 'usd' ? '$' : '¥' }}{{ $product_purchase->amount_paid }}</td>
                                     <td>{!! $product_purchase->payment_status !!}</td>
+                                    <td>{!! $product_purchase->refund_status_badge !!}</td>
                                     <td>{!! $product_purchase->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="8" style="text-align: center;">No data available in table</td>
+                                <td colspan="9" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
@@ -77,7 +79,6 @@
             </div>
         </div>
 
-        <x-backend.delete-data title="Product Purchase"></x-backend.delete-data>
     </div>
 
 @endsection
@@ -86,17 +87,8 @@
 @push('after-scripts')
     <script>
         $(document).ready(function() {
-            $('.pages .table .delete-button').on('click', function() {
-                let id = $(this).attr('id');
-                let url = "{{ route('backend.purchases.product-purchases.destroy', [':id']) }}";
-                destroy_url = url.replace(':id', id);
-
-                $('.pages .delete-modal form').attr('action', destroy_url);
-                $('.pages .delete-modal').modal('show');
-            });
-
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $product_purchases->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $product_purchases->url(1) !!}&items=" + this.value;
             });
         });
     </script>

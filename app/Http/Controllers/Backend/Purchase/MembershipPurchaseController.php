@@ -13,19 +13,23 @@ class MembershipPurchaseController extends Controller
     {
         foreach($membership_purchases as $membership_purchase) {
             $membership_purchase->action = '
-            <a href="'. route('backend.purchases.membership-purchases.show', $membership_purchase->id) .'" class="review-button" title="Details"><i class="bi bi-calendar-fill"></i></a>
-            <a id="'.$membership_purchase->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+            <a href="'. route('backend.purchases.membership-purchases.show', $membership_purchase->id) .'" class="review-button" title="Details"><i class="bi bi-calendar-fill"></i></a>';
 
             $membership_purchase->user_id = User::find($membership_purchase->user_id)->first_name . ' ' . User::find($membership_purchase->user_id)->last_name;
 
             $membership_purchase->date_time = $membership_purchase->date . ' | ' . $membership_purchase->time;
 
-            $membership_purchase->payment_status = 
-                ($membership_purchase->payment_status == 'Completed') 
-                ? '<span class="active-status">Completed</span>' 
-                : (($membership_purchase->payment_status == 'Pending') 
-                    ? '<span class="pending-status">Pending</span>' 
+            $membership_purchase->payment_status =
+                ($membership_purchase->payment_status == 'Completed')
+                ? '<span class="active-status">Completed</span>'
+                : (($membership_purchase->payment_status == 'Pending')
+                    ? '<span class="pending-status">Pending</span>'
                     : '<span class="inactive-status">Failed</span>');
+
+            $membership_purchase->refund_status_badge =
+                ($membership_purchase->refund_status == 'Refunded')
+                ? '<span class="inactive-status">Refunded</span>'
+                : '<span class="active-status">Not Refunded</span>';
         }
 
         return $membership_purchases;
@@ -54,16 +58,34 @@ class MembershipPurchaseController extends Controller
         ]);
     }
 
-    public function destroy(MembershipPurchase $membership_purchase)
-    {
-        $user = User::find($membership_purchase->user_id);
-        $user->member = 'No';
-        $user->save();
+    // public function destroy(MembershipPurchase $membership_purchase)
+    // {
+    //     $user = User::find($membership_purchase->user_id);
+    //     $user->member = 'No';
+    //     $user->save();
 
-        $membership_purchase->status = '0';
+    //     $membership_purchase->status = '0';
+    //     $membership_purchase->save();
+
+    //     return redirect()->back()->with('success', 'Successfully deleted!');
+    // }
+
+    public function updateRefundStatus(Request $request, MembershipPurchase $membership_purchase)
+    {
+        $request->validate([
+            'refund_status' => 'required|in:Refunded,Not Refunded',
+        ]);
+
+        if ($request->refund_status === 'Refunded') {
+            $user = User::find($membership_purchase->user_id);
+            $user->member = 'No';
+            $user->save();
+        }
+
+        $membership_purchase->refund_status = $request->refund_status;
         $membership_purchase->save();
 
-        return redirect()->back()->with('success', 'Successfully deleted!');
+        return redirect()->route('backend.purchases.membership-purchases.index')->with('success', 'Refund status updated successfully!');
     }
 
     public function filter(Request $request)
