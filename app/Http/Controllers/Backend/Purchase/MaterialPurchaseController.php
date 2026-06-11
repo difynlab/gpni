@@ -16,8 +16,7 @@ class MaterialPurchaseController extends Controller
         foreach($material_purchases as $material_purchase) {
             $material_purchase->action = '
             <a href="'. route('backend.purchases.material-purchases.show', $material_purchase->id) .'" class="review-button" title="Details"><i class="bi bi-calendar-fill"></i></a>
-            <a id="'.$material_purchase->id.'" class="send-button" title="Send"><i class="bi bi-envelope-fill"></i></a>
-            <a id="'.$material_purchase->id.'" class="delete-button" title="Delete"><i class="bi bi-trash3"></i></a>';
+            <a id="'.$material_purchase->id.'" class="send-button" title="Send"><i class="bi bi-envelope-fill"></i></a>';
 
             $material_purchase->user_id = User::find($material_purchase->user_id)->first_name . ' ' . User::find($material_purchase->user_id)->last_name;
 
@@ -25,12 +24,17 @@ class MaterialPurchaseController extends Controller
 
             $material_purchase->date_time = $material_purchase->date . ' | ' . $material_purchase->time;
 
-            $material_purchase->payment_status = 
-                ($material_purchase->payment_status == 'Completed') 
-                ? '<span class="active-status">Completed</span>' 
-                : (($material_purchase->payment_status == 'Pending') 
-                    ? '<span class="pending-status">Pending</span>' 
+            $material_purchase->payment_status =
+                ($material_purchase->payment_status == 'Completed')
+                ? '<span class="active-status">Completed</span>'
+                : (($material_purchase->payment_status == 'Pending')
+                    ? '<span class="pending-status">Pending</span>'
                     : '<span class="inactive-status">Failed</span>');
+
+            $material_purchase->refund_status_badge =
+                ($material_purchase->refund_status == 'Refunded')
+                ? '<span class="inactive-status">Refunded</span>'
+                : '<span class="active-status">Not Refunded</span>';
         }
 
         return $material_purchases;
@@ -62,7 +66,8 @@ class MaterialPurchaseController extends Controller
         ]);
     }
 
-    public function send(MaterialPurchase $material_purchase) {
+    public function send(MaterialPurchase $material_purchase)
+    {
         $course = Course::where('status', '1')->find($material_purchase->course_id);
         $student = User::where('status', '1')->find($material_purchase->user_id);
 
@@ -78,12 +83,24 @@ class MaterialPurchaseController extends Controller
         return redirect()->route('backend.purchases.material-purchases.index')->with('success', 'Material sent successfully');
     }
 
-    public function destroy(MaterialPurchase $material_purchase)
+    // public function destroy(MaterialPurchase $material_purchase)
+    // {
+    //     $material_purchase->status = '0';
+    //     $material_purchase->save();
+
+    //     return redirect()->back()->with('success', 'Successfully deleted!');
+    // }
+
+    public function updateRefundStatus(Request $request, MaterialPurchase $material_purchase)
     {
-        $material_purchase->status = '0';
+        $request->validate([
+            'refund_status' => 'required|in:Refunded,Not Refunded',
+        ]);
+
+        $material_purchase->refund_status = $request->refund_status;
         $material_purchase->save();
 
-        return redirect()->back()->with('success', 'Successfully deleted!');
+        return redirect()->route('backend.purchases.material-purchases.index')->with('success', 'Refund status updated successfully!');
     }
 
     public function filter(Request $request)

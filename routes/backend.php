@@ -391,8 +391,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
                 Route::get('/', [MaterialPurchaseController::class, 'index'])->name('index');
                 Route::get('{material_purchase}/show', [MaterialPurchaseController::class, 'show'])->name('show');
                 Route::post('{material_purchase}/send', [MaterialPurchaseController::class, 'send'])->name('send');
+                Route::put('{material_purchase}/refund-status', [MaterialPurchaseController::class, 'updateRefundStatus'])->name('refund-status');
                 Route::get('filter', [MaterialPurchaseController::class, 'filter'])->name('filter');
-                Route::delete('{material_purchase}', [MaterialPurchaseController::class, 'destroy'])->name('destroy');
+                // Route::delete('{material_purchase}', [MaterialPurchaseController::class, 'destroy'])->name('destroy');
             });
 
             Route::prefix('membership-purchases')->name('membership-purchases.')->group(function() {

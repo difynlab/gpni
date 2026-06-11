@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-12">
                 <x-backend.pagination-form items="{{ $items }}"></x-backend.pagination-form>
-            
+
                 <div class="table-container mb-3">
                     <table class="table table-striped w-100">
                     <thead>
@@ -47,6 +47,7 @@
                             <th scope="col">Date & Time</th>
                             <th scope="col">Amount Paid</th>
                             <th scope="col">Payment Status</th>
+                            <th scope="col">Refund Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -61,12 +62,13 @@
                                     <td>{{ $material_purchase->date_time }}</td>
                                     <td>{{ $material_purchase->currency === 'usd' ? '$' : '¥' }}{{ $material_purchase->amount_paid }}</td>
                                     <td>{!! $material_purchase->payment_status !!}</td>
+                                    <td>{!! $material_purchase->refund_status_badge !!}</td>
                                     <td>{!! $material_purchase->action !!}</td>
                                 </tr>
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="7" style="text-align: center;">No data available in table</td>
+                                <td colspan="8" style="text-align: center;">No data available in table</td>
                             </tr>
                         @endif
                     </tbody>
@@ -76,8 +78,6 @@
                 {{ $material_purchases->appends(request()->except('page'))->links("pagination::bootstrap-5") }}
             </div>
         </div>
-
-        <x-backend.delete-data title="Material Purchase"></x-backend.delete-data>
 
         <div class="modal fade send-modal" id="send-modal">
             <div class="modal-dialog modal-dialog-centered">
@@ -106,15 +106,6 @@
 @push('after-scripts')
     <script>
         $(document).ready(function() {
-            $('.pages .table .delete-button').on('click', function() {
-                let id = $(this).attr('id');
-                let url = "{{ route('backend.purchases.material-purchases.destroy', [':id']) }}";
-                destroy_url = url.replace(':id', id);
-
-                $('.pages .delete-modal form').attr('action', destroy_url);
-                $('.pages .delete-modal').modal('show');
-            });
-
             $('.pages .table .send-button').on('click', function() {
                 let id = $(this).attr('id');
                 let url = "{{ route('backend.purchases.material-purchases.send', [':id']) }}";
@@ -125,7 +116,7 @@
             });
 
             $(".pages .pagination-form select").change(function () {
-                window.location = "{!! $material_purchases->url(1) !!}&items=" + this.value; 
+                window.location = "{!! $material_purchases->url(1) !!}&items=" + this.value;
             });
         });
     </script>

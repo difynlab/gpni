@@ -7,7 +7,10 @@
     <x-backend.breadcrumb page_name="Show Purchase"></x-backend.breadcrumb>
 
     <div class="static-pages">
-        <form>
+        <form action="{{ route('backend.purchases.material-purchases.refund-status', $material_purchase->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+
             <div class="section">
                 <p class="inner-page-title">Purchase Details</p>
 
@@ -38,7 +41,7 @@
                             <input class="form-control" value="{{ ucfirst($material_purchase->mode) }}" readonly>
                         </div>
 
-                        <div class="mb-4">
+                        <div>
                             <label class="form-label">Transaction ID</label>
                             <input class="form-control" value="{{ $material_purchase->transaction_id }}" readonly>
                         </div>
@@ -70,11 +73,20 @@
                             <input class="form-control" value="{{ $material_purchase->receipt_url }}" readonly>
                         </div>
 
-                        <div>
-                            <label class="form-label">Refund Status</label>
-                            <input class="form-control" value="{{ $material_purchase->refund_status }}" readonly>
+                        <div style="background: #fffbea; border: 1px solid #f0c040; border-radius: 8px; padding: 12px;">
+                            <label class="form-label"><i class="bi bi-pencil-fill" style="font-size: 12px;"></i> Refund Status</label>
+                            <select class="form-control" name="refund_status">
+                                <option value="Not Refunded" {{ $material_purchase->refund_status != 'Refunded' ? 'selected' : '' }}>Not Refunded</option>
+                                <option value="Refunded" {{ $material_purchase->refund_status == 'Refunded' ? 'selected' : '' }}>Refunded</option>
+                            </select>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="form-input">
+                    <button type="submit" class="submit-button">Save Updates</button>
                 </div>
             </div>
         </form>
