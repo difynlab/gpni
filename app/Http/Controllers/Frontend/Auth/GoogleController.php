@@ -23,8 +23,12 @@ class GoogleController extends Controller
 
             if($find_user) {
                 Auth::login($find_user);
-                $redirect_url = $request->redirect ?? route('frontend.dashboard.index');
-                return redirect()->intended($redirect_url);
+
+                if(!$find_user->country) {
+                    return redirect()->route('frontend.complete-profile');
+                }
+
+                return redirect()->route('frontend.dashboard.index');
             }
             else {
                 list($first_name, $last_name) = explode(' ', $user->name, 2);
@@ -41,8 +45,7 @@ class GoogleController extends Controller
                 ]);
 
                 Auth::login($new_user);
-                $redirect_url = $request->redirect ?? route('frontend.dashboard.index');
-                return redirect()->intended($redirect_url);
+                return redirect()->route('frontend.complete-profile');
             }
         }
         catch(\Exception $e) {

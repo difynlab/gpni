@@ -21,7 +21,7 @@
                 <div class="form-container">
                     <x-frontend.notification></x-frontend.notification>
 
-                    <h1 class="fs-39 text-center pt-4">{{ $contents->{'register_page_title_' . $middleware_language} ?? $contents->register_page_title_en }}</h1>
+                    <h1 class="fs-39 text-center">{{ $contents->{'register_page_title_' . $middleware_language} ?? $contents->register_page_title_en }}</h1>
                     <p class="subheading fs-16 text-center">{{ $contents->{'register_page_sub_title_' . $middleware_language} ?? $contents->register_page_sub_title_en }}
                         <a href="{{ route('frontend.login') }}" class="text-primary">{{ $contents->{'register_page_login_' . $middleware_language} ?? $contents->register_page_login_en }}</a>
                     </p>

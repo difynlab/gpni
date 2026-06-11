@@ -145,6 +145,16 @@ return new class extends Migration
             $table->text('reset_page_confirm_password_ja')->nullable();
             $table->text('reset_page_button_ja')->nullable();
 
+            $table->text('complete_profile_page_title_en')->nullable();
+            $table->text('complete_profile_page_sub_title_en')->nullable();
+            $table->text('complete_profile_page_button_en')->nullable();
+            $table->text('complete_profile_page_title_zh')->nullable();
+            $table->text('complete_profile_page_sub_title_zh')->nullable();
+            $table->text('complete_profile_page_button_zh')->nullable();
+            $table->text('complete_profile_page_title_ja')->nullable();
+            $table->text('complete_profile_page_sub_title_ja')->nullable();
+            $table->text('complete_profile_page_button_ja')->nullable();
+
             $table->timestamps();
         });
     }

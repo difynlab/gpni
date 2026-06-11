@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\Auth\AuthenticationController;
 use App\Http\Controllers\Frontend\Auth\ChangePasswordController;
+use App\Http\Controllers\Frontend\Auth\CompleteProfileController;
 use App\Http\Controllers\Frontend\Auth\FacebookController;
 use App\Http\Controllers\Frontend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\Auth\GoogleController;
@@ -25,17 +26,19 @@ Route::middleware(['set_language'])->group(function () {
     Route::get('change-password', [ChangePasswordController::class, 'index'])->name('change-password');
     Route::post('change-password', [ChangePasswordController::class, 'update'])->name('change-password.update');
 
-    Route::middleware('auth', 'role:student')->group(function () {
+    Route::middleware(['auth', 'role:student'])->group(function () {
         Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
+        Route::get('complete-profile', [CompleteProfileController::class, 'index'])->name('complete-profile');
+        Route::post('complete-profile', [CompleteProfileController::class, 'store'])->name('complete-profile.store');
     });
 });
 
-Route::prefix('login/facebook')->name('login.')->group(function() {
+Route::prefix('login/facebook')->name('login.')->group(function () {
     Route::get('/', [FacebookController::class, 'redirectToFacebook'])->name('facebook');
     Route::get('callback', [FacebookController::class, 'handleFacebookCallback']);
 });
 
-Route::prefix('login/google')->name('login.')->group(function() {
+Route::prefix('login/google')->name('login.')->group(function () {
     Route::get('/', [GoogleController::class, 'redirectToGoogle'])->name('google');
     Route::get('callback', [GoogleController::class, 'handleGoogleCallback']);
 });

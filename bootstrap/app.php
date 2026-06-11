@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\EnsureProfileComplete;
 use App\Http\Middleware\SetLanguage;
 use App\Http\Middleware\ValidateRole;
 use Illuminate\Foundation\Application;
@@ -27,6 +28,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => ValidateRole::class,
             'set_language' => SetLanguage::class,
+            'profile_complete' => EnsureProfileComplete::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -110,7 +110,7 @@ Route::middleware(['set_language'])->group(function () {
 
 
     // Student routes
-        Route::middleware(['auth', 'role:student'])->group(function () {
+        Route::middleware(['auth', 'role:student', 'profile_complete'])->group(function () {
             // All payment routes
                 Route::prefix('master-classes')->name('master-classes.')->group(function() {
                     Route::post('checkout', [MasterClassController::class, 'checkout'])->name('checkout');
